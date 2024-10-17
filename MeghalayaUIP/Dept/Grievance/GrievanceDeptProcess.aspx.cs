@@ -17,7 +17,7 @@ namespace MeghalayaUIP.Dept.Grievance
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         MGCommonBAL objcomBal = new MGCommonBAL();
         string Reply_FilePath = "", Reply_FileType = "", Reply_FileName = "";
-        MasterBAL objmbal = new MasterBAL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -78,7 +78,7 @@ namespace MeghalayaUIP.Dept.Grievance
                     lblDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["REGDATE"]);
                     lblDistric.Text = Convert.ToString(ds.Tables[0].Rows[0]["DistrictName"]);
                     lblDescription.Text = Convert.ToString(ds.Tables[0].Rows[0]["DESCRIPTION"]);
-                    hplAttach.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmbal.EncryptFilePath(Convert.ToString(ds.Tables[0].Rows[0]["GRIEVANCE_FILEPATH"]));
+                    hplAttach.NavigateUrl = Convert.ToString(ds.Tables[0].Rows[0]["GRIEVANCE_FILEPATH"]);
                     hplAttach.Text = Convert.ToString(ds.Tables[0].Rows[0]["GRIEVNACE_FILENAME"]);
 
                 }

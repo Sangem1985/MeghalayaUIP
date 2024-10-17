@@ -1,4 +1,5 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
+using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
@@ -28,6 +29,7 @@ namespace MeghalayaUIP.User.CFE
         decimal amounts1;
         decimal amounts22 = 0;
         string UnitID, result, ErrorMsg = "";
+        MasterBAL mstrBAL = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -272,6 +274,7 @@ namespace MeghalayaUIP.User.CFE
             }
 
             grdApprovals.FooterRow.Cells[6].Text = Convert.ToDecimal(amount).ToString("#,##0");
+
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -296,10 +299,10 @@ namespace MeghalayaUIP.User.CFE
                         cnt = cnt + 1;
                     }
 
+                    SetGridLabelValue();
                 }
                 if (cnt == 0)
                 {
-                    SetGridLabelValue();
                     Failure.Visible = true;
                     lblmsg0.Text = "Please Select Atleast one Department for Approval";
                     lblmsg0.Visible = true;
@@ -380,151 +383,134 @@ namespace MeghalayaUIP.User.CFE
         {
             DataSet dsOffline = new DataSet();
             dsOffline = objcfebal.GetCFEAlreadyObtainedApprovals(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
+            divOffline.Visible = false; btnNext.Enabled = true; btnNext2.Visible = false;
             if (dsOffline.Tables.Count > 0)
             {
                 if (dsOffline.Tables[0].Rows.Count > 0)
                 {
                     btnNext.Enabled = false; btnNext2.Visible = true;
                     divOffline.Visible = true;
+                    divPCB.Visible = false; divHazPCB.Visible = false; divSrvcCon.Visible = false;
+                    divEleCon.Visible = false; divFctryPlan.Visible = false; divDGsetNOC.Visible = false;
+                    divFireSfty.Visible = false; divRSDSLic.Visible = false; divExplsvNOC.Visible = false;
+                    divPtrlNOC.Visible = false; divRdCtng.Visible = false; divNonEncmb.Visible = false;
+                    divProfTax.Visible = false; divElcInsp.Visible = false; divForstDist.Visible = false;
+                    divNonForstLand.Visible = false; divIrrgNOC.Visible = false; divRevNOC.Visible = false;
+                    divGrndWtrNOC.Visible = false; divNoWtrSplyCertfct.Visible = false; divPrmsntoDrawWtr.Visible = false;
+                    divMunicipalWatr.Visible = false; divUrbanWatr.Visible = false; divLbrAct1970.Visible = false;
+                    divLbrAct1979.Visible = false; divLbrAct1996.Visible = false; divContrLbrAct.Visible = false;
+                    divContrLbrAct1979.Visible = false; divConstrPermit.Visible = false; divBldngPlan.Visible = false;
+
+
+
                     div2.Visible = true;
                     for (int i = 0; i < dsOffline.Tables[0].Rows.Count; i++)
                     {
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "1")
                             divPCB.Visible = true;
-                        else
-                            divPCB.Visible = false;
+                        
 
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "2")
                             divHazPCB.Visible = true;
-                        else
-                            divHazPCB.Visible = false;
-
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "3")
                             divSrvcCon.Visible = true;
-                        else
-                            divSrvcCon.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "4")
                             divEleCon.Visible = true;
-                        else
-                            divEleCon.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "5")
                             divFctryPlan.Visible = true;
-                        else
-                            divFctryPlan.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "6")
                             divDGsetNOC.Visible = true;
-                        else
-                            divDGsetNOC.Visible = false;
+                        
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "7")
                             divFireSfty.Visible = true;
-                        else
-                            divFireSfty.Visible = false;
+                        
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "8")
                             divRSDSLic.Visible = true;
-                        else
-                            divRSDSLic.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "9")
                             divExplsvNOC.Visible = true;
-                        else
-                            divExplsvNOC.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "10")
                             divPtrlNOC.Visible = true;
-                        else
-                            divPtrlNOC.Visible = false;
+                      
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "11")
                             divRdCtng.Visible = true;
-                        else
-                            divRdCtng.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "12")
                             divNonEncmb.Visible = true;
-                        else
-                            divNonEncmb.Visible = false;
+                     
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "13")
                             divProfTax.Visible = true;
-                        else
-                            divProfTax.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "14")
                             divElcInsp.Visible = true;
-                        else
-                            divElcInsp.Visible = false;
+                     
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "15")
                             divForstDist.Visible = true;
-                        else
-                            divForstDist.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "16")
                             divNonForstLand.Visible = true;
-                        else
-                            divNonForstLand.Visible = false;
+                    
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "17")
                             divIrrgNOC.Visible = true;
-                        else
-                            divIrrgNOC.Visible = false;
+                      
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "18")
                             divRevNOC.Visible = true;
-                        else
-                            divRevNOC.Visible = false;
+                     
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "19")
                             divGrndWtrNOC.Visible = true;
-                        else
-                            divGrndWtrNOC.Visible = false;
+                      
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "20")
                             divNoWtrSplyCertfct.Visible = true;
-                        else
-                            divNoWtrSplyCertfct.Visible = false;
+                        
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "21")
                             divPrmsntoDrawWtr.Visible = true;
-                        else
-                            divPrmsntoDrawWtr.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "22")
                             divMunicipalWatr.Visible = true;
-                        else
-                            divMunicipalWatr.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "23")
                             divUrbanWatr.Visible = true;
-                        else
-                            divUrbanWatr.Visible = false;
+                      
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "25")
                             divLbrAct1970.Visible = true;
-                        else
-                            divLbrAct1970.Visible = false;
+                     
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "26")
                             divLbrAct1979.Visible = true;
-                        else
-                            divLbrAct1979.Visible = false;
+                          
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "27")
                             divLbrAct1996.Visible = true;
-                        else
-                            divLbrAct1996.Visible = false;
+                     
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "28")
                             divContrLbrAct.Visible = true;
-                        else
-                            divContrLbrAct.Visible = false;
+                       
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "29")
                             divContrLbrAct1979.Visible = true;
-                        else
-                            divContrLbrAct1979.Visible = false;
+                        
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "30")
                             divConstrPermit.Visible = true;
-                        else
-                            divConstrPermit.Visible = false;
+                     
                         if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "31")
                             divBldngPlan.Visible = true;
-                        else
-                            divBldngPlan.Visible = false;
+                      
 
                     }
-
                     if (dsOffline.Tables[1].Rows.Count > 0)
                     {
                         divOffline.Visible = true; btnNext.Visible = true; btnNext.Enabled = false; div2.Visible = true;
                         btnNext2.Visible = true;
+
                         for (int i = 0; i < dsOffline.Tables[1].Rows.Count; i++)
                         {
                             if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 1)//PCB NOC
                             {
                                 divPCB.Visible = true;
                                 hpl1PCB.Visible = true;
-                                hpl1PCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl1PCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + (Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]));
                                 hpl1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -763,10 +749,10 @@ namespace MeghalayaUIP.User.CFE
                         }
 
                     }
-
-                }
-
+                   
+                }              
             }
+           
         }
         protected void btnClear_Click(object sender, EventArgs e)
         {
@@ -818,8 +804,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup1PCB, txt1PCB);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -860,7 +847,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl1PCB.Text = fup1PCB.PostedFile.FileName;
-                            hpl1PCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objPCBNOC.FilePath;
+                            hpl1PCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup1PCB.PostedFile.FileName);
                             hpl1PCB.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -896,8 +883,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup2HazPCB, txt2HazPCB);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "2" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "2" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -937,7 +925,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl2HazPCB.Text = fup2HazPCB.PostedFile.FileName;
-                            hpl2HazPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objHAZNOC.FilePath;
+                            hpl2HazPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup2HazPCB.PostedFile.FileName);
                             hpl2HazPCB.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -974,8 +962,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup3SrvcCon, txt3SrvcCon);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "3" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "3" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1016,7 +1005,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl3SrvcCon.Text = fup3SrvcCon.PostedFile.FileName;
-                            hpl3SrvcCon.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objSrvcCon.FilePath;
+                            hpl3SrvcCon.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup3SrvcCon.PostedFile.FileName);
                             hpl3SrvcCon.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1052,8 +1041,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup4EleCon, txt4EleCon);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "4" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "4" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1094,7 +1084,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl4EleCon.Text = fup4EleCon.PostedFile.FileName;
-                            hpl4EleCon.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objEleCon.FilePath;
+                            hpl4EleCon.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup4EleCon.PostedFile.FileName);
                             hpl4EleCon.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1130,8 +1120,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup5FctryPlan, txt5FctryPlan);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "5" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "5" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1172,7 +1163,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl5FctryPlan.Text = fup5FctryPlan.PostedFile.FileName;
-                            hpl5FctryPlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objFctryPlan.FilePath;
+                            hpl5FctryPlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup5FctryPlan.PostedFile.FileName);
                             hpl5FctryPlan.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1208,8 +1199,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup6DGsetNOC, txt6DGsetNOC);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "6" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "6" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1250,7 +1242,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl6DGsetNOC.Text = fup6DGsetNOC.PostedFile.FileName;
-                            hpl6DGsetNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objDGsetNOC.FilePath;
+                            hpl6DGsetNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup6DGsetNOC.PostedFile.FileName);
                             hpl6DGsetNOC.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1286,8 +1278,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup7FireSfty, txt7FireSfty);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "7" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "7" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1328,7 +1321,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl7FireSfty.Text = fup7FireSfty.PostedFile.FileName;
-                            hpl7FireSfty.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objFireSfty.FilePath;
+                            hpl7FireSfty.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup7FireSfty.PostedFile.FileName);
                             hpl7FireSfty.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1365,8 +1358,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup8RSDSLic, txt8RSDSLic);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "8" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "8" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1407,7 +1401,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl8RSDSLic.Text = fup8RSDSLic.PostedFile.FileName;
-                            hpl8RSDSLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objRSDSLic.FilePath;
+                            hpl8RSDSLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup8RSDSLic.PostedFile.FileName);
                             hpl8RSDSLic.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1443,8 +1437,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup9ExplsvNOC, txt9ExplsvNOC);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "9" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "9" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1485,7 +1480,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl9ExplsvNOC.Text = fup9ExplsvNOC.PostedFile.FileName;
-                            hpl9ExplsvNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objExplsvNOC.FilePath;
+                            hpl9ExplsvNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup9ExplsvNOC.PostedFile.FileName);
                             hpl9ExplsvNOC.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1521,8 +1516,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup10PtrlNOC, txt10PtrlNOC);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "10" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "10" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1562,7 +1558,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl10PtrlNOC.Text = fup10PtrlNOC.PostedFile.FileName;
-                            hpl10PtrlNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objPtrlNOC.FilePath;
+                            hpl10PtrlNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup10PtrlNOC.PostedFile.FileName);
                             hpl10PtrlNOC.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1599,8 +1595,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup11RdCtng, txt11RdCtng);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "11" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "11" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1639,7 +1636,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl11RdCtng.Text = fup11RdCtng.PostedFile.FileName;
-                            hpl11RdCtng.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objRdCtng.FilePath;
+                            hpl11RdCtng.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup11RdCtng.PostedFile.FileName);
                             hpl11RdCtng.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1676,8 +1673,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup12NonEncmb, txt12NonEncmb);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "12" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "12" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1716,8 +1714,9 @@ namespace MeghalayaUIP.User.CFE
                         result = objcfebal.InsertCFEAttachments(objNonEncmb);
                         if (result != "")
                         {
+                          
                             hpl12NonEncmb.Text = fup12NonEncmb.PostedFile.FileName;
-                            hpl12NonEncmb.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objNonEncmb.FilePath;
+                            hpl12NonEncmb.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup12NonEncmb.PostedFile.FileName);
                             hpl12NonEncmb.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1753,8 +1752,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup13ProfTax, txt13ProfTax);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "13" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "13" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1794,7 +1794,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl13ProfTax.Text = fup13ProfTax.PostedFile.FileName;
-                            hpl13ProfTax.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objProfTax.FilePath;
+                            hpl13ProfTax.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup13ProfTax.PostedFile.FileName);
                             hpl13ProfTax.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1831,8 +1831,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup14ElcInsp, txt14ElcInsp);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "14" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "14" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1872,7 +1873,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl14ElcInsp.Text = fup14ElcInsp.PostedFile.FileName;
-                            hpl14ElcInsp.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objElcInsp.FilePath;
+                            hpl14ElcInsp.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup14ElcInsp.PostedFile.FileName);
                             hpl14ElcInsp.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1909,8 +1910,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup15ForstDist, txt15ForstDist);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "15" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "15" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1950,7 +1952,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl15ForstDist.Text = fup15ForstDist.PostedFile.FileName;
-                            hpl15ForstDist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objForstDist.FilePath;
+                            hpl15ForstDist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup15ForstDist.PostedFile.FileName);
                             hpl15ForstDist.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1986,8 +1988,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup16NonForstLand, txt16NonForstLand);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "16" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "16" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2027,7 +2030,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl16NonForstLand.Text = fup16NonForstLand.PostedFile.FileName;
-                            hpl16NonForstLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objNonForstLand.FilePath;
+                            hpl16NonForstLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup16NonForstLand.PostedFile.FileName);
                             hpl16NonForstLand.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2063,8 +2066,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup17IrrgNOC, txt17IrrgNOC);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "17" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "17" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2104,7 +2108,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl17IrrgNOC.Text = fup17IrrgNOC.PostedFile.FileName;
-                            hpl17IrrgNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objIrrgNOC.FilePath;
+                            hpl17IrrgNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup17IrrgNOC.PostedFile.FileName);
                             hpl17IrrgNOC.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2140,8 +2144,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup18RevNOC, txt18RevNOC);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "18" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "18" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2181,7 +2186,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl18RevNOC.Text = fup18RevNOC.PostedFile.FileName;
-                            hpl18RevNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objFctryPlan.FilePath;
+                            hpl18RevNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup18RevNOC.PostedFile.FileName);
                             hpl18RevNOC.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2216,8 +2221,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup19GrndWtrNOC, txt19GrndWtrNOC);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "19" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "19" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2257,7 +2263,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl19GrndWtrNOC.Text = fup19GrndWtrNOC.PostedFile.FileName;
-                            hpl19GrndWtrNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objGrndWtrNOC.FilePath;
+                            hpl19GrndWtrNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup19GrndWtrNOC.PostedFile.FileName);
                             hpl19GrndWtrNOC.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2293,8 +2299,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup20NoWtrSply, txt20NoWtrSply);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "20" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "20" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2334,7 +2341,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl20NoWtrSply.Text = fup20NoWtrSply.PostedFile.FileName;
-                            hpl20NoWtrSply.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objNoWtrSply.FilePath;
+                            hpl20NoWtrSply.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup20NoWtrSply.PostedFile.FileName);
                             hpl20NoWtrSply.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2370,8 +2377,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup21ToDrawWtr, txt21ToDrawWtr);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "21" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "21" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2411,7 +2419,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl21ToDrawWtr.Text = fup21ToDrawWtr.PostedFile.FileName;
-                            hpl21ToDrawWtr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objToDrawWtr.FilePath;
+                            hpl21ToDrawWtr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup21ToDrawWtr.PostedFile.FileName);
                             hpl21ToDrawWtr.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2447,8 +2455,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup22MunicipalWatr, txt22MunicipalWatr);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "22" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "22" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2488,7 +2497,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl22MunicipalWatr.Text = fup22MunicipalWatr.PostedFile.FileName;
-                            hpl22MunicipalWatr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objMunWatr.FilePath;
+                            hpl22MunicipalWatr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup22MunicipalWatr.PostedFile.FileName);
                             hpl22MunicipalWatr.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2524,8 +2533,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup23UrbanWatr, txt23UrbanWatr);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "23" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "23" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2565,7 +2575,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl23UrbanWatr.Text = fup23UrbanWatr.PostedFile.FileName;
-                            hpl23UrbanWatr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objFctryPlan.FilePath;
+                            hpl23UrbanWatr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup23UrbanWatr.PostedFile.FileName);
                             hpl23UrbanWatr.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2601,8 +2611,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup25LbrAct1970, txt25LbrAct1970);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "25" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "25" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2642,7 +2653,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl25LbrAct1970.Text = fup25LbrAct1970.PostedFile.FileName;
-                            hpl25LbrAct1970.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objLbrAct1970.FilePath;
+                            hpl25LbrAct1970.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup25LbrAct1970.PostedFile.FileName);
                             hpl25LbrAct1970.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2678,8 +2689,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup26LbrAct1979, txt26LbrAct1979);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "26" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "26" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2719,7 +2731,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl26LbrAct1979.Text = fup26LbrAct1979.PostedFile.FileName;
-                            hpl26LbrAct1979.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objLbrAct1979.FilePath;
+                            hpl26LbrAct1979.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup26LbrAct1979.PostedFile.FileName);
                             hpl26LbrAct1979.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2755,8 +2767,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup27LbrAct1996, txt27LbrAct1996);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "27" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "27" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2796,7 +2809,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl27LbrAct1996.Text = fup27LbrAct1996.PostedFile.FileName;
-                            hpl27LbrAct1996.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objFctryPlan.FilePath;
+                            hpl27LbrAct1996.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup27LbrAct1996.PostedFile.FileName);
                             hpl27LbrAct1996.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2832,8 +2845,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup28ContrLbrAct, txt28ContrLbrAct);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "28" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "28" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2873,7 +2887,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl28ContrLbrAct.Text = fup28ContrLbrAct.PostedFile.FileName;
-                            hpl28ContrLbrAct.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objContrLbrAct.FilePath;
+                            hpl28ContrLbrAct.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup28ContrLbrAct.PostedFile.FileName);
                             hpl28ContrLbrAct.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2909,8 +2923,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup29ContrLbrAct1979, txt29ContrLbrAct1979);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "29" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "29" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2949,7 +2964,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl29ContrLbrAct1979.Text = fup29ContrLbrAct1979.PostedFile.FileName;
-                            hpl29ContrLbrAct1979.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objContrLbrAct1979.FilePath;
+                            hpl29ContrLbrAct1979.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup29ContrLbrAct1979.PostedFile.FileName);
                             hpl29ContrLbrAct1979.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2986,8 +3001,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup30ConstrPermit, txt30ConstrPermit);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "30" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "30" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -3027,7 +3043,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl30ConstrPermit.Text = fup30ConstrPermit.PostedFile.FileName;
-                            hpl30ConstrPermit.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objFctryPlan.FilePath;
+                            hpl30ConstrPermit.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup30ConstrPermit.PostedFile.FileName);
                             hpl30ConstrPermit.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -3064,8 +3080,9 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fup31BldngPlan, txt31BldngPlan);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "31" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "OfflineApprovals" + "\\" + "31" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -3104,7 +3121,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hpl31BldngPlan.Text = fup31BldngPlan.PostedFile.FileName;
-                            hpl31BldngPlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objBldngPlan.FilePath;
+                            hpl31BldngPlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fup31BldngPlan.PostedFile.FileName);
                             hpl31BldngPlan.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -3202,7 +3219,7 @@ namespace MeghalayaUIP.User.CFE
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;

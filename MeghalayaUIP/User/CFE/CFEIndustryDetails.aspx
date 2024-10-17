@@ -291,7 +291,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        18. Differently
+                                                        14. Differently
 														Abled<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:RadioButtonList ID="rblAbled" runat="server" RepeatDirection="Horizontal">
