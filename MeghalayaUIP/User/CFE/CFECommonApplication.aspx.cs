@@ -510,7 +510,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divPCB.Visible = true;
                                 hpl1PCB.Visible = true;
-                                hpl1PCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + (Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]));
+                                hpl1PCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( (Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -518,7 +518,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divHazPCB.Visible = true;
                                 hpl2HazPCB.Visible = true;
-                                hpl2HazPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl2HazPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl2HazPCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt2HazPCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -526,7 +526,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divSrvcCon.Visible = true;
                                 hpl3SrvcCon.Visible = true;
-                                hpl3SrvcCon.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl3SrvcCon.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl3SrvcCon.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt3SrvcCon.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -534,7 +534,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divEleCon.Visible = true;
                                 hpl4EleCon.Visible = true;
-                                hpl4EleCon.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl4EleCon.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl4EleCon.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt4EleCon.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -542,7 +542,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divFctryPlan.Visible = true;
                                 hpl5FctryPlan.Visible = true;
-                                hpl5FctryPlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl5FctryPlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl5FctryPlan.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt5FctryPlan.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -550,7 +550,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divDGsetNOC.Visible = true;
                                 hpl6DGsetNOC.Visible = true;
-                                hpl6DGsetNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl6DGsetNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl6DGsetNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt6DGsetNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -566,7 +566,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divRSDSLic.Visible = true;
                                 hpl8RSDSLic.Visible = true;
-                                hpl8RSDSLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl8RSDSLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl8RSDSLic.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt8RSDSLic.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -574,7 +574,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divExplsvNOC.Visible = true;
                                 hpl9ExplsvNOC.Visible = true;
-                                hpl9ExplsvNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl9ExplsvNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl9ExplsvNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt9ExplsvNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -582,7 +582,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divPtrlNOC.Visible = true;
                                 hpl10PtrlNOC.Visible = true;
-                                hpl10PtrlNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl10PtrlNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl10PtrlNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt10PtrlNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -590,7 +590,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divRdCtng.Visible = true;
                                 hpl11RdCtng.Visible = true;
-                                hpl11RdCtng.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl11RdCtng.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl11RdCtng.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt11RdCtng.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -598,7 +598,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divNonEncmb.Visible = true;
                                 hpl12NonEncmb.Visible = true;
-                                hpl12NonEncmb.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl12NonEncmb.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl12NonEncmb.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt12NonEncmb.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -614,7 +614,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divElcInsp.Visible = true;
                                 hpl14ElcInsp.Visible = true;
-                                hpl14ElcInsp.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl14ElcInsp.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl14ElcInsp.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt14ElcInsp.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -622,7 +622,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divForstDist.Visible = true;
                                 hpl15ForstDist.Visible = true;
-                                hpl15ForstDist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl15ForstDist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl15ForstDist.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt15ForstDist.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -638,7 +638,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divIrrgNOC.Visible = true;
                                 hpl17IrrgNOC.Visible = true;
-                                hpl17IrrgNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl17IrrgNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl17IrrgNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt17IrrgNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -646,7 +646,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divRevNOC.Visible = true;
                                 hpl18RevNOC.Visible = true;
-                                hpl18RevNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl18RevNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl18RevNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt18RevNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -654,7 +654,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divGrndWtrNOC.Visible = true;
                                 hpl19GrndWtrNOC.Visible = true;
-                                hpl19GrndWtrNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl19GrndWtrNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl19GrndWtrNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt19GrndWtrNOC.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -662,7 +662,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divNoWtrSplyCertfct.Visible = true;
                                 hpl20NoWtrSply.Visible = true;
-                                hpl20NoWtrSply.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl20NoWtrSply.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl20NoWtrSply.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt20NoWtrSply.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -670,7 +670,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divPrmsntoDrawWtr.Visible = true;
                                 hpl21ToDrawWtr.Visible = true;
-                                hpl21ToDrawWtr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl21ToDrawWtr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl21ToDrawWtr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt21ToDrawWtr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -678,7 +678,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divMunicipalWatr.Visible = true;
                                 hpl22MunicipalWatr.Visible = true;
-                                hpl22MunicipalWatr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl22MunicipalWatr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl22MunicipalWatr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt22MunicipalWatr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -686,7 +686,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divUrbanWatr.Visible = true;
                                 hpl23UrbanWatr.Visible = true;
-                                hpl23UrbanWatr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl23UrbanWatr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl23UrbanWatr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt23UrbanWatr.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -694,7 +694,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divLbrAct1970.Visible = true;
                                 hpl25LbrAct1970.Visible = true;
-                                hpl25LbrAct1970.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl25LbrAct1970.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl25LbrAct1970.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt25LbrAct1970.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -702,7 +702,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divLbrAct1979.Visible = true;
                                 hpl26LbrAct1979.Visible = true;
-                                hpl26LbrAct1979.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl26LbrAct1979.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl26LbrAct1979.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt26LbrAct1979.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -710,7 +710,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divLbrAct1996.Visible = true;
                                 hpl27LbrAct1996.Visible = true;
-                                hpl27LbrAct1996.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl27LbrAct1996.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl27LbrAct1996.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt27LbrAct1996.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -718,7 +718,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divContrLbrAct.Visible = true;
                                 hpl28ContrLbrAct.Visible = true;
-                                hpl28ContrLbrAct.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl28ContrLbrAct.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl28ContrLbrAct.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt28ContrLbrAct.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -726,7 +726,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divContrLbrAct1979.Visible = true;
                                 hpl29ContrLbrAct1979.Visible = true;
-                                hpl29ContrLbrAct1979.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl29ContrLbrAct1979.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl29ContrLbrAct1979.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt29ContrLbrAct1979.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -734,7 +734,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divConstrPermit.Visible = true;
                                 hpl30ConstrPermit.Visible = true;
-                                hpl30ConstrPermit.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl30ConstrPermit.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl30ConstrPermit.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt30ConstrPermit.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }
@@ -742,7 +742,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 divBldngPlan.Visible = true;
                                 hpl31BldngPlan.Visible = true;
-                                hpl31BldngPlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"]);
+                                hpl31BldngPlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                 hpl31BldngPlan.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 txt31BldngPlan.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);
                             }

@@ -1215,7 +1215,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (string.IsNullOrEmpty(txtAnnualTurnOver.Text) || txtAnnualTurnOver.Text == "" || txtAnnualTurnOver.Text == null || txtAnnualTurnOver.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAnnualTurnOver.Text, @"^0+(\.0+)?$"))
                 {
-                    errormsg = errormsg + slno + ". Please Enter Expected Annual Turnover( \\n";
+                    errormsg = errormsg + slno + ". Please Enter Expected Annual Turnover \\n";
                     slno = slno + 1;
                 }
                 return errormsg;
