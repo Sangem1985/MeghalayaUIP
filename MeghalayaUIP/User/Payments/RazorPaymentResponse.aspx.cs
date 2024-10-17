@@ -1,7 +1,10 @@
-﻿using MeghalayaUIP.BAL.CFEBLL;
+﻿using iText.Layout.Borders;
+using MeghalayaUIP.BAL.CFEBLL;
+using Newtonsoft.Json;
 using Razorpay.Api;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -16,39 +19,25 @@ namespace MeghalayaUIP.User.Payments
     public partial class RazorPaymentResponse : System.Web.UI.Page
     {
         CFEBAL objcfebal = new CFEBAL();
-        public int Amount;
+        //public int Amount;
         string OrderNo = "";
         string OrderId = "";
+        string Amount = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Request.Form["razorpay_payment_id"] != null)
             string IpAddress = getclientIP();
-            if (Request.QueryString["error"] == null)
+            if (Request.Form["razorpay_payment_id"] != null)
             {
-                string paymentId = Request.QueryString["paymentid"].ToString();
-                string OrderId = Request.QueryString["orderid"].ToString();
-                string Signature = Request.QueryString["signature"].ToString();
-                Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
-
-                Dictionary<string, object> input = new Dictionary<string, object>();
-                input.Add("amount", Amount);
-
-                string key = "rzp_test_q9BWc8q5PkutRv";
-                string secret = "8916qyvOByxlwtx3U229pdB0";
-
-                RazorpayClient client = new RazorpayClient(key, secret);
-
-                Dictionary<string, string> attributes = new Dictionary<string, string>();
-
-                attributes.Add("razorpay_payment_id", paymentId);
-                attributes.Add("razorpay_order_id", OrderId);
-                attributes.Add("razorpay_signature", Signature);
-
-                Utils.verifyPaymentSignature(attributes);
+                string paymentId = Request.Form["razorpay_payment_id"].ToString();
+                string OrderId = Request.Form["razorpay_order_id"].ToString().ToString();
+                string Signature = Request.Form["razorpay_signature"].ToString().ToString();
+                
+                string key = "rzp_test_l9labd1MMZqwzK";
+                string secret = "iX44FqckwRPPRhuMmiltpKBd";
 
                 /*Please use below code to refund the payment   
                  Refund refund = new Razorpay.Api.Payment((string) paymentId).Refund();*/
-                
+
                 string generated_signature = ComputeSha256Hash(OrderId + "|" + paymentId, secret);
                 /*if (Signature.ToLower() == generated_signature.ToLower())
                 {
@@ -59,29 +48,50 @@ namespace MeghalayaUIP.User.Payments
 
                 string A = objcfebal.UpdatePaymentResponse(paymentId, OrderId, Signature, IpAddress);
 
-                txtOrderNumber.InnerText = Session["OrderNo"].ToString();
+                DataSet dspaydtls = new DataSet();
+                dspaydtls = objcfebal.GetPaymentOrderNo(OrderId);
+                if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
+                {
+                    Amount= dspaydtls.Tables[0].Rows[0]["PAYMENT_AMOUNT"].ToString();
+                    OrderNo = dspaydtls.Tables[0].Rows[0]["ONLINE_ORDER_NO"].ToString();
+                }
+
+                txtOrderNumber.InnerText = OrderNo;
                 txtOrderId.InnerText = paymentId;
-                txtAmount.InnerText = "₹" + Session["PaymentAmount"].ToString() + ".00";
+                txtAmount.InnerText = "₹ " + Amount + ".00";
                 divFail.Visible = false;
                 divSuccess.Visible = true;
             }
-            else 
-            {
-                string paymentId = Request.QueryString["paymentid"].ToString();
-                Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
+            else
+            {    
+                string jsonData = Request.Form["error[metadata]"].ToString();
 
-                string code= Request.QueryString["error"].ToString();
-                string description = Request.QueryString["errordesc"].ToString();
-                string source = Request.QueryString["errorsource"].ToString();
-                string step = Request.QueryString["errorstep"].ToString();
-                string reason = Request.QueryString["errorreason"].ToString();
+                PaymentInfo paymentInfo = JsonConvert.DeserializeObject<PaymentInfo>(jsonData);
+                
+                string paymentId = paymentInfo.PaymentId;
+                OrderId = paymentInfo.OrderId;
+                
+                string code = Request.Form["error[code]"].ToString();
+                string description = Request.Form["error[description]"].ToString();
+                string source = Request.Form["error[source]"].ToString();
+                string step = Request.Form["error[step]"].ToString();
+                string reason = Request.Form["error[reason]"].ToString();
 
-                txtOrderNumber.InnerText = Session["OrderNo"].ToString();
+                /*DataSet dspaydtls = new DataSet();
+                dspaydtls = objcfebal.GetPaymentOrderNo(OrderId);
+                if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
+                {
+                    Amount = dspaydtls.Tables[0].Rows[0]["PAYMENT_AMOUNT"].ToString();
+                    OrderNo = dspaydtls.Tables[0].Rows[0]["ONLINE_ORDER_NO"].ToString();
+                }
+                txtOrderNumber.InnerText = OrderNo;
                 txtOrderId.InnerText = paymentId;
-                txtAmount.InnerText = "₹" + Session["PaymentAmount"].ToString() + ".00";
+                txtAmount.InnerText = "₹ " + Amount + ".00";*/
                 divSuccess.Visible = false;
                 string A = objcfebal.UpdatePaymentErrorResponse(paymentId, OrderId, "", IpAddress, code, description, source, step, reason);
                 divFail.Visible = true;
+                string Alertmsg = "Payment Failed due to" + reason;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "alertMsg", "alert('"+ Alertmsg + "');" + "window.location='CFEPaymentPage.aspx';", true);
             }
         }
         public static string getclientIP()
@@ -121,6 +131,14 @@ namespace MeghalayaUIP.User.Payments
                 sbinary += buff[i].ToString("X2"); // hex format
             }
             return (sbinary);
+        }
+        public class PaymentInfo
+        {
+            [JsonProperty("payment_id")]
+            public string PaymentId { get; set; }
+
+            [JsonProperty("order_id")]
+            public string OrderId { get; set; }
         }
     }
 }
