@@ -103,7 +103,7 @@
                                                     <asp:TextBox runat="server" ID="txtUsername" class="form-control" placeholder="Email" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control" placeholder="Password" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" onblur="return Generate();"  class="form-control" placeholder="Password" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
                                                 </div>
                                                 <div class="row" style="padding-left: 10px">
                                                     <div class="col-md-12" style="display: flex;">
@@ -126,9 +126,9 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="return Generate();" Text="Login" class="btn btn-primary btn-block" />
+                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click"  Text="Login" class="btn btn-primary btn-block" />
                                                 </div>
-                                                <%--</form>--%>
+                                                <%--</form> OnClientClick="return Generate();"--%>
                                                 <!-- /Form -->
 
                                                 <div class="text-center forgotpass"><a href="ForgotPassword.aspx">Forgot Password?</a></div>

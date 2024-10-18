@@ -871,7 +871,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
-        public string GetUserPass(string Created, string Username, string Password, string Decripty, string IPAddress)
+        public string ChangeUserPassword(string Created, string Username, string Password, string Decripty, string IPAddress)
         {
             string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
@@ -931,7 +931,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return Result;
         }
-        public string GetDeptChangePassword(string Created, string Username, string Password, string Decripty, string IPAddress)
+        public string ChangeDeptUserPassword(string Created, string Username, string Password, string Decripty, string IPAddress)
         {
             string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
@@ -992,6 +992,56 @@ namespace MeghalayaUIP.DAL.CommonDAL
             return Result;
         }
 
+        public string InsertPswdResetKey(string Email, string SecretKey, string IPAddress)
+        {
+            string valid = "0";
 
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CommonConstants.InsertHelpDesk;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+               
+
+                if (Email.Trim() == "" || Email.Trim() == null)
+                    com.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = Email.Trim();               
+
+                if (SecretKey.Trim() == "" || SecretKey.Trim() == null)
+                    com.Parameters.Add("@SECRETKEY", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@SECRETKEY", SqlDbType.VarChar).Value = SecretKey.Trim();
+                
+                if (IPAddress.Trim() == "" || IPAddress.Trim() == null)
+                    com.Parameters.Add("@IPADDRESS", SqlDbType.VarChar).Value = DBNull.Value;
+                else
+                    com.Parameters.Add("@IPADDRESS", SqlDbType.VarChar).Value = IPAddress.Trim();
+
+                valid=Convert.ToString(com.ExecuteNonQuery());               
+
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
     }
 }

@@ -162,7 +162,7 @@ namespace MeghalayaUIP.User
                     // ds = objcomBal.GetUserPass(UserID, Password.ToString(), txtoldpassword.Text.Trim());
                     if (ObjUserInfo != null && ObjUserInfo.Userid != null)
                     {
-                        result = objcomBal.GetUserPass(hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
+                        result = objcomBal.ChangeUserPassword(hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
                         if (result != "")
                         {
                             lblmsg.Text = "Password Successfully Changed And Login With New Password..!";

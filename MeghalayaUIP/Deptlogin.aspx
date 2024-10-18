@@ -70,7 +70,7 @@
                                                     <asp:TextBox runat="server" ID="txtUsername" class="form-control" placeholder="User Name" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control" placeholder="Password" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" class="form-control" onblur="return Generate();"  placeholder="Password" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
                                                 </div>
                                                 <div class="row" style="padding-left: 10px">
                                                     <div class="col-md-12" style="display: flex;">
@@ -93,7 +93,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" OnClientClick="return Generate();" Text="Login" class="btn btn-primary btn-block" />
+                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click"  Text="Login" class="btn btn-primary btn-block" />
                                                     <table style="width: 100%">
                                                         <tr>
                                                             <td>
@@ -114,7 +114,7 @@
                                                 <%--</form>--%>
 
 
-                                                <div class="text-center forgotpass"><a href="ForgotPassword.aspx">Forgot Password?</a></div>
+                                                <%--<div class="text-center forgotpass"><a href="ForgotPassword.aspx">Forgot Password?</a></div>--%>
                                                 <div class="login-or">
                                                     <span class="or-line"></span>
                                                 </div>
