@@ -13,6 +13,7 @@ using MeghalayaUIP.CommonClass;
 using MeghalayaUIP.BAL.CFEBLL;
 using System.Text.RegularExpressions;
 using System.Configuration;
+using MeghalayaUIP.BAL.CommonBAL;
 
 namespace MeghalayaUIP.Dept.CFE
 {
@@ -22,6 +23,7 @@ namespace MeghalayaUIP.Dept.CFE
         PreRegDtls prd = new PreRegDtls();
         CFEBAL objcfebal = new CFEBAL();
         CFEDtls objcfeDtls = new CFEDtls();
+        MasterBAL mstrBAL = new MasterBAL();
         string userid, result;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -1205,8 +1207,9 @@ namespace MeghalayaUIP.Dept.CFE
                     Error = validations(fuApproval);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + Session["INVESTERID"].ToString() + "\\"
-                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + Session["ApprovalID"] + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
+                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + Session["ApprovalID"] + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1229,7 +1232,7 @@ namespace MeghalayaUIP.Dept.CFE
                         {
                             tdhyperlink.Visible = true;
                             hplApproval.Text = fuApproval.PostedFile.FileName;
-                            hplApproval.NavigateUrl = objBldngPlan.FilePath;
+                            hplApproval.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objBldngPlan.FilePath);
                             hplApproval.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1260,9 +1263,9 @@ namespace MeghalayaUIP.Dept.CFE
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
@@ -1284,7 +1287,7 @@ namespace MeghalayaUIP.Dept.CFE
                         Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
                         slno = slno + 1;
                     }
-                }
+                //}
                 return Error;
             }
             catch (Exception ex)
@@ -1327,7 +1330,7 @@ namespace MeghalayaUIP.Dept.CFE
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;
@@ -1360,8 +1363,9 @@ namespace MeghalayaUIP.Dept.CFE
                     Error = validations(fupInspReport);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + Session["INVESTERID"].ToString() + "\\"
-                         + Session["Questionnaireid"].ToString() + "\\" + "InspectionReports" + "\\" + Session["ApprovalID"] + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
+                         + Session["Questionnaireid"].ToString() + "\\" + "InspectionReports" + "\\" + Session["ApprovalID"] + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1400,7 +1404,7 @@ namespace MeghalayaUIP.Dept.CFE
                         {
                             hplInspReport.Visible = true;
                             hplInspReport.Text = fupInspReport.PostedFile.FileName;
-                            hplInspReport.NavigateUrl = objBldngPlan.FilePath;
+                            hplInspReport.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objBldngPlan.FilePath);
                             hplInspReport.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);

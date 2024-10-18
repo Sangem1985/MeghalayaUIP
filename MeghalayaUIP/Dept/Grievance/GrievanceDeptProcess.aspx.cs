@@ -3,9 +3,11 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,7 +18,8 @@ namespace MeghalayaUIP.Dept.Grievance
     {
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         MGCommonBAL objcomBal = new MGCommonBAL();
-        string Reply_FilePath = "", Reply_FileType = "", Reply_FileName = "";
+        MasterBAL mstrBAL = new MasterBAL();
+        string Reply_FilePath = "", Reply_FileType = "", Reply_FileName = "", ErrorMsg;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -107,63 +110,67 @@ namespace MeghalayaUIP.Dept.Grievance
                     && txtRemarks.Text != null)
                 {
                     string newPath = "";
-                    string sFileDir = Server.MapPath("~\\GrievanceAttachments");
+                    string sFileDir = ConfigurationManager.AppSettings["GrievanceAttachments"];
                     if (fupReplyFile.HasFile)
                     {
-                        if ((fupReplyFile.PostedFile != null) && (fupReplyFile.PostedFile.ContentLength > 0))
+                        ErrorMsg = validations(fupReplyFile);
+                        if (ErrorMsg == "")
                         {
-                            string sFileName = System.IO.Path.GetFileName(fupReplyFile.PostedFile.FileName);
-                            try
+                            if ((fupReplyFile.PostedFile != null) && (fupReplyFile.PostedFile.ContentLength > 0))
                             {
-
-                                string[] fileType = fupReplyFile.PostedFile.FileName.Split('.');
-                                int i = fileType.Length;
-                                if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" ||
-                                    fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" ||
-                                    fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" ||
-                                    fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" ||
-                                    fileType[i - 1].ToUpper().Trim() == "DWG")
+                                string sFileName = System.IO.Path.GetFileName(fupReplyFile.PostedFile.FileName);
+                                try
                                 {
 
-                                    newPath = System.IO.Path.Combine(sFileDir, hdnGrvID.Value + hdnUserID.Value);
-                                    Reply_FilePath = newPath + System.DateTime.Now.ToString("ddMMyyyyhhmmss");
-                                    Reply_FileType = fileType[i - 1].ToUpper().Trim();
-                                    Reply_FileName = sFileName;
-                                    //////////////
-                                    // FileNameofrMail = Reply_FilePath + "\\" + Reply_FileType;
-                                    if (!Directory.Exists(Reply_FilePath))
+                                    string[] fileType = fupReplyFile.PostedFile.FileName.Split('.');
+                                    int i = fileType.Length;
+                                    if (fileType[i - 1].ToUpper().Trim() == "PDF" || fileType[i - 1].ToUpper().Trim() == "DOC" ||
+                                        fileType[i - 1].ToUpper().Trim() == "JPG" || fileType[i - 1].ToUpper().Trim() == "XLS" ||
+                                        fileType[i - 1].ToUpper().Trim() == "XLSX" || fileType[i - 1].ToUpper().Trim() == "DOCX" ||
+                                        fileType[i - 1].ToUpper().Trim() == "ZIP" || fileType[i - 1].ToUpper().Trim() == "RAR" ||
+                                        fileType[i - 1].ToUpper().Trim() == "DWG")
+                                    {
 
-                                        System.IO.Directory.CreateDirectory(Reply_FilePath);
-                                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(Reply_FilePath);
-                                    int count = dir.GetFiles().Length;
-                                    if (count == 0)
-                                        fupReplyFile.PostedFile.SaveAs(Reply_FilePath + "\\" + Reply_FileName);
+                                        newPath = System.IO.Path.Combine(sFileDir, hdnGrvID.Value + hdnUserID.Value);
+                                        Reply_FilePath = newPath + System.DateTime.Now.ToString("ddMMyyyyhhmmss");
+                                        Reply_FileType = fileType[i - 1].ToUpper().Trim();
+                                        Reply_FileName = sFileName;
+                                        //////////////
+                                        // FileNameofrMail = Reply_FilePath + "\\" + Reply_FileType;
+                                        if (!Directory.Exists(Reply_FilePath))
+
+                                            System.IO.Directory.CreateDirectory(Reply_FilePath);
+                                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(Reply_FilePath);
+                                        int count = dir.GetFiles().Length;
+                                        if (count == 0)
+                                            fupReplyFile.PostedFile.SaveAs(Reply_FilePath + "\\" + Reply_FileName);
+                                        else
+                                        {
+                                            if (count == 1)
+                                            {
+                                                string[] Files = Directory.GetFiles(Reply_FilePath);
+
+                                                foreach (string file in Files)
+                                                {
+                                                    File.Delete(file);
+                                                }
+                                                fupReplyFile.PostedFile.SaveAs(Reply_FilePath + "\\" + Reply_FileName);
+                                            }
+                                        }
+
+                                    }
                                     else
                                     {
-                                        if (count == 1)
-                                        {
-                                            string[] Files = Directory.GetFiles(Reply_FilePath);
-
-                                            foreach (string file in Files)
-                                            {
-                                                File.Delete(file);
-                                            }
-                                            fupReplyFile.PostedFile.SaveAs(Reply_FilePath + "\\" + Reply_FileName);
-                                        }
+                                        lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG files only..!</font>";
+                                        //success.Visible = false;
+                                        Failure.Visible = true;
                                     }
 
                                 }
-                                else
+                                catch (Exception)//in case of an error
                                 {
-                                    lblmsg0.Text = "<font color='red'>Upload PDF,Doc,JPG files only..!</font>";
-                                    //success.Visible = false;
-                                    Failure.Visible = true;
+                                    DeleteFile(newPath + "\\" + sFileName);
                                 }
-
-                            }
-                            catch (Exception)//in case of an error
-                            {
-                                DeleteFile(newPath + "\\" + sFileName);
                             }
                         }
                     }
@@ -248,6 +255,73 @@ namespace MeghalayaUIP.Dept.Grievance
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
+                int slno = 1; string Error = "";
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
+
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Invalid File type \\n";
+                    slno = slno + 1;
+                }
+                //  }
+                return Error;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
         }
     }
 }
