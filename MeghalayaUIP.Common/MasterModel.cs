@@ -81,6 +81,8 @@ namespace MeghalayaUIP.Common
 
         //-----------------------///
         public static string InsertUSERACCESSEDPAGES = "USP_INSUSERACCESSEDPAGES";
+
+        public static string GetUserSearch = "USP_GETUSERNAMEANDPSWD";
     }
     public class MasterCountry
     {

@@ -20,7 +20,7 @@ namespace MeghalayaUIP.User.Payments
     {
         CFEBAL objcfebal = new CFEBAL();
         public string orderId;
-        public string InvestorId; 
+        public string InvestorId;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -43,11 +43,9 @@ namespace MeghalayaUIP.User.Payments
                             input.Add("amount", orderAmount);
                             input.Add("currency", "INR");
                             input.Add("receipt", Receiptorder);
-                            
-                            //string key = "rzp_test_q9BWc8q5PkutRv";
-                            //string secret = "8916qyvOByxlwtx3U229pdB0";
+
                             string key = "rzp_test_l9labd1MMZqwzK";
-                            string secret ="iX44FqckwRPPRhuMmiltpKBd";
+                            string secret = "iX44FqckwRPPRhuMmiltpKBd";
                             System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                             RazorpayClient client = new RazorpayClient(key, secret);
@@ -61,7 +59,6 @@ namespace MeghalayaUIP.User.Payments
                                 Receipt = Request.QueryString["receipt"].ToString();
                             }
                             Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
-
                             string UnitID = Convert.ToString(Session["CFEUNITID"]);
 
 
@@ -71,23 +68,22 @@ namespace MeghalayaUIP.User.Payments
 
                             if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
                             {
-                                //string currency = "INR"; var ImageLogo = "";
-                                //string KeyId = hdn_key_id.Value = "rzp_test_l9labd1MMZqwzK";
-                                //string OrderId = hdn_order_id.Value = orderId;
-                                //string PayAmount = hdn_amount.Value = Amount.ToString();
-                                //string Name = hdn_name.Value = dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
-                                //string Desc = hdn_description.Value = "Meghalaya Description";
-                                //string Mail = hdn_email.Value = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
-                                //string Contact = hdn_contact.Value = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
-                                //string IpAddress = getclientIP();
+                                string KeyId = hdn_key_id.Value = key;
+                                string OrderId = hdn_order_id.Value = orderId;
+                                string PayAmount = hdn_amount.Value = Amount.ToString();
+                                string Name = hdn_name.Value = dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
+                                string Desc = hdn_description.Value = "Meghalaya Description";
+                                string Mail = hdn_email.Value = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
+                                string Contact = hdn_contact.Value = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
+                                string IpAddress = getclientIP();
 
-                                //Dictionary<string, string> notes = new Dictionary<string, string>()
-                                //{
-                                //    {"Note1","Payment Note1" },{"Note2","Payment Note2" }
-                                //};
-                                //hdn_notes.Value = JsonConvert.SerializeObject(notes);
+                                Dictionary<string, string> notes = new Dictionary<string, string>()
+                                {
+                                    {"Note1","Payment Note1" },{"Note2","Payment Note2" }
+                                };
+                                hdn_notes.Value = JsonConvert.SerializeObject(notes);
 
-                                //string A = objcfebal.InsertPaymentRequest(UnitID, Session["INSTRIDPM"].ToString(), Receiptorder, OrderId, PayAmount, Name, Desc, Mail, Contact, "", IpAddress);
+                                string A = objcfebal.InsertPaymentRequest(UnitID, Session["INSTRIDPM"].ToString(), Receiptorder, OrderId, PayAmount, Name, Desc, Mail, Contact, "", IpAddress);
 
                             }
                         }
@@ -117,41 +113,6 @@ namespace MeghalayaUIP.User.Payments
 
             return result;
         }
-
-        protected void btnPay_Click(object sender, EventArgs e)
-        {
-            string Receipt = ""; int Amount;
-            if (Request.QueryString["receipt"] != null)
-            {
-                Receipt = Request.QueryString["receipt"].ToString();
-            }
-            Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
-            string UnitID = Convert.ToString(Session["CFEUNITID"]);
-
-            
-
-            DataSet dspaydtls = new DataSet();
-            dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString());
-
-            if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
-            {
-                var currency = "INR"; var ImageLogo = "";
-                var Key ="rzp_test_q9BWc8q5PkutRv";
-                var orderid = orderId;
-                var amount = Amount.ToString();
-                var name = dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
-                var Desc  = "Meghalaya Description";
-                var email = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
-                var Phone = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
-
-                Dictionary<string, string> notes = new Dictionary<string, string>()
-                                {
-                                    {"Note1","Payment Note1" },{"Note2","Payment Note2" }
-                                };
-
-                string jsFunction = "OpenPaymentWindow('" + Key + "','" + amount + "','" + currency + "','" + name + "','" + Desc + "','" + ImageLogo + "','" + orderid + "','" + email + "','" + Phone + "','" + JsonConvert.SerializeObject(notes) + "')";
-                ClientScript.RegisterStartupScript(this.GetType(), "OpenPaymentWindow", jsFunction, true);
-            }
-        }
+        
     }
 }

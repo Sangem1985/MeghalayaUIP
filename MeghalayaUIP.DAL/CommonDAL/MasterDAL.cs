@@ -2164,6 +2164,43 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return Result;
         }
+        public DataSet UserSearch(string Userid, string username)
+        {          
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetUserSearch, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetUserSearch;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@INPUTTYPE", Userid);
+              
+                da.SelectCommand.Parameters.AddWithValue("@INPUT", username);
+              
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
 
     }
 }

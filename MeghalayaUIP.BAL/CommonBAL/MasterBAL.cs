@@ -242,6 +242,13 @@ namespace MeghalayaUIP.BAL.CommonBAL
             return objMasterDAL.InsPageAccessed(Userid, Email, Pagename, IPAddress, RoleId);
         }
 
+        ///////user search////
+
+        public DataSet UserSearch(string Userid, string username)
+        {
+            return objMasterDAL.UserSearch(Userid, username);
+        }
+
         /// encryption and decryption code///
         public string EncryptFilePath(string filePath)
         {
