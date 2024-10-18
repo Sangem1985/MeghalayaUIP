@@ -115,15 +115,15 @@ namespace MeghalayaUIP.User
                     success.Visible = false;                  
                     FillCapctha();
                 }
-                //if (txtnewpassword.Text.Trim() != txtconfirmpassword.Text.Trim())
-                //{
-                //    lblmsg.Text = "New Password & Confirm Password Doesn't Matched....!";
-                //    FillCapctha();                   
-                //    string message = "alert('" + lblmsg.Text + "')";
-                //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                //    success.Visible = false;
-                //    Failure.Visible = true;
-                //}
+                if (txtnewpassword.Text.Trim() != txtconfirmpassword.Text.Trim())
+                {
+                    lblmsg.Text = "New Password & Confirm Password Sholud be same....!";
+                    FillCapctha();
+                    string message = "alert('" + lblmsg.Text + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    success.Visible = false;
+                    Failure.Visible = true;
+                }
                 //else
                 //{
                 //    lblmsg.Text = "New Password & Confirm Password Matched....!";                   

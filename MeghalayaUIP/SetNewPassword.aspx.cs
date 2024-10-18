@@ -133,6 +133,7 @@ namespace MeghalayaUIP
                         }
                         else
                         {
+                            divnewpswd.Visible = false;
                             lblmsg0.Text = "Invalid reset link or link expired....!";
                             Failure.Visible = true;
                         }

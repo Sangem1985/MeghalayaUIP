@@ -42,6 +42,15 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
 
         /// <summary>
+        /// asp_hidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField asp_hidden;
+
+        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
