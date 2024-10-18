@@ -1004,7 +1004,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             {
                 SqlCommand com = new SqlCommand();
                 com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = CommonConstants.InsertHelpDesk;
+                com.CommandText = CommonConstants.InsertPswdResetKey;
 
                 com.Transaction = transaction;
                 com.Connection = connection;
@@ -1042,6 +1042,42 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
             return valid;
+        }
+        public DataSet GetPswdResetKey(string Email, string SecretKey)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetPswdResetKey, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetPswdResetKey;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@EMIAL", Email);
+                da.SelectCommand.Parameters.AddWithValue("@SECRETKEY", SecretKey);                            
+               
+                da.Fill(ds);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
         }
     }
 }

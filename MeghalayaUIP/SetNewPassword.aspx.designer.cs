@@ -60,6 +60,24 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.Label lblmsg0;
 
         /// <summary>
+        /// divnewpswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divnewpswd;
+
+        /// <summary>
+        /// asp_hidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField asp_hidden;
+
+        /// <summary>
         /// hdnUserID control.
         /// </summary>
         /// <remarks>
@@ -69,40 +87,40 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// txtName control.
+        /// lblusername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.Label lblusername;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtSecretKey control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtSecretKey;
 
         /// <summary>
-        /// txtPswd control.
+        /// txtnewpassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPswd;
+        protected global::System.Web.UI.WebControls.TextBox txtnewpassword;
 
         /// <summary>
-        /// txtCnfrmPswd control.
+        /// txtconfirmpassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCnfrmPswd;
+        protected global::System.Web.UI.WebControls.TextBox txtconfirmpassword;
 
         /// <summary>
         /// txtcaptcha control.

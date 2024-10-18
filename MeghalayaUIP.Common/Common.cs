@@ -42,6 +42,7 @@ namespace MeghalayaUIP.Common
         public static string GetUserChangePWD = "USP_UPDATE_INVESTERPASSWORD";
         public static string GetDeptChangePassword = "USP_UPDATE_MASTERUSERPASSWORD";
         public static string InsertPswdResetKey = "USP_INSERTFORGOTPASSWORDKEYS";
+        public static string GetPswdResetKey = "USP_GETPASSWORDSECRETKEY";
 
     }
 }

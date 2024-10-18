@@ -105,6 +105,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.InsertPswdResetKey(Email, SecretKey, IPAddress);
         }
-
+        public DataSet GetPswdResetKey(string Email, string SecretKey)
+        { 
+            return objCommonDAL.GetPswdResetKey(Email, SecretKey); 
+        }
     }
 }

@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    
     <link rel="stylesheet" href="assets/admin/css/style.css">
     <style>
         table#ContentPlaceHolder1_rblproposal label, table#ContentPlaceHolder1_rblInvestments label {
@@ -42,30 +43,32 @@
                 <div class="col-md-12">
                     <div class="">
                         <div class="content container-fluid">
-                            <div class="row">
+                            <div class="col-md-12 ">
+                                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span></button>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                                    <strong>Warning!</strong>
+                                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row" id="divnewpswd" runat="server">
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
                                             <h4 class="card-title">Create New Password</h4>
+                                             <asp:HiddenField runat="server" ID="asp_hidden" />
                                         </div>
                                         <div class="card-body">
-                                            <div class="col-md-12 ">
-                                                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
-                                                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                                    <asp:Label ID="Label1" runat="server"></asp:Label>
-                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                        <span aria-hidden="true">×</span></button>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 ">
-                                                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
-                                                    <strong>Warning!</strong>
-                                                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                        <span aria-hidden="true">×</span>
-                                                    </button>
-                                                </div>
-                                            </div>
+
                                             <asp:HiddenField ID="hdnUserID" runat="server" />
                                             <div class="row">
 
@@ -78,7 +81,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">User Email Id  *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="Names()"></asp:TextBox>
+                                                                <asp:Label ID="lblusername" runat="server" class="form-control" ></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -88,7 +91,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Secret Key shared to above Email Id*</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="TextBox1" runat="server" class="form-control" onblur="fnValidatePAN(this);"></asp:TextBox>
+                                                                <asp:TextBox ID="txtSecretKey" runat="server" class="form-control" ></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -98,7 +101,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">New Password*</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtPswd" runat="server" class="form-control" onblur="fnValidatePAN(this);"></asp:TextBox>
+                                                                <asp:TextBox ID="txtnewpassword" runat="server" class="form-control" TextMode="Password" onblur="return fnEncryption();"   ></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -108,20 +111,20 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Confirm New Password*</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtCnfrmPswd" runat="server" class="form-control" onblur="fnValidatePAN(this);"></asp:TextBox>
+                                                                <asp:TextBox ID="txtconfirmpassword" runat="server" TextMode="Password"  class="form-control" onblur="return fnEncryption1();" ></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 d-flex" >
+                                                <div class="col-md-12 d-flex">
                                                     <div class="col-md-6">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Please Enter Captcha*</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                 <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                    </div>                                                   
+                                                    </div>
                                                     <div class="col-md-2" style="display: flex; align-items: center; margin-left: -20px;">
                                                         <div class="form-group" style="margin-bottom: 20px;">
                                                             <asp:Image ID="imgCaptcha" runat="server" draggable="false" Height="38px" Width="400px" />
@@ -151,4 +154,45 @@
             </div>
         </div>
     </section>
+    <script type="text/javascript">
+
+        function fnEncryption() {
+            var x = (Math.random() * 1973);
+            $("input[id*='asp_hidden']").val(x);
+            asp_hiddenVal = $("input[id*='asp_hidden']").val();
+            var key = asp_hiddenVal;
+            var otp = document.getElementById("<%=txtnewpassword.ClientID %>");
+            var o = otp.value;
+            //var otpencrpt = window.btoa(o);
+            var otpencrpt = xorEncrypt(o, key);
+            otp.value = otpencrpt;
+        }
+        function xorEncrypt(text, key) {
+            var result = "";
+            for (var i = 0; i < text.length; i++) {
+                var charCode = text.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+                result += String.fromCharCode(charCode);
+            }
+            return result;
+        }
+        function fnEncryption1() {
+            //var x = (Math.random() * 1973);
+            //$("input[id*='asp_hidden']").val(x);
+            asp_hiddenVal = $("input[id*='asp_hidden']").val();
+            var key = asp_hiddenVal;
+            var otp = document.getElementById("<%=txtconfirmpassword.ClientID %>");
+            var o = otp.value;
+            //var otpencrpt = window.btoa(o);
+            var otpencrpt = xorEncrypt(o, key);
+            otp.value = otpencrpt;
+        }
+        function xorEncrypt(text, key) {
+            var result = "";
+            for (var i = 0; i < text.length; i++) {
+                var charCode = text.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+                result += String.fromCharCode(charCode);
+            }
+            return result;
+        }
+    </script>
 </asp:Content>
