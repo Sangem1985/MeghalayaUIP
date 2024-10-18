@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -46,12 +47,28 @@ namespace MeghalayaUIP.Admin
                 lblmsg.Text = ex.Message;
                 Failure.Visible = true;
                 success.Visible = false;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
         protected void BTNcLEAR_Click(object sender, EventArgs e)
         {
             Response.Redirect("SearchUser.aspx");
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Dashboard/DeptDashboard.aspx");
+            }
+            catch(Exception ex)
+            {
+                lblmsg.Text = ex.Message;
+                Failure.Visible = true;
+                success.Visible = false;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }
