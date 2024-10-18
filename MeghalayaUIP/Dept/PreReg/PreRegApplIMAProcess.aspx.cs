@@ -23,6 +23,7 @@ namespace MeghalayaUIP.Dept.PreReg
         PreRegBAL PreBAL = new PreRegBAL();
         PreRegDtls prd = new PreRegDtls();
         DataTable dt = new DataTable();
+        MasterBAL mstrBAL = new MasterBAL();
         List<PreRegDtls> lstPreRegDtlsVo = new List<PreRegDtls>();
         MasterBAL objmbal = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
@@ -784,8 +785,8 @@ namespace MeghalayaUIP.Dept.PreReg
             {
 
                 string newPath = "", Error = "", message = "";
-                string sFileDir = Server.MapPath("~\\PreRegAttachments");
-                string shortFileDir = "~\\PreRegAttachments";
+                string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+               // string shortFileDir = "~\\PreRegAttachments";
                 if (FileUploadqueryIMA.HasFile)
                 {
                     Error = validations(FileUploadqueryIMA);
@@ -841,7 +842,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                 {
                                     lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
                                     hplAttachment.Text = FileUploadqueryIMA.FileName;
-                                    hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objattachments.Filepath;
+                                    hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objattachments.Filepath);
 
                                     //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + ViewState["UNITID"].ToString() + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
                                     hplAttachment.Visible = true;
@@ -889,9 +890,9 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                     //|| !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
@@ -913,7 +914,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
                         slno = slno + 1;
                     }
-                }
+                //}
                 return Error;
             }
             catch (Exception ex)

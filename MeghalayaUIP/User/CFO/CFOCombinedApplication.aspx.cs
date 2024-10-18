@@ -947,8 +947,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup32MigrantReg);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1044,8 +1045,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup33ManufactureReg);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1105,8 +1107,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup34RenewalReg);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1166,8 +1169,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup35BoilerReg);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1227,8 +1231,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup36LICFactory);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1288,8 +1293,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup37LICMIGRANTWORKMEN);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1349,8 +1355,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup38LICLabourContractor);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1410,8 +1417,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup39LicRetailDrug);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1471,8 +1479,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup40LicRepairWeight);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1532,8 +1541,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup41LicManuMeasure);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1593,8 +1603,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup42LicDealerWeight);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1654,8 +1665,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup43IVSMeasure);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1715,8 +1727,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup44FireSafeCert);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1776,8 +1789,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup45ExiseRetail);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1833,12 +1847,13 @@ namespace MeghalayaUIP.User.CFO
             {
                 string Error = ""; string message = "";
                 if (fup46LicWholeDrug.HasFile)
-                {
+                {                   
                     Error = validations(fup46LicWholeDrug);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1898,8 +1913,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup47BrandReg);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1959,8 +1975,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup48LicGrantRenew);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2020,8 +2037,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup49LicManuDrug);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2081,8 +2099,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup50LicManuDrugSpecifie);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2142,8 +2161,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup51LicGrantRenewSch);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2203,8 +2223,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup52LicManuVolumesera);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2264,8 +2285,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup53ProffessTax);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2325,8 +2347,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup54PCB);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2386,8 +2409,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup55OccupancyCert);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2447,8 +2471,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup56BoilerDept);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2508,8 +2533,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup57RegPipelineSteam);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2569,8 +2595,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup58RegShopEst);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2630,8 +2657,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup59LicGrantBusiness);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2691,8 +2719,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup60LicIMFL);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2752,8 +2781,9 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fup61SatateExcise);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + hdnUserID.Value + "\\"
-                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + hdnQuesid.Value + "\\" + "OfflineApprovals" + "\\" + "1" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -2850,7 +2880,7 @@ namespace MeghalayaUIP.User.CFO
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;

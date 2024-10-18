@@ -634,7 +634,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypSketch.Text = fupSketch.PostedFile.FileName;
-                            hypSketch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath; 
+                            hypSketch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objManufacture.FilePath); 
                             hypSketch.Target = "blank";
                             message = "alert('" + "Route Sketch Map Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -665,9 +665,9 @@ namespace MeghalayaUIP.User.CFE
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
@@ -689,7 +689,7 @@ namespace MeghalayaUIP.User.CFE
                         Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
                         slno = slno + 1;
                     }
-                }
+              //  }
                 return Error;
             }
             catch (Exception ex)
@@ -720,7 +720,7 @@ namespace MeghalayaUIP.User.CFE
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;

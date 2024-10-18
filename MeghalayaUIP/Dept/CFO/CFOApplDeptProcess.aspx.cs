@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.BAL.CFOBAL;
+using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
@@ -24,6 +25,7 @@ namespace MeghalayaUIP.Dept.CFO
         PreRegDtls prd = new PreRegDtls();
         CFEBAL objcfebal = new CFEBAL();
         CFEDtls objcfeDtls = new CFEDtls();
+        MasterBAL mstrBAL = new MasterBAL();
 
         CFOBAL objcfobal = new CFOBAL();
         CFODtls objcfoDtls = new CFODtls();
@@ -942,8 +944,9 @@ namespace MeghalayaUIP.Dept.CFO
                     Error = validations(fuApproval);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFOAttachments\\" + Session["INVESTERID"].ToString() + "\\"
-                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + "31" + "\\");
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
+                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + "31" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -965,7 +968,7 @@ namespace MeghalayaUIP.Dept.CFO
                         if (result != "")
                         {
                             hplApproval.Text = fuApproval.PostedFile.FileName;
-                            hplApproval.NavigateUrl = serverpath;
+                            hplApproval.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objBldngPlan.FilePath);
                             hplApproval.Target = "blank";
                             message = "alert('" + " Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1095,9 +1098,9 @@ namespace MeghalayaUIP.Dept.CFO
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                if (Attachment.PostedFile.ContentType != "application/pdf"
-                     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
-                {
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
 
                     if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
@@ -1119,7 +1122,7 @@ namespace MeghalayaUIP.Dept.CFO
                         Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
                         slno = slno + 1;
                     }
-                }
+                //}
                 return Error;
             }
             catch (Exception ex)
@@ -1157,7 +1160,7 @@ namespace MeghalayaUIP.Dept.CFO
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;
