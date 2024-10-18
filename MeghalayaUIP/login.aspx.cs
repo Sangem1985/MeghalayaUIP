@@ -83,11 +83,23 @@ namespace MeghalayaUIP
             Session.Abandon();
             Session.Clear();
 
+            var manager = new System.Web.SessionState.SessionIDManager();
+            string newSessionId = manager.CreateSessionID(HttpContext.Current);
+            bool isRedirected = false;
+            bool isAdded = false;
+            manager.SaveSessionID(HttpContext.Current, newSessionId, out isRedirected, out isAdded);
+
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetExpires(DateTime.Now);
             Response.Cache.SetNoStore();
             HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
             HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.Private);
+
+            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            //Response.Cache.SetExpires(DateTime.Now);
+            //Response.Cache.SetNoStore();
+            //HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            //HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.Private);
 
         }
         protected void AbandonSession()

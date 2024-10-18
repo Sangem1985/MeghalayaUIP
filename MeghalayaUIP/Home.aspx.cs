@@ -18,7 +18,16 @@ namespace MeghalayaUIP
         {
             IncentivePackageDemo027082024 = objmgbal.EncryptFilePath("D:/Meghalaya/Documents/Incentive Package Demo 027082024.pdf");
             unnati2024= objmgbal.EncryptFilePath("D:/Meghalaya/Documents/unnati2024.pdf");
-            mipp2024 = objmgbal.EncryptFilePath("D:/Meghalaya/Documents/mipp2024.pdf"); 
+            mipp2024 = objmgbal.EncryptFilePath("D:/Meghalaya/Documents/mipp2024.pdf");
+            if (Session.Count != 0)
+            {
+                Session.Clear();
+                Session.Abandon();
+                Session.RemoveAll();
+
+                if (!Page.IsPostBack)
+                    Session.Abandon();
+            }
         }
     }
 }
