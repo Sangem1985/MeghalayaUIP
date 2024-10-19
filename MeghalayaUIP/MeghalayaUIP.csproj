@@ -475,6 +475,18 @@
     <Content Include="assets\assetsnew\images\invotebg.gif" />
     <Content Include="assets\assetsnew\images\invotebgirr.gif" />
     <Content Include="assets\assetsnew\images\invotebgunder.png" />
+    <Content Include="assets\assetsnew\images\IP\Cyril.jpg" />
+    <Content Include="assets\assetsnew\images\IP\HillTop.jpg" />
+    <Content Include="assets\assetsnew\images\IP\Hospitality.jpg" />
+    <Content Include="assets\assetsnew\images\IP\Jaintia.jpg" />
+    <Content Include="assets\assetsnew\images\IP\Khanapara.jpg" />
+    <Content Include="assets\assetsnew\images\IP\locationmap.jpg" />
+    <Content Include="assets\assetsnew\images\IP\Nongmahir.jpg" />
+    <Content Include="assets\assetsnew\images\IP\OIVP.jpg" />
+    <Content Include="assets\assetsnew\images\IP\OIVP1.jpg" />
+    <Content Include="assets\assetsnew\images\IP\Sohra.jpg" />
+    <Content Include="assets\assetsnew\images\IP\Umiam.jpg" />
+    <Content Include="assets\assetsnew\images\IP\Umkrem.jpg" />
     <Content Include="assets\assetsnew\images\ITE.png" />
     <Content Include="assets\assetsnew\images\keysectors.png" />
     <Content Include="assets\assetsnew\images\lighbulb.png" />
@@ -623,6 +635,7 @@
     <Content Include="InformationWizard.aspx" />
     <Content Include="IntentInvest.aspx" />
     <Content Include="IntenttoInvestPrint.aspx" />
+    <Content Include="InvestibleProject.aspx" />
     <Content Include="IT_ITES.aspx" />
     <Content Include="KnowYourApprovalsCFE.aspx" />
     <Content Include="KnowYourApprovalsCFO.aspx" />
@@ -1260,6 +1273,13 @@
     </Compile>
     <Compile Include="IntenttoInvestPrint.aspx.designer.cs">
       <DependentUpon>IntenttoInvestPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InvestibleProject.aspx.cs">
+      <DependentUpon>InvestibleProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvestibleProject.aspx.designer.cs">
+      <DependentUpon>InvestibleProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="IT_ITES.aspx.cs">
       <DependentUpon>IT_ITES.aspx</DependentUpon>
