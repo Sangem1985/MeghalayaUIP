@@ -38,7 +38,7 @@ namespace MeghalayaUIP.Dept.LA
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
@@ -93,8 +93,16 @@ namespace MeghalayaUIP.Dept.LA
                 objDtls.Role = Convert.ToInt32(ObjUserInfo.Roleid);
                 objDtls.UserID = ObjUserInfo.UserID;
                 dt = Objland.GetLandAllottmentDashBoardView(objDtls);
-                gvPreRegDtls.DataSource = dt;
-                gvPreRegDtls.DataBind();
+                if (dt.Rows.Count > 0)
+                {
+                    gvPreRegDtls.DataSource = dt;
+                    gvPreRegDtls.DataBind();
+                }
+                else
+                {
+                    gvPreRegDtls.DataSource = null;
+                    gvPreRegDtls.DataBind();
+                }
             }
             catch (Exception ex)
             {
@@ -145,7 +153,7 @@ namespace MeghalayaUIP.Dept.LA
                     if (Request.QueryString["status"].ToString() == "TOBEPROCESSED" ||
                         Request.QueryString["status"].ToString() == "DEPTREPLIEDTOLAND" ||
                         Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOLAND" ||
-                      //  Request.QueryString["status"].ToString() == "COMMQUERYTOLAND" ||
+                        //  Request.QueryString["status"].ToString() == "COMMQUERYTOLAND" ||
                         Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOCOMMQRY" ||
                         Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY")
                         button.Text = "Process";
