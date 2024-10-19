@@ -3,6 +3,7 @@ using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -10,13 +11,15 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace MeghalayaUIP
 {
     public partial class ForgotPassword : System.Web.UI.Page
     {
         readonly LoginBAL objloginBAL = new LoginBAL();
-
+        MGCommonBAL objcomBal = new MGCommonBAL();
+        MasterBAL mstrBAL = new MasterBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -87,22 +90,73 @@ namespace MeghalayaUIP
                 }
                 else
                 {
+                    string Host = Convert.ToString(ConfigurationManager.AppSettings["expectedHost"]);
+                    if (Host.Contains("localhost"))
+                    {
+                        Host = "https://localhost:44379/";
+                    }
+                    else if (Host.Contains("103.154.75.191"))
+                    {
+                        Host = "http://103.154.75.191/Investmeghalaya/";
+                    }
+                    else
+                    {
+                        Host = "https://invest.meghalaya.gov.in/";
+                    }
                     string EmailId = "";
                     EmailId = txtEmail.Text;
                     DataSet ds = new DataSet();
                     ds = objloginBAL.GetDeptUserPwdInfo(txtEmail.Text.Trim().ToString(), "I");
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (ds.Tables[0].Rows.Count > 0 && Convert.ToInt16(Convert.ToString(ds.Tables[0].Rows[0]["WRNGPSWDCOUNT"])) <= 4)
                     {
+
+                        Random random = new Random();
+                        string combination = "ABCDEFGHJKLMNPQRSTUVWXYZabdfghjkmnpqrstuvwxyz123456789";
+                        StringBuilder SecretKey = new StringBuilder();
+                        for (int i = 0; i < 10; i++)
+                            SecretKey.Append(combination[random.Next(combination.Length)]);
+                        ViewState["PswdSecretKey"] = SecretKey.ToString();
+                        string passwordlink = Host + "SetNewPassword.aspx?link=" + mstrBAL.EncryptFilePath(txtEmail.Text.Trim()) + "&use=" + mstrBAL.EncryptFilePath(SecretKey.ToString());
                         string Username = ds.Tables[0].Rows[0]["Username"].ToString();
                         SMSandMail smsMail = new SMSandMail();
-                        string EmailText = "Dear " + ds.Tables[0].Rows[0]["Fullname"].ToString() + ", Please find the below link to reset the password." + "\r\n" +"";
+                        string EmailText = "Dear " + ds.Tables[0].Rows[0]["Fullname"].ToString() + ", Please find the below link to reset the password."
+                            + "</b><br/> Password Reset Link:  <a href='" + passwordlink + "' target='_blank' > Invest Meghalaya Authority - New Password Link </a>"
+                            + "</b><br/> Secret Key:" + SecretKey
+                            + " </b><br/> Please use this Secret Key while creating the new password."
+                            + " </b><br/><br/> Best Regards"
+                            + "</b><br/> Invest Meghalaya Authority";
+
                         try
                         {
                             smsMail.SendEmailSingle(Username, "", "Password Reset Link", EmailText, "", "General",
                                 "", "", ds.Tables[0].Rows[0]["Userid"].ToString());
+                            try
+                            {
+
+                                string result = objcomBal.InsertPswdResetKey(txtEmail.Text.Trim(), SecretKey.ToString(), getclientIP());
+                                txtcaptcha.Text = "";
+                                FillCapctha();
+                                if (result != "")
+                                {
+                                    txtEmail.Text = "";
+                                    txtcaptcha.Text = "";
+                                    FillCapctha();
+                                    lblmsg.Text = "Password Reset link is shared to your email... The link is valid for 10 min only";
+                                    success.Visible = true;
+                                }
+                            }
+                            catch (SqlException ex)
+                            {
+                                lblmsg0.Text = "Error Occured ...!";
+                                Failure.Visible = true;
+
+                            }
+
                         }
                         catch (Exception ex)
                         {
+                            lblmsg0.Text = "Error Occured While sending the mail...!";
+                            Failure.Visible = true;
 
                         }
                         finally
@@ -112,7 +166,7 @@ namespace MeghalayaUIP
                     else
                     {
                         lblmsg0.Text = txtEmail.Text = "Invalid Email Id...!";
-                        lblmsg0.ForeColor = System.Drawing.Color.Green;
+                        Failure.Visible = true;
                     }
                 }
             }
@@ -121,5 +175,23 @@ namespace MeghalayaUIP
                 throw ex;
             }
         }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
+        }
+
     }
 }

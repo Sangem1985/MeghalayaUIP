@@ -195,19 +195,19 @@ namespace MeghalayaUIP.User.CFE
                         if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 30)//
                         {
                             hypManufacture.Visible = true;
-                            hypManufacture.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                            hypManufacture.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                             hypManufacture.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                         }
                         if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 31) //
                         {
                             hypTest.Visible = true;
-                            hypTest.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                            hypTest.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                             hypTest.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                         }
                         if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 32) //
                         {
                             hypSingleline.Visible = true;
-                            hypSingleline.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                            hypSingleline.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                             hypSingleline.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                         }
                     }
@@ -487,7 +487,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypManufacture.Text = fupManufacture.PostedFile.FileName;
-                            hypManufacture.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypManufacture.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( objManufacture.FilePath);
                             hypManufacture.Target = "blank";
                             message = "alert('" + "Manufacturer Test Report Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -563,7 +563,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypTest.Text = fupTest.PostedFile.FileName;
-                            hypTest.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypTest.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath (objManufacture.FilePath);
                             hypTest.Target = "blank";
                             message = "alert('" + "Test Report by Registered Contractor in Meghalaya Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -638,7 +638,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypSingleline.Text = fupSingleline.PostedFile.FileName;
-                            hypSingleline.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypSingleline.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupSingleline.PostedFile.FileName);
                             hypSingleline.Target = "blank";
                             message = "alert('" + "Single Line Diagram of DG Set Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -724,7 +724,7 @@ namespace MeghalayaUIP.User.CFE
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;

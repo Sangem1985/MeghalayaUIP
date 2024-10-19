@@ -808,7 +808,7 @@ namespace MeghalayaUIP.User.Renewal
                         if (result != "")
                         {
                             hypEmployeelist.Text = fupEmployeelist.PostedFile.FileName;
-                            hypEmployeelist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objRenAttachments.FilePath;
+                            hypEmployeelist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objRenAttachments.FilePath);
                             hypEmployeelist.Target = "blank";
                             message = "alert('" + "Employee List Only Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -900,7 +900,7 @@ namespace MeghalayaUIP.User.Renewal
                         if (result != "")
                         {
                             hypEmployer.Text = fupEmployer.PostedFile.FileName;
-                            hypEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objRenAttachments.FilePath;
+                            hypEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objRenAttachments.FilePath);
                             hypEmployer.Target = "blank";
                             message = "alert('" + "Photo of the Employer/Proprietor Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1526,7 +1526,7 @@ namespace MeghalayaUIP.User.Renewal
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;

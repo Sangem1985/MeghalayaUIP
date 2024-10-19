@@ -115,15 +115,15 @@ namespace MeghalayaUIP.User
                     success.Visible = false;                  
                     FillCapctha();
                 }
-                //if (txtnewpassword.Text.Trim() != txtconfirmpassword.Text.Trim())
-                //{
-                //    lblmsg.Text = "New Password & Confirm Password Doesn't Matched....!";
-                //    FillCapctha();                   
-                //    string message = "alert('" + lblmsg.Text + "')";
-                //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                //    success.Visible = false;
-                //    Failure.Visible = true;
-                //}
+                if (txtnewpassword.Text.Trim() != txtconfirmpassword.Text.Trim())
+                {
+                    lblmsg.Text = "New Password & Confirm Password Sholud be same....!";
+                    FillCapctha();
+                    string message = "alert('" + lblmsg.Text + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    success.Visible = false;
+                    Failure.Visible = true;
+                }
                 //else
                 //{
                 //    lblmsg.Text = "New Password & Confirm Password Matched....!";                   
@@ -162,7 +162,7 @@ namespace MeghalayaUIP.User
                     // ds = objcomBal.GetUserPass(UserID, Password.ToString(), txtoldpassword.Text.Trim());
                     if (ObjUserInfo != null && ObjUserInfo.Userid != null)
                     {
-                        result = objcomBal.GetUserPass(hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
+                        result = objcomBal.ChangeUserPassword(hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
                         if (result != "")
                         {
                             lblmsg.Text = "Password Successfully Changed And Login With New Password..!";

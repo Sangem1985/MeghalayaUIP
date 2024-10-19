@@ -600,27 +600,27 @@ namespace MeghalayaUIP.User.CFE
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 1)//Aadhar
                                 {
                                     hplForm5.Visible = true;
-                                    hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplForm5.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
 
                                     hplLicgrant.Visible = true;
-                                    hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplLicgrant.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
 
                                     hplForm8.Visible = true;
-                                    hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplForm8.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
 
                                     hplForm10.Visible = true;
-                                    hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplForm10.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
 
                                     hplCrimeForm10.Visible = true;
-                                    hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplCrimeForm10.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
 
                                     hplEmployer.Visible = true;
-                                    hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplEmployer.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                             }
@@ -1108,7 +1108,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplLicgrant.Text = fupLicgrant.PostedFile.FileName;
-                            hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objAadhar.FilePath; 
+                            hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
                             hplLicgrant.Target = "blank";
                             message = "alert('" + "License Grant Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1219,7 +1219,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplForm5.Text = fupForm5.PostedFile.FileName;
-                            hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objApplPhoto.FilePath;
+                            hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objApplPhoto.FilePath);
                             hplForm5.Target = "blank";
                             message = "alert('" + "Form5 Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1278,7 +1278,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplForm8.Text = fupForm8.PostedFile.FileName;
-                            hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objLandDoc.FilePath;
+                            hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objLandDoc.FilePath);
                             hplForm8.Target = "blank";
                             message = "alert('" + "Form 8 Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1338,7 +1338,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplForm10.Text = fupForm10.PostedFile.FileName;
-                            hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objSitePlan.FilePath; 
+                            hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objSitePlan.FilePath); 
                             hplForm10.Target = "blank";
                             message = "alert('" + "Form 10 Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1398,7 +1398,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplCrimeForm10.Text = fupCrimeForm10.PostedFile.FileName;
-                            hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objSitePlan.FilePath; 
+                            hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objSitePlan.FilePath); 
                             hplCrimeForm10.Target = "blank";
                             message = "alert('" + "Residence and Criminal antecedents issued by District Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1458,7 +1458,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplEmployer.Text = fupemployer.PostedFile.FileName;
-                            hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objSitePlan.FilePath; 
+                            hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objSitePlan.FilePath); 
                             hplEmployer.Target = "blank";
                             message = "alert('" + "Principle Employer Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1492,7 +1492,7 @@ namespace MeghalayaUIP.User.CFE
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;

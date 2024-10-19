@@ -151,7 +151,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password" MinLength="8" MaxLength="12" 
+                                                    <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password" MinLength="8" MaxLength="12" onblur="return fnEncryption();" 
                                                         AutoComplete="off" AutoCompleteType="None" ToolTip="Password must have minimum 8 length, atleast one upper case letter, one lower case letter, one numer and one special character"></asp:TextBox>
                                                 </div>
                                             </div>
@@ -190,7 +190,7 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-grup">
-                                                    <asp:Button runat="server" CssClass=" btn btn-primary" Text="Submit" ID="btnSubmit" OnClientClick="fnEncryption()" OnClick="btnSubmit_Click"></asp:Button>
+                                                    <asp:Button runat="server" CssClass=" btn btn-primary" Text="Submit" ID="btnSubmit"  OnClick="btnSubmit_Click"></asp:Button>
                                                       <asp:HiddenField runat="server" ID="asp_hidden" />
 
                                                 </div>

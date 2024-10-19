@@ -115,25 +115,25 @@ namespace MeghalayaUIP.User.CFE
                             if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 39)
                             {
                                 hypNocHeadman.Visible = true;
-                                hypNocHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypNocHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
                                 hypNocHeadman.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 40)
                             {
                                 hypfireDepartment.Visible = true;
-                                hypfireDepartment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypfireDepartment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
                                 hypfireDepartment.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 41)
                             {
                                 hypsite.Visible = true;
-                                hypsite.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypsite.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"])));
                                 hypsite.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 42)
                             {
                                 hypExplosives.Visible = true;
-                                hypExplosives.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                hypExplosives.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"])));
                                 hypExplosives.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                             }
                         }
@@ -511,7 +511,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypNocHeadman.Text = fupNocHeadman.PostedFile.FileName;
-                            hypNocHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypNocHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupNocHeadman.PostedFile.FileName);
                             hypNocHeadman.Target = "blank";
                             message = "alert('" + "NOC from Headman for proposed site for rural areas and NOC from Local Authority for urban areas Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -586,7 +586,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypfireDepartment.Text = fupFireDepartment.PostedFile.FileName;
-                            hypfireDepartment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypfireDepartment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupFireDepartment.PostedFile.FileName);
                             hypfireDepartment.Target = "blank";
                             message = "alert('" + "Clearance certificate from Fire Department Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -661,7 +661,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypsite.Text = fupsite.PostedFile.FileName;
-                            hypsite.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypsite.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupsite.PostedFile.FileName);
                             hypsite.Target = "blank";
                             message = "alert('" + "Details of site where explosives will be used and distance of site of use from the storage premises (Site layout) Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -736,7 +736,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypExplosives.Text = fupExplosives.PostedFile.FileName;
-                            hypExplosives.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypExplosives.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupExplosives.PostedFile.FileName);
                             hypExplosives.Target = "blank";
                             message = "alert('" + "Clearance from Deputy Controller of Explosives Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -822,7 +822,7 @@ namespace MeghalayaUIP.User.CFE
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;

@@ -134,7 +134,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     ObjUserInfo = objloginBAL.GetDeptUserInfo(UserID, txtoldpassword.Text.Trim(), getclientIP());//,Dept  
                     if (ObjUserInfo != null && ObjUserInfo.UserID != null)
                     {
-                        result = objcomBal.GetDeptChangePassword(hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
+                        result = objcomBal.ChangeDeptUserPassword (hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
                         if (result != "")
                         {
                             lblmsg.Text = "Password Successfully Changed And Login With New Password..!";

@@ -295,13 +295,13 @@ namespace MeghalayaUIP.User.CFE
                                 if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 37)
                                 {
                                     hypbuildingplan.Visible = true;
-                                    hypbuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                    hypbuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
                                     hypbuildingplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 38)
                                 {
                                     hypfireplan.Visible = true;
-                                    hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]);
+                                    hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
                                     hypfireplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                                 }
 
@@ -652,7 +652,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypbuildingplan.Text = fupBuildingplan.PostedFile.FileName;
-                            hypbuildingplan.NavigateUrl = serverpath;
+                            hypbuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupBuildingplan.PostedFile.FileName);
                             hypbuildingplan.Target = "blank";
                             message = "alert('" + "Blueprint of Building i.e. Building Plan as per NBC Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -727,7 +727,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hypfireplan.Text = fupfireplan.PostedFile.FileName;
-                            hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objManufacture.FilePath;
+                            hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objManufacture.FilePath);
                             hypfireplan.Target = "blank";
                             message = "alert('" + "Fire Lay out Plan Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -813,7 +813,7 @@ namespace MeghalayaUIP.User.CFE
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;

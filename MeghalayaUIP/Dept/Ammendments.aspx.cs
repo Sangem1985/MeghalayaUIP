@@ -277,7 +277,9 @@ namespace MeghalayaUIP.Dept
                     }
                     catch (Exception ex)//in case of an error
                     {
-                       
+                        lblmsg0.Text = ex.Message;
+                        Failure.Visible = true;
+                        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
                     }
                 }
                 else
@@ -350,7 +352,7 @@ namespace MeghalayaUIP.Dept
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;

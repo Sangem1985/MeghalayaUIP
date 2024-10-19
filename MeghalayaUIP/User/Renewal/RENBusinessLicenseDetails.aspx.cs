@@ -322,7 +322,7 @@ namespace MeghalayaUIP.User.Renewal
                         if (result != "")
                         {
                             hypPhoto.Text = fupPhoto.PostedFile.FileName;
-                            hypPhoto.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objRenAttachments.FilePath;
+                            hypPhoto.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objRenAttachments.FilePath);
                             hypPhoto.Target = "blank";
                             message = "alert('" + "Passport Size Photograph of Individual Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -450,7 +450,7 @@ namespace MeghalayaUIP.User.Renewal
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;

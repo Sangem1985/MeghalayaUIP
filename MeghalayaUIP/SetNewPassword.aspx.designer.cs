@@ -7,48 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User
+namespace MeghalayaUIP
 {
 
 
-    public partial class ChangePassword
+    public partial class SetNewPassword
     {
-
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
-        /// lbtnBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
-
-        /// <summary>
-        /// asp_hidden control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField asp_hidden;
 
         /// <summary>
         /// success control.
@@ -69,6 +33,15 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.Label lblmsg;
 
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// Failure control.
         /// </summary>
         /// <remarks>
@@ -87,6 +60,24 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.Label lblmsg0;
 
         /// <summary>
+        /// divnewpswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divnewpswd;
+
+        /// <summary>
+        /// asp_hidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField asp_hidden;
+
+        /// <summary>
         /// hdnUserID control.
         /// </summary>
         /// <remarks>
@@ -96,22 +87,22 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// txtusername control.
+        /// lblusername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtusername;
+        protected global::System.Web.UI.WebControls.Label lblusername;
 
         /// <summary>
-        /// txtoldpassword control.
+        /// txtSecretKey control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtoldpassword;
+        protected global::System.Web.UI.WebControls.TextBox txtSecretKey;
 
         /// <summary>
         /// txtnewpassword control.
@@ -159,66 +150,12 @@ namespace MeghalayaUIP.User
         protected global::System.Web.UI.WebControls.ImageButton btnRefresh;
 
         /// <summary>
-        /// trsubmittion control.
+        /// BtnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trsubmittion;
-
-        /// <summary>
-        /// BtnSave3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSave3;
-
-        /// <summary>
-        /// BTNcLEAR control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BTNcLEAR;
-
-        /// <summary>
-        /// vg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary vg;
-
-        /// <summary>
-        /// hdfID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfID;
-
-        /// <summary>
-        /// hdfFlagID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfFlagID;
-
-        /// <summary>
-        /// UpdateProgress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress UpdateProgress;
+        protected global::System.Web.UI.WebControls.Button BtnUpdate;
     }
 }

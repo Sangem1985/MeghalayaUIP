@@ -92,31 +92,31 @@ namespace MeghalayaUIP.User.CFE
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 11)//Aadhar
                                 {
                                     hplAadhar.Visible = true;
-                                    hplAadhar.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplAadhar.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplAadhar.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 12) //EPIC Document
                                 {
                                     hplEPIC.Visible = true;
-                                    hplEPIC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplEPIC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplEPIC.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 13) //Applicant Photograph
                                 {
                                     hplApplPhoto.Visible = true;
-                                    hplApplPhoto.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplApplPhoto.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplApplPhoto.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 14) //Land Document /Sale Deed
                                 {
                                     hplLandDoc.Visible = true;
-                                    hplLandDoc.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplLandDoc.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplLandDoc.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 15) //Site Plan
                                 {
                                     hplSitePlan.Visible = true;
-                                    hplSitePlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                                    hplSitePlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                                     hplSitePlan.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                 }
                             }
@@ -184,7 +184,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplAadhar.Text = fupAadhar.PostedFile.FileName;
-                            hplAadhar.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupAadhar.PostedFile.FileName;
+                            hplAadhar.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupAadhar.PostedFile.FileName);
                             hplAadhar.Target = "blank";
                             message = "alert('" + "Aadhar Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -262,7 +262,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplEPIC.Text = fupEPIC.PostedFile.FileName;
-                            hplEPIC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupEPIC.PostedFile.FileName;
+                            hplEPIC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupEPIC.PostedFile.FileName);
                             hplEPIC.Target = "blank";
                             message = "alert('" + "EPIC Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -339,7 +339,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplApplPhoto.Text = fupApplPhoto.PostedFile.FileName;
-                            hplApplPhoto.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupApplPhoto.PostedFile.FileName;
+                            hplApplPhoto.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupApplPhoto.PostedFile.FileName);
                             hplApplPhoto.Target = "blank";
                             message = "alert('" + "Applicant Photo Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -415,7 +415,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplLandDoc.Text = fupLandDoc.PostedFile.FileName;
-                            hplLandDoc.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupLandDoc.PostedFile.FileName;
+                            hplLandDoc.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupLandDoc.PostedFile.FileName);
                             hplLandDoc.Target = "blank";
                             message = "alert('" + "Land Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -492,7 +492,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplSitePlan.Text = fupSitePlan.PostedFile.FileName;
-                            hplSitePlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + serverpath + fupSitePlan.PostedFile.FileName;
+                            hplSitePlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupSitePlan.PostedFile.FileName);
                             hplSitePlan.Target = "blank";
                             message = "alert('" + "Site Plan Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -577,7 +577,7 @@ namespace MeghalayaUIP.User.CFE
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;
