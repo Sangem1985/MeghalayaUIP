@@ -102,7 +102,7 @@
                                     </asp:LinkButton>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkQueryRaised" ForeColor="White">
+                                    <asp:LinkButton runat="server" ID="linkQueryRaised" ForeColor="White" OnClick="linkQueryRaised_Click">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -120,7 +120,25 @@
                                             </div>
                                         </div>
                                     </asp:LinkButton>
-                                </div>                               
+                                </div> 
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkRejected" ForeColor="White" OnClick="linkRejected_Click" >
+                                        <div class="info-box bg-pink hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblRejected" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    Rejected
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
                             </div>
                         </div>
                     </section>                 

@@ -64,35 +64,13 @@ namespace MeghalayaUIP.Dept.LA
 
                 if (dt.Rows.Count > 0)
                 {
-                    //--------------------Commented for new dept flow-----------------------------------//
-                    //lblIMATotal.Text = dt.Rows[0]["IMATOTAL"].ToString();
-                    //lblIMATOBEPROCESSED.Text = dt.Rows[0]["IMATOBEPROCESSED"].ToString();
-                    ////lblIMAPROCESSED.Text = dt.Rows[0]["IMAPROCESSED"].ToString();
-                    //lblIMAPPROVED.Text = dt.Rows[0]["IMAPPROVED"].ToString();
-                    //lblIMAQUERY.Text = dt.Rows[0]["IMAQUERY"].ToString();
-                    //lblIMAQUERYREPLIED.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString(); 
-                    //--------------------Commented for new dept flow-----------------------------------//
-
-
+                   
 
                     lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
                     lblIMATOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
                     lblIMAPPROVED.Text = dt.Rows[0]["APPROVED"].ToString();
-                    lblQueryRaised.Text = dt.Rows[0]["LANDQUERYRAISED"].ToString();
-                    //lblQueryResponded.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString();
-                    //lblIMATOAPPLICANTTQUERY.Text = dt.Rows[0]["IMAQUERYTOAPPLCNT"].ToString();
-                    //lblIMAQUERYREPLIEDBYAPPLICANT.Text = dt.Rows[0]["APPLCNTREPLIEDTOIMA"].ToString();
-                    //lblIMATODEPTQUERY.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
-                    //lblIMAQUERYREPLIEDBYDEPT.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
-
-
-
-                    //lblCommitteeQuery.Text = dt.Rows[0]["COMMQUERYTOIMA"].ToString();
-                    //lblIMARepltoCommittee.Text = dt.Rows[0]["IMAREPLIEDTOCOMM"].ToString();
-                    //lblComquryfwdtoapplcnt.Text = dt.Rows[0]["IMAFWDCOMMQRYTOAPPLCNT"].ToString();
-                    //lblComquryrepliedbyapplcnt.Text = dt.Rows[0]["APPLCNTREPLIEDTOCOMMQRY"].ToString();
-                    //lblComquryfwdtoDept.Text = dt.Rows[0]["IMAFWDCOMMQRYTODEPT"].ToString();
-                    //lblDeptrepliedtoCommittee.Text = dt.Rows[0]["DEPTREPLIEDTOCOMMQRY"].ToString();
+                    lblQueryRaised.Text = dt.Rows[0]["QUERYRAISED"].ToString();
+                    lblRejected.Text = dt.Rows[0]["REJECTED"].ToString();
                 }
                 else
                 {
@@ -100,6 +78,7 @@ namespace MeghalayaUIP.Dept.LA
                     lblIMATOBEPROCESSED.Text = "0";
                     lblIMAPPROVED.Text = "0";
                     lblQueryRaised.Text = "0";
+                    lblRejected.Text = "0";
                 }
             }
             catch (Exception ex)
@@ -112,6 +91,23 @@ namespace MeghalayaUIP.Dept.LA
 
         }
 
+        
+
+        protected void linkTotal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblTotalApp.Text != "0")
+                    Response.Redirect("LAApplView.aspx?status=TOTAL");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
         protected void linktobeProc_Click(object sender, EventArgs e)
         {
             try
@@ -134,7 +130,7 @@ namespace MeghalayaUIP.Dept.LA
             try
             {
                 if (lblIMAPPROVED.Text != "0")
-                    Response.Redirect("LAApplView.aspx?status=LANDAPPROVED");
+                    Response.Redirect("LAApplView.aspx?status=APPROVED");
             }
             catch (Exception ex)
             {
@@ -145,12 +141,28 @@ namespace MeghalayaUIP.Dept.LA
             }
         }
 
-        protected void linkTotal_Click(object sender, EventArgs e)
+        protected void linkQueryRaised_Click(object sender, EventArgs e)
         {
             try
             {
-                if (lblTotalApp.Text != "0")
-                    Response.Redirect("LAApplView.aspx?status=TOTAL");
+                if (lblQueryRaised.Text != "0")
+                    Response.Redirect("LAApplView.aspx?status=QUERYRAISED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
+
+        protected void linkRejected_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblRejected.Text != "0")
+                    Response.Redirect("LAApplView.aspx?status=REJECTED");
             }
             catch (Exception ex)
             {

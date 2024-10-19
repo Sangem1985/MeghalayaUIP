@@ -14,6 +14,7 @@ using System.IO;
 using System.Configuration;
 using MeghalayaUIP.CommonClass;
 using System.Text.RegularExpressions;
+using static AjaxControlToolkit.AsyncFileUpload.Constants;
 
 namespace MeghalayaUIP.User.Grievance
 {
@@ -457,40 +458,51 @@ namespace MeghalayaUIP.User.Grievance
                             return;
                         }
                     }
-                    int j = 0;
-                    //    (string RegisterType, string ModuleType, string UIDNo, string UnitID, string UnitName, string ApplcantName,
-                    //string DistID, string Email, string Mobile, string intDeptid, string Subject, string Description, string Grivance_FilePath,
-                    //string Grivance_FileType, string GrievnaceFileName, string Createdby, string IPAddress)
-                    string UnitID = "";
-                    if (ddlModule.SelectedValue == "1" && ddlPreRegUnits.Items.Count > 0)
-                    { UnitID = ddlPreRegUnits.SelectedValue; }
-                    else if (ddlModule.SelectedValue == "2" && ddlCFEUnits.Items.Count > 0)
-                    { UnitID = ddlCFEUnits.SelectedValue; }
-                    else if (ddlModule.SelectedValue == "3" && ddlCFOUnits.Items.Count > 0)
-                    { UnitID = ddlCFOUnits.SelectedValue; }
-                    else if (ddlModule.SelectedValue == "4" && ddlRENUnits.Items.Count > 0)
-                    { UnitID = ddlRENUnits.SelectedValue; }
-                    else if (ddlModule.SelectedValue == "5" && ddlIncUnits.Items.Count > 0)
-                    { UnitID = ddlIncUnits.SelectedValue; }
-                    else UnitID = "";
-
-                    j = objcommon.InsertGrievance(ddlRegisterAs.SelectedValue, ddlModule.SelectedItem.Text, "", UnitID, txtindname.Text, txtApplcantName.Text,
-                        ddldist.SelectedValue, txtEmail.Text.Trim(), txtMob.Text.Trim(), ddldept.SelectedValue.ToString(),
-                        txtSub.Text.Trim(), txtDesc.Text.Trim(), Grivance_File_Path, Grivance_File_Type, Grievnace_FileName,
-                       hdnUserID.Value, getclientIP());
-                    if (j != 0)
+                    if (ErrorMsg == "")
                     {
-                        lblmsg.Text = "Details Submited Successfully..!";
-                        success.Visible = true;
-                        btnsave.Enabled = false;
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        int j = 0;
+                        //    (string RegisterType, string ModuleType, string UIDNo, string UnitID, string UnitName, string ApplcantName,
+                        //string DistID, string Email, string Mobile, string intDeptid, string Subject, string Description, string Grivance_FilePath,
+                        //string Grivance_FileType, string GrievnaceFileName, string Createdby, string IPAddress)
+                        string UnitID = "";
+                        if (ddlModule.SelectedValue == "1" && ddlPreRegUnits.Items.Count > 0)
+                        { UnitID = ddlPreRegUnits.SelectedValue; }
+                        else if (ddlModule.SelectedValue == "2" && ddlCFEUnits.Items.Count > 0)
+                        { UnitID = ddlCFEUnits.SelectedValue; }
+                        else if (ddlModule.SelectedValue == "3" && ddlCFOUnits.Items.Count > 0)
+                        { UnitID = ddlCFOUnits.SelectedValue; }
+                        else if (ddlModule.SelectedValue == "4" && ddlRENUnits.Items.Count > 0)
+                        { UnitID = ddlRENUnits.SelectedValue; }
+                        else if (ddlModule.SelectedValue == "5" && ddlIncUnits.Items.Count > 0)
+                        { UnitID = ddlIncUnits.SelectedValue; }
+                        else UnitID = "";
 
+                        j = objcommon.InsertGrievance(ddlRegisterAs.SelectedValue, ddlModule.SelectedItem.Text, "", UnitID, txtindname.Text, txtApplcantName.Text,
+                            ddldist.SelectedValue, txtEmail.Text.Trim(), txtMob.Text.Trim(), ddldept.SelectedValue.ToString(),
+                            txtSub.Text.Trim(), txtDesc.Text.Trim(), Grivance_File_Path, Grivance_File_Type, Grievnace_FileName,
+                           hdnUserID.Value, getclientIP());
+                        if (j != 0)
+                        {
+                            lblmsg.Text = "Details Submited Successfully..!";
+                            success.Visible = true;
+                            btnsave.Enabled = false;
+                            string message = "alert('" + lblmsg.Text + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        }
+                        else
+                        {
+                            lblmsg0.Text = "Error Occured, Please try again!";
+                            Failure.Visible = false;
+                        }
                     }
                     else
                     {
-                        lblmsg0.Text = "Error Occured, Please try again!";
-                        Failure.Visible = false;
+                        Failure.Visible = true;
+                        lblmsg0.Text = ErrorMsg.Replace(@"\n", "");
+                        string message = "alert('" + ErrorMsg + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
                     }
                 }
                 else
@@ -564,9 +576,11 @@ namespace MeghalayaUIP.User.Grievance
                     errormsg = errormsg + slno + ". Please Enter Description  \\n";
                     slno = slno + 1;
                 }
-
+                if (FileUpload.HasFile)
+                {
+                    errormsg = errormsg+ validations(FileUpload);
+                }
                 return errormsg;
-
             }
             catch (Exception ex)
             {
