@@ -37,7 +37,7 @@ namespace MeghalayaUIP.Dept.LA
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-                   Bind();
+                    Bind();
                 }
             }
             catch (Exception ex)
@@ -62,36 +62,45 @@ namespace MeghalayaUIP.Dept.LA
 
                 dt = Objland.GetLADeptDashBoard(objDtls);
 
-
-                //--------------------Commented for new dept flow-----------------------------------//
-                //lblIMATotal.Text = dt.Rows[0]["IMATOTAL"].ToString();
-                //lblIMATOBEPROCESSED.Text = dt.Rows[0]["IMATOBEPROCESSED"].ToString();
-                ////lblIMAPROCESSED.Text = dt.Rows[0]["IMAPROCESSED"].ToString();
-                //lblIMAPPROVED.Text = dt.Rows[0]["IMAPPROVED"].ToString();
-                //lblIMAQUERY.Text = dt.Rows[0]["IMAQUERY"].ToString();
-                //lblIMAQUERYREPLIED.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString(); 
-                //--------------------Commented for new dept flow-----------------------------------//
-
-
-
-                lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
-                lblIMATOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
-                lblIMAPPROVED.Text = dt.Rows[0]["APPROVED"].ToString();
-                lblQueryRaised.Text = dt.Rows[0]["LANDQUERYRAISED"].ToString();
-                //lblQueryResponded.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString();
-                //lblIMATOAPPLICANTTQUERY.Text = dt.Rows[0]["IMAQUERYTOAPPLCNT"].ToString();
-                //lblIMAQUERYREPLIEDBYAPPLICANT.Text = dt.Rows[0]["APPLCNTREPLIEDTOIMA"].ToString();
-                //lblIMATODEPTQUERY.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
-                //lblIMAQUERYREPLIEDBYDEPT.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
+                if (dt.Rows.Count > 0)
+                {
+                    //--------------------Commented for new dept flow-----------------------------------//
+                    //lblIMATotal.Text = dt.Rows[0]["IMATOTAL"].ToString();
+                    //lblIMATOBEPROCESSED.Text = dt.Rows[0]["IMATOBEPROCESSED"].ToString();
+                    ////lblIMAPROCESSED.Text = dt.Rows[0]["IMAPROCESSED"].ToString();
+                    //lblIMAPPROVED.Text = dt.Rows[0]["IMAPPROVED"].ToString();
+                    //lblIMAQUERY.Text = dt.Rows[0]["IMAQUERY"].ToString();
+                    //lblIMAQUERYREPLIED.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString(); 
+                    //--------------------Commented for new dept flow-----------------------------------//
 
 
 
-                //lblCommitteeQuery.Text = dt.Rows[0]["COMMQUERYTOIMA"].ToString();
-                //lblIMARepltoCommittee.Text = dt.Rows[0]["IMAREPLIEDTOCOMM"].ToString();
-                //lblComquryfwdtoapplcnt.Text = dt.Rows[0]["IMAFWDCOMMQRYTOAPPLCNT"].ToString();
-                //lblComquryrepliedbyapplcnt.Text = dt.Rows[0]["APPLCNTREPLIEDTOCOMMQRY"].ToString();
-                //lblComquryfwdtoDept.Text = dt.Rows[0]["IMAFWDCOMMQRYTODEPT"].ToString();
-                //lblDeptrepliedtoCommittee.Text = dt.Rows[0]["DEPTREPLIEDTOCOMMQRY"].ToString();
+                    lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
+                    lblIMATOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
+                    lblIMAPPROVED.Text = dt.Rows[0]["APPROVED"].ToString();
+                    lblQueryRaised.Text = dt.Rows[0]["LANDQUERYRAISED"].ToString();
+                    //lblQueryResponded.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString();
+                    //lblIMATOAPPLICANTTQUERY.Text = dt.Rows[0]["IMAQUERYTOAPPLCNT"].ToString();
+                    //lblIMAQUERYREPLIEDBYAPPLICANT.Text = dt.Rows[0]["APPLCNTREPLIEDTOIMA"].ToString();
+                    //lblIMATODEPTQUERY.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
+                    //lblIMAQUERYREPLIEDBYDEPT.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
+
+
+
+                    //lblCommitteeQuery.Text = dt.Rows[0]["COMMQUERYTOIMA"].ToString();
+                    //lblIMARepltoCommittee.Text = dt.Rows[0]["IMAREPLIEDTOCOMM"].ToString();
+                    //lblComquryfwdtoapplcnt.Text = dt.Rows[0]["IMAFWDCOMMQRYTOAPPLCNT"].ToString();
+                    //lblComquryrepliedbyapplcnt.Text = dt.Rows[0]["APPLCNTREPLIEDTOCOMMQRY"].ToString();
+                    //lblComquryfwdtoDept.Text = dt.Rows[0]["IMAFWDCOMMQRYTODEPT"].ToString();
+                    //lblDeptrepliedtoCommittee.Text = dt.Rows[0]["DEPTREPLIEDTOCOMMQRY"].ToString();
+                }
+                else
+                {
+                    lblTotalApp.Text = "0";
+                    lblIMATOBEPROCESSED.Text = "0";
+                    lblIMAPPROVED.Text = "0";
+                    lblQueryRaised.Text = "0";
+                }
             }
             catch (Exception ex)
             {
