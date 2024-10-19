@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static AjaxControlToolkit.AsyncFileUpload.Constants;
 
 namespace MeghalayaUIP
 {
@@ -321,36 +322,44 @@ namespace MeghalayaUIP
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
-                    int j = 0;
-                    string UnitID = "";
-                    if (ddlModule.SelectedValue == "1" && ddlPreRegUnits.Items.Count > 0)
-                    { UnitID = ddlPreRegUnits.SelectedValue; }
-                    else if (ddlModule.SelectedValue == "2" && ddlCFEUnits.Items.Count > 0)
-                    { UnitID = ddlCFEUnits.SelectedValue; }
-                    else if (ddlModule.SelectedValue == "3" && ddlCFOUnits.Items.Count > 0)
-                    { UnitID = ddlCFOUnits.SelectedValue; }
-                    else if (ddlModule.SelectedValue == "4" && ddlRENUnits.Items.Count > 0)
-                    { UnitID = ddlRENUnits.SelectedValue; }
-                    else if (ddlModule.SelectedValue == "5" && ddlIncUnits.Items.Count > 0)
-                    { UnitID = ddlIncUnits.SelectedValue; }
-                    else UnitID = "";
-
-                    j = objcommon.InsertGrievance(ddlRegisterAs.SelectedValue, ddlModule.SelectedItem.Text, "", UnitID, txtindname.Text, txtApplcantName.Text,
-                        ddldist.SelectedValue, txtEmail.Text.Trim(), txtMob.Text.Trim(), ddldept.SelectedValue.ToString(),
-                        txtSub.Text.Trim(), txtDesc.Text.Trim(), Grivance_File_Path, Grivance_File_Type, Grievnace_FileName,
-                       "", getclientIP());
-                    if (j != 0)
+                    if (ErrorMsg == "")
                     {
-                        lblmsg.Text = "Details Submited Successfully..!";
-                        success.Visible = true;
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        int j = 0;
+                        string UnitID = "";
+                        if (ddlModule.SelectedValue == "1" && ddlPreRegUnits.Items.Count > 0)
+                        { UnitID = ddlPreRegUnits.SelectedValue; }
+                        else if (ddlModule.SelectedValue == "2" && ddlCFEUnits.Items.Count > 0)
+                        { UnitID = ddlCFEUnits.SelectedValue; }
+                        else if (ddlModule.SelectedValue == "3" && ddlCFOUnits.Items.Count > 0)
+                        { UnitID = ddlCFOUnits.SelectedValue; }
+                        else if (ddlModule.SelectedValue == "4" && ddlRENUnits.Items.Count > 0)
+                        { UnitID = ddlRENUnits.SelectedValue; }
+                        else if (ddlModule.SelectedValue == "5" && ddlIncUnits.Items.Count > 0)
+                        { UnitID = ddlIncUnits.SelectedValue; }
+                        else UnitID = "";
 
+                        j = objcommon.InsertGrievance(ddlRegisterAs.SelectedValue, ddlModule.SelectedItem.Text, "", UnitID, txtindname.Text, txtApplcantName.Text,
+                            ddldist.SelectedValue, txtEmail.Text.Trim(), txtMob.Text.Trim(), ddldept.SelectedValue.ToString(),
+                            txtSub.Text.Trim(), txtDesc.Text.Trim(), Grivance_File_Path, Grivance_File_Type, Grievnace_FileName,
+                           "", getclientIP());
+                        if (j != 0)
+                        {
+                            lblmsg.Text = "Details Submited Successfully..!";
+                            success.Visible = true;
+                            string message = "alert('" + lblmsg.Text + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        }
+                        else
+                        {
+                            lblmsg0.Text = "Error Occured, Please try again!";
+                            Failure.Visible = false;
+                        }
                     }
                     else
                     {
-                        lblmsg0.Text = "Error Occured, Please try again!";
-                        Failure.Visible = false;
+                        string message = "alert('" + ErrorMsg + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                 }
                 else
@@ -465,6 +474,10 @@ namespace MeghalayaUIP
                     slno = slno + 1;
                 }
                 // }
+                if (FileUpload.HasFile)
+                {
+                    Error = Error + validations(FileUpload);
+                }
                 return Error;
             }
             catch (Exception ex)
@@ -493,7 +506,7 @@ namespace MeghalayaUIP
                 string[] fileType = Attachmentname.Split('.');
                 int i = fileType.Length;
 
-                if (i == 2)
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                     return true;
                 else
                     return false;
