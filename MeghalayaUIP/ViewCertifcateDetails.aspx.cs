@@ -25,6 +25,11 @@ namespace MeghalayaUIP
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Select Application Type')", true);
                 return;
             }
+            if (string.IsNullOrEmpty(txtUnitName.Value)||(txtUnitName.Value == "")||(txtUnitName.Value == null))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Enter UnitName')", true);
+                return;
+            }
             string TypeOfApplication = ddlTypeApplication.SelectedValue.ToString();
             string UIDNo = txtUIDNo.Value.ToString();
             string UnitName = txtUnitName.Value.ToString();
