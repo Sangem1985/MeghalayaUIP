@@ -26,7 +26,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                       
+
                     }
                     if (hdnUserID.Value == "")
                     {
@@ -40,7 +40,7 @@ namespace MeghalayaUIP.Dept.Dashboard
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -68,7 +68,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                 ViewState["captcha"] = captcha.ToString();
                 imgCaptcha.ImageUrl = "~/CaptchaHandler.ashx?query=" + captcha.ToString();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
@@ -80,91 +80,123 @@ namespace MeghalayaUIP.Dept.Dashboard
         {
             try
             {
-                String UserID = "", result = "";
-                if (ViewState["captcha"].ToString() != txtcaptcha.Text.Trim().TrimStart())
+                String UserID = "", result = "", ErrorMsg = "";
+                ErrorMsg = Validations();
+                if (ErrorMsg == "")
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Captcha Code !!.');", true);
-                    FillCapctha();
-                    lblmsg.Text = "Invalid Captcha Code....!!";
-                    success.Visible = false;
-                    Failure.Visible = true;
-                    txtcaptcha.Text = "";
-                    return;
-                }
-                if (string.IsNullOrEmpty(txtusername.Text) || string.IsNullOrEmpty(txtoldpassword.Text))
-                {
-                    lblmsg0.Text = "Please Enter Username And Old Password...!";
-                    string message = "alert('" + lblmsg0.Text + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    FillCapctha();
-                    success.Visible = false;
-                    Failure.Visible = true;
-                }
-                if (string.IsNullOrEmpty(txtnewpassword.Text) || string.IsNullOrEmpty(txtconfirmpassword.Text))
-                {
-                    lblmsg0.Text = "Please Enter New Password And Confirm Password...!";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
-                    Failure.Visible = true;
-                    success.Visible = false;
-                    FillCapctha();
-                }
-
-                if (BtnSave3.Text == "Submit")
-                {
-                    if (txtoldpassword.Text.Trim() == txtnewpassword.Text)
+                    if (BtnSave3.Text == "Submit")
                     {
-
-                        lblmsg.Text = "Old Password and New Password should not be same";
-                        success.Visible = false;
-                        Failure.Visible = true;
-                        FillCapctha();
-                        return;
-                    }
-                    if (txtnewpassword.Text.Trim() != txtconfirmpassword.Text.Trim())
-                    {
-                        lblmsg.Text = "New Password & Confirm Password Doesn't Matched....!";
-                        success.Visible = false;
-                        Failure.Visible = true;
-                        FillCapctha();
-                        return;
-                    }
-
-                    UserID = txtusername.Text;
-                    DeptUserInfo ObjUserInfo;
-                    ObjUserInfo = objloginBAL.GetDeptUserInfo(UserID, txtoldpassword.Text.Trim(), getclientIP());//,Dept  
-                    if (ObjUserInfo != null && ObjUserInfo.UserID != null)
-                    {
-                        result = objcomBal.ChangeDeptUserPassword (hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
-                        if (result != "")
+                        if (txtoldpassword.Text.Trim() == txtnewpassword.Text)
                         {
-                            lblmsg.Text = "Password Successfully Changed And Login With New Password..!";
-                            success.Visible = true;
-                            Failure.Visible = false;
-                            trsubmittion.Visible = false;
+
+                            lblmsg.Text = "Old Password and New Password should not be same";
+                            success.Visible = false;
+                            Failure.Visible = true;
+                            FillCapctha();
+                            return;
+                        }
+                        if (txtnewpassword.Text.Trim() != txtconfirmpassword.Text.Trim())
+                        {
+                            lblmsg.Text = "New Password & Confirm Password Doesn't Matched....!";
+                            success.Visible = false;
+                            Failure.Visible = true;
+                            FillCapctha();
+                            return;
+                        }
+
+                        UserID = txtusername.Text;
+                        DeptUserInfo ObjUserInfo;
+                        ObjUserInfo = objloginBAL.GetDeptUserInfo(UserID, txtoldpassword.Text.Trim(), getclientIP());//,Dept  
+                        if (ObjUserInfo != null && ObjUserInfo.UserID != null)
+                        {
+                            result = objcomBal.ChangeDeptUserPassword(hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
+                            if (result != "")
+                            {
+                                lblmsg.Text = "Password Successfully Changed And Login With New Password..!";
+                                success.Visible = true;
+                                Failure.Visible = false;
+                                trsubmittion.Visible = false;
+                                string message = "alert('" + lblmsg.Text + "')";
+                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                                Response.Redirect("~/Deptlogin.aspx");
+                            }
+                        }
+                        else
+                        {
+                            lblmsg.Text = "Invalid User And Password";
+                            FillCapctha();
+                            success.Visible = false;
+                            Failure.Visible = true;
+                            BTNcLEAR_Click(sender, e);
                             string message = "alert('" + lblmsg.Text + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                            Response.Redirect("~/login.aspx");
+
                         }
                     }
-                    else
-                    {
-                        lblmsg.Text = "Invalid User And Password";
-                        FillCapctha();
-                        success.Visible = false;
-                        Failure.Visible = true;
-                        BTNcLEAR_Click(sender, e);
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
-                    }
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = ErrorMsg.Replace(@"\n", "");
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public string Validations()
+        {
+            try
+            {
+               // int slno = 1;
+                string errormsg = "";
+
+                if (ViewState["captcha"].ToString() != txtcaptcha.Text.Trim().TrimStart())
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Captcha Code !!.');", true);
+                    FillCapctha();
+                    errormsg = errormsg + "Invalid Captcha Code....!! \\n";
+                  //  slno = slno + 1;
+                    txtcaptcha.Text = "";
+                }
+                if (string.IsNullOrEmpty(txtusername.Text) || txtusername.Text == "" || txtusername.Text == null)
+                {
+                    errormsg = errormsg + "Please Enter Username...! \\n";
+                   // slno = slno + 1;
+                    FillCapctha();
+                }
+                if (string.IsNullOrEmpty(txtoldpassword.Text) || txtoldpassword.Text == "" || txtoldpassword.Text == null)
+                {
+                    errormsg = errormsg + "Please Enter Old Password...! \\n";
+                    //slno = slno + 1;
+                    FillCapctha();
+                }
+                if (string.IsNullOrEmpty(txtnewpassword.Text) || txtnewpassword.Text == "" || txtnewpassword.Text == null)
+                {
+                    errormsg = errormsg + "Please Enter New Password ....! \\n";
+                   // slno = slno + 1;
+                    FillCapctha();
+                }
+                if (string.IsNullOrEmpty(txtconfirmpassword.Text) || txtconfirmpassword.Text == "" || txtconfirmpassword.Text == null)
+                {
+                    errormsg = errormsg + "Please Enter Confirm Password...! \\n";
+                   // slno = slno + 1;
+                    FillCapctha();
+                }
+
+
+                return errormsg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
         public static string getclientIP()
@@ -191,7 +223,7 @@ namespace MeghalayaUIP.Dept.Dashboard
             {
                 Response.Redirect("~/Dept/Dashboard/DeptChangePassword");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
