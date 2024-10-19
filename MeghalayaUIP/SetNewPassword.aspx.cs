@@ -108,6 +108,7 @@ namespace MeghalayaUIP
             {
                 DataSet dss = new DataSet();
                 string result = "", ErrorMsg = "";
+                ErrorMsg = Validations();
                 if (ErrorMsg == "")
                 {
                     string email = mstrBAL.DecryptFilePath(Convert.ToString(Request.QueryString[0]));
@@ -195,9 +196,17 @@ namespace MeghalayaUIP
             {
                 Errormsg = "Invalid Captcha Code....!!";
             }
+            if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()))
+            {
+                Errormsg = "Please Enter Captcha";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
+                Failure.Visible = true;
+                FillCapctha();                
+            }
 
 
-            return Errormsg;
+
+                return Errormsg;
 
         }
         public string PasswordDescription(string encrPswd)

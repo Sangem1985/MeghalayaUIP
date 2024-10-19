@@ -81,7 +81,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">User Email Id  *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:Label ID="lblusername" runat="server" class="form-control" ></asp:Label>
+                                                                <asp:Label ID="lblusername" runat="server" class="form-control" onblur="validateEmail(event)" TabIndex="1"></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
