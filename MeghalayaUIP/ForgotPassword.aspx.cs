@@ -109,58 +109,68 @@ namespace MeghalayaUIP
                     ds = objloginBAL.GetDeptUserPwdInfo(txtEmail.Text.Trim().ToString(), "I");
                     if (ds.Tables[0].Rows.Count > 0 && Convert.ToInt16(Convert.ToString(ds.Tables[0].Rows[0]["WRNGPSWDCOUNT"])) <= 4)
                     {
-
-                        Random random = new Random();
-                        string combination = "ABCDEFGHJKLMNPQRSTUVWXYZabdfghjkmnpqrstuvwxyz123456789";
-                        StringBuilder SecretKey = new StringBuilder();
-                        for (int i = 0; i < 10; i++)
-                            SecretKey.Append(combination[random.Next(combination.Length)]);
-                        ViewState["PswdSecretKey"] = SecretKey.ToString();
-                        string passwordlink = Host + "SetNewPassword.aspx?link=" + mstrBAL.EncryptFilePath(txtEmail.Text.Trim()) + "&use=" + mstrBAL.EncryptFilePath(SecretKey.ToString());
-                        string Username = ds.Tables[0].Rows[0]["Username"].ToString();
-                        SMSandMail smsMail = new SMSandMail();
-                        string EmailText = "Dear " + ds.Tables[0].Rows[0]["Fullname"].ToString() + ", Please find the below link to reset the password."
-                            + "</b><br/> Password Reset Link:  <a href='" + passwordlink + "' target='_blank' > Invest Meghalaya Authority - New Password Link </a>"
-                            + "</b><br/> Secret Key:" + SecretKey
-                            + " </b><br/> Please use this Secret Key while creating the new password."
-                            + " </b><br/><br/> Best Regards"
-                            + "</b><br/> Invest Meghalaya Authority";
-
-                        try
+                        if (ds.Tables.Count > 1 && ds.Tables[1].Rows.Count > 0 
+                            && Convert.ToInt32( Convert.ToString(ds.Tables[1].Rows[0]["SENTRESETLINKS"])) < 2)
                         {
-                            smsMail.SendEmailSingle(Username, "", "Password Reset Link", EmailText, "", "General",
-                                "", "", ds.Tables[0].Rows[0]["Userid"].ToString());
+
+                            Random random = new Random();
+                            string combination = "ABCDEFGHJKLMNPQRSTUVWXYZabdfghjkmnpqrstuvwxyz123456789";
+                            StringBuilder SecretKey = new StringBuilder();
+                            for (int i = 0; i < 10; i++)
+                                SecretKey.Append(combination[random.Next(combination.Length)]);
+                            ViewState["PswdSecretKey"] = SecretKey.ToString();
+                            string passwordlink = Host + "SetNewPassword.aspx?link=" + mstrBAL.EncryptFilePath(txtEmail.Text.Trim()) + "&use=" + mstrBAL.EncryptFilePath(SecretKey.ToString());
+                            string Username = ds.Tables[0].Rows[0]["Username"].ToString();
+                            SMSandMail smsMail = new SMSandMail();
+                            string EmailText = "Dear " + ds.Tables[0].Rows[0]["Fullname"].ToString() + ", Please find the below link to reset the password."
+                                + "</b><br/> Password Reset Link:  <a href='" + passwordlink + "' target='_blank' > Invest Meghalaya Authority - New Password Link </a>"
+                                + "</b><br/> Secret Key:" + SecretKey
+                                + " </b><br/> Please use this Secret Key while creating the new password."
+                                + " </b><br/><br/> Best Regards"
+                                + "</b><br/> Invest Meghalaya Authority";
+
                             try
                             {
-
-                                string result = objcomBal.InsertPswdResetKey(txtEmail.Text.Trim(), SecretKey.ToString(), getclientIP());
-                                txtcaptcha.Text = "";
-                                FillCapctha();
-                                if (result != "")
+                                smsMail.SendEmailSingle(Username, "", "Password Reset Link", EmailText, "", "General",
+                                    "", "", ds.Tables[0].Rows[0]["Userid"].ToString());
+                                try
                                 {
-                                    txtEmail.Text = "";
+
+                                    string result = objcomBal.InsertPswdResetKey(txtEmail.Text.Trim(), SecretKey.ToString(), getclientIP());
                                     txtcaptcha.Text = "";
                                     FillCapctha();
-                                    lblmsg.Text = "Password Reset link is shared to your email... The link is valid for 10 min only";
-                                    success.Visible = true;
+                                    if (result != "")
+                                    {
+                                        txtEmail.Text = "";
+                                        txtcaptcha.Text = "";
+                                        FillCapctha();
+                                        lblmsg.Text = "Password Reset link is shared to your email... The link is valid for 10 min only";
+                                        success.Visible = true;
+                                    }
                                 }
+                                catch (SqlException ex)
+                                {
+                                    lblmsg0.Text = "Error Occured ...!";
+                                    Failure.Visible = true;
+
+                                }
+
                             }
-                            catch (SqlException ex)
+                            catch (Exception ex)
                             {
-                                lblmsg0.Text = "Error Occured ...!";
+                                lblmsg0.Text = "Error Occured While sending the mail...!";
                                 Failure.Visible = true;
 
                             }
-
+                            finally
+                            { }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            lblmsg0.Text = "Error Occured While sending the mail...!";
+                            lblmsg0.Text = "Password reset email has already been sent twice today. No more emails will be sent..!";
                             Failure.Visible = true;
-
+                            success.Visible = false;
                         }
-                        finally
-                        { }
 
                     }
                     else
