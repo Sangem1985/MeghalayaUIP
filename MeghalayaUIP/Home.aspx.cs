@@ -16,6 +16,7 @@ namespace MeghalayaUIP
         protected string mipp2024 { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Killsession();
             IncentivePackageDemo027082024 = objmgbal.EncryptFilePath("D:/Meghalaya/Documents/Incentive Package Demo 027082024.pdf");
             unnati2024= objmgbal.EncryptFilePath("D:/Meghalaya/Documents/unnati2024.pdf");
             mipp2024 = objmgbal.EncryptFilePath("D:/Meghalaya/Documents/mipp2024.pdf");
