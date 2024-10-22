@@ -353,6 +353,7 @@
             <asp:PostBackTrigger ControlID="btnNHAI" />
             <asp:PostBackTrigger ControlID="btnHighway" />
             <asp:PostBackTrigger ControlID="btnIntent" />
+             <asp:PostBackTrigger ControlID="btnNocFire" />
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

@@ -911,15 +911,44 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEFD_CFEQDID", Convert.ToInt32(ObjCCFEFireDetails.Questionnariid));
                 com.Parameters.AddWithValue("@CFEFD_UNITID", Convert.ToInt32(ObjCCFEFireDetails.UnitId));
 
-                com.Parameters.AddWithValue("@CFEFD_DISTRICID", Convert.ToInt32(ObjCCFEFireDetails.DistricId));
-                com.Parameters.AddWithValue("@CFEFD_MANDALID", Convert.ToInt32(ObjCCFEFireDetails.MandalId));
-                com.Parameters.AddWithValue("@CFEFD_VILLAGEID", Convert.ToInt32(ObjCCFEFireDetails.VillageId));
-                com.Parameters.AddWithValue("@CFEFD_DISTRICNAME", ObjCCFEFireDetails.DistricName);
-                com.Parameters.AddWithValue("@CFEFD_MANDALNAME", ObjCCFEFireDetails.MandalName);
-                com.Parameters.AddWithValue("@CFEFD_VILLAGENAME", ObjCCFEFireDetails.VillageName);
-                com.Parameters.AddWithValue("@CFEFD_Locality", ObjCCFEFireDetails.Locality);
-                com.Parameters.AddWithValue("@CFEFD_Landmark", ObjCCFEFireDetails.Landmark);
-                com.Parameters.AddWithValue("@CFEFD_Pincode", Convert.ToInt32(ObjCCFEFireDetails.Pincode));
+                if (ObjCCFEFireDetails.DistricId != null && ObjCCFEFireDetails.DistricId != "")
+                {
+                    com.Parameters.AddWithValue("@CFEFD_DISTRICID", Convert.ToInt32(ObjCCFEFireDetails.DistricId));
+                }
+                if (ObjCCFEFireDetails.MandalId != null && ObjCCFEFireDetails.MandalId != "")
+                {
+                    com.Parameters.AddWithValue("@CFEFD_MANDALID", Convert.ToInt32(ObjCCFEFireDetails.MandalId));
+                }
+                if (ObjCCFEFireDetails.VillageId != null && ObjCCFEFireDetails.VillageId != "")
+                {
+                    com.Parameters.AddWithValue("@CFEFD_VILLAGEID", Convert.ToInt32(ObjCCFEFireDetails.VillageId));
+                }
+                if (ObjCCFEFireDetails.DistricName != null && ObjCCFEFireDetails.DistricName != "")
+                {
+                    com.Parameters.AddWithValue("@CFEFD_DISTRICNAME", ObjCCFEFireDetails.DistricName);
+                }
+                if (ObjCCFEFireDetails.MandalName != null && ObjCCFEFireDetails.MandalName != "")
+                {
+                    com.Parameters.AddWithValue("@CFEFD_MANDALNAME", ObjCCFEFireDetails.MandalName);
+                }
+                if (ObjCCFEFireDetails.VillageName != null && ObjCCFEFireDetails.VillageName != "")
+                {
+                    com.Parameters.AddWithValue("@CFEFD_VILLAGENAME", ObjCCFEFireDetails.VillageName);
+                }
+                if (ObjCCFEFireDetails.Locality != null && ObjCCFEFireDetails.Locality != "")
+                {
+                    com.Parameters.AddWithValue("@CFEFD_Locality", ObjCCFEFireDetails.Locality);
+                }
+                if (ObjCCFEFireDetails.Landmark != null && ObjCCFEFireDetails.Landmark != "")
+                {
+                    com.Parameters.AddWithValue("@CFEFD_Landmark", ObjCCFEFireDetails.Landmark);
+                }
+                if (ObjCCFEFireDetails.Pincode != null && ObjCCFEFireDetails.Pincode != "")
+                {
+                    com.Parameters.AddWithValue("@CFEFD_Pincode", Convert.ToInt32(ObjCCFEFireDetails.Pincode));
+                }
+               
+
                 com.Parameters.AddWithValue("@CFEFD_BUILDINGHT", SqlDbType.Decimal).Value = ObjCCFEFireDetails.HeightBuilding;
                 com.Parameters.AddWithValue("@CFEFD_FLOORHT", SqlDbType.Decimal).Value = ObjCCFEFireDetails.HeightFloor;
                 com.Parameters.AddWithValue("@CFEFD_PLOTAREA", SqlDbType.Decimal).Value = ObjCCFEFireDetails.PlotArea;
