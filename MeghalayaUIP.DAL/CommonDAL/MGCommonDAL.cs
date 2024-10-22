@@ -1079,5 +1079,97 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return ds;
         }
+        public DataSet GETHelpDeskReport(string FDate, string TDate)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetHelpDeskReports, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetHelpDeskReports;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+               
+                da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+
+                da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(TDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetHelpDeskReportDrilldown(string Status, string Districtid, string FDate, string TDate)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetHelpDeskReportDrilldown, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetHelpDeskReportDrilldown;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+
+                da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(TDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+
+                if (Status.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = Status.ToString();
+                }
+
+                if (Districtid.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = Districtid.ToString();
+                }
+
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
 }

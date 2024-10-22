@@ -15,7 +15,8 @@
     <AssemblyName>MeghalayaUIP</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>true</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort>44379</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -214,6 +215,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AckSlip.aspx" />
+    <Content Include="Admin\HelpdeskDrilldown.aspx" />
+    <Content Include="Admin\HelpdeskReport.aspx" />
     <Content Include="Admin\SearchUser.aspx" />
     <Content Include="Agri-Horti.aspx" />
     <Content Include="AmmendmentsFinal.aspx" />
@@ -781,6 +784,20 @@
     </Compile>
     <Compile Include="AckSlip.aspx.designer.cs">
       <DependentUpon>AckSlip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\HelpdeskDrilldown.aspx.cs">
+      <DependentUpon>HelpdeskDrilldown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\HelpdeskDrilldown.aspx.designer.cs">
+      <DependentUpon>HelpdeskDrilldown.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\HelpdeskReport.aspx.cs">
+      <DependentUpon>HelpdeskReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\HelpdeskReport.aspx.designer.cs">
+      <DependentUpon>HelpdeskReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\SearchUser.aspx.cs">
       <DependentUpon>SearchUser.aspx</DependentUpon>

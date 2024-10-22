@@ -115,25 +115,25 @@ namespace MeghalayaUIP.User.CFE
                             if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 39)
                             {
                                 hypNocHeadman.Visible = true;
-                                hypNocHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                                hypNocHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILEPATH"]));
                                 hypNocHeadman.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 40)
                             {
                                 hypfireDepartment.Visible = true;
-                                hypfireDepartment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                                hypfireDepartment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILEPATH"]));
                                 hypfireDepartment.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 41)
                             {
                                 hypsite.Visible = true;
-                                hypsite.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"])));
+                                hypsite.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILEPATH"])));
                                 hypsite.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 42)
                             {
                                 hypExplosives.Visible = true;
-                                hypExplosives.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"])));
+                                hypExplosives.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILEPATH"])));
                                 hypExplosives.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                             }
                         }

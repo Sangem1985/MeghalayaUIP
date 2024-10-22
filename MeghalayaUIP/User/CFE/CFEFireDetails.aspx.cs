@@ -295,13 +295,13 @@ namespace MeghalayaUIP.User.CFE
                                 if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 37)
                                 {
                                     hypbuildingplan.Visible = true;
-                                    hypbuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                                    hypbuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILEPATH"]));
                                     hypbuildingplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                                 }
                                 if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 38)
                                 {
                                     hypfireplan.Visible = true;
-                                    hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                                    hypfireplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath( Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILEPATH"]));
                                     hypfireplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
                                 }
 

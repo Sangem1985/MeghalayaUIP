@@ -109,5 +109,13 @@ namespace MeghalayaUIP.BAL.CommonBAL
         { 
             return objCommonDAL.GetPswdResetKey(Email, SecretKey); 
         }
+        public DataSet GETHelpDeskReport(string FDate,string TDate)
+        {
+            return objCommonDAL.GETHelpDeskReport(FDate, TDate);
+        }
+        public DataSet GetHelpDeskReportDrilldown(string Status,string Districtid, string FDate, string TDate)
+        {
+            return objCommonDAL.GetHelpDeskReportDrilldown(Status, Districtid, FDate, TDate);
+        }
     }
 }
