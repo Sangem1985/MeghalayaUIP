@@ -68,7 +68,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 DataSet ds = new DataSet();
                 ds = objcfebal.GetCFEEXPLOSIVE(hdnUserID.Value, UnitID);
-                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0)
+                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {

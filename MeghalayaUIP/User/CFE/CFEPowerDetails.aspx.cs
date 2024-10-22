@@ -53,7 +53,6 @@ namespace MeghalayaUIP.User.CFE
                     if (!IsPostBack)
                     {
                         GetAppliedorNot();
-
                     }
                 }
             }
