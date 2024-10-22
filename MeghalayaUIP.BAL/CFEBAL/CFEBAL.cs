@@ -39,6 +39,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFEQuestionnaireApprovals(objCFEQsnaire);
         }
+        public string DeleteDepartmentApprovals(CFEQuestionnaireDet objCFEQsnaire)
+        {
+            return objCFEDAL.DeleteDepartmentApprovals(objCFEQsnaire);
+        }
         public DataSet GetApprovalsReqFromTable(CFEQuestionnaireDet objCFEQsnaire)
         {
             return objCFEDAL.GetApprovalsReqFromTable(objCFEQsnaire);

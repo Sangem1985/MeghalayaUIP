@@ -149,7 +149,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@INVESTMENT", objCFEQ.Investment);
                 }
-                               
+
 
 
                 da.Fill(ds);
@@ -353,6 +353,46 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
 
 
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string DeleteDepartmentApprovals(CFEQuestionnaireDet objCFEQsnaire)
+        {
+            string Result = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.DeleteDepartmentApprovals;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFEQDID", Convert.ToInt32(objCFEQsnaire.CFEQDID));
+                com.Parameters.AddWithValue("@CFEQA_CREATEDBY", Convert.ToInt32(objCFEQsnaire.CreatedBy));
+                com.Parameters.AddWithValue("@CFEQA_UNITID", Convert.ToInt32(objCFEQsnaire.UNITID));
+
+                int QAID = Convert.ToInt32(com.ExecuteScalar());
+                transaction.Commit();
+                connection.Close();
+                Result = Convert.ToString(QAID);
             }
             catch (Exception ex)
             {
@@ -1500,7 +1540,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 {
                     com.Parameters.AddWithValue("@CFEA_REFERENCENO", objAttachments.ReferenceNo);
                 }
-                  
+
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -3056,7 +3096,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
         }
         public string InsertPaymentRequest(string UnitID, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
-            string Contact, string Notes,string IpAddress)
+            string Contact, string Notes, string IpAddress)
         {
             string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
@@ -3122,7 +3162,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-                
+
                 com.Parameters.AddWithValue("@ORDERID", OrderId);
                 com.Parameters.AddWithValue("@PAYMENT_ID", paymentId);
                 com.Parameters.AddWithValue("@RESPONSE_SIGNATURE", Signature);
@@ -3148,8 +3188,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
-        public string UpdatePaymentErrorResponse(string paymentId, string OrderId, string Signature, string IpAddress,string code,string description,
-            string source,string step,string reason)
+        public string UpdatePaymentErrorResponse(string paymentId, string OrderId, string Signature, string IpAddress, string code, string description,
+            string source, string step, string reason)
         {
             string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
