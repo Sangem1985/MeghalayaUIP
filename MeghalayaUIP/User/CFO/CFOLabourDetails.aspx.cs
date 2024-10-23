@@ -59,7 +59,8 @@ namespace MeghalayaUIP.User.CFO
                         dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "10");
                         if (dsnew.Tables[0].Rows.Count > 0)
                         {
-
+                            BindBoilerType();
+                            Binddata();
                         }
                         else
                         {
@@ -72,8 +73,7 @@ namespace MeghalayaUIP.User.CFO
                                 Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
                             }
                         }
-                        BindBoilerType();
-                        Binddata();
+                       
 
                     }
                 }
@@ -93,8 +93,8 @@ namespace MeghalayaUIP.User.CFO
             {
                 DataSet ds = new DataSet();
                 ds = objcfobal.GetLabourDetails(hdnUserID.Value, UnitID);
-
-                if (ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
+                
+                if (ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0 || ds.Tables[3].Rows.Count > 0)
                 {
                     if (ds.Tables[1].Rows.Count > 0)
                     {
@@ -206,49 +206,49 @@ namespace MeghalayaUIP.User.CFO
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFOA_MASTERAID"]) == 105)//
                             {
                                 hypLICIssued.Visible = true;
-                                hypLICIssued.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
-                                hypLICIssued.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                hypLICIssued.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILEPATH"]));
+                                hypLICIssued.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFOA_MASTERAID"]) == 106) //
                             {
                                 hypFormX.Visible = true;
-                                hypFormX.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
+                                hypFormX.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILEPATH"]));
                                 hypFormX.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFOA_MASTERAID"]) == 107) //
                             {
                                 hypCriminal.Visible = true;
-                                hypCriminal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
+                                hypCriminal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILEPATH"]));
                                 hypCriminal.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFOA_MASTERAID"]) == 108)//
                             {
                                 hypPrincipalEMP.Visible = true;
-                                hypPrincipalEMP.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
+                                hypPrincipalEMP.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILEPATH"]));
                                 hypPrincipalEMP.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFOA_MASTERAID"]) == 109) //
                             {
                                 hypBusinessLic.Visible = true;
-                                hypBusinessLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
+                                hypBusinessLic.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILEPATH"]));
                                 hypBusinessLic.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFOA_MASTERAID"]) == 110) //
                             {
                                 hypEST.Visible = true;
-                                hypEST.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
+                                hypEST.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILEPATH"]));
                                 hypEST.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFOA_MASTERAID"]) == 111) //
                             {
                                 hypForm5.Visible = true;
-                                hypForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
+                                hypForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILEPATH"]));
                                 hypForm5.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFOA_MASTERAID"]) == 112) //
                             {
                                 hypADC.Visible = true;
-                                hypADC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
+                                hypADC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILEPATH"]));
                                 hypADC.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFOA_FILENAME"]);
                             }
                         }
@@ -480,7 +480,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 else
                 {
-                    string message = "alert('" + lblmsg.Text + "')";
+                    string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }

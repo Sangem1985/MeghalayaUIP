@@ -22,7 +22,6 @@ namespace MeghalayaUIP.User.CFO
             try
             {
 
-
                 if (Session["UserInfo"] != null)
                 {
                     var ObjUserInfo = new UserInfo();

@@ -51,7 +51,7 @@ namespace MeghalayaUIP.User.CFE
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        Binddata();
+                        GetAppliedorNot();
                     }
                 }
             }
@@ -62,14 +62,48 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "13", "9");
+
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "9")
+                        {                          
+                            Binddata();                         
+                        }
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/CFE/CFEFuelNOC.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFE/CFEFireDetails.aspx?Previous=" + "P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         public void Binddata()
         {
             try
             {
                 DataSet ds = new DataSet();
                 ds = objcfebal.GetCFEEXPLOSIVE(hdnUserID.Value, UnitID);
-                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
-                {
+              
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEED_CFEUNITID"]);
@@ -138,7 +172,7 @@ namespace MeghalayaUIP.User.CFE
                             }
                         }
                     }
-                }
+                
             }
             catch (Exception ex)
             {

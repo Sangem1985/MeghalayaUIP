@@ -21,8 +21,6 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-
-
                 if (Session["UserInfo"] != null)
                 {
                     var ObjUserInfo = new UserInfo();
@@ -357,7 +355,7 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
-                    ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(ViewState["CFOUNITID"]);
+                   // ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(ViewState["CFOUNITID"]);
                     ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOPROFESSIONALTAX.CreatedBy = hdnUserID.Value;
                     ObjCFOPROFESSIONALTAX.IPAddress = getclientIP();

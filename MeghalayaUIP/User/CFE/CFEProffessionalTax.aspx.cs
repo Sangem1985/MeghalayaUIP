@@ -47,9 +47,7 @@ namespace MeghalayaUIP.User.CFE
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        BindDistric();
-                        BindRegType();
-                        Binddata();
+                        GetAppliedorNot();
                     }
                 }
             }
@@ -57,6 +55,43 @@ namespace MeghalayaUIP.User.CFE
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "6", "13");
+
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "13")
+                        {
+                            BindDistric();
+                            BindRegType();
+                            Binddata();
+                        }
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/CFE/CFEPowerCEIGDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFE/CFEFuelNOC.aspx?Previous=" + "P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
@@ -354,36 +389,36 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Apply as \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtEstDet.Text.Trim()) || txtEstDet.Text.Trim() == "" || txtEstDet.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Name Establishment\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtadd.Text) || txtadd.Text == "" || txtadd.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Address\\n";
-                    slno = slno + 1;
-                }
-                if (ddlDistric.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Distric Establishment\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null || txtPincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPincode.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Pincode\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEmployeeESt.Text) || txtEmployeeESt.Text == "" || txtEmployeeESt.Text == null || txtEmployeeESt.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEmployeeESt.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Employee Establishment\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Date\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtEstDet.Text.Trim()) || txtEstDet.Text.Trim() == "" || txtEstDet.Text.Trim() == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Name Establishment\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtadd.Text) || txtadd.Text == "" || txtadd.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Address\\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlDistric.SelectedIndex == 0)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Distric Establishment\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null || txtPincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPincode.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Pincode\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtEmployeeESt.Text) || txtEmployeeESt.Text == "" || txtEmployeeESt.Text == null || txtEmployeeESt.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEmployeeESt.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Employee Establishment\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Date\\n";
+                //    slno = slno + 1;
+                //}
                 //if (rblConstitution.SelectedIndex == -1)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter Constitution \\n";
