@@ -3,6 +3,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,6 +16,7 @@ namespace MeghalayaUIP.Dept.PreReg
         PreRegBAL PreBAL = new PreRegBAL();
         PreRegDtls prd = new PreRegDtls();
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
+        DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -44,7 +46,28 @@ namespace MeghalayaUIP.Dept.PreReg
 
             }
         }
+        public void Bindata()
+        {
+            try
+            {
+                prd.UserID = ObjUserInfo.UserID;
+                prd.UserName = ObjUserInfo.UserName;
+                prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
+                if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                {
+                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                }
 
+                dt = PreBAL.PreRegDPRDashBoard(prd);
+                
+            }
+            catch(Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void linkTotal_Click(object sender, EventArgs e)
         {
             try

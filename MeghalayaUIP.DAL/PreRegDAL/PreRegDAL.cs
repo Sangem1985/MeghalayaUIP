@@ -1045,7 +1045,53 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
             return dt;
         }
-       
+        public DataTable PreRegDPRDashBoard(PreRegDtls PRD)
+        {
+            DataTable dt = new DataTable();
+            //string valid = "";
+            //  IDno = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetPreRegDPRDashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetPreRegDPRDashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", PRD.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", PRD.Role);
+                if (PRD.deptid != null && PRD.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", PRD.deptid);
+                }
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
+
 
 
     }

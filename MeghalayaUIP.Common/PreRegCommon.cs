@@ -40,7 +40,10 @@ namespace MeghalayaUIP.Common
         public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";
 
         /*---------------------------------------------------------------------*/
-       
+
+        public static string GetPreRegDPRDashBoard = "USP_GETPREREGDPRASHBOARD";
+
+
     }
     public class IndustryDetails
     {

@@ -105,7 +105,11 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.GetIntentInvestDashBoard();
         }
-      
+        public DataTable PreRegDPRDashBoard(PreRegDtls PRD)
+        {
+            return IRD.PreRegDPRDashBoard(PRD);
+        }
+
 
     }
 
