@@ -98,12 +98,12 @@
         text-align: center;
         font-size: 48px;
         height: 72px;
-        background: #359d00;
+        background: #FF0000;
         border-radius: 50%;
         width: 72px;
         height: 72px;
         margin: 16px auto;
-        color:coral;
+        color:#fff;
     }
 
     .success-title {
@@ -205,13 +205,16 @@
                     <div runat="server" id="divSuccess" visible="false">
                         <div class="success-icon">&#10004;</div>
                         <div class="success-title">
-                            Payment Completed
+                            Payment Success
                         </div>
                     </div>
                     <div runat="server" id="divFail" visible="false">
-                        <div class="fail-icon">&#10004;</div>
+                        <div class="fail-icon">&#10006;</div>
                         <div class="success-title">
-                            Payment Completed
+                            Payment Failed
+                        </div>
+                        <div style="text-align:center;">
+                            In case Amount debited from your Account Please contact Help desk with Order number & Reference number
                         </div>
                     </div>
                     <div class="order-details">
