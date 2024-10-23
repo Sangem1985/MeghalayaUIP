@@ -632,6 +632,9 @@
     <Content Include="Dept\PreReg\PreRegApplDeptDashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegApplDeptProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplDeptView.aspx" />
+    <Content Include="Dept\PreReg\PreRegApplDPRDashBoard.aspx" />
+    <Content Include="Dept\PreReg\PreRegApplDPRProcess.aspx" />
+    <Content Include="Dept\PreReg\PreRegApplDPRView.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMADashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAView.aspx" />
@@ -1093,6 +1096,27 @@
     </Compile>
     <Compile Include="Dept\PreReg\PreRegApplDeptView.aspx.designer.cs">
       <DependentUpon>PreRegApplDeptView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegApplDPRDashBoard.aspx.cs">
+      <DependentUpon>PreRegApplDPRDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegApplDPRDashBoard.aspx.designer.cs">
+      <DependentUpon>PreRegApplDPRDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegApplDPRProcess.aspx.cs">
+      <DependentUpon>PreRegApplDPRProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegApplDPRProcess.aspx.designer.cs">
+      <DependentUpon>PreRegApplDPRProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegApplDPRView.aspx.cs">
+      <DependentUpon>PreRegApplDPRView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegApplDPRView.aspx.designer.cs">
+      <DependentUpon>PreRegApplDPRView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\PreReg\PreRegApplIMADashBoard.aspx.cs">
       <DependentUpon>PreRegApplIMADashBoard.aspx</DependentUpon>

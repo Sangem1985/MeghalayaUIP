@@ -90,9 +90,9 @@ namespace MeghalayaUIP.User.CFE
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/CFE/CFEFireDetails.aspx?Next=" + "N");
+                            Response.Redirect("~/User/CFE/CFEForestDetails.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/CFE/CFEPowerDetails.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/CFE/CFEProffessionalTax.aspx?Previous=" + "P");
                     }
                 }
             }
