@@ -16,11 +16,20 @@ using Razorpay.Api;
 
 namespace MeghalayaUIP.User.Payments
 {
-    public partial class RazorPaymentPage : System.Web.UI.Page
+    public partial class RazorPaymentPageEMB : System.Web.UI.Page
     {
         CFEBAL objcfebal = new CFEBAL();
-        public string orderId, InvestorId, KeyId, secret, PayAmount, Name, Desc, Mail, Contact, IpAddress, Notes;
-        
+        public string orderId;
+        public string InvestorId;
+        public string KeyId;
+        public string secret;
+        public string PayAmount;
+        public string Name;
+        public string Desc;
+        public string Mail;
+        public string Contact;
+        public string IpAddress;
+        public string Notes;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -39,18 +48,23 @@ namespace MeghalayaUIP.User.Payments
                             {
                                 Receiptorder = Request.QueryString["receipt"].ToString();
                             }
+
                             Dictionary<string, object> input = new Dictionary<string, object>();
-                            input.Add("amount", orderAmount);
+                            input.Add("amount", 100); 
                             input.Add("currency", "INR");
                             input.Add("receipt", Receiptorder);
+                            input.Add("payment_capture", 1);
+
 
                             KeyId = "rzp_test_l9labd1MMZqwzK";
-                            secret = "iX44FqckwRPPRhuMmiltpKBd";
-                            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                            string secret = "iX44FqckwRPPRhuMmiltpKBd";
 
                             RazorpayClient client = new RazorpayClient(KeyId, secret);
 
+                            
                             Razorpay.Api.Order order = client.Order.Create(input);
+
+                            
                             orderId = order["id"].ToString();
 
                             string Receipt = ""; int Amount;
@@ -67,20 +81,21 @@ namespace MeghalayaUIP.User.Payments
                             dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString());
 
                             if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
-                            {
-                                PayAmount = Amount.ToString();
-                                Name = dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
+                            {   
+                                PayAmount  = Amount.ToString();
+                                Name =  dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
                                 Desc = "Meghalaya Description";
-                                Mail = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
-                                Contact = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
+                                Mail  = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
+                                Contact  = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
                                 Notes = "Hyderabad";
-                                string IpAddress = getclientIP();
+                                IpAddress = getclientIP();
 
                                 Dictionary<string, string> notes = new Dictionary<string, string>()
                                 {
                                     {"Note1","Payment Note1" },{"Note2","Payment Note2" }
                                 };
-                                
+                                //hdn_notes.Value = JsonConvert.SerializeObject(notes);
+
 
                                 string A = objcfebal.InsertPaymentRequest(UnitID, Session["INSTRIDPM"].ToString(), Receiptorder, orderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
 
@@ -112,6 +127,6 @@ namespace MeghalayaUIP.User.Payments
 
             return result;
         }
-        
+
     }
 }

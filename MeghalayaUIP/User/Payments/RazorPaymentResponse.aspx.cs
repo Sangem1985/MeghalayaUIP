@@ -19,10 +19,10 @@ namespace MeghalayaUIP.User.Payments
     public partial class RazorPaymentResponse : System.Web.UI.Page
     {
         CFEBAL objcfebal = new CFEBAL();
-        //public int Amount;
+        public int Amount;
         string OrderNo = "";
         string OrderId = "";
-        string Amount = "";
+        //string Amount = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             string IpAddress = getclientIP();
@@ -31,7 +31,8 @@ namespace MeghalayaUIP.User.Payments
                 string paymentId = Request.Form["razorpay_payment_id"].ToString();
                 string OrderId = Request.Form["razorpay_order_id"].ToString().ToString();
                 string Signature = Request.Form["razorpay_signature"].ToString().ToString();
-                
+                Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
+
                 string key = "rzp_test_l9labd1MMZqwzK";
                 string secret = "iX44FqckwRPPRhuMmiltpKBd";
 
@@ -48,17 +49,17 @@ namespace MeghalayaUIP.User.Payments
 
                 string A = objcfebal.UpdatePaymentResponse(paymentId, OrderId, Signature, IpAddress);
 
-                DataSet dspaydtls = new DataSet();
+                /*DataSet dspaydtls = new DataSet();
                 dspaydtls = objcfebal.GetPaymentOrderNo(OrderId);
                 if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
                 {
                     Amount= dspaydtls.Tables[0].Rows[0]["PAYMENT_AMOUNT"].ToString();
                     OrderNo = dspaydtls.Tables[0].Rows[0]["ONLINE_ORDER_NO"].ToString();
-                }
+                }*/
 
-                txtOrderNumber.InnerText = OrderNo;
+                txtOrderNumber.InnerText = Session["OrderNo"].ToString();
                 txtOrderId.InnerText = paymentId;
-                txtAmount.InnerText = "₹ " + Amount + ".00";
+                txtAmount.InnerText = "₹" + Session["PaymentAmount"].ToString() + ".00";
                 divFail.Visible = false;
                 divSuccess.Visible = true;
             }
@@ -83,15 +84,14 @@ namespace MeghalayaUIP.User.Payments
                 {
                     Amount = dspaydtls.Tables[0].Rows[0]["PAYMENT_AMOUNT"].ToString();
                     OrderNo = dspaydtls.Tables[0].Rows[0]["ONLINE_ORDER_NO"].ToString();
-                }
-                txtOrderNumber.InnerText = OrderNo;
+                }*/
+
+                txtOrderNumber.InnerText = Session["OrderNo"].ToString(); ;
                 txtOrderId.InnerText = paymentId;
-                txtAmount.InnerText = "₹ " + Amount + ".00";*/
+                txtAmount.InnerText = "₹ " + Session["PaymentAmount"].ToString() + ".00";
                 divSuccess.Visible = false;
                 string A = objcfebal.UpdatePaymentErrorResponse(paymentId, OrderId, "", IpAddress, code, description, source, step, reason);
                 divFail.Visible = true;
-                string Alertmsg = "Payment Failed due to" + reason;
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "alertMsg", "alert('"+ Alertmsg + "');" + "window.location='CFEPaymentPage.aspx';", true);
             }
         }
         public static string getclientIP()

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RazorPaymentPage.aspx.cs" Inherits="MeghalayaUIP.User.Payments.RazorPaymentPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RazorPaymentPageEMB.aspx.cs" Inherits="MeghalayaUIP.User.Payments.RazorPaymentPageEMB" %>
 
 <!DOCTYPE html>
 
@@ -27,4 +27,3 @@
    
 </body>
 </html>
-

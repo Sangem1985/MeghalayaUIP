@@ -64,22 +64,8 @@
             width: 96.9% !important;
         }
     </style>
-    
 
-    <script type="text/javascript">
 
-        $("[src*=plus]").live("click", function () {
-            $(this).closest("tr").after("<tr><td></td><td class='orders' colspan = '999'>" + $(this).closest("tr").find("[id*=Approvals]").html() + "</td></tr>");
-            $(this).closest("tr").find("[src*=minus]").show();
-            $(this).hide();
-        });
-        $("[src*=minus]").live("click", function () {
-            $(this).closest("tr").next().remove();
-            $(this).closest("tr").find("[src*=plus]").show();
-            $(this).hide();
-        });
-
-    </script>
     <section class="innerpages">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -215,5 +201,20 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </section>
+    <script src="assets/assetsnew/js/jquery-O.S.T.min.js"></script>
 
+    <script type="text/javascript">
+
+        $("[src*=plus]").live("click", function () {
+            $(this).closest("tr").after("<tr><td></td><td class='orders' colspan = '999'>" + $(this).closest("tr").find("[id*=Approvals]").html() + "</td></tr>");
+            $(this).closest("tr").find("[src*=minus]").show();
+            $(this).hide();
+        });
+        $("[src*=minus]").live("click", function () {
+            $(this).closest("tr").next().remove();
+            $(this).closest("tr").find("[src*=plus]").show();
+            $(this).hide();
+        });
+
+    </script>
 </asp:Content>

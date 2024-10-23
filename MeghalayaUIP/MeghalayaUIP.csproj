@@ -750,6 +750,7 @@
     <Content Include="User\MainDashboard.aspx" />
     <Content Include="User\Payments\PaymentFailurePage.aspx" />
     <Content Include="User\Payments\RazorPaymentPage.aspx" />
+    <Content Include="User\Payments\RazorPaymentPageEMB.aspx" />
     <Content Include="User\Payments\RazorPaymentResponse.aspx" />
     <Content Include="User\PreReg\demo.aspx" />
     <Content Include="User\PreReg\IndustryAckSlip.aspx" />
@@ -1932,6 +1933,13 @@
     </Compile>
     <Compile Include="User\Payments\RazorPaymentPage.aspx.designer.cs">
       <DependentUpon>RazorPaymentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Payments\RazorPaymentPageEMB.aspx.cs">
+      <DependentUpon>RazorPaymentPageEMB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Payments\RazorPaymentPageEMB.aspx.designer.cs">
+      <DependentUpon>RazorPaymentPageEMB.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Payments\RazorPaymentResponse.aspx.cs">
       <DependentUpon>RazorPaymentResponse.aspx</DependentUpon>
