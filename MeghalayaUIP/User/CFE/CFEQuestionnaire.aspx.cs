@@ -1054,6 +1054,8 @@ namespace MeghalayaUIP.User.CFE
                         }
                         if (grdApprovals.Rows.Count == count)
                         {
+                            objcfebal.DeleteDepartmentApprovals(objCFEQsnaire);
+
                             success.Visible = true;
                             lblmsg.Text = "Consent For Establishment - Questionnaire Details Submitted Successfully";
                             string message = "alert('" + lblmsg.Text + "')";

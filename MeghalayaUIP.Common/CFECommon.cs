@@ -25,6 +25,7 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEQuestionnaire = "USP_INSCFEQUESTIONNAREDETAILS";
         public static string InsertCFEQuestionnaireApprovals = "USP_INSCFEREQUIREDAPPROVALS";
         public static string GetApprovalsReqFromTable = "USP_GETCFEQUESTIONNAIREAPPROVALS";
+        public static string DeleteDepartmentApprovals = "USP_DELETECFEDEPARTMENTAPPROVALS";
 
         public static string InsertCFEDepartmentapprovals = "USP_INSCFEDEPARTMENTAPPROVALS";
         public static string GetCFEObtainedOffline = "USP_GETCFEALREADYOBTAINEDAPPROVALS";

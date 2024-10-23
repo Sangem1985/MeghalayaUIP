@@ -20,6 +20,10 @@ namespace MeghalayaUIP
         readonly LoginBAL objloginBAL = new LoginBAL();
         MGCommonBAL objcomBal = new MGCommonBAL();
         MasterBAL mstrBAL = new MasterBAL();
+        private static DateTime _lastSentTime = DateTime.MinValue;
+        private static int _emailsSent = 0;
+        private static TimeSpan _timeWindow = TimeSpan.FromHours(1); // 1 hour window
+        private static int _emailLimit = 100; // Max 100 emails per hour
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -131,8 +135,24 @@ namespace MeghalayaUIP
 
                             try
                             {
-                                smsMail.SendEmailSingle(Username, "", "Password Reset Link", EmailText, "", "General",
-                                    "", "", ds.Tables[0].Rows[0]["Userid"].ToString());
+                                if ((DateTime.Now - _lastSentTime) > _timeWindow)
+                                {
+                                    _emailsSent = 0; // Reset count after the time window expires
+                                    _lastSentTime = DateTime.Now;
+                                }
+
+                                if (_emailsSent >= _emailLimit)
+                                {
+                                    lblmsg0.Text = "Email limit reached, please try later. ...!";
+                                    Failure.Visible = true; 
+                                    return;
+                                }
+                                else
+                                {
+                                    smsMail.SendEmailSingle(Username, "", "Password Reset Link", EmailText, "", "General",
+                                 "", "", ds.Tables[0].Rows[0]["Userid"].ToString());
+                                }
+                             
                                 try
                                 {
 
