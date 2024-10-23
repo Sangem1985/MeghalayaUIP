@@ -212,6 +212,8 @@ namespace MeghalayaUIP
                     {
                         lblmsg0.Text = txtEmail.Text = "Invalid Email Id...!";
                         Failure.Visible = true;
+                        txtcaptcha.Text = "";
+                        FillCapctha();
                     }
                 }
             }
