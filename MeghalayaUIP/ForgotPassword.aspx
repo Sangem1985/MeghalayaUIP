@@ -38,6 +38,7 @@
     <link href="assets/assetsnew/css/login.css" rel="stylesheet" />
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <%--<link href="assets/css/login.css" rel="stylesheet" />--%>
+    <asp:HiddenField ID="hdnLinkSent" runat="server" />
     <section class="about-us-section section-padding">
         <div class="container-fluid">
             <div class="row">
