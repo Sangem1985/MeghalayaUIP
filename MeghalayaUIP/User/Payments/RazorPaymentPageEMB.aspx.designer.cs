@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User.Payments
 {
 
 
-    public partial class RazorPaymentPage
+    public partial class RazorPaymentPageEMB
     {
     }
 }

@@ -94,6 +94,18 @@
         color: #fff;
     }
 
+    .fail-icon {
+        text-align: center;
+        font-size: 48px;
+        height: 72px;
+        background: #359d00;
+        border-radius: 50%;
+        width: 72px;
+        height: 72px;
+        margin: 16px auto;
+        color:coral;
+    }
+
     .success-title {
         font-size: 22px;
         font-family: 'Poppins', sans-serif;
@@ -196,20 +208,23 @@
                             Payment Completed
                         </div>
                     </div>
-                    <div class="success-description" runat="server" id="divFail" visible="false">
-                        Payment Failed
+                    <div runat="server" id="divFail" visible="false">
+                        <div class="fail-icon">&#10004;</div>
+                        <div class="success-title">
+                            Payment Completed
+                        </div>
                     </div>
                     <div class="order-details">
                         <div class="order-number-label" runat="server">Order number :</div>
                         <div class="order-number-label" runat="server" id="txtOrderNumber">Order number</div>
                         <div class="order-number-label" runat="server">Reference number :</div>
                         <div class="order-number-label" runat="server" id="txtOrderId">Reference number</div>
-                        <div class="order-number-label" runat="server" style="font-family: sans-serif;font-size: xx-large;" id="txtAmount"></div>
+                        <div class="order-number-label" runat="server" style="font-family: sans-serif; font-size: xx-large;" id="txtAmount"></div>
                     </div>
-                     <div class="order-details">
-                    <asp:HyperLink ID="hypDashboard" NavigateUrl="~/User/Dashboard/MainDashboard.aspx" Text="Go To Dashboard" 
-                        runat="server" />
-                         </div>
+                    <div class="order-details">
+                        <asp:HyperLink ID="hypDashboard" NavigateUrl="~/User/Dashboard/MainDashboard.aspx" Text="Go To Dashboard"
+                            runat="server" />
+                    </div>
                 </div>
                 <div class="jagged-edge"></div>
             </div>
