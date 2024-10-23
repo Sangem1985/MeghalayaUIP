@@ -35,7 +35,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-                   // Bind();
+                    Bindata();
                 }
             }
             catch (Exception ex)
@@ -59,7 +59,10 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
 
                 dt = PreBAL.PreRegDPRDashBoard(prd);
-                
+
+                lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
+                lblDPRTOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
+                lblDPRPROCESSED.Text = dt.Rows[0]["PROCESSED"].ToString();
             }
             catch(Exception ex)
             {
@@ -74,7 +77,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 if(lblTotalApp.Text != "0")
                 {
-                    Response.Redirect("PreRegApplDPRView.aspx?status=DPRTOTAL");
+                    Response.Redirect("PreRegApplDPRView.aspx?status=TOTAL");
                 }
             }
             catch(Exception ex)
@@ -91,7 +94,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 if(lblDPRTOBEPROCESSED.Text != "0")
                 {
-                    Response.Redirect("PreRegApplDPRView.aspx?status=DPRTOBEPROCESSED");
+                    Response.Redirect("PreRegApplDPRView.aspx?status=TOBEPROCESSED");
                 }
             }
             catch(Exception ex)
@@ -108,7 +111,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 if (lblDPRPROCESSED.Text != "0")
                 {
-                    Response.Redirect("PreRegApplDPRView.aspx?status=DPRPROCESSED");
+                    Response.Redirect("PreRegApplDPRView.aspx?status=PROCESSED");
                 }
             }
             catch (Exception ex)

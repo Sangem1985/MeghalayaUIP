@@ -9,7 +9,7 @@
                 <h4 class="card-title mt-1"><b>
                     <asp:Label runat="server" ID="lblHdng"></asp:Label></b></h4>
                 <div class="col-md-1">
-                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnBack" runat="server" OnClick="lbtnBack_Click" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <asp:GridView ID="GVDPRDET" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
-                        GridLines="None"
+                        GridLines="None" OnRowDataBound="GVDPRDET_RowDataBound" OnRowCommand="GVDPRDET_RowCommand"
                         Width="100%" EnableModelValidation="True">
                         <RowStyle />
                         <Columns>
@@ -58,10 +58,9 @@
                             <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                             <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
-                            <asp:TemplateField HeaderText="Actions" ItemStyle-Width="10%">
-                                <%--SortExpression="ciw_id"--%>
+                            <asp:TemplateField HeaderText="Actions" ItemStyle-Width="10%">                               
                                 <ItemTemplate>
-                                    <asp:Button ID="ciw_id" runat="server" Text='Process' CommandName="VIEW" CssClass="btn btn-info"
+                                    <asp:Button ID="View_id" runat="server" Text='Process' CommandName="VIEW" CssClass="btn btn-info"
                                         CommandArgument='<%# Eval("UNITID")+"$"+Eval("INVESTERID")%>' />
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />

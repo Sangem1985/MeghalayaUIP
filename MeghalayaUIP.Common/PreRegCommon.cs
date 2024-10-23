@@ -42,6 +42,7 @@ namespace MeghalayaUIP.Common
         /*---------------------------------------------------------------------*/
 
         public static string GetPreRegDPRDashBoard = "USP_GETPREREGDPRASHBOARD";
+        public static string GetPreRegDPRDashBoardView = "USP_PREREGDPRDASHBOARDDRILLDOWN";
 
 
     }

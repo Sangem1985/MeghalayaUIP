@@ -1091,6 +1091,57 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return dt;
         }
+        public DataTable GetPreRegDPRDashBoardView(PreRegDtls PRD)
+        {
+            string valid = "";
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetPreRegDPRDashBoardView, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetPreRegDPRDashBoardView;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //PRD.deptid = 1;
+                //PRD.status = 4;
+                //PRD.Role = 0;
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", PRD.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", PRD.ViewStatus);
+                if (PRD.deptid != null && PRD.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", PRD.deptid);
+                }
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", PRD.Role);
+
+
+                da.Fill(dt);
+                // if (dt.Rows.Count > 0)
+                //     valid = Convert.ToString(dt.Rows[0]["UNITID"]);
+                //// IDno = valid;
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
 
 
 
