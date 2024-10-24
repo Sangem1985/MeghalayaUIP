@@ -19,7 +19,7 @@ namespace MeghalayaUIP.User.Payments
     public partial class RazorPaymentPage : System.Web.UI.Page
     {
         CFEBAL objcfebal = new CFEBAL();
-        public string orderId, InvestorId, KeyId, secret, PayAmount, Name, Desc, Mail, Contact, IpAddress, Notes;
+        public string orderId, InvestorId, KeyId, secret, PayAmount, Name, Desc, Mail, Contact, IpAddress, Notes,CallbackUrl,Cancelurl;
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,13 +43,11 @@ namespace MeghalayaUIP.User.Payments
                             input.Add("amount", orderAmount);
                             input.Add("currency", "INR");
                             input.Add("receipt", Receiptorder);
+                            KeyId = System.Configuration.ConfigurationManager.AppSettings["PGKey"];
+                            secret = System.Configuration.ConfigurationManager.AppSettings["PGSecret"];
 
-                            KeyId = "rzp_test_l9labd1MMZqwzK";
-                            secret = "iX44FqckwRPPRhuMmiltpKBd";
                             System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
                             RazorpayClient client = new RazorpayClient(KeyId, secret);
-
                             Razorpay.Api.Order order = client.Order.Create(input);
                             orderId = order["id"].ToString();
 
@@ -61,11 +59,8 @@ namespace MeghalayaUIP.User.Payments
                             Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
                             string UnitID = Convert.ToString(Session["CFEUNITID"]);
 
-
-
                             DataSet dspaydtls = new DataSet();
                             dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString());
-
                             if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
                             {
                                 PayAmount = Amount.ToString();
@@ -74,16 +69,15 @@ namespace MeghalayaUIP.User.Payments
                                 Mail = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
                                 Contact = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
                                 Notes = "Hyderabad";
+                                CallbackUrl = System.Configuration.ConfigurationManager.AppSettings["PGReturnurl"];
+                                Cancelurl = System.Configuration.ConfigurationManager.AppSettings["PGCancelurl"];
                                 string IpAddress = getclientIP();
-
                                 Dictionary<string, string> notes = new Dictionary<string, string>()
                                 {
                                     {"Note1","Payment Note1" },{"Note2","Payment Note2" }
                                 };
-                                
 
                                 string A = objcfebal.InsertPaymentRequest(UnitID, Session["INSTRIDPM"].ToString(), Receiptorder, orderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
-
                             }
                         }
                     }
