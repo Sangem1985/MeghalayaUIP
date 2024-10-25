@@ -15,7 +15,7 @@
     }
 
     .container {
-        max-width: 380px;
+        max-width: 500px;
         margin: 50px auto;
         overflow: hidden;
     }
@@ -61,7 +61,7 @@
         padding: 24px;
     }
 
-    // Paper Jagged Edge
+    Paper Jagged Edge
     .jagged-edge {
         position: relative;
         height: 20px;
@@ -103,7 +103,7 @@
         width: 72px;
         height: 72px;
         margin: 16px auto;
-        color:#fff;
+        color: #fff;
     }
 
     .success-title {
@@ -131,7 +131,7 @@
     }
 
     .order-number-label {
-        font-size: 18px;
+        font-size: 16px;
         margin-bottom: 8px;
     }
 
@@ -191,6 +191,12 @@
             -ms-transform: translateY(0%);
         }
     }
+
+    span#txtOrderNumber, span#txtOrderId {
+        border: 1px dotted #009688;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
 </style>
 
 <body>
@@ -208,21 +214,23 @@
                             Payment Success
                         </div>
                     </div>
-                    <div runat="server" id="divFail" visible="false">
+                    <div runat="server" id="divFail" visible="true">
                         <div class="fail-icon">&#10006;</div>
                         <div class="success-title">
                             Payment Failed
                         </div>
-                        <div style="text-align:center;">
+
+                        <div style="text-align: center; margin-bottom: 10px;">
                             In case Amount debited from your Account Please contact Help desk with Order number & Reference number
                         </div>
+
                     </div>
                     <div class="order-details">
-                        <div class="order-number-label" runat="server">Order number :</div>
-                        <div class="order-number-label" runat="server" id="txtOrderNumber">Order number</div>
-                        <div class="order-number-label" runat="server">Reference number :</div>
-                        <div class="order-number-label" runat="server" id="txtOrderId">Reference number</div>
-                        <div class="order-number-label" runat="server" style="font-family: sans-serif; font-size: xx-large;" id="txtAmount"></div>
+                        <div class="order-number-label" runat="server">Order number &nbsp;&nbsp;: &nbsp;&nbsp;<span id="txtOrderNumber" runat="server" class="ON">MIP_2024102337202449193</span></div>
+
+                        <div class="order-number-label" runat="server">Reference number : &nbsp;&nbsp;<span id="txtOrderId" runat="server">pay_P6Sps5NglW5eVY</span></div>
+
+                        <div class="order-number-label" runat="server" style="margin-top: 15px; margin-bottom: 25px; font-family: sans-serif; font-size: xx-large;" id="txtAmount">Rs(₹). 10000.00</div>
                     </div>
                     <div class="order-details">
                         <asp:HyperLink ID="hypDashboard" NavigateUrl="~/User/Dashboard/MainDashboard.aspx" Text="Go To Dashboard"
