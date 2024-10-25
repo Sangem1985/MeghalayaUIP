@@ -857,7 +857,7 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                DataSet ds = new DataSet();
+              //  DataSet ds = new DataSet();
 
                 int i=0;
                 int J=0;
@@ -877,18 +877,63 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.QueryRaised = txtRemark.Text;
 
                     i = PreBAL.DPRDeptProcess(prd);
-                    J = J + i;
+                    J = J + i;                  
+
                 }
                 if(J==7)
                 {
+                    var ObjUserInfo = new DeptUserInfo();
+                    if (Session["DeptUserInfo"] != null)
+                    {
+
+                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                        {
+                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                        }
+                       
+                    }
+                    prd.status = Convert.ToInt32(ObjUserInfo.Roleid);
+                    prd.IPAddress = getclientIP();
+                    prd.UserID = ObjUserInfo.UserID;
+
+                    string valid = PreBAL.PreRegApprovals(prd);
+
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                  //  return;
+
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Attachment Verified Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
                     return;
                 }
-
+               
 
 
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string validations()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+
+                //if (.SelectedIndex == -1 || rblRevoking.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Whether there was any order against the contractor revoking \\n";
+                //    slno = slno + 1;
+                //}
+                if (string.IsNullOrEmpty(txtRemark.Text) || txtRemark.Text == "" || txtRemark.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Remarks ....!\\n";
+                    slno = slno + 1;
+                }
+
+                return errormsg;
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }

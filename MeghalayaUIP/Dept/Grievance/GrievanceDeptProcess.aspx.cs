@@ -173,6 +173,14 @@ namespace MeghalayaUIP.Dept.Grievance
                                 }
                             }
                         }
+                        else
+                        {
+                            Failure.Visible = true;
+                            lblmsg0.Text = ErrorMsg.Replace(@"\n", "");
+                            string message = "alert('" + ErrorMsg + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                            return;
+                        }
                     }
 
 
