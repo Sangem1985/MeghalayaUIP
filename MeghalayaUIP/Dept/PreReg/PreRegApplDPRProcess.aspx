@@ -95,7 +95,7 @@
             <div class="card-header d-flex justify-content-between">
                 <h4 class="card-title mt-1"><b>DPR Application Details</b></h4>
                 <div class="col-md-1">
-                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
             </div>
             <div class="card flex-fill">
@@ -885,7 +885,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server"></asp:LinkButton>
+                                                                    <asp:LinkButton ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server" OnClick="linkViewQueryAttachment_Click"></asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="View" Visible="false">
@@ -1002,10 +1002,10 @@
                                             </asp:TemplateField>
                                             <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
                                             <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />                                         
+                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
                                             <asp:TemplateField HeaderText="Select Action">
                                                 <ItemTemplate>
-                                                    <asp:DropDownList ID="ddlQueryAction" runat="server" CssClass="form-control" AutoPostBack="true">
+                                                    <asp:DropDownList ID="ddlQueryAction" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlQueryAction_SelectedIndexChanged">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Text="Send Response to COMMITTEE Officer" Value="12"></asp:ListItem>
                                                         <asp:ListItem Text="Forward Query to Applicant" Value="15"></asp:ListItem>
@@ -1031,7 +1031,7 @@
                                                 <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                             </td>
                                             <td style="width: 110px">
-                                                <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+                                                <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" class="btn btn-dark btn-rounded" Height="35px" Width="110px" OnClick="btnUpldAttachment_Click" /><br />
                                             </td>
 
                                         </tr>
@@ -1044,7 +1044,7 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align: center" colspan="5">
-                                                <asp:Button ID="btnSubmit2" runat="server" Text="Submit" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+                                                <asp:Button ID="btnSubmit2" runat="server" Text="Submit" class="btn btn-rounded btn-submit btn-lg" Width="150px" OnClick="btnSubmit2_Click" />
                                             </td>
                                         </tr>
                                     </table>
@@ -1057,16 +1057,16 @@
                             <div class="panel-heading" role="tab" id="headingSix" runat="server">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
-                                        data-parent="#accordion" href="#collapseSix" aria-expanded="false"
-                                        aria-controls="collapseSix">Verification of Attachment
+                                        data-parent="#accordion" href="#collapseSix" aria-expanded="true"
+                                        aria-controls="collapseSix">Verification of Attachments
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseSix" class="panel-collapse show" role="tabpanel"
-                                aria-labelledby="headingSix" aria-expanded="false">                               
-                               
+                                aria-labelledby="headingSix" aria-expanded="true">
+
                                 <div class="card">
-                                  <%--  <div class="card-header">
+                                    <%--  <div class="card-header">
                                         <h3>Check Lists</h3>
                                     </div>--%>
                                     <section id="dashboardAttachmnt">
@@ -1075,7 +1075,7 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-6">
                                                     <div class="table-responsive">
-                                                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                        <asp:GridView ID="GVVerification" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
                                                             GridLines="Both" HeaderStyle-BackColor="Red"
                                                             Width="100%" EnableModelValidation="True">
@@ -1095,7 +1095,7 @@
                                                                 <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
                                                                 <asp:TemplateField HeaderText="View">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server"></asp:LinkButton>
+                                                                        <asp:LinkButton ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server" OnClick="linkAttachment_Click"></asp:LinkButton>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
                                                                 <asp:TemplateField HeaderText="View" Visible="false">
@@ -1103,32 +1103,77 @@
                                                                         <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Verified">
+                                                                <%--  <asp:TemplateField HeaderText="Verified">
                                                                     <ItemTemplate>
-                                                                        <asp:RadioButtonList ID="rdVerified" runat="server">
+                                                                        <asp:RadioButtonList ID="rdVerified" runat="server" class="form-control" RepeatDirection="Horizontal"  AutoPostBack="true">
                                                                             <asp:ListItem Value="Y">Yes</asp:ListItem>
                                                                             <asp:ListItem Value="N">No</asp:ListItem>
                                                                         </asp:RadioButtonList>
                                                                     </ItemTemplate>
-                                                                </asp:TemplateField>                                                                
+                                                                </asp:TemplateField>--%>
+
+                                                                <asp:TemplateField HeaderText="Verified">
+                                                                    <ItemStyle Width="250px" />
+                                                                    <ItemTemplate>
+                                                                        <asp:RadioButtonList ID="rblAlrdyObtained" runat="server" AutoPostBack="True" RepeatDirection="Horizontal" OnSelectedIndexChanged="rdVerified_SelectedIndexChanged">
+                                                                            <asp:ListItem Value="Y">Yes</asp:ListItem>
+                                                                            <asp:ListItem Selected="True" Value="N">No</asp:ListItem>
+                                                                        </asp:RadioButtonList>
+                                                                        <itemstyle horizontalalign="Center" width="240px" />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" Width="140px" />
+                                                                </asp:TemplateField>
+
+                                                                <%--    <asp:TemplateField>
+                                                                    <ItemTemplate>
+                                                                        <asp:CheckBox ID="ChkApproval" runat="server" AutoPostBack="True" />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" Width="140px" />
+                                                                </asp:TemplateField>--%>
                                                             </Columns>
                                                         </asp:GridView>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3"></div>
+                                                <br />
+                                                <div class="col-md-12 d-flex" runat="server">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">Remarks </label>
+                                                            <div class="col-lg-1 d-flex">
+                                                                :
+                                                            </div>
+                                                            <div class="col-lg-2 d-flex">
+                                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex" runat="server">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label"></label>
+                                                            <div class="col-lg-1 d-flex">
+                                                            </div>
+                                                            <div class="col-md-12 text-right">
+                                                                <asp:Button ID="btnSubmit" runat="server" Text="Submit" class="btn btn-rounded btn-success btn-lg" Width="150px" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3"></div>
 
-                                            </div>
+                                                </div>
                                         </div>
                                     </section>
                                 </div>
-                            </div>
                             </div>
 
 
                         </div>
 
                     </div>
+
                 </div>
             </div>
         </div>
+    </div>
 </asp:Content>

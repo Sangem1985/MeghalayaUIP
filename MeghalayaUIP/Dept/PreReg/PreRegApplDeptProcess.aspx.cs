@@ -86,7 +86,7 @@ namespace MeghalayaUIP.Dept.PreReg
                             lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                             lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
                             lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
-                          
+
                             lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
 
                             lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
@@ -203,6 +203,9 @@ namespace MeghalayaUIP.Dept.PreReg
                         {
                             grdAttachments.DataSource = ds.Tables[3];
                             grdAttachments.DataBind();
+
+                            GVVerification.DataSource = ds.Tables[3];
+                            GVVerification.DataBind();
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
                         {
@@ -232,7 +235,17 @@ namespace MeghalayaUIP.Dept.PreReg
                         //}
                         if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY" && (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6" || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13"))
                         {
-                            QueryResondpanel.Visible = true;
+                            if (ObjUserInfo.UserID == "1030")
+                            {
+                                verifypanelAttachment.Visible = true;
+                                QueryResondpanel.Visible = false;
+                            }
+                            else
+                            {
+                                verifypanelAttachment.Visible = false;
+                                QueryResondpanel.Visible = true;
+                            }
+
                         }
                         else
                         {
@@ -482,10 +495,10 @@ namespace MeghalayaUIP.Dept.PreReg
                 if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
                 {
                     Failure.Visible = true;
-                    lblmsg0.Text = "Please Enter Query Response";                   
+                    lblmsg0.Text = "Please Enter Query Response";
                     txtReply.Focus();
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", lblmsg0.Text, true);
-                    return;                    
+                    return;
                 }
                 else
                 {
@@ -602,7 +615,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 string newPath = "", Error = "", message = "";
                 string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
-              //  string shortFileDir = "~\\PreRegAttachments";
+                //  string shortFileDir = "~\\PreRegAttachments";
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
                 FileUpload FileUploadquery = (FileUpload)row.FindControl("FileUploadquery");
@@ -721,27 +734,27 @@ namespace MeghalayaUIP.Dept.PreReg
                 //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
-                    {
-                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
-               // }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                // }
                 return Error;
             }
             catch (Exception ex)
@@ -802,6 +815,82 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void rblAlrdyObtained_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                RadioButtonList rblobtained = (RadioButtonList)sender;
+                GridViewRow row = (GridViewRow)rblobtained.NamingContainer;
+                int Rowindex = row.RowIndex;
+                if (Rowindex >= 0)
+                {
+                    RadioButtonList rdbCheck = (RadioButtonList)GVVerification.Rows[Rowindex].FindControl("rblAlrdyObtained");
+                    //CheckBox chkCheck = (CheckBox)GVVerification.Rows[Rowindex].FindControl("ChkApproval");
+
+                    foreach (GridViewRow row1 in GVVerification.Rows)
+                    {
+                        if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "N")
+                        {
+                            ((RadioButtonList)row1.FindControl("rblAlrdyObtained")).Enabled = true;
+
+                        }
+                        else if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "Y")
+                        {
+
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+
+                int i=0;
+                int J=0;
+                foreach (GridViewRow row1 in GVVerification.Rows)
+                {
+
+
+                    RadioButtonList rdbCheck = (RadioButtonList)row1.FindControl("rblAlrdyObtained");
+                    Label lbldescrption=(Label)row1.FindControl("lbldescription");
+
+                    prd.Unitid = Session["UNITID"].ToString();
+                    prd.Investerid = Session["INVESTERID"].ToString();
+                    prd.DPRStatus = rdbCheck.SelectedValue;
+                    prd.DPRBY = hdnUserID.Value;
+                    prd.filedescription = lbldescrption.Text;
+                    prd.DPRBYIP = getclientIP();
+                    prd.QueryRaised = txtRemark.Text;
+
+                    i = PreBAL.DPRDeptProcess(prd);
+                    J = J + i;
+                }
+                if(J==7)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Attachment Verified Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                    return;
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

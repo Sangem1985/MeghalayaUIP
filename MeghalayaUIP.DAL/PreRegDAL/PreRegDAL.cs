@@ -1142,6 +1142,54 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return dt;
         }
+       
+        public int DPRDeptProcess(PreRegDtls prd)
+        {
+            int valid = 0;
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetDPRDeptProcess, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetDPRDeptProcess;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(prd.Unitid));
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(prd.Investerid));
+                da.SelectCommand.Parameters.AddWithValue("@DPRVERIFICATION_STATUS", prd.DPRStatus);
+                da.SelectCommand.Parameters.AddWithValue("@DPRVERIFICATION_BY", prd.DPRBY);
+                da.SelectCommand.Parameters.AddWithValue("@DPRVERIFICATION_BYIP", prd.DPRBYIP);
+                da.SelectCommand.Parameters.AddWithValue("@QUERYRAISEDESC", prd.QueryRaised);
+                da.SelectCommand.Parameters.AddWithValue("@FILEDESCRIPTION", prd.filedescription);
+
+
+                da.SelectCommand.Parameters.Add("@RESULT", SqlDbType.Int, 100);
+                da.SelectCommand.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                da.SelectCommand.ExecuteNonQuery();
+                valid = (Int32)da.SelectCommand.Parameters["@RESULT"].Value;
+
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
 
 
 

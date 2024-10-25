@@ -114,6 +114,10 @@ namespace MeghalayaUIP.BAL.PreRegBAL
             return IRD.GetPreRegDPRDashBoardView(PRD);
         }
 
+        public int DPRDeptProcess(PreRegDtls prd)
+        {
+            return IRD.DPRDeptProcess(prd);
+        }
 
     }
 
