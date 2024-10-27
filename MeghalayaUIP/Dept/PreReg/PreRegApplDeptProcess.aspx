@@ -1209,9 +1209,9 @@
                                     <section id="dashboardAttachmnt">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                                <div class="col-md-3"></div>
-                                                <div class="col-md-6">
-                                                    <div class="table-responsive">
+                                                
+                                                <div class="col-sm-12">
+                                                    <div class="table-responsive" runat="server" visible="false">
                                                         <asp:GridView ID="GVVerification" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
                                                             GridLines="Both" HeaderStyle-BackColor="Red"
@@ -1229,12 +1229,12 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                 <asp:TemplateField HeaderText="Attachment Name">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lbldescription" runat="server" Text='<%#Eval("FILEDESCRIPTION") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-<%--                                                                <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />--%>
+                                                                <asp:TemplateField HeaderText="Attachment Name">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lbldescription" runat="server" Text='<%#Eval("FILEDESCRIPTION") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <%--                                                                <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />--%>
                                                                 <asp:TemplateField HeaderText="View">
                                                                     <ItemTemplate>
                                                                         <asp:LinkButton ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server" OnClick="linkAttachment_Click"></asp:LinkButton>
@@ -1260,8 +1260,52 @@
                                                             </Columns>
                                                         </asp:GridView>
                                                     </div>
+                                                    <div class="table-responsive" runat="server">
+                                                        <asp:GridView ID="gvDPRChecklist" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                                            GridLines="Both" HeaderStyle-BackColor="Red"
+                                                            Width="100%" EnableModelValidation="True">
+                                                            <RowStyle />
+                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                            <HeaderStyle BackColor="Red" />
+                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                            <AlternatingRowStyle BackColor="White" />
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="S No" ItemStyle-Width="10px">
+                                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                    <ItemTemplate>
+                                                                        <%# Container.DataItemIndex + 1%>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Name">
+                                                                    <ItemStyle />
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblName" runat="server" Text='<%#Eval("DOC_NAME") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Verified">
+                                                                    <ItemStyle />
+                                                                    <ItemTemplate>
+                                                                        <asp:RadioButtonList ID="rblObtained" runat="server" RepeatDirection="Horizontal">
+                                                                            <asp:ListItem Value="Y">Yes</asp:ListItem>
+                                                                            <asp:ListItem Selected="True" Value="N">No</asp:ListItem>
+                                                                        </asp:RadioButtonList>
+                                                                        <itemstyle horizontalalign="Center" />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center"  />
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="DocId" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label runat="server" ID="lblDprDocid" Text='<%#Eval("DOC_ID")%>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
                                                 </div>
                                                 <br />
+
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-12">
                                                         <div class="form-group row">
@@ -1289,6 +1333,7 @@
                                                     <div class="col-md-3"></div>
 
                                                 </div>
+                                            </div>
                                             </div>
                                     </section>
                                 </div>

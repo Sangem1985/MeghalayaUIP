@@ -204,8 +204,8 @@ namespace MeghalayaUIP.Dept.PreReg
                             grdAttachments.DataSource = ds.Tables[3];
                             grdAttachments.DataBind();
 
-                            GVVerification.DataSource = ds.Tables[3];
-                            GVVerification.DataBind();
+                            /*GVVerification.DataSource = ds.Tables[3];
+                            GVVerification.DataBind();*/
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
                         {
@@ -227,6 +227,11 @@ namespace MeghalayaUIP.Dept.PreReg
                         {
                             grdQueryRaised.DataSource = ds.Tables[7];
                             grdQueryRaised.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
+                        {
+                            gvDPRChecklist.DataSource = ds.Tables[8];
+                            gvDPRChecklist.DataBind();
                         }
                         //if (Request.QueryString["status"].ToString() == "C" || Request.QueryString["status"].ToString() == "F")
                         //{
