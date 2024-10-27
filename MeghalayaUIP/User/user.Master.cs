@@ -10,11 +10,13 @@ using System.Globalization;
 using System.IO;
 using MeghalayaUIP.BAL.CommonBAL;
 using System.Security.Policy;
+using System.Data;
 
 namespace MeghalayaUIP.User
 {
     public partial class User : System.Web.UI.MasterPage
     {
+        LoginBAL objloginBAL = new LoginBAL();
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         //private string _antiXsrfTokenValue;
@@ -39,6 +41,29 @@ namespace MeghalayaUIP.User
                 if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                 {
                     ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    DataSet ds = objloginBAL.GetDeptUserPwdInfo(ObjUserInfo.Email, "I");
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        if (Convert.ToString(ds.Tables[0].Rows[0]["MODIFIEDDATE"]) != "")
+                        {
+                            string pswdresettime = Convert.ToString(ds.Tables[0].Rows[0]["MODIFIEDDATE"]);
+                            int Hrsdiff, lasthr;
+                            if (pswdresettime != "")
+                            {
+                                lasthr = Convert.ToDateTime(pswdresettime).Minute;
+                                TimeSpan ts = (DateTime.Now - Convert.ToDateTime(pswdresettime));
+                                Double minutesdiff = ts.TotalMinutes;
+                                if (minutesdiff < 1)
+                                {
+                                    Response.Redirect("~/Login.aspx");
+                                }
+
+                            }
+
+
+                        }
+                    }
+
                     string Access = masterball.GetPageAuthorization(pageName, ObjUserInfo.RoleId);
                     /*if (Access == "N") 
                     {
@@ -192,6 +217,17 @@ namespace MeghalayaUIP.User
 
         protected void linklogout_Click(object sender, EventArgs e)
         {
+            string result = "";
+            if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+            {
+                var ObjUserInfo = new UserInfo();
+                ObjUserInfo = (UserInfo)Session["UserInfo"];
+                result = objloginBAL.UpdateLogout(ObjUserInfo.Email, "I");
+                if (result != "")
+                {
+                    string msg = result;
+                }
+            }
             Killsession();
             Session["UserInfo"] = null;
             Session.Abandon();

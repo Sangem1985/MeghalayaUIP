@@ -892,14 +892,17 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                        
                     }
-                    prd.status = Convert.ToInt32(ObjUserInfo.Roleid);
+                    prd.status = 7;
                     prd.IPAddress = getclientIP();
                     prd.UserID = ObjUserInfo.UserID;
+                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    //  string valid = PreBAL.PreRegApprovals(prd);
 
-                    string valid = PreBAL.PreRegApprovals(prd);
-
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
-                  //  return;
+                    string valid = PreBAL.PreRegUpdateQuery(prd);
+                    BindaApplicatinDetails();
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Replied to IMA Query Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                   // return;
+                    //  return;
 
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Attachment Verified Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
                     return;

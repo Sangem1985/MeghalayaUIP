@@ -134,7 +134,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@EMAILID", EmailId);               
+                da.SelectCommand.Parameters.AddWithValue("@EMAILID", EmailId);
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -149,7 +149,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetDeptUserPwdInfo(string EmailId,string Type)
+        public DataSet GetDeptUserPwdInfo(string EmailId, string Type)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -224,5 +224,39 @@ namespace MeghalayaUIP.DAL.CommonDAL
         //    }
         //    return portalUserOptionList;
         //}
+        public string UpdateLogout(string EmailId, string Type)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlCommand da = new SqlCommand(LoginConstants.UpdateLogout, connection);
+                da.CommandType = CommandType.StoredProcedure;
+                da.CommandText = LoginConstants.UpdateLogout;
+
+                da.Transaction = transaction;
+                da.Connection = connection;
+
+                da.Parameters.AddWithValue("@EMAILID", EmailId);
+                da.Parameters.AddWithValue("@TYPE", Type);
+                int i = da.ExecuteNonQuery();
+                Result = Convert.ToString(i);
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

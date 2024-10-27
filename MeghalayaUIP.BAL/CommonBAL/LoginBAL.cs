@@ -38,6 +38,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objLoginDAL.GetDeptUserPwdInfo(UserName, Type);
         }
+        public string UpdateLogout(string UserName, string Type)
+        {
+            return objLoginDAL.UpdateLogout(UserName, Type);
+        }
 
     }
 

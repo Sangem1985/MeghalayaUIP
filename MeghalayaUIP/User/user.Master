@@ -11,7 +11,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="shortcut icon" type="image/x-icon" href="..assets/admin/images/favicon.png">
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/admin/css/bootstrap.min.css">
 
@@ -92,6 +92,14 @@
             margin-right: 10px;
         }
     </style>
+    
+    <script type="text/javascript">
+        window.onbeforeunload = function () {
+            // Programmatically click the logout button when the page is unloaded
+            document.getElementById('<% =linklogout.ClientID %>').click();
+            
+        };
+</script>
 </head>
 <body>
     <form id="form1" runat="server">

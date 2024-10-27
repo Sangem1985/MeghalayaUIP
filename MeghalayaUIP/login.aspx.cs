@@ -243,8 +243,8 @@ namespace MeghalayaUIP
                 Killsession();
                 string errorMsg = ex.Message;
                 FillCapctha(); txtcaptcha.Text = "";
-                if (errorMsg.Contains("FAILED LOGIN ATTEMPTS ARE MORE THAN ZERO"))
-                    lblmsg0.Text = "Invalid Credentials...! ";
+                if (errorMsg.Contains("ALREADY LOGGED IN"))
+                    lblmsg0.Text = "ALREADY LOGGED IN...! ";
                 else
                     lblmsg0.Text = "Invalid Credentials.. ";
                 Failure.Visible = true;

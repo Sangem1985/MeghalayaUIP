@@ -4,6 +4,7 @@ using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -18,6 +19,7 @@ namespace MeghalayaUIP.User
     {
         readonly LoginBAL objloginBAL = new LoginBAL();
         MGCommonBAL objcomBal = new MGCommonBAL();
+        string Userid, OldPassword, NewPassword, CnfrmPassword;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -28,6 +30,9 @@ namespace MeghalayaUIP.User
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
+                        Userid = ObjUserInfo.Email;
+                        txtusername.Text = ObjUserInfo.Email;
+                        txtusername.Enabled = false;
                     }
                     if (hdnUserID.Value == "")
                     {
@@ -93,60 +98,70 @@ namespace MeghalayaUIP.User
                 {
                     if (BtnSave3.Text == "Submit")
                     {
-                        if (txtoldpassword.Text.Trim() == txtnewpassword.Text)
-                        {
 
-                            lblmsg.Text = "Old Password and New Password should not be same";
-                            success.Visible = false;
-                            Failure.Visible = true;
-                            FillCapctha();
-                            return;
-                        }
-                        if (txtnewpassword.Text.Trim() != txtconfirmpassword.Text.Trim())
-                        {
-                            lblmsg.Text = "New Password & Confirm Password Doesn't Matched....!";
-                            success.Visible = false;
-                            Failure.Visible = true;
-                            FillCapctha();
-                            return;
-                        }
 
                         UserID = txtusername.Text;
-
-
-                        UserInfo ObjUserInfo;
-                        ObjUserInfo = objloginBAL.GetUserInfo(UserID, txtoldpassword.Text.Trim(), getclientIP());
-                        // ds = objcomBal.GetUserPass(UserID, Password.ToString(), txtoldpassword.Text.Trim());
-                        if (ObjUserInfo != null && ObjUserInfo.Userid != null)
+                        NewPassword = PasswordDescription(txtnewpassword.Text.Trim());
+                        CnfrmPassword = PasswordDescription(txtconfirmpassword.Text.Trim());
+                        OldPassword = PasswordDescription(txtoldpassword.Text.Trim());
+                        try
                         {
-                            result = objcomBal.ChangeUserPassword(hdnUserID.Value, UserID, txtoldpassword.Text.Trim(), txtnewpassword.Text.Trim(), getclientIP());
-                            if (result != "")
+                            DataSet ds = objloginBAL.GetDeptUserPwdInfo(UserID, "I");
+                            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                             {
-                                lblmsg.Text = "Password Successfully Changed And Login With New Password..!";
-                                success.Visible = true;
-                                Failure.Visible = false;
-                                trsubmittion.Visible = false;
-                                string message = "alert('" + lblmsg.Text + "')";
-                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                                Response.Redirect("~/login.aspx");
+                                if (OldPassword == Convert.ToString(ds.Tables[0].Rows[0]["Password"]))
+                                {
+                                    result = objcomBal.ChangeUserPassword(hdnUserID.Value, UserID, OldPassword, NewPassword, getclientIP());
+                                    if (result != "")
+                                    {
+                                        lblmsg.Text = "Password Successfully Changed And Login With New Password..!";
+                                        success.Visible = true;
+                                        Failure.Visible = false;
+                                        trsubmittion.Visible = false;
+                                        //string message = "alert('" + lblmsg.Text + "')";
+                                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", $"alert('Password Changed Successfully...! Please login with New Password');  window.location.href='../login.aspx';", true);
+
+                                        //Response.Redirect("~/login.aspx");
+                                    }
+                                    else
+                                    {
+                                        lblmsg0.Text = "Error Occured while saving.....!";
+                                        txtoldpassword.Attributes["value"] = ""; txtnewpassword.Attributes["value"] = ""; txtconfirmpassword.Attributes["value"] = ""; txtcaptcha.Text = "";
+                                        Failure.Visible = true;
+                                        success.Visible = false;
+                                        FillCapctha(); txtcaptcha.Text = "";
+
+
+                                    }
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "Invalid Credentials (User name and Old Password).....!";
+                                    txtoldpassword.Attributes["value"] = ""; txtnewpassword.Attributes["value"] = ""; txtconfirmpassword.Attributes["value"] = ""; txtcaptcha.Text = "";
+                                    Failure.Visible = true;
+                                    success.Visible = false;
+                                    FillCapctha();
+                                }
                             }
                         }
-                        else
+                        catch (SqlException ex)
                         {
-                            lblmsg.Text = "Invalid User And Password";
                             FillCapctha();
+                            txtoldpassword.Attributes["value"] = ""; txtnewpassword.Attributes["value"] = ""; txtconfirmpassword.Attributes["value"] = ""; txtcaptcha.Text = "";
                             success.Visible = false;
                             Failure.Visible = true;
-                            BTNcLEAR_Click(sender, e);
                             string message = "alert('" + lblmsg.Text + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
+                            lblmsg.Text = "Invalid Credentials (User name and Old Password)";
                         }
                     }
                 }
                 else
                 {
                     Failure.Visible = true;
+                    FillCapctha();
+                    txtoldpassword.Attributes["value"] = ""; txtnewpassword.Attributes["value"] = ""; txtconfirmpassword.Attributes["value"] = ""; txtcaptcha.Text = "";
                     lblmsg0.Text = ErrorMsg.Replace(@"\n", "");
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -156,6 +171,7 @@ namespace MeghalayaUIP.User
             }
             catch (Exception ex)
             {
+                txtoldpassword.Attributes["value"] = ""; txtnewpassword.Attributes["value"] = ""; txtconfirmpassword.Attributes["value"] = ""; txtcaptcha.Text = "";
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
@@ -166,50 +182,70 @@ namespace MeghalayaUIP.User
             try
             {
                 string errormsg = "";
-
-                if (ViewState["captcha"].ToString() != txtcaptcha.Text.Trim().TrimStart())
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Captcha Code !!.');", true);
-                    FillCapctha();
-                    errormsg = errormsg+ "Invalid Captcha Code....!! \\n";                  
-                  
-                }
                 if (string.IsNullOrEmpty(txtcaptcha.Text) || txtcaptcha.Text == "" || txtcaptcha.Text == null)
                 {
                     errormsg = errormsg + "Please Enter Captcha...! \\n";
-                    FillCapctha();
+                }
+                if (txtcaptcha.Text != "" && txtcaptcha.Text.Trim() != Convert.ToString(ViewState["captcha"]))
+                {
+                    errormsg = errormsg + ". Please Enter Correct Captcha...!  \\n";
                 }
                 if (string.IsNullOrEmpty(txtusername.Text) || txtusername.Text == "" || txtusername.Text == null)
                 {
                     errormsg = errormsg + "Please Enter Username ...! \\n";
-                    // slno = slno + 1;
-                    FillCapctha();
+                }
+                if (txtnewpassword.Text.Trim() == txtusername.Text.Trim())
+                {
+                    errormsg = errormsg + "Please Enter User Email and Password should not be same...! \\n";
                 }
                 if (string.IsNullOrEmpty(txtoldpassword.Text) || txtoldpassword.Text == "" || txtoldpassword.Text == null)
                 {
                     errormsg = errormsg + "Please Enter Old Password...! \\n";
-                    //slno = slno + 1;
-                    FillCapctha();
-                }
-                if (string.IsNullOrEmpty(txtnewpassword.Text) || string.IsNullOrEmpty(txtconfirmpassword.Text))
-                {
-                    errormsg = errormsg+ "Please Enter New Password And Confirm Password...! \\n";                   
-                    FillCapctha();
+
                 }
                 if (string.IsNullOrEmpty(txtnewpassword.Text) || txtnewpassword.Text == "" || txtnewpassword.Text == null)
                 {
-                    errormsg = errormsg + "Please Enter New Password ....! \\n";                   
-                    FillCapctha();
+                    errormsg = errormsg + ". Please Enter New Password...!  \\n";
                 }
                 if (string.IsNullOrEmpty(txtconfirmpassword.Text) || txtconfirmpassword.Text == "" || txtconfirmpassword.Text == null)
                 {
-                    errormsg = errormsg + "Please Enter Confirm Password...! \\n";
-                    // slno = slno + 1;
-                    FillCapctha();
+                    errormsg = errormsg + ". Please Enter Confirm Password...! \\n";
+                }
+                if (txtoldpassword.Text != "")
+                    OldPassword = PasswordDescription(txtoldpassword.Text.Trim());
+                if (txtnewpassword.Text != "")
+                    NewPassword = PasswordDescription(txtnewpassword.Text.Trim());
+                if (txtconfirmpassword.Text != "")
+                    CnfrmPassword = PasswordDescription(txtconfirmpassword.Text.Trim());
+                if (txtnewpassword.Text != "" && txtconfirmpassword.Text != "")
+                {
+                    if (NewPassword != CnfrmPassword)
+                    {
+                        errormsg = errormsg + "New Password and Confirm New Password should be same...! \\n";
+                    }
+                    if (NewPassword == OldPassword)
+                    {
+                        errormsg = errormsg + "New Password and old Password should not be same...! \\n";
+
+                    }
+                    if (NewPassword == CnfrmPassword)
+                    {
+                        if (!(NewPassword.Any(char.IsLower) && NewPassword.Any(char.IsUpper) &&
+                               NewPassword.Any(char.IsDigit) && ValidatePassword(NewPassword.Trim())))
+                        {
+                            errormsg = errormsg + ". Password must have atleast one upper case letter, one lower case letter, one numer and one special character \\n";
+
+                        }
+                        if (NewPassword.Trim().Length < 8)
+                        {
+                            errormsg = errormsg + ". Password must have 8 characters Minimum \\n";
+                        }
+
+                    }
                 }
                 return errormsg;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -269,74 +305,12 @@ namespace MeghalayaUIP.User
             }
         }
 
-        protected void txtnewpassword_TextChanged(object sender, EventArgs e)
-        {
-            if (txtnewpassword.Text.Trim() == txtusername.Text.Trim())
-            {
-                lblmsg0.Text = "User Email and Password should not be same";
-                success.Visible = false;
-                Failure.Visible = true;
-                txtnewpassword.Text = "";
-                txtcaptcha.Text = "";
-                FillCapctha();
-                return;
-            }
-            if (txtnewpassword.Text.Trim().Length < 8)
-            {
-                lblmsg0.Text = "Password must have 8 characters Minimum";
-                success.Visible = false;
-                Failure.Visible = true;
-                txtnewpassword.Text = "";
-                txtcaptcha.Text = "";
-                FillCapctha();
-                return;
-            }
-            if (!(txtnewpassword.Text.Any(char.IsLower) && txtnewpassword.Text.Any(char.IsUpper) &&
-                       txtnewpassword.Text.Any(char.IsDigit) && ValidatePassword(txtnewpassword.Text.Trim())))
-            {
-
-                lblmsg0.Text = "Password must have atleast one upper case letter, one lower case letter, one numer and one special character";
-                success.Visible = false;
-                Failure.Visible = true;
-                txtnewpassword.Text = "";
-                txtcaptcha.Text = "";
-                FillCapctha();
-                return;
-            }
-        }
         public bool ValidatePassword(string strpass)
         {
             bool bValid = false;
-            // string strnumeric = "0123456789";
-            //string strchar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
             string strSpl = "!@$*#&";
             int i;
-            //for (i = 0; i < strpass.Length; i++)
-            //{
-            //    if (strchar.IndexOf((strpass.Substring(i, 1))) > -1)
-            //    {
-            //        bValid = true;
-            //        break;
-            //    }
-            //}
-            //if (bValid == false)
-            //{
-            //    return bValid;
-            //}
-            //bValid = false;
-            //for (i = 0; i < strpass.Length; i++)
-            //{
-            //    if (strnumeric.IndexOf((strpass.Substring(i, 1))) > -1)
-            //    {
-            //        bValid = true;
-            //        break;
-            //    }
-            //}
-            //if (bValid == false)
-            //{
-            //    return bValid;
-            //}
-            //bValid = false;
+
             for (i = 0; i < strpass.Length; i++)
             {
                 if (strSpl.IndexOf((strpass.Substring(i, 1))) > -1)
@@ -350,6 +324,17 @@ namespace MeghalayaUIP.User
                 return bValid;
             }
             return bValid;
+        }
+        public string PasswordDescription(string encrPswd)
+        {
+            var key = asp_hidden.Value;
+            string encrpted = encrPswd.Trim(), DecrPswd = "";
+            for (int j = 0; j < encrpted.Length; j++)
+            {
+                var charCode = (char)(encrpted[j] ^ key[j % key.Length]);
+                DecrPswd += charCode;
+            }
+            return DecrPswd;
         }
     }
 }

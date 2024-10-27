@@ -16,6 +16,7 @@ namespace MeghalayaUIP.Dept.Dashboard
         readonly LoginBAL objloginBAL = new LoginBAL();
         MGCommonBAL objcomBal = new MGCommonBAL();
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
+        string Password;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -38,6 +39,9 @@ namespace MeghalayaUIP.Dept.Dashboard
                         FillCapctha();
                     }
 
+                    txtusername.Text = ObjUserInfo.UserName;
+                    txtusername.Enabled = false;
+                    txtoldpassword.Text = "";
                 }
             }
             catch (Exception ex)
@@ -105,6 +109,8 @@ namespace MeghalayaUIP.Dept.Dashboard
                         }
 
                         UserID = txtusername.Text;
+                        txtnewpassword.Text = PasswordDescription(txtnewpassword.Text.Trim());
+                        txtconfirmpassword.Text = PasswordDescription(txtconfirmpassword.Text.Trim());
                         DeptUserInfo ObjUserInfo;
                         ObjUserInfo = objloginBAL.GetDeptUserInfo(UserID, txtoldpassword.Text.Trim(), getclientIP());//,Dept  
                         if (ObjUserInfo != null && ObjUserInfo.UserID != null)
@@ -137,6 +143,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                 else
                 {
                     Failure.Visible = true;
+                    FillCapctha();
                     lblmsg0.Text = ErrorMsg.Replace(@"\n", "");
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -158,37 +165,57 @@ namespace MeghalayaUIP.Dept.Dashboard
                // int slno = 1;
                 string errormsg = "";
 
-                if (ViewState["captcha"].ToString() != txtcaptcha.Text.Trim().TrimStart())
+
+                if (string.IsNullOrEmpty(txtcaptcha.Text) || txtcaptcha.Text == "" || txtcaptcha.Text == null)
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid Captcha Code !!.');", true);
-                    FillCapctha();
-                    errormsg = errormsg + "Invalid Captcha Code....!! \\n";
-                  //  slno = slno + 1;
-                    txtcaptcha.Text = "";
+                    errormsg = errormsg + "Please Enter Captcha...! \\n";
                 }
                 if (string.IsNullOrEmpty(txtusername.Text) || txtusername.Text == "" || txtusername.Text == null)
                 {
-                    errormsg = errormsg + "Please Enter Username...! \\n";
-                   // slno = slno + 1;
-                    FillCapctha();
+                    errormsg = errormsg + "Please Enter Username ...! \\n";
+
                 }
                 if (string.IsNullOrEmpty(txtoldpassword.Text) || txtoldpassword.Text == "" || txtoldpassword.Text == null)
                 {
                     errormsg = errormsg + "Please Enter Old Password...! \\n";
                     //slno = slno + 1;
-                    FillCapctha();
+
                 }
                 if (string.IsNullOrEmpty(txtnewpassword.Text) || txtnewpassword.Text == "" || txtnewpassword.Text == null)
                 {
-                    errormsg = errormsg + "Please Enter New Password ....! \\n";
-                   // slno = slno + 1;
-                    FillCapctha();
+                    Password = PasswordDescription(txtnewpassword.Text.Trim());
+
+                    if (Password.Trim() == txtnewpassword.Text.Trim())
+                    {
+                        errormsg = errormsg + ". Please Enter New Password  \\n";
+                    }
+                    if (!(Password.Any(char.IsLower) && Password.Any(char.IsUpper) &&
+                            Password.Any(char.IsDigit) && ValidatePassword(Password.Trim())))
+                    {
+                        errormsg = errormsg + ". Password must have atleast one upper case letter, one lower case letter, one numer and one special character \\n";
+
+                    }
+                    if (Password.Trim().Length < 8)
+                    {
+                        errormsg = errormsg + ". Password must have 8 characters Minimum \\n";
+
+                    }
+
                 }
                 if (string.IsNullOrEmpty(txtconfirmpassword.Text) || txtconfirmpassword.Text == "" || txtconfirmpassword.Text == null)
                 {
-                    errormsg = errormsg + "Please Enter Confirm Password...! \\n";
-                   // slno = slno + 1;
-                    FillCapctha();
+                    Password = PasswordDescription(txtconfirmpassword.Text.Trim());
+
+                    if (Password.Trim() == txtconfirmpassword.Text.Trim())
+                    {
+                        errormsg = errormsg + ". Please Enter Confirm Password \\n";
+                    }
+
+                }
+
+                if (txtnewpassword.Text.Trim() == txtusername.Text.Trim())
+                {
+                    errormsg = errormsg + "Please Enter User Email and Password should not be same...! \\n";
                 }
 
 
@@ -229,76 +256,13 @@ namespace MeghalayaUIP.Dept.Dashboard
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }
-
-        protected void txtnewpassword_TextChanged(object sender, EventArgs e)
-        {
-            if (txtnewpassword.Text.Trim() == txtusername.Text.Trim())
-            {
-                lblmsg0.Text = "User Email and Password should not be same";
-                success.Visible = false;
-                Failure.Visible = true;
-                txtnewpassword.Text = "";
-                txtcaptcha.Text = "";
-                FillCapctha();
-                return;
-            }
-            if (txtnewpassword.Text.Trim().Length < 8)
-            {
-                lblmsg0.Text = "Password must have 8 characters Minimum";
-                success.Visible = false;
-                Failure.Visible = true;
-                txtnewpassword.Text = "";
-                txtcaptcha.Text = "";
-                FillCapctha();
-                return;
-            }
-            if (!(txtnewpassword.Text.Any(char.IsLower) && txtnewpassword.Text.Any(char.IsUpper) &&
-                       txtnewpassword.Text.Any(char.IsDigit) && ValidatePassword(txtnewpassword.Text.Trim())))
-            {
-
-                lblmsg0.Text = "Password must have atleast one upper case letter, one lower case letter, one numer and one special character";
-                success.Visible = false;
-                Failure.Visible = true;
-                txtnewpassword.Text = "";
-                txtcaptcha.Text = "";
-                FillCapctha();
-                return;
-            }
-        }
+        }      
         public bool ValidatePassword(string strpass)
         {
-            bool bValid = false;
-            // string strnumeric = "0123456789";
-            //string strchar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            bool bValid = false;         
             string strSpl = "!@$*#&";
             int i;
-            //for (i = 0; i < strpass.Length; i++)
-            //{
-            //    if (strchar.IndexOf((strpass.Substring(i, 1))) > -1)
-            //    {
-            //        bValid = true;
-            //        break;
-            //    }
-            //}
-            //if (bValid == false)
-            //{
-            //    return bValid;
-            //}
-            //bValid = false;
-            //for (i = 0; i < strpass.Length; i++)
-            //{
-            //    if (strnumeric.IndexOf((strpass.Substring(i, 1))) > -1)
-            //    {
-            //        bValid = true;
-            //        break;
-            //    }
-            //}
-            //if (bValid == false)
-            //{
-            //    return bValid;
-            //}
-            //bValid = false;
+           
             for (i = 0; i < strpass.Length; i++)
             {
                 if (strSpl.IndexOf((strpass.Substring(i, 1))) > -1)
@@ -313,5 +277,17 @@ namespace MeghalayaUIP.Dept.Dashboard
             }
             return bValid;
         }
+        public string PasswordDescription(string encrPswd)
+        {
+            var key = hdnUserID.Value;//asp_hidden.Value;
+            string encrpted = encrPswd.Trim(), DecrPswd = "";
+            for (int j = 0; j < encrpted.Length; j++)
+            {
+                var charCode = (char)(encrpted[j] ^ key[j % key.Length]);
+                DecrPswd += charCode;
+            }
+            return DecrPswd;
+        }
+
     }
 }

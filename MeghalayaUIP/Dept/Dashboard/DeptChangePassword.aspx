@@ -63,7 +63,7 @@
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">New Password</td>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
-                                                            <asp:TextBox ID="txtnewpassword" runat="server" class="form-control txtbox" Width="180px" MinLength="8" MaxLength="12" OnTextChanged="txtnewpassword_TextChanged" onblur="return fnEncryption();" TextMode="Password"
+                                                            <asp:TextBox ID="txtnewpassword" runat="server" class="form-control txtbox" Width="180px" MinLength="8" MaxLength="12" onblur="return fnEncryption();" TextMode="Password"
                                                                 Height="28px" TabIndex="1" AutoComplete="off" AutoCompleteType="None" ToolTip="Password must have minimum 8 length, atleast one upper case letter, one lower case letter, one numer and one special character"></asp:TextBox>
                                                         </td>
                                                     </tr>

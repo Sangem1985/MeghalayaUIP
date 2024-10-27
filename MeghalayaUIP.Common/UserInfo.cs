@@ -15,6 +15,7 @@ namespace MeghalayaUIP.Common
         public static string ValidateMasterUser = "USP_VALIDATE_MASTERUSERS";
         public static string ForgetPassDetails = "USP_GETFORGETPASSWORD";
         public static string GetDeptUserPwdInfo = "sp_ValidUser_Password";
+        public static string UpdateLogout = "USP_UPDATELOGOUTSTATUS";
     }
     public class UserRegDetails
     {
