@@ -5,40 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script type="text/javascript">
-        //let originalValue = "";
-        function fnEncryption() {
-            var x = (Math.random() * 1973);
-            $("input[id*='asp_hidden']").val(x);
-            asp_hiddenVal = $("input[id*='asp_hidden']").val();
-            var key = asp_hiddenVal;
-            var otp = document.getElementById("<%=txtApplAadhar.ClientID %>");
-            var o = otp.value;
-            //var o = originalValue;
-            //var otpencrpt = window.btoa(o);
-            var otpencrpt = xorEncrypt(o, key);
-            otp.value = otpencrpt;
-        }
-        function xorEncrypt(text, key) {
-            var result = "";
-            for (var i = 0; i < text.length; i++) {
-                var charCode = text.charCodeAt(i) ^ key.charCodeAt(i % key.length);
-                result += String.fromCharCode(charCode);
-            }
-            return result;
-        }
-        //function maskInput(input) {
-        //    // Update the original value as the user types
-        //    originalValue = input.value;
-
-        //    // Mask all but the last 4 characters for display in the TextBox
-        //    if (originalValue.length > 4) {
-        //        const maskedPart = "*".repeat(originalValue.length - 4);
-        //        const visiblePart = originalValue.slice(-4);
-        //        input.value = maskedPart + visiblePart;
-        //    }
-        //}
-    </script>
+    
     <style>
         span.icon, span.icon2, span.icon3 {
             top: 70px !important;
@@ -1514,7 +1481,42 @@
         window.onload = datepicker;
     </script>
 
+    <script type="text/javascript">
+        //let originalValue = "";
+        function fnEncryption() {
+            var x = (Math.random() * 1973);
+            $("input[id*='asp_hidden']").val(x);
+            asp_hiddenVal = $("input[id*='asp_hidden']").val();
+            var key = asp_hiddenVal;
+            var otp = document.getElementById("<%=txtApplAadhar.ClientID %>");
+            var o = otp.value;
+            //var o = originalValue;
+            //var otpencrpt = window.btoa(o);
+            var otpencrpt = xorEncrypt(o, key);
+            otp.value = otpencrpt;
+        }
+        function xorEncrypt(text, key) {
+            var result = "";
+            for (var i = 0; i < text.length; i++) {
+                var charCode = text.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+                result += String.fromCharCode(charCode);
+            }
+            return result;
+        }
+        //function maskInput(input) {
+        //    // Update the original value as the user types
+        //    originalValue = input.value;
 
+        //    // Mask all but the last 4 characters for display in the TextBox
+        //    if (originalValue.length > 4) {
+        //        const maskedPart = "*".repeat(originalValue.length - 4);
+        //        const visiblePart = originalValue.slice(-4);
+        //        input.value = maskedPart + visiblePart;
+        //    }
+        //}
+    </script>
+    <script src="../../assets/admin/js/MD5.js"></script>
+    <script src="../../assets/admin/js/crypto.js"></script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
