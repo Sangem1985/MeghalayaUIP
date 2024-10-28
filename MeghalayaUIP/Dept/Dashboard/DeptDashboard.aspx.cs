@@ -42,12 +42,26 @@ namespace MeghalayaUIP.Dept.Dashboard
                 }
                 else if (ObjUserInfo.Roleid == "4")
                 {
-                    intenttoinvest.Visible = false;
-                    prereg.Visible = true;
-                    Land.Visible = true;
-                    Preestablishment.Visible = false;
-                    Ammendments.Visible = true;
-                    Report.Visible = true;
+                    if (ObjUserInfo.UserID == "1030")
+                    {
+                        intenttoinvest.Visible = false;
+                        prereg.Visible = true;
+                        Land.Visible = false;
+                        Preestablishment.Visible = false;
+                        Ammendments.Visible = false;
+                        Report.Visible = false;
+                        Grievance.Visible = false;
+                    }
+                    else
+                    {
+                        intenttoinvest.Visible = false;
+                        prereg.Visible = true;
+                        Land.Visible = true;
+                        Preestablishment.Visible = false;
+                        Ammendments.Visible = true;
+                        Report.Visible = true;
+                    }
+                   
                 }
                 else if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
                 {

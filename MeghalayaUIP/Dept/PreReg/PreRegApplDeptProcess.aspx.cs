@@ -821,106 +821,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }
-
-        protected void rblAlrdyObtained_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                RadioButtonList rblobtained = (RadioButtonList)sender;
-                GridViewRow row = (GridViewRow)rblobtained.NamingContainer;
-                int Rowindex = row.RowIndex;
-                if (Rowindex >= 0)
-                {
-                    RadioButtonList rdbCheck = (RadioButtonList)GVVerification.Rows[Rowindex].FindControl("rblAlrdyObtained");
-                    //CheckBox chkCheck = (CheckBox)GVVerification.Rows[Rowindex].FindControl("ChkApproval");
-
-                    foreach (GridViewRow row1 in GVVerification.Rows)
-                    {
-                        if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "N")
-                        {
-                            ((RadioButtonList)row1.FindControl("rblAlrdyObtained")).Enabled = true;
-
-                        }
-                        else if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "Y")
-                        {
-
-                        }
-                    }
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-              //  DataSet ds = new DataSet();
-
-                int i=0;
-                int J=0;
-                foreach (GridViewRow row1 in GVVerification.Rows)
-                {
-
-
-                    RadioButtonList rdbCheck = (RadioButtonList)row1.FindControl("rblAlrdyObtained");
-                    Label lbldescrption=(Label)row1.FindControl("lbldescription");
-
-                    prd.Unitid = Session["UNITID"].ToString();
-                    prd.Investerid = Session["INVESTERID"].ToString();
-                    prd.DPRStatus = rdbCheck.SelectedValue;
-                    prd.DPRBY = hdnUserID.Value;
-                    prd.filedescription = lbldescrption.Text;
-                    prd.DPRBYIP = getclientIP();
-                    prd.QueryRaised = txtRemark.Text;
-
-                    i = PreBAL.DPRDeptProcess(prd);
-                    J = J + i;                  
-
-                }
-                if(J==7)
-                {
-                    var ObjUserInfo = new DeptUserInfo();
-                    if (Session["DeptUserInfo"] != null)
-                    {
-
-                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                        {
-                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                        }
-                       
-                    }
-                    prd.status = 7;
-                    prd.IPAddress = getclientIP();
-                    prd.UserID = ObjUserInfo.UserID;
-                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    //  string valid = PreBAL.PreRegApprovals(prd);
-
-                    string valid = PreBAL.PreRegUpdateQuery(prd);
-                    BindaApplicatinDetails();
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Replied to IMA Query Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
-                   // return;
-                    //  return;
-
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Attachment Verified Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
-                    return;
-                }
-               
-
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        }  
         public string validations()
         {
             try
@@ -942,6 +843,75 @@ namespace MeghalayaUIP.Dept.PreReg
                 return errormsg;
             }
             catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnVerifyUpldAttachment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnDPRVerify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //  DataSet ds = new DataSet();
+
+                int i = 0;
+                int J = 0;
+                foreach (GridViewRow row1 in gvDPRChecklist.Rows)
+                {
+
+
+                    RadioButtonList rdbCheck = (RadioButtonList)row1.FindControl("rblAlrdyObtained");
+                    Label lbldescrption = (Label)row1.FindControl("lbldescription");
+
+                    prd.Unitid = Session["UNITID"].ToString();
+                    prd.Investerid = Session["INVESTERID"].ToString();
+                    prd.DPRStatus = rdbCheck.SelectedValue;
+                    prd.DPRBY = hdnUserID.Value;
+                    prd.filedescription = lbldescrption.Text;
+                    prd.DPRBYIP = getclientIP();
+                    prd.QueryRaised = txtRemark.Text;
+
+                    i = PreBAL.DPRDeptProcess(prd);
+                    J = J + i;
+
+                }
+                if (J == 7)
+                {
+                    var ObjUserInfo = new DeptUserInfo();
+                    if (Session["DeptUserInfo"] != null)
+                    {
+
+                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                        {
+                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                        }
+
+                    }
+                    prd.status = 7;
+                    prd.IPAddress = getclientIP();
+                    prd.UserID = ObjUserInfo.UserID;
+                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    //  string valid = PreBAL.PreRegApprovals(prd);
+
+                    string valid = PreBAL.PreRegUpdateQuery(prd);
+                    BindaApplicatinDetails();
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Replied to IMA Query Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                    // return;
+                    //  return;
+
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Attachment Verified Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                    return;
+                }
+
+
+
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

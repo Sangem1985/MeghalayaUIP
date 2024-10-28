@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:HiddenField ID="asp_hidden" runat="server" />
     <script type="text/javascript">
         //let originalValue = "";
         function fnEncryption() {
@@ -132,94 +133,8 @@
                             </li>
                             <li>If your application is successful, you agree to comply with all relevant terms of service and policies of our organization.</li>
                         </ul>
-                        <p>
-                        </p>
-                        <p>
-                            <b><i class="fi fi-br-triangle-warning"></i>Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant.
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
                     </p>
+                    <p><b><i class="fi fi-br-triangle-warning"></i>Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant.</p>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
@@ -244,7 +159,7 @@
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <asp:HiddenField ID="hdnResultTab2" runat="server" />
                                     <asp:HiddenField ID="hdnResultTab3" runat="server" />
-                                    <asp:HiddenField runat="server" ID="asp_hidden" />
+
                                     <ul class="nav nav-tabs">
                                         <li class="nav-item">
                                             <asp:LinkButton ID="Link1" class="nav-link active" runat="server" OnClick="Link1_Click" Style="padding-right: 20px; font-size: 18px; margin-top: -8px !important; padding: 10px 10px 12px !important;"> 
@@ -1050,6 +965,14 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <%-- <div class="col-md-4">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">AADHAR No. <span class="star">*</span></label>
+                                                                        <div class="col-lg-6 d-flex">
+                                                                            <asp:TextBox runat="server" ID="txtApplAadhar" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="12" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>--%>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">AADHAR No. <span class="star">*</span></label>
@@ -1246,7 +1169,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label"></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:Button ID="btnAddPromtr" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="btnAddPromtr_Click" Width="110px" OnClientClick="fnEncryption()" />
+                                                                            <asp:Button ID="btnAddPromtr" Text="Add Details" class="btn btn-rounded btn-green" runat="server" OnClick="btnAddPromtr_Click" Width="110px" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1256,7 +1179,7 @@
                                                                 <div class="table-responsive">
                                                                     <asp:GridView ID="gvPromoters" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="5" CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
-                                                                        GridLines="None" OnRowDeleting="gvPromoters_RowDeleting" OnRowDataBound="gvPromoters_RowDataBound" AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
+                                                                        GridLines="None" OnRowDeleting="gvPromoters_RowDeleting" AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
                                                                         Width="140%" EnableModelValidation="True" Visible="false">
                                                                         <RowStyle BackColor="#ffffff" />
 
@@ -1268,14 +1191,7 @@
                                                                             <asp:BoundField HeaderText="INVESTERID" DataField="IDD_INVESTERID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" Visible="false" />
                                                                             <asp:BoundField HeaderText="First Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
                                                                             <asp:BoundField HeaderText="Last Name" DataField="IDD_LASTNAME" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                                            <asp:TemplateField HeaderText="Aadhar No.">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblAadhar" runat="server"
-                                                                                        Text='<%#Eval("IDD_ADNO") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                                <ItemStyle HorizontalAlign="Center" />
-                                                                            </asp:TemplateField>
-                                                                            <%--<asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />--%>
+                                                                            <asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
                                                                             <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
                                                                             <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
                                                                             <asp:BoundField HeaderText="Nationality" DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
