@@ -11,7 +11,7 @@ namespace MeghalayaUIP
     public class Global : System.Web.HttpApplication
     {
         string expectedHost = Convert.ToString(ConfigurationManager.AppSettings["expectedHost"]);
-
+        string expectedHostPath = Convert.ToString(ConfigurationManager.AppSettings["expectedHostPath"]);
         protected void Application_Start(object sender, EventArgs e)
         {
             PreSendRequestHeaders += Application_PreSendRequestHeaders;
@@ -26,6 +26,7 @@ namespace MeghalayaUIP
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             string requesturl = Request.Url.PathAndQuery;
+
             string santzurl = requesturl.Replace("<", "[").Replace(">", "]");
             if (!string.Equals(requesturl, santzurl, StringComparison.OrdinalIgnoreCase))
             {
@@ -56,11 +57,10 @@ namespace MeghalayaUIP
             //HttpContext.Current.Response.AddHeader("X-Frame-Options", "DENY");
 
             string rawUrl = Request.RawUrl;
-            if (rawUrl.Contains("<") || rawUrl.Contains(">"))
+            if (rawUrl.Contains("<") || rawUrl.Contains(">") || !Request.Url.ToString().Contains(expectedHostPath))
             {
                 Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
             }
-
 
         }
 
@@ -74,7 +74,7 @@ namespace MeghalayaUIP
 
             //if (!(requestHost.Contains(expectedHost)))
             if (!string.Equals(actualHost, expectedHost, StringComparison.OrdinalIgnoreCase))
-            {                
+            {
                 Response.Headers.Remove("Server");
                 HttpContext.Current.Response.StatusCode = 403; // Forbidden
                 HttpContext.Current.Response.StatusDescription = "Invalid Host Header";
@@ -132,7 +132,7 @@ namespace MeghalayaUIP
         protected void Application_Error(object sender, EventArgs e)
         {
             string rawUrl = Request.RawUrl;
-            if (rawUrl.Contains("<") || rawUrl.Contains(">"))
+            if (rawUrl.Contains("<") || rawUrl.Contains(">") || !Request.Url.ToString().Contains(expectedHostPath))
             {
                 Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
             }

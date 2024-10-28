@@ -124,7 +124,7 @@ namespace MeghalayaUIP
                                 Hrsdiff = (Convert.ToDateTime(emailsenttime).Hour - DateTime.Now.Hour);
                             }
 
-                            if (emailsenttime == "" || (Convert.ToDateTime(emailsenttime).Hour - DateTime.Now.Hour) > 2)
+                            if (emailsenttime == "" || (DateTime.Now.Hour - Convert.ToDateTime(emailsenttime).Hour) > 2)
                             {
                                 Random random = new Random();
                                 string combination = "ABCDEFGHJKLMNPQRSTUVWXYZabdfghjkmnpqrstuvwxyz123456789";
