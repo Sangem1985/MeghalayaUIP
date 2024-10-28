@@ -303,6 +303,8 @@ namespace MeghalayaUIP
         {
             try
             {
+                Killsession();
+                AbandonSession();
                 ViewState["captcha"] = "";
 
                 Random random = new Random();
