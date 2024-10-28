@@ -53,6 +53,11 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblDeptrepliedtoIMA.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
                         //lblIMAQueryforwardedtoAppl.Text = dt.Rows[0]["DEPTFWDIMAQUERYTOAPPL"].ToString();
                         //lblAPPLREPLIEDTOIMAQUERY.Text = dt.Rows[0]["APPLREPLIEDTOIMAQUERY"].ToString();
+                        //if (prd.UserID == "1030")
+                        //{
+                        //    linkQryRcvd.Text = "To be Processed";
+                        //    linkQryRepld.Text = "Processed";
+                        //}
                     }
                 }
             }

@@ -30,6 +30,16 @@ namespace MeghalayaUIP.Dept.Dashboard
                     Report.Visible = true;
 
                 }
+                else if (ObjUserInfo.Roleid == "3")
+                {
+                    Land.Visible = false;
+                    intenttoinvest.Visible = false;
+                    prereg.Visible = true;
+                    Preestablishment.Visible = false;
+                    Ammendments.Visible = false;
+                    Report.Visible = false;
+                    Grievance.Visible = false;
+                }
                 else if (ObjUserInfo.Roleid == "4")
                 {
                     intenttoinvest.Visible = false;
@@ -93,6 +103,12 @@ namespace MeghalayaUIP.Dept.Dashboard
             {
                 prereg.Visible = false;
                 string url = "~/Dept/PreReg/PreRegApplCommitteeDashBoard.aspx";
+                Response.Redirect(url);
+            }
+            else if (ObjUserInfo.Roleid == "3")
+            {
+                prereg.Visible = false;
+                string url = "~/Dept/PreReg/PreRegDITDashBoard.aspx";
                 Response.Redirect(url);
             }
         }

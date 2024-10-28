@@ -638,6 +638,9 @@
     <Content Include="Dept\PreReg\PreRegApplIMADashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegApplIMAView.aspx" />
+    <Content Include="Dept\PreReg\PreRegDITDashBoard.aspx" />
+    <Content Include="Dept\PreReg\PreRegDITProcess.aspx" />
+    <Content Include="Dept\PreReg\PreRegDITView.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptdrill.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptProcess.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptView.aspx" />
@@ -1139,6 +1142,27 @@
     </Compile>
     <Compile Include="Dept\PreReg\PreRegApplIMAView.aspx.designer.cs">
       <DependentUpon>PreRegApplIMAView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegDITDashBoard.aspx.cs">
+      <DependentUpon>PreRegDITDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegDITDashBoard.aspx.designer.cs">
+      <DependentUpon>PreRegDITDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegDITProcess.aspx.cs">
+      <DependentUpon>PreRegDITProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegDITProcess.aspx.designer.cs">
+      <DependentUpon>PreRegDITProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegDITView.aspx.cs">
+      <DependentUpon>PreRegDITView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegDITView.aspx.designer.cs">
+      <DependentUpon>PreRegDITView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\Renewal\RENApplDeptdrill.aspx.cs">
       <DependentUpon>RENApplDeptdrill.aspx</DependentUpon>
