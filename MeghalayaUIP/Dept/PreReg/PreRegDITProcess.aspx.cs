@@ -205,8 +205,8 @@ namespace MeghalayaUIP.Dept.PreReg
                             grdAttachments.DataSource = ds.Tables[3];
                             grdAttachments.DataBind();
 
-                            GVVerification.DataSource = ds.Tables[3];
-                            GVVerification.DataBind();
+                            //GVVerification.DataSource = ds.Tables[3];
+                            //GVVerification.DataBind();
 
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
@@ -695,41 +695,46 @@ namespace MeghalayaUIP.Dept.PreReg
             }
         }
 
-        protected void rblAlrdyObtained_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                RadioButtonList rblobtained = (RadioButtonList)sender;
-                GridViewRow row = (GridViewRow)rblobtained.NamingContainer;
-                int Rowindex = row.RowIndex;
-                if (Rowindex >= 0)
-                {
-                    RadioButtonList rdbCheck = (RadioButtonList)GVVerification.Rows[Rowindex].FindControl("rblAlrdyObtained");
-                    //CheckBox chkCheck = (CheckBox)GVVerification.Rows[Rowindex].FindControl("ChkApproval");
+        //protected void rblAlrdyObtained_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        RadioButtonList rblobtained = (RadioButtonList)sender;
+        //        GridViewRow row = (GridViewRow)rblobtained.NamingContainer;
+        //        int Rowindex = row.RowIndex;
+        //        if (Rowindex >= 0)
+        //        {
+        //            RadioButtonList rdbCheck = (RadioButtonList)GVVerification.Rows[Rowindex].FindControl("rblAlrdyObtained");
+        //            //CheckBox chkCheck = (CheckBox)GVVerification.Rows[Rowindex].FindControl("ChkApproval");
 
-                    foreach (GridViewRow row1 in GVVerification.Rows)
-                    {
-                        if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "N")
-                        {
-                            ((RadioButtonList)row1.FindControl("rblAlrdyObtained")).Enabled = true;
+        //            foreach (GridViewRow row1 in GVVerification.Rows)
+        //            {
+        //                if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "N")
+        //                {
+        //                    ((RadioButtonList)row1.FindControl("rblAlrdyObtained")).Enabled = true;
 
-                        }
-                        else if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "Y")
-                        {
+        //                }
+        //                else if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "Y")
+        //                {
 
-                        }
-                    }
+        //                }
+        //            }
 
-                }
+        //        }
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         protected void btnDIT_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnupldDCReport_Click(object sender, EventArgs e)
         {
 
         }

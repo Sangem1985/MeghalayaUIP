@@ -93,13 +93,6 @@
         }
     </style>
     
-    <script type="text/javascript">
-        window.onbeforeunload = function () {
-            // Programmatically click the logout button when the page is unloaded
-            document.getElementById('<% =linklogout.ClientID %>').click();
-            
-        };
-</script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -343,6 +336,11 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                     event.preventDefault();
                 }
             }
+            window.onbeforeunload = function () {
+                // Programmatically click the logout button when the page is unloaded
+                document.getElementById('<% =linklogout.ClientID %>').click();
+
+                 };
         </script>
 
     </form>

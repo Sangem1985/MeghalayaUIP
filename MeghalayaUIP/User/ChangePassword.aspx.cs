@@ -20,6 +20,7 @@ namespace MeghalayaUIP.User
         readonly LoginBAL objloginBAL = new LoginBAL();
         MGCommonBAL objcomBal = new MGCommonBAL();
         string Userid, OldPassword, NewPassword, CnfrmPassword;
+        DataSet dsUser;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -49,6 +50,11 @@ namespace MeghalayaUIP.User
                     success.Visible = false;
                     if (!IsPostBack)
                     {
+                        dsUser = objloginBAL.GetDeptUserPwdInfo(ObjUserInfo.Email, "I");
+                        if (dsUser != null && dsUser.Tables.Count > 0 && dsUser.Tables[0].Rows.Count > 0)
+                        {
+                            ViewState["OldPassword"] = Convert.ToString(dsUser.Tables[0].Rows[0]["Password"]);
+                        }
                         FillCapctha();
                     }
                 }
@@ -217,16 +223,26 @@ namespace MeghalayaUIP.User
                     NewPassword = PasswordDescription(txtnewpassword.Text.Trim());
                 if (txtconfirmpassword.Text != "")
                     CnfrmPassword = PasswordDescription(txtconfirmpassword.Text.Trim());
+                if (Convert.ToString(ViewState["OldPassword"]) != "" && txtoldpassword.Text != "")
+                {
+                    if (Convert.ToString(ViewState["OldPassword"]) != OldPassword)
+                    { 
+                        errormsg = errormsg + "Invalid Credentials (User name and Old Password)...! \\n ";
+                    }
+                    if (Convert.ToString(ViewState["OldPassword"]) == OldPassword)
+                    {
+                        if (NewPassword == OldPassword)
+                        {
+                            errormsg = errormsg + "New Password and old Password should not be same...! \\n";
+                        }
+                    }
+                }
+
                 if (txtnewpassword.Text != "" && txtconfirmpassword.Text != "")
                 {
                     if (NewPassword != CnfrmPassword)
                     {
                         errormsg = errormsg + "New Password and Confirm New Password should be same...! \\n";
-                    }
-                    if (NewPassword == OldPassword)
-                    {
-                        errormsg = errormsg + "New Password and old Password should not be same...! \\n";
-
                     }
                     if (NewPassword == CnfrmPassword)
                     {
