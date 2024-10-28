@@ -227,7 +227,7 @@ namespace MeghalayaUIP.User
                 {
                     if (Convert.ToString(ViewState["OldPassword"]) != OldPassword)
                     { 
-                        errormsg = errormsg + "Invalid Credentials (User name and Old Password)...! \\n ";
+                        errormsg = errormsg + "Invalid Credentials (Old Password)...! \\n ";
                     }
                     if (Convert.ToString(ViewState["OldPassword"]) == OldPassword)
                     {
