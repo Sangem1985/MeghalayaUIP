@@ -1108,7 +1108,7 @@
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Text="Approve & Forward to Committee" Value="8"></asp:ListItem>
                                                         <asp:ListItem Text="Raise Query to Applicant" Value="4"></asp:ListItem>
-                                                        <asp:ListItem Text="Raise Query to Departments" Value="6"></asp:ListItem>
+                                                        <asp:ListItem Text="Forward to Departments" Value="6"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdRemarksTxtbx" runat="server" visible="false">
@@ -1129,13 +1129,13 @@
                                                 <td style="vertical-align: central" id="tdDeptQuery" runat="server" visible="false" colspan="5">
                                                     <table>
                                                         <tr>
-                                                            <td>Select Department to Raise Query</td>
+                                                            <td>Select Department to Forward</td>
                                                             <td>
                                                                 <asp:DropDownList ID="ddldepartment" runat="server" class="form-control">
                                                                     <asp:ListItem Value="0">--Select--</asp:ListItem>
                                                                 </asp:DropDownList>
                                                             </td>
-                                                            <td>Enter Query Description
+                                                            <td>Enter Remarks
                                                             </td>
                                                             <td>
                                                                 <asp:TextBox ID="txtDeptQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return validateNameInput(event)"></asp:TextBox>
@@ -1144,7 +1144,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="4">
-                                                                <asp:Button ID="btnAddDeptQry" Text="Add Query" runat="server" class="btn btn-rounded btn-submit btn-lg" Width="125px" OnClick="btnAddDeptQry_Click" />
+                                                                <asp:Button ID="btnAddDeptQry" Text="Add Department" runat="server" class="btn btn-rounded btn-submit btn-lg" Width="200px" OnClick="btnAddDeptQry_Click" />
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1183,7 +1183,7 @@
 
                                                 </td>
                                                 <td>
-                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Raise Query" Enabled="false" OnClick="btnQuery_Click" class="btn btn-rounded btn-submit btn-lg" />
+                                                    <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Forward" Enabled="false" OnClick="btnQuery_Click" class="btn btn-rounded btn-submit btn-lg" />
                                                 </td>
                                             </tr>
                                         </table>
