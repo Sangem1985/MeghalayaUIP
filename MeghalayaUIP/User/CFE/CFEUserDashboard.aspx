@@ -98,7 +98,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Query Raised">
                                     <ItemTemplate>
-                                        <asp:HyperLink runat="server" ID="hplQueryRaised" Text='<%#Eval("QUERYCOUNT")%>' />
+                                        <asp:HyperLink runat="server" ID="hplQueryRaised" Text='<%#Eval("QUERYCOUNT")%>'  />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -123,7 +123,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="UNITID" Visible="false">
                                     <ItemTemplate>
-                                        <asp:Label runat="server" ID="lblUNITID" Text='<%#Eval("UNITID") %>'> </asp:Label>
+                                        <asp:Label runat="server" ID="lblUNITID" Text='<%#Eval("UNITID") %>' > </asp:Label>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>

@@ -24,7 +24,7 @@ namespace MeghalayaUIP.User.PreReg
     public partial class IndustryRegistration : System.Web.UI.Page
     {
         int index; string ErrorMsg1 = "", ErrorMsg2 = "", ErrorMsg3 = "", ErrorMsg4 = "";
-
+        protected string Aadhar;
         readonly LoginBAL objloginBAL = new LoginBAL();
         MasterBAL mstrBAL = new MasterBAL();
         PreRegBAL indstregBAL = new PreRegBAL();
@@ -69,6 +69,12 @@ namespace MeghalayaUIP.User.PreReg
                         BindRegistrationType();
                         BindData();
                     }
+                    if (IsPostBack)
+                    {
+                        if (txtApplAadhar.Text.Trim() != "")
+                            txtApplAadhar.Attributes["value"] = txtApplAadhar.Text;
+                    }
+
                 }
                 else
                 {
@@ -1772,7 +1778,7 @@ namespace MeghalayaUIP.User.PreReg
                         dr["IDD_INVESTERID"] = hdnUserID.Value;
                         dr["IDD_FIRSTNAME"] = txtApplFrstName.Text.Trim();
                         dr["IDD_LASTNAME"] = txtApplLstName.Text.Trim();
-                        dr["IDD_ADNO"] = txtApplAadhar.Text;
+                        dr["IDD_ADNO"] = PasswordDescription(txtApplAadhar.Text);
                         dr["IDD_PAN"] = txtApplPAN.Text;
                         dr["IDD_DINNO"] = txtApplDIN.Text;
                         dr["IDD_NATIONALITY"] = ddlApplNationality.SelectedItem.Text;
@@ -1826,6 +1832,7 @@ namespace MeghalayaUIP.User.PreReg
 
                         txtApplFrstName.Text = "";
                         txtApplLstName.Text = "";
+                        txtApplAadhar.Attributes["value"] = "";
                         txtApplAadhar.Text = "";
                         txtApplPAN.Text = "";
                         txtApplDIN.Text = "";
@@ -1857,6 +1864,7 @@ namespace MeghalayaUIP.User.PreReg
                     }
                     else
                     {
+                        txtApplAadhar.Text = "";
                         string message = "alert('" + ErrorMsg + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -1875,6 +1883,17 @@ namespace MeghalayaUIP.User.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
+        }
+        public string PasswordDescription(string encrPswd)
+        {
+            var key = asp_hidden.Value;
+            string encrpted = encrPswd.Trim(), DecrPswd = "";
+            for (int j = 0; j < encrpted.Length; j++)
+            {
+                var charCode = (char)(encrpted[j] ^ key[j % key.Length]);
+                DecrPswd += charCode;
+            }
+            return DecrPswd;
         }
         protected void gvPromoters_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -1973,7 +1992,8 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Enter Last Name \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtApplAadhar.Text) || txtApplAadhar.Text == "" || txtApplAadhar.Text == null || txtApplAadhar.Text.Length != 12 || txtApplAadhar.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtApplAadhar.Text, @"^0+(\.0+)?$"))
+                string ApplAadhar = PasswordDescription(txtApplAadhar.Text);
+                if (string.IsNullOrEmpty(ApplAadhar) || ApplAadhar == "" || ApplAadhar == null || ApplAadhar.Length != 12 || ApplAadhar.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(ApplAadhar, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Valid Aadhar Number \\n";
                     slno = slno + 1;
@@ -2606,7 +2626,7 @@ namespace MeghalayaUIP.User.PreReg
                                 {
                                     lbldpr.Text = fupDPR.FileName;
                                     hypdpr.Text = fupDPR.FileName;
-                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath="+mstrBAL.EncryptFilePath(newPath + fupDPR.PostedFile.FileName);
+                                    hypdpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(newPath + fupDPR.PostedFile.FileName);
                                     message = "alert('" + "DPR Document Uploaded successfully" + "')";
                                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                                 }
@@ -2801,9 +2821,9 @@ namespace MeghalayaUIP.User.PreReg
 
             if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
                 return true;
-            else 
+            else
                 return false;
-            
+
         }
         protected void btnPreview_Click(object sender, EventArgs e)
         {
@@ -3138,6 +3158,32 @@ namespace MeghalayaUIP.User.PreReg
         {
             MVprereg.ActiveViewIndex = 0;
         }
+
+        protected void gvPromoters_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    Label lblAadharNO = (Label)e.Row.FindControl("lblAadhar");
+                    string AadharNo = lblAadharNO.Text;
+                    if (!string.IsNullOrEmpty(AadharNo))
+                    {
+                        lblAadharNO.Text = new string('*', AadharNo.Length - 4) + AadharNo.Substring(AadharNo.Length - 4);
+                        //new string('*', AadharNo.Length);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+
         protected void Link2_Click(object sender, EventArgs e)
         {
             ErrorMsg1 = Step1validations();
