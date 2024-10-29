@@ -645,8 +645,8 @@ namespace MeghalayaUIP.User.CFE
                         fupElectrical.PostedFile.SaveAs(serverpath + "\\" + fupElectrical.PostedFile.FileName);
 
                         CFEAttachments objApplPhoto = new CFEAttachments();
-                        objApplPhoto.UNITID = Convert.ToString(Session["CFEQID"]);
-                        objApplPhoto.Questionnareid = Convert.ToString(Session["CFEUNITID"]);
+                        objApplPhoto.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objApplPhoto.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objApplPhoto.MasterID = "24";
                         objApplPhoto.FilePath = serverpath + fupElectrical.PostedFile.FileName;
                         objApplPhoto.FileName = fupElectrical.PostedFile.FileName;

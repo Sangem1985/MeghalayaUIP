@@ -2707,17 +2707,27 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 {
                     com.Parameters.AddWithValue("@CFEPT_PINCODEEST", Convert.ToInt32(ObjCFETax.PINCODEEST));
                 }
-                com.Parameters.AddWithValue("@CFEPT_TOTALNOEMPEST", Convert.ToInt32(ObjCFETax.TOTALNOEMPEST));
-                com.Parameters.AddWithValue("@CFEPT_DATE", DateTime.ParseExact(ObjCFETax.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ObjCFETax.TOTALNOEMPEST !=null && ObjCFETax.TOTALNOEMPEST !="")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_TOTALNOEMPEST", Convert.ToInt32(ObjCFETax.TOTALNOEMPEST));
+                }
+                if (ObjCFETax.DATE !=null && ObjCFETax.DATE !="")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_DATE", DateTime.ParseExact(ObjCFETax.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
                 com.Parameters.AddWithValue("@CFEPT_CONSTITUTIONEST", ObjCFETax.CONSTITUTIONEST);
                 com.Parameters.AddWithValue("@CFEPT_GOODSSUPPLIESEST", ObjCFETax.GOODSSUPPLIESEST);
                 com.Parameters.AddWithValue("@CFEPT_ADDITIONPLACEBUSINESS", ObjCFETax.ADDITIONPLACEBUSINESS);
                 com.Parameters.AddWithValue("@CFEPT_DESIGNATION", ObjCFETax.DESIGNATION);
                 com.Parameters.AddWithValue("@CFEPT_REGUNDERACT", ObjCFETax.REGUNDERACT);
-                com.Parameters.AddWithValue("@CFEPT_REGTYPE", ObjCFETax.REGTYPE);
-                com.Parameters.AddWithValue("@CFEPT_REGNO", Convert.ToInt32(ObjCFETax.REGNO));
-
-
+                if (ObjCFETax.REGTYPE !=null && ObjCFETax.REGTYPE !="")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_REGTYPE", ObjCFETax.REGTYPE);
+                }
+                if (ObjCFETax.REGNO != null && ObjCFETax.REGNO != "")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_REGNO", Convert.ToInt32(ObjCFETax.REGNO));
+                }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

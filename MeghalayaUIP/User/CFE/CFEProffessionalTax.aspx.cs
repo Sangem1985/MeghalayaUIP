@@ -491,6 +491,10 @@ namespace MeghalayaUIP.User.CFE
                         txtGoodssupplie.Text = ds.Tables[0].Rows[0]["CFEPT_GOODSSUPPLIESEST"].ToString();
                         rblAdditional.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_ADDITIONPLACEBUSINESS"].ToString();
                         rblAdditional_SelectedIndexChanged(null, EventArgs.Empty);
+                        if (rblAdditional.SelectedValue == "Y")
+                        {
+                            GVState.Visible = true;
+                        }
                         rblDesignation.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_DESIGNATION"].ToString();
                         rblother.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_REGUNDERACT"].ToString();
                         if (rblother.SelectedValue == "Y")
@@ -501,7 +505,6 @@ namespace MeghalayaUIP.User.CFE
                             TXTRegNo.Text = ds.Tables[0].Rows[0]["CFEPT_REGNO"].ToString();
                         }
                       
-
                     }
                     if (ds.Tables[1].Rows.Count > 0)
                     {

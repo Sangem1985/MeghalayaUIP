@@ -164,7 +164,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2	Number of persons working in the premise </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtpremise" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="6" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtpremise" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="4" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

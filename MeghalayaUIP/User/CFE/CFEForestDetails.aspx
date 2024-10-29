@@ -336,8 +336,10 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1.Proof of ownership of land (Lease deed or Agreement of Sale or any related document) *</label>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupOwnership" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnownership" OnClick="btnownership_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -353,8 +355,10 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2.Rough map of the concerned land *</label>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupland" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnland" OnClick="btnland_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -370,8 +374,10 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">3.NoC from the concerned Autonomous District Council for land use *</label>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupNOCLand" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnNOCLand" OnClick="btnNOCLand_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -387,8 +393,10 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4.Distance from Forest Certificate from DFO (Wild-life) *</label>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupForestDFO" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnforestdfo" OnClick="btnforestdfo_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
