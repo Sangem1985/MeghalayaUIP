@@ -44,6 +44,9 @@
             border: 1px solid #066f22;
             font-size: 20px;
         }
+        .dropdown-menu.show {
+    transform: translate3d(-75px, 60px, 0px) !important;
+}
     </style>
 
     <!-- Page Wrapper -->
