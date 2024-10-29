@@ -157,7 +157,7 @@ namespace MeghalayaUIP
                             {
                                 try
                                 {
-                                    objloginBAL.GetDeptUserInfo(UserID, Password, getclientIP());
+                                    //objloginBAL.GetDeptUserInfo(UserID, Password, getclientIP());
                                 }
                                 catch (SqlException ex)
                                 {
