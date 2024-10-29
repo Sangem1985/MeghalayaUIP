@@ -220,11 +220,9 @@ namespace MeghalayaUIP.Common
             {
                 try
                 {
-                    //FromEmailId = Convert.ToString(ConfigurationManager.AppSettings["FromMail"]);
-                    //Password = Convert.ToString(ConfigurationManager.AppSettings["FromMailPwd"]);
-                    FromEmailId = "tsipass.telangana@gmail.com";
-                    Password = "lrefskmlxnoowqtc";
-
+                    FromEmailId = Convert.ToString(ConfigurationManager.AppSettings["FromMail"]);
+                    Password = Convert.ToString(ConfigurationManager.AppSettings["FromMailPwd"]);
+                   
                     MailMessage message = new MailMessage(FromEmailId, strTo)
                     {
                         Subject = EmailSubject,
