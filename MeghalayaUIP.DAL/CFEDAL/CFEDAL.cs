@@ -2158,7 +2158,10 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEDG_LOCDISTRICTID", Convert.ToInt32(ObjCFEDGset.LocDistrictID));
                 com.Parameters.AddWithValue("@CFEDG_LOCMANDALID", Convert.ToInt32(ObjCFEDGset.LocMandalID));
                 com.Parameters.AddWithValue("@CFEDG_LOCVILLAGEID", Convert.ToInt32(Convert.ToInt64(ObjCFEDGset.LocVillageID)));
-                com.Parameters.AddWithValue("@CFEDG_LOCPINCODE", Convert.ToInt64(ObjCFEDGset.LocPincode));
+                if (ObjCFEDGset.LocPincode != null && ObjCFEDGset.LocPincode != "")
+                {
+                    com.Parameters.AddWithValue("@CFEDG_LOCPINCODE", Convert.ToInt64(ObjCFEDGset.LocPincode));
+                }
 
                 com.Parameters.AddWithValue("@CFEDG_SUPPLIERNAME", ObjCFEDGset.SupplierName);
                 com.Parameters.AddWithValue("@CFEDG_TOTLCONNECTEDLOAD", ObjCFEDGset.TotalConnectedLoad);
@@ -2193,20 +2196,13 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEDG_IMPEDANCE", ObjCFEDGset.Impedance);
                 com.Parameters.AddWithValue("@CFEDG_TOTALIMPEDANCE", ObjCFEDGset.TotalImpedance);
                 com.Parameters.AddWithValue("@CFEDG_LIGHTINGTYPE", ObjCFEDGset.LighingType);
-
                 com.Parameters.AddWithValue("@CFEDG_ALTERNATORTESTDTLS", ObjCFEDGset.AlternatorTestDtls);
-
                 com.Parameters.AddWithValue("@CFEDG_EARTHTESTERNO", ObjCFEDGset.EarthTesterNo);
-
                 com.Parameters.AddWithValue("@CFEDG_EARTHTESTERMAKE", ObjCFEDGset.EarthTesterMake);
-
                 com.Parameters.AddWithValue("@CFEDG_EARTHTESTERRANGE", ObjCFEDGset.EarthTesterRange);
-
                 com.Parameters.AddWithValue("@CFEDG_MEGGERNO", ObjCFEDGset.MeggerNo);
                 com.Parameters.AddWithValue("@CFEDG_MEGGERMAKE", ObjCFEDGset.MeggerMake);
                 com.Parameters.AddWithValue("@CFEDG_MEGGERRANGE", ObjCFEDGset.MeggerRange);
-
-
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

@@ -58,6 +58,10 @@ namespace MeghalayaUIP.User
                         FillCapctha();
                     }
                 }
+                else
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
             }
             catch (Exception ex)
             {
@@ -307,6 +311,20 @@ namespace MeghalayaUIP.User
             }
 
             return result;
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Dashboard/MainDashboard.aspx");
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         protected void BTNcLEAR_Click(object sender, EventArgs e)
