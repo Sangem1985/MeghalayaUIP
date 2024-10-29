@@ -3,6 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        section#dashboardcount\ IMAqueries i.fi {
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    font-size: 50px;
+    opacity: 0.3;
+    color: #fff;
+}
+    </style>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
@@ -168,12 +178,12 @@
                     </section>
                 </div>
 
-
+                
                 <div class="card mt-4">
                     <div class="card-header">
                         <h3>Industry Registration Applications </h3>
                     </div>
-                    <section id="dashboardcount">
+                    <section id="dashboardcount IMAqueries">
                         <div class="container-fluid">
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
