@@ -28,8 +28,7 @@
                                 <div class="card-body">
                                     <div class="col-md-12 ">
                                         <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
-                                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>                                           
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">×</span></button>
                                         </div>

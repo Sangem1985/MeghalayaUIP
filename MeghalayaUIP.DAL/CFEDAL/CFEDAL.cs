@@ -2687,12 +2687,26 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPT_CREATEDBYIP", ObjCFETax.IPAddress);
                 com.Parameters.AddWithValue("@CFEPT_CFEQDID", Convert.ToInt32(ObjCFETax.Questionnareid));
                 com.Parameters.AddWithValue("@CFEPT_CFEUNITID", Convert.ToInt32(ObjCFETax.UnitId));
-
-                com.Parameters.AddWithValue("@CFEPT_APPLYAS", ObjCFETax.APPLYAS);
-                com.Parameters.AddWithValue("@CFEPT_NAMEEST", ObjCFETax.NAMEEST);
-                com.Parameters.AddWithValue("@CFEPT_ADDRESSEST", ObjCFETax.ADDRESSEST);
-                com.Parameters.AddWithValue("@CFEPT_DISTRICEST", Convert.ToInt32(ObjCFETax.DISTRICEST));
-                com.Parameters.AddWithValue("@CFEPT_PINCODEEST", Convert.ToInt32(ObjCFETax.PINCODEEST));
+                if (ObjCFETax.APPLYAS != null && ObjCFETax.APPLYAS != "")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_APPLYAS", ObjCFETax.APPLYAS);
+                }
+                if (ObjCFETax.NAMEEST != null && ObjCFETax.NAMEEST != "")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_NAMEEST", ObjCFETax.NAMEEST);
+                }
+                if (ObjCFETax.ADDRESSEST != null && ObjCFETax.ADDRESSEST != "")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_ADDRESSEST", ObjCFETax.ADDRESSEST);
+                }
+                if (ObjCFETax.DISTRICEST !=null && ObjCFETax.DISTRICEST !="")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_DISTRICEST", Convert.ToInt32(ObjCFETax.DISTRICEST));
+                }
+                if (ObjCFETax.PINCODEEST !=null && ObjCFETax.PINCODEEST !="")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_PINCODEEST", Convert.ToInt32(ObjCFETax.PINCODEEST));
+                }
                 com.Parameters.AddWithValue("@CFEPT_TOTALNOEMPEST", Convert.ToInt32(ObjCFETax.TOTALNOEMPEST));
                 com.Parameters.AddWithValue("@CFEPT_DATE", DateTime.ParseExact(ObjCFETax.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFEPT_CONSTITUTIONEST", ObjCFETax.CONSTITUTIONEST);
