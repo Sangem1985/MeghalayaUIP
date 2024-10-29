@@ -1980,7 +1980,7 @@ namespace MeghalayaUIP.User.PreReg
             {
 
                 int slno = 1;
-                string errormsg = "";
+                string errormsg = ""; string ApplAadhar = "";
 
                 if (string.IsNullOrEmpty(txtApplFrstName.Text.Trim()) || txtApplFrstName.Text.Trim() == "" || txtApplFrstName.Text.Trim() == null)
                 {
@@ -1992,7 +1992,9 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Enter Last Name \\n";
                     slno = slno + 1;
                 }
-                string ApplAadhar = PasswordDescription(txtApplAadhar.Text);
+                if (txtApplAadhar.Text.Trim() != "")
+                { ApplAadhar = PasswordDescription(txtApplAadhar.Text); }
+
                 if (string.IsNullOrEmpty(ApplAadhar) || ApplAadhar == "" || ApplAadhar == null || ApplAadhar.Length != 12 || ApplAadhar.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(ApplAadhar, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Valid Aadhar Number \\n";
@@ -3188,7 +3190,9 @@ namespace MeghalayaUIP.User.PreReg
         {
             ErrorMsg1 = Step1validations();
             if (Convert.ToString(ViewState["UnitID"]) != "" && ErrorMsg1 == "")
+            {
                 MVprereg.ActiveViewIndex = 1;
+            }
             else
             {
                 string message = "alert('" + "Please Fill all Basic Details and click on Save As Draft" + "')";
@@ -3202,7 +3206,10 @@ namespace MeghalayaUIP.User.PreReg
             ErrorMsg1 = Step1validations();
             ErrorMsg2 = Step2validations();
             if (ErrorMsg1 == "" && Convert.ToString(ViewState["UnitID"]) != "" && hdnResultTab2.Value != "" && ErrorMsg2 == "")
+            {
                 MVprereg.ActiveViewIndex = 2;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
+            }
             else
             {
                 string message = "";
@@ -3225,7 +3232,9 @@ namespace MeghalayaUIP.User.PreReg
             ErrorMsg2 = Step2validations();
 
             if (ErrorMsg1 == "" && Convert.ToString(ViewState["UnitID"]) != "" && ErrorMsg2 == "" && hdnResultTab3.Value != "" && gvPromoters.Rows.Count > 0)
-                MVprereg.ActiveViewIndex = 3;
+            {
+                MVprereg.ActiveViewIndex = 3;                
+            }
             else
             {
                 string message = "";

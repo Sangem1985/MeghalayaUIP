@@ -106,6 +106,12 @@ namespace MeghalayaUIP.Dept.Dashboard
                 prereg.Visible = false;
                 string url = "~/Dept/PreReg/PreRegApplDeptDashBoard.aspx";
                 Response.Redirect(url);
+                if(ObjUserInfo.UserID=="")
+                {
+                    prereg.Visible = false;
+                    string url1 = "~/Dept/PreReg/PreRegDITDashBoard.aspx";
+                    Response.Redirect(url1);
+                }
             }
             else if (ObjUserInfo.Roleid == "1")
             {

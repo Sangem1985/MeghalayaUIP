@@ -1069,11 +1069,11 @@
                                     <%--  <div class="card-header">
                                         <h3>Check Lists</h3>
                                     </div>--%>
-                                    <section id="dashboardAttachmnt">
+                                    <section id="dashboardSiteInspection">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
 
-                                                <div class="col-sm-12">
+                                                <div class="col-sm-12" id="divDIT" runat="server" visible="false">
 
                                                     <div class="table-responsive" runat="server" style="padding-bottom: 20px">
                                                         <asp:GridView ID="gvDITChecklist" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -1086,14 +1086,14 @@
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                             <AlternatingRowStyle BackColor="White" />
                                                             <Columns>
-                                                                <asp:TemplateField HeaderText="Sl No" ControlStyle-Width="1px" >
+                                                                <asp:TemplateField HeaderText="Sl No" ControlStyle-Width="1px">
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                     <ItemTemplate>
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Particulars" ControlStyle-Width="800px" >
+                                                                <asp:TemplateField HeaderText="Particulars" ControlStyle-Width="800px">
                                                                     <ItemStyle />
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblName" runat="server" Text='<%#Eval("DOC_NAME") %>'></asp:Label>
@@ -1122,7 +1122,7 @@
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-2 col-form-label">Remarks </label>
+                                                            <label class="col-lg-4 col-form-label">Remarks </label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :                                                           
                                                             </div>
@@ -1135,11 +1135,15 @@
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-3 col-form-label">Upload Document&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   :  </label>
-                                                            <%--<div class="col-lg-1 d-flex">
+                                                            <label class="col-lg-4 col-form-label">
+                                                                Upload Document&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  
+                                                                 
+                                                            </label>
+
+                                                            <div class="col-lg-1 d-flex">
                                                                 :
                                                            
-                                                            </div>--%>
+                                                            </div>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:FileUpload ID="fupDCReport" runat="server" />
                                                                 <br />
@@ -1154,7 +1158,20 @@
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-2 col-form-label">Forward to  </label>
+                                                            <label class="col-lg-4 col-form-label">
+                                                                <asp:HyperLink ID="HypLnkFinancialInstidtutionFormat" runat="server" Visible="true" CssClass="LBLBLACK" Width="300px" Target="_blank" NavigateUrl="../../Documents/Site%20Inspection%20template.pdf">Click here for Site Inspection Template</asp:HyperLink>
+                                                            </label>
+                                                            <div class="col-lg-1 d-flex">
+                                                            </div>
+                                                            <div class="col-lg-4 d-flex">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex" runat="server">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">Forward to  </label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :
                                                            

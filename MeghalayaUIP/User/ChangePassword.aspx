@@ -12,7 +12,7 @@
                     <div class="card-header d-flex justify-content-between">
                         <h4 class="card-title mt-1"><b>Change Password</b></h4>
                         <div class="col-md-1">
-                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                             <asp:HiddenField runat="server" ID="asp_hidden" />
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">New Password</td>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
-                                                            <asp:TextBox ID="txtnewpassword" runat="server" class="form-control txtbox" Width="180px" MinLength="8" MaxLength="12" onblur="return fnEncryption1();" TextMode="Password"
+                                                            <asp:TextBox ID="txtnewpassword" runat="server" class="form-control txtbox" Width="180px"  MaxLength="12" onblur="return fnEncryption1();" TextMode="Password"
                                                                 Height="28px" TabIndex="1" AutoComplete="off" AutoCompleteType="None" ToolTip="Password must have minimum 8 length, atleast one upper case letter, one lower case letter, one numer and one special character"></asp:TextBox>
                                                         </td>
                                                     </tr>
@@ -75,7 +75,7 @@
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">Confirm Password</td>
                                                         <td style="padding: 5px; margin: 5px; text-align: left;">
-                                                            <asp:TextBox ID="txtconfirmpassword" runat="server" class="form-control txtbox" Width="180px" MinLength="8" MaxLength="12" onblur="return fnEncryption2();"
+                                                            <asp:TextBox ID="txtconfirmpassword" runat="server" class="form-control txtbox" Width="180px"  MaxLength="12" onblur="return fnEncryption2();"
                                                                 Height="28px" TabIndex="1" TextMode="Password"></asp:TextBox>
                                                         </td>
                                                     </tr>

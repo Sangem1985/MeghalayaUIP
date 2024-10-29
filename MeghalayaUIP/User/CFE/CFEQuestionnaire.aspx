@@ -511,7 +511,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 3. Height of the building(in Meters)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="5"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="4"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>

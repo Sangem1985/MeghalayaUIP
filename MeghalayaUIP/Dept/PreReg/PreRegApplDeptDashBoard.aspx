@@ -181,7 +181,7 @@
                 
                 <div class="card mt-4">
                     <div class="card-header">
-                        <h3>Industry Registration Applications - Query Details (IMA Queries)</h3>
+                        <h3>Industry Registration Applications </h3>
                     </div>
                     <section id="dashboardcount IMAqueries">
                         <div class="container-fluid">
@@ -218,10 +218,11 @@
                                             <div class="content">
                                                 <div class="text">
                                                     <%--<a href="PreRegApplDeptView.aspx?status=IMATODEPTQUERY" style="color: white"></a>--%>
-                                                    IMA Query<br />
-                                                    Raised 
+                                                   Application
+                                                    <br />
+                                                    Pending 
                                                 </div>
-                                                <div style="font-size: 12px;"></div>
+                                                <div style="font-size: 12px; padding-left:13px"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
                                             </div>
                                         </div>
@@ -237,12 +238,15 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
+
                                                     <%--<a href="PreRegApplDeptView.aspx?status=DEPTREPLIEDTOIMA" style="color: white"></a>--%>
-                                                    Department Replied
+                                                    Application
                                                     <br />
-                                                    to IMA Query 
+                                                    Processed
+                                                   
+                                                    
                                                 </div>
-                                                <div style="font-size: 12px;"></div>
+                                                <div style="font-size: 12px;; padding-left:16px"></div>
                                                 <i class="fi fi-tr-to-do-alt"></i>
                                             </div>
                                         </div>

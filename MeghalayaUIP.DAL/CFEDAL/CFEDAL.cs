@@ -2158,7 +2158,10 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEDG_LOCDISTRICTID", Convert.ToInt32(ObjCFEDGset.LocDistrictID));
                 com.Parameters.AddWithValue("@CFEDG_LOCMANDALID", Convert.ToInt32(ObjCFEDGset.LocMandalID));
                 com.Parameters.AddWithValue("@CFEDG_LOCVILLAGEID", Convert.ToInt32(Convert.ToInt64(ObjCFEDGset.LocVillageID)));
-                com.Parameters.AddWithValue("@CFEDG_LOCPINCODE", Convert.ToInt64(ObjCFEDGset.LocPincode));
+                if (ObjCFEDGset.LocPincode != null && ObjCFEDGset.LocPincode != "")
+                {
+                    com.Parameters.AddWithValue("@CFEDG_LOCPINCODE", Convert.ToInt64(ObjCFEDGset.LocPincode));
+                }
 
                 com.Parameters.AddWithValue("@CFEDG_SUPPLIERNAME", ObjCFEDGset.SupplierName);
                 com.Parameters.AddWithValue("@CFEDG_TOTLCONNECTEDLOAD", ObjCFEDGset.TotalConnectedLoad);
@@ -2193,20 +2196,13 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEDG_IMPEDANCE", ObjCFEDGset.Impedance);
                 com.Parameters.AddWithValue("@CFEDG_TOTALIMPEDANCE", ObjCFEDGset.TotalImpedance);
                 com.Parameters.AddWithValue("@CFEDG_LIGHTINGTYPE", ObjCFEDGset.LighingType);
-
                 com.Parameters.AddWithValue("@CFEDG_ALTERNATORTESTDTLS", ObjCFEDGset.AlternatorTestDtls);
-
                 com.Parameters.AddWithValue("@CFEDG_EARTHTESTERNO", ObjCFEDGset.EarthTesterNo);
-
                 com.Parameters.AddWithValue("@CFEDG_EARTHTESTERMAKE", ObjCFEDGset.EarthTesterMake);
-
                 com.Parameters.AddWithValue("@CFEDG_EARTHTESTERRANGE", ObjCFEDGset.EarthTesterRange);
-
                 com.Parameters.AddWithValue("@CFEDG_MEGGERNO", ObjCFEDGset.MeggerNo);
                 com.Parameters.AddWithValue("@CFEDG_MEGGERMAKE", ObjCFEDGset.MeggerMake);
                 com.Parameters.AddWithValue("@CFEDG_MEGGERRANGE", ObjCFEDGset.MeggerRange);
-
-
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -2691,12 +2687,26 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPT_CREATEDBYIP", ObjCFETax.IPAddress);
                 com.Parameters.AddWithValue("@CFEPT_CFEQDID", Convert.ToInt32(ObjCFETax.Questionnareid));
                 com.Parameters.AddWithValue("@CFEPT_CFEUNITID", Convert.ToInt32(ObjCFETax.UnitId));
-
-                com.Parameters.AddWithValue("@CFEPT_APPLYAS", ObjCFETax.APPLYAS);
-                com.Parameters.AddWithValue("@CFEPT_NAMEEST", ObjCFETax.NAMEEST);
-                com.Parameters.AddWithValue("@CFEPT_ADDRESSEST", ObjCFETax.ADDRESSEST);
-                com.Parameters.AddWithValue("@CFEPT_DISTRICEST", Convert.ToInt32(ObjCFETax.DISTRICEST));
-                com.Parameters.AddWithValue("@CFEPT_PINCODEEST", Convert.ToInt32(ObjCFETax.PINCODEEST));
+                if (ObjCFETax.APPLYAS != null && ObjCFETax.APPLYAS != "")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_APPLYAS", ObjCFETax.APPLYAS);
+                }
+                if (ObjCFETax.NAMEEST != null && ObjCFETax.NAMEEST != "")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_NAMEEST", ObjCFETax.NAMEEST);
+                }
+                if (ObjCFETax.ADDRESSEST != null && ObjCFETax.ADDRESSEST != "")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_ADDRESSEST", ObjCFETax.ADDRESSEST);
+                }
+                if (ObjCFETax.DISTRICEST !=null && ObjCFETax.DISTRICEST !="")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_DISTRICEST", Convert.ToInt32(ObjCFETax.DISTRICEST));
+                }
+                if (ObjCFETax.PINCODEEST !=null && ObjCFETax.PINCODEEST !="")
+                {
+                    com.Parameters.AddWithValue("@CFEPT_PINCODEEST", Convert.ToInt32(ObjCFETax.PINCODEEST));
+                }
                 com.Parameters.AddWithValue("@CFEPT_TOTALNOEMPEST", Convert.ToInt32(ObjCFETax.TOTALNOEMPEST));
                 com.Parameters.AddWithValue("@CFEPT_DATE", DateTime.ParseExact(ObjCFETax.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFEPT_CONSTITUTIONEST", ObjCFETax.CONSTITUTIONEST);
