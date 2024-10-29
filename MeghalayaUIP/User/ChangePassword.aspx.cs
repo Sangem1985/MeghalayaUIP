@@ -111,9 +111,9 @@ namespace MeghalayaUIP.User
 
 
                         UserID = txtusername.Text;
-                        NewPassword = PasswordDescription(txtnewpassword.Text.Trim());
-                        CnfrmPassword = PasswordDescription(txtconfirmpassword.Text.Trim());
-                        OldPassword = PasswordDescription(txtoldpassword.Text.Trim());
+                        NewPassword = PasswordDescription(txtnewpassword.Text);
+                        CnfrmPassword = PasswordDescription(txtconfirmpassword.Text);
+                        OldPassword = PasswordDescription(txtoldpassword.Text);
                         try
                         {
                             DataSet ds = objloginBAL.GetDeptUserPwdInfo(UserID, "I");
