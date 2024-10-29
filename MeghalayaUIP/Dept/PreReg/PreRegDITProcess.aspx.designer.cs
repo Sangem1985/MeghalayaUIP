@@ -888,6 +888,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
 
         /// <summary>
+        /// divDIT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDIT;
+
+        /// <summary>
         /// gvDITChecklist control.
         /// </summary>
         /// <remarks>
@@ -931,6 +940,15 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+
+        /// <summary>
+        /// HypLnkFinancialInstidtutionFormat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HypLnkFinancialInstidtutionFormat;
 
         /// <summary>
         /// ddlOfcr control.

@@ -889,27 +889,27 @@
                                                                 </asp:BoundField>--%>
                                                                         <asp:TemplateField HeaderText="Year 1" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear1" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear1" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Year 2" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear2" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear2" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Year 3" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear3" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear3" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Year 4" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear4" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear4" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Year 5" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear5" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtYear5" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                     </Columns>
@@ -941,12 +941,10 @@
                                             </asp:View>
                                             <asp:View ID="viewPromoters" runat="server">
                                                 <div class="tab-pane active   " id="basictab3">
-
                                                     <div class="card-body" runat="server" id="divPromotrs">
                                                         <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
                                                         <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Details of the Applicant / Promoter(s) /
 													Partner(s) / Director(s) / Members</h4>
-
                                                         <div class="row">
                                                             <div class="col-md-12 d-flex" id="padding">
                                                                 <div class="col-md-4">
@@ -965,23 +963,11 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <%-- <div class="col-md-4">
-                                                                    <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">AADHAR No. <span class="star">*</span></label>
-                                                                        <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtApplAadhar" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="12" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>--%>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">AADHAR No. <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <%--<asp:TextBox runat="server" ID="txtApplAadhar1" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="4" TextMode="Password" Width="70px" />
-                                                                            <asp:TextBox runat="server" ID="txtApplAadhar2" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="4" TextMode="Password" Width="70px" />
-                                                                            <asp:TextBox runat="server" ID="txtApplAadhar3" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="4" TextMode="Password" Width="70px" />--%>
-
-                                                                            <asp:TextBox runat="server" ID="txtApplAadhar" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="12" Visible="true" TextMode="Password" />
+                                                                            <asp:TextBox runat="server" ID="txtApplAadhar" onblur="fnEncryption();" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="12" Visible="true" TextMode="Password" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1179,7 +1165,8 @@
                                                                 <div class="table-responsive">
                                                                     <asp:GridView ID="gvPromoters" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="5" CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
-                                                                        GridLines="None" OnRowDeleting="gvPromoters_RowDeleting" AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
+                                                                        GridLines="None" OnRowDeleting="gvPromoters_RowDeleting" OnRowDataBound="gvPromoters_RowDataBound"
+                                                                        AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
                                                                         Width="140%" EnableModelValidation="True" Visible="false">
                                                                         <RowStyle BackColor="#ffffff" />
 
@@ -1191,7 +1178,13 @@
                                                                             <asp:BoundField HeaderText="INVESTERID" DataField="IDD_INVESTERID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" Visible="false" />
                                                                             <asp:BoundField HeaderText="First Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
                                                                             <asp:BoundField HeaderText="Last Name" DataField="IDD_LASTNAME" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                                            <asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+
+                                                                            <asp:TemplateField HeaderText="Year 5" ItemStyle-Width="150px">
+                                                                                <ItemTemplate>
+                                                                                    <asp:Label ID="lblAadhar" runat="server" Text='<%# Eval("IDD_ADNO") %>'></asp:Label>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
+                                                                            <%--<asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />--%>
                                                                             <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
                                                                             <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
                                                                             <asp:BoundField HeaderText="Nationality" DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
@@ -1429,7 +1422,8 @@
         });
         window.onload = datepicker;
     </script>
-
+    <script src="../../assets/admin/js/MD5.js"></script>
+    <script src="../../assets/admin/js/crypto.js"></script>
     <script type="text/javascript">
         //let originalValue = "";
         function fnEncryption() {
@@ -1464,8 +1458,7 @@
         //    }
         //}
     </script>
-    <script src="../../assets/admin/js/MD5.js"></script>
-    <script src="../../assets/admin/js/crypto.js"></script>
+
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -68,8 +68,8 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    Applications to<br />
-                                                    be Processed
+                                                    Application <br />
+                                                    Pending
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -87,6 +87,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
+                                                    Application <br />
                                                     Processed 
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
