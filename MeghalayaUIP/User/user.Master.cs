@@ -233,5 +233,11 @@ namespace MeghalayaUIP.User
             Session.Abandon();
             Response.Redirect("~/login.aspx");
         }
+
+        protected void linkChngPswd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/ChangePassword.aspx");
+
+        }
     }
 }
