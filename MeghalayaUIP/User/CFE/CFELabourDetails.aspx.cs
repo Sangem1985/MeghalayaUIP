@@ -571,37 +571,37 @@ namespace MeghalayaUIP.User.CFE
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFEA_MASTERAID"]) == 16)
                             {
                                 hplLicgrant.Visible = true;
-                                hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                                hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
                                 hplLicgrant.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFEA_MASTERAID"]) == 17)
                             {
                                 hplForm5.Visible = true;
-                                hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                                hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
                                 hplForm5.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFEA_FILENAME"]);
                             }                            
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFEA_MASTERAID"]) == 18)
                             {
                                 hplForm8.Visible = true;
-                                hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                                hplForm8.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
                                 hplForm8.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFEA_MASTERAID"]) == 19)
                             {
                                 hplForm10.Visible = true;
-                                hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                                hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
                                 hplForm10.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFEA_MASTERAID"]) == 20)
                             {
                                 hplCrimeForm10.Visible = true;
-                                hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                                hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
                                 hplCrimeForm10.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFEA_MASTERAID"]) == 21)
                             { 
                                 hplEmployer.Visible = true;
-                                hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                                hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
                                 hplEmployer.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFEA_FILENAME"]);
                             }
                         }

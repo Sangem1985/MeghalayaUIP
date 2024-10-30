@@ -299,7 +299,7 @@ namespace MeghalayaUIP.User.CFE
                         if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 48)//
                         {
                             hypSketch.Visible = true;
-                            hypSketch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]);
+                            hypSketch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
                             hypSketch.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
                         }
                       
