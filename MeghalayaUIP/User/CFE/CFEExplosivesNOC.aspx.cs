@@ -136,7 +136,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                     if (ds.Tables[1].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["CFEME_CFEQDID"]);
+                        //hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["CFEME_CFEQDID"]);
                         ViewState["MANUFACTURE"] = ds.Tables[1];
                         GVEXPLOSIVE.DataSource = ds.Tables[1];
                         GVEXPLOSIVE.DataBind();
