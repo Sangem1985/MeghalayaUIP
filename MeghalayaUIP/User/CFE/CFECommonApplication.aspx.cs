@@ -921,6 +921,7 @@ namespace MeghalayaUIP.User.CFE
                         objHAZNOC.FileDescription = "OfflineApprovalPCBHAZNOC";
                         objHAZNOC.CreatedBy = hdnUserID.Value;
                         objHAZNOC.IPAddress = getclientIP();
+                        objHAZNOC.ReferenceNo = txt2HazPCB.Text;
                         result = objcfebal.InsertCFEAttachments(objHAZNOC);
                         if (result != "")
                         {
