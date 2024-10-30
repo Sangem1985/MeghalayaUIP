@@ -28,14 +28,15 @@ namespace MeghalayaUIP.User.Dashboard
 
                 string filePath = context.Request.QueryString["filePath"];
                 filePath = objmbal.DecryptFilePath(filePath);
+                filePath = filePath.Replace(@"\", @"/");
                 string[] parts = filePath.Split('/');
 
                 if (parts.Length > 4)
                 {
-                     userid = parts[3];                    
+                    userid = parts[3];
                 }
-                
-                if (userid==ObjUserInfo.Userid)
+
+                if (userid == ObjUserInfo.Userid)
                 {
                     if (!string.IsNullOrEmpty(filePath))
                     {
@@ -48,7 +49,9 @@ namespace MeghalayaUIP.User.Dashboard
                         }
                         else
                         {
-                            context.Response.Write("File not found.");
+                            context.Response.Write(@"<div style='display: flex; justify-content: center; align-items: center; height: 100vh;'>
+                                                     <span style='color: red; font-weight: bold;'>No file path providedFile not found...!</span></div>");
+                            context.Response.Write("<span style='padding: 300px; color: red; font-weight: bold;'>File not found.");
                         }
                     }
                     else

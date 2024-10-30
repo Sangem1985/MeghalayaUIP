@@ -264,7 +264,7 @@ namespace MeghalayaUIP.User.PreReg
                 GridViewRow row = (GridViewRow)link.NamingContainer;
                 Label lblfilepath = (Label)row.FindControl("lblFilePath");
                 if (lblfilepath != null || lblfilepath.Text != "")
-                    Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + lblfilepath.Text);
+                    Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text));
             }
             catch (Exception ex) { }
         }
@@ -276,7 +276,7 @@ namespace MeghalayaUIP.User.PreReg
             GridViewRow row = (GridViewRow)lnkview.NamingContainer;
             Label lblfilepath = (Label)row.FindControl("lblFilePath");
             if (lblfilepath != null || lblfilepath.Text != "")
-                Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + lblfilepath.Text);
+                Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath="+ mstrBAL.EncryptFilePath(lblfilepath.Text));
         }
 
     }
