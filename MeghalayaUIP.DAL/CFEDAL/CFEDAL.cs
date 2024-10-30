@@ -947,7 +947,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 {
                     com.Parameters.AddWithValue("@CFEFD_Pincode", Convert.ToInt32(ObjCCFEFireDetails.Pincode));
                 }
-               
+
 
                 com.Parameters.AddWithValue("@CFEFD_BUILDINGHT", SqlDbType.Decimal).Value = ObjCCFEFireDetails.HeightBuilding;
                 com.Parameters.AddWithValue("@CFEFD_FLOORHT", SqlDbType.Decimal).Value = ObjCCFEFireDetails.HeightFloor;
@@ -1884,31 +1884,98 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFELD_ESTDATEBUILDING", ObjCFELabourDet.BuildingContractWork);
                 com.Parameters.AddWithValue("@CFELD_MAXNUMBEROFCONTRACTEMP", ObjCFELabourDet.BuildingEmpDay);
                 com.Parameters.AddWithValue("@CFELD_ESTDATEOFCONSTRUCTIONWORK", ObjCFELabourDet.EstDateBuilding);
-                com.Parameters.AddWithValue("@CFELD_MAXNUMBERMIGRANTESTDATE", ObjCFELabourDet.MigrantWork);
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORCONVICTED5YEARS", ObjCFELabourDet.ContractFiveYears);
-                com.Parameters.AddWithValue("@CFELD_REVOKINGSUSPENDINGLIC", ObjCFELabourDet.Revoking);
-                com.Parameters.AddWithValue("@CFELD_ESTPAST5YEARSNATUREOFWORK", ObjCFELabourDet.PrincipleEmpWork);
-                com.Parameters.AddWithValue("@CFELD_INDUSTRYMANUOCCUPATIONEST", ObjCFELabourDet.ManuooCupation);
-
-
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORNAMECONTRACTOR", ObjCFELabourDet.ContarctorName);
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORFATHER", ObjCFELabourDet.ContarctorFather);
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORAGES", Convert.ToInt32(ObjCFELabourDet.ContarctorAge));
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORMOBILE", Convert.ToInt64(ObjCFELabourDet.ContarctorMobile));
-                com.Parameters.AddWithValue("@CFELD_CONTRACTOREMAIL", ObjCFELabourDet.ContarctorEmailId);
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORDISTID", Convert.ToInt32(ObjCFELabourDet.ContarctorDistrict));
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORMANDALID", Convert.ToInt32(ObjCFELabourDet.ContarctorMandals));
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORVILLAGEID", Convert.ToInt32(ObjCFELabourDet.ContarctorVillages));
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORDOORNO", ObjCFELabourDet.ContarctorDoor);
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORLOCALITYNAME", ObjCFELabourDet.ContarctorLocality);
-                com.Parameters.AddWithValue("@CFELD_CONTRACTORPIN", Convert.ToInt32(ObjCFELabourDet.ContarctorPincode));
-                com.Parameters.AddWithValue("@CFELD_AGENTNAME", ObjCFELabourDet.AgentName);
-                com.Parameters.AddWithValue("@CFELD_AGENTDOORNO", ObjCFELabourDet.AgentDoorNo);
-                com.Parameters.AddWithValue("@CFELD_AGENTLOCALITY", ObjCFELabourDet.AgentLocality);
-                com.Parameters.AddWithValue("@CFELD_AGENTDISTRICT", Convert.ToInt32(ObjCFELabourDet.AgentDistric));
-                com.Parameters.AddWithValue("@CFELD_AGENTMANDAL", Convert.ToInt32(ObjCFELabourDet.AgentMandal));
-                com.Parameters.AddWithValue("@CFELD_AGENTVILLAGE", Convert.ToInt32(ObjCFELabourDet.AgentVillage));
-                com.Parameters.AddWithValue("@CFELD_AGENTPINCODE", Convert.ToInt32(ObjCFELabourDet.AgentPinCode));
+                if (ObjCFELabourDet.MigrantWork != null && ObjCFELabourDet.MigrantWork != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_MAXNUMBERMIGRANTESTDATE", ObjCFELabourDet.MigrantWork);
+                }
+                if (ObjCFELabourDet.ContractFiveYears != null && ObjCFELabourDet.ContractFiveYears != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORCONVICTED5YEARS", ObjCFELabourDet.ContractFiveYears);
+                }
+                if (ObjCFELabourDet.Revoking != null && ObjCFELabourDet.Revoking != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_REVOKINGSUSPENDINGLIC", ObjCFELabourDet.Revoking);
+                }
+                if (ObjCFELabourDet.PrincipleEmpWork != null && ObjCFELabourDet.PrincipleEmpWork != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_ESTPAST5YEARSNATUREOFWORK", ObjCFELabourDet.PrincipleEmpWork);
+                }
+                if (ObjCFELabourDet.ManuooCupation != null && ObjCFELabourDet.ManuooCupation != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_INDUSTRYMANUOCCUPATIONEST", ObjCFELabourDet.ManuooCupation);
+                }
+                if (ObjCFELabourDet.ContarctorName !=null && ObjCFELabourDet.ContarctorName !="")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORNAMECONTRACTOR", ObjCFELabourDet.ContarctorName);
+                }
+                if (ObjCFELabourDet.ContarctorFather !=null && ObjCFELabourDet.ContarctorFather !="")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORFATHER", ObjCFELabourDet.ContarctorFather);
+                }
+                if (ObjCFELabourDet.ContarctorAge != null && ObjCFELabourDet.ContarctorAge != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORAGES", Convert.ToInt32(ObjCFELabourDet.ContarctorAge));
+                }
+                if (ObjCFELabourDet.ContarctorMobile != null && ObjCFELabourDet.ContarctorMobile != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORMOBILE", Convert.ToInt64(ObjCFELabourDet.ContarctorMobile));
+                }
+                if (ObjCFELabourDet.ContarctorEmailId != null && ObjCFELabourDet.ContarctorEmailId != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTOREMAIL", ObjCFELabourDet.ContarctorEmailId);
+                }
+                if (ObjCFELabourDet.ContarctorDistrict != null && ObjCFELabourDet.ContarctorDistrict != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORDISTID", Convert.ToInt32(ObjCFELabourDet.ContarctorDistrict));
+                }
+                if (ObjCFELabourDet.ContarctorMandals != null && ObjCFELabourDet.ContarctorMandals != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORMANDALID", Convert.ToInt32(ObjCFELabourDet.ContarctorMandals));
+                }
+                if (ObjCFELabourDet.ContarctorVillages != null && ObjCFELabourDet.ContarctorVillages != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORVILLAGEID", Convert.ToInt32(ObjCFELabourDet.ContarctorVillages));
+                }
+                if (ObjCFELabourDet.ContarctorDoor != null && ObjCFELabourDet.ContarctorDoor != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORDOORNO", ObjCFELabourDet.ContarctorDoor);
+                }
+                if (ObjCFELabourDet.ContarctorLocality != null && ObjCFELabourDet.ContarctorLocality != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORLOCALITYNAME", ObjCFELabourDet.ContarctorLocality);
+                }
+                if (ObjCFELabourDet.ContarctorPincode != null && ObjCFELabourDet.ContarctorPincode != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_CONTRACTORPIN", Convert.ToInt32(ObjCFELabourDet.ContarctorPincode));
+                }
+                if (ObjCFELabourDet.AgentName != null && ObjCFELabourDet.AgentName != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_AGENTNAME", ObjCFELabourDet.AgentName);
+                }
+                if (ObjCFELabourDet.AgentDoorNo != null && ObjCFELabourDet.AgentDoorNo != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_AGENTDOORNO", ObjCFELabourDet.AgentDoorNo);
+                }
+                if (ObjCFELabourDet.AgentLocality != null && ObjCFELabourDet.AgentLocality != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_AGENTLOCALITY", ObjCFELabourDet.AgentLocality);
+                }
+                if (ObjCFELabourDet.AgentDistric != null && ObjCFELabourDet.AgentDistric != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_AGENTDISTRICT", Convert.ToInt32(ObjCFELabourDet.AgentDistric));
+                }
+                if (ObjCFELabourDet.AgentMandal != null && ObjCFELabourDet.AgentMandal != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_AGENTMANDAL", Convert.ToInt32(ObjCFELabourDet.AgentMandal));
+                }
+                if (ObjCFELabourDet.AgentVillage != null && ObjCFELabourDet.AgentVillage != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_AGENTVILLAGE", Convert.ToInt32(ObjCFELabourDet.AgentVillage));
+                }
+                if (ObjCFELabourDet.AgentPinCode != null && ObjCFELabourDet.AgentPinCode != "")
+                {
+                    com.Parameters.AddWithValue("@CFELD_AGENTPINCODE", Convert.ToInt32(ObjCFELabourDet.AgentPinCode));
+                }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -2699,19 +2766,19 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 {
                     com.Parameters.AddWithValue("@CFEPT_ADDRESSEST", ObjCFETax.ADDRESSEST);
                 }
-                if (ObjCFETax.DISTRICEST !=null && ObjCFETax.DISTRICEST !="")
+                if (ObjCFETax.DISTRICEST != null && ObjCFETax.DISTRICEST != "")
                 {
                     com.Parameters.AddWithValue("@CFEPT_DISTRICEST", Convert.ToInt32(ObjCFETax.DISTRICEST));
                 }
-                if (ObjCFETax.PINCODEEST !=null && ObjCFETax.PINCODEEST !="")
+                if (ObjCFETax.PINCODEEST != null && ObjCFETax.PINCODEEST != "")
                 {
                     com.Parameters.AddWithValue("@CFEPT_PINCODEEST", Convert.ToInt32(ObjCFETax.PINCODEEST));
                 }
-                if (ObjCFETax.TOTALNOEMPEST !=null && ObjCFETax.TOTALNOEMPEST !="")
+                if (ObjCFETax.TOTALNOEMPEST != null && ObjCFETax.TOTALNOEMPEST != "")
                 {
                     com.Parameters.AddWithValue("@CFEPT_TOTALNOEMPEST", Convert.ToInt32(ObjCFETax.TOTALNOEMPEST));
                 }
-                if (ObjCFETax.DATE !=null && ObjCFETax.DATE !="")
+                if (ObjCFETax.DATE != null && ObjCFETax.DATE != "")
                 {
                     com.Parameters.AddWithValue("@CFEPT_DATE", DateTime.ParseExact(ObjCFETax.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
@@ -2720,7 +2787,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPT_ADDITIONPLACEBUSINESS", ObjCFETax.ADDITIONPLACEBUSINESS);
                 com.Parameters.AddWithValue("@CFEPT_DESIGNATION", ObjCFETax.DESIGNATION);
                 com.Parameters.AddWithValue("@CFEPT_REGUNDERACT", ObjCFETax.REGUNDERACT);
-                if (ObjCFETax.REGTYPE !=null && ObjCFETax.REGTYPE !="")
+                if (ObjCFETax.REGTYPE != null && ObjCFETax.REGTYPE != "")
                 {
                     com.Parameters.AddWithValue("@CFEPT_REGTYPE", ObjCFETax.REGTYPE);
                 }

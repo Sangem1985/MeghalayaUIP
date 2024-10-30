@@ -144,7 +144,8 @@ namespace MeghalayaUIP.User.CFE
                     decimal amounts = Convert.ToDecimal(lblAmount.Text.ToString());
                     int textCheck = grdApprovals.Columns.Count;
                     if (rblObtained.SelectedValue == "Y")
-                    {                      
+                    {
+                      //  rblObtained.Enabled = false;
                         ChkApproval.Checked = false; ChkApproval.Enabled = false;
                         lblAmount.Text = "0";
                         amounts = 0;
@@ -162,7 +163,6 @@ namespace MeghalayaUIP.User.CFE
                         TotalFeeAmount = TotalFeeAmount + TotalFeeAmount1;
                         if (e.Row.Cells[6].Text != "")
                             e.Row.Cells[6].Text = Convert.ToDecimal(e.Row.Cells[6].Text).ToString("#,##0");
-                         rblObtained.Enabled = false;
                     }
 
                     if (e.Row.RowIndex >= 0)
