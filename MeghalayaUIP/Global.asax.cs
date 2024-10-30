@@ -12,6 +12,7 @@ namespace MeghalayaUIP
     {
         string expectedHost = Convert.ToString(ConfigurationManager.AppSettings["expectedHost"]);
         string expectedHostPath = Convert.ToString(ConfigurationManager.AppSettings["expectedHostPath"]);
+        string Redirectionurl = Convert.ToString(ConfigurationManager.AppSettings["Redirectionurl"]);
         protected void Application_Start(object sender, EventArgs e)
         {
             PreSendRequestHeaders += Application_PreSendRequestHeaders;
@@ -59,7 +60,8 @@ namespace MeghalayaUIP
             string rawUrl = Request.RawUrl;
             if (rawUrl.Contains("<") || rawUrl.Contains(">") || !Request.Url.ToString().Contains(expectedHostPath))
             {
-                Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
+                //Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
+                Response.Redirect(Redirectionurl, true);
             }
 
         }
@@ -111,7 +113,10 @@ namespace MeghalayaUIP
             }
             HttpContext context = HttpContext.Current;
             if (context.Request.Url.OriginalString.ToLower().Contains("<") || context.Request.Url.OriginalString.ToLower().Contains(">"))
-            { Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx"); }
+            {
+                //    Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx"); 
+                Response.Redirect(Redirectionurl);
+            }
 
 
             var app = sender as HttpApplication;
@@ -134,7 +139,8 @@ namespace MeghalayaUIP
             string rawUrl = Request.RawUrl;
             if (rawUrl.Contains("<") || rawUrl.Contains(">") || !Request.Url.ToString().Contains(expectedHostPath))
             {
-                Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
+                //Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
+                Response.Redirect(Redirectionurl, true);
             }
         }
 
