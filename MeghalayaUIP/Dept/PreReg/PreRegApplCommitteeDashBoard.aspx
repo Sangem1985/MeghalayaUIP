@@ -3,6 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+       section#dashboardcount\ districcommitte i.fi, section#dashboardcount2\ districcommitte i.fi {
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    font-size: 50px;
+    opacity: 0.3;
+    color: #fff;
+}
+    </style>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
@@ -33,7 +43,7 @@
                     </div>
                 </div>
                 <asp:HiddenField ID="hdnUserID" runat="server" />
-                <section id="dashboardcount">
+                <section id="dashboardcount districcommitte">
                     <div class="container-fluid">
                         <div class="row clearfix">
                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
@@ -103,15 +113,16 @@
                                                 <%--<a href="PreRegApplCommitteeView.aspx?status=COMMAPPROVED" style="color: white"></a>--%>
                                                 Approved 
                                             </div>
-                                            <div style="font-size: 12px;"></div>
 
+                                            <div style="font-size: 12px;"></div>
+                                             <i class="fi fi-tr-assept-document"></i>
                                         </div>
                                     </div>
                                 </asp:LinkButton>
                             </div>
                             <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                 <asp:LinkButton runat="server" ID="linkRejected" OnClick="linkRejected_Click" ForeColor="White">
-                                    <div class="info-box bg-yellow hover-expand-effect">
+                                    <div class="info-box bg-red hover-expand-effect">
                                         <div class="icon">
                                             <h4>
                                                 <asp:Label ID="lblRejected" runat="server"></asp:Label>
@@ -123,6 +134,7 @@
                                                 Rejected 
                                             </div>
                                             <div style="font-size: 12px;"></div>
+                                            <i class="fi fi-tr-vote-nay"></i>
                                         </div>
                                     </div>
                                 </asp:LinkButton>
@@ -135,7 +147,7 @@
                 <%-- <div class="card-header">
                     <h3>Query Details</h3>
                 </div>--%>
-                <section id="dashboardcount2">
+                <section id="dashboardcount2 districcommitte">
                     <div class="container-fluid">
                         <div class="row clearfix">
 
@@ -153,6 +165,7 @@
                                                 Query Raised
                                             </div>
                                             <div style="font-size: 12px;"></div>
+                                            <i class="fi fi-tr-person-circle-question"></i>
                                         </div>
                                     </div>
                                 </asp:LinkButton>
@@ -171,6 +184,7 @@
                                                 Queries Redressed
                                             </div>
                                             <div style="font-size: 12px;"></div>
+                                            <i class="fi fi-tr-arrow-square-right"></i>
                                         </div>
                                     </div>
                                 </asp:LinkButton>
