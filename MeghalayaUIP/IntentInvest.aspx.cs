@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,12 @@ namespace MeghalayaUIP
                 success.Visible = false;
                 if (!IsPostBack)
                 {
+                    BindCountry();
+                    BindStates();
+                    BindDistricts();
                     BindDate();
                     BindDatatype();
-                    BindCountry();
+
 
                 }
             }
@@ -37,8 +41,6 @@ namespace MeghalayaUIP
         }
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            //String Quesstionriids = "1001";
-            //string UnitId = "1";
 
             try
             {
@@ -73,7 +75,42 @@ namespace MeghalayaUIP
                     objInvest.Project_Location = txtProjectlocation.Text;
                     objInvest.Expected_Year = txtExpectedYear.Text;
                     objInvest.Expectationstate_Govt = txtExpectation.Text;
+                    objInvest.STATEID = ddlstate.SelectedValue;
+                    objInvest.DISTRICTID = ddldistrict.SelectedValue;
+                    objInvest.MANDALID = ddlMandal.SelectedValue;
+                    objInvest.VILLAGEID = ddlVillage.SelectedValue;
 
+                    if (ddlcountry.SelectedValue == "78")
+                    {
+                        objInvest.STATEID = ddlstate.SelectedValue;
+                        objInvest.STATENAME = ddlstate.SelectedItem.Text;
+                        if (ddlstate.SelectedValue == "23")
+                        {
+                            objInvest.DISTRICTNAME = ddldistrict.SelectedItem.Text;
+                            objInvest.MANDALNAME = ddlMandal.SelectedItem.Text;
+                            objInvest.VILLAGENAME = ddlVillage.SelectedItem.Text;
+                        }
+                        else if (ddlstate.SelectedValue != "23")
+                        {
+                            objInvest.DISTRICTID = txtApplDist.Text.Trim();
+                            objInvest.MANDALID = txtApplTaluka.Text.Trim();
+                            objInvest.VILLAGEID = txtApplVillage.Text.Trim();
+                        }
+                    }
+                    else if (ddlcountry.SelectedValue != "78")
+                    {
+                        objInvest.STATEID = "0";
+
+                        objInvest.STATENAME = txtstate.Text.Trim();
+                        objInvest.DISTRICTNAME = txtApplDist.Text.Trim();
+                        objInvest.MANDALNAME  = txtApplTaluka.Text.Trim();
+                        objInvest.VILLAGENAME = txtApplVillage.Text.Trim();
+                        //objInvest.DISTRICTID = ddldistrict.SelectedValue;
+
+                        //objInvest.MANDALID = ddlMandal.SelectedValue;
+
+                        //objInvest.VILLAGEID = ddlVillage.SelectedValue;
+                    }
 
                     result = mstrBAL.InsertInvestment(objInvest);
                     ViewState["UnitID"] = result;
@@ -83,6 +120,7 @@ namespace MeghalayaUIP
                         lblmsg.Text = "IntentInvest Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        btnClear_Click(sender, e);
                     }
 
                 }
@@ -194,6 +232,136 @@ namespace MeghalayaUIP
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+        protected void BindStates()
+        {
+            try
+            {
+                ddlstate.Items.Clear();
+
+                List<MasterStates> objStatesModel = new List<MasterStates>();
+
+                objStatesModel = mstrBAL.GetStates();
+                if (objStatesModel != null)
+                {
+                    ddlstate.DataSource = objStatesModel;
+                    ddlstate.DataValueField = "StateId";
+                    ddlstate.DataTextField = "StateName";
+                    ddlstate.DataBind();
+                }
+                else
+                {
+                    ddlstate.DataSource = null;
+                    ddlstate.DataBind();
+                }
+                AddSelect(ddlstate);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void BindDistricts()
+        {
+
+            try
+            {
+
+                ddldistrict.Items.Clear();
+                ddlMandal.Items.Clear();
+                ddlVillage.Items.Clear();
+
+                List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
+
+                objDistrictModel = mstrBAL.GetDistrcits();
+                if (objDistrictModel != null)
+                {
+                    ddldistrict.DataSource = objDistrictModel;
+                    ddldistrict.DataValueField = "DistrictId";
+                    ddldistrict.DataTextField = "DistrictName";
+                    ddldistrict.DataBind();
+                }
+                else
+                {
+                    ddldistrict.DataSource = null;
+                    ddldistrict.DataBind();
+
+
+                }
+                AddSelect(ddldistrict);
+                AddSelect(ddlMandal);
+                AddSelect(ddlVillage);
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void BindMandal(DropDownList ddlmndl, string DistrictID)
+        {
+            try
+            {
+                List<MasterMandals> objMandal = mstrBAL.GetMandals(DistrictID);
+
+                if (objMandal != null && objMandal.Count > 0)
+                {
+                    ddlmndl.DataSource = objMandal;
+                    ddlmndl.DataValueField = "MandalId";
+                    ddlmndl.DataTextField = "MandalName";
+                    ddlmndl.DataBind();
+                }
+                else
+                {
+
+                    ddlmndl.DataSource = null;
+                    ddlmndl.DataBind();
+                }
+
+                AddSelect(ddlmndl);
+            }
+            catch (Exception ex)
+            {
+
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+        protected void BindVillages(DropDownList ddlvlg, string MandalID)
+        {
+            try
+            {
+                List<MasterVillages> objVillage = new List<MasterVillages>();
+                string strmode = string.Empty;
+
+                objVillage = mstrBAL.GetVillages(MandalID);
+
+                if (objVillage != null)
+                {
+                    ddlvlg.DataSource = objVillage;
+                    ddlvlg.DataValueField = "VillageId";
+                    ddlvlg.DataTextField = "VillageName";
+                    ddlvlg.DataBind();
+                }
+                else
+                {
+                    ddlvlg.DataSource = null;
+                    ddlvlg.DataBind();
+                }
+                AddSelect(ddlvlg);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public string Stepvalidations()
@@ -336,6 +504,150 @@ namespace MeghalayaUIP
             }
 
             return result;
+        }
+
+        protected void ddldistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ddlMandal.ClearSelection();
+                AddSelect(ddlMandal);
+                ddlVillage.ClearSelection();
+                AddSelect(ddlVillage);
+                if (ddldistrict.SelectedItem.Text != "--Select--")
+                {
+                    BindMandal(ddlMandal, ddldistrict.SelectedValue);
+                }
+                else return;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlVillage.ClearSelection();
+                AddSelect(ddlVillage);
+                if (ddlMandal.SelectedItem.Text != "--Select--")
+                {
+                    BindVillages(ddlVillage, ddlMandal.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+
+        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlstate.SelectedItem.Text == "--Select--")
+                {
+                    dist.Visible = false;
+                    trotherstate.Visible = false;
+                }
+                else if (ddlstate.SelectedItem.Text == "Meghalaya")
+                {
+                    dist.Visible = true;
+                    trotherstate.Visible = false;
+                }
+                else if (ddlstate.SelectedItem.Text != "Meghalaya")
+                {
+                    trotherstate.Visible = true;
+                    dist.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void ddlcountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlcountry.SelectedItem.Text == "--Select--")
+                {
+                    state.Visible = false;
+                    InState.Visible = false;
+                }
+                else if (ddlcountry.SelectedItem.Text == "India")
+                {
+                    state.Visible = true;
+                    InState.Visible = false;
+                }
+                else if (ddlcountry.SelectedItem.Text != "India")
+                {
+                    InState.Visible = true;
+                    trotherstate.Visible = true;
+                    state.Visible = false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtName.Text = "";
+                txtPan.Text = "";
+                txtAddress.Text = "";
+                ddlcountry.ClearSelection();
+                ddlstate.ClearSelection();
+                ddldistrict.ClearSelection();
+                ddlMandal.ClearSelection();
+                ddlVillage.ClearSelection();
+                txtApplDist.Text = "";
+                txtApplTaluka.Text = "";
+                txtApplVillage.Text = "";
+                txtPhone.Text = "";
+                txtPinCode.Text = "";
+                txtEmailIds.Text = "";
+                txtFax.Text = "";
+                txtwebsite.Text = "";
+                txtNames.Text = "";
+                txtDesignation.Text = "";
+                txtEmail.Text = "";
+                txtMobilesNo.Text = "";
+                rblproposal.ClearSelection();
+                rblInvestments.ClearSelection();
+                ddlPCB.ClearSelection();
+                ddlsector.ClearSelection();
+                txtproposedInvest.Text = "";
+                txtEmployments.Text = "";
+                txtProjectlocation.Text = "";
+                txtExpectedYear.Text = "";
+                txtExpectation.Text = "";
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }

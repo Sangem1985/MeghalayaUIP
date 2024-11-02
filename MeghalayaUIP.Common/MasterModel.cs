@@ -249,6 +249,14 @@ namespace MeghalayaUIP.Common
         public string Project_Location { get; set; }
         public string Expected_Year { get; set; }
         public string Expectationstate_Govt { get; set; }
+        public string STATEID { get; set; }
+        public string STATENAME { get; set; }
+        public string DISTRICTID { get; set; }
+        public string DISTRICTNAME { get; set; }
+        public string MANDALID { get; set; }
+        public string MANDALNAME { get; set; }
+        public string VILLAGEID { get; set; }
+        public string VILLAGENAME { get; set; }
 
     }
     public class MasterForestDivision

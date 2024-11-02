@@ -772,6 +772,14 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 com.Parameters.AddWithValue("@PROJECTLOCATION", objInvest.Project_Location);
                 com.Parameters.AddWithValue("@YEAROFCOMMENCEMENT", Convert.ToInt32(objInvest.Expected_Year));
                 com.Parameters.AddWithValue("@GOVTSUPPORT", objInvest.Expectationstate_Govt);
+                com.Parameters.AddWithValue("@STATEID", Convert.ToInt32(objInvest.STATEID));
+                com.Parameters.AddWithValue("@DISTRICTID", Convert.ToInt32(objInvest.DISTRICTID));
+                com.Parameters.AddWithValue("@MANDALID", Convert.ToInt32(objInvest.MANDALID));
+                com.Parameters.AddWithValue("@VILLAGEID", Convert.ToInt32(objInvest.VILLAGEID));
+                com.Parameters.AddWithValue("@STATENAME", objInvest.STATENAME);
+                com.Parameters.AddWithValue("@DISTRICTNAME", objInvest.DISTRICTNAME);
+                com.Parameters.AddWithValue("@MANDALNAME", objInvest.MANDALNAME);
+                com.Parameters.AddWithValue("@VILLAGENAME", objInvest.VILLAGENAME);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

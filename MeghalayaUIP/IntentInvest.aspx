@@ -87,7 +87,8 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">PAN*</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtPan" runat="server" class="form-control" onblur="fnValidatePAN(this);"></asp:TextBox>
+                                                                <asp:TextBox ID="txtPan" runat="server" class="form-control"></asp:TextBox>
+                                                                <%--onblur="fnValidatePAN(this);"--%>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -109,12 +110,94 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Country*</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:DropDownList ID="ddlcountry" runat="server" class="form-control">
+                                                                <asp:DropDownList ID="ddlcountry" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlcountry_SelectedIndexChanged">
                                                                     <asp:ListItem Text="--Select--" Value="0" />
                                                                 </asp:DropDownList>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-4" id="state" runat="server" visible="false">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">State*</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:DropDownList ID="ddlstate" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlstate_SelectedIndexChanged">
+                                                                    <asp:ListItem Text="--Select--" Value="0" />
+                                                                </asp:DropDownList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                      <div class="col-md-4" id="InState" runat="server" visible="false">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">State*</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                               <asp:TextBox runat="server" ID="txtstate" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex" id="dist" runat="server" visible="false">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">District*</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:DropDownList ID="ddldistrict" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddldistrict_SelectedIndexChanged">
+                                                                    <asp:ListItem Text="--Select--" Value="0" />
+                                                                </asp:DropDownList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Mandal*</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
+                                                                    <asp:ListItem Text="--Select--" Value="0" />
+                                                                </asp:DropDownList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Village*</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:DropDownList ID="ddlVillage" runat="server" class="form-control">
+                                                                    <asp:ListItem Text="--Select--" Value="0" />
+                                                                </asp:DropDownList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex" runat="server" id="trotherstate" visible="false">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">District *</label>
+                                                            <div class="col-lg-6 d-flex">
+
+                                                                <asp:TextBox runat="server" ID="txtApplDist" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Mandal *</label>
+                                                            <div class="col-lg-6 d-flex">
+
+                                                                <asp:TextBox runat="server" ID="txtApplTaluka" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Village *</label>
+                                                            <div class="col-lg-6 d-flex">
+
+                                                                <asp:TextBox runat="server" ID="txtApplVillage" class="form-control" onkeypress="return Names(event)"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Phone No*</label>
@@ -123,8 +206,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Pin/Zip Code    </label>
@@ -141,6 +222,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Fax No</label>
@@ -149,8 +232,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Website    </label>
@@ -317,6 +398,8 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores."
 
                                                     <div class="col-md-12 text-center">
                                                         <asp:Button ID="BtnSave" runat="server" Text="Submit" class="btn btn-info btn-submit" padding-right="10px" Width="120px" OnClick="BtnSave_Click" />
+                                                        <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-info btn-clear" padding-right="10px" Width="120px" OnClick="btnClear_Click" />
+
                                                     </div>
 
                                                 </div>
