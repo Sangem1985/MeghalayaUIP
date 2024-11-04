@@ -1143,9 +1143,9 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             return dt;
         }
        
-        public int DPRDeptProcess(PreRegDtls prd)
+        public string DPRDeptProcess(PreRegDtls prd)
         {
-            int valid = 0;
+            string valid = "";
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
             connection.Open();
@@ -1160,19 +1160,17 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(prd.Unitid));
-                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(prd.Investerid));
-                da.SelectCommand.Parameters.AddWithValue("@DPRVERIFICATION_STATUS", prd.DPRStatus);
-                da.SelectCommand.Parameters.AddWithValue("@DPRVERIFICATION_BY", prd.DPRBY);
-                da.SelectCommand.Parameters.AddWithValue("@DPRVERIFICATION_BYIP", prd.DPRBYIP);
-                da.SelectCommand.Parameters.AddWithValue("@QUERYRAISEDESC", prd.QueryRaised);
-                da.SelectCommand.Parameters.AddWithValue("@FILEDESCRIPTION", prd.filedescription);
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(prd.Unitid));                
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(prd.DPRCRETEDBY));
+                da.SelectCommand.Parameters.AddWithValue("@CHECKLISTID", Convert.ToInt32(prd.DPRCHECKLIST));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBYIP", prd.DPRBYIP);
+                da.SelectCommand.Parameters.AddWithValue("@VERIFYFLAG", prd.VERIFYFLAG);
 
 
-                da.SelectCommand.Parameters.Add("@RESULT", SqlDbType.Int, 100);
+                da.SelectCommand.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 da.SelectCommand.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 da.SelectCommand.ExecuteNonQuery();
-                valid = (Int32)da.SelectCommand.Parameters["@RESULT"].Value;
+                valid = da.SelectCommand.Parameters["@RESULT"].Value.ToString();
 
 
                 transaction.Commit();

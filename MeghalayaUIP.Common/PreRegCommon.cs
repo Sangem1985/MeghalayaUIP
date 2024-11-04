@@ -44,7 +44,7 @@ namespace MeghalayaUIP.Common
         public static string GetPreRegDPRDashBoard = "USP_GETPREREGDPRASHBOARD";
         public static string GetPreRegDPRDashBoardView = "USP_PREREGDPRDASHBOARDDRILLDOWN";
 
-        public static string GetDPRDeptProcess = "USP_GETVERIFIED_DEPTPROCESS";
+        public static string GetDPRDeptProcess = "USP_GETPREREGDPRCHICKLIST"; //USP_GETVERIFIED_DEPTPROCESS
 
 
     }
@@ -186,11 +186,10 @@ namespace MeghalayaUIP.Common
         public string QueryID { get; set; }
         public string QueryResponse { get; set; }
 
-        public string DPRStatus { get; set; }  
-        public string DPRBY { get; set; }
+        public string DPRCRETEDBY { get; set; }
         public string DPRBYIP { get; set; }
-        public string QueryRaised { get; set; }
-        public string filedescription { get; set; }
+        public string DPRCHECKLIST { get; set; }
+        public string VERIFYFLAG { get; set; }
     }
     public class InvBasicDtls
     {

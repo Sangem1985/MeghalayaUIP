@@ -558,7 +558,9 @@ function validateNameAndNumbers(event) {
 
     if ((charCode >= 48 && charCode <= 57) ||
         (charCode >= 65 && charCode <= 90) ||
-        (charCode >= 97 && charCode <= 122) || charCode == 45) {
+        (charCode >= 97 && charCode <= 122) ||
+        charCode === 45 ||
+        charCode === 32) {
         return true;
     } else {
         alert("Please enter only alphabets and numbers.");
@@ -781,7 +783,8 @@ function validateNameAndNumbers(event) {
     if ((charCode >= 48 && charCode <= 57) ||
         (charCode >= 65 && charCode <= 90) ||
         (charCode >= 97 && charCode <= 122) ||
-        charCode === 45) { // hyphen (-)
+        charCode === 45 ||
+        charCode === 32) { // hyphen (-)
         return true;
     } else {
         alert("Please enter only alphabets, numbers, or hyphen.");

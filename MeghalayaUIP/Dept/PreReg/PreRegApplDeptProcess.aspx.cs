@@ -21,6 +21,7 @@ namespace MeghalayaUIP.Dept.PreReg
         PreRegBAL PreBAL = new PreRegBAL();
         PreRegDtls prd = new PreRegDtls();
         MasterBAL mstrBAL = new MasterBAL();
+         string Queryid, i;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -41,6 +42,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     {
                         BindaApplicatinDetails();
                     }
+                    Queryid = Convert.ToString(ViewState["COMMQID"]);
                 }
             }
             catch (Exception ex)
@@ -821,7 +823,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }  
+        }
         public string validations()
         {
             try
@@ -842,7 +844,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                 return errormsg;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -850,7 +852,106 @@ namespace MeghalayaUIP.Dept.PreReg
 
         protected void btnVerifyUpldAttachment_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string newPath = "", Error = "", message = "";
+                string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+                if (FileUploadquery.HasFile)
+                {
+                    Error = validations(FileUploadquery);
+                    if (Error == "")
+                    {
+                        if ((FileUploadquery.PostedFile != null) && (FileUploadquery.PostedFile.ContentLength > 0))
+                        {
+                            string sFileName = System.IO.Path.GetFileName(FileUploadquery.PostedFile.FileName);
+                            try
+                            {
+                                newPath = System.IO.Path.Combine(sFileDir, Session["INVESTERID"].ToString(), Session["UNITID"].ToString() + "\\RESPONSEATTACHMENTS");
 
+                                if (!Directory.Exists(newPath))
+                                    System.IO.Directory.CreateDirectory(newPath);
+
+                                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
+                                FileUploadquery.PostedFile.SaveAs(newPath + "\\" + sFileName);
+
+                                //int count = dir.GetFiles().Length;
+                                //if (count == 0)
+                                //    FileUploadqueryIMA.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                //else
+                                //{
+                                //    if (count == 1)
+                                //    {
+                                //        string[] Files = Directory.GetFiles(newPath);
+
+                                //        foreach (string file in Files)
+                                //        {
+                                //            File.Delete(file);
+                                //        }
+                                //        FileUploadqueryIMA.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                //    }
+                                //}
+                                IndustryDetails objattachments = new IndustryDetails();
+
+                                objattachments.QueryID = Queryid;
+                                objattachments.UnitID = Session["UNITID"].ToString();
+                                objattachments.InvestorId = Session["INVESTERID"].ToString();
+                                objattachments.UserID = hdnUserID.Value.ToString();
+                                objattachments.FileType = FileUploadquery.PostedFile.ContentType;
+                                objattachments.FileName = sFileName.ToString();
+                                objattachments.Filepath = newPath.ToString() + "\\" + sFileName.ToString();
+                                objattachments.FileDescription = "RESPONSE ATTACHMENT";
+                                objattachments.Deptid = Convert.ToString(ViewState["DEPTID"]);
+                                objattachments.ApprovalId = "0";
+                                objattachments.ResponseFileBy = "DEPARTMENT";
+
+                                int result = 0;
+                                result = PreBAL.InsertAttachments_PREREG_RESPONSE(objattachments);
+
+                                if (result > 0)
+                                {
+                                    lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
+                                    hplAttachment.Text = FileUploadquery.FileName;
+                                    hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objattachments.Filepath);
+
+                                    //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + ViewState["UNITID"].ToString() + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
+                                    hplAttachment.Visible = true;
+                                    success.Visible = true;
+                                    Failure.Visible = false;
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "<font color='red'>Attachment Upload Failed..!</font>";
+                                    success.Visible = false;
+                                    Failure.Visible = true;
+                                }
+                            }
+                            catch (Exception)//in case of an error
+                            {
+                                DeleteFile(newPath + "\\" + sFileName);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
+                    success.Visible = false;
+                    Failure.Visible = true;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         protected void btnDPRVerify_Click(object sender, EventArgs e)
@@ -858,29 +959,26 @@ namespace MeghalayaUIP.Dept.PreReg
             try
             {
                 //  DataSet ds = new DataSet();
+                // String Result;               
 
-                int i = 0;
-                int J = 0;
                 foreach (GridViewRow row1 in gvDPRChecklist.Rows)
                 {
 
-
-                    RadioButtonList rdbCheck = (RadioButtonList)row1.FindControl("rblAlrdyObtained");
-                    Label lbldescrption = (Label)row1.FindControl("lbldescription");
+                    //RadioButtonList rdbCheck = (RadioButtonList)row1.FindControl("rblAlrdyObtained");
+                    Label lblDprDocid = (Label)row1.FindControl("lblDprDocid");
+                    CheckBox chkVerify = (CheckBox)row1.FindControl("chkVerify");
 
                     prd.Unitid = Session["UNITID"].ToString();
-                    prd.Investerid = Session["INVESTERID"].ToString();
-                    prd.DPRStatus = rdbCheck.SelectedValue;
-                    prd.DPRBY = hdnUserID.Value;
-                    prd.filedescription = lbldescrption.Text;
+                    prd.DPRCRETEDBY = hdnUserID.Value;
                     prd.DPRBYIP = getclientIP();
-                    prd.QueryRaised = txtRemark.Text;
+                    prd.DPRCHECKLIST = lblDprDocid.Text;
+                    prd.VERIFYFLAG = chkVerify.Checked ? "Y" : "N";
 
-                    i = PreBAL.DPRDeptProcess(prd);
-                    J = J + i;
+                     i = PreBAL.DPRDeptProcess(prd);
+                    
 
                 }
-                if (J == 7)
+                if (i !="")
                 {
                     var ObjUserInfo = new DeptUserInfo();
                     if (Session["DeptUserInfo"] != null)
@@ -896,7 +994,11 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.IPAddress = getclientIP();
                     prd.UserID = ObjUserInfo.UserID;
                     prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    //  string valid = PreBAL.PreRegApprovals(prd);
+                    prd.Unitid = Session["UNITID"].ToString();
+                    prd.Investerid = Session["INVESTERID"].ToString();
+                    //  string valid = PreBAL.PreRegApprovals(prd);                    
+                    prd.Remarks = txtRemark.Text;
+                    prd.QueryResponse = ddlOfcr.SelectedItem.Text;
 
                     string valid = PreBAL.PreRegUpdateQuery(prd);
                     BindaApplicatinDetails();

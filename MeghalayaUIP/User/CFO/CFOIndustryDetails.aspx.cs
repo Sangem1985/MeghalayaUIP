@@ -297,10 +297,10 @@ namespace MeghalayaUIP.User.CFO
                     }
                     else
                     {
-                        hdnPreRegUID.Value = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PREREGUIDNO"]);
-                        txtIndustryName.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYNAME"]);
-                        ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_COMPANYTYPE"]);
-                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPOSALFOR"]);
+                        hdnPreRegUID.Value = Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_PREREGUIDNO"]);
+                        txtIndustryName.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_COMPANYNAME"]);
+                        ddlCompanyType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_COMPANYTYPE"]);
+                        rblproposal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_PROPOSALFOR"]);
                         ddlRegType.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGTYPE"]);
                         txtUdyamorIEMNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["COMPANYREGNO"]);
                         txtRegDate.Text = Convert.ToString(ds.Tables[1].Rows[0]["REGDATE"]);
@@ -316,13 +316,13 @@ namespace MeghalayaUIP.User.CFO
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
                         txtpincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_PINCODE"]);
-                        lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPEMP"]);
+                        lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_PROPEMP"]);
 
-                        if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "Y")
+                        if (Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_GENREQ"]) == "Y")
                             ddlFactories.SelectedValue = "Hazardous";
-                        else if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_GENREQ"]) == "N")
+                        else if (Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_GENREQ"]) == "N")
                             ddlFactories.SelectedValue = "Non Hazardous";
-                        if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_RDCTNGREQ"]) == "Y")
+                        if (Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_RDCTNGREQ"]) == "Y")
                         { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
                     }
                     txtIndustryName.Enabled = false;
