@@ -1073,7 +1073,7 @@
                                         <div class="container-fluid">
                                             <div class="row clearfix">
 
-                                                <div class="col-sm-12" id="divDIT" runat="server" visible="false">
+                                                <div class="col-sm-12" id="divDIT" runat="server" visible="true">
 
                                                     <div class="table-responsive" runat="server" style="padding-bottom: 20px">
                                                         <asp:GridView ID="gvDITChecklist" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -1147,7 +1147,7 @@
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:FileUpload ID="fupDCReport" runat="server" />
                                                                 <br />
-                                                                <asp:Button runat="server" ID="btnupldDCReport" Text="Upload" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+                                                                <asp:Button runat="server" ID="btnupldDCReport" Text="Upload" class="btn btn-dark btn-rounded" Height="35px" Width="110px" OnClick="btnupldDCReport_Click" /><br />
                                                                 <br />
                                                                 <asp:HyperLink ID="HyperLink1" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                                             </div>

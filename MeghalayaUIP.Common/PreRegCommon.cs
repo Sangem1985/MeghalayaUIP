@@ -45,7 +45,8 @@ namespace MeghalayaUIP.Common
         public static string GetPreRegDPRDashBoardView = "USP_PREREGDPRDASHBOARDDRILLDOWN";
 
         public static string GetDPRDeptProcess = "USP_GETPREREGDPRCHICKLIST"; //USP_GETVERIFIED_DEPTPROCESS
-
+        public static string SaveDistrictSiteReport = "PREREG_DITSAVEREPORT";
+        public static string InsertTeamMember = "PREREG_SAVE_DITOFFICER";
 
     }
     public class IndustryDetails
@@ -347,5 +348,44 @@ namespace MeghalayaUIP.Common
             get;
             set;
         }
+    }
+    public class DistrictSiteInspectionTeam
+    {
+
+        public string MemberName { get; set; }
+        public string Designation { get; set; }
+        public string District { get; set; }
+
+        public string ipAddress { get; set; }
+
+        public string createdBy { get; set; }
+    }
+
+    public class DistrictSiteReport
+    {
+        public int UnitId { get; set; }
+        public string UnitName { get; set; }
+        public string UnitLocation { get; set; }
+        public string GpsCoordinates { get; set; }
+        public string SiteArea { get; set; }
+        public string Ownership { get; set; }
+        public string UnderPossession { get; set; }
+        public string DistanceFromMainRoad { get; set; }
+        public string RoadType { get; set; }
+        public string ConstructionCommencement { get; set; }
+        public string AnyNaturalBodies { get; set; }
+        public string EnvVulnerableLoc { get; set; }
+        public string AvailabilityOfPower { get; set; }
+        public string AvailabilityOfWater { get; set; }
+
+        public string OtherObservations { get; set; }
+
+        public string Comments { get; set; }
+
+        public string ipAddress { get; set; }
+
+        public string createdBy { get; set; }
+
+
     }
 }

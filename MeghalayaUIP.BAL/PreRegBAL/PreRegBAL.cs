@@ -118,6 +118,15 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.DPRDeptProcess(prd);
         }
+        public string PreRegDISTRPTSAVE(DistrictSiteReport report)
+        {
+            return IRD.PreRegDISTRPTSAVE(report);
+        }
+
+        public string SaveTeamMember(string reportid, DistrictSiteInspectionTeam teamMember)
+        {
+            return IRD.PreRegDistSaveTeam(reportid, teamMember);
+        }
 
     }
 

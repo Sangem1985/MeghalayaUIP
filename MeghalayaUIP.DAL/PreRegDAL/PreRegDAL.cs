@@ -1188,6 +1188,114 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
+        public string PreRegDISTRPTSAVE(DistrictSiteReport report)
+        {
+            string reportid = "0";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                SqlCommand cmd = new SqlCommand(PreRegConstants.SaveDistrictSiteReport, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Transaction = transaction;
+                // Add parameters to the command
+                cmd.Parameters.AddWithValue("@UnitId", report.UnitId);
+                cmd.Parameters.AddWithValue("@UnitName", report.UnitName);
+                cmd.Parameters.AddWithValue("@UnitLocation", report.UnitLocation);
+                cmd.Parameters.AddWithValue("@GpsCoordinates", report.GpsCoordinates);
+                cmd.Parameters.AddWithValue("@SiteArea", report.SiteArea);
+                cmd.Parameters.AddWithValue("@Ownership", report.Ownership);
+                cmd.Parameters.AddWithValue("@UnderPossession", report.UnderPossession);
+                cmd.Parameters.AddWithValue("@DistanceFromMainRoad", report.DistanceFromMainRoad);
+                cmd.Parameters.AddWithValue("@RoadType", report.RoadType);
+                cmd.Parameters.AddWithValue("@ConstructionCommencement", report.ConstructionCommencement);
+                cmd.Parameters.AddWithValue("@AnyNaturalBodies", report.AnyNaturalBodies);
+                cmd.Parameters.AddWithValue("@EnvVulnerableLoc", report.EnvVulnerableLoc);
+                cmd.Parameters.AddWithValue("@AvailabilityOfPower", report.AvailabilityOfPower);
+                cmd.Parameters.AddWithValue("@AvailabilityOfWater", report.AvailabilityOfWater);
+                cmd.Parameters.AddWithValue("@OtherObservations", report.OtherObservations);
+                cmd.Parameters.AddWithValue("@Comments", report.Comments);
+                cmd.Parameters.AddWithValue("@CreatedBy", report.createdBy);
+                cmd.Parameters.AddWithValue("@IpAddress", report.ipAddress);
+
+                cmd.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                cmd.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                cmd.ExecuteNonQuery();
+                reportid = cmd.Parameters["@RESULT"].Value.ToString();
+
+
+
+                // Execute the command
+
+                transaction.Commit();
+                connection.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return reportid;
+
+        }
+
+        public string PreRegDistSaveTeam(string reportid, DistrictSiteInspectionTeam teamMember)
+        {
+            string valid = "0";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            SqlCommand cmd = new SqlCommand(PreRegConstants.InsertTeamMember, connection);
+            cmd.Transaction = transaction;
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                // Add parameters to the command
+                cmd.Parameters.AddWithValue("@ReportId", reportid);
+                cmd.Parameters.AddWithValue("@MemberName", teamMember.MemberName);
+                cmd.Parameters.AddWithValue("@Designation", teamMember.Designation);
+                cmd.Parameters.AddWithValue("@District", teamMember.District);
+                cmd.Parameters.AddWithValue("@CreatedBy", teamMember.createdBy);
+                cmd.Parameters.AddWithValue("@IpAddress", teamMember.ipAddress);
+
+
+
+                // Execute the command
+                cmd.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                cmd.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                cmd.ExecuteNonQuery();
+                valid = cmd.Parameters["@RESULT"].Value.ToString();
+
+
+                transaction.Commit();
+                connection.Close();
+
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+
+        }
 
 
 

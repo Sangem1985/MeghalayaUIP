@@ -23,6 +23,7 @@ namespace MeghalayaUIP.Dept.PreReg
         MasterBAL mstrBAL = new MasterBAL();
         List<PreRegDtls> lstPreRegDtlsVo = new List<PreRegDtls>();
         MasterBAL objmbal = new MasterBAL();
+        string Queryid;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -67,6 +68,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                     }
                     // username = ObjUserInfo.UserName;
+                    Queryid = Convert.ToString(ViewState["COMMQID"]);
                 }
 
                 if (Session["UNITID"] != null && Session["INVESTERID"] != null && Session["stage"] != null)
@@ -255,7 +257,7 @@ namespace MeghalayaUIP.Dept.PreReg
                             }
                             else
                             {
-                               // verifypanel.Visible = false;
+                                // verifypanel.Visible = false;
                             }
                             if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
                             {
@@ -694,41 +696,6 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
-        //protected void rblAlrdyObtained_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        RadioButtonList rblobtained = (RadioButtonList)sender;
-        //        GridViewRow row = (GridViewRow)rblobtained.NamingContainer;
-        //        int Rowindex = row.RowIndex;
-        //        if (Rowindex >= 0)
-        //        {
-        //            RadioButtonList rdbCheck = (RadioButtonList)GVVerification.Rows[Rowindex].FindControl("rblAlrdyObtained");
-        //            //CheckBox chkCheck = (CheckBox)GVVerification.Rows[Rowindex].FindControl("ChkApproval");
-
-        //            foreach (GridViewRow row1 in GVVerification.Rows)
-        //            {
-        //                if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "N")
-        //                {
-        //                    ((RadioButtonList)row1.FindControl("rblAlrdyObtained")).Enabled = true;
-
-        //                }
-        //                else if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "Y")
-        //                {
-
-        //                }
-        //            }
-
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
         protected void btnDIT_Click(object sender, EventArgs e)
         {
 
@@ -736,7 +703,106 @@ namespace MeghalayaUIP.Dept.PreReg
 
         protected void btnupldDCReport_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string newPath = "", Error = "", message = "";
+                string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+                if (fupDCReport.HasFile)
+                {
+                    Error = validations(fupDCReport);
+                    if (Error == "")
+                    {
+                        if ((fupDCReport.PostedFile != null) && (fupDCReport.PostedFile.ContentLength > 0))
+                        {
+                            string sFileName = System.IO.Path.GetFileName(fupDCReport.PostedFile.FileName);
+                            try
+                            {
+                                newPath = System.IO.Path.Combine(sFileDir, Session["INVESTERID"].ToString(), Session["UNITID"].ToString() + "\\RESPONSEATTACHMENTS");
 
+                                if (!Directory.Exists(newPath))
+                                    System.IO.Directory.CreateDirectory(newPath);
+
+                                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
+                                fupDCReport.PostedFile.SaveAs(newPath + "\\" + sFileName);
+
+                                //int count = dir.GetFiles().Length;
+                                //if (count == 0)
+                                //    FileUploadqueryIMA.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                //else
+                                //{
+                                //    if (count == 1)
+                                //    {
+                                //        string[] Files = Directory.GetFiles(newPath);
+
+                                //        foreach (string file in Files)
+                                //        {
+                                //            File.Delete(file);
+                                //        }
+                                //        FileUploadqueryIMA.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                //    }
+                                //}
+                                IndustryDetails objattachments = new IndustryDetails();
+
+                                objattachments.QueryID = Queryid;
+                                objattachments.UnitID = Session["UNITID"].ToString();
+                                objattachments.InvestorId = Session["INVESTERID"].ToString();
+                                objattachments.UserID = hdnUserID.Value.ToString();
+                                objattachments.FileType = fupDCReport.PostedFile.ContentType;
+                                objattachments.FileName = sFileName.ToString();
+                                objattachments.Filepath = newPath.ToString() + "\\" + sFileName.ToString();
+                                objattachments.FileDescription = "RESPONSE ATTACHMENT";
+                                objattachments.Deptid = Convert.ToString(ViewState["DEPTID"]);
+                                objattachments.ApprovalId = "0";
+                                objattachments.ResponseFileBy = "DEPARTMENT";
+
+                                int result = 0;
+                                result = PreBAL.InsertAttachments_PREREG_RESPONSE(objattachments);
+
+                                if (result > 0)
+                                {
+                                    lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
+                                    hplAttachment.Text = fupDCReport.FileName;
+                                    hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objattachments.Filepath);
+
+                                    //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + ViewState["UNITID"].ToString() + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
+                                    hplAttachment.Visible = true;
+                                    success.Visible = true;
+                                    Failure.Visible = false;
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "<font color='red'>Attachment Upload Failed..!</font>";
+                                    success.Visible = false;
+                                    Failure.Visible = true;
+                                }
+                            }
+                            catch (Exception)//in case of an error
+                            {
+                                DeleteFile(newPath + "\\" + sFileName);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
+                    success.Visible = false;
+                    Failure.Visible = true;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }
