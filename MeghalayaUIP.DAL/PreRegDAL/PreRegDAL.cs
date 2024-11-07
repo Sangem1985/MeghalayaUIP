@@ -1202,7 +1202,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Transaction = transaction;
                 // Add parameters to the command
-                cmd.Parameters.AddWithValue("@UnitId", report.UnitId);
+                cmd.Parameters.AddWithValue("@UnitId", Convert.ToInt32(report.UnitId));
                 cmd.Parameters.AddWithValue("@UnitName", report.UnitName);
                 cmd.Parameters.AddWithValue("@UnitLocation", report.UnitLocation);
                 cmd.Parameters.AddWithValue("@GpsCoordinates", report.GpsCoordinates);
@@ -1295,6 +1295,53 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
 
+        }
+        public string PreRegDITProcess(PreRegDtls prd)
+        {
+            string valid = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetPreRegDITProcess, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetPreRegDITProcess;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(prd.Unitid));
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(prd.Investerid));
+                da.SelectCommand.Parameters.AddWithValue("@DCDEPTID", Convert.ToInt32(prd.deptid));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(prd.DPRCRETEDBY));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDIP", prd.IPAddress);
+                da.SelectCommand.Parameters.AddWithValue("@REMARK", prd.Remark);
+              //  da.SelectCommand.Parameters.AddWithValue("@FORWARDTO", prd.Forward);
+
+
+                da.SelectCommand.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                da.SelectCommand.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                da.SelectCommand.ExecuteNonQuery();
+                valid = da.SelectCommand.Parameters["@RESULT"].Value.ToString();
+
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
         }
 
 

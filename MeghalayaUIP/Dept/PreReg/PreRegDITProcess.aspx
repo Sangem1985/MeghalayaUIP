@@ -1073,7 +1073,7 @@
                                         <div class="container-fluid">
                                             <div class="row clearfix">
 
-                                                <div class="col-sm-12" id="divDIT" runat="server" visible="true">
+                                                <div class="col-sm-12" id="divDIT" runat="server" visible="false">
 
                                                     <div class="table-responsive" runat="server" style="padding-bottom: 20px">
                                                         <asp:GridView ID="gvDITChecklist" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -1153,17 +1153,17 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">
-                                                                <asp:HyperLink ID="HypLnkFinancialInstidtutionFormat" runat="server" Visible="true" CssClass="LBLBLACK" Width="300px" Target="_blank" NavigateUrl="../../Documents/Site%20Inspection%20template.pdf">Click here for Site Inspection Template</asp:HyperLink>
+                                                            <label class="col-lg-6 col-form-label">
+<%--                                                                <asp:HyperLink ID="HypLnkFinancialInstidtutionFormat" runat="server" Visible="true" CssClass="LBLBLACK" Width="300px" Target="_blank" NavigateUrl="../../Documents/Site%20Inspection%20template.pdf">Click here for Site Inspection Template</asp:HyperLink>--%>
+                                                                <asp:LinkButton ID="lnkbutton" runat="server" OnClick="lnkbutton_Click">Click here for Site Inspection Template</asp:LinkButton>
                                                             </label>
                                                             <div class="col-lg-1 d-flex">
                                                             </div>
-                                                            <div class="col-lg-4 d-flex">
+                                                            <div class="col-lg-2 d-flex">
                                                             </div>
                                                         </div>
                                                     </div>

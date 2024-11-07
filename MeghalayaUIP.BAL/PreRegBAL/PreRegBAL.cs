@@ -127,6 +127,10 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.PreRegDistSaveTeam(reportid, teamMember);
         }
+        public string PreRegDITProcess(PreRegDtls prd)
+        {
+            return IRD.PreRegDITProcess(prd);
+        }
 
     }
 

@@ -47,6 +47,7 @@ namespace MeghalayaUIP.Common
         public static string GetDPRDeptProcess = "USP_GETPREREGDPRCHICKLIST"; //USP_GETVERIFIED_DEPTPROCESS
         public static string SaveDistrictSiteReport = "PREREG_DITSAVEREPORT";
         public static string InsertTeamMember = "PREREG_SAVE_DITOFFICER";
+        public static string GetPreRegDITProcess = "USP_GETPREREGDITPROCESS";
 
     }
     public class IndustryDetails
@@ -191,6 +192,10 @@ namespace MeghalayaUIP.Common
         public string DPRBYIP { get; set; }
         public string DPRCHECKLIST { get; set; }
         public string VERIFYFLAG { get; set; }
+
+        public string Remark { get; set; }
+        public string Forward { get; set; }
+        public string CreatedFlag { get; set; }
     }
     public class InvBasicDtls
     {
@@ -363,7 +368,7 @@ namespace MeghalayaUIP.Common
 
     public class DistrictSiteReport
     {
-        public int UnitId { get; set; }
+        public string UnitId { get; set; }
         public string UnitName { get; set; }
         public string UnitLocation { get; set; }
         public string GpsCoordinates { get; set; }
@@ -386,6 +391,8 @@ namespace MeghalayaUIP.Common
 
         public string createdBy { get; set; }
 
+        public string upload_flag { get; set; }
+        public string DITCreatedby { get; set; }
 
     }
 }

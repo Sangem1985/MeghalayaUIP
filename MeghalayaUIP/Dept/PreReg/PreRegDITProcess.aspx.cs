@@ -24,6 +24,7 @@ namespace MeghalayaUIP.Dept.PreReg
         List<PreRegDtls> lstPreRegDtlsVo = new List<PreRegDtls>();
         MasterBAL objmbal = new MasterBAL();
         string Queryid;
+        Label lblApplNo = new Label();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -45,7 +46,8 @@ namespace MeghalayaUIP.Dept.PreReg
                         BindaApplicatinDetails();
                         // BindDepartments();
                     }
-
+                    Queryid = Convert.ToString(ViewState["COMMQID"]);
+                   
                 }
             }
             catch (Exception ex)
@@ -68,7 +70,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                     }
                     // username = ObjUserInfo.UserName;
-                    Queryid = Convert.ToString(ViewState["COMMQID"]);
+
                 }
 
                 if (Session["UNITID"] != null && Session["INVESTERID"] != null && Session["stage"] != null)
@@ -77,11 +79,11 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.Investerid = Session["INVESTERID"].ToString();
                     prd.UserID = ObjUserInfo.UserID;
                     prd.Role = Convert.ToInt32(ObjUserInfo.Roleid);
-                    prd.Stage = Convert.ToInt32(Session["stage"]);
+                    prd.Stage = Convert.ToInt32(Session["stage"]);                 
                     if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
                     {
                         prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    }
+                    }                  
                     DataSet ds = new DataSet();
                     ds = PreBAL.GetPreRegNodelOfficer(prd);
                     if (ds.Tables.Count > 0)
@@ -189,7 +191,10 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         //lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
                         //lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);
-                        //lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
+                        if (lblApplNo.Text != "")
+                        {
+                            lblApplNo.Text = Convert.ToString(row["DITREPORT_UPLOADFLAG"]);
+                        }
                         //lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                         //lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
@@ -698,7 +703,46 @@ namespace MeghalayaUIP.Dept.PreReg
         }
         protected void btnDIT_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (lblApplNo.Text != "")
+                {
+                    var ObjUserInfo = new DeptUserInfo();
+                    if (Session["DeptUserInfo"] != null)
+                    {
 
+                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                        {
+                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                        }
+                    }
+
+                    prd.Unitid = Session["UNITID"].ToString();
+                    prd.Investerid = Session["INVESTERID"].ToString();
+                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    prd.Remark = txtRemark.Text;
+                    // prd.Forward = ddlOfcr.SelectedValue;
+                    prd.DPRCRETEDBY = hdnUserID.Value;
+                    prd.IPAddress = getclientIP();
+                    string valid = PreBAL.PreRegDITProcess(prd);
+
+
+                    // BindaApplicatinDetails();
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DITProcess Successfully...!');  window.location.href='PreRegDITDashBoard.aspx'", true);
+                    return;
+                }
+                else
+                {
+                    lblmsg0.Text = "Click here for Site Inspection Template And Fille All Details";
+                    Failure.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         protected void btnupldDCReport_Click(object sender, EventArgs e)
@@ -796,6 +840,33 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
 
 
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void lnkbutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                }
+                prd.Unitid = Session["UNITID"].ToString();
+                prd.Investerid = Session["INVESTERID"].ToString();
+
+
+                Response.Redirect("~/Dept/PreReg/PreRegDITSiteInspection.aspx?Unitid=" + Session["UNITID"].ToString() + "&Investerid=" + Session["INVESTERID"].ToString());
             }
             catch (Exception ex)
             {
