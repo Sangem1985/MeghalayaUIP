@@ -1220,6 +1220,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 cmd.Parameters.AddWithValue("@Comments", report.Comments);
                 cmd.Parameters.AddWithValue("@CreatedBy", report.createdBy);
                 cmd.Parameters.AddWithValue("@IpAddress", report.ipAddress);
+                cmd.Parameters.AddWithValue("@DATEOFINSPECTION", DateTime.ParseExact(report.DateInspection, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
 
                 cmd.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 cmd.Parameters["@RESULT"].Direction = ParameterDirection.Output;

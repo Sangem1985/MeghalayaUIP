@@ -1194,7 +1194,7 @@
                                                         </div>
 
                                                     </div>
-                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-3"><asp:Label ID="lblApplNo" runat="server"></asp:Label></div>
 
                                                 </div>
                                             </div>

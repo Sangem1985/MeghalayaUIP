@@ -371,6 +371,7 @@ namespace MeghalayaUIP.Common
         public string UnitId { get; set; }
         public string UnitName { get; set; }
         public string UnitLocation { get; set; }
+        public string DateInspection { get; set; }
         public string GpsCoordinates { get; set; }
         public string SiteArea { get; set; }
         public string Ownership { get; set; }

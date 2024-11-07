@@ -146,7 +146,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 report.Comments = txtComments.Text;
                 report.createdBy = hdnUserID.Value;
                 report.ipAddress = getclientIP();
-
+                report.DateInspection = txtDate.Text;
 
 
                 reportid = PreBAL.PreRegDISTRPTSAVE(report);
@@ -212,7 +212,7 @@ namespace MeghalayaUIP.Dept.PreReg
             try
             {
 
-                Response.Redirect("~/Dept/PreReg/PreRegDITProcess.aspx");
+                Response.Redirect("~/Dept/PreReg/PreRegDITProcess.aspx?Status="+ Request.QueryString["status"].ToString());
 
             }
             catch (Exception ex)
