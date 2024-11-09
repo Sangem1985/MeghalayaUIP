@@ -146,6 +146,32 @@ namespace MeghalayaUIP.User.PreReg
 
         }
 
+        protected void gvPreRegUserDashboard_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplApproval = (HyperLink)e.Row.FindControl("hplApproval");
+                    Label lblApprovalDoc = (Label)e.Row.FindControl("lblApprovalDoc");
+
+                    if (lblApprovalDoc.Text != "")
+                    {
+                        hplApproval.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblApprovalDoc.Text);
+                        hplApproval.ForeColor = System.Drawing.Color.Blue;
+                        hplApproval.Target = "blank";
+                    }
+                    else { hplApproval.ForeColor = System.Drawing.Color.Black; }
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         protected void lbtnBack_Click(object sender, EventArgs e)
         {
             try

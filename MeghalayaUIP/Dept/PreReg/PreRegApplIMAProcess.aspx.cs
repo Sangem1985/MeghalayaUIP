@@ -251,7 +251,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                 QueryResondpanel.Visible = false;
                             }
                         }
-                        else if(Convert.ToString(Request.QueryString["status"]) == "ApplicationTracker")
+                        else if (Convert.ToString(Request.QueryString["status"]) == "ApplicationTracker")
                         {
                             QueryResondpanel.Visible = false;
                             verifypanel.Visible = false;
@@ -275,9 +275,15 @@ namespace MeghalayaUIP.Dept.PreReg
                 LinkButton link = (LinkButton)sender;
                 GridViewRow row = (GridViewRow)link.NamingContainer;
                 Label lblfilepath = (Label)row.FindControl("lblFilePath");
-                
+
                 if (lblfilepath != null || lblfilepath.Text != "")
-                    Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmbal.EncryptFilePath(lblfilepath.Text));
+                {
+                    //Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text));
+                    string encryptedFilePath = mstrBAL.EncryptFilePath(lblfilepath.Text);
+                    string url = ResolveUrl("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + encryptedFilePath);
+                    string script = $"window.open('{url}', '_blank');";
+                    ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
+                }
             }
             catch (Exception ex) { }
         }
@@ -288,7 +294,13 @@ namespace MeghalayaUIP.Dept.PreReg
 
             Label lblfilepath = (Label)row.FindControl("lblFilePath");
             if (lblfilepath != null || lblfilepath.Text != "")
-                Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmbal.EncryptFilePath(lblfilepath.Text));
+            {
+                //Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text));
+                string encryptedFilePath = mstrBAL.EncryptFilePath(lblfilepath.Text);
+                string url = ResolveUrl("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + encryptedFilePath);
+                string script = $"window.open('{url}', '_blank');";
+                ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
+            }
         }
         public void BindDepartments()
         {
@@ -370,7 +382,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         tdDeptQuery.Visible = false;
                         btnQuery.Visible = false;
-                        ddldepartment.ClearSelection(); txtDeptQuery.Text = ""; 
+                        ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
                         ViewState["QueryTable"] = null;
                         grdDeptQueries.DataSource = null; grdDeptQueries.DataBind();
                     }
@@ -432,7 +444,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }                   
+                    }
                 }
                 if (ddlStatus.SelectedValue == "8" || ddlStatus.SelectedValue == "4")
                 {
@@ -617,7 +629,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
                     return;
                 }
-                else 
+                else
                 {
                     lblmsg0.Text = "Please Select Department and Enter Query Description, then click on Add Query";
                     Failure.Visible = true;
@@ -694,11 +706,11 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         headingSix.Visible = false;
                         trVrfyhdng.Visible = false;
-                        trVrfydtls.Visible = false;                       
+                        trVrfydtls.Visible = false;
                         tblcomqury.Visible = false; txtComQrytoAppl.Text = ""; txtIMAResponse.Text = ""; hplAttachment.Visible = false;
                     }
                     else if (ddlqryaction.SelectedValue == "15") //15	IMA Forwarded Committee Query to Applicant
-                    {                        
+                    {
                         tblcomqury.Visible = true;
                         trComQrytoAppl.Visible = true;
 
@@ -711,7 +723,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
                 else
                 {
-                   
+
                     tblcomqury.Visible = false; txtComQrytoAppl.Text = ""; txtIMAResponse.Text = "";
                     verifypanel.Visible = false;
                     ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
@@ -786,7 +798,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                 string newPath = "", Error = "", message = "";
                 string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
-               // string shortFileDir = "~\\PreRegAttachments";
+                // string shortFileDir = "~\\PreRegAttachments";
                 if (FileUploadqueryIMA.HasFile)
                 {
                     Error = validations(FileUploadqueryIMA);
@@ -891,29 +903,29 @@ namespace MeghalayaUIP.Dept.PreReg
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
                 //if (Attachment.PostedFile.ContentType != "application/pdf"
-                     //|| !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //|| !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
-                    {
-                        Error = Error + slno + ". Please Upload PDF Documents only \\n";
-                        slno = slno + 1;
-                    }
-                    if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
-                    {
-                        Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
-                        slno = slno + 1;
-                    }
-                    if (!ValidateFileName(Attachment.PostedFile.FileName))
-                    {
-                        Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
-                        slno = slno + 1;
-                    }
-                    else if (!ValidateFileExtension(Attachment))
-                    {
-                        Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
-                        slno = slno + 1;
-                    }
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
                 //}
                 return Error;
             }

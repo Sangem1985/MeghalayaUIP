@@ -157,7 +157,7 @@ namespace MeghalayaUIP.User.PreReg
                                     {
                                         lblmsg.Text = "<font color='green'>Attachment Successfully Added..!</font>";
                                         hplAttachment.Text = fupAttachment.FileName;
-                                        hplAttachment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + objattachments.Filepath;
+                                        hplAttachment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objattachments.Filepath);
                                         success.Visible = true;
                                         Failure.Visible = false;
                                     }

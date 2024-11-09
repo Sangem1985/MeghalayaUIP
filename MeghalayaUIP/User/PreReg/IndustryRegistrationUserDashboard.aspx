@@ -49,7 +49,7 @@
 
                             <asp:GridView ID="gvPreRegUserDashboard" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-hover" ForeColor="#333333"
-                                GridLines="None" Width="100%" EnableModelValidation="True">
+                                GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvPreRegUserDashboard_RowDataBound">
                                 <RowStyle />
                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
 
@@ -77,7 +77,13 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <asp:BoundField HeaderText="Status" DataField="statusdescription" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                    <asp:TemplateField HeaderText="Status" ItemStyle-Width="5%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText">
+                                        <ItemTemplate>
+                                            <asp:HyperLink ID="hplApproval" runat="server" Text='<%#Eval("statusdescription") %>'></asp:HyperLink>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" />
+                                    </asp:TemplateField>
+                                    <%--<asp:BoundField HeaderText="Status" DataField="statusdescription" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />--%>
 
 
                                     <asp:TemplateField HeaderText="View" ItemStyle-Width="5%">
@@ -90,6 +96,11 @@
                                     <asp:TemplateField Visible="false">
                                         <ItemTemplate>
                                             <asp:Label ID="lblUnitID" Text='<%#Eval("UNITID")%>' runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                     <asp:TemplateField Visible="false">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblApprovalDoc" Text='<%#Eval("APPROVALDOCUMENT")%>' runat="server"></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>

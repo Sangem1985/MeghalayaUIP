@@ -924,6 +924,33 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtHazWaste;
 
         /// <summary>
+        /// fupIRApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fupIRApproval;
+
+        /// <summary>
+        /// hplIRApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplIRApproval;
+
+        /// <summary>
+        /// btnIRApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnIRApproval;
+
+        /// <summary>
         /// lblaction control.
         /// </summary>
         /// <remarks>

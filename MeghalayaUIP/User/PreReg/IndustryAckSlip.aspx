@@ -107,7 +107,7 @@
                                         <label runat="server" id="lblEnterPrise"></label>
                                     </li>
                                     <li>Dear Applicant,<br />
-                                        Your Request for Registration under MIIPP 2024 has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya</li>
+                                        Your Request for Registration under MIIPP 2024 has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
                                 </ul>
                                 <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
                                     <div class="invoice-details text-center d-flex" style="text-align: center;">

@@ -12,6 +12,9 @@ using System.Text;
 using System.IO;
 using System.Security.Cryptography;
 using AjaxControlToolkit.HtmlEditor.ToolbarButtons;
+using System.Configuration;
+using System.Net.PeerToPeer;
+using System.Web.Mail;
 
 namespace MeghalayaUIP
 {
@@ -85,7 +88,7 @@ namespace MeghalayaUIP
                 string Errormsg = "";
                 string valid = "0";
                 Errormsg = validations();
-                
+
                 if (string.IsNullOrEmpty(Errormsg))
                 {
                     UserRegDetails Userregdtls = new UserRegDetails();
@@ -93,7 +96,7 @@ namespace MeghalayaUIP
                     Userregdtls.CompanyName = txtcompanyname.Text.Trim();
                     Userregdtls.PANno = txtPAN.Text.Trim();
                     Userregdtls.Email = txtEmail.Text.Trim();
-                    Userregdtls.Password = PasswordDescription(txtPswd.Text.Trim()) ;
+                    Userregdtls.Password = PasswordDescription(txtPswd.Text);
                     Userregdtls.MobileNo = txtMobileNo.Text.Trim();
                     Userregdtls.State = "STATE";
                     Userregdtls.DateofBirth = "1988-04-10";
@@ -101,6 +104,27 @@ namespace MeghalayaUIP
                     valid = useregBAL.InsertUserRegDetails(Userregdtls);
                     if (Convert.ToInt32(valid) != 0)
                     {
+                        string Host = Convert.ToString(ConfigurationManager.AppSettings["expectedHost"]);
+                        if (Host.Contains("localhost"))
+                        {
+                            Host = "https://localhost:44379/";
+                        }
+                        else if (Host.Contains("103.154.75.191"))
+                        {
+                            Host = "http://103.154.75.191/Investmeghalaya/";
+                        }
+                        else
+                        {
+                            Host = "https://invest.meghalaya.gov.in/";
+                        }
+                        string EmailText = "Dear " + txtName.Text.Trim() + ", Welcome to Invest Meghalaya Portal. Thank you for registering"
+                               + " </b><br/><br/> Best Regards"
+                                + "</b><br/> Invest Meghalaya Authority";
+                        SMSandMail smsMail = new SMSandMail();
+
+                        smsMail.SendEmailSingle(txtEmail.Text.Trim(), "", "Welcome to Our Web Portal", EmailText, "", "Registraion",
+                                 "", "", valid);
+
                         lblmsg.Text = "Registered Successfully!";
                         success.Visible = true;
                     }
@@ -121,7 +145,7 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                FillCapctha(); txtPswd.Text = "";  txtCaptcha.Text = "";
+                FillCapctha(); txtPswd.Text = ""; txtCaptcha.Text = "";
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
             }
@@ -165,7 +189,8 @@ namespace MeghalayaUIP
                 }
                 if (!string.IsNullOrEmpty(txtPswd.Text) || txtPswd.Text != "")
                 {
-                    Password=PasswordDescription(txtPswd.Text.Trim());
+                    Password = PasswordDescription(txtPswd.Text);
+
                     if (Password.Trim() == txtEmail.Text.Trim())
                     {
                         errormsg = errormsg + slno + ". User Email and Password should not be same \\n";
@@ -189,7 +214,7 @@ namespace MeghalayaUIP
                     errormsg = errormsg + slno + ". Please Enter Captcha \\n";
                     slno = slno + 1;
                 }
-                if (txtCaptcha.Text.Trim() !=Convert.ToString(ViewState["captcha"]))
+                if (txtCaptcha.Text.Trim() != Convert.ToString(ViewState["captcha"]))
                 {
                     errormsg = errormsg + slno + ". Please Enter Correct Captcha \\n";
                     slno = slno + 1;
@@ -228,7 +253,7 @@ namespace MeghalayaUIP
             }
             return DecrPswd;
         }
-        
+
         protected void txtPswd_TextChanged(object sender, EventArgs e)
         {
             if (txtPswd.Text.Trim() == txtEmail.Text.Trim())
@@ -238,7 +263,7 @@ namespace MeghalayaUIP
                 Failure.Visible = true;
                 txtPswd.Text = "";
                 txtCaptcha.Text = "";
-                 FillCapctha();
+                FillCapctha();
                 return;
             }
             if (txtPswd.Text.Trim().Length < 8)
