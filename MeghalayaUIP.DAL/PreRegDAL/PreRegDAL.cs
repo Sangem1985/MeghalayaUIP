@@ -1390,6 +1390,49 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
+        public DataSet GetDitSiteReportby(int unitId, int createdBy)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetDitSiteReport, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetDitSiteReport;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@Unitid", unitId);
+                da.SelectCommand.Parameters.AddWithValue("@Createdby", createdBy);
+
+
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+                    //   valid = Convert.ToString(dt.Rows[0]["UNITID"]);
+                    // IDno = valid;
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
 
 
 

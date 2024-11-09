@@ -641,6 +641,7 @@
     <Content Include="Dept\PreReg\PreRegDITDashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegDITProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegDITSiteInspection.aspx" />
+    <Content Include="Dept\PreReg\PreRegDITSiteReportPrintPage.aspx" />
     <Content Include="Dept\PreReg\PreRegDITView.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptdrill.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptProcess.aspx" />
@@ -1165,6 +1166,13 @@
     </Compile>
     <Compile Include="Dept\PreReg\PreRegDITSiteInspection.aspx.designer.cs">
       <DependentUpon>PreRegDITSiteInspection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegDITSiteReportPrintPage.aspx.cs">
+      <DependentUpon>PreRegDITSiteReportPrintPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\PreReg\PreRegDITSiteReportPrintPage.aspx.designer.cs">
+      <DependentUpon>PreRegDITSiteReportPrintPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\PreReg\PreRegDITView.aspx.cs">
       <DependentUpon>PreRegDITView.aspx</DependentUpon>
