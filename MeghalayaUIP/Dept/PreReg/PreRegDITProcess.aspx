@@ -1053,6 +1053,80 @@
 
                             </div>
                         </div>
+
+                         <div class="panel panel-default" id="QueryResondpanel1" runat="server" visible="false">
+                            <div class="panel-heading" role="tab" id="headingSeven">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">Respond to Query
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSeven" class="panel-collapse show" role="tabpanel"
+                                aria-labelledby="headingSeven" aria-expanded="false">
+
+                                <div class="card">
+                                    <asp:GridView ID="grdResponcse" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" CssClass="table-bordered mb-0 GRD"
+                                        GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                        <RowStyle />
+                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                        <AlternatingRowStyle BackColor="LightGray" />
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle HorizontalAlign="Center" />
+                                                <ItemTemplate>
+                                                    <%# Container.DataItemIndex + 1%>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="DepQID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="UNIT ID" Visible="false">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblUNITID" runat="server" Text='<%#Eval("UNITID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+
+                                            <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
+                                            <asp:TemplateField HeaderText="Response">
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                                    <br />
+                                                    <br />
+                                                    <asp:FileUpload ID="FileUploadquery" runat="server" />
+                                                    <br />
+                                                    <asp:Button runat="server" ID="btnUpldAttachment1" Text="Upload" OnClick="btnUpldAttachment1_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+                                                    <br />
+                                                    <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Send Response to IMA">
+                                                <ItemTemplate>
+                                                    <asp:Button ID="btnsendresponsetoIMA" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnsendresponsetoIMA_Click" /><br />
+                                                    <br />
+                                                    <%--<asp:Button ID="btnsendIMAQuerytoApplicant" CssClass="btn btn-success" runat="server" Text="Forward Query to Applicant" OnClick="btnsendIMAQuerytoApplicant_Click" />--%>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="panel panel-default" id="verifypanelAttachment" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="Div2" runat="server">
                                 <h4 class="panel-title">

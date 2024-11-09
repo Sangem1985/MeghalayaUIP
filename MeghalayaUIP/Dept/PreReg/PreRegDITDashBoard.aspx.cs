@@ -115,8 +115,45 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
                 lblDPRTOBEPROCESSED.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
                 lblDPRPROCESSED.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
+                lblForwardedDEPTQUERY.Text = dt.Rows[0]["DCFORWARDED"].ToString();
+                lblReceivedDEPT.Text = dt.Rows[0]["DCRECEIVED"].ToString();
+
             }
             catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void linkForQuerytoDept_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(lblForwardedDEPTQUERY.Text != "0")
+                {
+                    Response.Redirect("PreRegDITView.aspx?status=DCFORWARDED");
+                }
+            }
+            catch(Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void linkDeptRecived_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(lblReceivedDEPT.Text != "0")
+                {
+                    Response.Redirect("PreRegDITView.aspx?status=DCRECEIVED");
+                }
+            }
+            catch(Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;

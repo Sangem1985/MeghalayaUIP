@@ -44,9 +44,10 @@
             border: 1px solid #066f22;
             font-size: 20px;
         }
+
         .dropdown-menu.show {
-    transform: translate3d(-75px, 60px, 0px) !important;
-}
+            transform: translate3d(-75px, 60px, 0px) !important;
+        }
     </style>
 
     <!-- Page Wrapper -->
@@ -1232,7 +1233,7 @@
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
                                                                 <asp:TemplateField HeaderText="Particulars" ItemStyle-HorizontalAlign="Justify"
-                                                                   ControlStyle-Width="800px">
+                                                                    ControlStyle-Width="800px">
                                                                     <ItemStyle />
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblName" runat="server" Text='<%#Eval("DOC_NAME") %>'></asp:Label>
@@ -1240,7 +1241,7 @@
                                                                 </asp:TemplateField>
                                                                 <asp:TemplateField
                                                                     ItemStyle-HorizontalAlign="Center"
-                                                                   ItemStyle-Width="10%" HeaderText="Submitted">
+                                                                    ItemStyle-Width="10%" HeaderText="Submitted">
                                                                     <ItemTemplate>
                                                                         <div style="text-align: center">
                                                                             <asp:CheckBox ID="chkVerify" runat="server" />
@@ -1272,7 +1273,8 @@
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-2 col-form-label">Upload Document 
+                                                            <label class="col-lg-2 col-form-label">
+                                                                Upload Document 
                                                             </label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :
@@ -1323,20 +1325,110 @@
                                 </div>
                             </div>
 
+                        </div>
 
+                        <div class="panel panel-default" id="siteplan" runat="server" visible="false">
+                            <div class="panel-heading" role="tab" id="Div3" runat="server">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseSix" aria-expanded="false"
+                                        aria-controls="collapseSix">Site Inspection
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse show" role="tabpanel"
+                                aria-labelledby="headingSix" aria-expanded="false">
+
+                                <div class="card">
+                                    <%--  <div class="card-header">
+                                        <h3>Check Lists</h3>
+                                    </div>--%>
+                                    <section id="dashboardSiteInspection">
+                                        <div class="container-fluid">
+                                            <div class="row clearfix">
+
+                                                <div class="col-md-12 d-flex" runat="server">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">Remarks </label>
+                                                            <div class="col-lg-1 d-flex">
+                                                                :                                                           
+                                                            </div>
+                                                            <div class="col-lg-4 d-flex">
+                                                                <asp:TextBox ID="txtRemarks" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex" runat="server">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">
+                                                                Upload Document&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  
+                                                                 
+                                                            </label>
+
+                                                            <div class="col-lg-1 d-flex">
+                                                                :
+                                                           
+                                                            </div>
+                                                            <div class="col-lg-4 d-flex">
+                                                                <asp:FileUpload ID="fupDCReport" runat="server" />
+                                                                <br />
+                                                                <asp:Button runat="server" ID="btnupldDCReport" Text="Upload" class="btn btn-dark btn-rounded" Height="35px" Width="110px" OnClick="btnupldDCReport_Click" /><br />
+                                                                <br />
+                                                                <asp:HyperLink ID="HyperLink1" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex" runat="server">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-4 col-form-label">Forward to  </label>
+                                                            <div class="col-lg-1 d-flex">
+                                                                :
+                                                           
+                                                            </div>
+                                                            <div class="col-lg-4 d-flex">
+                                                                <asp:DropDownList ID="ddlDCOffice" runat="server" class="form-control">
+                                                                    <asp:ListItem>Forward to DC Officer</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex" runat="server">
+                                                    <div class="col-md-12">
+                                                        <label class="col-lg-4 col-form-label"></label>
+                                                        <div class="col-lg-1 d-flex">
+                                                        </div>
+                                                        <div class="col-md-12 text-center">
+                                                            <asp:Button ID="btnDICProcess" runat="server" Text="Submit" class="btn btn-rounded btn-success btn-lg" Width="150px" OnClick="btnDICProcess_Click" />
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <asp:Label ID="Label2" runat="server"></asp:Label></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-
+                </div>
                 </div>
             </div>
         </div>
-    </div>
+    
+                <!-- /Page Wrapper -->
 
-    <!-- /Page Wrapper -->
 
+                <!-- /Main Wrapper -->
 
-    <!-- /Main Wrapper -->
-
-    <!-- jQuery -->
-
+                <!-- jQuery -->
 </asp:Content>

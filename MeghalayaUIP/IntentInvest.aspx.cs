@@ -116,11 +116,15 @@ namespace MeghalayaUIP
                     ViewState["UnitID"] = result;
                     if (result != "")
                     {
+                        result = "ITV" + "/" + DateTime.Now.Year.ToString() + "/" + result;
                         success.Visible = true;
                         lblmsg.Text = "IntentInvest Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        
                         btnClear_Click(sender, e);
+                        Response.Redirect("AckSlip.aspx?UID="+result);
+
                     }
 
                 }

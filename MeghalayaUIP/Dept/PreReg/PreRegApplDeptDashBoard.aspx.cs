@@ -51,6 +51,8 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         lblIMAQuery.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
                         lblDeptrepliedtoIMA.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
+                        lblReceivedDEPTQUERY.Text = dt.Rows[0]["DICRECEIVED"].ToString();
+                        lblSentDEPT.Text = dt.Rows[0]["DICSENTBACK"].ToString();
                         //lblIMAQueryforwardedtoAppl.Text = dt.Rows[0]["DEPTFWDIMAQUERYTOAPPL"].ToString();
                         //lblAPPLREPLIEDTOIMAQUERY.Text = dt.Rows[0]["APPLREPLIEDTOIMAQUERY"].ToString();
                         //if (prd.UserID == "1030")
@@ -114,6 +116,41 @@ namespace MeghalayaUIP.Dept.PreReg
 
             }
 
+        }
+
+        protected void linkDeptReceived_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(lblReceivedDEPTQUERY.Text != "0")
+                {
+                    Response.Redirect("PreRegApplDeptView.aspx?status=DICRECEIVED");
+                }
+            }
+            catch(Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+
+        protected void linkDeptSent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(lblSentDEPT.Text != "0")
+                {
+                    Response.Redirect("PreRegApplDeptView.aspx?status=DICSENTBACK");
+                }
+            }
+            catch(Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }

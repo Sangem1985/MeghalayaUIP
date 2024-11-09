@@ -783,6 +783,7 @@
     <Content Include="User\Renewal\RENUserDashboard.aspx" />
     <Content Include="User\UserDashboard.aspx" />
     <Content Include="ViewCertifcateDetails.aspx" />
+    <Content Include="ViewCertificate.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2175,6 +2176,13 @@
     </Compile>
     <Compile Include="ViewCertifcateDetails.aspx.designer.cs">
       <DependentUpon>ViewCertifcateDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCertificate.aspx.cs">
+      <DependentUpon>ViewCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCertificate.aspx.designer.cs">
+      <DependentUpon>ViewCertificate.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

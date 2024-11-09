@@ -51,23 +51,7 @@
 
                         <div class="container-fluid">
                             <div class="row clearfix">
-
-                                <%-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <div class="info-box bg-cyan hover-expand-effect">
-                                    <div class="icon">
-                                        <h4>
-                                            <asp:Label ID="lblprocessed" runat="server"></asp:Label>
-                                        </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="text">
-                                            <a href="PreRegApplDeptView.aspx?status=B" style="color: white">Processed </a>
-                                        </div>
-                                        <div style="font-size: 12px;">Total Processed Application</div>
-                                        <i class="fi fi-tr-file-import"></i>
-                                    </div>
-                                </div>
-                            </div>--%>
+                         
 
                                 <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                     <div class="info-box bg-yellow hover-expand-effect">
@@ -186,7 +170,7 @@
                     <section id="dashboardcount IMAqueries">
                         <div class="container-fluid">
                             <div class="row clearfix">
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkTotal" OnClick="linkTotal_Click" ForeColor="White">
                                         <div class="info-box bg-orange hover-expand-effect">
                                             <div class="icon">
@@ -207,7 +191,7 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkQryRcvd" OnClick="linkQryRcvd_Click" ForeColor="White">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
@@ -228,7 +212,7 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkQryRepld" OnClick="linkQryRepld_Click" ForeColor="White">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
@@ -256,6 +240,50 @@
                             </div>
                         </div>
                     </section>
+
+                       <section id="dashboardcount1">
+                        <div class="container-fluid">
+                            <div class="row clearfix">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkDeptReceived" OnClick="linkDeptReceived_Click" ForeColor="White">
+                                        <div class="info-box bg-cyan hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblReceivedDEPTQUERY" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                  DIC Received
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkDeptSent" OnClick="linkDeptSent_Click" ForeColor="White">
+                                        <div class="info-box bg-pink hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblSentDEPT" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                  DIC SentBack 
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>                                                            
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
             </div>
         </div>

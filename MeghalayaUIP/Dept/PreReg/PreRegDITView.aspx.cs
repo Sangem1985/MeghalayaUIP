@@ -54,7 +54,9 @@ namespace MeghalayaUIP.Dept.PreReg
                     if (
                        Request.QueryString["status"].ToString() == "TOTAL" ||
                        Request.QueryString["status"].ToString() == "TOBEPROCESSED" ||
-                       Request.QueryString["status"].ToString() == "PROCESSED")
+                       Request.QueryString["status"].ToString() == "PROCESSED" ||
+                       Request.QueryString["status"].ToString() == "DCFORWARDED" ||
+                       Request.QueryString["status"].ToString() == "DCRECEIVED")
                         button.Text = "Process";
                     else
                         button.Text = "View";
@@ -108,6 +110,14 @@ namespace MeghalayaUIP.Dept.PreReg
                     else if (Request.QueryString["status"].ToString() == "PROCESSED")
                     {
                         lblHdng.Text = "DPR Applications - Processed";
+                    }
+                    else if (Request.QueryString["status"].ToString() == "DCFORWARDED")
+                    {
+                        lblHdng.Text = "DC Applications - Forwarded";
+                    }
+                    else if (Request.QueryString["status"].ToString() == "DCRECEIVED")
+                    {
+                        lblHdng.Text = "DPR Applications - Received";
                     }
                 }
                 else
