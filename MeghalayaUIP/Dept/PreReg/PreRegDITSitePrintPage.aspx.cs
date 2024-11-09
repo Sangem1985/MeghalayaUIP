@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace MeghalayaUIP.Dept.PreReg
 {
-    public partial class PreRegDITSiteReportPrintPage : System.Web.UI.Page
+    public partial class PreRegDITSitePrintPage : System.Web.UI.Page
     {
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         MGCommonBAL objcomBal = new MGCommonBAL();
@@ -37,8 +37,8 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
 
                     Page.MaintainScrollPositionOnPostBack = true;
-                    Failure.Visible = false;
-                    success.Visible = false;
+                    // Failure.Visible = false;
+                    //success.Visible = false;
                     if (!IsPostBack)
                     {
                         BindData();
@@ -51,12 +51,11 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
+                //   lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
+                // Failure.Visible = true;
                 throw ex;
             }
         }
-
         public void BindData()
         {
             try

@@ -11,17 +11,8 @@ namespace MeghalayaUIP.Dept.PreReg
 {
 
 
-    public partial class PreRegDITSiteReportPrintPage
+    public partial class PreRegDITSitePrintPage
     {
-
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// success control.
@@ -76,6 +67,15 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
+
+        /// <summary>
+        /// lbtnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
 
         /// <summary>
         /// unitNamelbl control.
