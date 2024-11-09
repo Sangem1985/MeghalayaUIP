@@ -219,6 +219,9 @@ namespace MeghalayaUIP.Dept.PreReg
                         {
                             grdQueries.DataSource = ds.Tables[4];
                             grdQueries.DataBind();
+
+                            //grdResponcse.DataSource = ds.Tables[4];
+                            //grdResponcse.DataBind();
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
                         {
@@ -241,17 +244,30 @@ namespace MeghalayaUIP.Dept.PreReg
                             gvDITChecklist.DataSource = ds.Tables[8];
                             gvDITChecklist.DataBind();
                         }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
+                        {
+                            grdResponcse.DataSource = ds.Tables[4];
+                            grdResponcse.DataBind();
+                        }
                         if (Convert.ToString(Request.QueryString["status"]) != "ApplicationTracker")
                         {
 
                             if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY"
                            && (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6"
-                           || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13"))
+                           || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13")|| Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "19")
                             {
                                 if (ObjUserInfo.Roleid == "3")
                                 {
-                                    verifypanelAttachment.Visible = true;
-                                    QueryResondpanel.Visible = false;
+                                    if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6")
+                                    {
+                                        verifypanelAttachment.Visible = true;
+                                        QueryResondpanel.Visible = false;
+                                    }
+                                    else if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "19")
+                                    {
+                                        QueryResondpanel1.Visible = true;
+                                    }
+                                    
                                 }
                                 else
                                 {
@@ -263,19 +279,18 @@ namespace MeghalayaUIP.Dept.PreReg
                             {
                                 // verifypanel.Visible = false;
                             }
-                            if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
-                            {
-                                QueryResondpanel.Visible = true;
-                            }
-                            else
-                            {
-                                QueryResondpanel.Visible = false;
-                            }
+                            //if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
+                            //{
+                            //    QueryResondpanel.Visible = true;
+                            //}
+                            //else
+                            //{
+                            //    QueryResondpanel.Visible = false;
+                            //}
                         }
                         else if (Convert.ToString(Request.QueryString["status"]) == "ApplicationTracker")
                         {
-                            QueryResondpanel.Visible = false;
-                            //  verifypanel.Visible = false;
+                            QueryResondpanel.Visible = false;                           
 
                         }
                     }
@@ -620,7 +635,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 try
                 {
-                    Response.Redirect("~/Dept/PreReg/PreRegApplDPRView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+                    Response.Redirect("~/Dept/PreReg/PreRegDITView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
                 }
                 catch (Exception ex)
                 {
@@ -866,6 +881,175 @@ namespace MeghalayaUIP.Dept.PreReg
 
 
                 Response.Redirect("~/Dept/PreReg/PreRegDITSiteInspection.aspx?Status=" + Request.QueryString["status"].ToString());
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void btnsendresponsetoIMA_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    // username = ObjUserInfo.UserName;
+                }
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                TextBox txtReply = (TextBox)row.FindControl("txtIMAQueryReply");
+                if (string.IsNullOrEmpty(txtReply.Text) || txtReply.Text == "" || txtReply.Text == null)
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Please Enter Query Response";
+                    txtReply.Focus();
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", lblmsg0.Text, true);
+                    return;
+                }
+                else
+                {
+                    Label UnitID = (Label)row.FindControl("lblUNITID");
+                    Label DeptID = (Label)row.FindControl("lblDeptID");
+                    Label QID = (Label)row.FindControl("lblDQID");
+                    prd.Investerid = Session["INVESTERID"].ToString();
+                    prd.UserID = ObjUserInfo.UserID.Trim();
+                    prd.Unitid = UnitID.Text.Trim();
+                    prd.QuerytoDeptID = DeptID.Text.Trim();
+                    prd.QueryID = QID.Text.Trim();
+                    prd.QueryResponse = txtReply.Text.Trim();
+                    prd.IPAddress = getclientIP();
+                    prd.status = 7;  ////  DEPARTMENT REPLY TO IMA QUERY
+                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    string valid = PreBAL.PreRegUpdateQuery(prd);
+                    btn.Enabled = false;
+                    BindaApplicatinDetails();
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Replied to IMA Query Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }      
+        protected void btnUpldAttachment1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string newPath = "", Error = "", message = "";
+                string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
+                //  string shortFileDir = "~\\PreRegAttachments";
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                FileUpload FileUploadquery = (FileUpload)row.FindControl("FileUploadquery");
+                Label lblDQID = (Label)row.FindControl("lblDQID");
+                Label lblDeptID = (Label)row.FindControl("lblDeptID");
+                Label lblUNITID = (Label)row.FindControl("lblUNITID");
+                HyperLink hplAttachment = (HyperLink)row.FindControl("hplAttachment");
+                if (FileUploadquery.HasFile)
+                {
+                    Error = validations(FileUploadquery);
+                    if (Error == "")
+                    {
+                        if ((FileUploadquery.PostedFile != null) && (FileUploadquery.PostedFile.ContentLength > 0))
+                        {
+                            string sFileName = System.IO.Path.GetFileName(FileUploadquery.PostedFile.FileName);
+                            try
+                            {
+
+                                newPath = System.IO.Path.Combine(sFileDir, Session["INVESTERID"].ToString(), lblUNITID.Text + "\\RESPONSEATTACHMENTS");
+
+                                if (!Directory.Exists(newPath))
+                                    System.IO.Directory.CreateDirectory(newPath);
+
+                                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
+                                FileUploadquery.PostedFile.SaveAs(newPath + "\\" + sFileName);
+
+                                //int count = dir.GetFiles().Length;
+                                //if (count == 0)
+                                //    FileUploadquery.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                //else
+                                //{
+                                //    if (count == 1)
+                                //    {
+                                //        string[] Files = Directory.GetFiles(newPath);
+
+                                //        foreach (string file in Files)
+                                //        {
+                                //            File.Delete(file);
+                                //        }
+                                //        FileUploadquery.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                                //    }
+                                //}
+                                IndustryDetails objattachments = new IndustryDetails();
+
+                                objattachments.QueryID = lblDQID.Text;
+                                objattachments.UnitID = lblUNITID.Text;
+                                objattachments.InvestorId = Session["INVESTERID"].ToString();
+                                objattachments.UserID = hdnUserID.Value.ToString();
+                                objattachments.FileType = FileUploadquery.PostedFile.ContentType;
+                                objattachments.FileName = sFileName.ToString();
+                                objattachments.Filepath = newPath.ToString() + "\\" + sFileName.ToString();
+                                objattachments.FileDescription = "RESPONSE ATTACHMENT";
+                                objattachments.Deptid = lblDeptID.Text;
+                                objattachments.ApprovalId = "0";
+                                objattachments.ResponseFileBy = "DEPARTMENT";
+
+                                int result = 0;
+                                result = PreBAL.InsertAttachments_PREREG_RESPONSE(objattachments);
+
+                                if (result > 0)
+                                {
+                                    lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
+                                    hplAttachment.Text = FileUploadquery.FileName;
+                                    hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objattachments.Filepath);
+                                    //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + lblUNITID.Text + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
+                                    hplAttachment.Visible = true;
+                                    success.Visible = true;
+                                    Failure.Visible = false;
+                                }
+                                else
+                                {
+                                    lblmsg0.Text = "<font color='red'>Attachment Upload Failed..!</font>";
+                                    success.Visible = false;
+                                    Failure.Visible = true;
+                                }
+
+
+                            }
+                            catch (Exception)//in case of an error
+                            {
+
+                                DeleteFile(newPath + "\\" + sFileName);
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
+                    success.Visible = false;
+                    Failure.Visible = true;
+                }
+
+
             }
             catch (Exception ex)
             {

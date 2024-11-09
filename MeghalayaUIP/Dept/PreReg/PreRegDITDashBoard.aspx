@@ -96,12 +96,51 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-
-
                             </div>
                         </div>
                     </section>
-
+                    <section id="dashboardcount1">
+                        <div class="container-fluid">
+                            <div class="row clearfix">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkForQuerytoDept" OnClick="linkForQuerytoDept_Click" ForeColor="White">
+                                        <div class="info-box bg-cyan hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblForwardedDEPTQUERY" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                  DC Forwarded
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkDeptRecived" OnClick="linkDeptRecived_Click" ForeColor="White">
+                                        <div class="info-box bg-pink hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblReceivedDEPT" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                  DC Received
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>                                                            
+                            </div>
+                        </div>
+                    </section>
 
                 </div>
 

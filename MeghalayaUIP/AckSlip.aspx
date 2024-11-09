@@ -46,7 +46,7 @@
 								<ul class="list-unstyled mb-0 list-item">
 									<li>Date : <label runat="server" id="lblDate" ></label><br /><br /></li>
 									<li><label runat="server" id="lblEnterPrise" ></label></li>
-									<li>Dear Applicant,<br /><br />Your intent to invest in Meghalaya has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
+									<li>Dear Applicant,<br /><br />Your Intent to Invest in Meghalaya has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
 									
 								</ul>
 								<div class="col-sm-12 m-b-20 text-center"  style="display: flex;justify-content: center;">
@@ -55,7 +55,7 @@
 								</div>
 							</div>
 								<ul class="list-unstyled mb-0 list-item">
-								<li>Application Reference Number is : <label runat="server" id="lblUIDNo"><b>IMA/2024/00004</b></label><br /><br /></li>
+								<li>Application Reference Number is : <b><label runat="server" id="lblUIDNo"></label></b><br /><br /></li>
 									<li>Your application was received by Online mode on <label runat="server" id="lblDate1" ></label>.</li>
 									</ul>
 							</div>

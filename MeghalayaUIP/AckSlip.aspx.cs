@@ -17,17 +17,20 @@ namespace MeghalayaUIP
         {
             if (Request.QueryString.Count > 0)
             {
-                string UnitId = Request.QueryString["UnitId"].ToString();
-                string AppType = Request.QueryString["AppType"].ToString();
-                DataSet dsnew = new DataSet();
-                dsnew = masterBAL.GetAcknowlegementDetails(UnitId, AppType);
-                if (dsnew.Tables.Count > 0)
-                {
-                    DateTime dateTime = DateTime.UtcNow.Date;
-                    lblDate.InnerHtml = dateTime.ToString("dd/MM/yyyy");
-                    lblEnterPrise.InnerText = "Dear " + dsnew.Tables[0].Rows[0]["NAMEOFUNIT"].ToString();
-                    lblUIDNo.InnerText = dsnew.Tables[0].Rows[0]["UIDNO"].ToString();
-                }
+                lblUIDNo.InnerText = Convert.ToString(Request.QueryString["UID"]);
+                DateTime dateTime = DateTime.UtcNow.Date;
+                lblDate.InnerHtml = dateTime.ToString("dd/MM/yyyy");
+                //string UnitId = Request.QueryString["UnitId"].ToString();
+                //string AppType = Request.QueryString["AppType"].ToString();
+                //DataSet dsnew = new DataSet();
+                //dsnew = masterBAL.GetAcknowlegementDetails(UnitId, AppType);
+                //if (dsnew.Tables.Count > 0)
+                //{
+                //    DateTime dateTime = DateTime.UtcNow.Date;
+                //    lblDate.InnerHtml = dateTime.ToString("dd/MM/yyyy");
+                //    //lblEnterPrise.InnerText = "Dear " + dsnew.Tables[0].Rows[0]["NAMEOFUNIT"].ToString();
+                //    lblUIDNo.InnerText = dsnew.Tables[0].Rows[0]["UIDNO"].ToString();
+                //}
             }
         }
     }
