@@ -151,7 +151,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password" MinLength="8" MaxLength="12" onblur="return fnEncryption();" 
+                                                    <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password"  MaxLength="12" onblur="return fnEncryption();" 
                                                         AutoComplete="off" AutoCompleteType="None" ToolTip="Password must have minimum 8 length, atleast one upper case letter, one lower case letter, one numer and one special character"></asp:TextBox>
                                                 </div>
                                             </div>

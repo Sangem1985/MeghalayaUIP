@@ -264,7 +264,12 @@ namespace MeghalayaUIP.User.PreReg
                 GridViewRow row = (GridViewRow)link.NamingContainer;
                 Label lblfilepath = (Label)row.FindControl("lblFilePath");
                 if (lblfilepath != null || lblfilepath.Text != "")
-                    Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text));
+                {
+                    string encryptedFilePath = mstrBAL.EncryptFilePath(lblfilepath.Text);
+                    string url = ResolveUrl("~/User/Dashboard/ServePdfFile.ashx?filePath=" + encryptedFilePath);
+                    string script = $"window.open('{url}', '_blank');";
+                    ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
+                }
             }
             catch (Exception ex) { }
         }
@@ -276,7 +281,13 @@ namespace MeghalayaUIP.User.PreReg
             GridViewRow row = (GridViewRow)lnkview.NamingContainer;
             Label lblfilepath = (Label)row.FindControl("lblFilePath");
             if (lblfilepath != null || lblfilepath.Text != "")
-                Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath="+ mstrBAL.EncryptFilePath(lblfilepath.Text));
+            {
+                //Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text));
+                string encryptedFilePath = mstrBAL.EncryptFilePath(lblfilepath.Text);
+                string url = ResolveUrl("~/User/Dashboard/ServePdfFile.ashx?filePath=" + encryptedFilePath);
+                string script = $"window.open('{url}', '_blank');";
+                ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
+            }
         }
 
     }
