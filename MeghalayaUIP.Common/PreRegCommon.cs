@@ -49,6 +49,7 @@ namespace MeghalayaUIP.Common
         public static string InsertTeamMember = "PREREG_SAVE_DITOFFICER";
         public static string GetPreRegDITProcess = "USP_GETPREREGDITPROCESS";
         public static string GetPreRegDICProcess = "USP_INSPREREGDEPTPROCESS";
+        public static string GetDitSiteReport = "GET_PREREG_DITSITEREPORT";
 
     }
     public class IndustryDetails
