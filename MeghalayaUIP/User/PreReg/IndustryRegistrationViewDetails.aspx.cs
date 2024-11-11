@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -290,5 +291,55 @@ namespace MeghalayaUIP.User.PreReg
             }
         }
 
+        protected void grdAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+
+        protected void grdQryAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkViewQueryAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
     }
 }

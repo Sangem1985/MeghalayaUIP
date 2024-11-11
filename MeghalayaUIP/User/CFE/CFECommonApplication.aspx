@@ -7,7 +7,6 @@
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="#">Pre Establishment</a></li>
-
             <li class="breadcrumb-item active" aria-current="page">Combined Application</li>
         </ol>
     </nav>

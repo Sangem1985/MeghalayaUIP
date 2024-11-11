@@ -76,7 +76,7 @@ namespace MeghalayaUIP.User.PreReg
                             lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
                             lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                             lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
-                            lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);                           
+                            lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
                             lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
                             lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
                             lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
@@ -228,7 +228,12 @@ namespace MeghalayaUIP.User.PreReg
                 GridViewRow row = (GridViewRow)link.NamingContainer;
                 Label lblfilepath = (Label)row.FindControl("lblFilePath");
                 if (lblfilepath != null || lblfilepath.Text != "")
-                    Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath="+ mstrBAL.EncryptFilePath(lblfilepath.Text));
+                {
+                    string encryptedFilePath = mstrBAL.EncryptFilePath(lblfilepath.Text);
+                    string url = ResolveUrl("~/User/Dashboard/ServePdfFile.ashx?filePath=" + encryptedFilePath);
+                    string script = $"window.open('{url}', '_blank');";
+                    ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
+                }
             }
             catch (Exception ex)
             {
@@ -236,6 +241,32 @@ namespace MeghalayaUIP.User.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void grdAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
         }
     }
 }

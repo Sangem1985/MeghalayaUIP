@@ -741,8 +741,6 @@
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
                                 aria-labelledby="headingTwo" style="" aria-expanded="false">
-
-
                                 <div class="card">
                                     <div class="card-header">
                                         <h3>Check Lists</h3>
@@ -754,9 +752,10 @@
                                                 <div class="col-md-6">
                                                     <div class="table-responsive">
                                                         <asp:GridView ID="grdAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" OnRowDataBound="grdAttachments_RowDataBound"
                                                             GridLines="Both" HeaderStyle-BackColor="Red"
                                                             Width="100%" EnableModelValidation="True">
+
                                                             <RowStyle />
                                                             <AlternatingRowStyle BackColor="LightGray" />
                                                             <HeaderStyle BackColor="Red" />
@@ -773,7 +772,7 @@
                                                                 <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
                                                                 <asp:TemplateField HeaderText="View">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server" OnClick="linkAttachment_Click"></asp:LinkButton>
+                                                                        <asp:HyperLink ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server"></asp:HyperLink>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
                                                                 <asp:TemplateField HeaderText="View" Visible="false">
@@ -783,7 +782,58 @@
                                                                 </asp:TemplateField>
 
                                                             </Columns>
+                                                        </asp:GridView>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3"></div>
 
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>
+                                            <asp:Label runat="server" Text="Supporting Documents"></asp:Label>
+                                        </h3>
+                                    </div>
+                                    <section id="dashboardAttachmnts">
+                                        <div class="container-fluid">
+                                            <div class="row clearfix">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-6">
+                                                    <div class="table-responsive">
+                                                        <asp:GridView ID="grdSupportingDocuments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" OnRowDataBound="grdAttachments_RowDataBound"
+                                                            GridLines="Both" HeaderStyle-BackColor="Red"
+                                                            Width="100%" EnableModelValidation="True">
+
+                                                            <RowStyle />
+                                                            <AlternatingRowStyle BackColor="LightGray" />
+                                                            <HeaderStyle BackColor="Red" />
+                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                            <AlternatingRowStyle BackColor="White" />
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="10px">
+                                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                    <ItemTemplate>
+                                                                        <%# Container.DataItemIndex + 1%>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
+                                                                <asp:TemplateField HeaderText="View">
+                                                                    <ItemTemplate>
+                                                                        <asp:HyperLink ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server"></asp:HyperLink>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="View" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+
+                                                            </Columns>
                                                         </asp:GridView>
                                                     </div>
                                                 </div>
@@ -866,9 +916,10 @@
                                     <section id="dashboardQueryattachmnts">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                                <div class="col-md-12">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-6">
                                                     <asp:GridView ID="grdQryAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333" OnRowDataBound="grdQryAttachments_RowDataBound"
                                                         GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                         <RowStyle />
                                                         <AlternatingRowStyle BackColor="LightGray" />
@@ -885,7 +936,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server" OnClick="linkViewQueryAttachment_Click"></asp:LinkButton>
+                                                                    <asp:HyperLink ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server"></asp:HyperLink>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="View" Visible="false">
@@ -899,7 +950,7 @@
                                                     <%--<div class="table-responsive">                                                      
                                                        </div>--%>
                                                 </div>
-
+                                                <div class="col-md-3"></div>
                                             </div>
                                         </div>
                                     </section>
@@ -969,41 +1020,41 @@
                                 aria-labelledby="headingSeven" aria-expanded="false">
 
                                 <div class="card">
-                                    
-                                        <asp:GridView ID="grdQueryRaised" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" CssClass="table-bordered mb-0 GRD"
-                                            GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
-                                            <RowStyle />
-                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                            <AlternatingRowStyle BackColor="LightGray" />
-                                            <Columns>
-                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                    <ItemTemplate>
-                                                        <%# Container.DataItemIndex + 1%>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="DepQID" Visible="false">
-                                                    <ItemTemplate>
-                                                        <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
-                                                    <ItemTemplate>
-                                                        <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="UNIT ID">
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="lblUNITID" runat="server" Text='<%#Eval("UNITID")%>'></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
-                                                <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
-                                                <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
-                                                <%--<asp:TemplateField HeaderText="Response">
+
+                                    <asp:GridView ID="grdQueryRaised" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" CssClass="table-bordered mb-0 GRD"
+                                        GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                        <RowStyle />
+                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                        <AlternatingRowStyle BackColor="LightGray" />
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle HorizontalAlign="Center" />
+                                                <ItemTemplate>
+                                                    <%# Container.DataItemIndex + 1%>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="DepQID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="UNIT ID">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblUNITID" runat="server" Text='<%#Eval("UNITID")%>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
+                                            <%--<asp:TemplateField HeaderText="Response">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="100px" Width="250px" runat="server"></asp:TextBox>
                                                     <br />
@@ -1011,52 +1062,52 @@
                                                     <asp:FileUpload ID="FileUploadquery" runat="server" class="btn btn-success" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>--%>
-                                                <asp:TemplateField HeaderText="Select Action">
-                                                    <ItemTemplate>
-                                                        <asp:DropDownList ID="ddlQueryAction" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlQueryAction_SelectedIndexChanged">
-                                                            <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                            <asp:ListItem Text="Send Response to COMMITTEE Officer" Value="12"></asp:ListItem>
-                                                            <asp:ListItem Text="Forward Query to Applicant" Value="15"></asp:ListItem>
-                                                            <asp:ListItem Text="Forward Query to Departments" Value="13"></asp:ListItem>
-                                                        </asp:DropDownList>
+                                            <asp:TemplateField HeaderText="Select Action">
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="ddlQueryAction" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlQueryAction_SelectedIndexChanged">
+                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                        <asp:ListItem Text="Send Response to COMMITTEE Officer" Value="12"></asp:ListItem>
+                                                        <asp:ListItem Text="Forward Query to Applicant" Value="15"></asp:ListItem>
+                                                        <asp:ListItem Text="Forward Query to Departments" Value="13"></asp:ListItem>
+                                                    </asp:DropDownList>
 
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                            </Columns>
-                                        </asp:GridView>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
 
-                                        <table id="tblcomqury" runat="server" visible="false" class="table-bordered mb-10">
-                                            <tr id="trIMAResponse" runat="server" visible="false">
-                                                <td style="width: 200px">Enter Response
-                                                </td>
-                                                <td  colspan="2">
-                                                    <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 600px; margin-top: 10px;" onkeypress="return validateNameInput(event)"></asp:TextBox>
-                                                </td>                                                
-                                                <td style="width: 180px">
-                                                    Upload File if any:  <br />
-                                                    <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
-                                                   
-                                                    <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
-                                                </td>
-                                                <td style="width: 110px">
-                                                    <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
-                                                </td>
+                                    <table id="tblcomqury" runat="server" visible="false" class="table-bordered mb-10">
+                                        <tr id="trIMAResponse" runat="server" visible="false">
+                                            <td style="width: 200px">Enter Response
+                                            </td>
+                                            <td colspan="2">
+                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 600px; margin-top: 10px;" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                            </td>
+                                            <td style="width: 180px">Upload File if any: 
+                                                <br />
+                                                <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
 
-                                            </tr>
-                                            <tr id="trComQrytoAppl" runat="server" visible="false">
-                                                <td style="width: 200px; padding-top: 20px; align-items: center; text-align: center;">Enter Additional Query
-                                                </td>
-                                                <td colspan="4" style="padding-left: 20px; padding-top: 20px; align-items: left; text-align:left">
-                                                    <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="600px" onkeypress="return validateNameInput(event)"></asp:TextBox>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center" colspan="5">
-                                                    <asp:Button ID="btnSubmit2" runat="server" Text="Submit" OnClick="btnSubmit2_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    
+                                                <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
+                                            </td>
+                                            <td style="width: 110px">
+                                                <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+                                            </td>
+
+                                        </tr>
+                                        <tr id="trComQrytoAppl" runat="server" visible="false">
+                                            <td style="width: 200px; padding-top: 20px; align-items: center; text-align: center;">Enter Additional Query
+                                            </td>
+                                            <td colspan="4" style="padding-left: 20px; padding-top: 20px; align-items: left; text-align: left">
+                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="600px" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center" colspan="5">
+                                                <asp:Button ID="btnSubmit2" runat="server" Text="Submit" OnClick="btnSubmit2_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+                                            </td>
+                                        </tr>
+                                    </table>
+
                                 </div>
 
                             </div>

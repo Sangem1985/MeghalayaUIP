@@ -671,6 +671,57 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
             }
         }
+
+        protected void grdAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+
+        protected void grdQryAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkViewQueryAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         //protected void btnQuery_Click(object sender, EventArgs e)
         //{
         //    try
