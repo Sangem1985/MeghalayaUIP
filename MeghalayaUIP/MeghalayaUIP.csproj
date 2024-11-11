@@ -15,8 +15,7 @@
     <AssemblyName>MeghalayaUIP</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>
-    </Use64BitIISExpress>
+    <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort>44379</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -218,6 +217,7 @@
     <Content Include="Admin\HelpdeskDrilldown.aspx" />
     <Content Include="Admin\HelpdeskReport.aspx" />
     <Content Include="Admin\SearchUser.aspx" />
+    <Content Include="Admin\SMSandMAILtesting.aspx" />
     <Content Include="Agri-Horti.aspx" />
     <Content Include="AmmendmentsFinal.aspx" />
     <Content Include="assets\admin\css\accordion.css" />
@@ -814,6 +814,13 @@
     </Compile>
     <Compile Include="Admin\SearchUser.aspx.designer.cs">
       <DependentUpon>SearchUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SMSandMAILtesting.aspx.cs">
+      <DependentUpon>SMSandMAILtesting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SMSandMAILtesting.aspx.designer.cs">
+      <DependentUpon>SMSandMAILtesting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Agri-Horti.aspx.cs">
       <DependentUpon>Agri-Horti.aspx</DependentUpon>

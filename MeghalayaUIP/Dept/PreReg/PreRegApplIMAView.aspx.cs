@@ -148,24 +148,33 @@ namespace MeghalayaUIP.Dept.PreReg
 
         protected void gvPreRegDtls_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            try
             {
-
-                Button button = e.Row.FindControl("ciw_id") as Button;
-                if (button != null)
+                if (e.Row.RowType == DataControlRowType.DataRow)
                 {
-                    if (
-                        Request.QueryString["status"].ToString() == "IMATOBEPROCESSED" ||
-                        Request.QueryString["status"].ToString() == "DEPTREPLIEDTOIMA"||
-                        Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOIMA"||
-                        Request.QueryString["status"].ToString() == "COMMQUERYTOIMA"||
-                        Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOCOMMQRY"||
-                        Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY")
-                        button.Text = "Process";
-                    else
-                        button.Text = "View";
 
+                    Button button = e.Row.FindControl("ciw_id") as Button;
+                    if (button != null)
+                    {
+                        if (
+                            Request.QueryString["status"].ToString() == "IMATOBEPROCESSED" ||
+                            Request.QueryString["status"].ToString() == "DEPTREPLIEDTOIMA" ||
+                            Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOIMA" ||
+                            Request.QueryString["status"].ToString() == "COMMQUERYTOIMA" ||
+                            Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOCOMMQRY" ||
+                            Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY")
+                            button.Text = "Process";
+                        else
+                            button.Text = "View";
+
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

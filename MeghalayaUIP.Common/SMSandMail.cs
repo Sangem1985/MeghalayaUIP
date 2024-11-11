@@ -144,6 +144,7 @@ namespace MeghalayaUIP.Common
                 cmd.Parameters.AddWithValue("@UNITID", Convert.ToString(UnitId));
                 cmd.Parameters.AddWithValue("@INVESTORID", Convert.ToString(InvestorId));
                 cmd.Parameters.AddWithValue("@MODULE", Convert.ToString(transaction));
+                cmd.Parameters.AddWithValue("@SUBMODULE", Convert.ToString(Module));
                 cmd.Parameters.AddWithValue("@SERVERRESPONSE", Convert.ToString(msg));
                 cmd.Parameters.AddWithValue("@TEMPLATEID", Convert.ToString(Template));
                 cmd.Parameters.AddWithValue("@MODE", Convert.ToString(Mode));
@@ -257,7 +258,7 @@ namespace MeghalayaUIP.Common
 
                     try
                     {   
-                        SMSANDMAILDetails(strTo, EmailText, UnitId, InvestorId, transaction, Module,"","","Email");
+                        SMSANDMAILDetails(strTo, EmailText, UnitId, InvestorId, transaction, Module,"","Email Sent Successfully","Email");
                     }
                     catch (Exception ex)
                     {

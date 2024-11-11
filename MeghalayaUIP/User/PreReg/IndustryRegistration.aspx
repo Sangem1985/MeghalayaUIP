@@ -967,7 +967,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">AADHAR No. <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtApplAadhar" onblur="fnEncryption();" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="12" Visible="true" TextMode="Password" />
+                                                                            <asp:TextBox runat="server" ID="txtApplAadhar"  class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="12" Visible="true"  />
                                                                         </div>
                                                                     </div>
                                                                 </div>

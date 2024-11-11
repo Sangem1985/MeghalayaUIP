@@ -136,6 +136,7 @@ namespace MeghalayaUIP.User.CFE
                     string approvalName = DataBinder.Eval(e.Row.DataItem, "ApprovalName").ToString().Trim();
 
                     ChkApproval.Checked = true;
+                    ChkApproval.Enabled = false;
 
                     Label lblAmount = (Label)e.Row.FindControl("lblAmounts");
                     lblAmount.Text = HdfAmount.Value.ToString();
@@ -210,7 +211,7 @@ namespace MeghalayaUIP.User.CFE
                         {
 
                             ((CheckBox)row1.FindControl("ChkApproval")).Checked = true;
-                            ((CheckBox)row1.FindControl("ChkApproval")).Enabled = true;
+                            ((CheckBox)row1.FindControl("ChkApproval")).Enabled = false;
                             //chkCheck.Enabled = true;
 
                             if (((CheckBox)row1.FindControl("ChkApproval")).Checked)
@@ -314,24 +315,24 @@ namespace MeghalayaUIP.User.CFE
                 {
                     //if (((CheckBox)row.FindControl("ChkApproval")).Checked)
                     //{
-                    Label ApprovalID = (Label)row.FindControl("lblApprID");
-                    Label DeptID = (Label)row.FindControl("lblDeptID") as Label;
-                    Label lblFEE = (Label)row.FindControl("lblAmounts") as Label;
-                    RadioButtonList rbloffline = (RadioButtonList)row.FindControl("rblAlrdyObtained");
+                        Label ApprovalID = (Label)row.FindControl("lblApprID");
+                        Label DeptID = (Label)row.FindControl("lblDeptID") as Label;
+                        Label lblFEE = (Label)row.FindControl("lblAmounts") as Label;
+                        RadioButtonList rbloffline = (RadioButtonList)row.FindControl("rblAlrdyObtained");
 
-                    objCFEQsnaire.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                    objCFEQsnaire.CFEQDID = Convert.ToString(Session["CFEQID"]);
-                    objCFEQsnaire.DeptID = DeptID.Text;
-                    objCFEQsnaire.ApprovalID = ApprovalID.Text;
-                    objCFEQsnaire.ApprovalFee = row.Cells[3].Text;
-                    objCFEQsnaire.IsOffline = rbloffline.SelectedValue;
-                    objCFEQsnaire.CreatedBy = hdnUserID.Value;
-                    objCFEQsnaire.IPAddress = getclientIP();
+                        objCFEQsnaire.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objCFEQsnaire.CFEQDID = Convert.ToString(Session["CFEQID"]);
+                        objCFEQsnaire.DeptID = DeptID.Text;
+                        objCFEQsnaire.ApprovalID = ApprovalID.Text;
+                        objCFEQsnaire.ApprovalFee = row.Cells[3].Text;
+                        objCFEQsnaire.IsOffline = rbloffline.SelectedValue;
+                        objCFEQsnaire.CreatedBy = hdnUserID.Value;
+                        objCFEQsnaire.IPAddress = getclientIP();
 
-                    string A = objcfebal.InsertCFEDepartmentApprovals(objCFEQsnaire);
-                    if (A != "")
-                    { count = count + 1; }
-
+                        string A = objcfebal.InsertCFEDepartmentApprovals(objCFEQsnaire);
+                        if (A != "")
+                        { count = count + 1; }
+                    //}
                 }
                 if (grdApprovals.Rows.Count == count)
                 {
@@ -360,7 +361,6 @@ namespace MeghalayaUIP.User.CFE
 
                 if (rowsIndex > 0)
                 {
-
                     for (int i = 0; i < rowsIndex; i++)
                     {
                         CheckBox chkCheck = (CheckBox)grdApprovals.Rows[i].FindControl("ChkApproval");
@@ -877,6 +877,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup2HazPCB.HasFile)
                 {
@@ -957,6 +958,8 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
+
                 string Error = ""; string message = "";
                 if (fup3SrvcCon.HasFile)
                 {
@@ -1036,6 +1039,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup4EleCon.HasFile)
                 {
@@ -1115,6 +1119,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup5FctryPlan.HasFile)
                 {
@@ -1194,6 +1199,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup6DGsetNOC.HasFile)
                 {
@@ -1273,6 +1279,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup7FireSfty.HasFile)
                 {
@@ -1353,6 +1360,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup8RSDSLic.HasFile)
                 {
@@ -1432,6 +1440,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup9ExplsvNOC.HasFile)
                 {
@@ -1511,6 +1520,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup10PtrlNOC.HasFile)
                 {
@@ -1590,6 +1600,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup11RdCtng.HasFile)
                 {
@@ -1668,6 +1679,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup12NonEncmb.HasFile)
                 {
@@ -1747,6 +1759,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup13ProfTax.HasFile)
                 {
@@ -1826,6 +1839,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup14ElcInsp.HasFile)
                 {
@@ -1905,6 +1919,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup15ForstDist.HasFile)
                 {
@@ -1983,6 +1998,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup16NonForstLand.HasFile)
                 {
@@ -2061,6 +2077,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup17IrrgNOC.HasFile)
                 {
@@ -2139,6 +2156,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup18RevNOC.HasFile)
                 {
@@ -2216,6 +2234,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup19GrndWtrNOC.HasFile)
                 {
@@ -2294,6 +2313,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup20NoWtrSply.HasFile)
                 {
@@ -2372,6 +2392,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup21ToDrawWtr.HasFile)
                 {
@@ -2450,6 +2471,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup22MunicipalWatr.HasFile)
                 {
@@ -2528,6 +2550,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup23UrbanWatr.HasFile)
                 {
@@ -2606,6 +2629,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup25LbrAct1970.HasFile)
                 {
@@ -2684,6 +2708,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup26LbrAct1979.HasFile)
                 {
@@ -2762,6 +2787,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup27LbrAct1996.HasFile)
                 {
@@ -2840,6 +2866,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup28ContrLbrAct.HasFile)
                 {
@@ -2918,6 +2945,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup29ContrLbrAct1979.HasFile)
                 {
@@ -2996,6 +3024,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup30ConstrPermit.HasFile)
                 {
@@ -3075,6 +3104,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup31BldngPlan.HasFile)
                 {

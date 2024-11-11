@@ -890,6 +890,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     Link2.Enabled = true;
                     MVQues.ActiveViewIndex = 1;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                 }
                 else
                 {
@@ -926,6 +927,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     Link3.Enabled = true;
                     MVQues.ActiveViewIndex = 2;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                 }
                 else
                 {
@@ -1731,7 +1733,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                MVQues.ActiveViewIndex = 0;
+                MVQues.ActiveViewIndex = 0; 
                 var cls = Link1.Attributes["class"];
                 Link1.Attributes.Add("class", cls + " nav-tab");
             }
@@ -1751,7 +1753,8 @@ namespace MeghalayaUIP.User.CFE
                 ErrorMsg1 = Validations1();
                 if (ErrorMsg1 == "")
                 {
-                    MVQues.ActiveViewIndex = 1;
+                    MVQues.ActiveViewIndex = 1; Failure.Visible = false;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                 }
                 else
                 {
@@ -1779,7 +1782,8 @@ namespace MeghalayaUIP.User.CFE
                 ErrorMsg2 = Validations2();
                 if (ErrorMsg2 == "")
                 {
-                    MVQues.ActiveViewIndex = 2;
+                    MVQues.ActiveViewIndex = 2; Failure.Visible = false;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                 }
                 else
                 {

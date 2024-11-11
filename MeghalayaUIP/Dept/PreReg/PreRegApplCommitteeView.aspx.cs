@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,7 +33,10 @@ namespace MeghalayaUIP.Dept.PreReg
 
                     if (IsPostBack == false)
                     {
-                        Bind();
+                        if (Request.QueryString.Count > 0)
+                            Bind();
+                        else
+                            Response.Redirect("PreRegApplCommitteeDashBoard.aspx");
                     }
                 }
             }
@@ -46,6 +50,19 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
+                if (Request.QueryString["status"].ToString() == "COMMTOTAL")
+                    lblHdng.Text = "Industry Registration - Total Applications";
+                else if (Request.QueryString["status"].ToString() == "COMMTOBEPROCESSED")
+                    lblHdng.Text = "Industry Registration Applications - To be Processed";
+                else if (Request.QueryString["status"].ToString() == "COMMAPPROVED")
+                    lblHdng.Text = "Industry Registration Applications - Approved";
+                else if (Request.QueryString["status"].ToString() == "COMMREJECTED")
+                    lblHdng.Text = "Industry Registration Applications - Rejected";
+                else if (Request.QueryString["status"].ToString() == "COMMQUERY")
+                    lblHdng.Text = "Industry Registration Applications - Query Raised  ";
+                else if (Request.QueryString["status"].ToString() == "COMMQUERYREPLIED")
+                    lblHdng.Text = "Industry Registration Applications - Queries Redressed ";
+
                 DataTable dt = new DataTable();
                 prd.ViewStatus = Request.QueryString["status"].ToString();
                 if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
@@ -105,6 +122,33 @@ namespace MeghalayaUIP.Dept.PreReg
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void gvPreRegDtls_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+
+                    Button button = e.Row.FindControl("ciw_id") as Button;
+                    if (button != null)
+                    {
+                        if (Request.QueryString["status"].ToString() == "COMMTOBEPROCESSED" ||
+                            Request.QueryString["status"].ToString() == "COMMQUERYREPLIED")
+                            button.Text = "Process";
+                        else
+                            button.Text = "View";
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
