@@ -61,6 +61,12 @@ namespace MeghalayaUIP.Dept.PreReg
                         //    linkQryRepld.Text = "Processed";
                         //}
                     }
+                    string[] allowedUserIDs = { "1016", "1017", "1018", "1019", "1020", "1021", "1022", "1023", "1024", "1025", "1026", "1027" };
+                    if (ObjUserInfo.Roleid == "3" || allowedUserIDs.Contains(ObjUserInfo.UserID))
+                    {
+                        Received.Visible = true;
+                        Sent.Visible = true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -122,12 +128,14 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if(lblReceivedDEPTQUERY.Text != "0")
+
+                if (lblReceivedDEPTQUERY.Text != "0")
                 {
                     Response.Redirect("PreRegApplDeptView.aspx?status=DICRECEIVED");
                 }
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
@@ -140,12 +148,12 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if(lblSentDEPT.Text != "0")
+                if (lblSentDEPT.Text != "0")
                 {
                     Response.Redirect("PreRegApplDeptView.aspx?status=DICSENTBACK");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;

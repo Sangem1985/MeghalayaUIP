@@ -224,12 +224,12 @@ namespace MeghalayaUIP.Dept.PreReg
                         {
                             grdApplStatus.DataSource = ds.Tables[6];
                             grdApplStatus.DataBind();
-                          
+
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
                         {
                             grdQueryRaised.DataSource = ds.Tables[7];
-                            grdQueryRaised.DataBind();                          
+                            grdQueryRaised.DataBind();
 
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
@@ -243,7 +243,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         //    QueryResondpanel.Visible = false;
                         //}
                         if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY" && (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6" || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13"))
-                        {                          
+                        {
 
                             if (ObjUserInfo.UserID == "1030")
                             {
@@ -259,9 +259,16 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         else
                         {
-                            if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "18")
+                            if (ds.Tables.Count > 6 && ds.Tables[6].Rows.Count > 0 && ds.Tables[6].Rows[0]["PRDA_STAGEID"] != DBNull.Value)
                             {
-                                siteplan.Visible = true;
+                                if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "18")
+                                {
+                                    siteplan.Visible = true;
+                                }
+                                else
+                                {
+                                    siteplan.Visible = false;
+                                }
                             }
                             else
                             {
@@ -1132,6 +1139,44 @@ namespace MeghalayaUIP.Dept.PreReg
             }
         }
 
+        protected void lnkView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/PreReg/PreRegDITSitePrintPage.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void grdApplStatus_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            var ObjUserInfo = new DeptUserInfo();
+            if (Session["DeptUserInfo"] != null)
+            {
+
+                if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                {
+                    ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                }
+            }
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
+                string[] allowedUserIDs = { "1016", "1017", "1018", "1019", "1020", "1021", "1022", "1023", "1024", "1025", "1026", "1027" };
+                if (allowedUserIDs.Contains(ObjUserInfo.UserID))
+                {
+                    lnkView.Visible = true;
+                }
+                else { lnkView.Visible = false; }
+            }
+        }
+
         protected void btnDICProcess_Click(object sender, EventArgs e)
         {
             try
@@ -1149,7 +1194,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 prd.Unitid = Session["UNITID"].ToString();
                 prd.Investerid = Session["INVESTERID"].ToString();
                 prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                prd.Remark = txtRemarks.Text;                
+                prd.Remark = txtRemarks.Text;
                 prd.DPRCRETEDBY = hdnUserID.Value;
                 prd.IPAddress = getclientIP();
                 string valid = PreBAL.PreRegDICProcess(prd);

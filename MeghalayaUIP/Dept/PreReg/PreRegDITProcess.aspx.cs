@@ -254,7 +254,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                             if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY"
                            && (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6"
-                           || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13")|| Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "19")
+                           || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13") || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "19")
                             {
                                 if (ObjUserInfo.Roleid == "3")
                                 {
@@ -267,7 +267,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                     {
                                         QueryResondpanel1.Visible = true;
                                     }
-                                    
+
                                 }
                                 else
                                 {
@@ -290,7 +290,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         else if (Convert.ToString(Request.QueryString["status"]) == "ApplicationTracker")
                         {
-                            QueryResondpanel.Visible = false;                           
+                            QueryResondpanel.Visible = false;
 
                         }
                     }
@@ -741,7 +741,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     string valid = PreBAL.PreRegDITProcess(prd);
 
 
-                   // BindaApplicatinDetails();
+                    // BindaApplicatinDetails();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DITProcess Successfully...!');  window.location.href='PreRegDITDashBoard.aspx'", true);
                     return;
                 }
@@ -942,7 +942,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
-        }      
+        }
         protected void btnUpldAttachment1_Click(object sender, EventArgs e)
         {
             try
@@ -1057,6 +1057,61 @@ namespace MeghalayaUIP.Dept.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void grdApplStatus_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (lblApplNo.Text == "Y")
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                }
+
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
+                    string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
+                    if (allowedUserIDs.Contains(ObjUserInfo.UserID))
+                    {
+                        lnkView.Visible = true;
+                    }
+                    else { lnkView.Visible = false; }
+                }
+            }
+            else
+            {
+                lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                Failure.Visible = true;
+            }
+        }
+
+        protected void lnkView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblApplNo.Text == "Y")
+                {
+                    Response.Redirect("~/Dept/PreReg/PreRegDITSitePrintPage.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                    Failure.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
         }
     }
 }

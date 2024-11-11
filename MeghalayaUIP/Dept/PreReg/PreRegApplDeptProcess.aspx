@@ -896,7 +896,7 @@
                                                     <div class="table-responsive">
                                                         <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
-                                                            GridLines="Both" Width="100%" EnableModelValidation="True">
+                                                            GridLines="Both" Width="100%" EnableModelValidation="True" OnRowDataBound="grdApplStatus_RowDataBound">
                                                             <RowStyle />
                                                             <AlternatingRowStyle BackColor="LightGray" />
                                                             <Columns>
@@ -914,6 +914,11 @@
                                                                 <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:TemplateField HeaderText="Site Inspection Report">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton ID="lnkView" runat="server" OnClick="lnkView_Click" Visible="false" Text="View"></asp:LinkButton>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
                                                             </Columns>
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         </asp:GridView>
@@ -1409,7 +1414,8 @@
 
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <asp:Label ID="Label2" runat="server"></asp:Label></div>
+                                                        <asp:Label ID="Label2" runat="server"></asp:Label>
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -1421,14 +1427,14 @@
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
-    
-                <!-- /Page Wrapper -->
+    </div>
+
+    <!-- /Page Wrapper -->
 
 
-                <!-- /Main Wrapper -->
+    <!-- /Main Wrapper -->
 
-                <!-- jQuery -->
+    <!-- jQuery -->
 </asp:Content>

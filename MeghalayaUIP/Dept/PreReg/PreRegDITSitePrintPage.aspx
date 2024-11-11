@@ -77,7 +77,6 @@
         div#ContentPlaceHolder1_divServc, div#ContentPlaceHolder1_divManf {
             display: contents;
         }
-     
     </style>
 
     <div class="page-wrapper" style="" align="center">
@@ -112,10 +111,11 @@
                     </div>
                 </div>--%>
 
-                <div class="col-md-1 pb-2 pt-2">
-                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
-                </div>
+
                 <div class="card">
+                    <div class="col-md-1 pb-2 pt-2">
+                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark" OnClientClick="history.back(); return false;"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    </div>
                     <div class="card-header">
                         <h3>Field Inspection Report</h3>
                     </div>
@@ -203,91 +203,91 @@
                                                             <td>1</td>
                                                             <td>Name of the Unit</td>
                                                             <td>
-                                                                <asp:Label ID="nmeunitlbl" runat="server" Text="Central Unit"></asp:Label></td>
+                                                                <asp:Label ID="nmeunitlbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td>2</td>
                                                             <td>Location of the Unit</td>
                                                             <td>
-                                                                <asp:Label ID="locationlbl" runat="server" Text="Building 3, Industrial Zone"></asp:Label></td>
+                                                                <asp:Label ID="locationlbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td>3</td>
                                                             <td>Coordinates</td>
                                                             <td>
-                                                                <asp:Label ID="coordinateslbl" runat="server" Text="28.7041° N, 77.1025° E"></asp:Label></td>
+                                                                <asp:Label ID="coordinateslbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td>4</td>
                                                             <td>Total Area</td>
                                                             <td>
-                                                                <asp:Label ID="sitearealbl" runat="server" Text="2000 sq ft"></asp:Label></td>
+                                                                <asp:Label ID="sitearealbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">5</td>
                                                             <td>Ownership Status</td>
                                                             <td>
-                                                                <asp:Label ID="ownrshplbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="ownrshplbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">6</td>
                                                             <td>Land Under Possession of the Unit</td>
                                                             <td>
-                                                                <asp:Label ID="undrpossesionunitlbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="undrpossesionunitlbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">7</td>
                                                             <td>Distance from the Main Road</td>
                                                             <td>
-                                                                <asp:Label ID="distmainrdlbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="distmainrdlbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">8</td>
                                                             <td>Type of the Road</td>
                                                             <td>
-                                                                <asp:Label ID="typroadlbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="typroadlbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">9</td>
                                                             <td>Project Construction Commencement</td>
                                                             <td>
-                                                                <asp:Label ID="constcommenclbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="constcommenclbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">10</td>
                                                             <td>Any Natural Bodies</td>
                                                             <td>
-                                                                <asp:Label ID="naturalbodieslbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="naturalbodieslbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">11</td>
                                                             <td>Environmentally Vulnerable Location</td>
                                                             <td>
-                                                                <asp:Label ID="envvulnerbleloclbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="envvulnerbleloclbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">12</td>
                                                             <td>Availability of Power</td>
                                                             <td>
-                                                                <asp:Label ID="avalpwrlbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="avalpwrlbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">13</td>
                                                             <td>Availability of Water</td>
                                                             <td>
-                                                                <asp:Label ID="avalwaterlbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="avalwaterlbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="auto-style2">14</td>
                                                             <td>Other Observations</td>
                                                             <td>
-                                                                <asp:Label ID="observationslbl" runat="server" txt=""></asp:Label></td>
+                                                                <asp:Label ID="observationslbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                         <tr>
                                                         <tr>
                                                             <td colspan="2"><strong>Comments</strong></td>
                                                             <td>
-                                                                <asp:Label ID="cmntslbl" runat="server" Text="No additional comments"></asp:Label></td>
+                                                                <asp:Label ID="cmntslbl" runat="server"></asp:Label></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

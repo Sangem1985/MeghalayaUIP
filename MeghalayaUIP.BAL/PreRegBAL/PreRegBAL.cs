@@ -135,7 +135,7 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.PreRegDICProcess(prd);
         }
-        public DataSet GetDitSiteReport(int UnitId, int CreatedBy)
+        public DataSet GetDitSiteReport(string UnitId, string CreatedBy)
         {
             return IRD.GetDitSiteReportby(UnitId, CreatedBy);
         }

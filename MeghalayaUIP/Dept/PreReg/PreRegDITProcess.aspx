@@ -927,7 +927,7 @@
                                                 <div class="col-sm-12">
                                                     <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
-                                                        GridLines="Both" Width="100%" EnableModelValidation="True">
+                                                        GridLines="Both" Width="100%" EnableModelValidation="True" OnRowDataBound="grdApplStatus_RowDataBound">
                                                         <RowStyle />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
@@ -945,6 +945,11 @@
                                                             <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:TemplateField HeaderText="Site Inspection Report">
+                                                                <ItemTemplate>
+                                                                    <asp:LinkButton ID="lnkView" runat="server" OnClick="lnkView_Click" Visible="false" Text="View"></asp:LinkButton>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>
@@ -1054,7 +1059,7 @@
                             </div>
                         </div>
 
-                         <div class="panel panel-default" id="QueryResondpanel1" runat="server" visible="false">
+                        <div class="panel panel-default" id="QueryResondpanel1" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingSeven">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -1232,7 +1237,7 @@
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">
-<%--                                                                <asp:HyperLink ID="HypLnkFinancialInstidtutionFormat" runat="server" Visible="true" CssClass="LBLBLACK" Width="300px" Target="_blank" NavigateUrl="../../Documents/Site%20Inspection%20template.pdf">Click here for Site Inspection Template</asp:HyperLink>--%>
+                                                                <%--                                                                <asp:HyperLink ID="HypLnkFinancialInstidtutionFormat" runat="server" Visible="true" CssClass="LBLBLACK" Width="300px" Target="_blank" NavigateUrl="../../Documents/Site%20Inspection%20template.pdf">Click here for Site Inspection Template</asp:HyperLink>--%>
                                                                 <asp:LinkButton ID="lnkbutton" runat="server" OnClick="lnkbutton_Click">Click here for Site Inspection Template</asp:LinkButton>
                                                             </label>
                                                             <div class="col-lg-1 d-flex">
@@ -1268,7 +1273,8 @@
                                                         </div>
 
                                                     </div>
-                                                    <div class="col-md-3"><asp:Label ID="lblApplNo" runat="server"></asp:Label></div>
+                                                    <div class="col-md-3">
+                                                        <asp:Label ID="lblApplNo" runat="server"></asp:Label></div>
 
                                                 </div>
                                             </div>
