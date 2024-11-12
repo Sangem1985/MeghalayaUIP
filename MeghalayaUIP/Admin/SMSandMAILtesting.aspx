@@ -77,21 +77,9 @@
                                                                 Height="28px" MaxLength="200" TabIndex="1"></asp:TextBox>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td style="padding: 5px; margin: 5px; text-align: left;">Email</td>
-                                                        <td style="padding: 5px; margin: 5px; text-align: left;">
-                                                            <asp:TextBox ID="txtEmail" runat="server" class="form-control txtbox" Width="180px"
-                                                                Height="28px" TabIndex="1" AutoComplete="off" AutoCompleteType="None"></asp:TextBox>
-                                                        </td>
-                                                    </tr>
+                                                    
 
-                                                    <tr>
-                                                        <td style="padding: 5px; margin: 5px; text-align: left;">Mobile No.</td>
-                                                        <td style="padding: 5px; margin: 5px; text-align: left;">
-                                                            <asp:TextBox ID="txtMobile" runat="server" class="form-control txtbox" Width="180px" MaxLength="10"
-                                                                Height="28px" TabIndex="1"></asp:TextBox>
-                                                        </td>
-                                                    </tr>
+                                                   
 
                                                     <tr>
                                                         <td colspan="3" align="right" style="height: 25px"></td>
@@ -131,11 +119,11 @@
                                                                                 Width="120px" />
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                                                             <asp:Button ID="btnCFEApprove" runat="server" CssClass="btn btn-xs btn-approved "
-                                                                                Height="40px" Text="CFE Reg" OnClick="btnCFEApprove_Click"
+                                                                                Height="40px" Text="CFE Approve" OnClick="btnCFEApprove_Click"
                                                                                 Width="120px" />
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                                                             <asp:Button ID="Button4" runat="server" CssClass="btn btn-xs btn-edit"
-                                                                                Height="40px" Text="CFO Reg" OnClick="btnCFO_Click"
+                                                                                Height="40px" Text="CFO Approve" OnClick="btnCFO_Click"
                                                                                 Width="120px" />
                                                         </td>
 

@@ -228,6 +228,12 @@ namespace MeghalayaUIP.Dept.PreReg
                             grdQueryRaised.DataSource = ds.Tables[7];
                             grdQueryRaised.DataBind();
                         }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
+                        {
+                            divSupDocs.Visible = true;
+                            grdSupportingDocuments.DataSource = ds.Tables[8];
+                            grdSupportingDocuments.DataBind();
+                        }
                         if (Convert.ToString(Request.QueryString["status"]) != "ApplicationTracker")
                         {
                             if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "3" ||
@@ -1024,6 +1030,31 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
+        }
+
+        protected void grdSupportingDocuments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }

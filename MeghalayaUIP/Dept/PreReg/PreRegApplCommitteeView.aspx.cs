@@ -136,11 +136,15 @@ namespace MeghalayaUIP.Dept.PreReg
                     Button button = e.Row.FindControl("ciw_id") as Button;
                     if (button != null)
                     {
-                        if (Request.QueryString["status"].ToString() == "COMMTOBEPROCESSED" ||
+                        if (Request.QueryString.Count > 0)
+                        {
+                            if (Request.QueryString["status"].ToString() == "COMMTOBEPROCESSED" ||
                             Request.QueryString["status"].ToString() == "COMMQUERYREPLIED")
-                            button.Text = "Process";
-                        else
-                            button.Text = "View";
+                                button.Text = "Process";
+                            else
+                                button.Text = "View";
+                        }
+                        else { button.Text = "View"; }
 
                     }
                 }

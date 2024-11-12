@@ -20,7 +20,7 @@ namespace MeghalayaUIP.Admin
         {
             if(IsPostBack)
             {
-                UnitId = txtUnitID.Text; InvestorId = txtInvestorID.Text; transaction = "REG";
+                UnitId = txtUnitID.Text; InvestorId = txtInvestorID.Text; 
             }
         }
 
@@ -29,6 +29,7 @@ namespace MeghalayaUIP.Admin
         {
             try
             {
+                transaction = "REG";
                 Module = "USER REGISTRATION";
                 smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
                 smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "USER REGISTRATION");
@@ -42,6 +43,7 @@ namespace MeghalayaUIP.Admin
 
         protected void btnIntent_Click(object sender, EventArgs e)
         {
+            transaction = "REG";
 
         }
 
@@ -59,6 +61,7 @@ namespace MeghalayaUIP.Admin
         {
             try
             {
+                transaction = "REG";
                 Module = "INDUSTRY REGISTRATION";
                 smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
                 smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "INDUSTRY REGISTRATION");
@@ -74,6 +77,7 @@ namespace MeghalayaUIP.Admin
         {
             try
             {
+                transaction = "REG";
                 Module = "CFE REGISTRATION";
                 smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
                 smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "CFE REGISTRATION");
@@ -88,6 +92,7 @@ namespace MeghalayaUIP.Admin
         {
             try
             {
+                transaction = "REG";
                 Module = "CFO REGISTRATION";
                 smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
                 smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "CFO REGISTRATION");

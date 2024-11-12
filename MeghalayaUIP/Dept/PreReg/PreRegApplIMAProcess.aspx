@@ -751,11 +751,10 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-6">
                                                     <div class="table-responsive">
-                                                        <asp:GridView ID="grdAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                        <asp:GridView ID="grdAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" OnRowDataBound="grdAttachments_RowDataBound"
                                                             GridLines="Both" HeaderStyle-BackColor="Red"
                                                             Width="100%" EnableModelValidation="True">
-
                                                             <RowStyle />
                                                             <AlternatingRowStyle BackColor="LightGray" />
                                                             <HeaderStyle BackColor="Red" />
@@ -780,8 +779,12 @@
                                                                         <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-
                                                             </Columns>
+                                                            <EmptyDataTemplate>
+                                                                <div align="center" style="text-align: center; padding: 20px;">
+                                                                    <b>No Records Found</b>
+                                                                </div>
+                                                            </EmptyDataTemplate>
                                                         </asp:GridView>
                                                     </div>
                                                 </div>
@@ -791,7 +794,7 @@
                                         </div>
                                     </section>
                                 </div>
-                                <div class="card">
+                                <div class="card" runat="server" id="divSupDocs" visible="false">
                                     <div class="card-header">
                                         <h3>
                                             <asp:Label runat="server" Text="Supporting Documents"></asp:Label>
@@ -804,10 +807,9 @@
                                                 <div class="col-md-6">
                                                     <div class="table-responsive">
                                                         <asp:GridView ID="grdSupportingDocuments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" OnRowDataBound="grdAttachments_RowDataBound"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" OnRowDataBound="grdSupportingDocuments_RowDataBound"
                                                             GridLines="Both" HeaderStyle-BackColor="Red"
                                                             Width="100%" EnableModelValidation="True">
-
                                                             <RowStyle />
                                                             <AlternatingRowStyle BackColor="LightGray" />
                                                             <HeaderStyle BackColor="Red" />
@@ -821,6 +823,7 @@
                                                                         <%# Container.DataItemIndex + 1%>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
+                                                                <asp:BoundField HeaderText="File Uploaded By" DataField="FILEBY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
                                                                 <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
                                                                 <asp:TemplateField HeaderText="View">
                                                                     <ItemTemplate>
@@ -832,8 +835,12 @@
                                                                         <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-
                                                             </Columns>
+                                                            <EmptyDataTemplate>
+                                                                <div align="center" style="text-align: center; padding: 20px;">
+                                                                    <b>No Records Found</b>
+                                                                </div>
+                                                            </EmptyDataTemplate>
                                                         </asp:GridView>
                                                     </div>
                                                 </div>
@@ -888,7 +895,11 @@
                                                             <asp:BoundField HeaderText="Query Response" DataField="QUERYRESPONSEDESC" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Response Date" DataField="QUERYRESPONSEDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                         </Columns>
-
+                                                        <EmptyDataTemplate>
+                                                            <div align="center" style="text-align: center; padding: 20px;">
+                                                                <b>No Records Found</b>
+                                                            </div>
+                                                        </EmptyDataTemplate>
                                                     </asp:GridView>
                                                 </div>
 
@@ -920,18 +931,20 @@
                                                 <div class="col-md-6">
                                                     <asp:GridView ID="grdQryAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333" OnRowDataBound="grdQryAttachments_RowDataBound"
-                                                        GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
+                                                        GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                         <RowStyle />
                                                         <AlternatingRowStyle BackColor="LightGray" />
                                                         <Columns>
                                                             <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
                                                                 <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Left" />
+                                                                <ItemStyle HorizontalAlign="Center" />
                                                                 <ItemTemplate>
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="FileName" DataField="FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="File Uploaded By (Department/Investor)" DataField="FILEBY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+
+                                                            <asp:BoundField HeaderText="FileName" DataField="FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
                                                             <asp:TemplateField HeaderText="View">
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
@@ -946,6 +959,11 @@
                                                             </asp:TemplateField>
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                        <EmptyDataTemplate>
+                                                            <div align="center" style="text-align: center; padding: 20px;">
+                                                                <b>No Records Found</b>
+                                                            </div>
+                                                        </EmptyDataTemplate>
                                                     </asp:GridView>
                                                     <%--<div class="table-responsive">                                                      
                                                        </div>--%>

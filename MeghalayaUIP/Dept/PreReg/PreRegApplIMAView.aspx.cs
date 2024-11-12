@@ -155,19 +155,22 @@ namespace MeghalayaUIP.Dept.PreReg
 
                     Button button = e.Row.FindControl("ciw_id") as Button;
                     if (button != null)
-                    {
-                        if (
-                            Request.QueryString["status"].ToString() == "IMATOBEPROCESSED" ||
-                            Request.QueryString["status"].ToString() == "DEPTREPLIEDTOIMA" ||
-                            Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOIMA" ||
-                            Request.QueryString["status"].ToString() == "COMMQUERYTOIMA" ||
-                            Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOCOMMQRY" ||
-                            Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY")
-                            button.Text = "Process";
-                        else
-                            button.Text = "View";
+                        if (Request.QueryString.Count > 0)
+                        {
+                            if (
+                                Request.QueryString["status"].ToString() == "IMATOBEPROCESSED" ||
+                                Request.QueryString["status"].ToString() == "DEPTREPLIEDTOIMA" ||
+                                Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOIMA" ||
+                                Request.QueryString["status"].ToString() == "COMMQUERYTOIMA" ||
+                                Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOCOMMQRY" ||
+                                Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY")
+                                button.Text = "Process";
+                            else
+                                button.Text = "View";
 
-                    }
+
+                        }
+                        else { button.Text = "View"; }
                 }
             }
             catch (Exception ex)
