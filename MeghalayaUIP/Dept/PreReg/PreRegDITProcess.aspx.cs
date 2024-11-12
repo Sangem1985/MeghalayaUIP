@@ -348,24 +348,24 @@ namespace MeghalayaUIP.Dept.PreReg
 
         }
 
-        protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LinkButton lnkview = (LinkButton)sender;
-                GridViewRow row = (GridViewRow)lnkview.NamingContainer;
+        //protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        LinkButton lnkview = (LinkButton)sender;
+        //        GridViewRow row = (GridViewRow)lnkview.NamingContainer;
 
-                Label lblfilepath = (Label)row.FindControl("lblFilePath");
-                if (lblfilepath != null || lblfilepath.Text != "")
-                    Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmbal.EncryptFilePath(lblfilepath.Text));
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
+        //        Label lblfilepath = (Label)row.FindControl("lblFilePath");
+        //        if (lblfilepath != null || lblfilepath.Text != "")
+        //            Response.Redirect("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + objmbal.EncryptFilePath(lblfilepath.Text));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Failure.Visible = true;
+        //        lblmsg0.Text = ex.Message;
+        //        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+        //    }
+        //}
 
         protected void btnUpldAttachment_Click(object sender, EventArgs e)
         {
@@ -1035,7 +1035,6 @@ namespace MeghalayaUIP.Dept.PreReg
                             }
                         }
                     }
-
                     else
                     {
                         message = "alert('" + Error + "')";
@@ -1079,6 +1078,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
                     if (allowedUserIDs.Contains(ObjUserInfo.UserID))
                     {
+                        grdApplStatus.Columns[7].Visible = true;
                         lnkView.Visible = true;
                     }
                     else { lnkView.Visible = false; }
@@ -1112,6 +1112,56 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
+        }
+
+        protected void grdAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void grdQryAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkViewQueryAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }
