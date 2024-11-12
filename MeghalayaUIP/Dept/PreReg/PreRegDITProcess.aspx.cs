@@ -1035,7 +1035,6 @@ namespace MeghalayaUIP.Dept.PreReg
                             }
                         }
                     }
-
                     else
                     {
                         message = "alert('" + Error + "')";

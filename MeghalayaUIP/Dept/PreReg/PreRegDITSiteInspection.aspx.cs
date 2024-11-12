@@ -170,16 +170,16 @@ namespace MeghalayaUIP.Dept.PreReg
                
                 if (reportid != "0")// && result != "0")
                 {
-                    savelbl.Visible = true;
-                    savelbl.Text = "Data Saved Successfully !!!";
-                    savelbl.ForeColor = System.Drawing.Color.Green;
+                    success.Visible = true;
+                    lblmsg.Text = "Data Saved Successfully !!!";
+                   // lblmsg.ForeColor = System.Drawing.Color.Green;
 
                 }
                 else
                 {
-                    savelbl.Visible = true;
-                    savelbl.Text = "Something Went Wrong Try Again !!!";
-                    savelbl.ForeColor = System.Drawing.Color.DarkRed;
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Something Went Wrong Try Again !!!";
+                   // lblmsg0.ForeColor = System.Drawing.Color.DarkRed;
                 }
             }
             else
