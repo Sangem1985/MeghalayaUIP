@@ -98,6 +98,55 @@ namespace MeghalayaUIP.Admin
             }
         }
 
+        protected void btnQueryID_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                transaction = "REG";
+                Module = "INDUSTRY REGISTRATION QUERY";
+                smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
+                smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "INDUSTRY REGISTRATION QUERY");
+
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void btnQueryCFE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                transaction = "REG";
+                Module = "CFE REGISTRATION QUERY";
+                smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
+                smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "CFE REGISTRATION QUERY");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void btnQueryCFO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                transaction = "REG";
+                Module = "CFO REGISTRATION QUERY";
+                smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
+                smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "CFO REGISTRATION QUERY");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
         protected void btnPrereg_Click(object sender, EventArgs e)
         {
             try

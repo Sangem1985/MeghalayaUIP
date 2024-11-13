@@ -10,7 +10,7 @@
             <div class="page-wrapper">
                 <div class="content container-fluid">
                     <div class="card-header d-flex justify-content-between">
-                        <h4 class="card-title mt-1"><b>Change Password</b></h4>
+                        <h4 class="card-title mt-1"><b>Sms And MailTesting</b></h4>
                         <div class="col-md-1">
                             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                             <asp:HiddenField runat="server" ID="asp_hidden" />
@@ -77,9 +77,9 @@
                                                                 Height="28px" MaxLength="200" TabIndex="1"></asp:TextBox>
                                                         </td>
                                                     </tr>
-                                                    
 
-                                                   
+
+
 
                                                     <tr>
                                                         <td colspan="3" align="right" style="height: 25px"></td>
@@ -124,6 +124,29 @@
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                                                             <asp:Button ID="btnCFOApprove" runat="server" CssClass="btn btn-xs btn-edit"
                                                                                 Height="40px" Text="CFO Approve" OnClick="btnCFOApprove_Click"
+                                                                                Width="120px" />
+                                                        </td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="3" align="center" style="text-align: center;">
+
+
+                                                            <%--  <asp:Button ID="Button1" runat="server" CssClass="btn btn-xs btn-success"
+                                                                Height="40px" TabIndex="10" Text="User Reg" OnClick="BtnReg_Click"
+                                                                Width="120px" />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --%>
+                                                            <asp:Button ID="btnQueryID" runat="server" CssClass="btn btn-xs btn-warning"
+                                                                Height="40px" Text="Industry Reg Query" OnClick="btnQueryID_Click"
+                                                                Width="120px" />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                                            <asp:Button ID="btnQueryCFE" runat="server" CssClass="btn btn-xs btn-approved "
+                                                                                Height="40px" Text="CFE Reg Query" OnClick="btnQueryCFE_Click"
+                                                                                Width="120px" />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                                            <asp:Button ID="btnQueryCFO" runat="server" CssClass="btn btn-xs btn-edit"
+                                                                                Height="40px" Text="CFO Reg Query" OnClick="btnQueryCFO_Click"
                                                                                 Width="120px" />
                                                         </td>
 

@@ -204,6 +204,33 @@ namespace MeghalayaUIP.Admin
         protected global::System.Web.UI.WebControls.Button btnCFOApprove;
 
         /// <summary>
+        /// btnQueryID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnQueryID;
+
+        /// <summary>
+        /// btnQueryCFE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnQueryCFE;
+
+        /// <summary>
+        /// btnQueryCFO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnQueryCFO;
+
+        /// <summary>
         /// vg control.
         /// </summary>
         /// <remarks>
