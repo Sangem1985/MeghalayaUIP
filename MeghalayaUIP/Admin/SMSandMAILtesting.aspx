@@ -122,8 +122,8 @@
                                                                                 Height="40px" Text="CFE Approve" OnClick="btnCFEApprove_Click"
                                                                                 Width="120px" />
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                                                            <asp:Button ID="Button4" runat="server" CssClass="btn btn-xs btn-edit"
-                                                                                Height="40px" Text="CFO Approve" OnClick="btnCFO_Click"
+                                                                            <asp:Button ID="btnCFOApprove" runat="server" CssClass="btn btn-xs btn-edit"
+                                                                                Height="40px" Text="CFO Approve" OnClick="btnCFOApprove_Click"
                                                                                 Width="120px" />
                                                         </td>
 

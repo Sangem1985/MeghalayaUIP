@@ -49,12 +49,53 @@ namespace MeghalayaUIP.Admin
 
         protected void btnPreRegApprove_Click(object sender, EventArgs e)
         {
+            try
+            {
+                transaction = "REG";
+                Module = "INDUSTRY REGISTRATION APPROVAL";
+                smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
+                smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "INDUSTRY REGISTRATION APPROVAL");
 
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
 
         protected void btnCFEApprove_Click(object sender, EventArgs e)
         {
+            try
+            {
+                transaction = "REG";
+                Module = "CFE REGISTRATION APPROVAL";
+                smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
+                smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "CFE REGISTRATION APPROVAL");
 
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
+        }
+
+        protected void btnCFOApprove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                transaction = "REG";
+                Module = "CFO REGISTRATION APPROVAL";
+                smsMail.SendEmail(UnitId, InvestorId, transaction, Module);
+                smsMail.SendSms(UnitId, InvestorId, "1407172584852269031", "REG", "CFO REGISTRATION APPROVAL");
+
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+            }
         }
 
         protected void btnPrereg_Click(object sender, EventArgs e)
