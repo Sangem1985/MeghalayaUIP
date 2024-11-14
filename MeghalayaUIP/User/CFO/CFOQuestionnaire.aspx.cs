@@ -64,12 +64,13 @@ namespace MeghalayaUIP.User.CFO
                         BindConstitutionType();
                         BindIndustryType();
                         BindPowerReq();
+                        BindGrantManufacture();
                         BindData();
                     }
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -638,6 +639,7 @@ namespace MeghalayaUIP.User.CFO
                     objCFOQsnaire.Liquorlic = rblLiquorLic.SelectedValue;
                     objCFOQsnaire.Stateexciseverfcert = rblExciseVerification.SelectedValue;
                     objCFOQsnaire.PowerReqKW = ddlPowerReq.SelectedValue;
+                    objCFOQsnaire.GrantManufacture = ddlManufacture.SelectedValue;
                     objCFOQsnaire.CreatedBy = hdnUserID.Value;
                     int count = 0;
                     result = objcfobal.InsertQuestionnaireCFO(objCFOQsnaire);
@@ -845,22 +847,27 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblPurposeofExamination.SelectedValue == "Y")
                 {
+                    objCFOQ.GrantManufacture = ddlManufacture.SelectedValue;
                     ApprovalIds = ApprovalIds + ",48";
                 }
                 if (rblScheduleX.SelectedValue == "Y")
                 {
+                    objCFOQ.GrantManufacture = ddlManufacture.SelectedValue;
                     ApprovalIds = ApprovalIds + ",49";
                 }
                 if (rblDrugloanlicmanfnotshedulec.SelectedValue == "Y")
                 {
+                    objCFOQ.GrantManufacture = ddlManufacture.SelectedValue;
                     ApprovalIds = ApprovalIds + ",50";
                 }
                 if (rblDruglicrepacksale.SelectedValue == "Y")
                 {
+                    objCFOQ.GrantManufacture = ddlManufacture.SelectedValue;
                     ApprovalIds = ApprovalIds + ",51";
                 }
                 if (rblDruglicmanfsalevaccnotshedulex.SelectedValue == "Y")
                 {
+                    objCFOQ.GrantManufacture = ddlManufacture.SelectedValue;
                     ApprovalIds = ApprovalIds + ",52";
                 }
                 if (rblProftaxcert.SelectedValue == "Y")
@@ -976,7 +983,7 @@ namespace MeghalayaUIP.User.CFO
                     if (rblLicensetoWorkFac.SelectedValue == "Y")
                     {
                         txtPower.Visible = true;
-                        ddlPowerReq.SelectedValue= ds.Tables[0].Rows[0]["CFEQD_POWERREQKW"].ToString();
+                        ddlPowerReq.SelectedValue = ds.Tables[0].Rows[0]["CFEQD_POWERREQKW"].ToString();
                     }
                     else { txtPower.Visible = false; }
                     rblInterstateMigrantWorkmen.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_LABOURACT1979"].ToString();
@@ -991,10 +998,40 @@ namespace MeghalayaUIP.User.CFO
                     rblConstitutionLicenceRWD.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_DRUGLICCONSTCHANGE"].ToString();
                     rblBrandLabelReg.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_BRANDLABELREG"].ToString();
                     rblPurposeofExamination.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_DRUGLICMANFFORTEST"].ToString();
+                    if (rblPurposeofExamination.SelectedValue == "Y")
+                    {
+                        Manufacture.Visible = true;
+                        ddlManufacture.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_GRANTMANUFACTURE"].ToString();
+                    }
+                    else { Manufacture.Visible = false; }
                     rblScheduleX.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_DRUGLOANLICMANFSHEDULEC"].ToString();
+                    if (rblScheduleX.SelectedValue == "Y")
+                    {
+                        Manufacture.Visible = true;
+                        ddlManufacture.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_GRANTMANUFACTURE"].ToString();
+                    }
+                    else { Manufacture.Visible = false; }
                     rblDrugloanlicmanfnotshedulec.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_DRUGLOANLICMANFNOTSHEDULEC"].ToString();
+                    if (rblDrugloanlicmanfnotshedulec.SelectedValue == "Y")
+                    {
+                        Manufacture.Visible = true;
+                        ddlManufacture.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_GRANTMANUFACTURE"].ToString();
+                    }
+                    else { Manufacture.Visible = false; }
                     rblDruglicrepacksale.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_DRUGLICREPACKSALE"].ToString();
+                    if (rblDruglicrepacksale.SelectedValue == "Y")
+                    {
+                        Manufacture.Visible = true;
+                        ddlManufacture.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_GRANTMANUFACTURE"].ToString();
+                    }
+                    else { Manufacture.Visible = false; }
                     rblDruglicmanfsalevaccnotshedulex.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_DRUGLICMANFSALEVACCNOTSHEDULEX"].ToString();
+                    if (rblDruglicmanfsalevaccnotshedulex.SelectedValue == "Y")
+                    {
+                        Manufacture.Visible = true;
+                        ddlManufacture.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_GRANTMANUFACTURE"].ToString();
+                    }
+                    else { Manufacture.Visible = false; }
                     rblProftaxcert.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_PROFTAXCERT"].ToString();
                     rblCFOPCB.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_CFOPCB"].ToString();
                     rblOccupancyCertificate.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_OCCUPANCYCERT"].ToString();
@@ -1005,7 +1042,7 @@ namespace MeghalayaUIP.User.CFO
                     rblLiquorLic.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_LIQUORLIC"].ToString();
                     rblExciseVerification.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_STATEEXCISEVERFCERT"].ToString();
 
-                    GetApprovals(); 
+                    GetApprovals();
                 }
                 else
                 {
@@ -1056,7 +1093,6 @@ namespace MeghalayaUIP.User.CFO
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void rblLicensetoWorkFac_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -1067,14 +1103,13 @@ namespace MeghalayaUIP.User.CFO
                 }
                 else { txtPower.Visible = false; }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         public string Validations1()
         {
             try
@@ -1155,7 +1190,7 @@ namespace MeghalayaUIP.User.CFO
                 {
                     errormsg = errormsg + slno + ". Please Select Whether land purchased from MIDCL or not \\n";
                     slno = slno + 1;
-                }               
+                }
                 return errormsg;
             }
             catch (Exception ex)
@@ -1163,6 +1198,52 @@ namespace MeghalayaUIP.User.CFO
                 throw ex;
             }
         }
+
+        protected void rblPurposeofExamination_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblPurposeofExamination.SelectedValue == "Y")
+            {
+                Manufacture.Visible = true;
+            }
+            else { Manufacture.Visible = false; }
+        }
+
+        protected void rblScheduleX_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblScheduleX.SelectedValue == "Y")
+            {
+                Manufacture.Visible = true;
+            }
+            else { Manufacture.Visible = false; }
+        }
+
+        protected void rblDruglicrepacksale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblDruglicrepacksale.SelectedValue == "Y")
+            {
+                Manufacture.Visible = true;
+            }
+            else { Manufacture.Visible = false; }
+        }
+
+        protected void rblDruglicmanfsalevaccnotshedulex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblDruglicmanfsalevaccnotshedulex.SelectedValue == "Y")
+            {
+                Manufacture.Visible = true;
+            }
+            else { Manufacture.Visible = false; }
+        }
+
+        protected void rblDrugloanlicmanfnotshedulec_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblDrugloanlicmanfnotshedulec.SelectedValue == "Y")
+            {
+                Manufacture.Visible = true;
+            }
+            else { Manufacture.Visible = false; }
+        }
+
         public string Validations2()
         {
             try
@@ -1233,7 +1314,7 @@ namespace MeghalayaUIP.User.CFO
                 if (rblLicensetoWorkFac.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Whether License to Work as a Factory Required or not \\n";
-                    slno = slno + 1;                 
+                    slno = slno + 1;
                 }
                 if (rblLicensetoWorkFac.SelectedValue == "Y")
                 {
@@ -1377,6 +1458,36 @@ namespace MeghalayaUIP.User.CFO
             {
                 throw ex;
                 //lblmsg0.Text = ex.Message; Failure.Visible = true;
+            }
+        }
+        protected void BindGrantManufacture()
+        {
+            try
+            {
+                ddlManufacture.Items.Clear();
+
+                List<MasterMANUFACTUREGRANT> objManufacture = new List<MasterMANUFACTUREGRANT>();
+
+                objManufacture = mstrBAL.GetGrantManufacture();
+                if (objManufacture != null)
+                {
+                    ddlManufacture.DataSource = objManufacture;
+                    ddlManufacture.DataValueField = "TYPE_ID";
+                    ddlManufacture.DataTextField = "TYPE_NAME";
+                    ddlManufacture.DataBind();
+                }
+                else
+                {
+                    ddlManufacture.DataSource = null;
+                    ddlManufacture.DataBind();
+                }
+                AddSelect(ddlManufacture);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

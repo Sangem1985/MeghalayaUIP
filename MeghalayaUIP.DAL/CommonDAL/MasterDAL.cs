@@ -405,6 +405,40 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstPower;
         }
+        public List<MasterMANUFACTUREGRANT> GetGrantManufacture()
+        {
+            List<MasterMANUFACTUREGRANT> lstManufacture = new List<MasterMANUFACTUREGRANT>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetGrantManufacture);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Manufacture = new MasterMANUFACTUREGRANT()
+                        {
+                            TYPE_ID = Convert.ToString(drOptions["TYPE_ID"]),
+                            TYPE_NAME = Convert.ToString(drOptions["TYPE_NAME"])
+                        };
+                        lstManufacture.Add(Manufacture);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstManufacture;
+        }
 
         public List<MasterElecRegulations> GetElectricRegulations()
         {

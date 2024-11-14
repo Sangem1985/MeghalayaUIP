@@ -56,6 +56,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetPowerKW();
         }
+        public List<MasterMANUFACTUREGRANT> GetGrantManufacture()
+        {
+            return objMasterDAL.GetGrantManufacture();
+        }
         public List<MasterElecRegulations> GetElectricRegulations()
         { return objMasterDAL.GetElectricRegulations(); }
         public List<MasterVoltages> GetVoltages()
