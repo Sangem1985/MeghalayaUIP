@@ -23,6 +23,7 @@ namespace MeghalayaUIP.Common
         public static string GetElectricRegulations = "USP_GETELECTRICREGULATIONSMASTER";
         public static string GetVoltageMaster = "USP_GETVOLTAGEMASTER";
         public static string GetPowerPlantsMaster = "USP_GETPOWERPLANTSMASTER";
+        public static string GetMunicipalWaterAreaMaster = "USP_GETWATERCONMUNICIPALAREA";
         public static string GetIndustryTypeMaster = "USP_GETINDUSTRYTYPEMASTER";
         public static string GetRegistrationType = "USP_GETREGISTRATIONTYPEMASTER";
         public static string GetCastemaster = "USP_GETCATSEMASTER";
@@ -183,6 +184,12 @@ namespace MeghalayaUIP.Common
     {
         public string PowerPlantID { get; set; }
         public string PowerPlantName { get; set; }
+
+    }
+    public class MasterWATERMUNICIPAL
+    {
+        public string CONNECTION_TYPE_ID { get; set; }
+        public string CONNECTION_TYPE_NAME { get; set; }
 
     }
     public class MasterIndustryType

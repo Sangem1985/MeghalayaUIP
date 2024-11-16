@@ -808,7 +808,7 @@
                                                                                 <br />
                                                                                 for the Municipal Area <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblMunicipal" runat="server" RepeatDirection="Horizontal" TabIndex="1">
+                                                                                <asp:RadioButtonList ID="rblMunicipal" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblMunicipal_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -830,6 +830,17 @@
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6" id="MunicipalArea" runat="server" visible="false">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">
+                                                                                Water Connection for the Municipal Area <span class="text-danger">*</span></label>
+                                                                            <div class="col-lg-4 d-flex">
+                                                                                <asp:DropDownList ID="ddlMunicipal" runat="server" class="form-control">
+                                                                                    <asp:ListItem Text="--Select--" Value="0" />
+                                                                                </asp:DropDownList>
                                                                             </div>
                                                                         </div>
                                                                     </div>
