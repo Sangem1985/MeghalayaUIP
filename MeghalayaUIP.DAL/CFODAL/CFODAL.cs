@@ -1273,7 +1273,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFODM_CREATEDBY", Convert.ToInt32(ObjCFOHealthyWelfare.CreatedBy));
                 com.Parameters.AddWithValue("@CFODM_CREATEDBYIP", ObjCFOHealthyWelfare.IPAddress);
                 com.Parameters.AddWithValue("@CFODM_CFOQDID", Convert.ToInt32(ObjCFOHealthyWelfare.Questionnariid));
-                com.Parameters.AddWithValue("@CFODM_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UnitId));
+                com.Parameters.AddWithValue("@CFODM_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UNITID));
 
                 com.Parameters.AddWithValue("@CFODM_EMPNAME", ObjCFOHealthyWelfare.ManufName);
                 com.Parameters.AddWithValue("@CFODM_EMPQLFCATION", ObjCFOHealthyWelfare.ManufQualification);
@@ -1373,7 +1373,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOD_CREATEDBY", Convert.ToInt32(ObjCFOHealthyWelfare.CreatedBy));
                 com.Parameters.AddWithValue("@CFOD_CREATEDBYIP", ObjCFOHealthyWelfare.IPAddress);
                 com.Parameters.AddWithValue("@CFOD_CFOQDID", Convert.ToInt32(ObjCFOHealthyWelfare.Questionnariid));
-                com.Parameters.AddWithValue("@CFOD_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UnitId));
+                com.Parameters.AddWithValue("@CFOD_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UNITID));
 
                 com.Parameters.AddWithValue("@CFOD_DRUGNAME", ObjCFOHealthyWelfare.NameDrug);
 

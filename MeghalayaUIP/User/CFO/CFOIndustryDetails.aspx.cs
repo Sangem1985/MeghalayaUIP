@@ -294,6 +294,7 @@ namespace MeghalayaUIP.User.CFO
 
                         if (txtRdCutlenght.Text != "")
                         { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
+                     
                     }
                     else
                     {
@@ -317,14 +318,18 @@ namespace MeghalayaUIP.User.CFO
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
                         txtpincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_PINCODE"]);
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_PROPEMP"]);
+                        //if (ds.Tables[1].Rows.Count > 0)
+                        //{
+                        //    if (Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_GENREQ"]) == "Y")
+                        //        ddlFactories.SelectedValue = "Hazardous";
+                        //    else if (Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_GENREQ"]) == "N")
+                        //        ddlFactories.SelectedValue = "Non Hazardous";
+                        //    if (Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_RDCTNGREQ"]) == "Y")
+                        //    { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
+                        //}
 
-                        if (Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_GENREQ"]) == "Y")
-                            ddlFactories.SelectedValue = "Hazardous";
-                        else if (Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_GENREQ"]) == "N")
-                            ddlFactories.SelectedValue = "Non Hazardous";
-                        if (Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_RDCTNGREQ"]) == "Y")
-                        { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
                     }
+
                     txtIndustryName.Enabled = false;
                     txtPromoterName.Enabled = false;
                     ddlDistric.Enabled = false;
@@ -338,7 +343,7 @@ namespace MeghalayaUIP.User.CFO
                     //rblproposal.Enabled = false;
                     //lbltotalEmp.Enabled = false;
                     txtRegDate.Enabled = false;
-                    ddlFactories.Enabled = false;
+                 //   ddlFactories.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -460,7 +465,7 @@ namespace MeghalayaUIP.User.CFO
                     objCFOComn.CompanyRegType = ddlRegType.SelectedValue;
                     objCFOComn.CompanyRegNo = txtUdyamorIEMNo.Text;
                     objCFOComn.CompanyRegDate = txtRegDate.Text;
-                    objCFOComn.FactoryType = ddlFactories.SelectedItem.Text;
+                    objCFOComn.FactoryType = ddlFactories.SelectedValue;
 
                     objCFOComn.AuthRep_Name = txtPromoterName.Text.Trim();
                     objCFOComn.AuthRep_SoWoDo = txtSoWoDo.Text;

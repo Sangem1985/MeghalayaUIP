@@ -72,7 +72,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -87,33 +87,28 @@ namespace MeghalayaUIP.User.CFO
             {
                 DataSet ds = new DataSet();
                 ds = objcfobal.GetCFOLineOfActivityDetails(hdnUserID.Value, UnitID); //Convert.ToString(Session["CFEUNITID"]));
-                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
+                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-
-                       // 
-
-
+                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOLM_LOAID"]);
+                        ViewState["ManufactureTable"] = ds.Tables[0];
+                        gvManufacture.DataSource = ds.Tables[0];
+                        gvManufacture.DataBind();
+                        gvManufacture.Visible = true;
                     }
                     if (ds.Tables[1].Rows.Count > 0)
                     {
-                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFOLM_LOAID"]);
-                        ViewState["ManufactureTable"]= ds.Tables[1];
-                        gvManufacture.DataSource = ds.Tables[1];
-                        gvManufacture.DataBind();
-                        gvManufacture.Visible = true;
-
-
-                    }
-                    if (ds.Tables[2].Rows.Count > 0)
-                    {
-                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[2].Rows[0]["CFORM_LOAID"]);
-                        ViewState["RawMaterialTable"]= ds.Tables[2];
-                        gvRwaMaterial.DataSource = ds.Tables[2];
+                        ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["CFORM_LOAID"]);
+                        ViewState["RawMaterialTable"] = ds.Tables[1];
+                        gvRwaMaterial.DataSource = ds.Tables[1];
                         gvRwaMaterial.DataBind();
                         gvRwaMaterial.Visible = true;
                     }
+                    //if (ds.Tables[2].Rows.Count > 0)
+                    //{
+
+                    //}
                 }
                 else
                 {
@@ -351,10 +346,9 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //  String Questionnareid = "1001";
             try
             {
-               
+
                 ErrorMsg = Validations();
 
                 if (ErrorMsg == "")
@@ -410,7 +404,7 @@ namespace MeghalayaUIP.User.CFO
                     //objCFOManufacture.CreatedBy = hdnUserID.Value;
                     //objCFOManufacture.UnitID = Convert.ToString(Session["CFOUNITID"]);
                     //objCFOManufacture.IPAddress = getclientIP();
-                  
+
 
 
                     //string B = objcfobal.InsertCFOLineOfActivityDetails(objCFOManufacture);

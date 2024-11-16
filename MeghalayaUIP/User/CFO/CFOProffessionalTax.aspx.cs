@@ -569,7 +569,7 @@ namespace MeghalayaUIP.User.CFO
                     DataTable dt = new DataTable();
                     dt.Columns.Add("CFOPS_CFOUNITID", typeof(string));
                     dt.Columns.Add("CFOPS_CREATEDBY", typeof(string));
-                    dt.Columns.Add("CFOPS_CREATEDBYIP", typeof(string));
+                    dt.Columns.Add("CFOPS_CREATEDBYIP", typeof(string)); 
                     dt.Columns.Add("CFOPS_PLACEBUSINESS", typeof(string));
                     dt.Columns.Add("CFOPS_ADDRESS", typeof(string));
                     dt.Columns.Add("CFOPS_DISTRIC", typeof(string));

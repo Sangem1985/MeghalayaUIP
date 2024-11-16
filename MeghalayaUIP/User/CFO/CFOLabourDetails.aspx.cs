@@ -107,7 +107,7 @@ namespace MeghalayaUIP.User.CFO
                             txtProvide.Text = ds.Tables[1].Rows[0]["CFOLD_PROVIDEDETAILS"].ToString();
                         }
                         else { Approved.Visible = false; }
-                        ddlApplied.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_APPLIED"].ToString();
+                        ddlApplied.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_APPLIED"].ToString();
                         txtESTYear.Text = ds.Tables[1].Rows[0]["CFOLD_YEAR"].ToString();
                         rblmaximum.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TEMPMATERIAL"].ToString();
                         rblregulation.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REGULATION1950"].ToString();
@@ -132,7 +132,7 @@ namespace MeghalayaUIP.User.CFO
                         ddlWkgSeason.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_SEASON"].ToString();
                         txtPressure.Text = ds.Tables[1].Rows[0]["CFOLD_PRESSURE"].ToString();
                         txtOwner.Text = ds.Tables[1].Rows[0]["CFOLD_OWNERNAME"].ToString();
-                        ddlTypeBoiler.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_TYPEBOILER"].ToString();
+                        ddlTypeBoiler.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TYPEBOILER"].ToString();
                         txtDESCBoiler.Text = ds.Tables[1].Rows[0]["CFOLD_DESCBOILER"].ToString();
                         txtBoilerRating.Text = ds.Tables[1].Rows[0]["CFOLD_BOILERRATING"].ToString();
                         rblBoilerTrans.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_BOILEROWNERTRANSF"].ToString();
@@ -403,7 +403,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOLabourDet.Questionnariid = Convert.ToString(Session["CFOQID"]);
                     ObjCFOLabourDet.UnitId = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOLabourDet.DirectorateBoiler = RBLAPPROVED.SelectedValue;
-                    ObjCFOLabourDet.Classification = ddlApplied.SelectedItem.Text;
+                    ObjCFOLabourDet.Classification = ddlApplied.SelectedValue;
                     ObjCFOLabourDet.ProvideDetails = txtProvide.Text;
                     ObjCFOLabourDet.Establishmentyear = txtESTYear.Text;
                     ObjCFOLabourDet.temperature = rblmaximum.SelectedValue;
@@ -429,7 +429,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOLabourDet.WorkingSeason = ddlWkgSeason.SelectedItem.Text;
                     ObjCFOLabourDet.PressurePSI = txtPressure.Text;
                     ObjCFOLabourDet.NameOwner = txtOwner.Text;
-                    ObjCFOLabourDet.BoilerType = ddlTypeBoiler.SelectedItem.Text;
+                    ObjCFOLabourDet.BoilerType = ddlTypeBoiler.SelectedValue;
                     ObjCFOLabourDet.DescriptionBoiler = txtDESCBoiler.Text;
                     ObjCFOLabourDet.BoilerRating = txtBoilerRating.Text;
                     ObjCFOLabourDet.ownershipBoiler = rblBoilerTrans.SelectedValue;
@@ -940,7 +940,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                Response.Redirect("~/User/CFO/CFOIndustryDetails.aspx?Previous=P");
+                Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
             }
             catch (Exception ex)
             {

@@ -188,8 +188,8 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlFactories" runat="server" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0" />
-                                                            <asp:ListItem Text="Hazardous" Value="Hazardous"></asp:ListItem>
-                                                            <asp:ListItem Text="Non Hazardous" Value="Non Hazardous"></asp:ListItem>
+                                                            <asp:ListItem Text="Hazardous" Value="Y"></asp:ListItem>
+                                                            <asp:ListItem Text="Non Hazardous" Value="N"></asp:ListItem>
                                                         </asp:DropDownList>
 
                                                     </div>
