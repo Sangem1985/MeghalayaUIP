@@ -31,12 +31,17 @@ namespace MeghalayaUIP
                 }
                 else
                 {
-                    context.Response.Write("File not found.");
+                    //context.Response.Write("File not found.");
+                    context.Response.Write(@"<div style='display: flex; justify-content: center; align-items: center; height: 100vh;'>
+                                           <span style='color: red; font-weight: bold;  font-size: 60px;'>File not found...!</span></div>");
                 }
             }
             else
             {
-                context.Response.Write("No file path provided.");
+                //context.Response.Write("No file path provided.");
+                context.Response.Write(@"<div style='display: flex; justify-content: center; align-items: center; height: 100vh;'>
+                                      <span style='color: red; font-weight: bold;  font-size: 60px;'>No file path provided...!</span></div>");
+
             }
         }
 
