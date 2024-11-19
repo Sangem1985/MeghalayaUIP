@@ -752,14 +752,34 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOPT_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
                 com.Parameters.AddWithValue("@CFOPT_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
                 com.Parameters.AddWithValue("@CFOPT_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
-
-                com.Parameters.AddWithValue("@CFOPT_ESTBLSHNAME", ObjCFOPROFESSIONALTAX.NameEst);
-                com.Parameters.AddWithValue("@CFOPT_ESTBLSHADDRESS", ObjCFOPROFESSIONALTAX.AddressEst);
-                com.Parameters.AddWithValue("@CFOPT_ESTBLSHDISTID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.DistrictEst));
-                com.Parameters.AddWithValue("@CFOPT_ESTBLSHPINCODE", Convert.ToInt32(ObjCFOPROFESSIONALTAX.PinCode));
-                com.Parameters.AddWithValue("@CFOPT_ESTBLSHEMP", ObjCFOPROFESSIONALTAX.TotalEMP);
-                com.Parameters.AddWithValue("@CFOPT_ESTBLSHGOODS", ObjCFOPROFESSIONALTAX.SERVIOCEEST);
-                com.Parameters.AddWithValue("@CFOPT_COMMENCEDDATE",DateTime.ParseExact( ObjCFOPROFESSIONALTAX.Date, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ObjCFOPROFESSIONALTAX.NameEst != null && ObjCFOPROFESSIONALTAX.NameEst != "")
+                {
+                    com.Parameters.AddWithValue("@CFOPT_ESTBLSHNAME", ObjCFOPROFESSIONALTAX.NameEst);
+                }
+                if (ObjCFOPROFESSIONALTAX.AddressEst != null && ObjCFOPROFESSIONALTAX.AddressEst != "")
+                {
+                    com.Parameters.AddWithValue("@CFOPT_ESTBLSHADDRESS", ObjCFOPROFESSIONALTAX.AddressEst);
+                }
+                if (ObjCFOPROFESSIONALTAX.DistrictEst != null && ObjCFOPROFESSIONALTAX.DistrictEst != "")
+                {
+                    com.Parameters.AddWithValue("@CFOPT_ESTBLSHDISTID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.DistrictEst));
+                }
+                if (ObjCFOPROFESSIONALTAX.PinCode != null && ObjCFOPROFESSIONALTAX.PinCode != "")
+                {
+                    com.Parameters.AddWithValue("@CFOPT_ESTBLSHPINCODE", Convert.ToInt32(ObjCFOPROFESSIONALTAX.PinCode));
+                }
+                if (ObjCFOPROFESSIONALTAX.TotalEMP != null && ObjCFOPROFESSIONALTAX.TotalEMP != "")
+                {
+                    com.Parameters.AddWithValue("@CFOPT_ESTBLSHEMP", ObjCFOPROFESSIONALTAX.TotalEMP);
+                }
+                if (ObjCFOPROFESSIONALTAX.SERVIOCEEST != null && ObjCFOPROFESSIONALTAX.SERVIOCEEST != "")
+                {
+                    com.Parameters.AddWithValue("@CFOPT_ESTBLSHGOODS", ObjCFOPROFESSIONALTAX.SERVIOCEEST);
+                }
+                if (ObjCFOPROFESSIONALTAX.Date != null && ObjCFOPROFESSIONALTAX.Date != "")
+                {
+                    com.Parameters.AddWithValue("@CFOPT_COMMENCEDDATE", DateTime.ParseExact(ObjCFOPROFESSIONALTAX.Date, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
                 com.Parameters.AddWithValue("@CFOPT_ANNUALINCOME", ObjCFOPROFESSIONALTAX.GrossAnnual);
                 com.Parameters.AddWithValue("@CFOPT_ADDLBSNESTATE", ObjCFOPROFESSIONALTAX.BusinessPlace);
                 com.Parameters.AddWithValue("@CFOPT_ADDLBSNECOUNTRY", ObjCFOPROFESSIONALTAX.BUSINESS);
@@ -814,8 +834,8 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 com.Parameters.AddWithValue("@CFOPS_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPS_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
-                com.Parameters.AddWithValue("CFOPS_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
-                com.Parameters.AddWithValue("@CFOPS_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
+                com.Parameters.AddWithValue("@CFOPS_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid)); 
+                com.Parameters.AddWithValue("@CFOPS_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
 
                 com.Parameters.AddWithValue("@CFOPS_PLACEBUSINESS", ObjCFOPROFESSIONALTAX.Business);
                 com.Parameters.AddWithValue("@CFOPS_ADDRESS", ObjCFOPROFESSIONALTAX.Address);
@@ -867,8 +887,8 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 com.Parameters.AddWithValue("@CFOPC_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPC_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
-                com.Parameters.AddWithValue("@CFOPC_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
-                com.Parameters.AddWithValue("@CFOPC_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
+                com.Parameters.AddWithValue("@CFOPC_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid)); 
+                com.Parameters.AddWithValue("@CFOPC_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
 
                 com.Parameters.AddWithValue("@CFOPC_PLACEBUSINESS", ObjCFOPROFESSIONALTAX.PlaceBUSINESS);
                 com.Parameters.AddWithValue("@CFOPC_ADDRESS", ObjCFOPROFESSIONALTAX.AddressEST);
@@ -920,8 +940,8 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 com.Parameters.AddWithValue("@CFOPF_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPF_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
-                com.Parameters.AddWithValue("@CFOPF_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
-                com.Parameters.AddWithValue("@CFOPF_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
+                com.Parameters.AddWithValue("@CFOPF_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
+                com.Parameters.AddWithValue("@CFOPF_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID)); 
 
                 com.Parameters.AddWithValue("@CFOPF_PRINCIPLEWORK", ObjCFOPROFESSIONALTAX.PrincipalWORK);
                 com.Parameters.AddWithValue("@CFOPF_ADDRESS", ObjCFOPROFESSIONALTAX.AddressWORK);

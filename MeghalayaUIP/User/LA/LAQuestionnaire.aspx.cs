@@ -23,7 +23,6 @@ namespace MeghalayaUIP.User.LA
             try
             {
 
-
                 if (Session["UserInfo"] != null)
                 {
                     var ObjUserInfo = new UserInfo();

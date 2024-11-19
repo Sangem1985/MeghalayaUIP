@@ -608,7 +608,9 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public static string getclientIP()
@@ -631,23 +633,18 @@ namespace MeghalayaUIP.Dept.PreReg
 
         protected void lbtnBack_Click(object sender, EventArgs e)
         {
+
             try
             {
-                try
-                {
-                    Response.Redirect("~/Dept/PreReg/PreRegDITView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
-                }
-                catch (Exception ex)
-                {
-                    lblmsg0.Text = ex.Message;
-                    Failure.Visible = true;
-                    MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-                }
+                Response.Redirect("~/Dept/PreReg/PreRegDITView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
             }
             catch (Exception ex)
             {
-
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+
         }
 
         protected void ddlQueryAction_SelectedIndexChanged(object sender, EventArgs e)
@@ -1060,34 +1057,44 @@ namespace MeghalayaUIP.Dept.PreReg
 
         protected void grdApplStatus_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (lblApplNo.Text == "Y")
+            try
             {
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
 
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                if (lblApplNo.Text == "Y")
+                {
+                    var ObjUserInfo = new DeptUserInfo();
+                    if (Session["DeptUserInfo"] != null)
                     {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+
+                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                        {
+                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                        }
+                    }
+
+                    if (e.Row.RowType == DataControlRowType.DataRow)
+                    {
+                        LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
+                        string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
+                        if (allowedUserIDs.Contains(ObjUserInfo.UserID))
+                        {
+                            grdApplStatus.Columns[7].Visible = true;
+                            lnkView.Visible = true;
+                        }
+                        else { lnkView.Visible = false; }
                     }
                 }
-
-                if (e.Row.RowType == DataControlRowType.DataRow)
+                else
                 {
-                    LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
-                    string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
-                    if (allowedUserIDs.Contains(ObjUserInfo.UserID))
-                    {
-                        grdApplStatus.Columns[7].Visible = true;
-                        lnkView.Visible = true;
-                    }
-                    else { lnkView.Visible = false; }
+                    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                    Failure.Visible = true;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

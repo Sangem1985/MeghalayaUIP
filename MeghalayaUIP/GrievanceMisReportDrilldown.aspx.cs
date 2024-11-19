@@ -1,4 +1,5 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -70,7 +71,9 @@ namespace MeghalayaUIP
             }
             catch(Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void lnkButton_Click(object sender, EventArgs e)
@@ -90,7 +93,9 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -104,7 +109,7 @@ namespace MeghalayaUIP
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                //throw ex;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

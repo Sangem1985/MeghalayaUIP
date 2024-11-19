@@ -20,6 +20,7 @@ namespace MeghalayaUIP
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
+
             if (ddlTypeApplication.SelectedValue.ToString() == "0") 
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Select Application Type')", true);

@@ -161,7 +161,6 @@ namespace MeghalayaUIP.Dept.Reports
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
            
-            //divPrint1.Visible = true;
         }
 
         protected void GVDistrictWise_RowCreated(object sender, GridViewRowEventArgs e)

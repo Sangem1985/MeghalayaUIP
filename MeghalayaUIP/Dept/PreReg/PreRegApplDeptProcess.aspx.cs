@@ -1155,26 +1155,35 @@ namespace MeghalayaUIP.Dept.PreReg
 
         protected void grdApplStatus_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            var ObjUserInfo = new DeptUserInfo();
-            if (Session["DeptUserInfo"] != null)
+            try
             {
-
-                if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
                 {
-                    ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                }
+
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
+                    string[] allowedUserIDs = { "1016", "1017", "1018", "1019", "1020", "1021", "1022", "1023", "1024", "1025", "1026", "1027" };
+                    if (allowedUserIDs.Contains(ObjUserInfo.UserID))
+                    {
+                        grdApplStatus.Columns[7].Visible = true;
+                        lnkView.Visible = true;
+                    }
+                    else { lnkView.Visible = false; }
                 }
             }
-
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            catch (Exception ex)
             {
-                LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
-                string[] allowedUserIDs = { "1016", "1017", "1018", "1019", "1020", "1021", "1022", "1023", "1024", "1025", "1026", "1027" };
-                if (allowedUserIDs.Contains(ObjUserInfo.UserID))
-                {
-                    grdApplStatus.Columns[7].Visible= true;
-                    lnkView.Visible = true;
-                }
-                else { lnkView.Visible = false; }
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

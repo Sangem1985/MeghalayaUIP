@@ -1348,8 +1348,7 @@ namespace MeghalayaUIP.Dept.CFE
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-                //throw ex;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);                
             }
         }
 

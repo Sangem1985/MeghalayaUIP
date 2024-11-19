@@ -862,12 +862,21 @@ namespace MeghalayaUIP.User.PreReg
         }
         protected void rblLandType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblLandType.SelectedValue == "Own")
-            { txtPropLocDoorno.Enabled = true; }
-            else if (rblLandType.SelectedValue == "Required")
+            try
             {
-                txtPropLocDoorno.Enabled = false;
-                txtPropLocDoorno.Text = "";
+                if (rblLandType.SelectedValue == "Own")
+                { txtPropLocDoorno.Enabled = true; }
+                else if (rblLandType.SelectedValue == "Required")
+                {
+                    txtPropLocDoorno.Enabled = false;
+                    txtPropLocDoorno.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void txtCompnyRegDt_TextChanged(object sender, EventArgs e)

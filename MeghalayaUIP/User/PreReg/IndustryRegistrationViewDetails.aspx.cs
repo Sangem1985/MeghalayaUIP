@@ -50,6 +50,9 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -210,8 +213,9 @@ namespace MeghalayaUIP.User.PreReg
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
@@ -253,6 +257,7 @@ namespace MeghalayaUIP.User.PreReg
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
 
             }
         }
@@ -272,22 +277,37 @@ namespace MeghalayaUIP.User.PreReg
                     ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
 
         protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
         {
-            LinkButton lnkview = (LinkButton)sender;
-            GridViewRow row = (GridViewRow)lnkview.NamingContainer;
-            Label lblfilepath = (Label)row.FindControl("lblFilePath");
-            if (lblfilepath != null || lblfilepath.Text != "")
+            try
             {
-                //Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text));
-                string encryptedFilePath = mstrBAL.EncryptFilePath(lblfilepath.Text);
-                string url = ResolveUrl("~/User/Dashboard/ServePdfFile.ashx?filePath=" + encryptedFilePath);
-                string script = $"window.open('{url}', '_blank');";
-                ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
+
+                LinkButton lnkview = (LinkButton)sender;
+                GridViewRow row = (GridViewRow)lnkview.NamingContainer;
+                Label lblfilepath = (Label)row.FindControl("lblFilePath");
+                if (lblfilepath != null || lblfilepath.Text != "")
+                {
+                    //Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text));
+                    string encryptedFilePath = mstrBAL.EncryptFilePath(lblfilepath.Text);
+                    string url = ResolveUrl("~/User/Dashboard/ServePdfFile.ashx?filePath=" + encryptedFilePath);
+                    string script = $"window.open('{url}', '_blank');";
+                    ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

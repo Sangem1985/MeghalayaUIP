@@ -1,6 +1,7 @@
 ﻿using AjaxControlToolkit.Bundling;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -89,23 +90,33 @@ namespace MeghalayaUIP
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Ammendmentvo ammendment = new Ammendmentvo();
-            ammendment.UserName = txtUserName.Text;
-            ammendment.District = ddlDistrict.SelectedValue;
-            ammendment.MobileNo = txtMobileNo.Text;
-            ammendment.MailId = txtEmailId.Text;
-            ammendment.Dept_ID = lblDeptID.Text;
-            ammendment.Ammendment_Id = lblAmendmentID.Text;
-            ammendment.Comments = txtComments.Text;
-            //  ammendment.Created_By = "";
-            ammendment.IPAddress = getclientIP();
-            //int VALID = 0;
-            Result = mstrBAL.InsertAmmendmentsComments(ammendment);
-            if (Result != "")
+            try
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "alertMsg", "alert('Comments Saved Successfully');" + "window.location='UseCommentsOnAmmendments.aspx';", true);
-                lblresult.Text = "Comments Saved Successfully";
-                lblresult.Visible = true;
+
+                Ammendmentvo ammendment = new Ammendmentvo();
+                ammendment.UserName = txtUserName.Text;
+                ammendment.District = ddlDistrict.SelectedValue;
+                ammendment.MobileNo = txtMobileNo.Text;
+                ammendment.MailId = txtEmailId.Text;
+                ammendment.Dept_ID = lblDeptID.Text;
+                ammendment.Ammendment_Id = lblAmendmentID.Text;
+                ammendment.Comments = txtComments.Text;
+                //  ammendment.Created_By = "";
+                ammendment.IPAddress = getclientIP();
+                //int VALID = 0;
+                Result = mstrBAL.InsertAmmendmentsComments(ammendment);
+                if (Result != "")
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alertMsg", "alert('Comments Saved Successfully');" + "window.location='UseCommentsOnAmmendments.aspx';", true);
+                    lblresult.Text = "Comments Saved Successfully";
+                    lblresult.Visible = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                lblerrMsg.Text = ex.Message;
+                //Failure.Visible = true;
+               // MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
