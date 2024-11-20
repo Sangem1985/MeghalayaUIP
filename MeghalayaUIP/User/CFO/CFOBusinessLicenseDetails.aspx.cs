@@ -221,6 +221,7 @@ namespace MeghalayaUIP.User.CFO
 
                     ddlNature.ClearSelection();
                     ddlBusiness.ClearSelection();
+                    ddlAnnual.ClearSelection();
                     txtFees.Text = "";
                 }
             }

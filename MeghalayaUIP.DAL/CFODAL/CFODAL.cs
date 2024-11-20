@@ -331,7 +331,7 @@ namespace MeghalayaUIP.DAL.CFODAL
             }
             return res;
         }
-        public CFOExciseDetails GetCFOExciseData(int CFOunitid, int CFOQID)
+        public CFOExciseDetails GetCFOExciseData(int CFOunitid, string CFOQID)
         {
             CFOExciseDetails data = new CFOExciseDetails();
             using (SqlConnection con = new SqlConnection(connstr))
@@ -340,7 +340,8 @@ namespace MeghalayaUIP.DAL.CFODAL
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CFOunitid", CFOunitid);
-                    cmd.Parameters.AddWithValue("@CFOQID", CFOQID);
+                    cmd.Parameters.AddWithValue("@CFOQID", Convert.ToInt32(CFOQID));
+
 
                     con.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -437,6 +438,41 @@ namespace MeghalayaUIP.DAL.CFODAL
                 }
             }
             return data;
+        }
+        public DataSet GetCFOExcise(int CFOunitid, string CFOQID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetRetriveExciseDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetRetriveExciseDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@CFOunitid", CFOunitid);
+                da.SelectCommand.Parameters.AddWithValue("@CFOQID", Convert.ToInt32(CFOQID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
         }
 
         public string InsertCFOLabourDetails(CFOLabourDet ObjCFOLabourDet)
@@ -1124,7 +1160,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOBN_CREATEDBY", Convert.ToInt32(ObjCFOPollutionControl.CreatedBy));
                 com.Parameters.AddWithValue("@CFOBN_CREATEDBYIP", ObjCFOPollutionControl.IPAddress);
                 com.Parameters.AddWithValue("@CFOBN_CFOQDID", Convert.ToInt32(ObjCFOPollutionControl.Questionnariid));
-                com.Parameters.AddWithValue("@CFOBN_UNITID ", Convert.ToInt32(ObjCFOPollutionControl.UnitId));
+                com.Parameters.AddWithValue("@CFOBN_UNITID ", Convert.ToInt32(ObjCFOPollutionControl.UNITID));
 
                 com.Parameters.AddWithValue("@CFOBN_MAINCATEGORY", ObjCFOPollutionControl.MainCategory);
                 com.Parameters.AddWithValue("@CFOBN_SUBCATEGORY", ObjCFOPollutionControl.SubCategory);
