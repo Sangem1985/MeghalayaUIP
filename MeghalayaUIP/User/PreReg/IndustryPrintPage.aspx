@@ -713,7 +713,7 @@
                                 <div class="col-md-6">
                                     <div class="table-responsive">
                                         <asp:GridView ID="grdAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
+                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" OnRowDataBound="grdAttachments_RowDataBound"
                                             GridLines="Both" HeaderStyle-BackColor="Red"
                                             Width="100%" EnableModelValidation="True">
                                             <RowStyle />
@@ -732,7 +732,7 @@
                                                 <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
                                                 <asp:TemplateField HeaderText="View">
                                                     <ItemTemplate>
-                                                        <asp:LinkButton ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server" OnClick="linkAttachment_Click"></asp:LinkButton>
+                                                        <asp:HyperLink ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server" ></asp:HyperLink>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="View" Visible="false">
@@ -740,7 +740,6 @@
                                                         <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-
                                             </Columns>
 
                                         </asp:GridView>

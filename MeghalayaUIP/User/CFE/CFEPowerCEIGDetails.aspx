@@ -424,7 +424,7 @@
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnEarth" OnClick="btnEarth_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-4 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypEarth" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
                                                     <asp:Label ID="lblEarth" runat="server" />

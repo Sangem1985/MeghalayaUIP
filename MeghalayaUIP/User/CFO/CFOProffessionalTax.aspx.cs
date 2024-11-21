@@ -71,7 +71,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -102,24 +102,30 @@ namespace MeghalayaUIP.User.CFO
                         if (rblBusiness.SelectedValue == "Y")
                         {
                             Div2.Visible = true;
+                            GVState.Visible = true;
                         }
+                       
                         // rblBusiness_SelectedIndexChanged(null, EventArgs.Empty);
                         rblbusinessindia.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNECOUNTRY"].ToString();
                         if (rblbusinessindia.SelectedValue == "Y")
                         {
                             Div1.Visible = true;
+                            GVCOUNTRY.Visible = true;
                         }
                         //  rblbusinessindia_SelectedIndexChanged(null, EventArgs.Empty);
                         rblForeign.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNEFOREIGN"].ToString();
                         if (rblForeign.SelectedValue == "Y")
                         {
                             Address.Visible = true;
+                            GVFOREIGN.Visible = true;
                         }
                         //  rblForeign_SelectedIndexChanged(null, EventArgs.Empty);
                         txtBranch.Text = ds.Tables[1].Rows[0]["CFOPT_BRANCHCERTNO"].ToString();
                         rblother.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_HADANYREG"].ToString();
                         if (rblother.SelectedValue == "Y")
                         {
+                            RegistrationType.Visible = true;
+                            RegNo.Visible = true;
                             ddlRegType.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_REGTYPE"].ToString();
                             TXTRegNo.Text = ds.Tables[1].Rows[0]["CFOPT_REGNO"].ToString();
                         }
@@ -181,7 +187,7 @@ namespace MeghalayaUIP.User.CFO
                     totalemp.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -206,7 +212,7 @@ namespace MeghalayaUIP.User.CFO
                     RegNo.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -233,7 +239,7 @@ namespace MeghalayaUIP.User.CFO
                     Address.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -256,7 +262,7 @@ namespace MeghalayaUIP.User.CFO
                     Added.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -355,7 +361,7 @@ namespace MeghalayaUIP.User.CFO
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
-                   // ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(ViewState["CFOUNITID"]);
+                    // ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(ViewState["CFOUNITID"]);
                     ObjCFOPROFESSIONALTAX.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     ObjCFOPROFESSIONALTAX.CreatedBy = hdnUserID.Value;
                     ObjCFOPROFESSIONALTAX.IPAddress = getclientIP();
@@ -423,41 +429,41 @@ namespace MeghalayaUIP.User.CFO
             {
                 int slno = 1;
                 string errormsg = "";
-                if (string.IsNullOrEmpty(txtEstDet.Text.Trim()) || txtEstDet.Text.Trim() == "" || txtEstDet.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Name Of Establishment \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtaddress.Text) || txtaddress.Text == "" || txtaddress.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Address\\n";
-                    slno = slno + 1;
-                }
-                if (ddlDistric.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Picode\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEmployeeESt.Text) || txtEmployeeESt.Text == "" || txtEmployeeESt.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Employee Establishment\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtGoodssupplie.Text) || txtGoodssupplie.Text == "" || txtGoodssupplie.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Description of Goods and Services\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Date\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtEstDet.Text.Trim()) || txtEstDet.Text.Trim() == "" || txtEstDet.Text.Trim() == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Name Of Establishment \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtaddress.Text) || txtaddress.Text == "" || txtaddress.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Address\\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlDistric.SelectedIndex == 0)
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Distric \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtPincode.Text) || txtPincode.Text == "" || txtPincode.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Picode\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtEmployeeESt.Text) || txtEmployeeESt.Text == "" || txtEmployeeESt.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Employee Establishment\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtGoodssupplie.Text) || txtGoodssupplie.Text == "" || txtGoodssupplie.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Description of Goods and Services\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Date\\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtIncome.Text) || txtIncome.Text == "" || txtIncome.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Gross Annual Income\\n";
@@ -566,7 +572,9 @@ namespace MeghalayaUIP.User.CFO
                 }
                 else
                 {
+
                     DataTable dt = new DataTable();
+
                     dt.Columns.Add("CFOPS_CFOUNITID", typeof(string));
                     dt.Columns.Add("CFOPS_CREATEDBY", typeof(string));
                     dt.Columns.Add("CFOPS_CREATEDBYIP", typeof(string));
@@ -575,32 +583,42 @@ namespace MeghalayaUIP.User.CFO
                     dt.Columns.Add("CFOPS_DISTRIC", typeof(string));
                     dt.Columns.Add("CFOPS_TOTALEMP", typeof(string));
 
-
                     if (ViewState["PROFESSIONALTAX"] != null)
                     {
                         dt = (DataTable)ViewState["PROFESSIONALTAX"];
                     }
 
                     DataRow dr = dt.NewRow();
+
                     dr["CFOPS_CFOUNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["CFOPS_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOPS_CREATEDBYIP"] = getclientIP();
                     dr["CFOPS_PLACEBUSINESS"] = txtplacebusiness.Text.Trim();
                     dr["CFOPS_ADDRESS"] = txtadd.Text;
                     dr["CFOPS_DISTRIC"] = ddldist.SelectedItem.Text;
-                    dr["CFOPS_TOTALEMP"] = txtEMP.Text;
-
+                    dr["CFOPS_TOTALEMP"] = txtEMP.Text.Trim();
 
                     dt.Rows.Add(dr);
-                    GVState.Visible = true;
-                    GVState.DataSource = dt;
-                    GVState.DataBind();
-                    ViewState["PROFESSIONALTAX"] = dt;
+                    if (dt.Rows.Count > 0)
+                    {
+                        
+                        GVState.Visible = true;
+                        GVState.DataSource = dt;
+                        GVState.DataBind();
+                        Div2.Visible = true;
+                        ViewState["PROFESSIONALTAX"] = dt;
+                    }
+                    else
+                    {
+                        lblmsg0.Text = "No data to display.";
+                        Failure.Visible = true;
+                    }
 
                     txtplacebusiness.Text = "";
                     txtadd.Text = "";
                     txtEMP.Text = "";
                     ddldist.ClearSelection();
+
                 }
             }
             catch (Exception ex)
@@ -651,6 +669,7 @@ namespace MeghalayaUIP.User.CFO
                     GVCOUNTRY.Visible = true;
                     GVCOUNTRY.DataSource = dt;
                     GVCOUNTRY.DataBind();
+                    Div1.Visible = true;
                     ViewState["PROFESSIONALTAXCOUNTRY"] = dt;
 
                     txtBusinessplace.Text = "";

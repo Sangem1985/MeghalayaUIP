@@ -32,9 +32,9 @@ namespace MeghalayaUIP.Dept.PreReg
                     {
                         hdnUserID.Value = ObjUserInfo.UserID;
                     }
-                    
+
                     Page.MaintainScrollPositionOnPostBack = true;
-                    
+
                 }
                 else
                 {
@@ -110,83 +110,89 @@ namespace MeghalayaUIP.Dept.PreReg
 
             gvTeamMembers.DataSource = TeamMembers;
             gvTeamMembers.DataBind();
-        }     
+        }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
-            string reportid = "";
-
-            ErrorMsg = validations();
-            if (ErrorMsg == "")
+            try
             {
 
-               
-                DistrictSiteReport report = new DistrictSiteReport();
+                string reportid = "";
 
-             
-                report.UnitId = Session["UNITID"].ToString();
-                report.UnitName = txtUnitName.Text;
-                report.UnitLocation = txtUnitLocation.Text;
-                report.GpsCoordinates = txtCoordinates.Text;
-                report.SiteArea = txtArea.Text;
-                report.Ownership = ddlOwnershipStatus.SelectedValue;
-                report.UnderPossession = rblPossession.SelectedValue;
-                report.DistanceFromMainRoad = txtDistanceMainRoad.Text;
-                report.RoadType = txtTypeOfRoad.Text;
-                report.ConstructionCommencement = rblProjectConstruction.SelectedValue +
-                    (string.IsNullOrWhiteSpace(txtConstructionRemarks.Text) ? "" : " - " + txtConstructionRemarks.Text);
-                report.AnyNaturalBodies = txtNaturalBodies.Text;
-                report.EnvVulnerableLoc = rblEnvVulnerable.SelectedValue +
-                    (string.IsNullOrWhiteSpace(txtEnvVulnerableRemarks.Text) ? "" : " - " + txtEnvVulnerableRemarks.Text);
-                report.AvailabilityOfPower = rblPowerAvailability.SelectedValue +
-                    (string.IsNullOrWhiteSpace(txtPowerDrawPoint.Text) ? "" : " - " + txtPowerDrawPoint.Text);
-                report.AvailabilityOfWater = txtWaterSource.Text;
-                report.OtherObservations = txtOtherObservations.Text;
-                report.Comments = txtComments.Text;
-                report.createdBy = hdnUserID.Value;
-                report.ipAddress = getclientIP();
-                report.DateInspection = txtDate.Text;
-
-
-                reportid = PreBAL.PreRegDISTRPTSAVE(report);
-
-
-                DistrictSiteInspectionTeam teamMember = new DistrictSiteInspectionTeam();
-                     int count1 = 0;
-                for (int i = 0; i < gvTeamMembers.Rows.Count; i++)
-                {                  
-                    teamMember.MemberName = gvTeamMembers.Rows[i].Cells[1].Text.Trim();
-                    teamMember.Designation = gvTeamMembers.Rows[i].Cells[2].Text;
-                    teamMember.District = txtUnitLocation.Text;
-                    teamMember.createdBy = hdnUserID.Value;
-                    teamMember.ipAddress = getclientIP();
-
-                    string A = PreBAL.SaveTeamMember(reportid, teamMember); 
-                    if (A != "")
-                    { count1 = count1 + 1; }
-                }
-
-               
-                if (reportid != "0")// && result != "0")
+                ErrorMsg = validations();
+                if (ErrorMsg == "")
                 {
-                    savelbl.Visible = true;
-                    savelbl.Text = "Data Saved Successfully !!!";
-                    savelbl.ForeColor = System.Drawing.Color.Green;
+                    DistrictSiteReport report = new DistrictSiteReport();
 
+                    report.UnitId = Session["UNITID"].ToString();
+                    report.UnitName = txtUnitName.Text;
+                    report.UnitLocation = txtUnitLocation.Text;
+                    report.GpsCoordinates = txtCoordinates.Text;
+                    report.SiteArea = txtArea.Text;
+                    report.Ownership = ddlOwnershipStatus.SelectedValue;
+                    report.UnderPossession = rblPossession.SelectedValue;
+                    report.DistanceFromMainRoad = txtDistanceMainRoad.Text;
+                    report.RoadType = txtTypeOfRoad.Text;
+                    report.ConstructionCommencement = rblProjectConstruction.SelectedValue +
+                        (string.IsNullOrWhiteSpace(txtConstructionRemarks.Text) ? "" : " - " + txtConstructionRemarks.Text);
+                    report.AnyNaturalBodies = txtNaturalBodies.Text;
+                    report.EnvVulnerableLoc = rblEnvVulnerable.SelectedValue +
+                        (string.IsNullOrWhiteSpace(txtEnvVulnerableRemarks.Text) ? "" : " - " + txtEnvVulnerableRemarks.Text);
+                    report.AvailabilityOfPower = rblPowerAvailability.SelectedValue +
+                        (string.IsNullOrWhiteSpace(txtPowerDrawPoint.Text) ? "" : " - " + txtPowerDrawPoint.Text);
+                    report.AvailabilityOfWater = txtWaterSource.Text;
+                    report.OtherObservations = txtOtherObservations.Text;
+                    report.Comments = txtComments.Text;
+                    report.createdBy = hdnUserID.Value;
+                    report.ipAddress = getclientIP();
+                    report.DateInspection = txtDate.Text;
+
+
+                    reportid = PreBAL.PreRegDISTRPTSAVE(report);
+
+
+                    DistrictSiteInspectionTeam teamMember = new DistrictSiteInspectionTeam();
+                    int count1 = 0;
+                    for (int i = 0; i < gvTeamMembers.Rows.Count; i++)
+                    {
+                        teamMember.MemberName = gvTeamMembers.Rows[i].Cells[1].Text.Trim();
+                        teamMember.Designation = gvTeamMembers.Rows[i].Cells[2].Text;
+                        teamMember.District = txtUnitLocation.Text;
+                        teamMember.createdBy = hdnUserID.Value;
+                        teamMember.ipAddress = getclientIP();
+
+                        string A = PreBAL.SaveTeamMember(reportid, teamMember);
+                        if (A != "")
+                        { count1 = count1 + 1; }
+                    }
+
+
+                    if (reportid != "0")// && result != "0")
+                    {
+                        success.Visible = true;
+                        lblmsg.Text = "Data Saved Successfully !!!";
+                        // lblmsg.ForeColor = System.Drawing.Color.Green;
+
+                    }
+                    else
+                    {
+                        Failure.Visible = true;
+                        lblmsg0.Text = "Something Went Wrong Try Again !!!";
+                        // lblmsg0.ForeColor = System.Drawing.Color.DarkRed;
+                    }
                 }
                 else
                 {
-                    savelbl.Visible = true;
-                    savelbl.Text = "Something Went Wrong Try Again !!!";
-                    savelbl.ForeColor = System.Drawing.Color.DarkRed;
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                string message = "alert('" + ErrorMsg + "')";
-                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                return;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public static string getclientIP()
@@ -212,7 +218,7 @@ namespace MeghalayaUIP.Dept.PreReg
             try
             {
 
-                Response.Redirect("~/Dept/PreReg/PreRegDITProcess.aspx?Status="+ Request.QueryString["status"].ToString());
+                Response.Redirect("~/Dept/PreReg/PreRegDITProcess.aspx?Status=" + Request.QueryString["status"].ToString());
 
             }
             catch (Exception ex)
@@ -227,56 +233,47 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                try
+                if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtDepartment.Text))
                 {
-                    if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtDepartment.Text))
-                    {
-                        lblmsg0.Text = "Please Enter All Details Of Inspector Officer";
-                        Failure.Visible = true;
-                    }
-                    else
-                    {
-                        DataTable dt = new DataTable();
-                        dt.Columns.Add("MemberName", typeof(string));
-                        dt.Columns.Add("Designation", typeof(string));                       
-
-                        if (ViewState["TeamMembers"] != null)
-                        {
-                            dt = (DataTable)ViewState["TeamMembers"];
-                        }
-
-                        DataRow dr = dt.NewRow();
-
-                        dr["MemberName"] = txtName.Text;
-                        dr["Designation"] = txtDepartment.Text;
-                      
-
-                        dt.Rows.Add(dr);
-                        gvTeamMembers.Visible = true;
-                        gvTeamMembers.DataSource = dt;
-                        gvTeamMembers.DataBind();
-                        ViewState["TeamMembers"] = dt;
-
-
-                        txtName.Text = "";
-                        txtDepartment.Text = "";                       
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    lblmsg0.Text = ex.Message;
+                    lblmsg0.Text = "Please Enter All Details Of Inspector Officer";
                     Failure.Visible = true;
-                    MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
                 }
+                else
+                {
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("MemberName", typeof(string));
+                    dt.Columns.Add("Designation", typeof(string));
 
+                    if (ViewState["TeamMembers"] != null)
+                    {
+                        dt = (DataTable)ViewState["TeamMembers"];
+                    }
+
+                    DataRow dr = dt.NewRow();
+
+                    dr["MemberName"] = txtName.Text;
+                    dr["Designation"] = txtDepartment.Text;
+
+
+                    dt.Rows.Add(dr);
+                    gvTeamMembers.Visible = true;
+                    gvTeamMembers.DataSource = dt;
+                    gvTeamMembers.DataBind();
+                    ViewState["TeamMembers"] = dt;
+
+
+                    txtName.Text = "";
+                    txtDepartment.Text = "";
+
+                }
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+
         }
 
         public string validations()
@@ -421,7 +418,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     lblmsg0.Text = "";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;

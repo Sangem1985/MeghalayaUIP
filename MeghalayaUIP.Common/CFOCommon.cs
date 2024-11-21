@@ -33,9 +33,10 @@ namespace MeghalayaUIP.Common
         public static string InsertCFODrugLicenseDetails = "USP_INSCFODRUGLICDETAILS";
         public static string GetCFOObtainedOffline = "USP_GETCFOQUESTIONNAIREAPPROVALS";
         public static string GetApprovalsReqFromTable = "USP_GETCFOQUESTIONNAIREAPPROVALS";
-        public static string InsertCFOAttachments = "USP_INSCFOATTACHMENTS";
+        public static string InsertCFOAttachments = "USP_INSCFOATTACHMENTS"; 
         public static string InsertCFODepartmentapprovals = "USP_INSCFODEPARTMENTAPPROVALS";
         public static string GetCFEApprovedandCFOAppliedApplications = "USP_GETCFEAPPROVEDANDCFOAPPLIED";
+        public static string GetRetriveExciseDet = "GetCFOExciseData";
         //chanikya/////
         public static string GetCFOApprovalsReq = "USP_GETCFOAPPROVALSWITHFEE";
         public static string GetCFORegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA_CFO";
@@ -106,8 +107,8 @@ namespace MeghalayaUIP.Common
         public string UpdatedIp { get; set; }
         public string Flag { get; set; }
         public List<CFOExciseBrandDetails> brandgridlist { get; set; }
-        public List<CFOExciseLiquorDetails> liquorgridlist { get; set; }
-
+        public List<CFOExciseLiquorDetails> liquorgridlist { get; set; }        
+       // public List<CFOAttachments> CFOAttachment { get; set; }
     }
     [Serializable]
     public class CFOExciseBrandDetails
@@ -535,6 +536,7 @@ namespace MeghalayaUIP.Common
         public string Liquorlic { get; set; }
         public string Stateexciseverfcert { get; set; }
         public string PowerReqKW { get; set; }
+        public string GrantManufacture { get; set; }
     }
     public class CFOPayments
     {

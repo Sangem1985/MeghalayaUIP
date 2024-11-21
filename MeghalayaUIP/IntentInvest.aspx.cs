@@ -35,7 +35,9 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -89,27 +91,32 @@ namespace MeghalayaUIP
                             objInvest.DISTRICTNAME = ddldistrict.SelectedItem.Text;
                             objInvest.MANDALNAME = ddlMandal.SelectedItem.Text;
                             objInvest.VILLAGENAME = ddlVillage.SelectedItem.Text;
+
+                            objInvest.DISTRICTID = ddldistrict.SelectedValue;
+                            objInvest.MANDALID = ddlMandal.SelectedValue;
+                            objInvest.VILLAGEID = ddlVillage.SelectedValue;
                         }
                         else if (ddlstate.SelectedValue != "23")
                         {
-                            objInvest.DISTRICTID = txtApplDist.Text.Trim();
-                            objInvest.MANDALID = txtApplTaluka.Text.Trim();
-                            objInvest.VILLAGEID = txtApplVillage.Text.Trim();
+                            objInvest.DISTRICTNAME = txtApplDist.Text.Trim();
+                            objInvest.MANDALNAME = txtApplTaluka.Text.Trim();
+                            objInvest.VILLAGENAME = txtApplVillage.Text.Trim();
+
+                            objInvest.DISTRICTID = "0";
+                            objInvest.MANDALID = "0";
+                            objInvest.VILLAGEID = "0";
                         }
                     }
                     else if (ddlcountry.SelectedValue != "78")
                     {
                         objInvest.STATEID = "0";
-
                         objInvest.STATENAME = txtstate.Text.Trim();
                         objInvest.DISTRICTNAME = txtApplDist.Text.Trim();
                         objInvest.MANDALNAME  = txtApplTaluka.Text.Trim();
                         objInvest.VILLAGENAME = txtApplVillage.Text.Trim();
-                        //objInvest.DISTRICTID = ddldistrict.SelectedValue;
-
-                        //objInvest.MANDALID = ddlMandal.SelectedValue;
-
-                        //objInvest.VILLAGEID = ddlVillage.SelectedValue;
+                        objInvest.DISTRICTID = "0";
+                        objInvest.MANDALID = "0";
+                        objInvest.VILLAGEID = "0";
                     }
 
                     result = mstrBAL.InsertInvestment(objInvest);
@@ -122,7 +129,7 @@ namespace MeghalayaUIP
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         
-                        btnClear_Click(sender, e);
+                      //  btnClear_Click(sender, e);
                         Response.Redirect("AckSlip.aspx?UID="+result);
 
                     }
@@ -137,7 +144,9 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindDate()
@@ -207,7 +216,9 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindCountry()
@@ -235,7 +246,9 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindStates()

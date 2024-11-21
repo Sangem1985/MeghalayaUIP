@@ -55,6 +55,7 @@ namespace MeghalayaUIP.User.CFE
                         GetElectricRegulations();
                         GetVoltageMaster();
                         GetPowerPlants();
+                        GetMunicipalAreas();
                         BindData();
                     }
                 }
@@ -80,7 +81,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                DataSet ds = new DataSet(); 
+                DataSet ds = new DataSet();
                 ds = objcfebal.RetrieveQuestionnaireDetails(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -106,7 +107,7 @@ namespace MeghalayaUIP.User.CFE
                         ddlIndustryType.SelectedValue = "1";
                     else
                         ddlIndustryType.SelectedValue = "2";
-                    ddlIndustryType.Enabled= false; 
+                    ddlIndustryType.Enabled = false;
                     txtUnitLocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNTLOCATION"]);
                     rblMIDCL.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MIDCLLAND"]);
 
@@ -146,6 +147,12 @@ namespace MeghalayaUIP.User.CFE
                     rblwatersupply.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NONAVAILABILITYCERT"]);
                     rblRiverTanks.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PERRIVERPUBLICTANKERS"]);
                     rblMunicipal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MUNICIPALAREAWATERCON"]);
+                    if (rblMunicipal.SelectedValue == "Y")
+                    {
+                        MunicipalArea.Visible = true;
+                        ddlMunicipal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERMUNICIPALAREA"]);
+                    }
+                    else { MunicipalArea.Visible = false; }
                     rblGrantwater.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERCONNONMUNICIPALURBAN"]);
 
 
@@ -169,7 +176,7 @@ namespace MeghalayaUIP.User.CFE
                     rblForContr1970_SelectedIndexChanged(null, EventArgs.Empty);
                     txtContr1970wrkrs.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOOFWORKERSCONTR1970"]);
 
-                    GetApprovals(); 
+                    GetApprovals();
                 }
                 else
                 {
@@ -190,7 +197,7 @@ namespace MeghalayaUIP.User.CFE
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
                         txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDAREA"]);
 
-                        txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);                      
+                        txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGAREA"]);
                         ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
                         ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlLine_Activity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
@@ -201,8 +208,8 @@ namespace MeghalayaUIP.User.CFE
                         else
                             ddlIndustryType.SelectedValue = "2";
 
-                     //   ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
-                       // ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
+                        //   ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
+                        // ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                         //txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LANDVALUE"]);
                         txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_BUILDINGVALUE"]);
@@ -890,6 +897,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     Link2.Enabled = true;
                     MVQues.ActiveViewIndex = 1;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                 }
                 else
                 {
@@ -900,13 +908,13 @@ namespace MeghalayaUIP.User.CFE
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-          
+
         }
         protected void btnPreviuos2_Click(object sender, EventArgs e)
         {
@@ -926,6 +934,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     Link3.Enabled = true;
                     MVQues.ActiveViewIndex = 2;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                 }
                 else
                 {
@@ -937,13 +946,13 @@ namespace MeghalayaUIP.User.CFE
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-          
+
 
         }
 
@@ -1026,6 +1035,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.RiverPublicTanker = rblRiverTanks.SelectedValue;
                     objCFEQsnaire.MuncipalAreawater = rblMunicipal.SelectedValue;
                     objCFEQsnaire.NonMuncipalAreaUrban = rblGrantwater.SelectedValue;
+                    objCFEQsnaire.MunicipalArea = ddlMunicipal.SelectedValue;
 
 
 
@@ -1184,7 +1194,7 @@ namespace MeghalayaUIP.User.CFE
                 return errormsg;
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -1222,7 +1232,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 return errormsg;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -1233,8 +1243,8 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 int slno = 1;
-                string errormsg = "";              
-               
+                string errormsg = "";
+
                 if (ddlPowerReq.SelectedIndex == -1 || ddlPowerReq.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Power requirement \\n";
@@ -1516,13 +1526,13 @@ namespace MeghalayaUIP.User.CFE
                 objCFEQ.EnterpriseCategory = lblEntCategory.Text;
                 if (lblPCBCategory.Text.Trim() != "White")
                 {
-                   // decimal PMCost  = Convert.ToDecimal();
+                    // decimal PMCost  = Convert.ToDecimal();
                     objCFEQ.Investment = txtPMCost.Text;
                     objCFEQ.PCBCategory = lblPCBCategory.Text;
                     objCFEQ.ApprovalID = "1";
                     dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtPCB);
-                   
+
                 }
                 if (ddlPowerReq.SelectedValue != "")
                 {
@@ -1671,6 +1681,7 @@ namespace MeghalayaUIP.User.CFE
                 if (rblMunicipal.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "22";
+                    objCFEQ.MunicipalArea = ddlMunicipal.SelectedValue;
                     Municipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(Municipal);
                 }
@@ -1735,13 +1746,13 @@ namespace MeghalayaUIP.User.CFE
                 var cls = Link1.Attributes["class"];
                 Link1.Attributes.Add("class", cls + " nav-tab");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-           
+
         }
 
         protected void Link2_Click(object sender, EventArgs e)
@@ -1751,7 +1762,8 @@ namespace MeghalayaUIP.User.CFE
                 ErrorMsg1 = Validations1();
                 if (ErrorMsg1 == "")
                 {
-                    MVQues.ActiveViewIndex = 1;
+                    MVQues.ActiveViewIndex = 1; Failure.Visible = false;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                 }
                 else
                 {
@@ -1763,13 +1775,13 @@ namespace MeghalayaUIP.User.CFE
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-            
+
         }
 
         protected void Link3_Click(object sender, EventArgs e)
@@ -1779,7 +1791,8 @@ namespace MeghalayaUIP.User.CFE
                 ErrorMsg2 = Validations2();
                 if (ErrorMsg2 == "")
                 {
-                    MVQues.ActiveViewIndex = 2;
+                    MVQues.ActiveViewIndex = 2; Failure.Visible = false;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                 }
                 else
                 {
@@ -1790,13 +1803,22 @@ namespace MeghalayaUIP.User.CFE
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-          
+
+        }
+
+        protected void rblMunicipal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblMunicipal.SelectedValue == "Y")
+            {
+                MunicipalArea.Visible = true;
+            }
+            else { MunicipalArea.Visible = false; }
         }
 
         protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)
@@ -1839,13 +1861,43 @@ namespace MeghalayaUIP.User.CFE
             {
                 txtAnnualTurnOver_TextChanged(sender, e);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
+        }
+        protected void GetMunicipalAreas()
+        {
+            try
+            {
+                ddlMunicipal.Items.Clear();
+
+                List<MasterWATERMUNICIPAL> objMunicipal = new List<MasterWATERMUNICIPAL>();
+
+                objMunicipal = mstrBAL.GetMunicipalareaMaster();
+                if (objMunicipal != null)
+                {
+                    ddlMunicipal.DataSource = objMunicipal;
+                    ddlMunicipal.DataValueField = "CONNECTION_TYPE_ID";
+                    ddlMunicipal.DataTextField = "CONNECTION_TYPE_NAME";
+                    ddlMunicipal.DataBind();
+                }
+                else
+                {
+                    ddlMunicipal.DataSource = null;
+                    ddlMunicipal.DataBind();
+                }
+                AddSelect(ddlMunicipal);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }

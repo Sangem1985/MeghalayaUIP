@@ -61,7 +61,9 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindModuleType()
@@ -84,7 +86,9 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindPreRegDepts()
@@ -118,7 +122,9 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void BindDepartment()
@@ -146,7 +152,9 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -165,25 +173,35 @@ namespace MeghalayaUIP
         }
         protected void ddlRegisterAs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlRegisterAs.SelectedIndex <= 0)
+            try
             {
-                LabelHeading.Text = "";
-            }
-            else if (ddlRegisterAs.SelectedValue == "G")
-            {
-                LabelHeading.Text = "Grievance Details";
-                trData.Visible = true;
 
+                if (ddlRegisterAs.SelectedIndex <= 0)
+                {
+                    LabelHeading.Text = "";
+                }
+                else if (ddlRegisterAs.SelectedValue == "G")
+                {
+                    LabelHeading.Text = "Grievance Details";
+                    trData.Visible = true;
+
+                }
+                else if (ddlRegisterAs.SelectedValue == "F")
+                {
+                    LabelHeading.Text = "Feedback Details";
+                    trData.Visible = true;
+                }
+                else if (ddlRegisterAs.SelectedValue == "Q")
+                {
+                    LabelHeading.Text = "Query Details";
+                    trData.Visible = true;
+                }
             }
-            else if (ddlRegisterAs.SelectedValue == "F")
+            catch (Exception ex)
             {
-                LabelHeading.Text = "Feedback Details";
-                trData.Visible = true;
-            }
-            else if (ddlRegisterAs.SelectedValue == "Q")
-            {
-                LabelHeading.Text = "Query Details";
-                trData.Visible = true;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -218,6 +236,7 @@ namespace MeghalayaUIP
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
 
             }
         }

@@ -1390,7 +1390,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
-        public DataSet GetDitSiteReportby(int unitId, int createdBy)
+        public DataSet GetDitSiteReportby(string unitId, string createdBy)
         {
 
             DataSet ds = new DataSet();
@@ -1409,8 +1409,8 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@Unitid", unitId);
-                da.SelectCommand.Parameters.AddWithValue("@Createdby", createdBy);
+                da.SelectCommand.Parameters.AddWithValue("@Unitid", Convert.ToInt32(unitId));
+                da.SelectCommand.Parameters.AddWithValue("@Createdby", Convert.ToInt32(createdBy));
 
 
                 da.Fill(ds);

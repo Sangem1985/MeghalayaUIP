@@ -230,7 +230,7 @@ namespace MeghalayaUIP.User
                 if (Convert.ToString(ViewState["OldPassword"]) != "" && txtoldpassword.Text != "")
                 {
                     if (Convert.ToString(ViewState["OldPassword"]) != OldPassword)
-                    { 
+                    {
                         errormsg = errormsg + "Invalid Credentials (Old Password)...! \\n ";
                     }
                     if (Convert.ToString(ViewState["OldPassword"]) == OldPassword)
@@ -319,7 +319,7 @@ namespace MeghalayaUIP.User
             {
                 Response.Redirect("~/User/Dashboard/MainDashboard.aspx");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -335,7 +335,9 @@ namespace MeghalayaUIP.User
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

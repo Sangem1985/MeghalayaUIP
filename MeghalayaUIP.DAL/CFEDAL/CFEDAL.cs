@@ -151,7 +151,10 @@ namespace MeghalayaUIP.DAL.CFEDAL
                     da.SelectCommand.Parameters.AddWithValue("@INVESTMENT", objCFEQ.Investment);
                 }
 
-
+                if (objCFEQ.MunicipalArea != null && objCFEQ.MunicipalArea != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@CONNECTION_TYPE", objCFEQ.MunicipalArea);
+                }
 
                 da.Fill(ds);
                 transaction.Commit();
@@ -288,6 +291,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEQD_PERRIVERPUBLICTANKERS", objCFEQsnaire.RiverPublicTanker);
                 com.Parameters.AddWithValue("@CFEQD_MUNICIPALAREAWATERCON", objCFEQsnaire.MuncipalAreawater);
                 com.Parameters.AddWithValue("@CFEQD_WATERCONNONMUNICIPALURBAN", objCFEQsnaire.NonMuncipalAreaUrban);
+                com.Parameters.AddWithValue("@CFEQD_WATERMUNICIPALAREA", objCFEQsnaire.MunicipalArea);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

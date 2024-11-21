@@ -113,9 +113,9 @@ namespace MeghalayaUIP.User.CFO
                                 }
                                 if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFOA_MASTERAID"]) == 15)
                                 {
-                                    hplLandDoc.Visible = true;
-                                    hplLandDoc.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
-                                    hplLandDoc.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                    hplSitePlan.Visible = true;
+                                    hplSitePlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                                    hplSitePlan.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFOA_FILENAME"]);
                                 }
                             }
 

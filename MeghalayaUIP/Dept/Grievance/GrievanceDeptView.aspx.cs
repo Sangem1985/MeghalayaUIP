@@ -48,7 +48,7 @@ namespace MeghalayaUIP.Dept.Grievance
             catch (Exception ex)
             {
                 lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
-                Failure.Visible = true;                
+                Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
@@ -59,12 +59,12 @@ namespace MeghalayaUIP.Dept.Grievance
             {
                 DataSet ds = new DataSet();
 
-                ds = objcomBal.GetDepGrievanceList(DeptID,  null, Convert.ToString(Request.QueryString["status"]));
+                ds = objcomBal.GetDepGrievanceList(DeptID, null, Convert.ToString(Request.QueryString["status"]));
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     gvGrievanceDtls.DataSource = ds.Tables[0];
                     gvGrievanceDtls.DataBind();
-                    for(int i=0; i< gvGrievanceDtls.Rows.Count; i++)
+                    for (int i = 0; i < gvGrievanceDtls.Rows.Count; i++)
                     {
                         Button BtnProcess = (Button)gvGrievanceDtls.Rows[i].FindControl("BtnProcess");
                         if (gvGrievanceDtls.Rows[i].Cells[11].Text == "Pending")
@@ -95,15 +95,22 @@ namespace MeghalayaUIP.Dept.Grievance
 
         protected void BtnProcess_Click(object sender, EventArgs e)
         {
-
-            Button btn = (Button)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
-            Label lblID = (Label)row.FindControl("lblGrvID");
-            if (lblID != null)
+            try
             {
-                
-                string newurl = "~/Dept/Grievance/GrievanceDeptProcess.aspx?ID=" + lblID.Text;
-                Response.Redirect(newurl);
+
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                Label lblID = (Label)row.FindControl("lblGrvID");
+                if (lblID != null)
+                {
+
+                    string newurl = "~/Dept/Grievance/GrievanceDeptProcess.aspx?ID=" + lblID.Text;
+                    Response.Redirect(newurl);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
         }

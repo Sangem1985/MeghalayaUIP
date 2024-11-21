@@ -19,9 +19,11 @@ namespace MeghalayaUIP.Common
         public static string GetPCBCategory = "USP_GET_PCBCategory";
         public static string GetConstitutionType = "USP_GETCONSTITUTIONTYPEMASTER";
         public static string GetPowerRequiredRange = "USP_GETPOWERRANGEMASTER";
+        public static string GetGrantManufacture = "USP_GETSERA_VACCINES";
         public static string GetElectricRegulations = "USP_GETELECTRICREGULATIONSMASTER";
         public static string GetVoltageMaster = "USP_GETVOLTAGEMASTER";
         public static string GetPowerPlantsMaster = "USP_GETPOWERPLANTSMASTER";
+        public static string GetMunicipalWaterAreaMaster = "USP_GETWATERCONMUNICIPALAREA";
         public static string GetIndustryTypeMaster = "USP_GETINDUSTRYTYPEMASTER";
         public static string GetRegistrationType = "USP_GETREGISTRATIONTYPEMASTER";
         public static string GetCastemaster = "USP_GETCATSEMASTER";
@@ -72,7 +74,7 @@ namespace MeghalayaUIP.Common
         public static string GetAmmendments = "USP_GET_AMMENDMENTS";
         public static string InsertDeptAmmendments = "USP_INS_DEPTAMMENDMENTS";
 
-       // public static string GetAmmendments = "USP_GET_AMMENDMENTS";
+        // public static string GetAmmendments = "USP_GET_AMMENDMENTS";
         public static string InsertAmmendmentsComment = "USP_INSAMMENDMENTCOMMENTS";
         public static string GetAmmendmentsDepartments = "USP_GETDEPTDEPARTMENTS";
         public static string GetUserCommentsofAmmendments = "USP_GET_Comments_Ammendment_ID";
@@ -182,6 +184,12 @@ namespace MeghalayaUIP.Common
     {
         public string PowerPlantID { get; set; }
         public string PowerPlantName { get; set; }
+
+    }
+    public class MasterWATERMUNICIPAL
+    {
+        public string CONNECTION_TYPE_ID { get; set; }
+        public string CONNECTION_TYPE_NAME { get; set; }
 
     }
     public class MasterIndustryType
@@ -298,7 +306,7 @@ namespace MeghalayaUIP.Common
     {
         public string BUILDINGTYPE_ID { get; set; }
         public string BUILDINGTYPE_NAME { get; set; }
-    }   
+    }
     public class MasterMARKET
     {
         public string MARKET_ID { get; set; }
@@ -318,6 +326,12 @@ namespace MeghalayaUIP.Common
     {
         public string DGPOWER_ID { get; set; }
         public string DGPOWER_NAME { get; set; }
+    }
+    public class MasterMANUFACTUREGRANT
+    {
+        public string TYPE_ID { get; set; }
+        public string TYPE_NAME { get; set; }
+
     }
     public class MasterMAXAMOUNTPOWER
     {
@@ -428,6 +442,7 @@ namespace MeghalayaUIP.Common
             get;
             set;
         }
+
     }
 
 

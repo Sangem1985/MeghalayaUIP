@@ -255,7 +255,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 d-flex">
+                                    <div class="col-md-12 d-flex" id="Patnership" runat="server" visible="false">
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Is it a partnership firm?   *</label>
@@ -279,7 +279,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 d-flex">
+                                    <div class="col-md-12 d-flex" id="name" runat="server" visible="false">
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Name</label>

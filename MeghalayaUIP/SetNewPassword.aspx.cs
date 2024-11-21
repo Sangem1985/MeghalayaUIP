@@ -1,5 +1,6 @@
 ﻿using AjaxControlToolkit.HtmlEditor.ToolbarButtons;
 using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.CommonClass;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,7 @@ namespace MeghalayaUIP
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         void FillCapctha()
@@ -150,7 +152,12 @@ namespace MeghalayaUIP
                 }
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
         public string Validations()
         {

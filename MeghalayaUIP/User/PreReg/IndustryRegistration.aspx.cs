@@ -43,6 +43,7 @@ namespace MeghalayaUIP.User.PreReg
                         txtPANno.Text = ObjUserInfo.PANno;
                         txtPANno.Enabled = false;
                         txtUnitName.Text = ObjUserInfo.EntityName;
+                        txtAuthReprEmail.Text = ObjUserInfo.Email;
                         //txtUnitName.Enabled = false;
                     }
                     if (hdnUserID.Value == "")
@@ -861,12 +862,21 @@ namespace MeghalayaUIP.User.PreReg
         }
         protected void rblLandType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblLandType.SelectedValue == "Own")
-            { txtPropLocDoorno.Enabled = true; }
-            else if (rblLandType.SelectedValue == "Required")
+            try
             {
-                txtPropLocDoorno.Enabled = false;
-                txtPropLocDoorno.Text = "";
+                if (rblLandType.SelectedValue == "Own")
+                { txtPropLocDoorno.Enabled = true; }
+                else if (rblLandType.SelectedValue == "Required")
+                {
+                    txtPropLocDoorno.Enabled = false;
+                    txtPropLocDoorno.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         protected void txtCompnyRegDt_TextChanged(object sender, EventArgs e)
@@ -1778,7 +1788,7 @@ namespace MeghalayaUIP.User.PreReg
                         dr["IDD_INVESTERID"] = hdnUserID.Value;
                         dr["IDD_FIRSTNAME"] = txtApplFrstName.Text.Trim();
                         dr["IDD_LASTNAME"] = txtApplLstName.Text.Trim();
-                        dr["IDD_ADNO"] = PasswordDescription(txtApplAadhar.Text);
+                        dr["IDD_ADNO"] = txtApplAadhar.Text.Trim();
                         dr["IDD_PAN"] = txtApplPAN.Text;
                         dr["IDD_DINNO"] = txtApplDIN.Text;
                         dr["IDD_NATIONALITY"] = ddlApplNationality.SelectedItem.Text;
@@ -1992,10 +2002,10 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Enter Last Name \\n";
                     slno = slno + 1;
                 }
-                if (txtApplAadhar.Text.Trim() != "")
-                { ApplAadhar = PasswordDescription(txtApplAadhar.Text); }
+                //if (txtApplAadhar.Text != "")
+                //{ ApplAadhar = PasswordDescription(txtApplAadhar.Text); }
 
-                if (string.IsNullOrEmpty(ApplAadhar) || ApplAadhar == "" || ApplAadhar == null || ApplAadhar.Length != 12 || ApplAadhar.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(ApplAadhar, @"^0+(\.0+)?$"))
+                if (string.IsNullOrEmpty(txtApplAadhar.Text) || txtApplAadhar.Text == "" || txtApplAadhar.Text == null || txtApplAadhar.Text.Length != 12 || txtApplAadhar.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtApplAadhar.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Valid Aadhar Number \\n";
                     slno = slno + 1;
@@ -2889,8 +2899,8 @@ namespace MeghalayaUIP.User.PreReg
                     if (result != "")
                     {
                         string unitid = Convert.ToString(ViewState["UnitID"]);
-                        smsMail.SendSms(unitid, hdnUserID.Value.ToString(), "1407172584852269031", "REG", "");
-
+                        smsMail.SendSms(unitid, hdnUserID.Value.ToString(), "1407172584852269031", "REG", "INDUSTRY REGISTRATION");
+                        smsMail.SendEmail(unitid, hdnUserID.Value.ToString(), "REG", "INDUSTRY REGISTRATION");
                         success.Visible = true;
                         btnSave3.Enabled = false;
                         lblmsg.Text = "Application Submitted Successfully";
@@ -3000,6 +3010,7 @@ namespace MeghalayaUIP.User.PreReg
                     {
                         ViewState["UnitID"] = result;
                         MVprereg.ActiveViewIndex = 1;
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                     }
                 }
                 else
@@ -3038,6 +3049,7 @@ namespace MeghalayaUIP.User.PreReg
                         {
                             hdnResultTab2.Value = result;
                             MVprereg.ActiveViewIndex = 2;
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
                         }
                     }
                     else
@@ -3120,11 +3132,12 @@ namespace MeghalayaUIP.User.PreReg
         protected void btnPreviuos3_Click(object sender, EventArgs e)
         {
             MVprereg.ActiveViewIndex = 1;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
         }
         protected void BtnPrevious4_Click(object sender, EventArgs e)
         {
             MVprereg.ActiveViewIndex = 2;
-
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "disablePaste", "disablePasteForAll();", true);
         }
         public static string getclientIP()
         {
@@ -3143,8 +3156,6 @@ namespace MeghalayaUIP.User.PreReg
 
             return result;
         }
-
-
         protected void MVprereg_ActiveViewChanged(object sender, EventArgs e)
         {
             index = MVprereg.ActiveViewIndex;
@@ -3233,7 +3244,7 @@ namespace MeghalayaUIP.User.PreReg
 
             if (ErrorMsg1 == "" && Convert.ToString(ViewState["UnitID"]) != "" && ErrorMsg2 == "" && hdnResultTab3.Value != "" && gvPromoters.Rows.Count > 0)
             {
-                MVprereg.ActiveViewIndex = 3;                
+                MVprereg.ActiveViewIndex = 3;
             }
             else
             {

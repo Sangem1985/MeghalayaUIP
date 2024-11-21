@@ -737,7 +737,7 @@
                                                                                 17. Do you require Application For The Grant/Renewal Of License To Manufacture Drugs For Purpose Of Examination, Test Or Analysis?
                                                                             </label>
                                                                             <div class="col-lg-6 d-flex ">
-                                                                                <asp:RadioButtonList ID="rblPurposeofExamination" runat="server" RepeatDirection="Horizontal">
+                                                                                <asp:RadioButtonList ID="rblPurposeofExamination" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblPurposeofExamination_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -750,7 +750,7 @@
                                                                                 18. Do you require Application For The Grant Of Loan License To Manufacture For Sale Or For Distribution Of 
                                                                         Drugs Specified In Schedule C, C (1) Excluding Those Specified In Part Xb & Schedule X?</label>
                                                                             <div class="col-lg-6 d-flex ">
-                                                                                <asp:RadioButtonList ID="rblScheduleX" runat="server" RepeatDirection="Horizontal">
+                                                                                <asp:RadioButtonList ID="rblScheduleX" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblScheduleX_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -766,7 +766,7 @@
                                                                         Distribution Of Drugs Other Than That Specified In Schedule C, C(1), X?
                                                                             </label>
                                                                             <div class="col-lg-6 d-flex ">
-                                                                                <asp:RadioButtonList ID="rblDrugloanlicmanfnotshedulec" runat="server" RepeatDirection="Horizontal">
+                                                                                <asp:RadioButtonList ID="rblDrugloanlicmanfnotshedulec" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDrugloanlicmanfnotshedulec_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -779,7 +779,7 @@
                                                                                 20. Do you require Application For The Grant /Renewal Of License To Repack For Sale Or For Distribution Of Drugs Other
                                                                         Than That Specified In Schedule C, C(1) Excluding Those Specified In Schedule X?</label>
                                                                             <div class="col-lg-6 d-flex ">
-                                                                                <asp:RadioButtonList ID="rblDruglicrepacksale" runat="server" RepeatDirection="Horizontal">
+                                                                                <asp:RadioButtonList ID="rblDruglicrepacksale" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDruglicrepacksale_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -795,7 +795,7 @@
                                                                         Distribution Of Large Volume Parenterals/Sera And Vaccines Excluding Those Specified In Schedule X?
                                                                             </label>
                                                                             <div class="col-lg-6 d-flex ">
-                                                                                <asp:RadioButtonList ID="rblDruglicmanfsalevaccnotshedulex" runat="server" RepeatDirection="Horizontal">
+                                                                                <asp:RadioButtonList ID="rblDruglicmanfsalevaccnotshedulex" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDruglicmanfsalevaccnotshedulex_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -928,8 +928,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex" id="txtPower" runat="server" visible="false">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 d-flex">
+                                                                    <div class="col-md-6" id="txtPower" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 Power
@@ -942,6 +942,21 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="col-md-6" id="Manufacture" runat="server" visible="false">
+                                                                        <div class="form-group row">
+                                                                            <div class="form-group row">
+                                                                                <label class="col-lg-6 col-form-label">
+                                                                                    Grant/Renewal Of License To Manufacture<span
+                                                                                        class="text-danger">*</span></label>
+                                                                                <div class="col-lg-4">
+                                                                                    <asp:DropDownList ID="ddlManufacture" runat="server" class="form-control">
+                                                                                        <asp:ListItem Text="--Select--" Value="0" />
+                                                                                    </asp:DropDownList>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
 
 

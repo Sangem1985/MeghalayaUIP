@@ -228,6 +228,12 @@ namespace MeghalayaUIP.Dept.PreReg
                             grdQueryRaised.DataSource = ds.Tables[7];
                             grdQueryRaised.DataBind();
                         }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
+                        {
+                            divSupDocs.Visible = true;
+                            grdSupportingDocuments.DataSource = ds.Tables[8];
+                            grdSupportingDocuments.DataBind();
+                        }
                         if (Convert.ToString(Request.QueryString["status"]) != "ApplicationTracker")
                         {
                             if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "3" ||
@@ -285,21 +291,36 @@ namespace MeghalayaUIP.Dept.PreReg
                     ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
         protected void linkViewQueryAttachment_Click(object sender, EventArgs e)
         {
-            LinkButton lnkview = (LinkButton)sender;
-            GridViewRow row = (GridViewRow)lnkview.NamingContainer;
-
-            Label lblfilepath = (Label)row.FindControl("lblFilePath");
-            if (lblfilepath != null || lblfilepath.Text != "")
+            try
             {
-                //Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text));
-                string encryptedFilePath = mstrBAL.EncryptFilePath(lblfilepath.Text);
-                string url = ResolveUrl("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + encryptedFilePath);
-                string script = $"window.open('{url}', '_blank');";
-                ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
+
+                LinkButton lnkview = (LinkButton)sender;
+                GridViewRow row = (GridViewRow)lnkview.NamingContainer;
+
+                Label lblfilepath = (Label)row.FindControl("lblFilePath");
+                if (lblfilepath != null || lblfilepath.Text != "")
+                {
+                    //Response.Redirect("~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text));
+                    string encryptedFilePath = mstrBAL.EncryptFilePath(lblfilepath.Text);
+                    string url = ResolveUrl("~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + encryptedFilePath);
+                    string script = $"window.open('{url}', '_blank');";
+                    ClientScript.RegisterStartupScript(this.GetType(), "OpenInNewTab", script, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindDepartments()
@@ -739,55 +760,65 @@ namespace MeghalayaUIP.Dept.PreReg
         }
         protected void btnSubmit2_Click(object sender, EventArgs e)
         {
-            var ObjUserInfo = new DeptUserInfo();
-            if (Session["DeptUserInfo"] != null)
+            try
             {
 
-                if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
                 {
-                    ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
                 }
-            }
-            if (Convert.ToString(ViewState["ACTIONID"]) != "")
-            {
-                if ((Convert.ToString(ViewState["ACTIONID"]) == "12") && (string.IsNullOrWhiteSpace(txtIMAResponse.Text) || txtIMAResponse.Text == "" || txtIMAResponse.Text == null))
+                if (Convert.ToString(ViewState["ACTIONID"]) != "")
                 {
-                    lblmsg0.Text = "Please Enter Query Response";
-                    Failure.Visible = true;
-                    return;
-                }
-                if ((Convert.ToString(ViewState["ACTIONID"]) == "15") && (string.IsNullOrWhiteSpace(txtComQrytoAppl.Text) || txtComQrytoAppl.Text == "" || txtComQrytoAppl.Text == null))
-                {
-                    lblmsg0.Text = "Please Enter Query Description";
-                    Failure.Visible = true;
-                    return;
+                    if ((Convert.ToString(ViewState["ACTIONID"]) == "12") && (string.IsNullOrWhiteSpace(txtIMAResponse.Text) || txtIMAResponse.Text == "" || txtIMAResponse.Text == null))
+                    {
+                        lblmsg0.Text = "Please Enter Query Response";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    if ((Convert.ToString(ViewState["ACTIONID"]) == "15") && (string.IsNullOrWhiteSpace(txtComQrytoAppl.Text) || txtComQrytoAppl.Text == "" || txtComQrytoAppl.Text == null))
+                    {
+                        lblmsg0.Text = "Please Enter Query Description";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    else
+                    {
+                        prd.Unitid = Session["UNITID"].ToString();
+                        prd.Investerid = Session["INVESTERID"].ToString();
+                        if (Convert.ToString(ViewState["ACTIONID"]) != "")
+                            prd.status = Convert.ToInt32(Convert.ToString(ViewState["ACTIONID"]));
+                        prd.UserID = ObjUserInfo.UserID;
+                        if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                        {
+                            prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                        }
+                        prd.QueryResponse = txtIMAResponse.Text;
+                        prd.Remarks = txtComQrytoAppl.Text;
+                        prd.IPAddress = getclientIP();
+                        prd.QueryID = Convert.ToString(ViewState["COMMQID"]);
+                        string valid = PreBAL.PreRegUpdateQuery(prd);
+                        // string valid = PreBAL.PreRegApprovals(prd);
+                        btnSubmit.Enabled = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                        return;
+                    }
                 }
                 else
                 {
-                    prd.Unitid = Session["UNITID"].ToString();
-                    prd.Investerid = Session["INVESTERID"].ToString();
-                    if (Convert.ToString(ViewState["ACTIONID"]) != "")
-                        prd.status = Convert.ToInt32(Convert.ToString(ViewState["ACTIONID"]));
-                    prd.UserID = ObjUserInfo.UserID;
-                    if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
-                    {
-                        prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    }
-                    prd.QueryResponse = txtIMAResponse.Text;
-                    prd.Remarks = txtComQrytoAppl.Text;
-                    prd.IPAddress = getclientIP();
-                    prd.QueryID = Convert.ToString(ViewState["COMMQID"]);
-                    string valid = PreBAL.PreRegUpdateQuery(prd);
-                    // string valid = PreBAL.PreRegApprovals(prd);
-                    btnSubmit.Enabled = false;
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
-                    return;
+                    lblmsg0.Text = "Please Select Action";
+                    Failure.Visible = true;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                lblmsg0.Text = "Please Select Action";
+                lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }
@@ -975,5 +1006,80 @@ namespace MeghalayaUIP.Dept.PreReg
             }
         }
 
+        protected void grdAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+        protected void grdQryAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkViewQueryAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+
+        protected void grdSupportingDocuments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
     }
 }

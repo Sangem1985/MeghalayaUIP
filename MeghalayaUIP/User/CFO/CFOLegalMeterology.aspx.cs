@@ -498,10 +498,10 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOlegalDet.LicADCnO = rblMunicipal.SelectedValue;
                     ObjCFOlegalDet.RegDateNo = txtDate.Text;
                     ObjCFOlegalDet.RegCurrentNo = txtcurrentReg.Text;
-                    ObjCFOlegalDet.PatnershipFirm = rblFirm.SelectedValue;
-                    ObjCFOlegalDet.CompanyLimited = rblLimit.SelectedValue;
-                    ObjCFOlegalDet.Name = txtName.Text.Trim();
-                    ObjCFOlegalDet.Address = txtAddress.Text;
+                    //ObjCFOlegalDet.PatnershipFirm = rblFirm.SelectedValue;
+                    //ObjCFOlegalDet.CompanyLimited = rblLimit.SelectedValue;
+                    //ObjCFOlegalDet.Name = txtName.Text.Trim();
+                   // ObjCFOlegalDet.Address = txtAddress.Text;
                     ObjCFOlegalDet.Weight = txtWeight.Text;
                     ObjCFOlegalDet.Measures = txtMeasure.Text;
                     ObjCFOlegalDet.WeightingIns = txtInstruWeight.Text;
@@ -568,16 +568,16 @@ namespace MeghalayaUIP.User.CFO
                     slno = slno + 1;
                 }
 
-                if (string.IsNullOrEmpty(txtName.Text.Trim()) || txtName.Text.Trim() == "" || txtName.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Name\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtAddress.Text) || txtAddress.Text == "" || txtAddress.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Address\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtName.Text.Trim()) || txtName.Text.Trim() == "" || txtName.Text.Trim() == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Name\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtAddress.Text) || txtAddress.Text == "" || txtAddress.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Address\\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtWeight.Text) || txtWeight.Text == "" || txtWeight.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Weight\\n";
@@ -681,16 +681,16 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                 }
-                if (rblFirm.SelectedIndex == -1 || rblFirm.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Is it a partnership firm? \\n";
-                    slno = slno + 1;
-                }
-                if (rblLimit.SelectedIndex == -1 || rblLimit.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Is it a limited company? \\n";
-                    slno = slno + 1;
-                }
+                //if (rblFirm.SelectedIndex == -1 || rblFirm.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Is it a partnership firm? \\n";
+                //    slno = slno + 1;
+                //}
+                //if (rblLimit.SelectedIndex == -1 || rblLimit.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Is it a limited company? \\n";
+                //    slno = slno + 1;
+                //}
                 if (rblState.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select  Yes or No import weights, etc. from places outside the State/Country?  \\n";

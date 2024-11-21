@@ -26,7 +26,7 @@ namespace MeghalayaUIP.Admin
         {
             try
             {
-             
+
                 DataSet ds = new DataSet();
                 ds = mstrBAL.UserSearch(ddlInput.SelectedValue, txtInput.Text);
                 if (ds.Tables[0].Rows.Count > 0)
@@ -42,7 +42,7 @@ namespace MeghalayaUIP.Admin
                     trusercomments.Visible = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg.Text = ex.Message;
                 Failure.Visible = true;
@@ -53,7 +53,16 @@ namespace MeghalayaUIP.Admin
 
         protected void BTNcLEAR_Click(object sender, EventArgs e)
         {
-            Response.Redirect("SearchUser.aspx");
+            try
+            {
+                Response.Redirect("SearchUser.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         protected void lbtnBack_Click(object sender, EventArgs e)
@@ -62,7 +71,7 @@ namespace MeghalayaUIP.Admin
             {
                 Response.Redirect("~/Dept/Dashboard/DeptDashboard.aspx");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg.Text = ex.Message;
                 Failure.Visible = true;

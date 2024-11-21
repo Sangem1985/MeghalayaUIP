@@ -146,6 +146,7 @@
     <Compile Include="CommonBAL\LoginBAL.cs" />
     <Compile Include="CommonBAL\MasterBAL.cs" />
     <Compile Include="CommonBAL\MGCommonBAL.cs" />
+    <Compile Include="INCBAL\INCBAL.cs" />
     <Compile Include="LABAL\LABAL.cs" />
     <Compile Include="PreRegBAL\PreRegBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,5 +175,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

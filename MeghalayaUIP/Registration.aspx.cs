@@ -104,30 +104,26 @@ namespace MeghalayaUIP
                     valid = useregBAL.InsertUserRegDetails(Userregdtls);
                     if (Convert.ToInt32(valid) != 0)
                     {
-                        string Host = Convert.ToString(ConfigurationManager.AppSettings["expectedHost"]);
-                        if (Host.Contains("localhost"))
-                        {
-                            Host = "https://localhost:44379/";
-                        }
-                        else if (Host.Contains("103.154.75.191"))
-                        {
-                            Host = "http://103.154.75.191/Investmeghalaya/";
-                        }
-                        else
-                        {
-                            Host = "https://invest.meghalaya.gov.in/";
-                        }
-                        string EmailText = "Dear " + txtName.Text.Trim() + ", Welcome to Invest Meghalaya Portal. Thank you for registering"
+                        string loginlink = "https://invest.meghalaya.gov.in/Login.aspx";
+                        string EmailText = "Dear " + txtName.Text.Trim() + "," +
+                        "</b><br/><br/> Welcome to Invest Meghalaya Portal. Thank you for registering."
+                        + "</b><br/><br/> Please Login with Registered E-mail by using the link  <a href='" + "https://invest.meghalaya.gov.in/Login.aspx" + "' target='_blank' > Invest Meghalaya Authority - Login Link </a>"
                                + " </b><br/><br/> Best Regards"
                                 + "</b><br/> Invest Meghalaya Authority";
                         SMSandMail smsMail = new SMSandMail();
 
-                        smsMail.SendEmailSingle(txtEmail.Text.Trim(), "", "Welcome to Our Web Portal", EmailText, "", "Registraion",
+                        smsMail.SendEmailSingle(txtEmail.Text.Trim(), "", "Welcome to Our Web Portal", EmailText, "", "User Registration",
                                  "", "", valid);
 
                         lblmsg.Text = "Registered Successfully!";
                         success.Visible = true;
+                        btnClear_Click(sender, e);
+
                     }
+
+
+                    
+
                 }
                 else
                 {

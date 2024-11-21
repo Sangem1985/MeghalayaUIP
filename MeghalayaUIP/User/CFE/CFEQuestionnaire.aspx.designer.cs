@@ -681,6 +681,24 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblGrantwater;
 
         /// <summary>
+        /// MunicipalArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MunicipalArea;
+
+        /// <summary>
+        /// ddlMunicipal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMunicipal;
+
+        /// <summary>
         /// rblLbrAct1970 control.
         /// </summary>
         /// <remarks>

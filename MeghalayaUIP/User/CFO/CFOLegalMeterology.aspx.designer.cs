@@ -303,6 +303,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender4;
 
         /// <summary>
+        /// Patnership control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Patnership;
+
+        /// <summary>
         /// rblFirm control.
         /// </summary>
         /// <remarks>
@@ -319,6 +328,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblLimit;
+
+        /// <summary>
+        /// name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl name;
 
         /// <summary>
         /// txtName control.

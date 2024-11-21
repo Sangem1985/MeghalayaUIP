@@ -7,21 +7,48 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.Dept.PreReg
+namespace MeghalayaUIP.Admin
 {
 
 
-    public partial class PreRegDITSiteReportPrintPage
+    public partial class SMSandMAILtesting
     {
 
         /// <summary>
-        /// form1 control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
+        /// lbtnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
+
+        /// <summary>
+        /// asp_hidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField asp_hidden;
 
         /// <summary>
         /// success control.
@@ -40,15 +67,6 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmsg;
-
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// Failure control.
@@ -78,183 +96,174 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// unitNamelbl control.
+        /// txtname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label unitNamelbl;
+        protected global::System.Web.UI.WebControls.TextBox txtname;
 
         /// <summary>
-        /// placelbl control.
+        /// txtCompanyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label placelbl;
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyName;
 
         /// <summary>
-        /// datelbl control.
+        /// txtInvestorID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label datelbl;
+        protected global::System.Web.UI.WebControls.TextBox txtInvestorID;
 
         /// <summary>
-        /// inspectionTeam control.
+        /// txtUnitID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView inspectionTeam;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitID;
 
         /// <summary>
-        /// nmeunitlbl control.
+        /// BtnReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nmeunitlbl;
+        protected global::System.Web.UI.WebControls.Button BtnReg;
 
         /// <summary>
-        /// locationlbl control.
+        /// btnPrereg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label locationlbl;
+        protected global::System.Web.UI.WebControls.Button btnPrereg;
 
         /// <summary>
-        /// coordinateslbl control.
+        /// btnCFE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label coordinateslbl;
+        protected global::System.Web.UI.WebControls.Button btnCFE;
 
         /// <summary>
-        /// sitearealbl control.
+        /// btnCFO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label sitearealbl;
+        protected global::System.Web.UI.WebControls.Button btnCFO;
 
         /// <summary>
-        /// ownrshplbl control.
+        /// btnIntent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ownrshplbl;
+        protected global::System.Web.UI.WebControls.Button btnIntent;
 
         /// <summary>
-        /// undrpossesionunitlbl control.
+        /// btnPreRegApprove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label undrpossesionunitlbl;
+        protected global::System.Web.UI.WebControls.Button btnPreRegApprove;
 
         /// <summary>
-        /// distmainrdlbl control.
+        /// btnCFEApprove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label distmainrdlbl;
+        protected global::System.Web.UI.WebControls.Button btnCFEApprove;
 
         /// <summary>
-        /// typroadlbl control.
+        /// btnCFOApprove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label typroadlbl;
+        protected global::System.Web.UI.WebControls.Button btnCFOApprove;
 
         /// <summary>
-        /// constcommenclbl control.
+        /// btnQueryID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label constcommenclbl;
+        protected global::System.Web.UI.WebControls.Button btnQueryID;
 
         /// <summary>
-        /// naturalbodieslbl control.
+        /// btnQueryCFE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label naturalbodieslbl;
+        protected global::System.Web.UI.WebControls.Button btnQueryCFE;
 
         /// <summary>
-        /// envvulnerbleloclbl control.
+        /// btnQueryCFO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label envvulnerbleloclbl;
+        protected global::System.Web.UI.WebControls.Button btnQueryCFO;
 
         /// <summary>
-        /// avalpwrlbl control.
+        /// vg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label avalpwrlbl;
+        protected global::System.Web.UI.WebControls.ValidationSummary vg;
 
         /// <summary>
-        /// avalwaterlbl control.
+        /// hdfID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label avalwaterlbl;
+        protected global::System.Web.UI.WebControls.HiddenField hdfID;
 
         /// <summary>
-        /// observationslbl control.
+        /// hdfFlagID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label observationslbl;
+        protected global::System.Web.UI.WebControls.HiddenField hdfFlagID;
 
         /// <summary>
-        /// cmntslbl control.
+        /// UpdateProgress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cmntslbl;
-
-        /// <summary>
-        /// HyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.UpdateProgress UpdateProgress;
     }
 }

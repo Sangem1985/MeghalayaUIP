@@ -104,6 +104,7 @@ namespace MeghalayaUIP.User.CFO
                     string approvalName = DataBinder.Eval(e.Row.DataItem, "ApprovalName").ToString().Trim();
 
                     ChkApproval.Checked = true;
+                    ChkApproval.Enabled = false;
 
                     Label lblAmount = (Label)e.Row.FindControl("lblAmounts");
                     lblAmount.Text = HdfAmount.Value.ToString();
@@ -113,7 +114,7 @@ namespace MeghalayaUIP.User.CFO
                     int textCheck = grdApprovalsCFO.Columns.Count;
                     if (rblObtained.SelectedValue == "Y")
                     {
-                        rblObtained.Enabled = false;
+                        //rblObtained.Enabled = false;
                         ChkApproval.Checked = false; ChkApproval.Enabled = false;
                         lblAmount.Text = "0";
                         amounts = 0;
@@ -165,7 +166,7 @@ namespace MeghalayaUIP.User.CFO
                 foreach (GridViewRow row in grdApprovalsCFO.Rows)
                 {
                     RadioButtonList rblobtained = (RadioButtonList)row.FindControl("rblAlrdyObtained");
-                    if (rblobtained.SelectedValue == "N")
+                    if (rblobtained.SelectedValue == "N")   
                     {
                         selectedcount = selectedcount + 1;
                         if (((CheckBox)row.FindControl("ChkApproval")).Checked)
@@ -179,7 +180,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     SetGridLabelValue();
                 }
-                if (cnt <= 1)
+                if (cnt == 0)
                 {
                     Failure.Visible = true;
                     lblmsg0.Text = "Please Select Atleaset one Department for Approval";
@@ -615,6 +616,7 @@ namespace MeghalayaUIP.User.CFO
                         if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "N")
                         {
                             ((CheckBox)row1.FindControl("ChkApproval")).Checked = true;
+                            ((CheckBox)row1.FindControl("ChkApproval")).Enabled = false;
 
                             if (((CheckBox)row1.FindControl("ChkApproval")).Checked)
                             {
@@ -624,14 +626,16 @@ namespace MeghalayaUIP.User.CFO
                             else
                             { /*if (row1.Cells[6].Text != "")*/
                                 row1.Cells[6].Text = Convert.ToDecimal(0).ToString("#,##0");
-                                chkCheck.Enabled = true;
+                                //chkCheck.Enabled = true;
                             }
                         }
                         else if (((RadioButtonList)row1.FindControl("rblAlrdyObtained")).SelectedItem.Value == "Y")
                         {
+                            ((CheckBox)row1.FindControl("ChkApproval")).Checked = false;
+                            ((CheckBox)row1.FindControl("ChkApproval")).Enabled = false;
                             row1.Cells[6].Text = Convert.ToDecimal(0).ToString("#,##0");
-                            chkCheck.Enabled = false;
-                            chkCheck.Checked = false;
+                            //chkCheck.Enabled = false;
+                            //chkCheck.Checked = false; 
                         }
                     }
                     grdApprovalsCFO.FooterRow.Cells[6].Text = amount.ToString();
@@ -709,7 +713,7 @@ namespace MeghalayaUIP.User.CFO
                         grdApprovalsCFO.DataBind();
                         hdnQuesid.Value = Convert.ToString(Session["CFOQID"]);
                     }
-                    if (dsApprovals.Tables[0].Rows.Count > 0 && dsApprovals.Tables[1].Rows.Count > 0)
+                    if (dsApprovals.Tables[0].Rows.Count > 0 && dsApprovals.Tables[1].Rows.Count > 0 && dsApprovals.Tables[2].Rows.Count > 0)
                     {
                         divOffline.Visible = true; //btnNext.Enabled = false;
                         for (int i = 0; i < dsApprovals.Tables[1].Rows.Count; i++)
@@ -720,6 +724,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl32MigrantReg.Visible = true;
                                 hpl32MigrantReg.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl32MigrantReg.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtMigrant.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 33)//PCB HAZ NOC
                             {
@@ -727,6 +732,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl33ManufactureReg.Visible = true;
                                 hpl33ManufactureReg.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl33ManufactureReg.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtManufacture.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 34)
                             {
@@ -734,6 +740,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl34RenewalReg.Visible = true;
                                 hpl34RenewalReg.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl34RenewalReg.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtRegWorksService.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 35)
                             {
@@ -741,6 +748,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl35BoilerReg.Visible = true;
                                 hpl35BoilerReg.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl35BoilerReg.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtRegBoiler.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 36)
                             {
@@ -748,6 +756,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl36LICFactory.Visible = true;
                                 hpl36LICFactory.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl36LICFactory.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtLicFactory.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 37)
                             {
@@ -755,6 +764,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl37LICMIGRANTWORKMEN.Visible = true;
                                 hpl37LICMIGRANTWORKMEN.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl37LICMIGRANTWORKMEN.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtLicWorkmen1979.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 38)
                             {
@@ -762,6 +772,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl38LICLabourContractor.Visible = true;
                                 hpl38LICLabourContractor.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl38LICLabourContractor.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtLicLabour1970.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 39)
                             {
@@ -769,6 +780,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl39LicRetailDrug.Visible = true;
                                 hpl39LicRetailDrug.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl39LicRetailDrug.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtLicRetailsDrug.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 40)
                             {
@@ -776,6 +788,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl40LicRepairWeight.Visible = true;
                                 hpl40LicRepairWeight.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl40LicRepairWeight.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtLicRepairers.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 41)
                             {
@@ -783,6 +796,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl41LicManuMeasure.Visible = true;
                                 hpl41LicManuMeasure.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl41LicManuMeasure.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtMeasuresLic.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 42)
                             {
@@ -790,6 +804,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl42LicDealerWeight.Visible = true;
                                 hpl42LicDealerWeight.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl42LicDealerWeight.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtLicDealer.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 43)
                             {
@@ -797,6 +812,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl43IVSMeasure.Visible = true;
                                 hpl43IVSMeasure.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl43IVSMeasure.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtWeightInstrument.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 44)
                             {
@@ -804,6 +820,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl44FireSafeCert.Visible = true;
                                 hpl44FireSafeCert.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl44FireSafeCert.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtFiresaftey.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 45)
                             {
@@ -811,6 +828,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl45ExiseRetail.Visible = true;
                                 hpl45ExiseRetail.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl45ExiseRetail.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtRetailPlant.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 46)
                             {
@@ -818,6 +836,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl46LicWholeDrug.Visible = true;
                                 hpl46LicWholeDrug.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl46LicWholeDrug.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtWholeDrugLic.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 47)
                             {
@@ -825,6 +844,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl47BrandReg.Visible = true;
                                 hpl47BrandReg.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl47BrandReg.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtBrandReg.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 48)
                             {
@@ -832,6 +852,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl48LicGrantRenew.Visible = true;
                                 hpl48LicGrantRenew.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl48LicGrantRenew.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtDrugRenewal.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 49)
                             {
@@ -839,6 +860,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl49LicManuDrug.Visible = true;
                                 hpl49LicManuDrug.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl49LicManuDrug.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtLicManufacture.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 50)
                             {
@@ -846,6 +868,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl50LicManuDrugSpecifie.Visible = true;
                                 hpl50LicManuDrugSpecifie.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl50LicManuDrugSpecifie.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtLicLoanDrug.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 51)
                             {
@@ -853,6 +876,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl51LicGrantRenewSch.Visible = true;
                                 hpl51LicGrantRenewSch.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl51LicGrantRenewSch.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtDrugSale.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 52)
                             {
@@ -860,6 +884,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl52LicManuVolumesera.Visible = true;
                                 hpl52LicManuVolumesera.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl52LicManuVolumesera.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtGrantManu.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 53)
                             {
@@ -867,6 +892,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl53ProffessTax.Visible = true;
                                 hpl53ProffessTax.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl53ProffessTax.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtProfessionalTax.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 54)
                             {
@@ -874,6 +900,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl54PCB.Visible = true;
                                 hpl54PCB.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl54PCB.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtPCB.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 55)
                             {
@@ -881,6 +908,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl55OccupancyCert.Visible = true;
                                 hpl55OccupancyCert.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl55OccupancyCert.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtCertificate.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 56)
                             {
@@ -888,6 +916,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl56BoilerDept.Visible = true;
                                 hpl56BoilerDept.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl56BoilerDept.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtsteamDept.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 57)
                             {
@@ -895,6 +924,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl57RegPipelineSteam.Visible = true;
                                 hpl57RegPipelineSteam.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl57RegPipelineSteam.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtBoilerSteam.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 58)
                             {
@@ -902,6 +932,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl58RegShopEst.Visible = true;
                                 hpl58RegShopEst.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl58RegShopEst.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtShopESt.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 59)
                             {
@@ -909,6 +940,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl59LicGrantBusiness.Visible = true;
                                 hpl59LicGrantBusiness.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl59LicGrantBusiness.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtGrantLic.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 60)
                             {
@@ -916,6 +948,7 @@ namespace MeghalayaUIP.User.CFO
                                 hpl60LicIMFL.Visible = true;
                                 hpl60LicIMFL.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl60LicIMFL.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtLocalSale.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                             if (Convert.ToInt32(dsApprovals.Tables[1].Rows[i]["CFOA_APPROVALID"]) == 61)
                             {
@@ -923,8 +956,10 @@ namespace MeghalayaUIP.User.CFO
                                 hpl61SatateExcise.Visible = true;
                                 hpl61SatateExcise.NavigateUrl = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILEPATH"]);
                                 hpl61SatateExcise.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_FILENAME"]);
+                                txtExcise.Text = Convert.ToString(dsApprovals.Tables[1].Rows[i]["CFOA_REFERENCENO"]);
                             }
                         }
+
 
                     }
                 }
@@ -1039,6 +1074,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup33ManufactureReg.HasFile)
                 {
@@ -1101,6 +1137,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup34RenewalReg.HasFile)
                 {
@@ -1163,6 +1200,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup35BoilerReg.HasFile)
                 {
@@ -1225,6 +1263,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup36LICFactory.HasFile)
                 {
@@ -1287,6 +1326,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup37LICMIGRANTWORKMEN.HasFile)
                 {
@@ -1349,6 +1389,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup38LICLabourContractor.HasFile)
                 {
@@ -1411,6 +1452,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup39LicRetailDrug.HasFile)
                 {
@@ -1473,6 +1515,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup40LicRepairWeight.HasFile)
                 {
@@ -1535,6 +1578,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup41LicManuMeasure.HasFile)
                 {
@@ -1597,6 +1641,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup42LicDealerWeight.HasFile)
                 {
@@ -1659,6 +1704,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup43IVSMeasure.HasFile)
                 {
@@ -1721,6 +1767,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup44FireSafeCert.HasFile)
                 {
@@ -1783,6 +1830,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup45ExiseRetail.HasFile)
                 {
@@ -1845,9 +1893,10 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup46LicWholeDrug.HasFile)
-                {                   
+                {
                     Error = validations(fup46LicWholeDrug);
                     if (Error == "")
                     {
@@ -1907,6 +1956,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup47BrandReg.HasFile)
                 {
@@ -1969,6 +2019,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup48LicGrantRenew.HasFile)
                 {
@@ -2031,6 +2082,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup49LicManuDrug.HasFile)
                 {
@@ -2093,6 +2145,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup50LicManuDrugSpecifie.HasFile)
                 {
@@ -2155,6 +2208,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup51LicGrantRenewSch.HasFile)
                 {
@@ -2217,6 +2271,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup52LicManuVolumesera.HasFile)
                 {
@@ -2279,6 +2334,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup53ProffessTax.HasFile)
                 {
@@ -2341,6 +2397,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup54PCB.HasFile)
                 {
@@ -2403,6 +2460,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup55OccupancyCert.HasFile)
                 {
@@ -2465,6 +2523,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup56BoilerDept.HasFile)
                 {
@@ -2527,6 +2586,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup57RegPipelineSteam.HasFile)
                 {
@@ -2589,6 +2649,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup58RegShopEst.HasFile)
                 {
@@ -2651,6 +2712,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup59LicGrantBusiness.HasFile)
                 {
@@ -2713,6 +2775,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup60LicIMFL.HasFile)
                 {
@@ -2775,6 +2838,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
+                SetGridLabelValue();
                 string Error = ""; string message = "";
                 if (fup61SatateExcise.HasFile)
                 {

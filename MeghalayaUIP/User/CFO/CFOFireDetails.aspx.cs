@@ -118,44 +118,44 @@ namespace MeghalayaUIP.User.CFO
                     txtDistSouth.Text = ds.Tables[1].Rows[0]["CFOFD_DISTANCESOUTH"].ToString();
                     txtFire.Text = ds.Tables[1].Rows[0]["CFOFD_FIRESTATION"].ToString();
                 }
-                if (ds.Tables[5].Rows.Count > 0)
+                if (ds.Tables[2].Rows.Count > 0)
                 {
-                    for (int i = 0; i < ds.Tables[5].Rows.Count; i++)
+                    for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
                     {
                         if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 99)
                         {
                             hypFireLayout.Visible = true;
-                            hypFireLayout.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                            hypFireLayout.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILEPATH"]));
                             hypFireLayout.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
                         if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 100)
                         {
                             hypFireCertificate.Visible = true;
-                            hypFireCertificate.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
-                            hypFireCertificate.Text = Convert.ToString(ds.Tables[5].Rows[i]["CFOA_FILENAME"]);
+                            hypFireCertificate.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILEPATH"]));
+                            hypFireCertificate.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[5].Rows[i]["CFOA_MASTERAID"]) == 101)
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 101)
                         {
                             hypBuildingplan.Visible = true;
-                            hypBuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                            hypBuildingplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILEPATH"]));
                             hypBuildingplan.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
                         if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 102)
                         {
                             hypElectricalinstall.Visible = true;
-                            hypElectricalinstall.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                            hypElectricalinstall.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILEPATH"]));
                             hypElectricalinstall.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
                         if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 103)
                         {
                             hypFireSaftey.Visible = true;
-                            hypFireSaftey.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                            hypFireSaftey.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILEPATH"]));
                             hypFireSaftey.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
                         if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFOA_MASTERAID"]) == 104)
                         {
                             hypPreconNOC.Visible = true;
-                            hypPreconNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                            hypPreconNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILEPATH"]));
                             hypPreconNOC.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFOA_FILENAME"]);
                         }
 
@@ -924,7 +924,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Pre Construction NOC " + "\\";
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "Pre Construction NOC" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -939,7 +939,7 @@ namespace MeghalayaUIP.User.CFO
                         objAadhar.FilePath = serverpath + fupPreconNOC.PostedFile.FileName;
                         objAadhar.FileName = fupPreconNOC.PostedFile.FileName;
                         objAadhar.FileType = fupPreconNOC.PostedFile.ContentType;
-                        objAadhar.FileDescription = "Pre Construction NOC ";
+                        objAadhar.FileDescription = "Pre Construction NOC";
                         objAadhar.CreatedBy = hdnUserID.Value;
                         objAadhar.IPAddress = getclientIP();
                         result = objcfobal.InsertCFOAttachments(objAadhar);
@@ -948,7 +948,7 @@ namespace MeghalayaUIP.User.CFO
                             hypPreconNOC.Text = fupPreconNOC.PostedFile.FileName;
                             hypPreconNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypPreconNOC.Target = "blank";
-                            message = "alert('" + "Pre Construction NOC  Uploaded successfully" + "')";
+                            message = "alert('" + "Pre Construction NOC Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -971,6 +971,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+                                   
         }
 
         public string validations(FileUpload Attachment)

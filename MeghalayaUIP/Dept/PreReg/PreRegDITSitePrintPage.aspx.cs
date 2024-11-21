@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,13 +12,27 @@ using System.Web.UI.WebControls;
 
 namespace MeghalayaUIP.Dept.PreReg
 {
-    public partial class PreRegDITSiteReportPrintPage : System.Web.UI.Page
+    public partial class PreRegDITSitePrintPage : System.Web.UI.Page
     {
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         MGCommonBAL objcomBal = new MGCommonBAL();
         PreRegBAL PreBAL = new PreRegBAL();
         int reportId;
         string createdDate, loc, unitName;
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/PreReg/PreRegApplDeptProcess.aspx?Status=" + Request.QueryString["status"].ToString());
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -37,8 +52,8 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
 
                     Page.MaintainScrollPositionOnPostBack = true;
-                    Failure.Visible = false;
-                    success.Visible = false;
+                    // Failure.Visible = false;
+                    //success.Visible = false;
                     if (!IsPostBack)
                     {
                         BindData();
@@ -46,24 +61,23 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
                 else
                 {
-                    Response.Redirect("~/DeptLogin.aspx");
+                    Response.Redirect("~/DeptLogin.aspx?");
                 }
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
-                Failure.Visible = true;
-                throw ex;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         public void BindData()
         {
             try
             {
+                string Unitid = Session["UNITID"].ToString();
                 DataSet ds = new DataSet();
                 //string ID = Request.QueryString[0].ToString();
-                ds = PreBAL.GetDitSiteReport(0, 1004);
+                ds = PreBAL.GetDitSiteReport(Unitid, hdnUserID.Value);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     reportId = Convert.ToInt32(ds.Tables[0].Rows[0]["REPORTID"]);
@@ -89,7 +103,6 @@ namespace MeghalayaUIP.Dept.PreReg
                     cmntslbl.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMMENTS"]);
 
                 }
-
                 if (ds.Tables[1].Rows.Count > 0)
                 {
                     inspectionTeam.DataSource = ds.Tables[1];
@@ -98,7 +111,8 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
         }

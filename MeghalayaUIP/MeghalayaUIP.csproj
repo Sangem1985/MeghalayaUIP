@@ -218,6 +218,7 @@
     <Content Include="Admin\HelpdeskDrilldown.aspx" />
     <Content Include="Admin\HelpdeskReport.aspx" />
     <Content Include="Admin\SearchUser.aspx" />
+    <Content Include="Admin\SMSandMAILtesting.aspx" />
     <Content Include="Agri-Horti.aspx" />
     <Content Include="AmmendmentsFinal.aspx" />
     <Content Include="assets\admin\css\accordion.css" />
@@ -641,7 +642,7 @@
     <Content Include="Dept\PreReg\PreRegDITDashBoard.aspx" />
     <Content Include="Dept\PreReg\PreRegDITProcess.aspx" />
     <Content Include="Dept\PreReg\PreRegDITSiteInspection.aspx" />
-    <Content Include="Dept\PreReg\PreRegDITSiteReportPrintPage.aspx" />
+    <Content Include="Dept\PreReg\PreRegDITSitePrintPage.aspx" />
     <Content Include="Dept\PreReg\PreRegDITView.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptdrill.aspx" />
     <Content Include="Dept\Renewal\RENApplDeptProcess.aspx" />
@@ -751,6 +752,7 @@
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\HelpDesk\HelpDeskUserView.aspx" />
     <Content Include="User\HelpDesk\RegisterHelpDesk.aspx" />
+    <Content Include="User\INCENTIVE\IncentiveRegistration.aspx" />
     <Content Include="User\LA\LAApplDetails.aspx" />
     <Content Include="User\LA\LAQuestionnaire.aspx" />
     <Content Include="User\LA\LAUserDashBoard.aspx" />
@@ -818,6 +820,13 @@
     </Compile>
     <Compile Include="Admin\SearchUser.aspx.designer.cs">
       <DependentUpon>SearchUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SMSandMAILtesting.aspx.cs">
+      <DependentUpon>SMSandMAILtesting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SMSandMAILtesting.aspx.designer.cs">
+      <DependentUpon>SMSandMAILtesting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Agri-Horti.aspx.cs">
       <DependentUpon>Agri-Horti.aspx</DependentUpon>
@@ -1170,12 +1179,12 @@
     <Compile Include="Dept\PreReg\PreRegDITSiteInspection.aspx.designer.cs">
       <DependentUpon>PreRegDITSiteInspection.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dept\PreReg\PreRegDITSiteReportPrintPage.aspx.cs">
-      <DependentUpon>PreRegDITSiteReportPrintPage.aspx</DependentUpon>
+    <Compile Include="Dept\PreReg\PreRegDITSitePrintPage.aspx.cs">
+      <DependentUpon>PreRegDITSitePrintPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dept\PreReg\PreRegDITSiteReportPrintPage.aspx.designer.cs">
-      <DependentUpon>PreRegDITSiteReportPrintPage.aspx</DependentUpon>
+    <Compile Include="Dept\PreReg\PreRegDITSitePrintPage.aspx.designer.cs">
+      <DependentUpon>PreRegDITSitePrintPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\PreReg\PreRegDITView.aspx.cs">
       <DependentUpon>PreRegDITView.aspx</DependentUpon>
@@ -1949,6 +1958,13 @@
     </Compile>
     <Compile Include="User\HelpDesk\RegisterHelpDesk.aspx.designer.cs">
       <DependentUpon>RegisterHelpDesk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\IncentiveRegistration.aspx.cs">
+      <DependentUpon>IncentiveRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\IncentiveRegistration.aspx.designer.cs">
+      <DependentUpon>IncentiveRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\LA\LAApplDetails.aspx.cs">
       <DependentUpon>LAApplDetails.aspx</DependentUpon>
