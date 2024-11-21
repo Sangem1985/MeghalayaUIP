@@ -750,6 +750,7 @@
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\HelpDesk\HelpDeskUserView.aspx" />
     <Content Include="User\HelpDesk\RegisterHelpDesk.aspx" />
+    <Content Include="User\INCENTIVE\IncentiveRegistration.aspx" />
     <Content Include="User\LA\LAApplDetails.aspx" />
     <Content Include="User\LA\LAQuestionnaire.aspx" />
     <Content Include="User\LA\LAUserDashBoard.aspx" />
@@ -1941,6 +1942,13 @@
     <Compile Include="User\HelpDesk\RegisterHelpDesk.aspx.designer.cs">
       <DependentUpon>RegisterHelpDesk.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\INCENTIVE\IncentiveRegistration.aspx.cs">
+      <DependentUpon>IncentiveRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\IncentiveRegistration.aspx.designer.cs">
+      <DependentUpon>IncentiveRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\LA\LAApplDetails.aspx.cs">
       <DependentUpon>LAApplDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2300,7 +2308,6 @@
     <Folder Include="Documents\Prerequistes\" />
     <Folder Include="Documents\Rules\" />
     <Folder Include="Documents\SOP\" />
-    <Folder Include="User\INCENTIVE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
