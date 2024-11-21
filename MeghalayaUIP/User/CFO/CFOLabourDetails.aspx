@@ -66,11 +66,11 @@
                                                         <label class="col-lg-8 col-form-label">Classification applied for*</label>
                                                         <div class="col-lg-4">
                                                             <asp:DropDownList ID="ddlApplied" runat="server" class="form-control">
-                                                                <asp:ListItem Text="--Select--" Value="0" />
-                                                                <asp:ListItem Text="Special Class (For any Boiler Pressure)" Value="1"></asp:ListItem>
-                                                                <asp:ListItem Text="Class I (For Boiler Pressure upto 125 kg/cm2)" Value="2"></asp:ListItem>
-                                                                <asp:ListItem Text="Class II (For Boiler Pressure upto 40 kg/cm2)" Value="3"></asp:ListItem>
-                                                                <asp:ListItem Text="Class III (For Boiler Pressure upto 17.5 kg/cm2)" Value="4"></asp:ListItem>
+                                                                <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
+                                                                <asp:ListItem Value="1" Text="Special Class (For any Boiler Pressure)"></asp:ListItem>
+                                                                <asp:ListItem Value="2" Text="Class I (For Boiler Pressure upto 125 kg/cm2)"></asp:ListItem>
+                                                                <asp:ListItem Value="3" Text="Class II (For Boiler Pressure upto 40 kg/cm2)"></asp:ListItem>
+                                                                <asp:ListItem Value="4" Text="Class III (For Boiler Pressure upto 17.5 kg/cm2)"></asp:ListItem>
                                                             </asp:DropDownList>
                                                         </div>
                                                     </div>

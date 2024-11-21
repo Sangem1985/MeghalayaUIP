@@ -15,7 +15,8 @@
     <AssemblyName>MeghalayaUIP</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>true</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort>44379</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -2299,6 +2300,7 @@
     <Folder Include="Documents\Prerequistes\" />
     <Folder Include="Documents\Rules\" />
     <Folder Include="Documents\SOP\" />
+    <Folder Include="User\INCENTIVE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

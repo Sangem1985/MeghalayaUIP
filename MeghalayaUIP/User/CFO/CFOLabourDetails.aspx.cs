@@ -1552,7 +1552,7 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             { throw ex; }
-        }
+        }    
         public void DeleteFile(string strFileName)
         {
             if (strFileName.Trim().Length > 0)
