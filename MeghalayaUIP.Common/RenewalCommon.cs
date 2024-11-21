@@ -67,6 +67,10 @@ namespace MeghalayaUIP.Common
 
         public static string InsertPaymentDetails = "USP_INSRENPAYMENTDETAILS";
         public static string GetRENApprovalsAmounttoPay = "USP_GETRENAPPROVALSAMOUNTTOPAY";
+
+        public static string GetRENPaymentReceipt = "GET_RENPAYMENTRECEIPT";
+
+
     }
 
     public class RenPublicWorK

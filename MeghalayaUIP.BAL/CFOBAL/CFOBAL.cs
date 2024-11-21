@@ -241,5 +241,10 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.CFOENTERPRISETYPE(ANNUALTURNOVER);
         }
+
+        public DataSet GetCFOPaymentReceipt(string UnitId, string Createdby, string TransactionNo, string Uid)
+        {
+            return objCFODAL.GetCFOPaymentReceipt(UnitId, Createdby, TransactionNo, Uid);
+        }
     }
 }

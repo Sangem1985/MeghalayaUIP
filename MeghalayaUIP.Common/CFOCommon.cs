@@ -73,6 +73,9 @@ namespace MeghalayaUIP.Common
 
         public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
         public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
+
+        public static string GetCFOPaymentReceipt = "GET_CFOPAYMENTRECEIPT";
+
     }
     public class CFOExciseDetails
     {

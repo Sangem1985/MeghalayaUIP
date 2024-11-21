@@ -2532,5 +2532,42 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Dispose();
             }
         }
+
+        public DataSet GetRENPaymentReceipt(string unitId, string createdby, string transactionNo, string uid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENPaymentReceipt, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENPaymentReceipt;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UnitId", unitId);
+                da.SelectCommand.Parameters.AddWithValue("@Createdby", createdby);
+                da.SelectCommand.Parameters.AddWithValue("@TransactionNo", transactionNo);
+                da.SelectCommand.Parameters.AddWithValue("@UID", uid);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
+    
 }

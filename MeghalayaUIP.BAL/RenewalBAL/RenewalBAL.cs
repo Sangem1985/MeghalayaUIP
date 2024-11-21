@@ -203,5 +203,11 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetPaymentAmounttoPay(userid, UNITID);
         }
+
+        public DataSet GetCFOPaymentReceipt(string UnitId, string Createdby, string TransactionNo, string Uid)
+        {
+            return objRENDAL.GetRENPaymentReceipt(UnitId, Createdby, TransactionNo, Uid);
+        }
+
     }
 }

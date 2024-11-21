@@ -96,6 +96,8 @@ namespace MeghalayaUIP.Common
         public static string UpdateCFEDepartmentProcess = "USP_UPDATECFESCRUTINYACTION";
         public static string GetUnitDetailsforPayment = "USP_GET_UNIT_DTLS_PAYMENTPAGE";
         public static string GetPaymentOrderNo = "USP_GET_ORDERNO_BY_ORDERID";
+        public static string GetPreRegPaymentReceipt = "GET_CFEPAYMENTRECEIPT";
+
         ///END///
 
     }

@@ -12,6 +12,7 @@ using MeghalayaUIP.DAL.PreRegDAL;
 using System.Net.Http;
 using iText.Layout.Borders;
 using Org.BouncyCastle.Asn1.Ocsp;
+using Razorpay.Api;
 
 namespace MeghalayaUIP.BAL.CFEBLL
 {
@@ -283,5 +284,9 @@ namespace MeghalayaUIP.BAL.CFEBLL
             return objCFEDAL.GetPaymentOrderNo(OrderId);
         }
 
+        public DataSet GetPreRegPaymentReceipt(string UnitId, string Createdby, string TransactionNo, string Uid)
+        {
+            return objCFEDAL.GetPreRegPaymentReceipt(UnitId, Createdby, TransactionNo, Uid);
+        }
     }
 }

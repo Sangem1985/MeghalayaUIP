@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IndustryAckSlip.aspx.cs" Inherits="MeghalayaUIP.User.PreReg.IndustryAckSlip" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation="false"  CodeBehind="IndustryAckSlip.aspx.cs" Inherits="MeghalayaUIP.User.PreReg.IndustryAckSlip" %>
 
 <!DOCTYPE html>
 
@@ -53,14 +53,40 @@
                 line-height: 14px;
             }
     </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+<script>
+        function downloadPDF() {
+            var content = document.getElementById('ackcontent'); // Get the content to be converted
+
+            // Create a new jsPDF instance
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Convert the HTML content into PDF
+            doc.html(content, {
+                callback: function (doc) {
+                    // Save the generated PDF
+                    doc.save('application_acknowledgement.pdf');
+                },
+                margin: [10, 10, 10, 10], // Margin for the PDF
+                x: 10,
+                y: 10
+            });
+        }
+    </script>
+
+
 </head>
+
+
 <body>
     <form id="form1" runat="server">
         <div class="col-md-1 pb-2 pt-2">
             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back </asp:LinkButton>
         </div>
 
-        <div>
+        <div id="ackcontent" runat="server">
             <div class="page-wrapper" style="min-height: 293px;">
                 <div class="content container-fluid">
                     <!-- Invoice Container -->
@@ -161,10 +187,10 @@
 
                         <div class="col-md-12 d-flex" style="display: flex; width: 100%; flex-direction: row; flex-wrap: nowrap; justify-content: center;">
                             <div class="col-md-6" style="width: 10%;">
-                                <button id="btndownload" class="btn btn-sm btn-info">Download</button>
+                                <asp:button id="btndownload" runat="server" Text="Download"  class="btn btn-sm btn-info" OnClick="btndownload_Click"></asp:button>
                             </div>
                             <div class="col-md-6">
-                                <button id="btnprint" class="btn btn-sm btn-info">Print</button>
+                                <button id="btnprint" onclick="window.print()" class="btn btn-sm btn-info">Print</button>
                             </div>
                         </div>
 

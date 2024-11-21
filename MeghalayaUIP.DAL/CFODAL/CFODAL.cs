@@ -2809,5 +2809,41 @@ namespace MeghalayaUIP.DAL.CFODAL
             return Result;
         }
 
+        public DataSet GetCFOPaymentReceipt(string unitId, string createdby, string transactionNo, string uid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFOPaymentReceipt, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOPaymentReceipt;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UnitId", unitId);
+                da.SelectCommand.Parameters.AddWithValue("@Createdby", createdby);
+                da.SelectCommand.Parameters.AddWithValue("@TransactionNo", transactionNo);
+                da.SelectCommand.Parameters.AddWithValue("@UID", uid);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
+    
 }

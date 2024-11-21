@@ -704,6 +704,7 @@
     <Content Include="User\CFE\CFELabourDetails.aspx" />
     <Content Include="User\CFE\CFELineOfManufactureDetails.aspx" />
     <Content Include="User\CFE\CFEPaymentPage.aspx" />
+    <Content Include="User\CFE\CFEPaymentReceipt.aspx" />
     <Content Include="User\CFE\CFEPowerCEIGDetails.aspx" />
     <Content Include="User\CFE\CFEPowerDetails.aspx" />
     <Content Include="User\CFE\CFEProffessionalTax.aspx" />
@@ -728,6 +729,7 @@
     <Content Include="User\CFO\CFOLegalMeterology.aspx" />
     <Content Include="User\CFO\CFOLineOfManufactureDetails.aspx" />
     <Content Include="User\CFO\CFOPaymentPage.aspx" />
+    <Content Include="User\CFO\CFOPaymentReceipt.aspx" />
     <Content Include="User\CFO\CFOProffessionalTax.aspx" />
     <Content Include="User\CFO\CFOQueryDashBoard.aspx" />
     <Content Include="User\CFO\CFOQueryResponse.aspx" />
@@ -773,6 +775,7 @@
     <Content Include="User\Renewal\RENContractLabourDeatils.aspx" />
     <Content Include="User\Renewal\RENContractRegistationDetails.aspx" />
     <Content Include="User\Renewal\RENDrugsLicenseDetails.aspx" />
+    <Content Include="User\Renewal\RenewalPaymentReceipt.aspx" />
     <Content Include="User\Renewal\RenewalServices.aspx" />
     <Content Include="User\Renewal\RENFactoriesLicense.aspx" />
     <Content Include="User\Renewal\RENIndustryDetails.aspx" />
@@ -1615,6 +1618,13 @@
     <Compile Include="User\CFE\CFEPaymentPage.aspx.designer.cs">
       <DependentUpon>CFEPaymentPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFEPaymentReceipt.aspx.cs">
+      <DependentUpon>CFEPaymentReceipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEPaymentReceipt.aspx.designer.cs">
+      <DependentUpon>CFEPaymentReceipt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFEPowerCEIGDetails.aspx.cs">
       <DependentUpon>CFEPowerCEIGDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1782,6 +1792,13 @@
     </Compile>
     <Compile Include="User\CFO\CFOPaymentPage.aspx.designer.cs">
       <DependentUpon>CFOPaymentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOPaymentReceipt.aspx.cs">
+      <DependentUpon>CFOPaymentReceipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOPaymentReceipt.aspx.designer.cs">
+      <DependentUpon>CFOPaymentReceipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOProffessionalTax.aspx.cs">
       <DependentUpon>CFOProffessionalTax.aspx</DependentUpon>
@@ -2100,6 +2117,13 @@
     </Compile>
     <Compile Include="User\Renewal\RENDrugsLicenseDetails.aspx.designer.cs">
       <DependentUpon>RENDrugsLicenseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RenewalPaymentReceipt.aspx.cs">
+      <DependentUpon>RenewalPaymentReceipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RenewalPaymentReceipt.aspx.designer.cs">
+      <DependentUpon>RenewalPaymentReceipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RenewalServices.aspx.cs">
       <DependentUpon>RenewalServices.aspx</DependentUpon>

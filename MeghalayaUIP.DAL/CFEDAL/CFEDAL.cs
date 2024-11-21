@@ -10,6 +10,7 @@ using System.Data;
 using System.Globalization;
 using iText.Layout.Borders;
 using Org.BouncyCastle.Asn1.Ocsp;
+using Razorpay.Api;
 
 namespace MeghalayaUIP.DAL.CFEDAL
 {
@@ -3370,6 +3371,42 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@ORDERID", OrderId);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public DataSet GetPreRegPaymentReceipt(string UnitId,string Createdby,string TransactionNo,string Uid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetPreRegPaymentReceipt, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetPreRegPaymentReceipt;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UnitId", UnitId);
+                da.SelectCommand.Parameters.AddWithValue("@Createdby", Createdby);
+                da.SelectCommand.Parameters.AddWithValue("@TransactionNo", TransactionNo);
+                da.SelectCommand.Parameters.AddWithValue("@UID", Uid);
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
