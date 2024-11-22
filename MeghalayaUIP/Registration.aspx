@@ -101,7 +101,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" class="form-control" ID="txtcompanyname" onkeypress="return Names(this)"></asp:TextBox>
+                                                    <asp:TextBox runat="server" class="form-control" ID="txtcompanyname" onkeypress="return Names(this)" minlength="6"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +115,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" class="form-control" ID="txtName" onkeypress="return Names(this)"></asp:TextBox>
+                                                    <asp:TextBox runat="server" class="form-control" ID="txtName" onkeypress="return Names(this)" minlength="4"></asp:TextBox>
                                                 </div>
                                             </div>
 
