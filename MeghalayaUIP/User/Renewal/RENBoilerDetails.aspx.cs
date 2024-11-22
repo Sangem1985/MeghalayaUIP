@@ -17,7 +17,7 @@ namespace MeghalayaUIP.User.Renewal
 
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "";
+        string UnitID, ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -280,7 +280,7 @@ namespace MeghalayaUIP.User.Renewal
            // string Quesstionriids = "1001";
             try
             {
-                string result = "";
+                
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {

@@ -91,7 +91,7 @@ namespace MeghalayaUIP.Dept
             lblUser.InnerText = ObjUserInfo.UserName;
             if (ObjUserInfo.Roleid == "1")
                 lblrole.InnerText = "Invest Meghalaya Authority";
-            if (ObjUserInfo.Roleid == "4" || ObjUserInfo.Roleid == "8")
+            if (ObjUserInfo.Roleid == "4" || ObjUserInfo.Roleid == "8"|| ObjUserInfo.Roleid == "3"|| ObjUserInfo.Roleid == "2")
                 lblrole.InnerText = "Department";
             if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
                 lblrole.InnerText = "Committee Officer";
