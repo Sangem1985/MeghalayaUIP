@@ -425,7 +425,7 @@ namespace MeghalayaUIP.User.CFE
                     lbltotalEmp.Text = "Invalid input";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -459,7 +459,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEComn.PreRegUID = hdnPreRegUID.Value;
                     objCFEComn.IPAddress = getclientIP();
                     objCFEComn.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                    objCFEComn.CompanyName = txtIndustryName.Text.Trim() ;
+                    objCFEComn.CompanyName = txtIndustryName.Text.Trim();
                     objCFEComn.CompanyType = ddlCompanyType.SelectedValue;
                     objCFEComn.CompanyPraposal = rblproposal.SelectedValue;
 
@@ -675,7 +675,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Structural Engineer Mobile No\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtDevelopmentArea.Text) || txtDevelopmentArea.Text == "" || txtDevelopmentArea.Text == null  || txtDevelopmentArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDevelopmentArea.Text, @"^0+(\.0+)?$"))
+                if (string.IsNullOrEmpty(txtDevelopmentArea.Text) || txtDevelopmentArea.Text == "" || txtDevelopmentArea.Text == null || txtDevelopmentArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDevelopmentArea.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Area for Development(in Sq. mts) \\n";
                     slno = slno + 1;
@@ -796,10 +796,10 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if(ddlRegType.SelectedItem.Text.Trim() != "--Select--")
+                if (ddlRegType.SelectedItem.Text.Trim() != "--Select--")
                 {
                     txtUdyamorIEMNo.Enabled = true;
-                    lblregntype.InnerText ="5. "+ ddlRegType.SelectedItem.Text.Trim() + " No ";
+                    lblregntype.InnerText = "5. " + ddlRegType.SelectedItem.Text.Trim() + " No ";
                     txtUdyamorIEMNo.Text = "";
                 }
                 else
@@ -809,7 +809,7 @@ namespace MeghalayaUIP.User.CFE
                     txtUdyamorIEMNo.Text = "";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -829,7 +829,10 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                if (ex.Message != "Thread was being aborted.")
+                {
+                    MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                }
             }
 
         }

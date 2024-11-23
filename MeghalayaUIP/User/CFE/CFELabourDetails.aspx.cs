@@ -67,7 +67,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -579,7 +579,7 @@ namespace MeghalayaUIP.User.CFE
                                 hplForm5.Visible = true;
                                 hplForm5.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
                                 hplForm5.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFEA_FILENAME"]);
-                            }                            
+                            }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFEA_MASTERAID"]) == 18)
                             {
                                 hplForm8.Visible = true;
@@ -599,7 +599,7 @@ namespace MeghalayaUIP.User.CFE
                                 hplCrimeForm10.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFEA_FILENAME"]);
                             }
                             if (Convert.ToInt32(ds.Tables[3].Rows[i]["CFEA_MASTERAID"]) == 21)
-                            { 
+                            {
                                 hplEmployer.Visible = true;
                                 hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["FILELOCATION"]));
                                 hplEmployer.Text = Convert.ToString(ds.Tables[3].Rows[i]["CFEA_FILENAME"]);
@@ -637,7 +637,7 @@ namespace MeghalayaUIP.User.CFE
                             //hdnUserID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFEQDID"]);
 
                         }
-                       
+
                     }
                 }
 
@@ -1120,7 +1120,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplLicgrant.Text = fupLicgrant.PostedFile.FileName;
-                            hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hplLicgrant.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hplLicgrant.Target = "blank";
                             message = "alert('" + "License Grant Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1350,7 +1350,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplForm10.Text = fupForm10.PostedFile.FileName;
-                            hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objSitePlan.FilePath); 
+                            hplForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objSitePlan.FilePath);
                             hplForm10.Target = "blank";
                             message = "alert('" + "Form 10 Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1410,7 +1410,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplCrimeForm10.Text = fupCrimeForm10.PostedFile.FileName;
-                            hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objSitePlan.FilePath); 
+                            hplCrimeForm10.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objSitePlan.FilePath);
                             hplCrimeForm10.Target = "blank";
                             message = "alert('" + "Residence and Criminal antecedents issued by District Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1470,7 +1470,7 @@ namespace MeghalayaUIP.User.CFE
                         if (result != "")
                         {
                             hplEmployer.Text = fupemployer.PostedFile.FileName;
-                            hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objSitePlan.FilePath); 
+                            hplEmployer.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objSitePlan.FilePath);
                             hplEmployer.Target = "blank";
                             message = "alert('" + "Principle Employer Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -2050,7 +2050,10 @@ namespace MeghalayaUIP.User.CFE
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                if (ex.Message != "Thread was being aborted.")
+                {
+                    MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                }
             }
         }
 

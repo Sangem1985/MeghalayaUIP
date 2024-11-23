@@ -240,13 +240,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtPost;
 
         /// <summary>
-        /// TextBox11 control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox11;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
         /// txtMobileNo control.
@@ -267,13 +267,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtpincode;
 
         /// <summary>
-        /// txtArea control.
+        /// txtAreaoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtArea;
+        protected global::System.Web.UI.WebControls.TextBox txtAreaoffice;
 
         /// <summary>
         /// Label2 control.
@@ -285,13 +285,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
 
         /// <summary>
-        /// txtCDBlock control.
+        /// txtCDBlockoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCDBlock;
+        protected global::System.Web.UI.WebControls.TextBox txtCDBlockoffice;
 
         /// <summary>
         /// Label3 control.
@@ -303,49 +303,49 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label3;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtPostoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtPostoffice;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlDistrictoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDistrictoffice;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// ddlMandloffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMandloffice;
 
         /// <summary>
-        /// DropDownList3 control.
+        /// ddlVillageoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlVillageoffice;
 
         /// <summary>
-        /// txtEmailId control.
+        /// txtEmailoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailId;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailoffice;
 
         /// <summary>
         /// Label4 control.
@@ -357,31 +357,31 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label4;
 
         /// <summary>
-        /// TextBox2 control.
+        /// txtLandoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtLandoffice;
 
         /// <summary>
-        /// TextBox3 control.
+        /// txtPincodeoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtPincodeoffice;
 
         /// <summary>
-        /// TextBox5 control.
+        /// txtAreaReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox txtAreaReg;
 
         /// <summary>
         /// Label5 control.
@@ -393,13 +393,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label5;
 
         /// <summary>
-        /// TextBox6 control.
+        /// txtCDReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox txtCDReg;
 
         /// <summary>
         /// Label6 control.
@@ -411,49 +411,49 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label6;
 
         /// <summary>
-        /// TextBox7 control.
+        /// txtPostReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox txtPostReg;
 
         /// <summary>
-        /// DropDownList4 control.
+        /// ddlDistrictReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDistrictReg;
 
         /// <summary>
-        /// DropDownList5 control.
+        /// ddlMandlReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMandlReg;
 
         /// <summary>
-        /// DropDownList6 control.
+        /// ddlVillageReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList6;
+        protected global::System.Web.UI.WebControls.DropDownList ddlVillageReg;
 
         /// <summary>
-        /// TextBox9 control.
+        /// txtEmailReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailReg;
 
         /// <summary>
         /// Label7 control.
@@ -465,22 +465,22 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label7;
 
         /// <summary>
-        /// TextBox8 control.
+        /// txtLandReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+        protected global::System.Web.UI.WebControls.TextBox txtLandReg;
 
         /// <summary>
-        /// TextBox10 control.
+        /// txtPicReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.TextBox txtPicReg;
 
         /// <summary>
         /// txtLLP control.
@@ -501,13 +501,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtDirectors;
 
         /// <summary>
-        /// TextBox13 control.
+        /// txtNewUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox13;
+        protected global::System.Web.UI.WebControls.TextBox txtNewUnit;
 
         /// <summary>
         /// Label9 control.
@@ -600,40 +600,40 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
 
         /// <summary>
-        /// txtMale control.
+        /// txtexpansion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMale;
+        protected global::System.Web.UI.WebControls.TextBox txtexpansion;
 
         /// <summary>
-        /// txtFemale control.
+        /// txtAfter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFemale;
+        protected global::System.Web.UI.WebControls.TextBox txtAfter;
 
         /// <summary>
-        /// txtDirectOthers control.
+        /// txtPrior control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDirectOthers;
+        protected global::System.Web.UI.WebControls.TextBox txtPrior;
 
         /// <summary>
-        /// txtIndirectMale control.
+        /// txtdiversification control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIndirectMale;
+        protected global::System.Web.UI.WebControls.TextBox txtdiversification;
 
         /// <summary>
         /// btnAddLOM control.
@@ -654,13 +654,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.GridView gvTeamMembers;
 
         /// <summary>
-        /// txtUnitNew control.
+        /// txtUnitNew1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUnitNew;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitNew1;
 
         /// <summary>
         /// txtEMPart control.
@@ -798,40 +798,40 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// TextBox12 control.
+        /// txtFinancial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox12;
+        protected global::System.Web.UI.WebControls.TextBox txtFinancial;
 
         /// <summary>
-        /// TextBox14 control.
+        /// txtloanterm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox14;
+        protected global::System.Web.UI.WebControls.TextBox txtloanterm;
 
         /// <summary>
-        /// TextBox15 control.
+        /// txtletterno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox15;
+        protected global::System.Web.UI.WebControls.TextBox txtletterno;
 
         /// <summary>
-        /// TextBox16 control.
+        /// txtCapitalAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox16;
+        protected global::System.Web.UI.WebControls.TextBox txtCapitalAmount;
 
         /// <summary>
         /// btnbuttons control.
@@ -852,40 +852,40 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
-        /// TextBox17 control.
+        /// txtName21 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox17;
+        protected global::System.Web.UI.WebControls.TextBox txtName21;
 
         /// <summary>
-        /// TextBox18 control.
+        /// txtamounnt22 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox18;
+        protected global::System.Web.UI.WebControls.TextBox txtamounnt22;
 
         /// <summary>
-        /// TextBox19 control.
+        /// txtPan23 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox19;
+        protected global::System.Web.UI.WebControls.TextBox txtPan23;
 
         /// <summary>
-        /// TextBox20 control.
+        /// txtPayment24 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox20;
+        protected global::System.Web.UI.WebControls.TextBox txtPayment24;
 
         /// <summary>
         /// Button1 control.
@@ -906,40 +906,40 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.GridView GVequity;
 
         /// <summary>
-        /// TextBox21 control.
+        /// txtunsecured25 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox21;
+        protected global::System.Web.UI.WebControls.TextBox txtunsecured25;
 
         /// <summary>
-        /// TextBox22 control.
+        /// txtAmount26 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox22;
+        protected global::System.Web.UI.WebControls.TextBox txtAmount26;
 
         /// <summary>
-        /// TextBox23 control.
+        /// txtpan27 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox23;
+        protected global::System.Web.UI.WebControls.TextBox txtpan27;
 
         /// <summary>
-        /// TextBox24 control.
+        /// txtPayment28 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox24;
+        protected global::System.Web.UI.WebControls.TextBox txtPayment28;
 
         /// <summary>
         /// Button2 control.
@@ -996,166 +996,166 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPromotrs;
 
         /// <summary>
-        /// TextBox26 control.
+        /// txtunitnew29 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox26;
+        protected global::System.Web.UI.WebControls.TextBox txtunitnew29;
 
         /// <summary>
-        /// TextBox27 control.
+        /// txtLoad30 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox27;
+        protected global::System.Web.UI.WebControls.TextBox txtLoad30;
 
         /// <summary>
-        /// TextBox28 control.
+        /// txtLoadConn31 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox28;
+        protected global::System.Web.UI.WebControls.TextBox txtLoadConn31;
 
         /// <summary>
-        /// TextBox29 control.
+        /// txtCaptive32 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox29;
+        protected global::System.Web.UI.WebControls.TextBox txtCaptive32;
 
         /// <summary>
-        /// TextBox30 control.
+        /// txtundercase33 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox30;
+        protected global::System.Web.UI.WebControls.TextBox txtundercase33;
 
         /// <summary>
-        /// TextBox31 control.
+        /// txtpriorex34 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox31;
+        protected global::System.Web.UI.WebControls.TextBox txtpriorex34;
 
         /// <summary>
-        /// TextBox32 control.
+        /// txtloadadditional35 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox32;
+        protected global::System.Web.UI.WebControls.TextBox txtloadadditional35;
 
         /// <summary>
-        /// TextBox33 control.
+        /// txtLoadExpansion36 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox33;
+        protected global::System.Web.UI.WebControls.TextBox txtLoadExpansion36;
 
         /// <summary>
-        /// TextBox34 control.
+        /// txtPowerplant37 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox34;
+        protected global::System.Web.UI.WebControls.TextBox txtPowerplant37;
 
         /// <summary>
-        /// TextBox35 control.
+        /// txtRevenue38 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox35;
+        protected global::System.Web.UI.WebControls.TextBox txtRevenue38;
 
         /// <summary>
-        /// TextBox36 control.
+        /// txtPurchase39 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox36;
+        protected global::System.Web.UI.WebControls.TextBox txtPurchase39;
 
         /// <summary>
-        /// TextBox37 control.
+        /// txtRegistrer40 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox37;
+        protected global::System.Web.UI.WebControls.TextBox txtRegistrer40;
 
         /// <summary>
-        /// TextBox38 control.
+        /// txtAllotted41 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox38;
+        protected global::System.Web.UI.WebControls.TextBox txtAllotted41;
 
         /// <summary>
-        /// TextBox39 control.
+        /// txtPossession42 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox39;
+        protected global::System.Web.UI.WebControls.TextBox txtPossession42;
 
         /// <summary>
-        /// TextBox40 control.
+        /// txtleaseland43 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox40;
+        protected global::System.Web.UI.WebControls.TextBox txtleaseland43;
 
         /// <summary>
-        /// TextBox41 control.
+        /// txtPeriodlease44 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox41;
+        protected global::System.Web.UI.WebControls.TextBox txtPeriodlease44;
 
         /// <summary>
-        /// TextBox42 control.
+        /// txtBuilding45 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox42;
+        protected global::System.Web.UI.WebControls.TextBox txtBuilding45;
 
         /// <summary>
-        /// TextBox43 control.
+        /// txtownbuilt46 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox43;
+        protected global::System.Web.UI.WebControls.TextBox txtownbuilt46;
 
         /// <summary>
         /// GVGeneration control.
@@ -1167,31 +1167,31 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.GridView GVGeneration;
 
         /// <summary>
-        /// TextBox44 control.
+        /// txtEmployment51 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox44;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployment51;
 
         /// <summary>
-        /// TextBox45 control.
+        /// txtLocalTribe52 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox45;
+        protected global::System.Web.UI.WebControls.TextBox txtLocalTribe52;
 
         /// <summary>
-        /// TextBox46 control.
+        /// txtPercentTribals53 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox46;
+        protected global::System.Web.UI.WebControls.TextBox txtPercentTribals53;
 
         /// <summary>
         /// btnPreviuos control.
