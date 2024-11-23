@@ -752,7 +752,15 @@
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\HelpDesk\HelpDeskUserView.aspx" />
     <Content Include="User\HelpDesk\RegisterHelpDesk.aspx" />
+    <Content Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx" />
     <Content Include="User\INCENTIVE\IncentiveRegistration.aspx" />
+    <Content Include="User\INCENTIVE\INCInterestSubsidy.aspx" />
+    <Content Include="User\INCENTIVE\INCInvestmentSubsidy.aspx" />
+    <Content Include="User\INCENTIVE\INCPowerSubsidy.aspx" />
+    <Content Include="User\INCENTIVE\INCProjectReportSubsidy.aspx" />
+    <Content Include="User\INCENTIVE\INCQualityControlSubsidy.aspx" />
+    <Content Include="User\INCENTIVE\INCStampDutySubsidy.aspx" />
+    <Content Include="User\INCENTIVE\INCWomenandPHCIS.aspx" />
     <Content Include="User\LA\LAApplDetails.aspx" />
     <Content Include="User\LA\LAQuestionnaire.aspx" />
     <Content Include="User\LA\LAUserDashBoard.aspx" />
@@ -1959,12 +1967,68 @@
     <Compile Include="User\HelpDesk\RegisterHelpDesk.aspx.designer.cs">
       <DependentUpon>RegisterHelpDesk.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx.cs">
+      <DependentUpon>INCDevelopmentSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx.designer.cs">
+      <DependentUpon>INCDevelopmentSubsidy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\INCENTIVE\IncentiveRegistration.aspx.cs">
       <DependentUpon>IncentiveRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\INCENTIVE\IncentiveRegistration.aspx.designer.cs">
       <DependentUpon>IncentiveRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCInterestSubsidy.aspx.cs">
+      <DependentUpon>INCInterestSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCInterestSubsidy.aspx.designer.cs">
+      <DependentUpon>INCInterestSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCInvestmentSubsidy.aspx.cs">
+      <DependentUpon>INCInvestmentSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCInvestmentSubsidy.aspx.designer.cs">
+      <DependentUpon>INCInvestmentSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCPowerSubsidy.aspx.cs">
+      <DependentUpon>INCPowerSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCPowerSubsidy.aspx.designer.cs">
+      <DependentUpon>INCPowerSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCProjectReportSubsidy.aspx.cs">
+      <DependentUpon>INCProjectReportSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCProjectReportSubsidy.aspx.designer.cs">
+      <DependentUpon>INCProjectReportSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCQualityControlSubsidy.aspx.cs">
+      <DependentUpon>INCQualityControlSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCQualityControlSubsidy.aspx.designer.cs">
+      <DependentUpon>INCQualityControlSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCStampDutySubsidy.aspx.cs">
+      <DependentUpon>INCStampDutySubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCStampDutySubsidy.aspx.designer.cs">
+      <DependentUpon>INCStampDutySubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCWomenandPHCIS.aspx.cs">
+      <DependentUpon>INCWomenandPHCIS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCWomenandPHCIS.aspx.designer.cs">
+      <DependentUpon>INCWomenandPHCIS.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\LA\LAApplDetails.aspx.cs">
       <DependentUpon>LAApplDetails.aspx</DependentUpon>
