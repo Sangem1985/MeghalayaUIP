@@ -752,6 +752,7 @@
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\HelpDesk\HelpDeskUserView.aspx" />
     <Content Include="User\HelpDesk\RegisterHelpDesk.aspx" />
+    <Content Include="User\INCENTIVE\IncentiveEligibility.aspx" />
     <Content Include="User\INCENTIVE\IncentiveRegistration.aspx" />
     <Content Include="User\LA\LAApplDetails.aspx" />
     <Content Include="User\LA\LAQuestionnaire.aspx" />
@@ -1958,6 +1959,13 @@
     </Compile>
     <Compile Include="User\HelpDesk\RegisterHelpDesk.aspx.designer.cs">
       <DependentUpon>RegisterHelpDesk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\IncentiveEligibility.aspx.cs">
+      <DependentUpon>IncentiveEligibility.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\IncentiveEligibility.aspx.designer.cs">
+      <DependentUpon>IncentiveEligibility.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\INCENTIVE\IncentiveRegistration.aspx.cs">
       <DependentUpon>IncentiveRegistration.aspx</DependentUpon>
