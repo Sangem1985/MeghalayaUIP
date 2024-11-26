@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeghalayaUIP.CommonClass;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -136,6 +137,11 @@ namespace MeghalayaUIP
 
         protected void Application_Error(object sender, EventArgs e)
         {
+         
+
+            //Exception exmsg = Server.GetLastError();
+            //if (!Convert.ToString(exmsg).Contains("ErrorPage.aspx' does not exist."))
+            //    MGCommonClass.LogerrorDB(exmsg, HttpContext.Current.Request.Url.AbsoluteUri, "");
             string rawUrl = Request.RawUrl;
             if (rawUrl.Contains("<") || rawUrl.Contains(">") || !Request.Url.ToString().Contains(expectedHostPath))
             {
