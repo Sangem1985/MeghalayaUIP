@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="INCWomenandPHCIS.aspx.cs" Inherits="MeghalayaUIP.User.INCENTIVE.INCWomenandPHCIS" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="INCSubsidyOnPCM.aspx.cs" Inherits="MeghalayaUIP.User.INCENTIVE.INCSubsidyOnPCM" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -31,98 +31,107 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">8.State Capital Investment Subsidy for women & physically challenged persons </h4>
+                                    <h4 class="card-title">10.Subsidy on cost incurred on pollution control measure </h4>
                                 </div>
                                 <div class="card-body">
 
                                     <div class="row">
-                                        <h5 class="card-title ml-3 mt-3">State Capital Investment Subsidy for women & physically challenged persons  </h5>
+                                        <h5 class="card-title ml-3 mt-3">Subsidy on cost incurred on pollution control measure  </h5>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">8.1 Factory Building *</label>
+                                                    <label class="col-lg-6 col-form-label">10.1	A brief note on Pollution Control measure adopted *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtFactory" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSubsidycost" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(i)	Covered/plinth Area. *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtQuality" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(ii) 	Nature of construction. *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLaboratory" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
+                                        <h5 class="card-title ml-3 mt-3">10.2	Details of Machineries/Instruments installed	  </h5>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(iii)	Date/year of construction.	 *</label>
+                                                    <label class="col-lg-6 col-form-label">Name & specification of the Equipments for pollution control	 *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtNameEquip" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDetails" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(iv)	Investment as per the actual Evaluation Report.*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtApplication" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">8.2	Plant & Machinery *</label>
+                                                    <label class="col-lg-6 col-form-label">Date of purchase*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtDatePurchase" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Date of installation/commissioning  *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtDateComm" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Total investment in P & M (As per Annexure-A)	 *</label>
+                                                    <label class="col-lg-6 col-form-label">Name & address of supplier *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox1" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtName" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">8.3	Total investment in Factory Building and Plant & Machinery *</label>
+                                                    <label class="col-lg-6 col-form-label">Cost (in  ) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox2" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">8.4	Amount of subsidy claimed  *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox3" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtCost" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="col-md-12 d-flex justify-content-center">
+                                            <div class="col-md-4 text-center">
+                                                <asp:Button ID="btnbuttons" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex justify-content-center">
+                                            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                GridLines="None"
+                                                Width="100%" EnableModelValidation="True" Visible="false">
+                                                <RowStyle BackColor="#ffffff" />
+                                                <Columns>
+                                                    <asp:BoundField HeaderText="Name & specification of the Equipments for pollution control" DataField="MemberName" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                                    <asp:BoundField HeaderText="Date of purchase" DataField="Designation" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                                    <asp:BoundField HeaderText="Date of installation/commissioning " DataField="MemberName" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                                    <asp:BoundField HeaderText="Name & address of supplier" DataField="Designation" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                                     <asp:BoundField HeaderText="Cost (in  )" DataField="Designation" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                </Columns>
+                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                <AlternatingRowStyle BackColor="White" />
+                                            </asp:GridView>
+                                        </div>
+                                        <br />
+                                          <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">10.3	Amount of subsidy claimed  *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtAmount" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>                                          
+                                        </div>
 
                                         <h5 class="card-title ml-4 mt-3">Upload Document</h5>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(i)	Enclose copies of Bills/Money Receipts</label>
+                                                    <label class="col-lg-6 col-form-label">(i)	Energy Bills & Money Receipts to be enclosed</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupBillsMoney" runat="server" />
                                                     </div>
@@ -141,7 +150,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(ii)	Enclose copy of Valuation Report on cost of Factory Building by official of State PWD not below the rank of Assistant Executive Engineer</label>
+                                                    <label class="col-lg-6 col-form-label">(ii)	Expenditure should be certified by Chartered Accountant for units other than Micro Enterprise.</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupMicroEnterprise" runat="server" />
                                                     </div>
@@ -160,7 +169,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(iii) Enclose copy of Disability Certificate from Commissioner for Persons with Disability.</label>
+                                                    <label class="col-lg-6 col-form-label">(iii) List of employees verified by Enquiry Officer and endorsed/countersigned by General Manager.</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupemployees" runat="server" />
                                                     </div>
@@ -179,45 +188,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(iv)	Enclose Passport size Photograph.</label>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fuppassport" runat="server" />
-                                                    </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnpassport" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                    </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hyppassport" runat="server" Target="_blank"></asp:HyperLink>
-                                                    </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Label ID="lblpassport" runat="server" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(v)	List of employees verified by Enquiry Officer and endorsed/countersigned by General Manager.</label>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fupManager" runat="server" />
-                                                    </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnManager" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                    </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hypManager" runat="server" Target="_blank"></asp:HyperLink>
-                                                    </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Label ID="lblManager" runat="server" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(vi)	List of employees filed with EPF office, if applicable</label>
+                                                    <label class="col-lg-6 col-form-label">(iv)	List of employees filed with EPF office, if applicable</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupEmployeEPF" runat="server" />
                                                     </div>
@@ -232,7 +203,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>                                      
+                                       
 
 
                                         <div class="col-md-12 text-right mb-3">
@@ -261,9 +233,7 @@
             <asp:PostBackTrigger ControlID="btnBillsMoney" />
             <asp:PostBackTrigger ControlID="btnMicroEnterprise" />
             <asp:PostBackTrigger ControlID="btnemployees" />
-            <asp:PostBackTrigger ControlID="btnEmployeEPF" />
-            <asp:PostBackTrigger ControlID="btnpassport" />
-           <asp:PostBackTrigger ControlID="btnManager" />
+            <asp:PostBackTrigger ControlID="btnEmployeEPF" />           
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

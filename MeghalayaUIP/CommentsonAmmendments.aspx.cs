@@ -52,7 +52,14 @@ namespace MeghalayaUIP
                 lblDepatname.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_NAME"]);
                 lblAmendmentID.Text = Convert.ToString(Request.QueryString[0]);
                 lblDeptID.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_ID"]);
-                IframePanel.Attributes["src"] = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/").Replace(@"D:/InvestMegha/MeghalayaUIP/", @"~/");
+                string PathFile = dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"].ToString();
+                PathFile = PathFile.Replace("@\\", "/");
+                IframePanel.Attributes["src"] = "~/PdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(PathFile));
+               // Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/").Replace(@"D:/InvestMegha/MeghalayaUIP/", @"~/");
+
+                //hypLink.NavigateUrl = "~/PdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/"));
+                //hypLink.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]);
+
             }
             if (dsdepts != null && dsdepts.Tables.Count > 1 && dsdepts.Tables[1].Rows.Count > 0)
             {
@@ -112,11 +119,11 @@ namespace MeghalayaUIP
                     lblresult.Visible = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblerrMsg.Text = ex.Message;
                 //Failure.Visible = true;
-               // MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                // MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

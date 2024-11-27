@@ -177,6 +177,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtUnitName;
 
         /// <summary>
+        /// ddlcompanytype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlcompanytype;
+
+        /// <summary>
         /// txtLocality control.
         /// </summary>
         /// <remarks>
@@ -204,6 +213,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtBlock;
 
         /// <summary>
+        /// txtPost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPost;
+
+        /// <summary>
         /// ddlDistrict control.
         /// </summary>
         /// <remarks>
@@ -229,15 +247,6 @@ namespace MeghalayaUIP.User.INCENTIVE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlVillage;
-
-        /// <summary>
-        /// txtPost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPost;
 
         /// <summary>
         /// txtEmail control.
@@ -483,22 +492,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtPicReg;
 
         /// <summary>
-        /// txtLLP control.
+        /// gvPromoters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLLP;
-
-        /// <summary>
-        /// txtDirectors control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDirectors;
+        protected global::System.Web.UI.WebControls.GridView gvPromoters;
 
         /// <summary>
         /// txtNewUnit control.
@@ -672,13 +672,22 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtEMPart;
 
         /// <summary>
-        /// CalendarExtender4 control.
+        /// txtEMPartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender4;
+        protected global::System.Web.UI.WebControls.TextBox txtEMPartDate;
+
+        /// <summary>
+        /// CalendarExtender13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender13;
 
         /// <summary>
         /// txtIEMDate control.
@@ -690,13 +699,22 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtIEMDate;
 
         /// <summary>
-        /// CalendarExtender5 control.
+        /// IEMdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender5;
+        protected global::System.Web.UI.WebControls.TextBox IEMdate;
+
+        /// <summary>
+        /// CalendarExtender4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender4;
 
         /// <summary>
         /// txtCaseunder control.
@@ -717,13 +735,31 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtIEM;
 
         /// <summary>
-        /// CalendarExtender6 control.
+        /// txtRegPartNo2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender6;
+        protected global::System.Web.UI.WebControls.TextBox txtRegPartNo2;
+
+        /// <summary>
+        /// CalendarExtender5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender5;
+
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
         /// txtEligibility control.
@@ -780,22 +816,22 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRevenue;
 
         /// <summary>
-        /// grdRevenueProj control.
+        /// GVFiexed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdRevenueProj;
+        protected global::System.Web.UI.WebControls.GridView GVFiexed;
 
         /// <summary>
-        /// GridView1 control.
+        /// GVSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GVSource;
 
         /// <summary>
         /// txtFinancial control.
@@ -996,15 +1032,6 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPromotrs;
 
         /// <summary>
-        /// txtunitnew29 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtunitnew29;
-
-        /// <summary>
         /// txtLoad30 control.
         /// </summary>
         /// <remarks>
@@ -1086,6 +1113,33 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtRevenue38;
 
         /// <summary>
+        /// TextBox2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+
+        /// <summary>
+        /// TextBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+
+        /// <summary>
+        /// TextBox4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+
+        /// <summary>
         /// txtPurchase39 control.
         /// </summary>
         /// <remarks>
@@ -1093,6 +1147,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPurchase39;
+
+        /// <summary>
+        /// CalendarExtender8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender8;
 
         /// <summary>
         /// txtRegistrer40 control.
@@ -1104,6 +1167,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtRegistrer40;
 
         /// <summary>
+        /// CalendarExtender9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender9;
+
+        /// <summary>
         /// txtAllotted41 control.
         /// </summary>
         /// <remarks>
@@ -1111,6 +1183,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAllotted41;
+
+        /// <summary>
+        /// CalendarExtender11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender11;
 
         /// <summary>
         /// txtPossession42 control.
@@ -1122,6 +1203,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtPossession42;
 
         /// <summary>
+        /// CalendarExtender12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender12;
+
+        /// <summary>
         /// txtleaseland43 control.
         /// </summary>
         /// <remarks>
@@ -1129,6 +1219,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtleaseland43;
+
+        /// <summary>
+        /// CalendarExtender10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender10;
 
         /// <summary>
         /// txtPeriodlease44 control.
@@ -1147,6 +1246,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuilding45;
+
+        /// <summary>
+        /// TextBox5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox5;
 
         /// <summary>
         /// txtownbuilt46 control.

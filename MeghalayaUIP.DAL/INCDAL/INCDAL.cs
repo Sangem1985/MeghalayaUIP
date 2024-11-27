@@ -1,5 +1,9 @@
-﻿using System;
+﻿using MeghalayaUIP.Common;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,5 +12,102 @@ namespace MeghalayaUIP.DAL.INCDAL
 {
     public class INCDAL
     {
+        string connstr = ConfigurationManager.ConnectionStrings["MIPASS"].ToString();
+        public DataTable GetFixedCaptial()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(INCCommon.GetFixedCapitalInvestment, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = INCCommon.GetFixedCapitalInvestment;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.Fill(dt);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return dt;
+        }
+        public DataTable GetSourceFinance()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(INCCommon.GetSourceFinance, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = INCCommon.GetSourceFinance;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.Fill(dt);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return dt;
+        }
+        public DataTable GetEmploymentGeneration()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(INCCommon.GetEmploymenttype, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = INCCommon.GetEmploymenttype;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.Fill(dt);
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return dt;
+        }
     }
 }

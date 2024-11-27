@@ -752,14 +752,18 @@
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\HelpDesk\HelpDeskUserView.aspx" />
     <Content Include="User\HelpDesk\RegisterHelpDesk.aspx" />
+    <Content Include="User\INCENTIVE\INCBorderAreaSubsidy.aspx" />
+    <Content Include="User\INCENTIVE\INCCentralSalesTax.aspx" />
     <Content Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx" />
     <Content Include="User\INCENTIVE\IncentiveRegistration.aspx" />
+    <Content Include="User\INCENTIVE\INCForExportingUnits.aspx" />
     <Content Include="User\INCENTIVE\INCInterestSubsidy.aspx" />
     <Content Include="User\INCENTIVE\INCInvestmentSubsidy.aspx" />
     <Content Include="User\INCENTIVE\INCPowerSubsidy.aspx" />
     <Content Include="User\INCENTIVE\INCProjectReportSubsidy.aspx" />
     <Content Include="User\INCENTIVE\INCQualityControlSubsidy.aspx" />
     <Content Include="User\INCENTIVE\INCStampDutySubsidy.aspx" />
+    <Content Include="User\INCENTIVE\INCSubsidyOnPCM.aspx" />
     <Content Include="User\INCENTIVE\INCWomenandPHCIS.aspx" />
     <Content Include="User\LA\LAApplDetails.aspx" />
     <Content Include="User\LA\LAQuestionnaire.aspx" />
@@ -1967,6 +1971,20 @@
     <Compile Include="User\HelpDesk\RegisterHelpDesk.aspx.designer.cs">
       <DependentUpon>RegisterHelpDesk.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\INCENTIVE\INCBorderAreaSubsidy.aspx.cs">
+      <DependentUpon>INCBorderAreaSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCBorderAreaSubsidy.aspx.designer.cs">
+      <DependentUpon>INCBorderAreaSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCCentralSalesTax.aspx.cs">
+      <DependentUpon>INCCentralSalesTax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCCentralSalesTax.aspx.designer.cs">
+      <DependentUpon>INCCentralSalesTax.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx.cs">
       <DependentUpon>INCDevelopmentSubsidy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1980,6 +1998,13 @@
     </Compile>
     <Compile Include="User\INCENTIVE\IncentiveRegistration.aspx.designer.cs">
       <DependentUpon>IncentiveRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCForExportingUnits.aspx.cs">
+      <DependentUpon>INCForExportingUnits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCForExportingUnits.aspx.designer.cs">
+      <DependentUpon>INCForExportingUnits.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\INCENTIVE\INCInterestSubsidy.aspx.cs">
       <DependentUpon>INCInterestSubsidy.aspx</DependentUpon>
@@ -2022,6 +2047,13 @@
     </Compile>
     <Compile Include="User\INCENTIVE\INCStampDutySubsidy.aspx.designer.cs">
       <DependentUpon>INCStampDutySubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCSubsidyOnPCM.aspx.cs">
+      <DependentUpon>INCSubsidyOnPCM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCSubsidyOnPCM.aspx.designer.cs">
+      <DependentUpon>INCSubsidyOnPCM.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\INCENTIVE\INCWomenandPHCIS.aspx.cs">
       <DependentUpon>INCWomenandPHCIS.aspx</DependentUpon>

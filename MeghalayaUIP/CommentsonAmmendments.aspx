@@ -38,7 +38,9 @@
                                     <tr>
                                         <td style="width: 500px; border: 2px solid">
                                             <asp:Panel runat="server" ID="Panel1">
-                                                <iframe runat="server" id="IframePanel" width="500px" height="700px"></iframe>
+                                                 <iframe runat="server" id="IframePanel" width="500px" height="700px" title="Document Viewer"></iframe>
+
+                                            <%--    <asp:HyperLink ID="hypLink" runat="server" Text="View" Target="_blank" />--%>
                                             </asp:Panel>
                                         </td>
                                         <td style="width: 250px; border: 2px solid; vertical-align: top" id="tdComments" runat="server">

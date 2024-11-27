@@ -11,6 +11,11 @@
             margin-right: -21px;
             padding-left: 6px;
         }
+
+        .gridview-centered {
+            margin: auto;
+            text-align: center;
+        }
     </style>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -73,17 +78,30 @@
                                                     <div class="card-body" runat="server" id="divbasic">
                                                         <span class="icon"><i class="fi fi-br-caret-down"></i></span>
                                                     </div>
-                                                    <h4 class="card-title ml-3">1(a)Factory/Unit Address: </h4>
+                                                    <h4 class="card-title ml-3">1(a)Unit Address: </h4>
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    1.(b) Name of Unit</label>
+                                                                    Name of Unit</label>
                                                                 <div class="col-lg-6">
                                                                     <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()" TabIndex="1"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Company Type <span class="star">*</span></label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:DropDownList ID="ddlcompanytype" runat="server" class="form-control" TabIndex="1">
+                                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h4 class="card-title ml-3">1(b)Factory/Unit Address: </h4>
+                                                    <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Area/Locality *</label>
@@ -101,6 +119,14 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Post Office</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox ID="txtPost" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
@@ -110,7 +136,7 @@
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select District" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -120,7 +146,7 @@
                                                                 <label class="col-lg-6 col-form-label">Mandal</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlMandal" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Mandal" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -130,21 +156,13 @@
                                                                 <label class="col-lg-6 col-form-label">Village</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlVillage" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Village" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Post Office</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox ID="txtPost" runat="server" class="form-control" Type="text"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">E-Mail ID*</label>
@@ -162,8 +180,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Pincode *</label>
@@ -173,6 +189,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex">
                                                     </div>
                                                     <h4 class="card-title ml-3">(C) Office Address: </h4>
 
@@ -210,7 +228,7 @@
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlDistrictoffice" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select District" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -220,7 +238,7 @@
                                                                 <label class="col-lg-6 col-form-label">Mandal</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlMandloffice" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Mandal" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -230,7 +248,7 @@
                                                                 <label class="col-lg-6 col-form-label">Village</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlVillageoffice" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Village" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -300,7 +318,7 @@
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlDistrictReg" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select District" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -310,7 +328,7 @@
                                                                 <label class="col-lg-6 col-form-label">Mandal</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlMandlReg" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Mandal" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -320,7 +338,7 @@
                                                                 <label class="col-lg-6 col-form-label">Village</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlVillageReg" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Village" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -358,8 +376,8 @@
                                                     <div class="col-md-12 d-flex">
                                                         <h4 class="card-title ml-3">2.Constitution of the unit: </h4>
                                                     </div>
-                                                    <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
+                                                    <%-- <div class="col-md-12 d-flex">
+                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">(a).proprietorial/Partnership/ Private limited/Limited Company/Cooperative society/LLP *</label>
                                                                 <div class="col-lg-6 d-flex">
@@ -375,6 +393,52 @@
                                                                     <asp:TextBox ID="txtDirectors" runat="server" class="form-control" onkeypress="return validateNames(event)" TabIndex="1"></asp:TextBox>
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                    </div>--%>
+                                                    <div class="col-md-12 d-flex">
+                                                        <div class="table-responsive">
+                                                            <asp:GridView ID="gvPromoters" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="5" CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
+                                                                GridLines="None"
+                                                                AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
+                                                                Width="140%" EnableModelValidation="True" Visible="false">
+                                                                <RowStyle BackColor="#ffffff" />
+
+                                                                <Columns>
+
+                                                                    <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-CssClass="btn btn-rounded btn-danger1" ItemStyle-VerticalAlign="Middle" ItemStyle-Wrap="true" ItemStyle-ForeColor="White" />
+                                                                    <asp:BoundField HeaderText="DIRECTOR_NO" DataField="IDD_DIRECTOR_NO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" Visible="false" />
+                                                                    <asp:BoundField HeaderText="UNITID" DataField="IDD_UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" Visible="false" />
+                                                                    <asp:BoundField HeaderText="INVESTERID" DataField="IDD_INVESTERID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" Visible="false" />
+                                                                    <asp:BoundField HeaderText="First Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Last Name" DataField="IDD_LASTNAME" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+
+                                                                    <asp:TemplateField HeaderText="Year 5" ItemStyle-Width="150px">
+                                                                        <ItemTemplate>
+                                                                            <asp:Label ID="lblAadhar" runat="server" Text='<%# Eval("IDD_ADNO") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                    <%--<asp:BoundField HeaderText="Aadhar No." DataField="IDD_ADNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />--%>
+                                                                    <asp:BoundField HeaderText="PAN No." DataField="IDD_PAN" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="DIN No." DataField="IDD_DINNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Nationality" DataField="IDD_NATIONALITY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+
+                                                                    <asp:BoundField HeaderText="Door No." DataField="IDD_DOORNO" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Street" DataField="IDD_STREET" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Country" DataField="IDD_COUNTRYName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="State" DataField="IDD_STATEName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="District" DataField="IDD_DISTRICTName" ItemStyle-Width="300px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Mandal" DataField="IDD_MANDALName" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Village" DataField="IDD_CITYName" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+
+                                                                    <asp:BoundField HeaderText="Pincode" DataField="IDD_PINCODE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="E-mail" DataField="IDD_EMAIL" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Mobile" DataField="IDD_PHONE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+
+                                                                </Columns>
+                                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+
+                                                            </asp:GridView>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
@@ -526,26 +590,46 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">(i) EM Part II No. & date	</label>
+                                                                <label class="col-lg-6 col-form-label">(i) EM Part II No	</label>
                                                                 <div class="col-lg-6">
-                                                                    <asp:TextBox ID="txtEMPart" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
-                                                                    <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="txtEMPart"></cc1:CalendarExtender>
-                                                                    <i class="fi fi-rr-calendar-lines"></i>
+                                                                    <asp:TextBox ID="txtEMPart" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">(ii) IEM No. & date</label>
+                                                                <label class="col-lg-6 col-form-label">EM Part date	</label>
                                                                 <div class="col-lg-6">
-                                                                    <asp:TextBox ID="txtIEMDate" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
-                                                                    <cc1:CalendarExtender ID="CalendarExtender5" runat="server" Format="dd-MM-yyyy" TargetControlID="txtIEMDate"></cc1:CalendarExtender>
+                                                                    <asp:TextBox ID="txtEMPartDate" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
+                                                                    <cc1:CalendarExtender ID="CalendarExtender13" runat="server" Format="dd-MM-yyyy" TargetControlID="txtEMPartDate"></cc1:CalendarExtender>
                                                                     <i class="fi fi-rr-calendar-lines"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
+
+
                                                     </div>
                                                     <div class="col-md-12 d-flex">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">(ii) IEM No.</label>
+                                                                <div class="col-lg-6">
+                                                                    <asp:TextBox ID="txtIEMDate" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">(ii) IEM date</label>
+                                                                <div class="col-lg-6">
+                                                                    <asp:TextBox ID="IEMdate" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
+                                                                    <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="IEMdate"></cc1:CalendarExtender>
+                                                                    <i class="fi fi-rr-calendar-lines"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">b. In case of existing unit undergoing expansion</label>
@@ -554,23 +638,48 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                    </div>
+                                                    <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">
-                                                                    (i) Permanent (PMT) Registration/IEM/EM Part II No & date
+                                                                    (i) Permanent (PMT) Registration/IEM/EM Part II No
                                                                 </label>
                                                                 <div class="col-lg-6">
-                                                                    <asp:TextBox ID="txtIEM" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
-                                                                    <cc1:CalendarExtender ID="CalendarExtender6" runat="server" Format="dd-MM-yyyy" TargetControlID="txtIEM"></cc1:CalendarExtender>
+                                                                    <asp:TextBox ID="txtIEM" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">
+                                                                    (PMT) Registration/IEM/EM Part II No & date
+                                                                </label>
+                                                                <div class="col-lg-6">
+                                                                    <asp:TextBox ID="txtRegPartNo2" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
+                                                                    <cc1:CalendarExtender ID="CalendarExtender5" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegPartNo2"></cc1:CalendarExtender>
                                                                     <i class="fi fi-rr-calendar-lines"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-12 d-flex">
+                                                        <h4 class="card-title ml-3">6.Eligibility Certificate & Date: </h4>
+                                                    </div>
                                                     <div class="col-md-12 d-flex mt-2">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">6.	Eligibility Certificate No. & date </label>
+                                                                <label class="col-lg-6 col-form-label">Eligibility Certificate No.</label>
+                                                                <div class="col-lg-6">
+                                                                    <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Eligibility date </label>
                                                                 <div class="col-lg-6">
                                                                     <asp:TextBox ID="txtEligibility" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
                                                                     <cc1:CalendarExtender ID="CalendarExtender7" runat="server" Format="dd-MM-yyyy" TargetControlID="txtEligibility"></cc1:CalendarExtender>
@@ -596,7 +705,7 @@
                                                         <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Fixed Capital Investment</h4>
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="false">
+                                                                <asp:GridView ID="GVFiexed" runat="server" AutoGenerateColumns="false">
                                                                     <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                                     <RowStyle CssClass="GridviewScrollC1Item" />
                                                                     <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
@@ -610,15 +719,10 @@
                                                                             <HeaderStyle HorizontalAlign="Center" />
                                                                             <ItemStyle Width="50px" />
                                                                         </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="ID" Visible="false">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblMRPID" runat="server" Text='<%# Eval("MRPID") %>'></asp:Label>
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Particulars" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                             <ItemTemplate>
                                                                                 <itemstyle horizontalalign="Center" />
-                                                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
+                                                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("PARAMETER_NAME") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <%-- <asp:BoundField DataField="MRP_DESECRIPTION" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" HeaderText="Item Description " ItemStyle-Width="250px">
@@ -644,18 +748,19 @@
                                                                                 <asp:TextBox ID="txtAfterExpansion" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Total" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
+                                                                        <%--  <asp:TemplateField HeaderText="Total" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                             <ItemTemplate>
                                                                                 <itemstyle horizontalalign="Center" />
                                                                                 <asp:Label ID="lblTotal" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
                                                                             </ItemTemplate>
-                                                                        </asp:TemplateField>
+                                                                        </asp:TemplateField>--%>
                                                                     </Columns>
                                                                 </asp:GridView>
                                                             </div>
-
-                                                            <div class="col-md-12">
-                                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+                                                            <br />
+                                                            <h4 class="card-title ml-3">7(a).Source of finance </h4>
+                                                            <div class="col-md-12 d-flex justify-content-center">
+                                                                <asp:GridView ID="GVSource" runat="server" AutoGenerateColumns="false">
                                                                     <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                                     <RowStyle CssClass="GridviewScrollC1Item" />
                                                                     <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
@@ -668,33 +773,33 @@
                                                                                 <asp:HiddenField ID="HdfApprovalid" runat="server" />
                                                                             </ItemTemplate>
                                                                             <HeaderStyle HorizontalAlign="Center" />
-                                                                            <ItemStyle Width="50px" />
+                                                                            <ItemStyle Width="70px" />
                                                                         </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="ID" Visible="false">
+                                                                        <%--      <asp:TemplateField HeaderText="ID" Visible="false">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblMRPID" runat="server" Text='<%# Eval("MRPID") %>'></asp:Label>
                                                                             </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Source of finance" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
+                                                                        </asp:TemplateField>--%>
+                                                                        <asp:TemplateField HeaderText="Source of finance" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                                             <ItemTemplate>
                                                                                 <itemstyle horizontalalign="Center" />
-                                                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
+                                                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("PARAMETER_NAME") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <%-- <asp:BoundField DataField="MRP_DESECRIPTION" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" HeaderText="Item Description " ItemStyle-Width="250px">
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                 </asp:BoundField>--%>
-                                                                        <asp:TemplateField HeaderText="(in  )" ItemStyle-Width="150px">
+                                                                        <asp:TemplateField HeaderText="(in  )" ItemStyle-Width="180px">
                                                                             <ItemTemplate>
-                                                                                <asp:TextBox ID="txtYear1" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtSource" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Total" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
+                                                                        <%-- <asp:TemplateField HeaderText="Total" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                             <ItemTemplate>
                                                                                 <itemstyle horizontalalign="Center" />
                                                                                 <asp:Label ID="lblTotal" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
                                                                             </ItemTemplate>
-                                                                        </asp:TemplateField>
+                                                                        </asp:TemplateField>--%>
                                                                     </Columns>
                                                                 </asp:GridView>
                                                             </div>
@@ -891,7 +996,7 @@
                                                         <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">9. Power</h4>
                                                         <div class="row">
                                                             <%--   <h4 class="card-title ml-3">9.Power: </h4>--%>
-
+                                                            <h4 class="card-title ml-3">(A).In case of new units </h4>
                                                             <div class="col-md-12 d-flex">
                                                                 <%--  <div class="col-md-4">
                                                                     <div class="form-group row">
@@ -901,14 +1006,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>--%>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">(A).In case of new units</label>
-                                                                        <div class="col-lg-6">
-                                                                            <asp:TextBox ID="txtunitnew29" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">(i). Sanctioned load </label>
@@ -925,9 +1022,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-12 d-flex">
-
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">(iii).Capacity of captive power plant (if any)	</label>
@@ -987,7 +1081,7 @@
                                                             <div class="col-md-12 d-flex">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">(i)	Land area, Revenue village, Dag No.& patta No.</label>
+                                                                        <label class="col-lg-6 col-form-label">(i)	Land area</label>
                                                                         <div class="col-lg-6">
                                                                             <asp:TextBox ID="txtRevenue38" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
                                                                         </div>
@@ -995,9 +1089,37 @@
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">Revenue village</label>
+                                                                        <div class="col-lg-6">
+                                                                            <asp:TextBox ID="TextBox2" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">Dag No.</label>
+                                                                        <div class="col-lg-6">
+                                                                            <asp:TextBox ID="TextBox3" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 d-flex">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">patta No.</label>
+                                                                        <div class="col-lg-6">
+                                                                            <asp:TextBox ID="TextBox4" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">(ii).Date of purchase	</label>
                                                                         <div class="col-lg-6">
-                                                                            <asp:TextBox ID="txtPurchase39" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                            <asp:TextBox ID="txtPurchase39" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" TabIndex="1" MaxLength="10" onblur="validateDateFormat(this)"></asp:TextBox>
+                                                                            <cc1:CalendarExtender ID="CalendarExtender8" runat="server" Format="dd-MM-yyyy" TargetControlID="txtPurchase39"></cc1:CalendarExtender>
+                                                                            <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1005,7 +1127,9 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">(iii).Date of registration	</label>
                                                                         <div class="col-lg-6">
-                                                                            <asp:TextBox ID="txtRegistrer40" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                            <asp:TextBox ID="txtRegistrer40" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" TabIndex="1" MaxLength="10" onblur="validateDateFormat(this)"></asp:TextBox>
+                                                                            <cc1:CalendarExtender ID="CalendarExtender9" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegistrer40"></cc1:CalendarExtender>
+                                                                            <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1017,7 +1141,9 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">(i)	Date of allotment/agreement</label>
                                                                         <div class="col-lg-6">
-                                                                            <asp:TextBox ID="txtAllotted41" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                            <asp:TextBox ID="txtAllotted41" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" TabIndex="1" MaxLength="10" onblur="validateDateFormat(this)"></asp:TextBox>
+                                                                            <cc1:CalendarExtender ID="CalendarExtender11" runat="server" Format="dd-MM-yyyy" TargetControlID="txtAllotted41"></cc1:CalendarExtender>
+                                                                            <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1025,7 +1151,9 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">(ii).Date of taking over possession		</label>
                                                                         <div class="col-lg-6">
-                                                                            <asp:TextBox ID="txtPossession42" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                            <asp:TextBox ID="txtPossession42" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" TabIndex="1" MaxLength="10" onblur="validateDateFormat(this)"></asp:TextBox>
+                                                                            <cc1:CalendarExtender ID="CalendarExtender12" runat="server" Format="dd-MM-yyyy" TargetControlID="txtPossession42"></cc1:CalendarExtender>
+                                                                            <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1037,7 +1165,9 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">(i)	Date of lease of land</label>
                                                                         <div class="col-lg-6">
-                                                                            <asp:TextBox ID="txtleaseland43" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                            <asp:TextBox ID="txtleaseland43" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" TabIndex="1" MaxLength="10" onblur="validateDateFormat(this)"></asp:TextBox>
+                                                                            <cc1:CalendarExtender ID="CalendarExtender10" runat="server" Format="dd-MM-yyyy" TargetControlID="txtleaseland43"></cc1:CalendarExtender>
+                                                                            <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1055,9 +1185,17 @@
                                                             <div class="col-md-12 d-flex">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">(a)	Own building/rented building</label>
+                                                                        <label class="col-lg-6 col-form-label">(a)	Own building</label>
                                                                         <div class="col-lg-6">
                                                                             <asp:TextBox ID="txtBuilding45" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">rented building</label>
+                                                                        <div class="col-lg-6">
+                                                                            <asp:TextBox ID="TextBox5" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1095,7 +1233,7 @@
                                                                         <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                             <ItemTemplate>
                                                                                 <itemstyle horizontalalign="Center" />
-                                                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
+                                                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("PARAMETER_NAME") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Few new unit" ItemStyle-Width="150px">
@@ -1121,7 +1259,8 @@
                                                                     </Columns>
                                                                 </asp:GridView>
                                                             </div>
-
+                                                            <br />
+                                                            <br />
                                                             <div class="col-md-12 d-flex">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">

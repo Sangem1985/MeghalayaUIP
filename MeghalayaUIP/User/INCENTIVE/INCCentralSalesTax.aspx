@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="INCWomenandPHCIS.aspx.cs" Inherits="MeghalayaUIP.User.INCENTIVE.INCWomenandPHCIS" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="INCCentralSalesTax.aspx.cs" Inherits="MeghalayaUIP.User.INCENTIVE.INCCentralSalesTax" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+      <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
@@ -31,16 +30,16 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">8.State Capital Investment Subsidy for women & physically challenged persons </h4>
+                                    <h4 class="card-title">9.Refund of Central Sales Tax  </h4>
                                 </div>
                                 <div class="card-body">
 
                                     <div class="row">
-                                        <h5 class="card-title ml-3 mt-3">State Capital Investment Subsidy for women & physically challenged persons  </h5>
+                                        <h5 class="card-title ml-3 mt-3">Refund of Central Sales Tax   </h5>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">8.1 Factory Building *</label>
+                                                    <label class="col-lg-6 col-form-label">9.1 Details of claim for refund of CST : As per Annexure-E *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtFactory" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
@@ -48,7 +47,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(i)	Covered/plinth Area. *</label>
+                                                    <label class="col-lg-6 col-form-label">9.2 Amount incurred on machinery/equipments as on the date of commissioning of the Plant *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtQuality" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
@@ -56,7 +55,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(ii) 	Nature of construction. *</label>
+                                                    <label class="col-lg-6 col-form-label">9.3 Amount of CST paid machinery/equipments as on the date of commissioning of the Plant  *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtLaboratory" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
@@ -67,62 +66,19 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(iii)	Date/year of construction.	 *</label>
+                                                    <label class="col-lg-6 col-form-label">9.4 Amount of CST claimed for refund	 *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtNameEquip" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(iv)	Investment as per the actual Evaluation Report.*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtApplication" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">8.2	Plant & Machinery *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtDatePurchase" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Total investment in P & M (As per Annexure-A)	 *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox1" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">8.3	Total investment in Factory Building and Plant & Machinery *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox2" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">8.4	Amount of subsidy claimed  *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox3" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                            </div>                                          
+                                        </div>                                    
 
                                         <h5 class="card-title ml-4 mt-3">Upload Document</h5>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(i)	Enclose copies of Bills/Money Receipts</label>
+                                                    <label class="col-lg-6 col-form-label">(i) Bills & Money Receipts to be enclosed</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupBillsMoney" runat="server" />
                                                     </div>
@@ -141,7 +97,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(ii)	Enclose copy of Valuation Report on cost of Factory Building by official of State PWD not below the rank of Assistant Executive Engineer</label>
+                                                    <label class="col-lg-6 col-form-label">(ii)	Expenditure should be certified by Chartered Accountant for units other than Micro Enterprise.</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupMicroEnterprise" runat="server" />
                                                     </div>
@@ -160,7 +116,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(iii) Enclose copy of Disability Certificate from Commissioner for Persons with Disability.</label>
+                                                    <label class="col-lg-6 col-form-label">(iii) List of employees verified by Enquiry Officer and endorsed/countersigned by General Manager.</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupemployees" runat="server" />
                                                     </div>
@@ -179,45 +135,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(iv)	Enclose Passport size Photograph.</label>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fuppassport" runat="server" />
-                                                    </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnpassport" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                    </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hyppassport" runat="server" Target="_blank"></asp:HyperLink>
-                                                    </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Label ID="lblpassport" runat="server" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(v)	List of employees verified by Enquiry Officer and endorsed/countersigned by General Manager.</label>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fupManager" runat="server" />
-                                                    </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnManager" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                    </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hypManager" runat="server" Target="_blank"></asp:HyperLink>
-                                                    </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Label ID="lblManager" runat="server" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(vi)	List of employees filed with EPF office, if applicable</label>
+                                                    <label class="col-lg-6 col-form-label">(iv)	List of employees filed with EPF office, if applicable</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupEmployeEPF" runat="server" />
                                                     </div>
@@ -233,6 +151,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                       
 
 
                                         <div class="col-md-12 text-right mb-3">
@@ -261,9 +180,7 @@
             <asp:PostBackTrigger ControlID="btnBillsMoney" />
             <asp:PostBackTrigger ControlID="btnMicroEnterprise" />
             <asp:PostBackTrigger ControlID="btnemployees" />
-            <asp:PostBackTrigger ControlID="btnEmployeEPF" />
-            <asp:PostBackTrigger ControlID="btnpassport" />
-           <asp:PostBackTrigger ControlID="btnManager" />
+            <asp:PostBackTrigger ControlID="btnEmployeEPF" />           
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>
