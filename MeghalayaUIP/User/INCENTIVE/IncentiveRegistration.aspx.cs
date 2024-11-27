@@ -319,6 +319,32 @@ namespace MeghalayaUIP.User.INCENTIVE
                     errormsg = errormsg + slno + ". Please Enter case of New unit...! \\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(txtEMPartDate.Text) || txtEMPartDate.Text == "" || txtEMPartDate.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter EM Part date...! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtIEMDate.Text) || txtIEMDate.Text == "" || txtIEMDate.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter IEM No...! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(IEMdate.Text) || IEMdate.Text == "" || IEMdate.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter IEM date...! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtCaseunder.Text) || txtCaseunder.Text == "" || txtCaseunder.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter existing unit undergoing expansion...! \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtIEM.Text) || txtIEM.Text == "" || txtIEM.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Permanent (PMT) Registration/IEM/EM Part II No...! \\n";
+                    slno = slno + 1;
+                }
+
 
                 return errormsg;
             }

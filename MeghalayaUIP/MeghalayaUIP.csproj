@@ -1988,6 +1988,8 @@
     </Compile>
     <Compile Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx.cs">
       <DependentUpon>INCDevelopmentSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="User\INCENTIVE\INCEligibility.aspx.cs">
       <DependentUpon>INCEligibility.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
