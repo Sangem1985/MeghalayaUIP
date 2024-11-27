@@ -755,6 +755,7 @@
     <Content Include="User\INCENTIVE\INCBorderAreaSubsidy.aspx" />
     <Content Include="User\INCENTIVE\INCCentralSalesTax.aspx" />
     <Content Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx" />
+    <Content Include="User\INCENTIVE\INCEligibility.aspx" />
     <Content Include="User\INCENTIVE\IncentiveRegistration.aspx" />
     <Content Include="User\INCENTIVE\INCForExportingUnits.aspx" />
     <Content Include="User\INCENTIVE\INCInterestSubsidy.aspx" />
@@ -1987,10 +1988,12 @@
     </Compile>
     <Compile Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx.cs">
       <DependentUpon>INCDevelopmentSubsidy.aspx</DependentUpon>
+    <Compile Include="User\INCENTIVE\INCEligibility.aspx.cs">
+      <DependentUpon>INCEligibility.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx.designer.cs">
-      <DependentUpon>INCDevelopmentSubsidy.aspx</DependentUpon>
+    <Compile Include="User\INCENTIVE\INCEligibility.aspx.designer.cs">
+      <DependentUpon>INCEligibility.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\INCENTIVE\IncentiveRegistration.aspx.cs">
       <DependentUpon>IncentiveRegistration.aspx</DependentUpon>
