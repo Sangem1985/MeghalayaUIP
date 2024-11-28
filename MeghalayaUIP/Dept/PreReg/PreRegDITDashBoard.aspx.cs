@@ -118,12 +118,24 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblForwardedDEPTQUERY.Text = dt.Rows[0]["DCSENTBACK"].ToString();
                 lblReceivedDEPT.Text = dt.Rows[0]["DCRECEIVED"].ToString();
 
-                string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
-                if (ObjUserInfo.Roleid == "4" || allowedUserIDs.Contains(ObjUserInfo.UserID))
+                //string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
+                //if (ObjUserInfo.Roleid == "4" || allowedUserIDs.Contains(ObjUserInfo.UserID))
+                //{
+                //    Received.Visible = true;
+                //    Sent.Visible = true;
+                //}
+                if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                {
+                    ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                }
+                if (Convert.ToString(ObjUserInfo.DistrictId) != "")
                 {
                     Received.Visible = true;
                     Sent.Visible = true;
+
                 }
+
+
             }
             catch (Exception ex)
             {

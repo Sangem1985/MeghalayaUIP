@@ -996,13 +996,13 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Button btnupldDCReport;
 
         /// <summary>
-        /// HyperLink2 control.
+        /// hypAttachment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.HyperLink hypAttachment;
 
         /// <summary>
         /// ddlDCOffice control.

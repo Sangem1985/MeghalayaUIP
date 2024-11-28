@@ -1245,7 +1245,7 @@
                                                                 <br />
                                                                 <asp:Button runat="server" ID="btnupldDCReport" Text="Upload" class="btn btn-dark btn-rounded" Height="35px" Width="110px" OnClick="btnupldDCReport_Click" /><br />
                                                                 <br />
-                                                                <asp:HyperLink ID="HyperLink2" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
+                                                                <asp:HyperLink ID="hypAttachment" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                                             </div>
                                                         </div>
                                                     </div>

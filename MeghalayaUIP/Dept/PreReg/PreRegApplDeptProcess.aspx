@@ -1326,7 +1326,7 @@
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:DropDownList ID="ddlOfcr" runat="server" class="form-control">
                                                                     <asp:ListItem>Forward to DC Officer</asp:ListItem>
-                                                                </asp:DropDownList>
+                                                                </asp:DropDownList>Send Response to IMA
                                                             </div>
                                                         </div>
                                                     </div>

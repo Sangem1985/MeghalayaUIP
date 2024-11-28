@@ -60,5 +60,7 @@ namespace MeghalayaUIP.Common
         public string UserStatus { get; set; }
         public string Roleid { get; set; } 
         public string Deptid { get; set; }
+        public string DistrictId { get; set; }
+
     }
 }

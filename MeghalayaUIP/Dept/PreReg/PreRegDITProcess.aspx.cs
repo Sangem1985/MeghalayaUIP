@@ -261,7 +261,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                 else
                                 {
                                     verifypanelAttachment.Visible = false;
-                                    QueryResondpanel.Visible = true;
+                                    //QueryResondpanel.Visible = true;
                                 }
                             }
                             else
@@ -778,11 +778,11 @@ namespace MeghalayaUIP.Dept.PreReg
                                 if (result > 0)
                                 {
                                     lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
-                                    hplAttachment.Text = fupDCReport.FileName;
-                                    hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objattachments.Filepath);
+                                    hypAttachment.Text = fupDCReport.FileName;
+                                    hypAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objattachments.Filepath);
 
                                     //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + ViewState["UNITID"].ToString() + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
-                                    hplAttachment.Visible = true;
+                                    hypAttachment.Visible = true;
                                     success.Visible = true;
                                     Failure.Visible = false;
                                 }
