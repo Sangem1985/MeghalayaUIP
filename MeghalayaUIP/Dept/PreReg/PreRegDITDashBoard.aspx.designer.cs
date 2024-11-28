@@ -132,6 +132,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblDPRPROCESSED;
 
         /// <summary>
+        /// Sent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Sent;
+
+        /// <summary>
         /// linkForQuerytoDept control.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,15 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblForwardedDEPTQUERY;
+
+        /// <summary>
+        /// Received control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Received;
 
         /// <summary>
         /// linkDeptRecived control.

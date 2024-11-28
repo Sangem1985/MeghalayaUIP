@@ -218,7 +218,7 @@ namespace MeghalayaUIP.Dept.PreReg
             try
             {
 
-                Response.Redirect("~/Dept/PreReg/PreRegDITProcess.aspx?Status=" + Request.QueryString["status"].ToString());
+                Response.Redirect("~/Dept/PreReg/PreRegApplDeptProcess.aspx?Status=" + Request.QueryString["status"].ToString());
 
             }
             catch (Exception ex)

@@ -601,6 +601,7 @@
     <Content Include="CommentsonAmmendments.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Dashboarddrill.aspx" />
+    <Content Include="Decriminalisation.aspx" />
     <Content Include="demoinnerpage.aspx" />
     <Content Include="Deptlogin.aspx" />
     <Content Include="Dept\Ammendments.aspx" />
@@ -893,6 +894,13 @@
     </Compile>
     <Compile Include="Dashboarddrill.aspx.designer.cs">
       <DependentUpon>Dashboarddrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Decriminalisation.aspx.cs">
+      <DependentUpon>Decriminalisation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Decriminalisation.aspx.designer.cs">
+      <DependentUpon>Decriminalisation.aspx</DependentUpon>
     </Compile>
     <Compile Include="demoinnerpage.aspx.cs">
       <DependentUpon>demoinnerpage.aspx</DependentUpon>

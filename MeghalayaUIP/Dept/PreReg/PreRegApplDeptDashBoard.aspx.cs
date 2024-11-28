@@ -51,8 +51,8 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         lblIMAQuery.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
                         lblDeptrepliedtoIMA.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
-                        lblReceivedDEPTQUERY.Text = dt.Rows[0]["DICRECEIVED"].ToString();
-                        lblSentDEPT.Text = dt.Rows[0]["DICSENTBACK"].ToString();
+                        lblReceivedDEPTQUERY.Text = dt.Rows[0]["DICFORWARDED"].ToString(); 
+                        lblSentDEPT.Text = dt.Rows[0]["DICRECEIVED"].ToString(); 
                         //lblIMAQueryforwardedtoAppl.Text = dt.Rows[0]["DEPTFWDIMAQUERYTOAPPL"].ToString();
                         //lblAPPLREPLIEDTOIMAQUERY.Text = dt.Rows[0]["APPLREPLIEDTOIMAQUERY"].ToString();
                         //if (prd.UserID == "1030")
@@ -61,12 +61,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         //    linkQryRepld.Text = "Processed";
                         //}
                     }
-                    string[] allowedUserIDs = { "1016", "1017", "1018", "1019", "1020", "1021", "1022", "1023", "1024", "1025", "1026", "1027" };
-                    if (ObjUserInfo.Roleid == "3" || allowedUserIDs.Contains(ObjUserInfo.UserID))
-                    {
-                        Received.Visible = true;
-                        Sent.Visible = true;
-                    }
+                  
                 }
             }
             catch (Exception ex)
@@ -131,7 +126,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                 if (lblReceivedDEPTQUERY.Text != "0")
                 {
-                    Response.Redirect("PreRegApplDeptView.aspx?status=DICRECEIVED");
+                    Response.Redirect("PreRegApplDeptView.aspx?status=DICFORWARDED");
                 }
 
             }
@@ -150,7 +145,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 if (lblSentDEPT.Text != "0")
                 {
-                    Response.Redirect("PreRegApplDeptView.aspx?status=DICSENTBACK");
+                    Response.Redirect("PreRegApplDeptView.aspx?status=DICRECEIVED");
                 }
             }
             catch (Exception ex)

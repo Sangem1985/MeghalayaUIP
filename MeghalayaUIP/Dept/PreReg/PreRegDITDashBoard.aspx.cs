@@ -35,7 +35,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-                   Bindata();
+                    Bindata();
                 }
             }
             catch (Exception ex)
@@ -115,9 +115,15 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
                 lblDPRTOBEPROCESSED.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
                 lblDPRPROCESSED.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
-                lblForwardedDEPTQUERY.Text = dt.Rows[0]["DCFORWARDED"].ToString();
+                lblForwardedDEPTQUERY.Text = dt.Rows[0]["DCSENTBACK"].ToString();
                 lblReceivedDEPT.Text = dt.Rows[0]["DCRECEIVED"].ToString();
 
+                string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
+                if (ObjUserInfo.Roleid == "4" || allowedUserIDs.Contains(ObjUserInfo.UserID))
+                {
+                    Received.Visible = true;
+                    Sent.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -131,12 +137,12 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if(lblForwardedDEPTQUERY.Text != "0")
+                if (lblForwardedDEPTQUERY.Text != "0")
                 {
-                    Response.Redirect("PreRegDITView.aspx?status=DCFORWARDED");
+                    Response.Redirect("PreRegDITView.aspx?status=DCSENTBACK");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
@@ -148,12 +154,12 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if(lblReceivedDEPT.Text != "0")
+                if (lblReceivedDEPT.Text != "0")
                 {
                     Response.Redirect("PreRegDITView.aspx?status=DCRECEIVED");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;

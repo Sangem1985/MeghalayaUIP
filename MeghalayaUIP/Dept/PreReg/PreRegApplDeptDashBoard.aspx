@@ -5,13 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         section#dashboardcount\ IMAqueries i.fi {
-    position: absolute;
-    top: 15px;
-    right: 8px;
-    font-size: 50px;
-    opacity: 0.3;
-    color: #fff;
-}
+            position: absolute;
+            top: 15px;
+            right: 8px;
+            font-size: 50px;
+            opacity: 0.3;
+            color: #fff;
+        }
     </style>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
@@ -51,7 +51,7 @@
 
                         <div class="container-fluid">
                             <div class="row clearfix">
-                         
+
 
                                 <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
                                     <div class="info-box bg-yellow hover-expand-effect">
@@ -162,7 +162,7 @@
                     </section>
                 </div>
 
-                
+
                 <div class="card mt-4">
                     <div class="card-header">
                         <h3>Industry Registration Applications </h3>
@@ -206,7 +206,7 @@
                                                     <br />
                                                     Pending 
                                                 </div>
-                                                <div style="font-size: 12px; padding-left:13px"></div>
+                                                <div style="font-size: 12px; padding-left: 13px"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
                                             </div>
                                         </div>
@@ -230,7 +230,7 @@
                                                    
                                                     
                                                 </div>
-                                                <div style="font-size: 12px;; padding-left:16px"></div>
+                                                <div style="font-size: 12px; padding-left: 16px"></div>
                                                 <i class="fi fi-tr-to-do-alt"></i>
                                             </div>
                                         </div>
@@ -241,10 +241,10 @@
                         </div>
                     </section>
 
-                       <section id="dashboardcount1">
+                    <section id="dashboardcount1">
                         <div class="container-fluid">
                             <div class="row clearfix">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="Received" runat="server" visible="false">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkDeptReceived" OnClick="linkDeptReceived_Click" ForeColor="White">
                                         <div class="info-box bg-cyan hover-expand-effect">
                                             <div class="icon">
@@ -254,7 +254,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                  DIC Received
+                                                    Sent to DC
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -262,7 +262,7 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="Sent" runat="server" visible="false">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkDeptSent" OnClick="linkDeptSent_Click" ForeColor="White">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
@@ -272,14 +272,14 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                  DIC SentBack 
+                                                    Received from DC 
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
                                             </div>
                                         </div>
                                     </asp:LinkButton>
-                                </div>                                                            
+                                </div>
                             </div>
                         </div>
                     </section>

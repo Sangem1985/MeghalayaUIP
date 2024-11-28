@@ -142,7 +142,7 @@
                     <td>3</td>
                     <td>Coordinates of the Site</td>
                     <td>
-                        <asp:TextBox ID="txtCoordinates" runat="server" Width="400px" Placeholder="40.7128° N, 74.0060° W" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="9"></asp:TextBox></td>
+                        <asp:TextBox ID="txtCoordinates" runat="server" Width="400px" Placeholder="40.7128° N, 74.0060° W" TabIndex="1" MaxLength="9"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>4</td>

@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="PreRegDITDashBoard.aspx.cs" Inherits="MeghalayaUIP.Dept.PreReg.PreRegDITDashBoard" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="page-wrapper IIMADB" style="margin: 10px 0px !important;">
+    <div class="page-wrapper IIMADB" style="margin: 10px 0px !important;">
         <div class="container-fluid">
             <div class="card-header d-flex justify-content-between">
                 <h4 class="card-title mt-1">Industry Registration Applications<b></b></h4>
@@ -68,7 +69,8 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    Application <br />
+                                                    Application
+                                                    <br />
                                                     Pending
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
@@ -87,7 +89,8 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    Application <br />
+                                                    Application
+                                                    <br />
                                                     Processed 
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
@@ -102,7 +105,7 @@
                     <section id="dashboardcount1">
                         <div class="container-fluid">
                             <div class="row clearfix">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="Sent" runat="server" visible="false">
                                     <asp:LinkButton runat="server" ID="linkForQuerytoDept" OnClick="linkForQuerytoDept_Click" ForeColor="White">
                                         <div class="info-box bg-cyan hover-expand-effect">
                                             <div class="icon">
@@ -112,7 +115,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                  DC Forwarded
+                                                    DC Forwarded
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -120,7 +123,7 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="Received" runat="server" visible="false">
                                     <asp:LinkButton runat="server" ID="linkDeptRecived" OnClick="linkDeptRecived_Click" ForeColor="White">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
@@ -130,14 +133,14 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                  DC Received
+                                                    DC Received
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
                                             </div>
                                         </div>
                                     </asp:LinkButton>
-                                </div>                                                            
+                                </div>
                             </div>
                         </div>
                     </section>
