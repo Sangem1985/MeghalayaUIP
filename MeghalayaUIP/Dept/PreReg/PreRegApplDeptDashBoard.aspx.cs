@@ -34,6 +34,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
                     hdnUserID.Value = ObjUserInfo.UserID;
 
+
                     if (!IsPostBack)
                     {
                         prd.UserID = ObjUserInfo.UserID;

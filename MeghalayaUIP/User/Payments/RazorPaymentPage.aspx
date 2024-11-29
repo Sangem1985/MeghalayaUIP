@@ -11,7 +11,7 @@
     
 <body>
      <form method="post" action="https://api.razorpay.com/v1/checkout/embedded">
-        <input type="hidden" name="key_id" value="rzp_test_l9labd1MMZqwzK"/> 
+        <input type="hidden" name="key_id" value="rzp_live_C73gDRjPW5TMvE"/> 
         <input type="hidden" name="order_id" value="<%=orderId%>"/>
         <input type="hidden" name="name" value="Invest Meghalaya Authority"/>
         <input type="hidden" name="description" value="<%=Desc%>"/>

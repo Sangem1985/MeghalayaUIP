@@ -249,7 +249,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         //    verifypanel.Visible = true;
                         //    QueryResondpanel.Visible = false;
                         //}
-                        if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY" && (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6" || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13"))
+                        if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY" && (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6" || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13") || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "19")
                         {
                             if (ObjUserInfo.Roleid == "4")
                             {
