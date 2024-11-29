@@ -1649,18 +1649,21 @@ namespace MeghalayaUIP.User.CFE
                 if (rblLbrAct1979.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "26";
+                    objCFEQ.PropEmployment = txt1979Workers.Text;
                     dtAct1979 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtAct1979);
                 }
                 if (rblLbrAct1996.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "27";
+                    objCFEQ.PropEmployment = txt1996Workers.Text;
                     dtAct1996 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtAct1996);
                 }
                 if (rblLabourAct.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "28";
+                    objCFEQ.PropEmployment = txtContractWorkers.Text;
                     dtContrLbrAct = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtContrLbrAct);
                 }

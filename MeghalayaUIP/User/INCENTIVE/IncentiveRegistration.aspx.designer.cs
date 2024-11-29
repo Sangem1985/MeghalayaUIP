@@ -753,13 +753,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender5;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtEligibilityNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibilityNo;
 
         /// <summary>
         /// txtEligibility control.
@@ -879,13 +879,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.Button btnbuttons;
 
         /// <summary>
-        /// GridView2 control.
+        /// GVLoan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.GridView GVLoan;
 
         /// <summary>
         /// txtName21 control.
@@ -942,13 +942,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.GridView GVequity;
 
         /// <summary>
-        /// txtunsecured25 control.
+        /// txtName25 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtunsecured25;
+        protected global::System.Web.UI.WebControls.TextBox txtName25;
 
         /// <summary>
         /// txtAmount26 control.
@@ -987,13 +987,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// GVloan control.
+        /// GVUnsecuredloan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVloan;
+        protected global::System.Web.UI.WebControls.GridView GVUnsecuredloan;
 
         /// <summary>
         /// Button3 control.

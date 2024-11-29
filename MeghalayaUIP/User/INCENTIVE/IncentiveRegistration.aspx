@@ -135,7 +135,7 @@
                                                                     District
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control">
+                                                                    <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
                                                                         <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
@@ -145,7 +145,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Mandal</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlMandal" runat="server" class="form-control">
+                                                                    <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
                                                                         <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
@@ -227,7 +227,7 @@
                                                                     District
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlDistrictoffice" runat="server" class="form-control">
+                                                                    <asp:DropDownList ID="ddlDistrictoffice" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrictoffice_SelectedIndexChanged">
                                                                         <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
@@ -237,7 +237,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Mandal</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlMandloffice" runat="server" class="form-control">
+                                                                    <asp:DropDownList ID="ddlMandloffice" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandloffice_SelectedIndexChanged">
                                                                         <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
@@ -317,7 +317,7 @@
                                                                     District
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlDistrictReg" runat="server" class="form-control">
+                                                                    <asp:DropDownList ID="ddlDistrictReg" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrictReg_SelectedIndexChanged">
                                                                         <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
@@ -327,7 +327,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Mandal</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlMandlReg" runat="server" class="form-control">
+                                                                    <asp:DropDownList ID="ddlMandlReg" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandlReg_SelectedIndexChanged">
                                                                         <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
@@ -548,7 +548,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4 text-center">
-                                                            <asp:Button ID="btnAddLOM" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" />
+                                                            <asp:Button ID="btnAddLOM" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" OnClick="btnAddLOM_Click" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex justify-content-center">
@@ -673,7 +673,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Eligibility Certificate No.</label>
                                                                 <div class="col-lg-6">
-                                                                    <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox>
+                                                                    <asp:TextBox ID="txtEligibilityNo" runat="server" class="form-control"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -692,7 +692,7 @@
                                                     <div class="col-md-12 text-right mt-2 mb-2">
 
                                                         <%-- <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" />--%>
-                                                        <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                                        <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
                                                         <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                                     </div>
@@ -705,7 +705,7 @@
                                                         <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Fixed Capital Investment</h4>
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <asp:GridView ID="GVFiexed" runat="server" AutoGenerateColumns="false">
+                                                                <asp:GridView ID="GVFiexed" runat="server" AutoGenerateColumns="false" OnRowDataBound="GVFiexed_RowDataBound">
                                                                     <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                                     <RowStyle CssClass="GridviewScrollC1Item" />
                                                                     <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
@@ -842,11 +842,11 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4 text-center">
-                                                                    <asp:Button ID="btnbuttons" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" />
+                                                                    <asp:Button ID="btnbuttons" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" OnClick="btnbuttons_Click" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 d-flex justify-content-center">
-                                                                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                <asp:GridView ID="GVLoan" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                                     GridLines="None"
                                                                     Width="100%" EnableModelValidation="True" Visible="false">
@@ -900,7 +900,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4 text-center">
-                                                                    <asp:Button ID="Button1" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" />
+                                                                    <asp:Button ID="Button1" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" OnClick="Button1_Click" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 d-flex justify-content-center">
@@ -927,7 +927,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">1.Name</label>
                                                                         <div class="col-lg-6">
-                                                                            <asp:TextBox ID="txtunsecured25" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                                            <asp:TextBox ID="txtName25" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -958,11 +958,11 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4 text-center">
-                                                                    <asp:Button ID="Button2" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" />
+                                                                    <asp:Button ID="Button2" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" OnClick="Button2_Click" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12 d-flex justify-content-center">
-                                                                <asp:GridView ID="GVloan" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                <asp:GridView ID="GVUnsecuredloan" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                                     GridLines="None"
                                                                     Width="100%" EnableModelValidation="True" Visible="false">

@@ -75,7 +75,7 @@
                                         <asp:MultiView ID="MVprereg" runat="server" OnActiveViewChanged="MVprereg_ActiveViewChanged">
                                             <asp:View ID="viewBasic" runat="server">
                                                 <div class="tab-pane active" id="basictab1">
-                                                   <%-- <div class="card-body" runat="server" id="divbasic">
+                                                    <%-- <div class="card-body" runat="server" id="divbasic">
                                                         <span class="icon"><i class="fi fi-br-caret-down"></i></span>
                                                     </div>--%>
                                                     <div class="card-header">
@@ -119,8 +119,8 @@
                                                                     District
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select District" Value="0" />
+                                                                    <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -129,8 +129,8 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Mandal</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="ddlMandal" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Mandal" Value="0" />
+                                                                    <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -140,7 +140,7 @@
                                                                 <label class="col-lg-6 col-form-label">Village</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:DropDownList ID="ddlVillage" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Village" Value="0" />
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -228,8 +228,8 @@
                                                                     District
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="drpdwndist2" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select District" Value="0" />
+                                                                    <asp:DropDownList ID="ddlDistrictoffice" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrictoffice_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -238,8 +238,8 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Mandal</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="drpdownmdl2" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Mandal" Value="0" />
+                                                                    <asp:DropDownList ID="ddlMandloffice" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandloffice_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -248,8 +248,8 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Village</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="drpdownvlg2" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Village" Value="0" />
+                                                                    <asp:DropDownList ID="ddlVillageoffice" runat="server" class="form-control">
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -329,8 +329,8 @@
                                                                     District
                                                                 </label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="drpdwndist3" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select District" Value="0" />
+                                                                    <asp:DropDownList ID="ddlDistrictReg" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrictReg_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -339,8 +339,8 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Mandal</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="drpdwnmdl3" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Mandal" Value="0" />
+                                                                    <asp:DropDownList ID="ddlMandlReg" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandlReg_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -349,8 +349,8 @@
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">Village</label>
                                                                 <div class="col-lg-6 d-flex">
-                                                                    <asp:DropDownList ID="drpdwnvlg3" runat="server" class="form-control">
-                                                                        <asp:ListItem Text="Select Village" Value="0" />
+                                                                    <asp:DropDownList ID="ddlVillageReg" runat="server" class="form-control">
+                                                                        <asp:ListItem Text="--Select--" Value="0" />
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -710,7 +710,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
                                             </asp:View>
 
                                             <!---NewTab--->
@@ -907,7 +906,7 @@
                                                     </div>
                                                 </div>
 
-                                               <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Fixed Capital Investment</h4>
+                                                <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Fixed Capital Investment</h4>
 
                                                 <div class="col-md-12 d-flex">
                                                     <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="false">
@@ -924,15 +923,15 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle Width="50px" />
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="ID" Visible="false">
+                                                            <%--   <asp:TemplateField HeaderText="ID" Visible="false">
                                                                 <ItemTemplate>
                                                                     <asp:Label ID="lblMRPID" runat="server" Text='<%# Eval("MRPID") %>'></asp:Label>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                            </asp:TemplateField>--%>
                                                             <asp:TemplateField HeaderText="Particulars" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                 <ItemTemplate>
                                                                     <itemstyle horizontalalign="Center" />
-                                                                    <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
+                                                                    <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("PARAMETER_NAME") %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <%-- <asp:BoundField DataField="MRP_DESECRIPTION" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" HeaderText="Item Description " ItemStyle-Width="250px">
@@ -969,7 +968,7 @@
                                                 </div>
 
                                                 <div class="col-md-12 d-flex">
-                                                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false">
+                                                    <asp:GridView ID="GVSource" runat="server" AutoGenerateColumns="false">
                                                         <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                         <RowStyle CssClass="GridviewScrollC1Item" />
                                                         <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
@@ -984,15 +983,15 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle Width="50px" />
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="ID" Visible="false">
+                                                            <%-- <asp:TemplateField HeaderText="ID" Visible="false">
                                                                 <ItemTemplate>
                                                                     <asp:Label ID="lblMRPID" runat="server" Text='<%# Eval("MRPID") %>'></asp:Label>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                            </asp:TemplateField>--%>
                                                             <asp:TemplateField HeaderText="Source of finance" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                 <ItemTemplate>
                                                                     <itemstyle horizontalalign="Center" />
-                                                                    <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
+                                                                    <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("PARAMETER_NAME") %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <%-- <asp:BoundField DataField="MRP_DESECRIPTION" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" HeaderText="Item Description " ItemStyle-Width="250px">
@@ -1012,7 +1011,7 @@
                                                         </Columns>
                                                     </asp:GridView>
                                                 </div>
-                                                
+
                                                 <div class="col-md-12 d-flex">
                                                     <h4 class="card-title ml-3">Details of Term/Working Loan (if any) :</h4>
                                                 </div>
@@ -1073,7 +1072,7 @@
                                                     </asp:GridView>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
-                                                        <h4 class="card-title ml-3">Details of equity (if any) :</h4>
+                                                    <h4 class="card-title ml-3">Details of equity (if any) :</h4>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
@@ -1191,7 +1190,7 @@
                                                     </asp:GridView>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
-                                                     <h4 class="card-title ml-3">Details of equity (if any) :</h4>
+                                                    <h4 class="card-title ml-3">Details of equity (if any) :</h4>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
@@ -1250,7 +1249,7 @@
                                                     </asp:GridView>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
-                                                     <h4 class="card-title ml-3">Details of unsecured loan (if any):</h4>
+                                                    <h4 class="card-title ml-3">Details of unsecured loan (if any):</h4>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
 
@@ -1278,20 +1277,20 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">4. Mode of payment</label>
-                                                                <div class="col-lg-6">
-                                                                    <asp:TextBox ID="txtPayment28" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                                </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">4. Mode of payment</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtPayment28" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4 text-center">
-                                                            <asp:Button ID="Button4" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" />
-                                                        </div>
                                                     </div>
+                                                    <div class="col-md-4 text-center">
+                                                        <asp:Button ID="Button4" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" />
+                                                    </div>
+                                                </div>
                                                 <div class="col-md-12 d-flex justify-content-center">
                                                     <asp:GridView ID="GVloan" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
@@ -1389,270 +1388,270 @@
                                                 </div>
                                             </asp:View>
 
-                                           <asp:View ID="view3" runat="server">
+                                            <asp:View ID="view3" runat="server">
 
-                                               <div class="col-md-12 d-flex">
-                                                   <h4 class="card-title ml-3">Power dettail of new unit:</h4>
-                                               </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <h4 class="card-title ml-3">Power dettail of new unit:</h4>
+                                                </div>
 
-                                               <div class="col-md-12 d-flex">
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">(i). Sanctioned load </label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="TextBox13" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">(ii).Connected Load</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="TextBox14" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(i). Sanctioned load </label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="TextBox13" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(ii).Connected Load</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="TextBox14" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
 
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">(iii).Capacity of captive power plant (if any)	</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="TextBox15" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <h4 class="card-title ml-3">Power details of existing units undergoing expansion:</h4>
-                                               </div>
-                                      
-                                               <div class="col-md-12 d-flex">
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">(i).Sanctioned load prior to expansion</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="TextBox16" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">(ii).Connected load prior to expansion	</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="TextBox17" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">(iii).Sanction of additional load for expansion	</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="TextBox18" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">(iv).Additional connected load for expansion</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="TextBox19" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">(v).Capacity of captive power plants (if any)	</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="TextBox20" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <h4 class="card-title ml-3">Details of land and building</h4>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <h4 class="card-title ml-3">If Own Land</h4>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Land area, Revenue village, Dag No.& patta No.</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtRevenue38" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Date of purchase	</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtPurchase39" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                               <cc1:CalendarExtender ID="CalendarExtender12" runat="server" Format="dd-MM-yyyy" TargetControlID="txtPurchase39"></cc1:CalendarExtender>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">(iii).Date of registration	</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtRegistrer40" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                               <cc1:CalendarExtender ID="CalendarExtender13" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegistrer40"></cc1:CalendarExtender>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <h4 class="card-title ml-3">Land allotted by Government/ Government	Agency</h4>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Date of allotment/agreement</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtAllotted41" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                               <cc1:CalendarExtender ID="CalendarExtender14" runat="server" Format="dd-MM-yyyy" TargetControlID="txtAllotted41"></cc1:CalendarExtender>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Date of taking over possession		</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtPossession42" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                               <cc1:CalendarExtender ID="CalendarExtender15" runat="server" Format="dd-MM-yyyy" TargetControlID="txtPossession42"></cc1:CalendarExtender>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <h4 class="card-title ml-3">Lease holds land</h4>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Date of lease of land</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtleaseland43" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                               <cc1:CalendarExtender ID="CalendarExtender16" runat="server" Format="dd-MM-yyyy" TargetControlID="txtleaseland43"></cc1:CalendarExtender>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Period of lease (yrs) </label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtPeriodlease44" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <h4 class="card-title ml-3">Building</h4>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Own building/rented building</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtBuilding45" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">In case of own building, built up area		</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtownbuilt46" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(iii).Capacity of captive power plant (if any)	</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="TextBox15" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <h4 class="card-title ml-3">Power details of existing units undergoing expansion:</h4>
+                                                </div>
 
-                                               <div class="col-md-12 d-flex">
-                                                   <h4 class="card-title ml-3">Employment Generation</h4>
-                                               </div>
-                                               <div class="col-md-12">
-                                                   <asp:GridView ID="GVGeneration" runat="server" AutoGenerateColumns="false">
-                                                       <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
-                                                       <RowStyle CssClass="GridviewScrollC1Item" />
-                                                       <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                       <Columns>
-                                                           <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                               <ItemTemplate>
-                                                                   <%# Container.DataItemIndex + 1%>
-                                                                   <asp:HiddenField ID="HdfQueid" runat="server" />
-                                                                   <asp:HiddenField ID="HdfApprovalid" runat="server" />
-                                                               </ItemTemplate>
-                                                               <HeaderStyle HorizontalAlign="Center" />
-                                                               <ItemStyle Width="50px" />
-                                                           </asp:TemplateField>
-                                                           <%-- <asp:TemplateField HeaderText="ID" Visible="false">
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(i).Sanctioned load prior to expansion</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="TextBox16" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(ii).Connected load prior to expansion	</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="TextBox17" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(iii).Sanction of additional load for expansion	</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="TextBox18" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(iv).Additional connected load for expansion</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="TextBox19" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(v).Capacity of captive power plants (if any)	</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="TextBox20" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <h4 class="card-title ml-3">Details of land and building</h4>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <h4 class="card-title ml-3">If Own Land</h4>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Land area, Revenue village, Dag No.& patta No.</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtRevenue38" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Date of purchase	</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtPurchase39" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                <cc1:CalendarExtender ID="CalendarExtender12" runat="server" Format="dd-MM-yyyy" TargetControlID="txtPurchase39"></cc1:CalendarExtender>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(iii).Date of registration	</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtRegistrer40" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                <cc1:CalendarExtender ID="CalendarExtender13" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegistrer40"></cc1:CalendarExtender>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <h4 class="card-title ml-3">Land allotted by Government/ Government	Agency</h4>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Date of allotment/agreement</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtAllotted41" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                <cc1:CalendarExtender ID="CalendarExtender14" runat="server" Format="dd-MM-yyyy" TargetControlID="txtAllotted41"></cc1:CalendarExtender>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Date of taking over possession		</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtPossession42" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                <cc1:CalendarExtender ID="CalendarExtender15" runat="server" Format="dd-MM-yyyy" TargetControlID="txtPossession42"></cc1:CalendarExtender>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <h4 class="card-title ml-3">Lease holds land</h4>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Date of lease of land</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtleaseland43" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                                <cc1:CalendarExtender ID="CalendarExtender16" runat="server" Format="dd-MM-yyyy" TargetControlID="txtleaseland43"></cc1:CalendarExtender>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Period of lease (yrs) </label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtPeriodlease44" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <h4 class="card-title ml-3">Building</h4>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Own building/rented building</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtBuilding45" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">In case of own building, built up area		</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtownbuilt46" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12 d-flex">
+                                                    <h4 class="card-title ml-3">Employment Generation</h4>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <asp:GridView ID="GVGeneration" runat="server" AutoGenerateColumns="false">
+                                                        <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
+                                                        <RowStyle CssClass="GridviewScrollC1Item" />
+                                                        <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex + 1%>
+                                                                    <asp:HiddenField ID="HdfQueid" runat="server" />
+                                                                    <asp:HiddenField ID="HdfApprovalid" runat="server" />
+                                                                </ItemTemplate>
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle Width="50px" />
+                                                            </asp:TemplateField>
+                                                            <%-- <asp:TemplateField HeaderText="ID" Visible="false">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblMRPID" runat="server" Text='<%# Eval("MRPID") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>--%>
-                                                           <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
-                                                               <ItemTemplate>
-                                                                   <itemstyle horizontalalign="Center" />
-                                                                   <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
-                                                               </ItemTemplate>
-                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Few new unit" ItemStyle-Width="150px">
-                                                               <ItemTemplate>
-                                                                   <asp:TextBox ID="txtFewunit47" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
-                                                               </ItemTemplate>
-                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Before expansion/diversification" ItemStyle-Width="150px">
-                                                               <ItemTemplate>
-                                                                   <asp:TextBox ID="txtbeforeexprasion48" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
-                                                               </ItemTemplate>
-                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="During  expansion/diversification" ItemStyle-Width="150px">
-                                                               <ItemTemplate>
-                                                                   <asp:TextBox ID="txtdiversification49" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
-                                                               </ItemTemplate>
-                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Total" ItemStyle-Width="150px">
-                                                               <ItemTemplate>
-                                                                   <asp:TextBox ID="txttotal50" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
-                                                               </ItemTemplate>
-                                                           </asp:TemplateField>
-                                                       </Columns>
-                                                   </asp:GridView>
-                                               </div>
-                                               <div class="col-md-12 d-flex">
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Total employment</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtEmployment51" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Total Nos. of local tribals 		</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtLocalTribe52" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col-md-4">
-                                                       <div class="form-group row">
-                                                           <label class="col-lg-6 col-form-label">Percentage of local tribals 		</label>
-                                                           <div class="col-lg-6">
-                                                               <asp:TextBox ID="txtPercentTribals53" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
+                                                            <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
+                                                                <ItemTemplate>
+                                                                    <itemstyle horizontalalign="Center" />
+                                                                    <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Few new unit" ItemStyle-Width="150px">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txtFewunit47" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Before expansion/diversification" ItemStyle-Width="150px">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txtbeforeexprasion48" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="During  expansion/diversification" ItemStyle-Width="150px">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txtdiversification49" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Total" ItemStyle-Width="150px">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txttotal50" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Total employment</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtEmployment51" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Total Nos. of local tribals 		</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtLocalTribe52" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Percentage of local tribals 		</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtPercentTribals53" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                           </asp:View>
+                                            </asp:View>
                                         </asp:MultiView>
 
                                     </div>

@@ -303,31 +303,31 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtCDBlock;
 
         /// <summary>
-        /// drpdwndist2 control.
+        /// ddlDistrictoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpdwndist2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDistrictoffice;
 
         /// <summary>
-        /// drpdownmdl2 control.
+        /// ddlMandloffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpdownmdl2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMandloffice;
 
         /// <summary>
-        /// drpdownvlg2 control.
+        /// ddlVillageoffice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpdownvlg2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlVillageoffice;
 
         /// <summary>
         /// Label3 control.
@@ -420,31 +420,31 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.TextBox txtcrdblck3;
 
         /// <summary>
-        /// drpdwndist3 control.
+        /// ddlDistrictReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpdwndist3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDistrictReg;
 
         /// <summary>
-        /// drpdwnmdl3 control.
+        /// ddlMandlReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpdwnmdl3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMandlReg;
 
         /// <summary>
-        /// drpdwnvlg3 control.
+        /// ddlVillageReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpdwnvlg3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlVillageReg;
 
         /// <summary>
         /// Label6 control.
@@ -978,13 +978,13 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.GridView grdRevenueProj;
 
         /// <summary>
-        /// GridView2 control.
+        /// GVSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.GridView GVSource;
 
         /// <summary>
         /// txtFinancial control.
