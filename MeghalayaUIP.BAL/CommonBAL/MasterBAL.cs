@@ -191,6 +191,18 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetInformationWizard(module, deptid, sector);
         }
+
+        //Decriminalisation
+        public DataSet GetDecriminalisation( string deptId, string sector)
+        {
+            return objMasterDAL.GetDecriminalisation( deptId, sector);
+        }
+
+        public string GetDeptIdByName(string deptName)
+        {
+            return objMasterDAL.GetDeptIdByName((string)deptName);
+        }
+
         public DataSet GetGrievanceMisReport(string fdate, string tdate, string Type)
         {
             return objMasterDAL.GetGrievanceMisReport(fdate, tdate, Type);

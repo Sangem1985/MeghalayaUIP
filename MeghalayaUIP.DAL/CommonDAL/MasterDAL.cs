@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data;
 using MeghalayaUIP.Common;
 using System.Globalization;
+using System.Reflection;
 
 namespace MeghalayaUIP.DAL.CommonDAL
 {
@@ -1590,6 +1591,94 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public DataSet GetDecriminalisation(string deptId = null, string sector = null)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("USP_GETDECRIMINALISATIONLIST", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                if (deptId != "")
+                    cmd.Parameters.AddWithValue("@DEPTID", deptId);
+                else
+                    cmd.Parameters.AddWithValue("@DEPTID", DBNull.Value);
+                if (sector != "")
+                    cmd.Parameters.AddWithValue("@SECTOR", sector);
+                else
+                    cmd.Parameters.AddWithValue("@SECTOR", DBNull.Value);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                //throw new Exception("Error retrieving decriminalisation data.", ex);
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+
+
+        public string GetDeptIdByName(string DeptName)
+        {
+            string DeptId = string.Empty;
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                // Open the connection
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                // Create and set up the command
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_GETDEPARTMENTIDBYNAME";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                // Add parameters for the department name
+                com.Parameters.AddWithValue("@DEPTNAME", DeptName);
+
+                // Output parameter for the Department ID
+                com.Parameters.Add("@DEPTID", SqlDbType.VarChar, 50);
+                com.Parameters["@DEPTID"].Direction = ParameterDirection.Output;
+
+                // Execute the stored procedure
+                com.ExecuteNonQuery();
+
+                // Get the result from the output parameter
+                DeptId = com.Parameters["@DEPTID"].Value.ToString();
+
+                // Commit the transaction
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                // Rollback transaction in case of an error
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                // Close and dispose the connection
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return DeptId;
+        }
+
+
+
         public string GetPageAuthorization(string PageName, string RoleCode)
         {
 
@@ -2241,7 +2330,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             return Result;
         }
         public DataSet UserSearch(string Userid, string username)
-        {          
+        {
 
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2258,9 +2347,9 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@INPUTTYPE", Userid);
-              
+
                 da.SelectCommand.Parameters.AddWithValue("@INPUT", username);
-              
+
 
                 da.Fill(ds);
                 transaction.Commit();
