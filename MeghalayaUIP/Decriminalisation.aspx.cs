@@ -22,7 +22,7 @@ namespace MeghalayaUIP
                 if (!IsPostBack)
                 {
                     //BindDepartments();
-                   // BindSectors();
+                    // BindSectors();
                     BindDecriminalisation();
                 }
             }
@@ -216,26 +216,29 @@ namespace MeghalayaUIP
         {
             try
             {
-                
-                string selectedDeptName = ddldept.SelectedValue;
+
+                string selectedDeptId = ddldept.SelectedValue;
                 string sector = txtSector.Text;
-                string selectedDeptId = mstrBAL.GetDeptIdByName(selectedDeptName);
+                //string selectedDeptId = mstrBAL.GetDeptIdByName(selectedDeptName);
 
                 //if (string.IsNullOrEmpty(selectedDeptId))
                 //{
                 //    return;
                 //}
-                DataSet dsInfo = mstrBAL.GetDecriminalisation( selectedDeptId, sector);
+                DataSet dsInfo = mstrBAL.GetDecriminalisation(selectedDeptId, sector);
 
                 if (dsInfo != null && dsInfo.Tables.Count > 0 && dsInfo.Tables[0].Rows.Count > 0)
                 {
                     if (dsInfo.Tables[0].Rows.Count > 0)
                     {
-                        ddldept.DataSource = dsInfo.Tables[0];
-                        ddldept.DataValueField = "DepartmentId";
-                        ddldept.DataTextField = "Department";
-                        ddldept.DataBind();
-                        ddldept.Enabled = true;
+                        if (!IsPostBack)
+                        {
+                            ddldept.DataSource = dsInfo.Tables[0];
+                            ddldept.DataValueField = "DepartmentId";
+                            ddldept.DataTextField = "Department";
+                            ddldept.DataBind();
+                            ddldept.Enabled = true;
+                        }
                     }
                     else
                     {

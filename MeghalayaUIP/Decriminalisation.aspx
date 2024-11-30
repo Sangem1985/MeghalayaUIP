@@ -1,13 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OuterNew.Master" AutoEventWireup="true" CodeBehind="Decriminalisation.aspx.cs" Inherits="MeghalayaUIP.Decriminalisation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        table#ContentPlaceHolder1_gvDecriminalisation tr td {
+            padding: 10px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
             <section class="innerpages">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
                             <nav aria-label="breadcrumb">
@@ -18,7 +23,7 @@
                                 </ol>
                             </nav>
                             <section class="innerpages">
-                                <div class="container">
+                                <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h3>Decriminalisation</h3>
@@ -28,7 +33,8 @@
                                                         <%-- lables --%>
                                                         <div class="col-md-12 d-flex">
                                                             <%--department--%>
-                                                            <div class="col-md-6">
+                                                            <%--<div class="col-md-3">&nbsp;</div>--%>
+                                                            <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Department : </label>
                                                                     <div class="col-lg-12 d-flex">
@@ -39,7 +45,7 @@
                                                                 </div>
                                                             </div>
                                                             <%-- sector --%>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Sector :</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -48,16 +54,15 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-4"><div class="form-group row justify-content-center" style="margin-top: 28px;">
+                                                                <asp:Button ID="btnSearch" runat="server" Text="Search" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" OnClick="btnSearch_Click" />
+                                                            </div></div>
                                                         </div>
                                                         <%-- search --%>
-                                                        <div class="col-md-12 float-left ">
-                                                            <div class="form-group row justify-content-center" style="padding: 20px">
-                                                                <asp:Button ID="btnSearch" runat="server" Text="Search" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" OnClick="btnSearch_Click" />
-                                                            </div>
-                                                        </div>
+                                                        
                                                     </div>
                                                     <%-- Grid view --%>
-                                                    <div class="col-md-90 d-flex">
+                                                    <div class="col-md-100 d-flex">
                                                         <asp:GridView ID="gvDecriminalisation" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
                                                             GridLines="Both" Width="100%" EnableModelValidation="True"
@@ -77,7 +82,7 @@
                                                                 </asp:TemplateField>
                                                                 <asp:TemplateField HeaderText="Department">
                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="3%"/>
+                                                                    <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="3%" />
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblDepartment" runat="server" Text='<%# Eval("Department") %>'></asp:Label>
                                                                     </ItemTemplate>
@@ -99,17 +104,17 @@
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
 
-                                                                <asp:TemplateField HeaderText="Clause / Section No" >
+                                                                <asp:TemplateField HeaderText="Clause / Section No">
                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Center"  VerticalAlign="Top" Width="2%"/>
+                                                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="2%" />
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblClauseSectionNo" runat="server" Text='<%# Eval("Clause_Section_No") %>'></asp:Label>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
 
                                                                 <asp:TemplateField HeaderText="Clause Description">
-                                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="65%"/>
+                                                                    <HeaderStyle HorizontalAlign="Center" Width="75%" />
+                                                                    <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="80%" />
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblClauseDescription" runat="server" Text='<%# Eval("Clause_Description") %>'></asp:Label>
                                                                     </ItemTemplate>
@@ -117,7 +122,7 @@
 
                                                                 <asp:TemplateField HeaderText="Trigger Points">
                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Left" VerticalAlign="Top"/>
+                                                                    <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblTriggerPoints" runat="server" Text='<%# Eval("Trigger_Points") %>'></asp:Label>
                                                                     </ItemTemplate>
@@ -125,7 +130,7 @@
 
                                                                 <asp:TemplateField HeaderText="Punishment">
                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="45%"/>
+                                                                    <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="45%" />
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblPunishment" runat="server" Text='<%# Eval("Punishment") %>'></asp:Label>
                                                                     </ItemTemplate>
@@ -133,7 +138,7 @@
 
                                                                 <asp:TemplateField HeaderText="Sector">
                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="4%"/>
+                                                                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="4%" />
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblSector" runat="server" Text='<%# Eval("Sector") %>'></asp:Label>
                                                                     </ItemTemplate>
