@@ -73,119 +73,31 @@ namespace MeghalayaUIP
             }
         }
 
-
-
-        //protected void BindSectors()
-        //{
-        //    try
-        //    {
-        //        // Trim the user input from the text field
-        //        string sectorInput = txtSector.Text.Trim();
-
-        //        // Fetch all sectors from the database using the existing GetSectors method
-        //        List<MasterSector> allSectors = mstrBAL.GetSectors();
-
-        //        // Check if sector input is provided
-        //        if (!string.IsNullOrEmpty(sectorInput))
-        //        {
-        //            // Filter sectors based on the user input using IndexOf with StringComparison.OrdinalIgnoreCase
-        //            var filteredSectors = allSectors.Where(s => s.SectorName.IndexOf(sectorInput, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-
-        //            // Check if any sectors match the user input
-        //            if (filteredSectors.Any())
-        //            {
-        //                // Bind the filtered sectors to the dropdown list
-        //                ddldept.DataSource = filteredSectors;
-        //                ddldept.DataTextField = "SectorName";  // Assuming SectorName is a property in your sector model
-        //                ddldept.DataValueField = "SectorId";  // Assuming SectorId is a property in your sector model
-        //                ddldept.DataBind();
-        //                ddldept.Enabled = true;
-        //            }
-        //            else
-        //            {
-        //                // If no matching sectors are found, disable the dropdown
-        //                ddldept.DataSource = null;
-        //                ddldept.DataBind();
-        //                ddldept.Enabled = false;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            // If no input is provided, show all sectors
-        //            ddldept.DataSource = allSectors;
-        //            ddldept.DataTextField = "SectorName";
-        //            ddldept.DataValueField = "SectorId";
-        //            ddldept.DataBind();
-        //            ddldept.Enabled = true;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Handle or log the exception
-        //        throw ex;
-        //    }
-        //}
-
-
-        //if it would be a dropdown
-        //protected void BindSectors()
-        //{
-        //    try
-        //    {
-        //        ddlSector.Items.Clear();
-
-        //        List<MasterSector> objSectorModel = new List<MasterSector>();
-
-        //        objSectorModel = mstrBAL.GetSectors();
-        //        if (objSectorModel != null)
-        //        {
-        //            ddlSector.DataSource = objSectorModel;
-        //            ddlSector.DataValueField = "SectorName";
-        //            ddlSector.DataTextField = "SectorName";
-        //            ddlSector.DataBind();
-        //        }
-        //        else
-        //        {
-        //            ddlSector.DataSource = null;
-        //            ddlSector.DataBind();
-        //        }
-        //        AddSelect(ddlSector);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
         protected void BindSectors()
         {
             try
             {
-                // Trim the user input from the text field
-                string sectorInput = txtSector.Text.Trim();
 
-                // Fetch all sectors from the database using the existing GetSectors method
+                string sectorInput = ddlSector.Text.Trim();
+
                 List<MasterSector> allSectors = mstrBAL.GetSectors();
 
-                // Check if sector input is provided
+
                 if (!string.IsNullOrEmpty(sectorInput))
                 {
-                    // Filter sectors based on the user input using IndexOf with StringComparison.OrdinalIgnoreCase
+
                     var filteredSectors = allSectors.Where(s => s.SectorName.IndexOf(sectorInput, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
 
-                    // Check if any sectors match the user input
                     if (filteredSectors.Any())
                     {
-                        // Bind the filtered sectors to the dropdown list (or another appropriate control)
                         ddldept.DataSource = filteredSectors;
-                        ddldept.DataTextField = "SectorName";  // Assuming SectorName is a property in your sector model
-                        ddldept.DataValueField = "SectorId";  // Assuming SectorId is a property in your sector model
+                        ddldept.DataTextField = "SectorName";
+                        ddldept.DataValueField = "SectorId";
                         ddldept.DataBind();
                         ddldept.Enabled = true;
                     }
                     else
                     {
-                        // If no matching sectors are found, disable the dropdown
                         ddldept.DataSource = null;
                         ddldept.DataBind();
                         ddldept.Enabled = false;
@@ -193,7 +105,6 @@ namespace MeghalayaUIP
                 }
                 else
                 {
-                    // If no input is provided, show all sectors
                     ddldept.DataSource = allSectors;
                     ddldept.DataTextField = "SectorName";
                     ddldept.DataValueField = "SectorId";
@@ -203,7 +114,6 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
-                // Handle or log the exception
                 throw ex;
             }
         }
@@ -218,7 +128,7 @@ namespace MeghalayaUIP
             {
 
                 string selectedDeptId = ddldept.SelectedValue;
-                string sector = txtSector.Text;
+                string sector = ddlSector.SelectedValue;
                 //string selectedDeptId = mstrBAL.GetDeptIdByName(selectedDeptName);
 
                 //if (string.IsNullOrEmpty(selectedDeptId))
@@ -227,18 +137,25 @@ namespace MeghalayaUIP
                 //}
                 DataSet dsInfo = mstrBAL.GetDecriminalisation(selectedDeptId, sector);
 
-                if (dsInfo != null && dsInfo.Tables.Count > 0 && dsInfo.Tables[0].Rows.Count > 0)
+                if (dsInfo != null && dsInfo.Tables.Count > 0 && dsInfo.Tables[0].Rows.Count > 0 || dsInfo.Tables[1].Rows.Count > 0 || dsInfo.Tables[2].Rows.Count > 0)
                 {
                     if (dsInfo.Tables[0].Rows.Count > 0)
                     {
                         if (!IsPostBack)
                         {
                             ddldept.DataSource = dsInfo.Tables[0];
-                            ddldept.DataValueField = "DepartmentId";
+                            ddldept.DataValueField = "DepartmentID";
                             ddldept.DataTextField = "Department";
                             ddldept.DataBind();
                             ddldept.Enabled = true;
                         }
+
+                    }
+                    if (dsInfo.Tables[1].Rows.Count > 0)
+                    {
+                        ddlSector.DataSource = dsInfo.Tables[1];
+                        ddlSector.DataValueField = "SECTOR";
+                        ddlSector.DataBind();
                     }
                     else
                     {
@@ -246,8 +163,18 @@ namespace MeghalayaUIP
                         ddldept.DataBind();
                     }
                     AddSelect(ddldept);
-                    gvDecriminalisation.DataSource = dsInfo.Tables[1];
-                    gvDecriminalisation.DataBind();
+                    AddSelect(ddlSector);
+                    if (dsInfo.Tables[2].Rows.Count > 0)
+                    {
+                        gvDecriminalisation.DataSource = dsInfo.Tables[2];
+                        gvDecriminalisation.DataBind();
+                    }
+                    else
+                    {
+                        gvDecriminalisation.DataSource = null;
+                        gvDecriminalisation.DataBind();
+                    }
+
                 }
                 else
                 {
@@ -257,8 +184,28 @@ namespace MeghalayaUIP
             }
             catch (Exception ex)
             {
+                throw ex;
             }
         }
+        /*private DataTable GetData()
+        {
+            DataTable dt = new DataTable();
+           
+            dt.Columns.Add("Department");
+            dt.Columns.Add("Act_Rule_Name");
+            dt.Columns.Add("Section_Content");
+            dt.Columns.Add("Clause_Section_No");
+            dt.Columns.Add("Clause_Description");
+            dt.Columns.Add("Trigger_Points");
+            dt.Columns.Add("Punishment");
+            dt.Columns.Add("Sector");                
+
+            dt.Rows.Add("Finance", "Income Tax Act", "Content 1", "123", "Description 1", "Point A", "Penalty", "Public");
+            dt.Rows.Add("Law", "Criminal Code", "Content 2", "456", "Description 2", "Point B", "Fine", "Private");
+
+            return dt; 
+        }*/
+
 
 
 

@@ -357,7 +357,7 @@
                                                         <li><a href="Faq.aspx">FAQs</a></li>
                                                         <li><a href="Contact.aspx">Contact</a></li>
                                                         <li><a href="BusinessRegulation.aspx">Business Regulation</a></li>
-                                                        <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Decriminalizationlist%>', '_blank'); return false;">Decriminalisation</a></li>
+                                                        <li><a href="Decriminalisation.aspx">Decriminalisation</a></li>
                                                         <li><a href="RTIACT.aspx">RTI Acts</a></li>
 
                                                     </ul>

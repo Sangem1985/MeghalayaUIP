@@ -28,40 +28,46 @@
                                         <div class="col-md-12">
                                             <h3>Decriminalisation</h3>
                                             <div class="card">
-                                                <div class="card-body justify-content-center " align="justify">
+                                                <div class="card-body justify-content-center" align="justify">
                                                     <div class="row">
-                                                        <%-- lables --%>
                                                         <div class="col-md-12 d-flex">
-                                                            <%--department--%>
-                                                            <%--<div class="col-md-3">&nbsp;</div>--%>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-12 col-form-label">Department : </label>
-                                                                    <div class="col-lg-12 d-flex">
-                                                                        <asp:DropDownList ID="ddldept" runat="server" class="form-control"
-                                                                            AutoPostBack="true">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-5 col-form-label">
+                                                                        Department :
+                                                                    </label>
+                                                                    <div class="col-lg-7 d-flex">
+                                                                        <asp:DropDownList ID="ddldept" runat="server" class="form-control">
                                                                         </asp:DropDownList>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <%-- sector --%>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-12 col-form-label">Sector :</label>
-                                                                    <div class="col-lg-12 d-flex">
-                                                                        <asp:TextBox ID="txtSector" runat="server" class="form-control"
-                                                                            AutoPostBack="true"></asp:TextBox>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Sector :</label>
+                                                                    <div class="col-lg-7 d-flex">
+                                                                        <asp:DropDownList ID="ddlSector" runat="server" class="form-control">
+                                                                        </asp:DropDownList>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4"><div class="form-group row justify-content-center" style="margin-top: 28px;">
-                                                                <asp:Button ID="btnSearch" runat="server" Text="Search" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" OnClick="btnSearch_Click" />
-                                                            </div></div>
-                                                        </div>
-                                                        <%-- search --%>
-                                                        
+                                                            <div class="col-md-3">
+                                                                <div class="form-group row">
+                                                                    <div class="col-lg-4 d-flex">
+                                                                        <asp:Button ID="btnSearch" runat="server" Text="GET" ValidationGroup="Search" class="btn btn-rounded btn-success" Width="150px" OnClick="btnSearch_Click" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-3 col-form-label">Search :</label>
+                                                                    <div class="col-lg-7 d-flex">
+                                                                        <asp:TextBox ID="txtSearch" onkeyup="filterGridView(this.value)" runat="server" class="form-control"></asp:TextBox>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                                     
                                                     </div>
-                                                    <%-- Grid view --%>
                                                     <div class="col-md-100 d-flex">
                                                         <asp:GridView ID="gvDecriminalisation" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
@@ -153,4 +159,36 @@
                             </section>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <script type="text/javascript">
+
+        function filterGridView(searchText) {
+            
+            searchText = searchText.toLowerCase();
+
+            // Get the GridView element
+            var gridView = document.getElementById('<%= gvDecriminalisation.ClientID %>');
+
+            // Get all rows of the GridView, excluding the header row
+            var rows = gridView.getElementsByTagName("tr");
+
+            for (var i = 1; i < rows.length; i++) { // Start from 1 to skip header row
+                var row = rows[i];
+                var cells = row.getElementsByTagName("td");
+
+                var matchFound = false;
+                for (var j = 0; j < cells.length; j++) {
+                    var cellText = cells[j].innerText.toLowerCase();
+                    if (cellText.indexOf(searchText) !== -1) {
+                        matchFound = true;
+                        break;
+                    }
+                }
+
+                // Show or hide the row based on whether the match is found
+                row.style.display = matchFound ? "" : "none";
+            }
+        }
+
+
+    </script>
 </asp:Content>
