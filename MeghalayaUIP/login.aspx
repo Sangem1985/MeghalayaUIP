@@ -65,6 +65,29 @@
                 return false;
             }
         }
+        function ResetBorderColor() {
+            var txtUsername = document.getElementById('<%= txtUsername.ClientID %>');          
+                       
+            if (txtUsername.value.trim() != '') {
+                txtUsername.style.borderColor = 'black';
+            }
+            
+        }
+        function BorderColor() {
+            var txtPswrd = document.getElementById('<%= txtPswrd.ClientID %>');
+
+            if (txtPswrd.value.trim() != '') {
+                txtPswrd.style.borderColor = 'black';
+            }
+        }
+        function BorderCaptchaColor() {
+            var txtcaptcha = document.getElementById('<%= txtcaptcha.ClientID %>');
+
+              if (txtcaptcha.value.trim() != '') {
+                  txtcaptcha.style.borderColor = 'black';
+              }
+          }
+
     </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
@@ -106,16 +129,16 @@
                                                 <!-- Form -->
                                                 <%-- <form action="admin/IndustryRegistration.aspx">--%>
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" ID="txtUsername" class="form-control" placeholder="Email" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtUsername" class="form-control" placeholder="Email" AutoCompleteType="Disabled" AutoComplete="Off" OnKeyUp="ResetBorderColor()" OnInput="ResetBorderColor()"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" onblur="return Generate();"  class="form-control" placeholder="Password" AutoCompleteType="Disabled" AutoComplete="Off"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" onblur="return Generate();" class="form-control" placeholder="Password" AutoCompleteType="Disabled" AutoComplete="Off" OnKeyUp="BorderColor()" OnInput="BorderColor()"></asp:TextBox>
                                                 </div>
                                                 <div class="row" style="padding-left: 10px">
                                                     <div class="col-md-12" style="display: flex;">
                                                         <div class="col-md-5">
                                                             <div class="form-group" style="margin-left: -25px;">
-                                                                <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtcaptcha" class="form-control" placeholder="Captcha" OnKeyUp="BorderCaptchaColor()" OnInput="BorderCaptchaColor()"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6" style="display: flex; align-items: center; margin-left: -20px;">
@@ -132,7 +155,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click"  Text="Login" class="btn btn-primary btn-block" />
+                                                    <asp:Button runat="server" ID="btnLogint" OnClick="btnLogint_Click" Text="Login" class="btn btn-primary btn-block" />
                                                 </div>
                                                 <%--</form> OnClientClick="return Generate();"--%>
                                                 <!-- /Form -->

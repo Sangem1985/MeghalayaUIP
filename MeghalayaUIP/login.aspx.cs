@@ -131,15 +131,25 @@ namespace MeghalayaUIP
                 }
 
                 Session["UserInfo"] = null;
-                if (String.IsNullOrEmpty(txtUsername.Text.Trim()) || String.IsNullOrEmpty(txtPswrd.Text.Trim()))
+                if (String.IsNullOrEmpty(txtUsername.Text.Trim()))
                 {
-                    lblmsg0.Text = "Please provide User Name and Password";
+                    txtUsername.BorderColor = System.Drawing.Color.Red;
+                    lblmsg0.Text = "Please provide User Name";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
+                    Failure.Visible = true;
+                    FillCapctha();
+                }
+                else if (String.IsNullOrEmpty(txtPswrd.Text.Trim()))
+                {
+                    txtPswrd.BorderColor = System.Drawing.Color.Red;
+                    lblmsg0.Text = "Please provide Password";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                     Failure.Visible = true;
                     FillCapctha();
                 }
                 else if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()))
                 {
+                    txtcaptcha.BorderColor = System.Drawing.Color.Red;
                     lblmsg0.Text = "Please Enter Captcha";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                     Failure.Visible = true;
@@ -321,7 +331,9 @@ namespace MeghalayaUIP
                 throw;
             }
         }
-
+        protected void ValidateAndHilight(TextBox txtbox)
+        {
+        }
         protected void btnRefresh_Click(object sender, ImageClickEventArgs e)
         {
             FillCapctha();
