@@ -35,6 +35,40 @@
                 input.style.border = "1px solid #767575b5";
             }
         }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
+        function handleRadioChange(radio) {
+            const radioGroup = document.getElementsByName(radio.name);
+            const formContainer = radio.closest('form'); // You can adjust this if the radio buttons are not in a form.
+
+            let isSelected = false;
+
+            // Check if any radio button in the group is selected
+            for (const r of radioGroup) {
+                if (r.checked) {
+                    isSelected = true;
+                    break;
+                }
+            }
+
+            // Change border style of the radio buttons container based on selection
+            if (isSelected) {
+                formContainer.style.border = "1px solid #767575b5";  // Default border style if selected
+            } else {
+                formContainer.style.border = "2px solid red";  // Border style if no selection
+            }
+        }
+
+
+
+
 
     </script>
     <style>
@@ -218,7 +252,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Company Type <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList ID="ddlcompanytype" runat="server" class="form-control" TabIndex="1">
+                                                                            <asp:DropDownList ID="ddlcompanytype" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
                                                                             </asp:DropDownList>
                                                                         </div>
                                                                     </div>
@@ -239,7 +273,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Company Proposal <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList ID="ddlproposal" runat="server" TabIndex="1" class="form-control">
+                                                                            <asp:DropDownList ID="ddlproposal" runat="server" TabIndex="1" class="form-control" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
                                                                                 <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                                 <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
@@ -253,7 +287,7 @@
                                                                         <label class="col-lg-6 col-form-label">
                                                                             Category of Registration<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList ID="ddlRegType" runat="server" class="form-control" TabIndex="1" OnSelectedIndexChanged="ddlRegType_SelectedIndexChanged" AutoPostBack="true">
+                                                                            <asp:DropDownList ID="ddlRegType" runat="server" class="form-control" TabIndex="1" OnSelectedIndexChanged="ddlRegType_SelectedIndexChanged" AutoPostBack="true" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="Select Category" Value="0" />
                                                                             </asp:DropDownList>
                                                                         </div>
@@ -324,46 +358,86 @@
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
-                                                                        <div class="col-lg-6">
-                                                                            <asp:DropDownList runat="server" ID="ddlAuthReprDist" class="form-control" AutoPostBack="true" TabIndex="1" OnSelectedIndexChanged="ddlAuthReprDist_SelectedIndexChanged">
-                                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                                            </asp:DropDownList>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">Mandal/Taluka <span class="star">*</span></label>
-                                                                        <div class="col-lg-6 d-flex">
-
-                                                                            <asp:DropDownList runat="server" ID="ddlAuthReprTaluka" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlAuthReprTaluka_SelectedIndexChanged">
-                                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                                            </asp:DropDownList>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12 d-flex">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">Village <span class="star">*</span></label>
-                                                                        <div class="col-lg-6 d-flex">
-
-                                                                            <asp:DropDownList runat="server" ID="ddlAuthReprVillage" class="form-control" TabIndex="1">
-                                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                                            </asp:DropDownList>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Door No. <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:TextBox runat="server" ID="txtAuthReprDoorNo" class="form-control" onkeypress="return Address(event)" TabIndex="1" MaxLength="20" onkeyup="handleKeyUp(this)" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">
+                                                                            State
+                                                                        </label>
+                                                                        <div class="col-lg-6 d-flex">
+                                                                            <asp:DropDownList ID="ddlstate" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlstate_SelectedIndexChanged" onchange="validateDropdown(this)">
+                                                                                <asp:ListItem Text="Select State" Value="0" />
+                                                                            </asp:DropDownList>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                            <div class="col-md-12 d-flex">
+                                                                <div class="col-md-4" id="Dist1" runat="server" visible="false">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
+                                                                        <div class="col-lg-6">
+                                                                            <asp:DropDownList runat="server" ID="ddlAuthReprDist" class="form-control" AutoPostBack="true" TabIndex="1" OnSelectedIndexChanged="ddlAuthReprDist_SelectedIndexChanged" onchange="validateDropdown(this)">
+                                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                            </asp:DropDownList>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4" id="District" runat="server" visible="false">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
+                                                                        <div class="col-lg-6 d-flex">
+                                                                            <asp:TextBox runat="server" ID="txtDistricted" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4" id="Mandal1" runat="server" visible="false">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">Mandal/Taluka <span class="star">*</span></label>
+                                                                        <div class="col-lg-6 d-flex">
+
+                                                                            <asp:DropDownList runat="server" ID="ddlAuthReprTaluka" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlAuthReprTaluka_SelectedIndexChanged" onchange="validateDropdown(this)">
+                                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                            </asp:DropDownList>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4" id="Div1" runat="server" visible="false">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">Mandal/Taluka <span class="star">*</span></label>
+                                                                        <div class="col-lg-6 d-flex">
+                                                                            <asp:TextBox runat="server" ID="txtMandaled" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4" id="villages1" runat="server" visible="false">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">Village <span class="star">*</span></label>
+                                                                        <div class="col-lg-6 d-flex">
+
+                                                                            <asp:DropDownList runat="server" ID="ddlAuthReprVillage" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
+                                                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                                            </asp:DropDownList>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4" id="Div2" runat="server" visible="false">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">Village <span class="star">*</span></label>
+                                                                        <div class="col-lg-6 d-flex">
+                                                                            <asp:TextBox runat="server" ID="txtVillagede" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 d-flex">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Pincode <span class="star">*</span></label>
@@ -383,7 +457,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-4 col-form-label">Is Land Required <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:RadioButtonList runat="server" ID="rblLandType" AutoPostBack="true" TabIndex="1" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLandType_SelectedIndexChanged">
+                                                                            <asp:RadioButtonList runat="server" ID="rblLandType" AutoPostBack="true" TabIndex="1" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLandType_SelectedIndexChanged" onchange="handleRadioChange(this)">
                                                                                 <asp:ListItem Value="Own" Text="Own Land"></asp:ListItem>
                                                                                 <asp:ListItem Value="Required" Text="Required"></asp:ListItem>
                                                                             </asp:RadioButtonList>
@@ -412,7 +486,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlPropLocDist" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlPropLocDist_SelectedIndexChanged">
+                                                                            <asp:DropDownList runat="server" ID="ddlPropLocDist" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlPropLocDist_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
                                                                         </div>
@@ -425,7 +499,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Taluka <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlPropLocTaluka" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlPropLocTaluka_SelectedIndexChanged">
+                                                                            <asp:DropDownList runat="server" ID="ddlPropLocTaluka" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlPropLocTaluka_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
                                                                         </div>
@@ -435,7 +509,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Village <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlPropLocVillage" class="form-control" TabIndex="1">
+                                                                            <asp:DropDownList runat="server" ID="ddlPropLocVillage" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
                                                                         </div>
@@ -470,7 +544,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-5 col-form-label">Nature of Activity<span class="star">*</span></label>
                                                                         <div class="col-lg-7 d-flex">
-                                                                            <asp:RadioButtonList ID="rblNatureofActvty" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblNatureofActvty_SelectedIndexChanged">
+                                                                            <asp:RadioButtonList ID="rblNatureofActvty" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblNatureofActvty_SelectedIndexChanged" onchange="handleRadioChange(this)">
                                                                                 <asp:ListItem Text="Manufacturing" Value="Manufacturing" style="padding-right: 10px"></asp:ListItem>
                                                                                 <asp:ListItem Text="Service" Value="Service"></asp:ListItem>
                                                                             </asp:RadioButtonList>
@@ -575,7 +649,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Line Of Activity<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlLineOfActivity" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlLineOfActivity_SelectedIndexChanged">
+                                                                            <asp:DropDownList runat="server" ID="ddlLineOfActivity" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlLineOfActivity_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
                                                                         </div>
@@ -991,7 +1065,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Nationality <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList ID="ddlApplNationality" runat="server" class="form-control" TabIndex="1">
+                                                                            <asp:DropDownList ID="ddlApplNationality" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                                 <asp:ListItem Text="Indian" Value="Indian"></asp:ListItem>
                                                                                 <asp:ListItem Text="Others" Value="Others"></asp:ListItem>
@@ -1045,7 +1119,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Country <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlApplCountry" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlApplCountry_SelectedIndexChanged">
+                                                                            <asp:DropDownList runat="server" ID="ddlApplCountry" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlApplCountry_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
                                                                         </div>
@@ -1055,7 +1129,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">State <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlApplState" class="form-control" TabIndex="1" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplState_SelectedIndexChanged">
+                                                                            <asp:DropDownList runat="server" ID="ddlApplState" class="form-control" TabIndex="1" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplState_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
                                                                             <asp:TextBox runat="server" ID="txtApplState" class="form-control" TabIndex="1" onkeypress="return Names(event)" Visible="false" MaxLength="100"></asp:TextBox>
@@ -1069,7 +1143,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlApplDist" class="form-control" TabIndex="1" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplDist_SelectedIndexChanged">
+                                                                            <asp:DropDownList runat="server" ID="ddlApplDist" class="form-control" TabIndex="1" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplDist_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
 
@@ -1081,7 +1155,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Taluka <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlApplTaluka" class="form-control" TabIndex="1" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplTaluka_SelectedIndexChanged">
+                                                                            <asp:DropDownList runat="server" ID="ddlApplTaluka" class="form-control" TabIndex="1" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplTaluka_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
 
@@ -1093,7 +1167,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">City / Town / Village <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlApplVillage" class="form-control" TabIndex="1" Enabled="false">
+                                                                            <asp:DropDownList runat="server" ID="ddlApplVillage" class="form-control" TabIndex="1" Enabled="false" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
 

@@ -175,6 +175,13 @@
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:TemplateField>
+                                        <%-- <asp:TemplateField HeaderText="Average time taken to respond to Queriess (In Days)">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblAverage" Text='<%#Eval("AVG_TIME_TO_RESPOND") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>--%>
+                                        <asp:BoundField HeaderText="Average time taken to respond to Queriess (In Days)" DataField="AVG_TIME_TO_RESPOND" ItemStyle-HorizontalAlign="Center" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

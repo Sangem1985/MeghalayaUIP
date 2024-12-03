@@ -145,6 +145,10 @@ namespace MeghalayaUIP.Common
         public string ResponseFileBy { get; set; }
         public string EligibleFlag { get; set; }
         public string InvestorId { get; set; }
+        public string REP_STATEID { get; set; }
+        public string REP_DISTRICNAME { get; set; }
+        public string REP_MANDALNAME { get; set; }
+        public string REP_VILLAGENAME { get; set; }
     }
     public class PromoterDetails
     {

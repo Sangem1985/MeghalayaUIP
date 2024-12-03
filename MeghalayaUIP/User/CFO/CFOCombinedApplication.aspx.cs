@@ -2952,6 +2952,21 @@ namespace MeghalayaUIP.User.CFO
             catch (Exception ex)
             { throw ex; }
         }
+
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOQuestionnaire.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         public String OfflineValidations()
         {
             try

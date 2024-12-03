@@ -120,12 +120,39 @@ namespace MeghalayaUIP.User.PreReg
                             txtAuthReprEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_EMAIL"]);
                             txtAuthReprLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_LOCALITY"]);
                             txtAuthReprDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_DOORNO"]);
+                            ddlstate.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["STATEID"]);
+                            ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
 
-                            ddlAuthReprDist.SelectedValue = ds.Tables[0].Rows[0]["REP_DISTRICTID"].ToString();
-                            ddlAuthReprDist_SelectedIndexChanged(null, EventArgs.Empty);
-                            ddlAuthReprTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_MANDALID"]);
-                            ddlAuthReprTaluka_SelectedIndexChanged(null, EventArgs.Empty);
-                            ddlAuthReprVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
+                            if (ddlstate.SelectedItem.Text == "Meghalaya")
+                            {
+                                Dist1.Visible = true;
+                                Mandal1.Visible = true;
+                                villages1.Visible = true;
+                                District.Visible = false;
+                                Div1.Visible = false;
+                                Div2.Visible = false;
+
+                                ddlAuthReprDist.SelectedValue = ds.Tables[0].Rows[0]["REP_DISTRICTID"].ToString();
+                                ddlAuthReprDist_SelectedIndexChanged(null, EventArgs.Empty);
+                                ddlAuthReprTaluka.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_MANDALID"]);
+                                ddlAuthReprTaluka_SelectedIndexChanged(null, EventArgs.Empty);
+                                ddlAuthReprVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["REP_VILLAGEID"]);
+
+                            }
+                            else
+                            {
+                                District.Visible = true;
+                                Div1.Visible = true;
+                                Div2.Visible = true;
+                                Dist1.Visible = false;
+                                Mandal1.Visible = false;
+                                villages1.Visible = false;
+                                //trotherstate.Visible = true;
+                                //otherDistric.Visible = false;
+                                txtDistricted.Text = ds.Tables[0].Rows[0]["REP_DISTRICTNAME"].ToString();
+                                txtMandaled.Text = ds.Tables[0].Rows[0]["REP_MANDALNAME"].ToString();
+                                txtVillagede.Text = ds.Tables[0].Rows[0]["REP_VILLAGENAME"].ToString();
+                            }
 
                             txtAuthReprPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["REP_PINCODE"]);
 
@@ -368,6 +395,7 @@ namespace MeghalayaUIP.User.PreReg
             try
             {
                 ddlApplState.Items.Clear();
+                ddlstate.Items.Clear();
 
                 List<MasterStates> objStatesModel = new List<MasterStates>();
 
@@ -378,13 +406,22 @@ namespace MeghalayaUIP.User.PreReg
                     ddlApplState.DataValueField = "StateId";
                     ddlApplState.DataTextField = "StateName";
                     ddlApplState.DataBind();
+
+                    ddlstate.DataSource = objStatesModel;
+                    ddlstate.DataValueField = "StateId";
+                    ddlstate.DataTextField = "StateName";
+                    ddlstate.DataBind();
                 }
                 else
                 {
                     ddlApplState.DataSource = null;
                     ddlApplState.DataBind();
+
+                    ddlstate.DataSource = null;
+                    ddlstate.DataBind();
                 }
                 AddSelect(ddlApplState);
+                AddSelect(ddlstate);
             }
             catch (Exception ex)
             {
@@ -968,10 +1005,11 @@ namespace MeghalayaUIP.User.PreReg
         {
             try
             {
-
                 int slno = 1;
                 string errormsg = "";
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+                List<RadioButtonList> emptyrdb = FindEmptyRadio(divText);
 
                 if (ddlcompanytype.SelectedValue == "0" || ddlcompanytype.SelectedValue == "--Select--")
                 {
@@ -1054,21 +1092,48 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Enter Authorised Representative Locality \\n";
                     slno = slno + 1;
                 }
-                if (ddlAuthReprDist.SelectedIndex == -1 || ddlAuthReprDist.SelectedItem.Text == "--Select--")
+                if (ddlstate.SelectedValue == "0" || ddlstate.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Authorised Representative District \\n";
+                    errormsg = errormsg + slno + ". Please Select State \\n";
                     slno = slno + 1;
                 }
-                if (ddlAuthReprTaluka.SelectedIndex == -1 || ddlAuthReprTaluka.SelectedItem.Text == "--Select--")
+                if (ddlstate.SelectedValue == "23")
                 {
-                    errormsg = errormsg + slno + ". Please Select Authorised Representative Mandal or Taluka \\n";
-                    slno = slno + 1;
+                    if (ddlAuthReprDist.SelectedIndex == -1 || ddlAuthReprDist.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Authorised Representative District \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlAuthReprTaluka.SelectedIndex == -1 || ddlAuthReprTaluka.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Authorised Representative Mandal or Taluka \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlAuthReprVillage.SelectedIndex == -1 || ddlAuthReprVillage.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Authorised Representative Village \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (ddlAuthReprVillage.SelectedIndex == -1 || ddlAuthReprVillage.SelectedItem.Text == "--Select--")
+                else if (ddlstate.SelectedValue != "23" && ddlstate.SelectedValue != "0")
                 {
-                    errormsg = errormsg + slno + ". Please Select Authorised Representative Village \\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtDistricted.Text) || txtDistricted.Text == "" || txtDistricted.Text == null || txtDistricted.Text.Length != 6 || txtDistricted.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDistricted.Text, @"^0+(\.0+)?$"))
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Authorised Representative District...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtMandaled.Text) || txtMandaled.Text == "" || txtMandaled.Text == null || txtMandaled.Text.Length != 6 || txtMandaled.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMandaled.Text, @"^0+(\.0+)?$"))
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Authorised Representative Mandal...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtVillagede.Text) || txtVillagede.Text == "" || txtVillagede.Text == null || txtVillagede.Text.Length != 6 || txtVillagede.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtVillagede.Text, @"^0+(\.0+)?$"))
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Authorised Representative Village...! \\n";
+                        slno = slno + 1;
+                    }
                 }
+
                 if (string.IsNullOrEmpty(txtAuthReprDoorNo.Text.Trim()) || txtAuthReprDoorNo.Text.Trim() == "" || txtAuthReprDoorNo.Text.Trim() == null || txtAuthReprDoorNo.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAuthReprDoorNo.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Authorised Representative Door No \\n";
@@ -1347,10 +1412,16 @@ namespace MeghalayaUIP.User.PreReg
             ID.AuthReprMobile = txtAuthReprMobile.Text.Trim();
             ID.AuthReprEmail = txtAuthReprEmail.Text.Trim();
             ID.AuthReprLocality = txtAuthReprLocality.Text.Trim();
+            ID.REP_STATEID = ddlstate.SelectedValue;
             ID.AuthReprDistID = ddlAuthReprDist.SelectedValue.Trim();
             ID.AuthReprTalukaID = ddlAuthReprTaluka.SelectedValue;
             ID.AuthReprVillageID = ddlAuthReprVillage.SelectedValue;
             ID.AuthReprPincode = txtAuthReprPincode.Text.Trim();
+            ID.REP_DISTRICNAME = txtDistricted.Text.Trim();
+            ID.REP_MANDALNAME = txtMandaled.Text.Trim();
+            ID.REP_VILLAGENAME = txtVillagede.Text.Trim();
+
+
 
             ID.LandType = rblLandType.SelectedValue;
             ID.PropLocDoorno = txtPropLocDoorno.Text.Trim();
@@ -3214,6 +3285,38 @@ namespace MeghalayaUIP.User.PreReg
             }
 
         }
+
+        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlstate.SelectedValue != "23")
+                {
+                    District.Visible = true;
+                    Div1.Visible = true;
+                    Div2.Visible = true;
+                    Dist1.Visible = false;
+                    Mandal1.Visible = false;
+                    villages1.Visible = false;
+                }
+                else if (ddlstate.SelectedValue == "23")
+                {
+                    Dist1.Visible = true;
+                    Mandal1.Visible = true;
+                    villages1.Visible = true;
+                    District.Visible = false;
+                    Div1.Visible = false;
+                    Div2.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         protected void Link3_Click(object sender, EventArgs e)
         {
             ErrorMsg1 = Step1validations();
@@ -3291,6 +3394,54 @@ namespace MeghalayaUIP.User.PreReg
             }
             return emptyTextboxes;
         }
+        protected List<DropDownList> FindEmptyDropdowns(Control container)
+        {
+            List<DropDownList> emptyDropdowns = new List<DropDownList>();
+
+            foreach (Control control in container.Controls)
+            {
+                if (control is DropDownList)
+                {
+                    DropDownList dropdown = (DropDownList)control;
+                    if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
+                    {
+                        emptyDropdowns.Add(dropdown);
+                        dropdown.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyDropdowns.AddRange(FindEmptyDropdowns(control));
+                }
+            }
+
+            return emptyDropdowns;
+        }
+        protected List<RadioButtonList> FindEmptyRadio(Control container)
+        {
+            List<RadioButtonList> emptyrdb = new List<RadioButtonList>();
+
+            foreach (Control control in container.Controls)
+            {
+                if (control is RadioButtonList)
+                {
+                    RadioButtonList rdblist = (RadioButtonList)control;
+                    if (string.IsNullOrWhiteSpace(rdblist.SelectedValue) || rdblist.SelectedValue == "" || rdblist.SelectedValue == "0")
+                    {
+                        emptyrdb.Add(rdblist);
+                        rdblist.BorderColor = System.Drawing.Color.Red;
+                    }
+
+                    if (control.HasControls())
+                    {
+                        emptyrdb.AddRange(FindEmptyRadio(control));
+                    }
+                }
+            }
+            return emptyrdb;
+        }
+
 
     }
 }

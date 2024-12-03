@@ -69,7 +69,7 @@
             var txtUsername = document.getElementById('<%= txtUsername.ClientID %>');          
                        
             if (txtUsername.value.trim() != '') {
-                txtUsername.style.borderColor = 'black';
+                txtUsername.style.borderColor = '1px solid #767575b5';
             }
             
         }
@@ -77,14 +77,14 @@
             var txtPswrd = document.getElementById('<%= txtPswrd.ClientID %>');
 
             if (txtPswrd.value.trim() != '') {
-                txtPswrd.style.borderColor = 'black';
+                txtPswrd.style.borderColor = '1px solid #767575b5';
             }
         }
         function BorderCaptchaColor() {
             var txtcaptcha = document.getElementById('<%= txtcaptcha.ClientID %>');
 
               if (txtcaptcha.value.trim() != '') {
-                  txtcaptcha.style.borderColor = 'black';
+                  txtcaptcha.style.borderColor = '1px solid #767575b5';
               }
           }
 

@@ -115,9 +115,13 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@REP_MOBILE", Convert.ToInt64(ID.AuthReprMobile));
                 da.SelectCommand.Parameters.AddWithValue("@REP_EMAIL", ID.AuthReprEmail);
                 da.SelectCommand.Parameters.AddWithValue("@REP_LOCALITY", ID.AuthReprLocality);
+                da.SelectCommand.Parameters.AddWithValue("@STATEID", ID.REP_STATEID);
                 da.SelectCommand.Parameters.AddWithValue("@REP_DISTRICTID", Convert.ToInt32(ID.AuthReprDistID));
                 da.SelectCommand.Parameters.AddWithValue("@REP_MANDALID", Convert.ToInt32(ID.AuthReprTalukaID));
                 da.SelectCommand.Parameters.AddWithValue("@REP_VILLAGEID", Convert.ToInt32(ID.AuthReprVillageID));
+                da.SelectCommand.Parameters.AddWithValue("@REP_DISTRICTNAME", ID.REP_DISTRICNAME);
+                da.SelectCommand.Parameters.AddWithValue("@REP_MANDALNAME", ID.REP_MANDALNAME);
+                da.SelectCommand.Parameters.AddWithValue("@REP_VILLAGENAME", ID.REP_VILLAGENAME);
                 da.SelectCommand.Parameters.AddWithValue("@REP_PINCODE", ID.AuthReprPincode);
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_LANDTYPE", ID.LandType);
                 if (ID.PropLocDoorno != "")
