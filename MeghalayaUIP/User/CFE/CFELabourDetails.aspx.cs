@@ -1152,6 +1152,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
+
                 //if (Attachment.PostedFile.ContentType != "application/pdf"
                 //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
@@ -1674,6 +1675,8 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+
                 if (ddlCategory.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Enter Category of Establishment \\n";
@@ -2057,6 +2060,29 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
+        protected List<TextBox> FindEmptyTextboxes(Control container)
+        {
+
+            List<TextBox> emptyTextboxes = new List<TextBox>();
+            foreach (Control control in container.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textbox = (TextBox)control;
+                    if (string.IsNullOrWhiteSpace(textbox.Text))
+                    {
+                        emptyTextboxes.Add(textbox);
+                        textbox.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+                }
+            }
+            return emptyTextboxes;
+        }
 
     }
 }

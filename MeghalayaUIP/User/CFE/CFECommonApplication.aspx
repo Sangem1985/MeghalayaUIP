@@ -3,6 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
+        }
+    </script>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
@@ -11,7 +20,7 @@
         </ol>
     </nav>
     <div class="page-wrapper">
-        <div class="content container-fluid">
+        <div class="content container-fluid" id="divText" runat="server">
             <section class="comp-section">
                 <div class="row">
                     <div class="col-md-12">
@@ -175,7 +184,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt1PCB" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt1PCB" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup1PCB" Width="300px" Font-Italic="true" Height="45px" />
@@ -200,7 +209,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt2HazPCB" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt2HazPCB" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup2HazPCB" Width="300px" Font-Italic="true" Height="45px" />
@@ -224,7 +233,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt3SrvcCon" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt3SrvcCon" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup3SrvcCon" Width="300px" Font-Italic="true" Height="45px" />
@@ -248,7 +257,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt4EleCon" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt4EleCon" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup4EleCon" Width="300px" Font-Italic="true" Height="45px" />
@@ -272,7 +281,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt5FctryPlan" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt5FctryPlan" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup5FctryPlan" Width="300px" Font-Italic="true" Height="45px" />
@@ -296,7 +305,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt6DGsetNOC" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt6DGsetNOC" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup6DGsetNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -320,7 +329,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt7FireSfty" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt7FireSfty" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup7FireSfty" Width="300px" Font-Italic="true" Height="45px" />
@@ -344,7 +353,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt8RSDSLic" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt8RSDSLic" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup8RSDSLic" Width="300px" Font-Italic="true" Height="45px" />
@@ -368,7 +377,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt9ExplsvNOC" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt9ExplsvNOC" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup9ExplsvNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -392,7 +401,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt10PtrlNOC" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt10PtrlNOC" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup10PtrlNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -416,7 +425,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt11RdCtng" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt11RdCtng" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup11RdCtng" Width="300px" Font-Italic="true" Height="45px" />
@@ -440,7 +449,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt12NonEncmb" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt12NonEncmb" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup12NonEncmb" Width="300px" Font-Italic="true" Height="45px" />
@@ -464,7 +473,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt13ProfTax" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt13ProfTax" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup13ProfTax" Width="300px" Font-Italic="true" Height="45px" />
@@ -488,7 +497,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt14ElcInsp" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt14ElcInsp" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup14ElcInsp" Width="300px" Font-Italic="true" Height="45px" />
@@ -512,7 +521,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt15ForstDist" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt15ForstDist" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup15ForstDist" Width="300px" Font-Italic="true" Height="45px" />
@@ -536,7 +545,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt16NonForstLand" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt16NonForstLand" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup16NonForstLand" Width="300px" Font-Italic="true" Height="45px" />
@@ -560,7 +569,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt17IrrgNOC" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt17IrrgNOC" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup17IrrgNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -584,7 +593,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt18RevNOC" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt18RevNOC" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup18RevNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -608,7 +617,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt19GrndWtrNOC" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt19GrndWtrNOC" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup19GrndWtrNOC" Width="300px" Font-Italic="true" Height="45px" />
@@ -632,7 +641,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt20NoWtrSply" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt20NoWtrSply" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup20NoWtrSply" Width="300px" Font-Italic="true" Height="45px" />
@@ -656,7 +665,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt21ToDrawWtr" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt21ToDrawWtr" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup21ToDrawWtr" Width="300px" Font-Italic="true" Height="45px" />
@@ -680,7 +689,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt22MunicipalWatr" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt22MunicipalWatr" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup22MunicipalWatr" Width="300px" Font-Italic="true" Height="45px" />
@@ -704,7 +713,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt23UrbanWatr" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt23UrbanWatr" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup23UrbanWatr" Width="300px" Font-Italic="true" Height="45px" />
@@ -728,7 +737,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt25LbrAct1970" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt25LbrAct1970" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup25LbrAct1970" Width="300px" Font-Italic="true" Height="45px" />
@@ -752,7 +761,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt26LbrAct1979" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt26LbrAct1979" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup26LbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
@@ -776,7 +785,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt27LbrAct1996" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt27LbrAct1996" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup27LbrAct1996" Width="300px" Font-Italic="true" Height="45px" />
@@ -800,7 +809,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt28ContrLbrAct" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt28ContrLbrAct" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup28ContrLbrAct" Width="300px" Font-Italic="true" Height="45px" />
@@ -824,7 +833,7 @@
                                                 :
                                             </div>
                                             <div class="col-lg-2 d-flex">
-                                                <asp:TextBox ID="txt29ContrLbrAct1979" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:TextBox ID="txt29ContrLbrAct1979" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>
                                             <div class="col-lg-2 d-flex">
                                                 <asp:FileUpload runat="server" ID="fup29ContrLbrAct1979" Width="300px" Font-Italic="true" Height="45px" />
@@ -859,7 +868,7 @@
                                                     :
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
-                                                    <asp:TextBox ID="txt30ConstrPermit" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:TextBox ID="txt30ConstrPermit" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
                                                     <asp:FileUpload runat="server" ID="fup30ConstrPermit" Width="300px" Font-Italic="true" Height="45px" />
@@ -883,7 +892,7 @@
                                                     :
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
-                                                    <asp:TextBox ID="txt31BldngPlan" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:TextBox ID="txt31BldngPlan" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </div>
                                                 <div class="col-lg-2 d-flex">
                                                     <asp:FileUpload runat="server" ID="fup31BldngPlan" Width="300px" Font-Italic="true" Height="45px" />

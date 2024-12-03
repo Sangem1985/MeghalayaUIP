@@ -3,6 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
+        }
+    </script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
@@ -12,7 +21,7 @@
         </ol>
     </nav>
     <!-- Page Wrapper -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" id="divText" runat="server">
         <div class="content container-fluid">
             <div class="card-header d-flex justify-content-between">
                 <h4 class="card-title mt-1"><b>Pre Establishment Application Details</b></h4>
@@ -3248,8 +3257,8 @@
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
-                                                    <asp:TextBox runat="server" ID="txtAdditionalAmount" Height="50px" Width="150px" onkeypress="return validateAmount(event)" Visible="false" />
+                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtAdditionalAmount" Height="50px" Width="150px" onkeypress="return validateAmount(event)" Visible="false" onkeyup="handleKeyUp(this)"/>
                                                 </td>
                                                 <td id="tdInspReport1" runat="server" visible="false">
                                                     
@@ -3302,7 +3311,7 @@
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="trrejection" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRejection" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRejection" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </td>
                                                 <td id="tdbtnreject" runat="server" visible="false">
                                                     <asp:Button ID="btnreject" runat="server" Text="Submit" OnClick="btnreject_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
@@ -3314,7 +3323,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <asp:TextBox runat="server" ID="txtreferenceno" class="form-control mt-2"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtreferenceno" class="form-control mt-2" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </td>
                                                 <td>
                                                     <asp:FileUpload runat="server" ID="fuApproval" Width="300px" Font-Italic="true" Height="45px" CssClass="mt-2" />
@@ -3394,7 +3403,7 @@
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdOfflineReason" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRejectReasonOffline" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRejectReasonOffline" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </td>
                                                 <td id="td7" runat="server" visible="true">
                                                     <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="btnreject_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />

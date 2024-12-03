@@ -5,6 +5,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
+        }
+    </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
@@ -18,7 +27,7 @@
                     <li class="breadcrumb-item active" aria-current="page">Power Details</li>
                 </ol>
             </nav>
-            <div class="page-wrapper">
+            <div class="page-wrapper" id="divText" runat="server">
 
                 <div class="content container-fluid">
 
@@ -55,7 +64,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Connected Load in KW*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtHP" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
+                                                        <asp:TextBox ID="txtHP" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         <span class="form-text text-muted mt-2 ml-2"></span>
                                                         <!-- <span class="mt-2">HP</span> -->
                                                     </div>
@@ -65,7 +74,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2. Contracted Maximum Demand in KVA *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMaxDemand" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMaxDemand" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,7 +113,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Per Day*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMaxhours" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="2"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMaxhours" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="2" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,7 +121,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2. Per Month*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMonth" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="4"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMonth" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="4" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,7 +131,7 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <%--  <asp:TextBox ID="txttrailProduct" runat="server" class="date form-control"></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
-                                                        <asp:TextBox runat="server" ID="txttrailProduct" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                        <asp:TextBox runat="server" ID="txttrailProduct" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)" />
                                                         <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txttrailProduct"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -136,7 +145,7 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <%-- <asp:TextBox ID="txtPowersupply" runat="server" class="date form-control"></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
-                                                        <asp:TextBox runat="server" ID="txtPowersupply" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                        <asp:TextBox runat="server" ID="txtPowersupply" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)"/>
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtPowersupply"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -146,7 +155,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">5. Quantum of energy/load required (in KW) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtenergy" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
+                                                        <asp:TextBox ID="txtenergy" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
