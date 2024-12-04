@@ -95,7 +95,7 @@ namespace MeghalayaUIP.Dept.Renewal
                 {
                     DataSet ds = new DataSet();
                     ds = objRenbal.GetRENApplicationDetails(Convert.ToString(Session["RENUNITID"]), Session["INVESTERID"].ToString());
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 0 &&  ds.Tables[0].Rows.Count > 0)
                     {
                         lblnameUnit.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
                         lblCompanyType.Text = ds.Tables[0].Rows[0]["NSWS_ENTITYTYPENAME"].ToString();

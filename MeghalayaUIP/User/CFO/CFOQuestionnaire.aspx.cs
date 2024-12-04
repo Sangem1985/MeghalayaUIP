@@ -939,7 +939,7 @@ namespace MeghalayaUIP.User.CFO
 
                 DataSet ds = new DataSet();
                 ds = objcfobal.RetrieveQuestionnaireDetails(hdnUserID.Value, UnitID);
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     Session["CFOQID"] = ds.Tables[0].Rows[0]["CFOQDID"].ToString();
                     hdnPreRegUNITID.Value = Convert.ToString(ds.Tables[0].Rows[0]["CFOQD_UNITID"]);

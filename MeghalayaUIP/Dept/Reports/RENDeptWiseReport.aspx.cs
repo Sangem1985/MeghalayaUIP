@@ -121,7 +121,7 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 DataSet ds = new DataSet();
                 ds = reportsBAL.RENDeptWiseReport(ddldepartment.SelectedValue, txtFormDate.Text, txtToDate.Text);
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     GVRENReport.DataSource = ds.Tables[0];
                     GVRENReport.DataBind();

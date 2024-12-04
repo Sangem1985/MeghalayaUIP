@@ -134,7 +134,7 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 DataSet ds = new DataSet();
                 ds = reportsBAL.LandDistrictWiseReports(ddldistrict.SelectedValue, txtFormDate.Text, txtToDate.Text, ddlEnterPriseType.SelectedItem.Text);
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     GVLADistrictWise.DataSource = ds.Tables[0];
                     GVLADistrictWise.DataBind();

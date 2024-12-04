@@ -67,7 +67,7 @@ namespace MeghalayaUIP.Dept.Reports
                     DataSet ds = new DataSet();
 
                     ds = Objreport.LandDistrictReportDrilldown(Distid, FromDate, ToDate, ViewType);
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 0 &&  ds.Tables[0].Rows.Count > 0)
                     {
                         GVLADistWise.DataSource = ds.Tables[0];
                         GVLADistWise.DataBind();

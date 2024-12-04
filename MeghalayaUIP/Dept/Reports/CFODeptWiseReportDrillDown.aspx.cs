@@ -68,7 +68,7 @@ namespace MeghalayaUIP.Dept.Reports
 
                     DataSet ds = new DataSet();
                     ds = Objreport.CFODeptwiseReportDrilldown(Deptid, FormDate, ToDate);
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 0 &&  ds.Tables[0].Rows.Count > 0)
                     {
                         GVDepartment.DataSource = ds.Tables[0];
                         GVDepartment.DataBind();
