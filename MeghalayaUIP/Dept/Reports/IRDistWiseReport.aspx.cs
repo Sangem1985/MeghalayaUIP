@@ -24,7 +24,7 @@ namespace MeghalayaUIP.Dept.Reports
         MasterBAL mstrBAL = new MasterBAL();
         ReportBAL reportsBAL = new ReportBAL();
 
-        int TotalAppl, ImaPending, ImaQuery, CommPending, CommApproved, CommRejected, CommQuery;
+        int TotalAppl, ImaPending, ImaQuery, QueryRedressedima, CommPending, CommApproved, CommRejected, CommQuery;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -59,11 +59,11 @@ namespace MeghalayaUIP.Dept.Reports
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";               
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-           
+
         }
         protected void ddldistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -153,13 +153,13 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 FillGridData();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-           
+
 
         }
 
@@ -190,6 +190,9 @@ namespace MeghalayaUIP.Dept.Reports
                 int Query = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "IMAQUERYRAISED"));
                 ImaQuery = Query + ImaQuery;
 
+                int Redressed = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "QUERYREDRESSEDTOIMA"));
+                QueryRedressedima = Redressed + QueryRedressedima;
+
                 int CommPendings = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "COMMPENDING"));
                 CommPending = CommPendings + CommPending;
 
@@ -204,10 +207,11 @@ namespace MeghalayaUIP.Dept.Reports
 
 
 
-                Label lblDist = (Label)e.Row.FindControl("lblDistrictid");
+                Label lblDist = (Label)e.Row.FindControl("lblDepartmentid");
                 LinkButton lnkTotal = (LinkButton)e.Row.FindControl("lblTotal");
                 LinkButton lnkPending = (LinkButton)e.Row.FindControl("lblPending");
                 LinkButton lnkQuery = (LinkButton)e.Row.FindControl("lblQueryRaised");
+                LinkButton lnkRedressed = (LinkButton)e.Row.FindControl("lblQueryRedressed");
                 LinkButton lnkcommpending = (LinkButton)e.Row.FindControl("lblCommPending");
                 LinkButton lnkApproved = (LinkButton)e.Row.FindControl("lblCommApproved");
                 LinkButton lnkRejected = (LinkButton)e.Row.FindControl("lblCommRejected");
@@ -216,29 +220,35 @@ namespace MeghalayaUIP.Dept.Reports
                 string districtname = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DISTRICTNAME")).Trim();
 
                 if (lnkTotal.Text != "0")
-                    lnkTotal.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
-
+                {
+                    lnkTotal.PostBackUrl = ResolveUrl("IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text);
+                    lnkTotal.Attributes.Add("formtarget", "_blank");
+                }
                 if (lnkPending.Text != "0")
-                    lnkPending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Pending" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkPending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=IMAPENDING" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkQuery.Text != "0")
-                    lnkQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Query" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=IMAQUERYRAISED" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+
+                if (lnkRedressed.Text != "0")
+                    lnkRedressed.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=QUERYREDRESSEDTOIMA" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkcommpending.Text != "0")
-                    lnkcommpending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=commpending" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkcommpending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=COMMPENDING" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkApproved.Text != "0")
-                    lnkApproved.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Approved" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkApproved.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=COMMAPPROVED" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkRejected.Text != "0")
-                    lnkRejected.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=Rejected" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkRejected.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=COMMREJECTED" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 if (lnkCommQuery.Text != "0")
-                    lnkCommQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=CommQuery" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    lnkCommQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + lblDist.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=COMMQUERY" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
 
                 lnkTotal.ForeColor = System.Drawing.Color.Black;
                 lnkPending.ForeColor = System.Drawing.Color.Black;
                 lnkQuery.ForeColor = System.Drawing.Color.Black;
+                lnkRedressed.ForeColor = System.Drawing.Color.Black;
                 lnkcommpending.ForeColor = System.Drawing.Color.Black;
                 lnkApproved.ForeColor = System.Drawing.Color.Black;
                 lnkRejected.ForeColor = System.Drawing.Color.Black;
@@ -262,20 +272,22 @@ namespace MeghalayaUIP.Dept.Reports
 
                 LinkButton Total = new LinkButton();
                 Total.ForeColor = System.Drawing.Color.Blue;
+                Total.Text = TotalAppl.ToString();
                 if (Total.Text != "0")
                 {
                     Total.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=TOTAL" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                    Total.Attributes.Add("formtarget", "_blank");
                 }
-                Total.Text = TotalAppl.ToString();
                 e.Row.Cells[3].Text = TotalAppl.ToString();
                 e.Row.Cells[3].Controls.Add(Total);
 
                 e.Row.Cells[4].Text = ImaPending.ToString();
                 e.Row.Cells[5].Text = ImaQuery.ToString();
-                e.Row.Cells[6].Text = CommPending.ToString();
-                e.Row.Cells[7].Text = CommApproved.ToString();
-                e.Row.Cells[8].Text = CommRejected.ToString();
-                e.Row.Cells[9].Text = CommQuery.ToString();
+                e.Row.Cells[6].Text = QueryRedressedima.ToString();
+                e.Row.Cells[7].Text = CommPending.ToString();
+                e.Row.Cells[8].Text = CommApproved.ToString();
+                e.Row.Cells[9].Text = CommRejected.ToString();
+                e.Row.Cells[10].Text = CommQuery.ToString();
             }
         }
         public override void VerifyRenderingInServerForm(Control control)

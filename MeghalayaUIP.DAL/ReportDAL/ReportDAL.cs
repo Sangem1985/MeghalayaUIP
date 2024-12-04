@@ -36,9 +36,9 @@ namespace MeghalayaUIP.DAL.ReportDAL
                 da.SelectCommand.Parameters.AddWithValue("@ENTTYPE", EntType);
                 if (Formdate != null && Formdate != "")
                 {
-                    da.SelectCommand.Parameters.AddWithValue("@FROMDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));                   
+                    da.SelectCommand.Parameters.AddWithValue("@FROMDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
-                if (Todate !=null && Todate !="")
+                if (Todate != null && Todate != "")
                 {
                     da.SelectCommand.Parameters.AddWithValue("@TODATE", DateTime.ParseExact(Todate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
@@ -71,15 +71,19 @@ namespace MeghalayaUIP.DAL.ReportDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@DISTRICTID", Distid);
                 if (FromDate != null && FromDate != "")
-                {
                     da.SelectCommand.Parameters.AddWithValue("@FROMDATE", DateTime.ParseExact(FromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                }
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@FROMDATE", DBNull.Value);
+
+
                 if (ToDate != null && ToDate != "")
-                {
+
                     da.SelectCommand.Parameters.AddWithValue("@TODATE", DateTime.ParseExact(ToDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                }
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@TODATE", DBNull.Value);
+
                 da.SelectCommand.Parameters.AddWithValue("@VIWETYPE", ViewType);
-              
+
 
                 da.Fill(ds);
                 transaction.Commit();
@@ -107,7 +111,7 @@ namespace MeghalayaUIP.DAL.ReportDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Department);              
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Department);
                 if (Formdate != null && Formdate != "")
                 {
                     da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
@@ -152,7 +156,7 @@ namespace MeghalayaUIP.DAL.ReportDAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(Todate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
-               
+
 
 
                 da.Fill(ds);

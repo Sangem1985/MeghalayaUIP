@@ -5,6 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+   
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
@@ -165,6 +167,12 @@
                                                             <asp:TemplateField HeaderText="IMA QueryRaised">
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton runat="server" ID="lblQueryRaised" Text='<%#Eval("IMAQUERYRAISED") %>' />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="QUERY REDRESSED TO IMA">
+                                                                <ItemTemplate>
+                                                                    <asp:LinkButton runat="server" ID="lblQueryRedressed" Text='<%#Eval("QUERYREDRESSEDTOIMA") %>' />
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>

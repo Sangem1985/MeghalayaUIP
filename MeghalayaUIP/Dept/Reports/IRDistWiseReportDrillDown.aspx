@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="IRDistWiseReportDrillDown.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.IRDistWiseReportDrillDown" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        table#ContentPlaceHolder1_GVDistWise {
+    margin-bottom: 30px;
+    border-bottom: 15px solid #3b4474 !important;
+}
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../assets/admin/css/user.css" rel="stylesheet" />
@@ -51,7 +58,7 @@
                     <div class="table-responsive">
                         <asp:GridView ID="GVDistWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered table-striped table-hover" ForeColor="#333333"
-                            GridLines="None" Width="100%" EnableModelValidation="True" ShowFooter="true">
+                            GridLines="None" Width="100%" EnableModelValidation="True">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" Height="33px" HorizontalAlign="Center" />
 
