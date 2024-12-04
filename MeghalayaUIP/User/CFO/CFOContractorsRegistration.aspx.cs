@@ -247,7 +247,7 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 int slno = 1;
-
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 if (string.IsNullOrEmpty(txtNameBank.Text.Trim()) || txtNameBank.Text.Trim() == "" || txtNameBank.Text.Trim() == null)
                 {
                     ErrorMsg = ErrorMsg + slno + ". Please Enter Address\\n";
@@ -975,6 +975,29 @@ namespace MeghalayaUIP.User.CFO
             }
 
             // Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?Previous=P");
+        }
+        protected List<TextBox> FindEmptyTextboxes(Control container)
+        {
+
+            List<TextBox> emptyTextboxes = new List<TextBox>();
+            foreach (Control control in container.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textbox = (TextBox)control;
+                    if (string.IsNullOrWhiteSpace(textbox.Text))
+                    {
+                        emptyTextboxes.Add(textbox);
+                        textbox.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+                }
+            }
+            return emptyTextboxes;
         }
     }
 }

@@ -3204,6 +3204,8 @@ namespace MeghalayaUIP.User.CFE
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+
                 //if (Attachment.PostedFile.ContentType != "application/pdf"
                 //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
@@ -3284,6 +3286,8 @@ namespace MeghalayaUIP.User.CFE
         {
             string errormsg = "";
             int SlNo = 1;
+            List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+
             if (divPCB.Visible == true && (string.IsNullOrWhiteSpace(hpl1PCB.Text) || hpl1PCB.Text == "" || hpl1PCB.Text == null))
             {
                 errormsg = errormsg + SlNo + ". . Please Upload Pre Establishment Approval from Pollution Control Board  \\n";
@@ -3650,7 +3654,29 @@ namespace MeghalayaUIP.User.CFE
 
             return result;
         }
+        protected List<TextBox> FindEmptyTextboxes(Control container)
+        {
 
+            List<TextBox> emptyTextboxes = new List<TextBox>();
+            foreach (Control control in container.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textbox = (TextBox)control;
+                    if (string.IsNullOrWhiteSpace(textbox.Text))
+                    {
+                        emptyTextboxes.Add(textbox);
+                        textbox.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+                }
+            }
+            return emptyTextboxes;
+        }
 
     }
 }

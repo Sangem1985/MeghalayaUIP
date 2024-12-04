@@ -3,12 +3,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
+        }
+    </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
-            <div class="page-wrapper">
+            <div class="page-wrapper" id="divText" runat="server">
 
                 <div class="content container-fluid">
 
@@ -71,7 +80,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Nature and Quantity to waste handled per annum (in Metric Tons) *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtMetricTons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMetricTons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,7 +88,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Nature and Quantity to waste stored at any time (in Metric Tons) *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtstoredtons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
+                                                        <asp:TextBox ID="txtstoredtons" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,7 +99,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Nature and Quantity to waste handled per annum (in Kilo Litre) *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtwasteannum" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="8"></asp:TextBox>
+                                                        <asp:TextBox ID="txtwasteannum" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="8" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,7 +107,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Nature and Quantity to waste stored at any time (in Kilo Litre)  *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtnature" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
+                                                        <asp:TextBox ID="txtnature" runat="server" class="form-control" onkeypress="validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,7 +118,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Year of commissioning and commence of production *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtYearpro" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4"></asp:TextBox>
+                                                        <asp:TextBox ID="txtYearpro" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

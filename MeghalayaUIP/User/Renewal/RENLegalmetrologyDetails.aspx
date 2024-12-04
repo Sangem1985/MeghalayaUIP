@@ -5,6 +5,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    //let originalValue = "";
+    function handleKeyUp(input)
+    {
+        if (input.value.trim() === "") {
+            input.style.border = "2px solid red";
+        }
+        else {
+            input.style.border = "1px solid #767575b5";
+        }
+    }
+    </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
@@ -12,7 +24,7 @@
                 <div class="content container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card">
+                            <div class="card" id="divText" runat="server">
                                 <div class="card-header">
                                     <h4 class="card-title">Legalmetrology Details</h4>
                                 </div>
@@ -47,7 +59,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Licence Number  *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLicNo" runat="server" class="form-control" onkeyup="handleKeyUp(this)" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -63,7 +75,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total amount of fee to be paid for Auto Renewal  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtBoilerDet" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtBoilerDet" runat="server" class="form-control" onkeyup="handleKeyUp(this)" Type="text" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -72,7 +84,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">License Renewed upto Date *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox runat="server" ID="txtLicDateTo" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
+                                                        <asp:TextBox runat="server" ID="txtLicDateTo" class="form-control" onkeyup="handleKeyUp(this)" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
                                                         <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtLicDateTo"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -82,7 +94,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">License Valid upto Date *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox runat="server" ID="txtLicValiddate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
+                                                        <asp:TextBox runat="server" ID="txtLicValiddate" class="form-control" onkeyup="handleKeyUp(this)" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtLicValiddate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>

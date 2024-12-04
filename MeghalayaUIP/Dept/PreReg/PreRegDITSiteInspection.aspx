@@ -4,6 +4,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
+        }
+    </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
         table {
@@ -119,7 +128,7 @@
 
         <h3>Site Verification Report</h3>
 
-        <div style="display: flex; justify-content: center;">
+        <div id="divText" runat="server" style="display: flex; justify-content: center;">
             <table border="1" style="width: 80%">
                 <tr>
                     <th>Sr No</th>
@@ -130,25 +139,25 @@
                     <td>1</td>
                     <td>Name of the Unit</td>
                     <td>
-                        <asp:TextBox ID="txtUnitName" runat="server" Placeholder="Enter Name Of the unit" Width="400px" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox></td>
+                        <asp:TextBox ID="txtUnitName" runat="server" Placeholder="Enter Name Of the unit" Width="400px" onkeypress="return Names(this)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Location of the Unit</td>
                     <td>
-                        <asp:TextBox ID="txtUnitLocation" runat="server" Placeholder="Enter the Address of the Unit" Width="400px" onkeypress="return Address(event)" TabIndex="1" MaxLength="50"></asp:TextBox></td>
+                        <asp:TextBox ID="txtUnitLocation" runat="server" Placeholder="Enter the Address of the Unit" Width="400px" onkeypress="return Address(event)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>Coordinates of the Site</td>
                     <td>
-                        <asp:TextBox ID="txtCoordinates" runat="server" Width="400px" Placeholder="40.7128° N, 74.0060° W" TabIndex="1" MaxLength="9"></asp:TextBox></td>
+                        <asp:TextBox ID="txtCoordinates" runat="server" Width="400px" Placeholder="40.7128° N, 74.0060° W" TabIndex="1" MaxLength="9" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>4</td>
                     <td>Total area of Site</td>
                     <td>
-                        <asp:TextBox ID="txtArea" runat="server" Width="200px" Placeholder="In sq.ft/ acres" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="6"></asp:TextBox></td>
+                        <asp:TextBox ID="txtArea" runat="server" Width="200px" Placeholder="In sq.ft/ acres" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="6" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>5</td>
@@ -176,13 +185,13 @@
                     <td>7</td>
                     <td>Distance from the Main Road</td>
                     <td>
-                        <asp:TextBox ID="txtDistanceMainRoad" runat="server" Width="200px" Placeholder="Write distance in KM" onkeypress="return validateNumbersOnly(event)" TabIndex="1" MaxLength="5"></asp:TextBox></td>
+                        <asp:TextBox ID="txtDistanceMainRoad" runat="server" Width="200px" Placeholder="Write distance in KM" onkeypress="return validateNumbersOnly(event)" TabIndex="1" MaxLength="5" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>8</td>
                     <td>Type of Road</td>
                     <td>
-                        <asp:TextBox ID="txtTypeOfRoad" runat="server" Width="400px" Placeholder="Width/ condition/ specify" TabIndex="1" onkeypress="return Names(this)" MaxLength="150"></asp:TextBox></td>
+                        <asp:TextBox ID="txtTypeOfRoad" runat="server" Width="400px" Placeholder="Width/ condition/ specify" TabIndex="1" onkeypress="return Names(this)" MaxLength="150" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>9</td>
@@ -199,7 +208,7 @@
                     <td>10</td>
                     <td>Any Natural Bodies</td>
                     <td>
-                        <asp:TextBox ID="txtNaturalBodies" runat="server" Width="400px" Placeholder="Specify type of natural body" TabIndex="1" onkeypress="return Names(this)" MaxLength="200"></asp:TextBox></td>
+                        <asp:TextBox ID="txtNaturalBodies" runat="server" Width="400px" Placeholder="Specify type of natural body" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>11</td>
@@ -209,7 +218,7 @@
                             <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
                             <asp:ListItem Text="No" Value="No"></asp:ListItem>
                         </asp:RadioButtonList>
-                        <asp:TextBox ID="txtEnvVulnerableRemarks" runat="server" Width="300px" Placeholder="If Yes, specify" TabIndex="1" onkeypress="return Names(this)" MaxLength="200"></asp:TextBox>
+                        <asp:TextBox ID="txtEnvVulnerableRemarks" runat="server" Width="300px" Placeholder="If Yes, specify" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -220,27 +229,27 @@
                             <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
                             <asp:ListItem Text="No" Value="No"></asp:ListItem>
                         </asp:RadioButtonList>
-                        <asp:TextBox ID="txtPowerDrawPoint" runat="server" Width="300px" Placeholder="If No, specify nearest drawl point"></asp:TextBox>
+                        <asp:TextBox ID="txtPowerDrawPoint" runat="server" Width="300px" Placeholder="If No, specify nearest drawl point" onkeyup="handleKeyUp(this)"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>13</td>
                     <td>Availability of Water</td>
                     <td>
-                        <asp:TextBox ID="txtWaterSource" runat="server" Width="400px" Placeholder="Specify source" TabIndex="1" onkeypress="return Names(this)" MaxLength="200"></asp:TextBox></td>
+                        <asp:TextBox ID="txtWaterSource" runat="server" Width="400px" Placeholder="Specify source" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>14</td>
                     <td>Other observations</td>
                     <td>
-                        <asp:TextBox ID="txtOtherObservations" runat="server" Width="400px" Placeholder="Specify, if applicable" TabIndex="1" onkeypress="return Names(this)" MaxLength="200"></asp:TextBox></td>
+                        <asp:TextBox ID="txtOtherObservations" runat="server" Width="400px" Placeholder="Specify, if applicable" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
             </table>
         </div>
         <br />
         <div style="display: flex; justify-content: center;">
             <h4>Comments/ Remarks of Field visit team (if any):</h4>
-            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Width="600px"></asp:TextBox>
+            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Width="600px" onkeyup="handleKeyUp(this)"></asp:TextBox>
         </div>
 
         <div align="center">

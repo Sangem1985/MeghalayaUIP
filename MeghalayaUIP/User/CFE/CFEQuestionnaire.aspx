@@ -3,10 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
+        }
+    </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
-
+    
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
             <nav aria-label="breadcrumb">
@@ -63,7 +72,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="tab-content">
+                                        <div class="tab-content" id="divText" runat="server">
                                             <asp:MultiView ID="MVQues" runat="server" OnActiveViewChanged="MVQues_ActiveViewChanged">
                                                 <asp:View ID="viewProjDtls" runat="server">
                                                     <div class="tab-pane active" id="basictab1">
@@ -78,7 +87,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Name of Unit<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()" Enabled="false" TabIndex="1"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()" Enabled="false" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -87,7 +96,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 2. Company Type<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control" onkeypress="return Names()" Enabled="false" TabIndex="1">
+                                                                                <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control" onkeypress="return Names()" Enabled="false" TabIndex="1" >
                                                                                 </asp:DropDownList>
                                                                             </div>
                                                                         </div>
@@ -166,7 +175,7 @@
 																		Extent of Land<br />
                                                                                 (in sq.m)<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:TextBox ID="txtLandArea" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="16"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtLandArea" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="16" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -177,7 +186,7 @@
                                                                                 <br />
                                                                                 (In Sq.m)<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="16"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="16" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -240,7 +249,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 10. Location of the unit<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
 
@@ -282,7 +291,7 @@
                                                                                 1. Proposed
 																		Employment<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="7" TabIndex="1"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -290,7 +299,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Value of Land as per sale Deed(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtLandValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtLandValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -300,7 +309,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Value of Building(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -309,7 +318,7 @@
                                                                             <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
                                                                                 <asp:TextBox ID="txtPMCost" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8"
-                                                                                    AutoPostBack="true" OnTextChanged="txtPMCost_TextChanged"></asp:TextBox>
+                                                                                    AutoPostBack="true" OnTextChanged="txtPMCost_TextChanged" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -322,7 +331,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" AutoPostBack="true" OnTextChanged="txtAnnualTurnOver_TextChanged"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" AutoPostBack="true" OnTextChanged="txtAnnualTurnOver_TextChanged" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -511,7 +520,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 3. Height of the building(in Meters)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="4"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="4" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -653,7 +662,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">10c. Aggregate Capacity:<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtAggrCapacity" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="10"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtAggrCapacity" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="10" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                                             </div>
                                                                         </div>
@@ -714,7 +723,7 @@
                                                                                 <br />
                                                                                 (Girth of tree > 30 centimeters)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtNoofTrees" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="4"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtNoofTrees" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="4" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                                             </div>
                                                                         </div>
@@ -869,7 +878,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txt1970Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7"></asp:TextBox>
+                                                                                    <asp:TextBox ID="txt1970Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                                 </td>
                                                                             </tr>
 
@@ -888,7 +897,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txt1979Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7"></asp:TextBox></td>
+                                                                                    <asp:TextBox ID="txt1979Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                                                                             </tr>
 
                                                                             <tr>
@@ -918,7 +927,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txt1996Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7"></asp:TextBox></td>
+                                                                                    <asp:TextBox ID="txt1996Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                                                                             </tr>
 
                                                                             <tr>
@@ -937,7 +946,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7"></asp:TextBox></td>
+                                                                                    <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>21 e.</td>
@@ -957,7 +966,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7"></asp:TextBox></td>
+                                                                                    <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>

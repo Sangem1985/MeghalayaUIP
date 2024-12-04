@@ -3,6 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
+        }
+    </script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <style>
         spna.dots {
@@ -55,7 +64,7 @@
         </ol>
     </nav>
     <!-- Page Wrapper -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" id="divText" runat="server">
         <div class="content container-fluid">
             <div class="card-header d-flex justify-content-between">
                 <h4 class="card-title mt-1"><b>Industry Registration Application Details</b></h4>
@@ -1000,7 +1009,7 @@
                                                                 <asp:Label ID="lblApplLandArea" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="10"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="10" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1011,7 +1020,7 @@
                                                                 <asp:Label ID="lblApplPowerReq" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptPower" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="10"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptPower" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="10" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1022,7 +1031,7 @@
                                                                 <asp:Label ID="lblApplWaterReq" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptWater" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="10"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptWater" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="10" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1035,7 +1044,7 @@
                                                                 <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" MaxLength="8000" onkeypress="return Names(this)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" MaxLength="8000" onkeypress="return Names(this)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1049,7 +1058,7 @@
                                                                 <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" MaxLength="8000" onkeypress="return Names(this)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" MaxLength="8000" onkeypress="return Names(this)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -1085,8 +1094,8 @@
                                                     </b>
                                                 </td>
                                                 <td style="text-align: center" colspan="2">
-                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true" onkeypress="return validateNameInput(event)"></asp:TextBox>
-                                                    <asp:TextBox ID="txtQuery" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    <asp:TextBox ID="txtQuery" runat="server" TextMode="MultiLine" Height="50px" Width="450px" Visible="true" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 <span class="star">*</span>
                                                 </td>
                                             </tr>

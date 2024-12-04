@@ -496,6 +496,7 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 int slno = 1;
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 string errormsg = "";
                 if (GVCFOLabour.Rows.Count <= 0)
                 {
@@ -1579,6 +1580,30 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected List<TextBox> FindEmptyTextboxes(Control container)
+        {
+
+            List<TextBox> emptyTextboxes = new List<TextBox>();
+            foreach (Control control in container.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textbox = (TextBox)control;
+                    if (string.IsNullOrWhiteSpace(textbox.Text))
+                    {
+                        emptyTextboxes.Add(textbox);
+                        textbox.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+                }
+            }
+            return emptyTextboxes;
         }
     }
 }

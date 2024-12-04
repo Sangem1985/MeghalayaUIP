@@ -800,6 +800,7 @@ namespace MeghalayaUIP.Dept.CFO
             try
             {
                 var ObjUserInfo = new DeptUserInfo();
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 if (Session["DeptUserInfo"] != null)
                 {
                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
@@ -1098,11 +1099,12 @@ namespace MeghalayaUIP.Dept.CFO
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 //if (Attachment.PostedFile.ContentType != "application/pdf"
                 //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
 
-                    if (Attachment.PostedFile.ContentType != "application/pdf")
+                if (Attachment.PostedFile.ContentType != "application/pdf")
                     {
                         Error = Error + slno + ". Please Upload PDF Documents only \\n";
                         slno = slno + 1;
@@ -1197,6 +1199,29 @@ namespace MeghalayaUIP.Dept.CFO
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+        protected List<TextBox> FindEmptyTextboxes(Control container)
+        {
+
+            List<TextBox> emptyTextboxes = new List<TextBox>();
+            foreach (Control control in container.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textbox = (TextBox)control;
+                    if (string.IsNullOrWhiteSpace(textbox.Text))
+                    {
+                        emptyTextboxes.Add(textbox);
+                        textbox.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+                }
+            }
+            return emptyTextboxes;
         }
     }
 }

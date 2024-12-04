@@ -3,6 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
+        }
+    </script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
      <style>
         .card {
@@ -79,7 +88,7 @@
         }
     </style>
     <!-- Page Wrapper -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" id="divText" runat="server">
         <div class="content container-fluid">
             <div class="card-header d-flex justify-content-between">
                 <div class="col-md-1">
@@ -2800,8 +2809,8 @@
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
-                                                    <asp:TextBox runat="server" ID="txtAdditionalAmount" Height="50px" Width="150px" onkeypress="return validateAmount(event)" Visible="false" />
+                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtAdditionalAmount" Height="50px" Width="150px" onkeypress="return validateAmount(event)" Visible="false" onkeyup="handleKeyUp(this)"/>
                                                 </td>
 
 
@@ -2849,7 +2858,7 @@
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="trrejection" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRejection" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRejection" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </td>
                                                 <td>
                                                     <asp:Button ID="btnreject" runat="server" Text="Submit" OnClick="btnreject_Click" class="btn btn-rounded btn-info btn-lg" BackColor="Green" />
@@ -2862,7 +2871,7 @@
                                                 <td>:
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox runat="server" ID="txtreferenceno" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtreferenceno" class="form-control" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </td>
                                             </tr>
                                             <tr id="trapprovalupload" runat="server" visible="false">

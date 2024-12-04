@@ -4,12 +4,24 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    //let originalValue = "";
+    function handleKeyUp(input)
+    {
+        if (input.value.trim() === "") {
+            input.style.border = "2px solid red";
+        }
+        else {
+            input.style.border = "1px solid #767575b5";
+        }
+    }
+    </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
@@ -36,7 +48,7 @@
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <asp:HiddenField ID="hdnQuesID" runat="server" />
-                                    <div class="row">
+                                    <div class="row" id="divText" runat="server"  >
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
@@ -51,12 +63,12 @@
                                         <div id="divManf" runat="server" visible="true">
                                             <h4 class="card-title ml-3">Details Of Manufacture Items: </h4>
 
-                                            <div class="col-md-12 d-flex">
+                                            <div class="col-md-12 d-flex" >
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Name of Product *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtManfItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtManfItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -64,7 +76,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. Annual Manufacturing Capacity (in Tons)</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtManfAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtManfAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -72,7 +84,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">3. Approx. Value in Lakhs</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtManfValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtManfValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -110,7 +122,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Name of major raw material  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRMItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRMItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -118,7 +130,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2. Annual Manufacturing Capacity (in tonne)*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRMAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRMAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -129,7 +141,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         3. Appox. value (₹ in lakhs) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRMValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="7"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRMValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,7 +149,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4. Source(s) of supply</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRMSource" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRMSource" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
 
                                                 </div>

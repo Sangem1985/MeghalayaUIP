@@ -3,6 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+    function handleKeyUp(input) {
+        if (input.value.trim() === "") {
+            input.style.border = "2px solid red";
+        } else {
+            input.style.border = "1px solid #767575b5";
+        }
+    }
+    </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
@@ -57,7 +66,7 @@
             <li class="breadcrumb-item active" aria-current="page">Industry Registration Details</li>
         </ol>
     </nav>
-    <div class="page-wrapper">
+    <div class="page-wrapper" id="divText" runat="server">
         <div class="content container-fluid">
             <div class="card-header d-flex justify-content-between">
                 <h4 class="card-title mt-1"><b>Industry Registration Application Details</b></h4>
@@ -1002,7 +1011,7 @@
                                                                                 <asp:Label ID="lblApplLandArea" runat="server"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                                <asp:TextBox runat="server" ID="txtDeptLandArea" class="form-control" onkeypress="return validateNumberAndDot(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr id="trPowerDept" runat="server" visible="false">
@@ -1013,7 +1022,7 @@
                                                                                 <asp:Label ID="lblApplPowerReq" runat="server"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox runat="server" ID="txtDeptPower" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                                <asp:TextBox runat="server" ID="txtDeptPower" class="form-control" onkeypress="return validateNumberAndDot(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr id="trWaterDept" runat="server" visible="false">
@@ -1024,7 +1033,7 @@
                                                                                 <asp:Label ID="lblApplWaterReq" runat="server"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox runat="server" ID="txtDeptWater" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                                <asp:TextBox runat="server" ID="txtDeptWater" class="form-control" onkeypress="return validateNumberAndDot(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr id="trForestDept1" runat="server" visible="false">
@@ -1037,7 +1046,7 @@
                                                                                 <asp:Label ID="lblApplWastedtls" runat="server"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                                <asp:TextBox runat="server" ID="txtDeptWastedtls" class="form-control" onkeypress="return validateNumberAndDot(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr id="trForestDept2" runat="server" visible="false">
@@ -1051,7 +1060,7 @@
                                                                                 <asp:Label ID="lblApplHazWaste" runat="server"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                                                <asp:TextBox runat="server" ID="txtHazWaste" class="form-control" onkeypress="return validateNumberAndDot(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -1065,7 +1074,7 @@
                                                                     </b>
                                                                 </td>
                                                                 <td>
-                                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="350px" Visible="true"></asp:TextBox>
+                                                                    <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Height="50px" Width="350px" Visible="true" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                 </td>
 
                                                                 <td colspan="2" align="Center">
@@ -1096,7 +1105,7 @@
                                                                             </asp:TemplateField>
                                                                             <asp:TemplateField HeaderText="Query Description">
                                                                                 <ItemTemplate>
-                                                                                    <asp:TextBox ID="txtquery" runat="server"></asp:TextBox>
+                                                                                    <asp:TextBox ID="txtquery" runat="server" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                                                 </ItemTemplate>
                                                                                 <ItemStyle CssClass="scroll_td" />
                                                                             </asp:TemplateField>
@@ -1177,7 +1186,7 @@
                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
                                             <asp:TemplateField HeaderText="Response">
                                                 <ItemTemplate>
-                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     <br />
                                                     <br />
                                                     <asp:FileUpload ID="FileUploadquery" runat="server" />
@@ -1274,7 +1283,7 @@
                                                                 :                                                           
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
-                                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine"></asp:TextBox>
+                                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1404,7 +1413,7 @@
                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
                                             <asp:TemplateField HeaderText="Response">
                                                 <ItemTemplate>
-                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                                    <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     <br />
                                                     <br />
                                                     <asp:FileUpload ID="FileUploadquery" runat="server" />

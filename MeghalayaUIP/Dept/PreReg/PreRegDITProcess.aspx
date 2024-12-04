@@ -3,6 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+    function handleKeyUp(input) {
+        if (input.value.trim() === "") {
+            input.style.border = "2px solid red";
+        } else {
+            input.style.border = "1px solid #767575b5";
+        }
+    }
+    </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
@@ -90,7 +99,7 @@
     </nav>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
-    <div class="page-wrapper">
+    <div class="page-wrapper" id="divText" runat="server">
         <div class="content container-fluid">
             <div class="card-header d-flex justify-content-between">
                 <h4 class="card-title mt-1"><b>Industry Registration Application Details</b></h4>
@@ -1030,7 +1039,7 @@
                                             <td style="width: 200px">Enter Response
                                             </td>
                                             <td colspan="2">
-                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 600px; margin-top: 10px;" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 600px; margin-top: 10px;" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </td>
                                             <td style="width: 180px">Upload File if any: 
                                                 <br />
@@ -1047,7 +1056,7 @@
                                             <td style="width: 200px; padding-top: 20px; align-items: center; text-align: center;">Enter Additional Query
                                             </td>
                                             <td colspan="4" style="padding-left: 20px; padding-top: 20px; align-items: left; text-align: left">
-                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="600px" onkeypress="return validateNameInput(event)"></asp:TextBox>
+                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="600px" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1133,7 +1142,7 @@
                                                                 :
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
-                                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine"></asp:TextBox>
+                                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1223,7 +1232,7 @@
                                                                 :                                                           
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
-                                                                <asp:TextBox ID="txtRemarks" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine"></asp:TextBox>
+                                                                <asp:TextBox ID="txtRemarks" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>

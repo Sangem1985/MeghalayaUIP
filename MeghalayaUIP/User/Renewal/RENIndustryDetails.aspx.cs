@@ -860,7 +860,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 int slno = 1;
                 string errormsg = "";
-
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
 
                 if (string.IsNullOrEmpty(txtUnitName.Text) || txtUnitName.Text == "" || txtUnitName.Text == null)
                 {
@@ -1143,8 +1143,30 @@ namespace MeghalayaUIP.User.Renewal
             return result;
         }
 
+        protected List<TextBox> FindEmptyTextboxes(Control container)
+        {
 
-       
+            List<TextBox> emptyTextboxes = new List<TextBox>();
+            foreach (Control control in container.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textbox = (TextBox)control;
+                    if (string.IsNullOrWhiteSpace(textbox.Text))
+                    {
+                        emptyTextboxes.Add(textbox);
+                        textbox.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+                }
+            }
+            return emptyTextboxes;
+        }
+
 
 
 
