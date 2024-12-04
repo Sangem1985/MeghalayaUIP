@@ -11,6 +11,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    //let originalValue = "";
+    function handleKeyUp(input)
+    {
+        if (input.value.trim() === "") {
+            input.style.border = "2px solid red";
+        }
+        else {
+            input.style.border = "1px solid #767575b5";
+        }
+    }
+    </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
@@ -24,7 +36,7 @@
             </nav>
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="row">
+                    <div class="row" id="divText" runat="server" >
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
@@ -93,7 +105,7 @@
                                                             <%--<asp:TextBox ID="txttradeLic" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                     <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                            <asp:TextBox runat="server" ID="txttradeLic" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                            <asp:TextBox runat="server" ID="txttradeLic" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"  onkeyup="handleKeyUp(this)"/>
                                                             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txttradeLic"></cc1:CalendarExtender>
                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                         </div>
@@ -118,7 +130,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Particulars of cold storage </label>
                                                         <div class="col-lg-4 d-flex">
-                                                            <asp:TextBox ID="txtCapacity" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" MaxLength="500" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtCapacity" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" MaxLength="500" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -144,7 +156,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Please specify license no  </label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtspecifyLICNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtspecifyLICNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -170,7 +182,7 @@
                                                             <%--   <asp:TextBox ID="txtInspection" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                     <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                            <asp:TextBox runat="server" ID="txtInspection" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                            <asp:TextBox runat="server" ID="txtInspection" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)"/>
                                                             <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtInspection"></cc1:CalendarExtender>
                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                         </div>
@@ -187,7 +199,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Name*</label>
                                                         <div class="col-lg-8 d-flex">
-                                                            <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -195,7 +207,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Qualification *</label>
                                                         <div class="col-lg-8 d-flex">
-                                                            <asp:TextBox ID="txtQualification" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtQualification" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -203,7 +215,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-5 col-form-label">Experience(Years) *</label>
                                                         <div class="col-lg-7 d-flex">
-                                                            <asp:TextBox ID="txtExperience" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtExperience" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -247,7 +259,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Name*</label>
                                                         <div class="col-lg-8 d-flex">
-                                                            <asp:TextBox ID="txtNameTest" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtNameTest" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -255,7 +267,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Qualification *</label>
                                                         <div class="col-lg-8 d-flex">
-                                                            <asp:TextBox ID="txtQualifyTest" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtQualifyTest" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -263,7 +275,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-5 col-form-label">Experience(Years)*</label>
                                                         <div class="col-lg-7 d-flex">
-                                                            <asp:TextBox ID="txtExperienceTest" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtExperienceTest" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -308,7 +320,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Drug  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtNameDrug" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtNameDrug" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

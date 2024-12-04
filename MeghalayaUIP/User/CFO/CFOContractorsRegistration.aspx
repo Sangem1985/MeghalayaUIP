@@ -6,6 +6,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    //let originalValue = "";
+    function handleKeyUp(input)
+    {
+        if (input.value.trim() === "") {
+            input.style.border = "2px solid red";
+        }
+        else {
+            input.style.border = "1px solid #767575b5";
+        }
+    }
+    </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
@@ -19,7 +31,7 @@
             </nav>
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="row">
+                    <div class="row" id="divText" runat="server">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
@@ -155,7 +167,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Bank   :*</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtNameBank" runat="server" class="form-control" onkeypress="return Names(this)" MaxLength="50" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameBank" runat="server" class="form-control" onkeypress="return Names(this)" MaxLength="50" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -163,7 +175,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Turn Over (in Rs. Lakhs): *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="9" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtTurnOver" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="9" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -173,7 +185,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total Value of Works in last 3 financial years (in Rs. Lakhs): *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:TextBox ID="txtFinancial" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="9" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFinancial" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="9" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
