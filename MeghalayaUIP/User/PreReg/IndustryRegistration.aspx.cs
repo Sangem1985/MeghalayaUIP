@@ -1009,7 +1009,8 @@ namespace MeghalayaUIP.User.PreReg
                 string errormsg = "";
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
-                List<RadioButtonList> emptyrdb = FindEmptyRadio(divText);
+                CheckRadio(divText);
+
 
                 if (ddlcompanytype.SelectedValue == "0" || ddlcompanytype.SelectedValue == "--Select--")
                 {
@@ -3441,7 +3442,50 @@ namespace MeghalayaUIP.User.PreReg
             }
             return emptyrdb;
         }
+        public void CheckRadio(Control container)
+        {
+            /*foreach (Control c in container.Controls)
+            {
+                if (c is RadioButtonList)
+                {
+                    RadioButtonList rbl = (RadioButtonList)c;
 
+                    if (rbl.SelectedValue.Equals(""))
+                    {
+                        rbl.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+            }*/
+
+            foreach (Control c in container.Controls)
+            {
+                if (c is RadioButtonList rbl)
+                {
+                    if (string.IsNullOrEmpty(rbl.SelectedValue))
+                    {
+                        rbl.Style["border-color"] = "red";
+                        rbl.Style["border-width"] = "2px";
+                        rbl.Style["border-style"] = "solid";
+                    }
+                }
+            }
+
+                /* var radioButtons = new List<RadioButtonList>()
+                 {
+                      rblLandType,
+                 };
+
+                 foreach (RadioButtonList rbl in radioButtons)
+                 {
+                     if (rbl.SelectedValue == "")
+                     {
+                         rbl.Style["border-color"] = "red";
+                         rbl.Style["border-width"] = "2px";
+                         rbl.Style["border-style"] = "solid";
+
+                     }
+                 }*/
+            }
 
     }
 }
