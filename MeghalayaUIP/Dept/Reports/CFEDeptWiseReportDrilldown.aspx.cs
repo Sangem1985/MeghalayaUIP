@@ -15,7 +15,7 @@ namespace MeghalayaUIP.Dept.Reports
     {
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         ReportBAL Objreport = new ReportBAL();
-        string Deptid, FormDate, ToDate, Department;      
+        string Deptid, FormDate, ToDate, ViewType, Department;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,11 +48,11 @@ namespace MeghalayaUIP.Dept.Reports
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";              
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-           
+
         }
         protected void BindDepartmentReport()
         {
@@ -63,11 +63,12 @@ namespace MeghalayaUIP.Dept.Reports
                     Deptid = Convert.ToString(Request.QueryString[0]);
                     FormDate = Convert.ToString(Request.QueryString[1]);
                     ToDate = Convert.ToString(Request.QueryString[2]);
-                    Department = Convert.ToString(Request.QueryString[3]);
+                    ViewType = Convert.ToString(Request.QueryString[3]);
+                    Department = Convert.ToString(Request.QueryString[4]);
 
                     DataSet ds = new DataSet();
-                    ds = Objreport.CFEDeptwiseReportDrilldown(Deptid, FormDate, ToDate);
-                    if (ds != null && ds.Tables.Count > 0  && ds.Tables[0].Rows.Count > 0)
+                    ds = Objreport.CFEDeptwiseReportDrilldown(Deptid, FormDate, ToDate, ViewType);
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
                         GVDepartment.DataSource = ds.Tables[0];
                         GVDepartment.DataBind();
@@ -87,7 +88,7 @@ namespace MeghalayaUIP.Dept.Reports
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;

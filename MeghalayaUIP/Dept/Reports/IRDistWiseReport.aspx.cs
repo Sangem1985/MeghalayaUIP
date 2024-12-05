@@ -207,7 +207,7 @@ namespace MeghalayaUIP.Dept.Reports
 
 
 
-                Label lblDist = (Label)e.Row.FindControl("lblDepartmentid");
+                Label lblDist = (Label)e.Row.FindControl("lblDistrictid");
                 LinkButton lnkTotal = (LinkButton)e.Row.FindControl("lblTotal");
                 LinkButton lnkPending = (LinkButton)e.Row.FindControl("lblPending");
                 LinkButton lnkQuery = (LinkButton)e.Row.FindControl("lblQueryRaised");

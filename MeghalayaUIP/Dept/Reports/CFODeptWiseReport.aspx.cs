@@ -59,7 +59,7 @@ namespace MeghalayaUIP.Dept.Reports
             }
             catch (Exception ex)
             {
-                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";              
+                lblmsg0.Text = "Oops, You've have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
@@ -129,7 +129,7 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 DataSet ds = new DataSet();
                 ds = reportsBAL.CFODeptWiseReport(ddldepartment.SelectedValue, txtFormDate.Text, txtToDate.Text);
-                if (ds != null && ds.Tables.Count > 0 &&  ds.Tables[0].Rows.Count > 0)
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     GVCFOReport.DataSource = ds.Tables[0];
                     GVCFOReport.DataBind();
@@ -154,13 +154,13 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 BindCFoDeptReports();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-           
+
             // divPrint1.Visible = true;
         }
 
@@ -258,37 +258,37 @@ namespace MeghalayaUIP.Dept.Reports
                 string Department = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPARTMENT_NAME")).Trim();
 
                 if (lnkApplied.Text != "0")
-                    lnkApplied.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=Approval";
+                    lnkApplied.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=APPROVALIS_APPLIED" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkQueryRaised.Text != "0")
-                    lnkQueryRaised.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=QueryRaised";
+                    lnkQueryRaised.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=QUERY_RAISED" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkScBeforeDate.Text != "0")
-                    lnkScBeforeDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=BeforeDue";
+                    lnkScBeforeDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=SCRUTINY_BEFOREDUEDATE" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkScAfterDate.Text != "0")
-                    lnkScAfterDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=AfterDue";
+                    lnkScAfterDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=SCRUTINY_AFTERDUEDATE" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkScrRejected.Text != "0")
-                    lnkScrRejected.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=ScrutinyReject";
+                    lnkScrRejected.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=PRESCRUTINY_REJECTED" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkPaymentPending.Text != "0")
-                    lnkPaymentPending.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=PaymentPending";
+                    lnkPaymentPending.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=PAYMENT_PENDING" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkScCompleted.Text != "0")
-                    lnkScCompleted.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=ScrutinyCompleted";
+                    lnkScCompleted.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=SCRUTINY_COMPLETED" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkBeforeApprovalDate.Text != "0")
-                    lnkBeforeApprovalDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=BeforeDueDate";
+                    lnkBeforeApprovalDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=APPROVALUNDER_PROCESSBEFOREDATE" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkApprovalDate.Text != "0")
-                    lnkApprovalDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=AfterDueDate";
+                    lnkApprovalDate.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=APPROVALUNDER_PROCESSAFTERDATE" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkDeptApproved.Text != "0")
-                    lnkDeptApproved.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=DeptApproved";
+                    lnkDeptApproved.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=DEPARTMENT_APPROVED" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 if (lnkRejected.Text != "0")
-                    lnkRejected.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=Reject";
+                    lnkRejected.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + lblDept.Text + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=REJECTED" + "&Department=" + ddldepartment.SelectedItem.Text;
 
                 lnkApplied.ForeColor = System.Drawing.Color.Black;
                 lnkQueryRaised.ForeColor = System.Drawing.Color.Black;
@@ -307,7 +307,7 @@ namespace MeghalayaUIP.Dept.Reports
                 string Department = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPARTMENT_NAME")).Trim();
                 string DeptId = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "DEPT_ID")).Trim();
 
-                if (ddldepartment.SelectedItem.Text == "" || ddldepartment.SelectedItem.Text == null || ddldepartment.SelectedItem.Text == "--ALL--" || ddldepartment.SelectedValue == "0")
+                if (ddldepartment.SelectedItem.Text == "" || ddldepartment.SelectedItem.Text == null || ddldepartment.SelectedValue == "%" || ddldepartment.SelectedValue == "0")
                 {
                     Department = "%";
                     DeptId = "%";
@@ -324,7 +324,7 @@ namespace MeghalayaUIP.Dept.Reports
                 Total.ForeColor = System.Drawing.Color.Black;
                 if (Total.Text != "0")
                 {
-                    Total.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddldepartment.SelectedItem.Text + "&ViewType=Total";
+                    Total.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=APPROVALIS_APPLIED" + "&Department=" + ddldepartment.SelectedItem.Text;
                 }
                 Total.Text = ApprovalsApplied.ToString();
                 e.Row.Cells[3].Text = ApprovalsApplied.ToString();

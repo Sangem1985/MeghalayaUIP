@@ -12,7 +12,7 @@ namespace MeghalayaUIP.BAL.ReportBAL
     {
         public ReportDAL reportDAL { get; } = new ReportDAL();
 
-        public DataSet DistrictWiseReports(string District, string EntType,string Formdate,string Todate)
+        public DataSet DistrictWiseReports(string District, string EntType, string Formdate, string Todate)
         {
             return reportDAL.DistrictWiseReports(District, EntType, Formdate, Todate);
         }
@@ -24,25 +24,25 @@ namespace MeghalayaUIP.BAL.ReportBAL
         {
             return reportDAL.CFEDeptWiseReport(Department, Formdate, Todate);
         }
-        public DataSet CFEDeptwiseReportDrilldown(string Departid, string Formdate, string Todate)
+        public DataSet CFEDeptwiseReportDrilldown(string Departid, string Formdate, string Todate, string ViewType)
         {
-            return reportDAL.CFEDeptwiseReportDrilldown(Departid, Formdate, Todate);
+            return reportDAL.CFEDeptwiseReportDrilldown(Departid, Formdate, Todate, ViewType);
         }
         public DataSet CFODeptWiseReport(string Department, string Formdate, string Todate)
         {
             return reportDAL.CFODeptWiseReport(Department, Formdate, Todate);
         }
-        public DataSet CFODeptwiseReportDrilldown(string Departid, string Formdate, string Todate)
+        public DataSet CFODeptwiseReportDrilldown(string Departid, string Formdate, string Todate,string ViewType)
         {
-            return reportDAL.CFODeptwiseReportDrilldown(Departid, Formdate, Todate);
+            return reportDAL.CFODeptwiseReportDrilldown(Departid, Formdate, Todate, ViewType);
         }
         public DataSet RENDeptWiseReport(string Department, string Formdate, string Todate)
         {
             return reportDAL.RENDeptWiseReport(Department, Formdate, Todate);
         }
-        public DataSet RENDeptwiseReportDrilldown(string Departid, string Formdate, string Todate)
+        public DataSet RENDeptwiseReportDrilldown(string Departid, string Formdate, string Todate,string ViewType)
         {
-            return reportDAL.RENDeptwiseReportDrilldown(Departid, Formdate, Todate);
+            return reportDAL.RENDeptwiseReportDrilldown(Departid, Formdate, Todate, ViewType);
         }
         public DataSet GrievanceDeptReport(string Department, string Formdate, string Todate)
         {

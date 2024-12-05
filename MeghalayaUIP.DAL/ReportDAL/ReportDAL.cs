@@ -130,7 +130,7 @@ namespace MeghalayaUIP.DAL.ReportDAL
                 throw ex;
             }
         }
-        public DataSet CFEDeptwiseReportDrilldown(string Departid, string Formdate, string Todate)
+        public DataSet CFEDeptwiseReportDrilldown(string Departid, string Formdate, string Todate, string ViewType)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -149,14 +149,18 @@ namespace MeghalayaUIP.DAL.ReportDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", Departid);
                 if (Formdate != null && Formdate != "")
-                {
-                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                }
-                if (Todate != null && Todate != "")
-                {
-                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(Todate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                }
 
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DBNull.Value);
+
+                if (Todate != null && Todate != "")
+
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(Todate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DBNull.Value);
+
+                da.SelectCommand.Parameters.AddWithValue("@VIWETYPE", ViewType);
 
 
                 da.Fill(ds);
@@ -204,7 +208,7 @@ namespace MeghalayaUIP.DAL.ReportDAL
                 throw ex;
             }
         }
-        public DataSet CFODeptwiseReportDrilldown(string Departid, string Formdate, string Todate)
+        public DataSet CFODeptwiseReportDrilldown(string Departid, string Formdate, string Todate, string ViewType)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -223,14 +227,17 @@ namespace MeghalayaUIP.DAL.ReportDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", Departid);
                 if (Formdate != null && Formdate != "")
-                {
-                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                }
-                if (Todate != null && Todate != "")
-                {
-                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(Todate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                }
 
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DBNull.Value);
+                if (Todate != null && Todate != "")
+
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(Todate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DBNull.Value);
+
+                da.SelectCommand.Parameters.AddWithValue("@VIWETYPE", ViewType);
 
 
                 da.Fill(ds);
@@ -278,7 +285,7 @@ namespace MeghalayaUIP.DAL.ReportDAL
                 throw ex;
             }
         }
-        public DataSet RENDeptwiseReportDrilldown(string Departid, string Formdate, string Todate)
+        public DataSet RENDeptwiseReportDrilldown(string Departid, string Formdate, string Todate, string ViewType)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -297,15 +304,18 @@ namespace MeghalayaUIP.DAL.ReportDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", Departid);
                 if (Formdate != null && Formdate != "")
-                {
                     da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(Formdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                }
+
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DBNull.Value);
+
                 if (Todate != null && Todate != "")
-                {
+
                     da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(Todate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                }
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DBNull.Value);
 
-
+                da.SelectCommand.Parameters.AddWithValue("@VIWETYPE", ViewType);
 
                 da.Fill(ds);
                 transaction.Commit();
