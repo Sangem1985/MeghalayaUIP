@@ -44,28 +44,26 @@
                 dropdown.style.border = "1px solid #767575b5";
             }
         }
-        function handleRadioChange(radio) {
-            const radioGroup = document.getElementsByName(radio.name);
-            const formContainer = radio.closest('form'); // You can adjust this if the radio buttons are not in a form.
+      
 
-            let isSelected = false;
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
 
-            // Check if any radio button in the group is selected
-            for (const r of radioGroup) {
-                if (r.checked) {
-                    isSelected = true;
-                    break;
-                }
-            }
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
 
-            // Change border style of the radio buttons container based on selection
-            if (isSelected) {
-                formContainer.style.border = "1px solid #767575b5";  // Default border style if selected
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
             } else {
-                formContainer.style.border = "2px solid red";  // Border style if no selection
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
             }
         }
-
 
 
 
@@ -457,7 +455,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-4 col-form-label">Is Land Required <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:RadioButtonList runat="server" ID="rblLandType" AutoPostBack="true" TabIndex="1" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLandType_SelectedIndexChanged" onchange="handleRadioChange(this)">
+                                                                            <asp:RadioButtonList runat="server" ID="rblLandType" AutoPostBack="true" TabIndex="1" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLandType_SelectedIndexChanged">
                                                                                 <asp:ListItem Value="Own" Text="Own Land"></asp:ListItem>
                                                                                 <asp:ListItem Value="Required" Text="Required"></asp:ListItem>
                                                                             </asp:RadioButtonList>
@@ -544,7 +542,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-5 col-form-label">Nature of Activity<span class="star">*</span></label>
                                                                         <div class="col-lg-7 d-flex">
-                                                                            <asp:RadioButtonList ID="rblNatureofActvty" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblNatureofActvty_SelectedIndexChanged" onchange="handleRadioChange(this)">
+                                                                            <asp:RadioButtonList ID="rblNatureofActvty" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblNatureofActvty_SelectedIndexChanged">
                                                                                 <asp:ListItem Text="Manufacturing" Value="Manufacturing" style="padding-right: 10px"></asp:ListItem>
                                                                                 <asp:ListItem Text="Service" Value="Service"></asp:ListItem>
                                                                             </asp:RadioButtonList>

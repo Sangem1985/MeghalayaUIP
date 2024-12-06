@@ -896,6 +896,7 @@ namespace MeghalayaUIP.User.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblNatureofActvty.BorderColor = System.Drawing.Color.White;
         }
         protected void rblLandType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -915,6 +916,7 @@ namespace MeghalayaUIP.User.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblLandType.BorderColor = System.Drawing.Color.White;
         }
         protected void txtCompnyRegDt_TextChanged(object sender, EventArgs e)
         {
@@ -1009,7 +1011,8 @@ namespace MeghalayaUIP.User.PreReg
                 string errormsg = "";
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
-                CheckRadio(divText);
+                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
+                //CheckRadio(divText);
 
 
                 if (ddlcompanytype.SelectedValue == "0" || ddlcompanytype.SelectedValue == "--Select--")
@@ -3419,73 +3422,40 @@ namespace MeghalayaUIP.User.PreReg
 
             return emptyDropdowns;
         }
-        protected List<RadioButtonList> FindEmptyRadio(Control container)
+
+        private List<RadioButtonList> FindEmptyRadioButtonLists(Control container)
         {
-            List<RadioButtonList> emptyrdb = new List<RadioButtonList>();
+            List<RadioButtonList> emptyRadioButtonLists = new List<RadioButtonList>();
 
             foreach (Control control in container.Controls)
             {
-                if (control is RadioButtonList)
+                if (control is RadioButtonList radioButtonList)
                 {
-                    RadioButtonList rdblist = (RadioButtonList)control;
-                    if (string.IsNullOrWhiteSpace(rdblist.SelectedValue) || rdblist.SelectedValue == "" || rdblist.SelectedValue == "0")
+                    if (string.IsNullOrWhiteSpace(radioButtonList.SelectedValue) || radioButtonList.SelectedIndex == -1)
                     {
-                        emptyrdb.Add(rdblist);
-                        rdblist.BorderColor = System.Drawing.Color.Red;
+                        emptyRadioButtonLists.Add(radioButtonList);
+                       
+                        radioButtonList.BorderColor = System.Drawing.Color.Red;
+                        radioButtonList.BorderWidth = Unit.Pixel(2);
+                        radioButtonList.BorderStyle = BorderStyle.Solid;
                     }
-
-                    if (control.HasControls())
-                    {
-                        emptyrdb.AddRange(FindEmptyRadio(control));
+                    else
+                    {                      
+                        radioButtonList.BorderColor = System.Drawing.Color.Empty;
+                        radioButtonList.BorderWidth = Unit.Empty;
+                        radioButtonList.BorderStyle = BorderStyle.NotSet;
                     }
                 }
+
+                if (control.HasControls())
+                {
+                    emptyRadioButtonLists.AddRange(FindEmptyRadioButtonLists(control));
+                }
             }
-            return emptyrdb;
+
+            return emptyRadioButtonLists;
         }
-        public void CheckRadio(Control container)
-        {
-            /*foreach (Control c in container.Controls)
-            {
-                if (c is RadioButtonList)
-                {
-                    RadioButtonList rbl = (RadioButtonList)c;
 
-                    if (rbl.SelectedValue.Equals(""))
-                    {
-                        rbl.BorderColor = System.Drawing.Color.Red;
-                    }
-                }
-            }*/
-
-            foreach (Control c in container.Controls)
-            {
-                if (c is RadioButtonList rbl)
-                {
-                    if (string.IsNullOrEmpty(rbl.SelectedValue))
-                    {
-                        rbl.Style["border-color"] = "red";
-                        rbl.Style["border-width"] = "2px";
-                        rbl.Style["border-style"] = "solid";
-                    }
-                }
-            }
-
-                /* var radioButtons = new List<RadioButtonList>()
-                 {
-                      rblLandType,
-                 };
-
-                 foreach (RadioButtonList rbl in radioButtons)
-                 {
-                     if (rbl.SelectedValue == "")
-                     {
-                         rbl.Style["border-color"] = "red";
-                         rbl.Style["border-width"] = "2px";
-                         rbl.Style["border-style"] = "solid";
-
-                     }
-                 }*/
-            }
 
     }
 }
