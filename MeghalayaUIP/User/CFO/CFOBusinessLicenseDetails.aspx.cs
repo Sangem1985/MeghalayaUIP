@@ -48,7 +48,7 @@ namespace MeghalayaUIP.User.CFO
                 {
                     DataSet dsnew = new DataSet();
                     dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "12");
-                    if (dsnew.Tables[0].Rows.Count > 0)
+                    if (dsnew != null && dsnew.Tables.Count > 0 && dsnew.Tables[0].Rows.Count > 0)
                     {
 
                     }
@@ -77,49 +77,52 @@ namespace MeghalayaUIP.User.CFO
             {
                 DataSet ds = new DataSet();
                 ds = objcfobal.GetCFOBusinessLicenseDetails(hdnUserID.Value, UnitID);
-                if (ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
+                if (ds != null && ds.Tables.Count > 0)
                 {
-                    if (ds.Tables[1].Rows.Count > 0)
+                    if (ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
                     {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOB_UNITID"]);
-                        txtaddress.Text = ds.Tables[1].Rows[0]["CFOB_ESTBDATE"].ToString();
-                        rblBusiness.SelectedValue = ds.Tables[1].Rows[0]["CFOB_STALLLOCATION"].ToString();
-                        rblBusiness_SelectedIndexChanged(null, EventArgs.Empty);
-                        if (rblBusiness.SelectedValue == "Y")
+                        if (ds.Tables[1].Rows.Count > 0)
                         {
-                            stall.Visible = true;
-                            txtHolding.Text = ds.Tables[1].Rows[0]["CFOB_HOLDINGNO"].ToString();
-                            ddlDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_MARKETNAME"].ToString();
-                            Districmaster.Visible = false;
+                            ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOB_UNITID"]);
+                            txtaddress.Text = ds.Tables[1].Rows[0]["CFOB_ESTBDATE"].ToString();
+                            rblBusiness.SelectedValue = ds.Tables[1].Rows[0]["CFOB_STALLLOCATION"].ToString();
+                            rblBusiness_SelectedIndexChanged(null, EventArgs.Empty);
+                            if (rblBusiness.SelectedValue == "Y")
+                            {
+                                stall.Visible = true;
+                                txtHolding.Text = ds.Tables[1].Rows[0]["CFOB_HOLDINGNO"].ToString();
+                                ddlDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_MARKETNAME"].ToString();
+                                Districmaster.Visible = false;
+                            }
+                            else
+                            {
+                                Districmaster.Visible = true;
+                                ddlESTDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ESTBDISTRICT"].ToString();
+                                txtstall.Text = ds.Tables[1].Rows[0]["CFOB_STALLNO"].ToString();
+                                stall.Visible = false;
+                            }
+
+
+                            rblmunicipality.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ANYBUSINESS"].ToString();
+                            rblmunicipality_SelectedIndexChanged(null, EventArgs.Empty);
+                            if (rblmunicipality.Text == "Y")
+                            {
+                                Municipality.Visible = true;
+                                txtDetails.Text = ds.Tables[1].Rows[0]["CFOB_BUSINESSDETAILS"].ToString();
+                            }
+                            else { Municipality.Visible = false; }
+
+                            ddlAnnual.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ANNUALGROSSTURNOVER"].ToString();
+                            txtAmount.Text = ds.Tables[1].Rows[0]["CFOB_TOTALFEE"].ToString();
                         }
-                        else
+                        if (ds.Tables[2].Rows.Count > 0)
                         {
-                            Districmaster.Visible = true;
-                            ddlESTDistric.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ESTBDISTRICT"].ToString();
-                            txtstall.Text = ds.Tables[1].Rows[0]["CFOB_STALLNO"].ToString();
-                            stall.Visible = false;
-                        }                    
-                       
-                       
-                        rblmunicipality.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ANYBUSINESS"].ToString();
-                        rblmunicipality_SelectedIndexChanged(null, EventArgs.Empty);
-                        if (rblmunicipality.Text == "Y")
-                        {
-                            Municipality.Visible = true;
-                            txtDetails.Text = ds.Tables[1].Rows[0]["CFOB_BUSINESSDETAILS"].ToString();
+                            hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOBN_CFOQDID"]);
+                            ViewState["PollutionControlBOARD"] = ds.Tables[2];
+                            GVPollution.DataSource = ds.Tables[2];
+                            GVPollution.DataBind();
+                            GVPollution.Visible = true;
                         }
-                        else { Municipality.Visible = false; }
-                     
-                        ddlAnnual.SelectedValue = ds.Tables[1].Rows[0]["CFOB_ANNUALGROSSTURNOVER"].ToString();
-                        txtAmount.Text = ds.Tables[1].Rows[0]["CFOB_TOTALFEE"].ToString();
-                    }
-                    if (ds.Tables[2].Rows.Count > 0)
-                    {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOBN_CFOQDID"]);
-                        ViewState["PollutionControlBOARD"]= ds.Tables[2];
-                        GVPollution.DataSource = ds.Tables[2];
-                        GVPollution.DataBind();
-                        GVPollution.Visible = true;
                     }
                 }
 
@@ -147,13 +150,13 @@ namespace MeghalayaUIP.User.CFO
                     stall.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-           
+
         }
 
         protected void rblmunicipality_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,13 +172,13 @@ namespace MeghalayaUIP.User.CFO
                     Municipality.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-          
+
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -251,7 +254,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (rblBusiness.SelectedValue == "Y")
                 {
-                  
+
                     if (string.IsNullOrEmpty(txtHolding.Text) || txtHolding.Text == "" || txtHolding.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Holding Number\\n";
@@ -267,7 +270,7 @@ namespace MeghalayaUIP.User.CFO
                 }
                 else
                 {
-                   
+
                     if (ddlESTDistric.SelectedIndex == 0)
                     {
                         errormsg = errormsg + slno + ". Please Select District of Establishment\\n";
@@ -345,7 +348,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 string result = "";
                 ErrorMsg = Validations();
-                if(ErrorMsg == "")
+                if (ErrorMsg == "")
                 {
                     PollutionControlBoard ObjCFOPollutionControl = new PollutionControlBoard();
 
@@ -452,7 +455,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-           
+
         }
         protected void BindDistricEST()
         {

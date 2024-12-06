@@ -66,7 +66,7 @@ namespace MeghalayaUIP.User.CFO
                     DataSet ds = new DataSet();
                     ds = objcfobal.GetCFOApplicationDetails(Convert.ToString(Session["CFOUNITID"]), hdnUserID.Value);
 
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
                         lblnameUnit.Text = ds.Tables[0].Rows[0]["CFOQD_PREREGUIDNO"].ToString();
                         lblCompanyType.Text = ds.Tables[0].Rows[0]["CFOQD_COMPANYNAME"].ToString();
@@ -91,7 +91,7 @@ namespace MeghalayaUIP.User.CFO
                         lblEnterpriseCat.Text = ds.Tables[0].Rows[0]["CFOQD_ENTERPRISETYPE"].ToString();
 
                     }
-                    if (ds.Tables[1].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 1 &&  ds.Tables[1].Rows.Count > 0)
                     {
                         lblBNameCompany.Text = ds.Tables[1].Rows[0]["CFOID_COMPANYNAME"].ToString();
                         lblTypecompany.Text = ds.Tables[1].Rows[0]["CFOID_COMPANYTYPE"].ToString();
@@ -140,18 +140,18 @@ namespace MeghalayaUIP.User.CFO
 
 
                     }
-                    if (ds.Tables[2].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 2 &&  ds.Tables[2].Rows.Count > 0)
                     {
                         //  lbllineActivity.Text = Convert.ToString(ds.Tables[3].Rows[0]["LineofActivity_Name"]);
                         gvManufacture.DataSource = ds.Tables[2];
                         gvManufacture.DataBind();
                     }
-                    if (ds.Tables[3].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 3 &&  ds.Tables[3].Rows.Count > 0)
                     {
                         gvRwaMaterial.DataSource = ds.Tables[3];
                         gvRwaMaterial.DataBind();
                     }
-                    if (ds.Tables[4].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 4 &&  ds.Tables[4].Rows.Count > 0)
                     {
                         DrugLic.Visible = true;
 
@@ -179,7 +179,7 @@ namespace MeghalayaUIP.User.CFO
 
 
                     }
-                    if (ds.Tables[5].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 5 &&  ds.Tables[5].Rows.Count > 0)
                     {
                         DrugLic.Visible = true;
 
@@ -189,7 +189,7 @@ namespace MeghalayaUIP.User.CFO
 
 
                     }
-                    if (ds.Tables[6].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 6 &&  ds.Tables[6].Rows.Count > 0)
                     {
                         DrugLic.Visible = true;
 
@@ -198,7 +198,7 @@ namespace MeghalayaUIP.User.CFO
                         GVTESTING.DataBind();
 
                     }
-                    if (ds.Tables[7].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 7 &&  ds.Tables[7].Rows.Count > 0)
                     {
                         DrugLic.Visible = true;
 
@@ -207,7 +207,7 @@ namespace MeghalayaUIP.User.CFO
                         GVDrug.DataBind();
 
                     }
-                    if (ds.Tables[8].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 8 &&  ds.Tables[8].Rows.Count > 0)
                     {
                         ProffessionalTax.Visible = true;
 
@@ -238,7 +238,7 @@ namespace MeghalayaUIP.User.CFO
 
 
                     }
-                    if (ds.Tables[9].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 9 &&  ds.Tables[9].Rows.Count > 0)
                     {
                         if (lblMeghalaya.Text == "Yes")
                         {
@@ -248,7 +248,7 @@ namespace MeghalayaUIP.User.CFO
                         }
 
                     }
-                    if (ds.Tables[10].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 10 &&  ds.Tables[10].Rows.Count > 0)
                     {
                         if (lblbusinessindia.Text == "Yes")
                         {
@@ -258,7 +258,7 @@ namespace MeghalayaUIP.User.CFO
                         }
 
                     }
-                    if (ds.Tables[11].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count >11 &&  ds.Tables[11].Rows.Count > 0)
                     {
                         if (lblForeign.Text == "Yes")
                         {
@@ -268,7 +268,7 @@ namespace MeghalayaUIP.User.CFO
                         }
 
                     }
-                    if (ds.Tables[12].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 12 &&  ds.Tables[12].Rows.Count > 0)
                     {
                         FireDet.Visible = true;
 
@@ -297,7 +297,7 @@ namespace MeghalayaUIP.User.CFO
 
 
                     }
-                    if (ds.Tables[13].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 13 &&  ds.Tables[13].Rows.Count > 0)
                     {
                         ContractorReg.Visible = true;
 
@@ -327,7 +327,7 @@ namespace MeghalayaUIP.User.CFO
 
 
                     }
-                    if (ds.Tables[14].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 14 &&  ds.Tables[14].Rows.Count > 0)
                     {
                         ExciseDep.Visible = true;
 
@@ -376,7 +376,7 @@ namespace MeghalayaUIP.User.CFO
 
 
                     }
-                    if (ds.Tables[15].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 15 &&  ds.Tables[15].Rows.Count > 0)
                     {
                         ExciseDep.Visible = true;
 
@@ -385,14 +385,14 @@ namespace MeghalayaUIP.User.CFO
                         gvBrandDetails.DataBind();
 
                     }
-                    if (ds.Tables[16].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 16 &&  ds.Tables[16].Rows.Count > 0)
                     {
                         ExciseDep.Visible = true;
                         GvLiquor.DataSource = ds.Tables[16];
                         GvLiquor.DataBind();
 
                     }
-                    if (ds.Tables[17].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 17 &&  ds.Tables[17].Rows.Count > 0)
                     {
                         Pollutioncontrol.Visible = true;
 
@@ -421,7 +421,7 @@ namespace MeghalayaUIP.User.CFO
                         lblAmount.Text = ds.Tables[17].Rows[0]["CFOB_TOTALFEE"].ToString();
 
                     }
-                    if (ds.Tables[18].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 18 &&  ds.Tables[18].Rows.Count > 0)
                     {
                         Pollutioncontrol.Visible = true;
 
@@ -429,7 +429,7 @@ namespace MeghalayaUIP.User.CFO
                         GVPollution.DataBind();
 
                     }
-                    if (ds.Tables[19].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 19 && ds.Tables[19].Rows.Count > 0)
                     {
                         Labourdet.Visible = true;
 
@@ -521,7 +521,7 @@ namespace MeghalayaUIP.User.CFO
 
 
                     }
-                    if (ds.Tables[20].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 20 && ds.Tables[20].Rows.Count > 0)
                     {
                         Labourdet.Visible = true;
 
@@ -529,7 +529,7 @@ namespace MeghalayaUIP.User.CFO
                         GVCFOLabour.DataBind();
 
                     }
-                    if (ds.Tables[21].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 21 &&  ds.Tables[21].Rows.Count > 0)
                     {
                         LegalMetrology.Visible = true;
 
@@ -537,7 +537,7 @@ namespace MeghalayaUIP.User.CFO
                         GVLegalDept.DataBind();
 
                     }
-                    if (ds.Tables[22].Rows.Count > 0)
+                    if (ds != null && ds.Tables.Count > 22 &&  ds.Tables[22].Rows.Count > 0)
                     {
                         LegalMetrology.Visible = true;
 
