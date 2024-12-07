@@ -11,6 +11,15 @@
                 input.style.border = "1px solid #767575b5";
             }
         }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
     </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
@@ -67,7 +76,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Line of Activity*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlLineOfActivity" runat="server" class="form-control" Enabled="false">
+                                                        <asp:DropDownList ID="ddlLineOfActivity" runat="server" class="form-control" Enabled="false" onchange="validateDropdown(this)">
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>

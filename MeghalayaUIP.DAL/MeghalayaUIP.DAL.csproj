@@ -155,6 +155,7 @@
     <Compile Include="RenewalDAL\RenewalDAL.cs" />
     <Compile Include="ReportDAL\ReportDAL.cs" />
     <Compile Include="SqlHelper.cs" />
+    <Compile Include="SVRCDAL\SVRCDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MeghalayaUIP.Common\MeghalayaUIP.Common.csproj">

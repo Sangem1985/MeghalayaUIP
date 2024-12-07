@@ -152,6 +152,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenewalBAL\RenewalBAL.cs" />
     <Compile Include="ReportBAL\ReportBAL.cs" />
+    <Compile Include="SVRCBAL\SVRCBAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MeghalayaUIP.Common\MeghalayaUIP.Common.csproj">

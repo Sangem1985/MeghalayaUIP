@@ -109,5 +109,40 @@ namespace MeghalayaUIP.DAL.INCDAL
 
             return dt;
         }
+        public int INSIncentiveReg(IncentiveReg1 IncentiveReg)
+        {
+            int valid = 0;
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(INCCommon.InsertIncentiveReg, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = INCCommon.InsertIncentiveReg;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("", Convert.ToInt32(IncentiveReg.UserID));
+                da.SelectCommand.Parameters.AddWithValue("", IncentiveReg.IPAddress);
+
+
+            }
+            catch(Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
     }
 }

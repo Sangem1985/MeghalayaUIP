@@ -155,6 +155,7 @@
     <Compile Include="RenewalCommon.cs" />
     <Compile Include="ReportCommon.cs" />
     <Compile Include="SMSandMail.cs" />
+    <Compile Include="SVRCCommon.cs" />
     <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>

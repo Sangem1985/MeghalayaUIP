@@ -197,6 +197,8 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblcriminal1973.BorderColor = System.Drawing.Color.White;
+
         }
         protected void rblLIC1884_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -214,6 +216,7 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblLIC1884.BorderColor = System.Drawing.Color.White;
         }
         protected void rblApproval101_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -231,6 +234,7 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblApproval101.BorderColor = System.Drawing.Color.White;
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
@@ -365,6 +369,8 @@ namespace MeghalayaUIP.User.CFE
                 int slno = 1;
                 string errormsg = "";
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
+
                 if (string.IsNullOrEmpty(txtExplosive.Text) || txtExplosive.Text == "" || txtExplosive.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Details of site where explosives  License\\n";
@@ -918,6 +924,38 @@ namespace MeghalayaUIP.User.CFE
                 }
             }
             return emptyTextboxes;
+        }
+        private List<RadioButtonList> FindEmptyRadioButtonLists(Control container)
+        {
+            List<RadioButtonList> emptyRadioButtonLists = new List<RadioButtonList>();
+
+            foreach (Control control in container.Controls)
+            {
+                if (control is RadioButtonList radioButtonList)
+                {
+                    if (string.IsNullOrWhiteSpace(radioButtonList.SelectedValue) || radioButtonList.SelectedIndex == -1)
+                    {
+                        emptyRadioButtonLists.Add(radioButtonList);
+
+                        radioButtonList.BorderColor = System.Drawing.Color.Red;
+                        radioButtonList.BorderWidth = Unit.Pixel(2);
+                        radioButtonList.BorderStyle = BorderStyle.Solid;
+                    }
+                    else
+                    {
+                        radioButtonList.BorderColor = System.Drawing.Color.Empty;
+                        radioButtonList.BorderWidth = Unit.Empty;
+                        radioButtonList.BorderStyle = BorderStyle.NotSet;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyRadioButtonLists.AddRange(FindEmptyRadioButtonLists(control));
+                }
+            }
+
+            return emptyRadioButtonLists;
         }
 
     }
