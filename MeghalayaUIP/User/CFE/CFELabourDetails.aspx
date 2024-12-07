@@ -14,6 +14,33 @@
             input.style.border = "1px solid #767575b5";
         }
     }
+    function validateDropdown(dropdown) {
+
+        if (dropdown.value === "0") {
+            dropdown.style.border = "2px solid red";
+            dropdown.focus();
+        } else {
+            dropdown.style.border = "1px solid #767575b5";
+        }
+    }
+    function validateRadioButtonList(radioGroupContainer) {
+        // Find all radio buttons inside the container
+        const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+        // Check if any radio button is selected
+        const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+        if (!isSelected) {
+            // If none are selected, apply red border
+            radioGroupContainer.style.border = "2px solid red";
+            radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+        } else {
+            // Reset the border if an option is selected
+            var id = radioGroupContainer.id;
+            document.getElementById(id).style.border = "1px solid #767575b5";
+            return false;
+        }
+    }
     </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -56,7 +83,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label fw-bold"><span style="font-weight: 900;">1. Category of Establishment</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:DropDownList ID="ddlCategory" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlCategory" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -124,7 +151,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">District *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlPropLocDist" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlPropLocDist_SelectedIndexChanged">
+                                                        <asp:DropDownList runat="server" ID="ddlPropLocDist" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlPropLocDist_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
@@ -134,7 +161,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Mandal *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlPropLocTaluka" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlPropLocTaluka_SelectedIndexChanged">
+                                                        <asp:DropDownList runat="server" ID="ddlPropLocTaluka" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlPropLocTaluka_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
@@ -144,7 +171,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Village *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlPropLocVillage" class="form-control">
+                                                        <asp:DropDownList runat="server" ID="ddlPropLocVillage" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
@@ -241,7 +268,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">District *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:DropDownList ID="ddlDistricts" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistricts_SelectedIndexChanged">
+                                                            <asp:DropDownList ID="ddlDistricts" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistricts_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -251,7 +278,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Mandal *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
+                                                            <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -261,7 +288,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Village *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlVillage" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlVillage" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Village--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -318,7 +345,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Maximum No. of Contract Labour proposed to be employed in the establishment on any date *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlMaximumNo" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlMaximumNo" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                                 <asp:ListItem Text="50 and above but does not exceed 100" Value="1"></asp:ListItem>
                                                                 <asp:ListItem Text="exceeds 100 but does not exceed 200" Value="2"></asp:ListItem>
@@ -601,7 +628,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label ">21. Whether the contractor was convicted of any offence within the preceding five years. If so give details *</label>
                                                         <div class="col-lg-2">
-                                                            <asp:RadioButtonList ID="rblconvicted" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblconvicted" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -616,7 +643,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label ">22. Whether there was any order against the contractor revoking or suspending license or forefeiting security deposits in respect of an earlier contract . If so the date of such order. *</label>
                                                         <div class="col-lg-2">
-                                                            <asp:RadioButtonList ID="rblrevoking" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblrevoking" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -631,7 +658,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label ">23. Whether the contractor has worked in any other establishment within the past five years, If so, give details of the Principal Emplyer,Establishments and nature of work *</label>
                                                         <div class="col-lg-2">
-                                                            <asp:RadioButtonList ID="rblcontractor" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblcontractor" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -644,7 +671,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label ">24. Type of business, trade, industry, manufacture or occupation, which is carried on in the establishment</label>
                                                         <div class="col-lg-4">
-                                                            <asp:DropDownList ID="ddlbusiness" runat="server">
+                                                            <asp:DropDownList ID="ddlbusiness" runat="server" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -724,7 +751,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">District *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:DropDownList ID="ddlDistric" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistric_SelectedIndexChanged">
+                                                            <asp:DropDownList ID="ddlDistric" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistric_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -738,7 +765,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Mandal *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlMandals" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandals_SelectedIndexChanged">
+                                                            <asp:DropDownList ID="ddlMandals" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandals_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -748,7 +775,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Village *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlvillages" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlvillages" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="Village" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -820,7 +847,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">District *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:DropDownList ID="ddldist" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddldist_SelectedIndexChanged">
+                                                            <asp:DropDownList ID="ddldist" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddldist_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -830,7 +857,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Mandal *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlmand" runat="server" class="form-control" OnSelectedIndexChanged="ddlmand_SelectedIndexChanged" AutoPostBack="true">
+                                                            <asp:DropDownList ID="ddlmand" runat="server" class="form-control" OnSelectedIndexChanged="ddlmand_SelectedIndexChanged" AutoPostBack="true" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Selectl--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -840,7 +867,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Village *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlvilla" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlvilla" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>

@@ -889,6 +889,8 @@ namespace MeghalayaUIP.Dept.CFE
             {
                 var ObjUserInfo = new DeptUserInfo();
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+
                 if (Session["DeptUserInfo"] != null)
                 {
                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
@@ -1471,6 +1473,30 @@ namespace MeghalayaUIP.Dept.CFE
                 }
             }
             return emptyTextboxes;
+        }
+        protected List<DropDownList> FindEmptyDropdowns(Control container)
+        {
+            List<DropDownList> emptyDropdowns = new List<DropDownList>();
+
+            foreach (Control control in container.Controls)
+            {
+                if (control is DropDownList)
+                {
+                    DropDownList dropdown = (DropDownList)control;
+                    if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
+                    {
+                        emptyDropdowns.Add(dropdown);
+                        dropdown.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyDropdowns.AddRange(FindEmptyDropdowns(control));
+                }
+            }
+
+            return emptyDropdowns;
         }
     }
 }

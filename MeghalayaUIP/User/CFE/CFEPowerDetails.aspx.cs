@@ -266,6 +266,7 @@ namespace MeghalayaUIP.User.CFE
                 int slno = 1;
                 string errormsg = "";
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
 
                 if (string.IsNullOrEmpty(txtHP.Text) || txtHP.Text == "" || txtHP.Text == null || txtHP.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtHP.Text, @"^0+(\.0+)?$"))
                 {
@@ -390,6 +391,30 @@ namespace MeghalayaUIP.User.CFE
                 }
             }
             return emptyTextboxes;
+        }
+        protected List<DropDownList> FindEmptyDropdowns(Control container)
+        {
+            List<DropDownList> emptyDropdowns = new List<DropDownList>();
+
+            foreach (Control control in container.Controls)
+            {
+                if (control is DropDownList)
+                {
+                    DropDownList dropdown = (DropDownList)control;
+                    if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
+                    {
+                        emptyDropdowns.Add(dropdown);
+                        dropdown.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyDropdowns.AddRange(FindEmptyDropdowns(control));
+                }
+            }
+
+            return emptyDropdowns;
         }
     }
 }

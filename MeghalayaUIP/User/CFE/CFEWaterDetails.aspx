@@ -11,6 +11,33 @@
                 input.style.border = "1px solid #767575b5";
             }
         }
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
+        }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
     </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -112,7 +139,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Choose Available Tanker Capacity[In litres]</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlTanker" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlTanker" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                                 <asp:ListItem Text="1800" Value="1" />
                                                                 <asp:ListItem Text="4000" Value="2" />
@@ -152,7 +179,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Select Ward No*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlwardno" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlwardno" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -202,7 +229,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">District *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddldistric" runat="server" class="form-control" OnSelectedIndexChanged="ddldistric_SelectedIndexChanged" AutoPostBack="true">
+                                                        <asp:DropDownList ID="ddldistric" runat="server" class="form-control" OnSelectedIndexChanged="ddldistric_SelectedIndexChanged" AutoPostBack="true"  onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -212,7 +239,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Mandal</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlmandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlmandal_SelectedIndexChanged" AutoPostBack="true">
+                                                        <asp:DropDownList ID="ddlmandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlmandal_SelectedIndexChanged" AutoPostBack="true"  onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -222,7 +249,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Village</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlvillage" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlvillage" runat="server" class="form-control"  onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -268,7 +295,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Type of connection *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlconnection" runat="server" class="form-control" OnSelectedIndexChanged="ddlconnection_SelectedIndexChanged" AutoPostBack="true">
+                                                        <asp:DropDownList ID="ddlconnection" runat="server" class="form-control" OnSelectedIndexChanged="ddlconnection_SelectedIndexChanged" AutoPostBack="true"  onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                             <asp:ListItem Text="Domestic" Value="Y"></asp:ListItem>
                                                             <asp:ListItem Text="Bulk" Value="N"></asp:ListItem>
@@ -280,7 +307,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Size of pipe connection for domestic(Diameter Nominal DN (mm))* </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlDiameter" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlDiameter" runat="server" class="form-control"  onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -292,7 +319,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Size of pipe connection(Diameter Nominal DN (mm))* </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlDN" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlDN" runat="server" class="form-control"  onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>

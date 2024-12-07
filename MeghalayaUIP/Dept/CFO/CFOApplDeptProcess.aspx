@@ -20,9 +20,6 @@
                 dropdown.style.border = "1px solid #767575b5";
             }
         }
-
-
-        
     </script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
      <style>

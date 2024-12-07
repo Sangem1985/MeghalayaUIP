@@ -13,6 +13,15 @@
                 input.style.border = "1px solid #767575b5";
             }
         }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
     </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -82,7 +91,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">3. Required Voltage Level*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlvtglevel" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlvtglevel" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -96,7 +105,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">4. Any Other Services Existing in the Same Premises*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlPermise" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlPermise" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                                 <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
                                                                 <asp:ListItem Text="No" Value="2"></asp:ListItem>
@@ -163,7 +172,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">6. Proposed source of energy/load*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlloadenergy" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlloadenergy" runat="server" class="form-control"  onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>

@@ -78,7 +78,7 @@
                                                     <div class="card-body" runat="server" id="divbasic">
                                                         <span class="icon"><i class="fi fi-br-caret-down"></i></span>
                                                     </div>
-                                                    <h4 class="card-title ml-3">1(a)Unit Address: </h4>
+                                                    <h4 class="card-title ml-3">1(a) Unit Address: </h4>
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
@@ -96,6 +96,18 @@
                                                                     <asp:DropDownList ID="ddlcompanytype" runat="server" class="form-control" TabIndex="1">
                                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                     </asp:DropDownList>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Nature of Activity<span class="star">*</span></label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:RadioButtonList ID="rblNatureofActvty" runat="server" RepeatDirection="Horizontal" TabIndex="1">
+                                                                        <asp:ListItem Text="Manufacturing" Value="Manufacturing" style="padding-right: 10px"></asp:ListItem>
+                                                                        <asp:ListItem Text="Service" Value="Service"></asp:ListItem>
+                                                                    </asp:RadioButtonList>
+                                                                    <%-- <asp:TextBox runat="server" ID="txtNatureofActivity" class="form-control" />--%>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -163,6 +175,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
+                                                          <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Pincode *</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox ID="txtpincode" runat="server" class="form-control" Type="text" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">E-Mail ID*</label>
@@ -174,25 +195,16 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Landline/Mobile NO *</label>
+                                                                <label class="col-lg-6 col-form-label">Mobile NO *</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox ID="txtMobileNo" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" TabIndex="1"></asp:TextBox>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Pincode *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox ID="txtpincode" runat="server" class="form-control" Type="text" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        </div>                                                      
                                                     </div>
                                                     <div class="col-md-12 d-flex">
                                                     </div>
-                                                    <h4 class="card-title ml-3">(C) Office Address: </h4>
+                                                    <h4 class="card-title ml-3">(c) Office Address: </h4>
 
                                                     <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
@@ -255,6 +267,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
+                                                          <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Pincode *</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox ID="txtPincodeoffice" runat="server" class="form-control" Type="text" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">E-Mail ID*</label>
@@ -266,21 +287,13 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label" id="Label4" runat="server">Landline/Mobile NO *</label>
+                                                                <label class="col-lg-6 col-form-label" id="Label4" runat="server">Mobile NO *</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox ID="txtLandoffice" runat="server" class="form-control" Type="text"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Pincode *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox ID="txtPincodeoffice" runat="server" class="form-control" Type="text" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                      
                                                     </div>
                                                     <h4 class="card-title ml-3">(d) Registered Office's Address </h4>
 
@@ -345,6 +358,14 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12 d-flex">
+                                                         <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Pincode *</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:TextBox ID="txtPicReg" runat="server" class="form-control" Type="text" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">E-Mail ID*</label>
@@ -356,45 +377,21 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label" id="Label7" runat="server">Landline/Mobile NO *</label>
+                                                                <label class="col-lg-6 col-form-label" id="Label7" runat="server">Mobile NO *</label>
                                                                 <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox ID="txtLandReg" runat="server" class="form-control" Type="text"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">Pincode *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox ID="txtPicReg" runat="server" class="form-control" Type="text" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                       
                                                     </div>
 
 
                                                     <div class="col-md-12 d-flex">
-                                                        <h4 class="card-title ml-3">2.Constitution of the unit: </h4>
+                                                        <h4 class="card-title ml-3">2.Details of the Applicant / Promoter(s) /
+													Partner(s) / Director(s) / Members: </h4>
                                                     </div>
-                                                    <%-- <div class="col-md-12 d-flex">
-                                                         <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">(a).proprietorial/Partnership/ Private limited/Limited Company/Cooperative society/LLP *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox ID="txtLLP" runat="server" class="form-control" Type="text" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label">
-                                                                    (b) Name(s), address(es) of the proprietor/Partners/ Directors/secretary and president of the Cooperative Society</label>
-                                                                <div class="col-lg-6">
-                                                                    <asp:TextBox ID="txtDirectors" runat="server" class="form-control" onkeypress="return validateNames(event)" TabIndex="1"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>--%>
+                                                   
                                                     <div class="col-md-12 d-flex">
                                                         <div class="table-responsive">
                                                             <asp:GridView ID="gvPromoters" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -444,17 +441,8 @@
                                                     <div class="col-md-12 d-flex">
                                                         <h4 class="card-title ml-3">3.Whether new unit or existing unit undergoing expansion: </h4>
                                                     </div>
-                                                    <div class="col-md-12 d-flex">
-                                                        <%--<div class="col-md-4">
-                                                            <div class="form-group row">
-                                                                <label class="col-lg-6 col-form-label" id="Label8" runat="server">
-                                                                    
- *</label>
-                                                                <div class="col-lg-6 d-flex">
-                                                                    <asp:TextBox ID="txtEXUnit" runat="server" class="form-control" Type="text"></asp:TextBox>
-                                                                </div>
-                                                            </div>
-                                                        </div>--%>
+
+                                                    <div class="col-md-12 d-flex">                                                      
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-6 col-form-label">(a) In case of New unit	*</label>

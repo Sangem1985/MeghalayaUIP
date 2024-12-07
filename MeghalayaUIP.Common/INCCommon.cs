@@ -11,6 +11,7 @@ namespace MeghalayaUIP.Common
         public static string GetFixedCapitalInvestment = "USP_INCCAPTIALINVESTMENT";
         public static string GetSourceFinance = "USP_INCSOURCEFINANCE";
         public static string GetEmploymenttype = "USP_INCEMPLOYMENTTYPE";
+        public static string InsertIncentiveReg = "";
     }
     public class IncentiveReg1
     {
