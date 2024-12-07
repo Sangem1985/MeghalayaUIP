@@ -417,6 +417,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblAffectedroad.BorderColor = System.Drawing.Color.White;
         }
 
         public void TotalAmount()
@@ -833,6 +834,16 @@ namespace MeghalayaUIP.User.CFO
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
+        }
+
+        protected void rblWomen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblWoemen.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblAbled_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblAbled.BorderColor = System.Drawing.Color.White;
         }
 
         protected List<TextBox> FindEmptyTextboxes(Control container)

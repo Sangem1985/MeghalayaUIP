@@ -11,6 +11,18 @@
                 input.style.border = "1px solid #767575b5";
             }
         }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
+
+
+        
     </script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
      <style>
@@ -2800,7 +2812,7 @@
                                                     <asp:Label ID="lblapplDate" runat="server"></asp:Label>
                                                 </td>
                                                 <td style="width: 200px">
-                                                    <asp:DropDownList ID="ddlStatus" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                                                    <asp:DropDownList ID="ddlStatus" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Text="Completed" Value="12"></asp:ListItem>
                                                         <asp:ListItem Text="Completed with Payment Request" Value="11"></asp:ListItem>
@@ -2851,7 +2863,7 @@
                                                     <asp:Label ID="lblapplDateApproval" runat="server"></asp:Label>
                                                 </td>
                                                 <td style="width: 200px">
-                                                    <asp:DropDownList ID="ddlapproval" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlapproval_SelectedIndexChanged">
+                                                    <asp:DropDownList ID="ddlapproval" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlapproval_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Text="Approve" Value="13"></asp:ListItem>
                                                         <asp:ListItem Text="Rejected" Value="16"></asp:ListItem>

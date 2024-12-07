@@ -491,12 +491,74 @@ namespace MeghalayaUIP.User.CFO
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected List<DropDownList> FindEmptyDropdowns(Control container)
+        {
+            List<DropDownList> emptyDropdowns = new List<DropDownList>();
+
+            foreach (Control control in container.Controls)
+            {
+                if (control is DropDownList)
+                {
+                    DropDownList dropdown = (DropDownList)control;
+                    if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
+                    {
+                        emptyDropdowns.Add(dropdown);
+                        dropdown.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyDropdowns.AddRange(FindEmptyDropdowns(control));
+                }
+            }
+
+            return emptyDropdowns;
+        }
+
+        private List<RadioButtonList> FindEmptyRadioButtonLists(Control container)
+        {
+            List<RadioButtonList> emptyRadioButtonLists = new List<RadioButtonList>();
+
+            foreach (Control control in container.Controls)
+            {
+                if (control is RadioButtonList radioButtonList)
+                {
+                    if (string.IsNullOrWhiteSpace(radioButtonList.SelectedValue) || radioButtonList.SelectedIndex == -1)
+                    {
+                        emptyRadioButtonLists.Add(radioButtonList);
+
+                        radioButtonList.BorderColor = System.Drawing.Color.Red;
+                        radioButtonList.BorderWidth = Unit.Pixel(2);
+                        radioButtonList.BorderStyle = BorderStyle.Solid;
+                    }
+                    else
+                    {
+                        radioButtonList.BorderColor = System.Drawing.Color.Empty;
+                        radioButtonList.BorderWidth = Unit.Empty;
+                        radioButtonList.BorderStyle = BorderStyle.NotSet;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyRadioButtonLists.AddRange(FindEmptyRadioButtonLists(control));
+                }
+            }
+
+            return emptyRadioButtonLists;
+        }
+
+
+
         public string Validations()
         {
             try
             {
                 int slno = 1;
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
                 string errormsg = "";
                 if (GVCFOLabour.Rows.Count <= 0)
                 {
@@ -850,6 +912,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            RBLAPPROVED.BorderColor = System.Drawing.Color.White;
         }
 
         protected void rblBoilerTrans_SelectedIndexChanged(object sender, EventArgs e)
@@ -871,6 +934,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblBoilerTrans.BorderColor = System.Drawing.Color.White;
         }
 
         protected void rblConvicated_SelectedIndexChanged(object sender, EventArgs e)
@@ -892,6 +956,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblConvicated.BorderColor = System.Drawing.Color.White;
         }
 
         protected void rblrevoking_SelectedIndexChanged(object sender, EventArgs e)
@@ -913,6 +978,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblrevoking.BorderColor = System.Drawing.Color.White;
         }
 
         protected void rblcontractor_SelectedIndexChanged(object sender, EventArgs e)
@@ -936,6 +1002,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblcontractor.BorderColor = System.Drawing.Color.White;
         }
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
@@ -1565,6 +1632,67 @@ namespace MeghalayaUIP.User.CFO
                 }
             }
         }
+
+        protected void rblmaximum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblmaximum.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblregulation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblregulation.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblgenerator_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblgenerator.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rbldesignation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rbldesignation.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblstrictly_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblstrictly.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblfirm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblfirm.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblmaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblmaterial.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblinternalcontrol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblinternalcontrol.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rbldocument_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rbldocument.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblresinding_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblresinding.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblestemployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblestemployee.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblGender.BorderColor = System.Drawing.Color.White;
+        }
+
         public void AddSelect(DropDownList ddl)
         {
             try

@@ -16,7 +16,36 @@
         else {
             input.style.border = "1px solid #767575b5";
         }
-    }
+        }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
+
+
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
+        }
     </script>
     <style>
         i.fi.fi-br-circle-camera {
@@ -401,7 +430,7 @@
                                                     <label class="col-lg-7 col-form-label">Whether the applicant is a citizen of India: within the meaning of Article 5 of the Constitution of India. *</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:RadioButtonList ID="rblArtical5" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblArtical5" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblArtical5_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -417,7 +446,7 @@
                                                     <label class="col-lg-7 col-form-label">Whether any Criminal Case is pending at the time of making application *</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:RadioButtonList ID="rblMakeApplicationCrime" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblMakeApplicationCrime" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblMakeApplicationCrime_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -434,7 +463,7 @@
                                                     <label class="col-lg-7 col-form-label">Whether convicted in connection with a Criminal-Case at any time during the period of five years immediately preceding the date of application *</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:RadioButtonList ID="rblCriminalCase" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblCriminalCase" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblCriminalCase_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -518,7 +547,7 @@
                                                     <label class="col-lg-7 col-form-label">Tribal *</label>
                                                     <div class="col-lg-2 d-flex">
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:RadioButtonList ID="rblTribal" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblTribal" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblTribal_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -953,7 +982,7 @@
                                                     <label class="col-lg-9 col-form-label">Whether a certificate by the principal employer is enclosed*</label>
                                                     <div class="col-lg-3 d-flex radio">
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:RadioButtonList ID="rblEmpClosed" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblEmpClosed" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblEmpClosed_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                             </asp:RadioButtonList>
 

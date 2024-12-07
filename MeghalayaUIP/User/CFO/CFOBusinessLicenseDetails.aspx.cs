@@ -156,6 +156,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+            rblBusiness.BorderColor = System.Drawing.Color.White;
 
         }
 
@@ -178,7 +179,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-
+            rblmunicipality.BorderColor = System.Drawing.Color.White;
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -236,11 +237,74 @@ namespace MeghalayaUIP.User.CFO
             }
 
         }
+        protected List<DropDownList> FindEmptyDropdowns(Control container)
+        {
+            List<DropDownList> emptyDropdowns = new List<DropDownList>();
+
+            foreach (Control control in container.Controls)
+            {
+                if (control is DropDownList)
+                {
+                    DropDownList dropdown = (DropDownList)control;
+                    if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
+                    {
+                        emptyDropdowns.Add(dropdown);
+                        dropdown.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyDropdowns.AddRange(FindEmptyDropdowns(control));
+                }
+            }
+
+            return emptyDropdowns;
+        }
+
+        private List<RadioButtonList> FindEmptyRadioButtonLists(Control container)
+        {
+            List<RadioButtonList> emptyRadioButtonLists = new List<RadioButtonList>();
+
+            foreach (Control control in container.Controls)
+            {
+                if (control is RadioButtonList radioButtonList)
+                {
+                    if (string.IsNullOrWhiteSpace(radioButtonList.SelectedValue) || radioButtonList.SelectedIndex == -1)
+                    {
+                        emptyRadioButtonLists.Add(radioButtonList);
+
+                        radioButtonList.BorderColor = System.Drawing.Color.Red;
+                        radioButtonList.BorderWidth = Unit.Pixel(2);
+                        radioButtonList.BorderStyle = BorderStyle.Solid;
+                    }
+                    else
+                    {
+                        radioButtonList.BorderColor = System.Drawing.Color.Empty;
+                        radioButtonList.BorderWidth = Unit.Empty;
+                        radioButtonList.BorderStyle = BorderStyle.NotSet;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyRadioButtonLists.AddRange(FindEmptyRadioButtonLists(control));
+                }
+            }
+
+            return emptyRadioButtonLists;
+        }
+
+
+
         public string Validations()
         {
             try
             {
-                int slno = 1; List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                int slno = 1; 
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
                 string errormsg = "";
                 if (string.IsNullOrEmpty(txtaddress.Text) || txtaddress.Text == "" || txtaddress.Text == null)
                 {

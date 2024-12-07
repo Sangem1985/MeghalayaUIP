@@ -7,6 +7,37 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <script>
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
+
+
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
+        }
+    </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
@@ -55,7 +86,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label">1. Are you citizen of India as defined in Article 5 to 8 of the Constitution of India? *</label>
                                                         <div class="col-lg-2">
-                                                            <asp:RadioButtonList ID="rblArtical5" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblArtical5" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblArtical5_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -68,7 +99,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label">2. Has the applicant/ you have has held individual/jointly held one/multiple shop/s or any other excise license? (Provide Details if yes) *</label>
                                                         <div class="col-lg-2">
-                                                            <asp:RadioButtonList ID="rblapplicant" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblapplicant" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblapplicant_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -82,7 +113,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label">3. Whether applicant’s direct family member/dependents have held individual/jointly held one/multiple shop/s or any other excise license? (Provide Details if yes) *</label>
                                                         <div class="col-lg-2">
-                                                            <asp:RadioButtonList ID="rblMember" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblMember" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblMember_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -96,7 +127,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label">4. Are you/applicant an Income Tax Payer? *</label>
                                                         <div class="col-lg-2">
-                                                            <asp:RadioButtonList ID="rblTax" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblTax" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblTax_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -110,7 +141,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label">5. Do you/Applicant pay Sales Tax? *</label>
                                                         <div class="col-lg-2">
-                                                            <asp:RadioButtonList ID="rblsaletax" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblsaletax" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblsaletax_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -123,7 +154,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label">6. Do you/Applicant pay Professional Tax? *</label>
                                                         <div class="col-lg-2">
-                                                            <asp:RadioButtonList ID="rblprofession" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblprofession" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblprofession_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -353,7 +384,7 @@
                                                         <label class="col-lg-6 col-form-label">The Country of Origin of the Liquor *</label>
                                                         <div class="col-lg-6 d-flex">
 
-                                                            <asp:DropDownList runat="server" ID="ddlCountry" class="form-control">
+                                                            <asp:DropDownList runat="server" ID="ddlCountry" class="form-control" onchange="validateDropdown(this)">
                                                                 <%--<asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Value="001">country1</asp:ListItem>
                                                         <asp:ListItem Value="002">Country2</asp:ListItem>--%>
