@@ -980,6 +980,7 @@ namespace MeghalayaUIP.User.CFE
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
                 //if (Attachment.PostedFile.ContentType != "application/pdf"
                 //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
@@ -1122,6 +1123,7 @@ namespace MeghalayaUIP.User.CFE
                 int slno = 1;
                 string errormsg = "";
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
 
                 if (string.IsNullOrEmpty(txtInstall.Text) || txtInstall.Text == "" || txtInstall.Text == null)
                 {
@@ -1359,7 +1361,30 @@ namespace MeghalayaUIP.User.CFE
             }
             return emptyTextboxes;
         }
+        protected List<DropDownList> FindEmptyDropdowns(Control container)
+        {
+            List<DropDownList> emptyDropdowns = new List<DropDownList>();
 
+            foreach (Control control in container.Controls)
+            {
+                if (control is DropDownList)
+                {
+                    DropDownList dropdown = (DropDownList)control;
+                    if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
+                    {
+                        emptyDropdowns.Add(dropdown);
+                        dropdown.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyDropdowns.AddRange(FindEmptyDropdowns(control));
+                }
+            }
+
+            return emptyDropdowns;
+        }
 
     }
 }
