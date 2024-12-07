@@ -330,16 +330,96 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Cells[3].Text = ApprovalsApplied.ToString();
                 e.Row.Cells[3].Controls.Add(Total);
 
+                LinkButton Raised = new LinkButton();
+                Raised.ForeColor = System.Drawing.Color.White;
+                Raised.Text = QueryRaised.ToString();
+                if (Raised.Text != "0")
+                    Raised.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=QUERY_RAISED" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[4].Text = QueryRaised.ToString();
+                e.Row.Cells[4].Controls.Add(Raised);
+
+                LinkButton DateBefore = new LinkButton();
+                DateBefore.ForeColor = System.Drawing.Color.White;
+                DateBefore.Text = BeforeDate.ToString();
+                if (DateBefore.Text != "0")
+                    DateBefore.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=SCRUTINY_BEFOREDUEDATE" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[5].Text = BeforeDate.ToString();
+                e.Row.Cells[5].Controls.Add(DateBefore);
+
+                LinkButton DateAfter = new LinkButton();
+                DateAfter.ForeColor = System.Drawing.Color.White;
+                DateAfter.Text = AfterDate.ToString();
+                if (DateAfter.Text != "0")
+                    DateAfter.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=SCRUTINY_AFTERDUEDATE" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[6].Text = AfterDate.ToString();
+                e.Row.Cells[6].Controls.Add(DateAfter);
+
+                LinkButton Rejected = new LinkButton();
+                Rejected.ForeColor = System.Drawing.Color.White;
+                Rejected.Text = PreRejected.ToString();
+                if (Rejected.Text != "0")
+                    Rejected.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=PRESCRUTINY_REJECTED" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[7].Text = PreRejected.ToString();
+                e.Row.Cells[7].Controls.Add(Rejected);
+
+                LinkButton PayPending = new LinkButton();
+                PayPending.ForeColor = System.Drawing.Color.White;
+                PayPending.Text = Paymentpending.ToString();
+                if (PayPending.Text != "0")
+                    PayPending.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=PAYMENT_PENDING" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[8].Text = Paymentpending.ToString();
+                e.Row.Cells[8].Controls.Add(PayPending);
+
+                LinkButton ScCompleted = new LinkButton();
+                ScCompleted.ForeColor = System.Drawing.Color.White;
+                ScCompleted.Text = ScrutinyCompleted.ToString();
+                if (ScCompleted.Text != "0")
+                    ScCompleted.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=SCRUTINY_COMPLETED" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[9].Text = ScrutinyCompleted.ToString();
+                e.Row.Cells[9].Controls.Add(ScCompleted);
+
+                LinkButton Befores = new LinkButton();
+                Befores.ForeColor = System.Drawing.Color.White;
+                Befores.Text = Before.ToString();
+                if (Befores.Text != "0")
+                    Befores.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=APPROVALUNDER_PROCESSBEFOREDATE" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[10].Text = Before.ToString();
+                e.Row.Cells[10].Controls.Add(Befores);
+
+                LinkButton Aftered = new LinkButton();
+                Aftered.ForeColor = System.Drawing.Color.White;
+                Aftered.Text = After.ToString();
+                if (Aftered.Text != "0")
+                    Aftered.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=APPROVALUNDER_PROCESSAFTERDATE" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[11].Text = After.ToString();
+                e.Row.Cells[11].Controls.Add(Aftered);
+
+                LinkButton Approved = new LinkButton();
+                Approved.ForeColor = System.Drawing.Color.White;
+                Approved.Text = DeptApproved.ToString();
+                if (Approved.Text != "0")
+                    Approved.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=DEPARTMENT_APPROVED" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[12].Text = DeptApproved.ToString();
+                e.Row.Cells[12].Controls.Add(Approved);
+
+                LinkButton Reject = new LinkButton();
+                Reject.ForeColor = System.Drawing.Color.White;
+                Reject.Text = Rejected.ToString();
+                if (Reject.Text != "0")
+                    Reject.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=REJECTED" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[13].Text = Rejected.ToString();
+                e.Row.Cells[13].Controls.Add(Reject);
+
+                //  e.Row.Cells[4].Text = QueryRaised.ToString();
+                // e.Row.Cells[5].Text = BeforeDate.ToString();
+                // e.Row.Cells[6].Text = AfterDate.ToString();
+                //e.Row.Cells[7].Text = PreRejected.ToString();
+                // e.Row.Cells[8].Text = Paymentpending.ToString();
+                // e.Row.Cells[9].Text = ScrutinyCompleted.ToString();
+                // e.Row.Cells[10].Text = Before.ToString();
+                // e.Row.Cells[11].Text = After.ToString();
+              //  e.Row.Cells[12].Text = DeptApproved.ToString();
+              //  e.Row.Cells[13].Text = Rejected.ToString();
             }
         }
         protected void ExportToExcel()
@@ -379,7 +459,8 @@ namespace MeghalayaUIP.Dept.Reports
         }
         protected void btnPdf_Click(object sender, ImageClickEventArgs e)
         {
-            try
+            ExportGridToPDF();
+           /* try
             {
                 using (MemoryStream memoryStream = new MemoryStream())
                 {
@@ -390,13 +471,14 @@ namespace MeghalayaUIP.Dept.Reports
 
                             GVCFOReport.AllowPaging = false;
                             this.BindDepartments();
-                            GVCFOReport.HeaderRow.ForeColor = System.Drawing.Color.Black;
-                            GVCFOReport.FooterRow.Visible = false;
+                            GVCFOReport.HeaderRow.ForeColor = System.Drawing.Color.White;
+                            GVCFOReport.FooterRow.Visible = true;
+                            GVCFOReport.FooterRow.ForeColor = System.Drawing.Color.White;
                             GVCFOReport.RenderControl(hw);
 
                             string htmlContent = sw.ToString();
 
-                            Document pdfDoc = new Document(PageSize.A3, 10f, 10f, 10f, 0f);
+                            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
 
 
                             //  PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
@@ -426,6 +508,80 @@ namespace MeghalayaUIP.Dept.Reports
             catch (Exception ex)
             {
 
+            }
+           */
+        }
+        private void ExportGridToPDF()
+        {
+
+            try
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (StringWriter sw = new StringWriter())
+                    {
+                        using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+                        {
+                            
+                            GVCFOReport.AllowPaging = false;
+                            this.BindCFoDeptReports();
+                            GVCFOReport.HeaderStyle.ForeColor = System.Drawing.Color.White;
+                            //GVDistrictWise.HeaderStyle.BackColor = System.Drawing.Color.Blue;
+                            GVCFOReport.RowStyle.BorderColor = System.Drawing.Color.Black;
+                            GVCFOReport.RowStyle.BorderStyle = BorderStyle.Solid;
+                            GVCFOReport.RowStyle.BorderWidth = Unit.Pixel(1);
+                            GVCFOReport.FooterStyle.ForeColor = System.Drawing.Color.White;
+
+                            hw.AddStyleAttribute(HtmlTextWriterStyle.BorderCollapse, "collapse");
+                            hw.AddStyleAttribute(HtmlTextWriterStyle.Width, "100%");
+                            hw.RenderBeginTag(HtmlTextWriterTag.Style);
+                            hw.Write(@"
+                                     table { border-collapse: collapse; width: 100%; }
+                                     th, td { border: 1px solid black; padding: 5px; text-decoration: none;}
+                                     th { background-color: #013161; text-decoration: none;}
+                                     td a { text-decoration: none; color: inherit; }
+                                     table tr th:nth-child(1), table tr td:nth-child(1) { width: 20%; }
+                                     table tr th:nth-child(3), table tr td:nth-child(3) { width: 50%; }
+                                     ");
+                            hw.RenderEndTag();
+                            GVCFOReport.RenderControl(hw);
+
+                            // Convert HTML to string
+                            string htmlContent = sw.ToString();
+
+                            // Create a PDF document
+                            Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
+
+                            // Create a PdfWriter that writes to memory stream
+                            PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+
+                            pdfDoc.Open();
+
+                            // Use XMLWorkerHelper to parse the HTML content
+                            using (StringReader sr = new StringReader(htmlContent))
+                            {
+                                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                            }
+
+                            pdfDoc.Close();
+
+                            // Send the generated PDF to the client browser
+                            Response.ContentType = "application/pdf";
+                            Response.AddHeader("content-disposition", "attachment;filename=Department Wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
+                            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+
+                            // Write the PDF from memory stream to the Response OutputStream
+                            Response.OutputStream.Write(memoryStream.GetBuffer(), 0, memoryStream.GetBuffer().Length);
+                            Response.Flush();
+                            Response.End();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                // Handle the error and provide feedback
             }
         }
 
