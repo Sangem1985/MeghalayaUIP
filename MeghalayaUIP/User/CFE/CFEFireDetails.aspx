@@ -10,7 +10,16 @@
         } else {
             input.style.border = "1px solid #767575b5";
         }
-    }
+        }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
     </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -183,7 +192,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">7. Category of Building for which Fire Clearance is applied *</label>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:DropDownList ID="ddlbuilding" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlbuilding" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>

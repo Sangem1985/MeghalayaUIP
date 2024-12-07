@@ -390,13 +390,14 @@ namespace MeghalayaUIP.Dept.Reports
 
                             GVCFOReport.AllowPaging = false;
                             this.BindDepartments();
-                            GVCFOReport.HeaderRow.ForeColor = System.Drawing.Color.Black;
-                            GVCFOReport.FooterRow.Visible = false;
+                            GVCFOReport.HeaderRow.ForeColor = System.Drawing.Color.White;
+                            GVCFOReport.FooterRow.Visible = true;
+                            GVCFOReport.FooterRow.ForeColor = System.Drawing.Color.White;
                             GVCFOReport.RenderControl(hw);
 
                             string htmlContent = sw.ToString();
 
-                            Document pdfDoc = new Document(PageSize.A3, 10f, 10f, 10f, 0f);
+                            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
 
 
                             //  PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);

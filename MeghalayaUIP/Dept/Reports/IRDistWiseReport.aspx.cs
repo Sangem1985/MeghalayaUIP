@@ -271,7 +271,7 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Cells[2].Text = "Total";
 
                 LinkButton Total = new LinkButton();
-                Total.ForeColor = System.Drawing.Color.Blue;
+                Total.ForeColor = System.Drawing.Color.White;
                 Total.Text = TotalAppl.ToString();
                 if (Total.Text != "0")
                 {
@@ -281,7 +281,15 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Cells[3].Text = TotalAppl.ToString();
                 e.Row.Cells[3].Controls.Add(Total);
 
-                e.Row.Cells[4].Text = ImaPending.ToString();
+                LinkButton Pending = new LinkButton();
+                Pending.ForeColor = System.Drawing.Color.White;
+                Pending.Text = ImaPending.ToString();
+                if (Pending.Text != "0")
+                    Pending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=IMAPENDING" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                e.Row.Cells[3].Text = ImaPending.ToString();
+                e.Row.Cells[3].Controls.Add(Pending);
+
+                //e.Row.Cells[4].Text = ImaPending.ToString();
                 e.Row.Cells[5].Text = ImaQuery.ToString();
                 e.Row.Cells[6].Text = QueryRedressedima.ToString();
                 e.Row.Cells[7].Text = CommPending.ToString();
@@ -336,15 +344,32 @@ namespace MeghalayaUIP.Dept.Reports
                             // To Export all pages
                             GVDistrictWise.AllowPaging = false;
                             this.FillGridData();
-                            GVDistrictWise.HeaderRow.ForeColor = System.Drawing.Color.Black;
-                            GVDistrictWise.FooterRow.Visible = false;
+                            GVDistrictWise.HeaderStyle.ForeColor = System.Drawing.Color.White;
+                            //GVDistrictWise.HeaderStyle.BackColor = System.Drawing.Color.Blue;
+                            GVDistrictWise.RowStyle.BorderColor = System.Drawing.Color.Black;
+                            GVDistrictWise.RowStyle.BorderStyle = BorderStyle.Solid;
+                            GVDistrictWise.RowStyle.BorderWidth = Unit.Pixel(1);
+                            GVDistrictWise.FooterStyle.ForeColor = System.Drawing.Color.White;
+
+                            hw.AddStyleAttribute(HtmlTextWriterStyle.BorderCollapse, "collapse");
+                            hw.AddStyleAttribute(HtmlTextWriterStyle.Width, "100%");
+                            hw.RenderBeginTag(HtmlTextWriterTag.Style);
+                            hw.Write(@"
+                                     table { border-collapse: collapse; width: 100%; }
+                                     th, td { border: 1px solid black; padding: 5px; text-decoration: none;}
+                                     th { background-color: #013161; text-decoration: none;}
+                                     td a { text-decoration: none; color: inherit; }
+                                     table tr th:nth-child(1), table tr td:nth-child(1) { width: 20%; }
+                                     table tr th:nth-child(3), table tr td:nth-child(3) { width: 50%; }
+                                     ");
+                            hw.RenderEndTag();
                             GVDistrictWise.RenderControl(hw);
 
                             // Convert HTML to string
                             string htmlContent = sw.ToString();
 
                             // Create a PDF document
-                            Document pdfDoc = new Document(PageSize.A3, 10f, 10f, 10f, 0f);
+                            Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
 
                             // Create a PdfWriter that writes to memory stream
                             PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);

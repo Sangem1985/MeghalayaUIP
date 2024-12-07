@@ -6,36 +6,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        //let originalValue = "";
-        function handleKeyUp(input) {
-            if (input.value.trim() === "") {
-                input.style.border = "2px solid red";
-            }
-            else {
-                input.style.border = "1px solid #767575b5";
-            }
-        }
-
-        function validateRadioButtonList(radioGroupContainer) {
-            // Find all radio buttons inside the container
-            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
-
-            // Check if any radio button is selected
-            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
-
-            if (!isSelected) {
-                // If none are selected, apply red border
-                radioGroupContainer.style.border = "2px solid red";
-                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
-            } else {
-                // Reset the border if an option is selected
-                var id = radioGroupContainer.id;
-                document.getElementById(id).style.border = "1px solid #767575b5";
-                return false;
-            }
-        }
-    </script>
+     <script type="text/javascript">
+     //let originalValue = "";
+     function handleKeyUp(input)
+     {
+         if (input.value.trim() === "") {
+             input.style.border = "2px solid red";
+         }
+         else {
+             input.style.border = "1px solid #767575b5";
+         }
+     }
+     </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
@@ -228,7 +210,7 @@
                                                         <%--  <asp:TextBox ID="txtRegDate" runat="server" class="date form-control" type="text"></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                        <asp:TextBox runat="server" ID="txtRegDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)" />
+                                                        <asp:TextBox runat="server" ID="txtRegDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)"/>
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegDate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -262,7 +244,7 @@
                                                         <%--  <asp:TextBox ID="txtDate" runat="server" class="date form-control" type="text"></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                        <asp:TextBox runat="server" ID="txtDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)" />
+                                                        <asp:TextBox runat="server" ID="txtDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)"/>
                                                         <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -290,7 +272,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Is it a partnership firm?   *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblFirm" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblFirm_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblFirm" runat="server" RepeatDirection="Horizontal">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
@@ -301,7 +283,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Is it a limited company?   *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblLimit" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLimit_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblLimit" runat="server" RepeatDirection="Horizontal">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
@@ -420,7 +402,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-7 col-form-label">Whether the item (s) proposed to be manufactured will be sold within the State or out side the state or both  *</label>
                                                 <div class="col-lg-5">
-                                                    <asp:RadioButtonList ID="rblstateside" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblstateside_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblstateside" runat="server" RepeatDirection="Horizontal">
                                                         <asp:ListItem Text="Within State" Value="Y" />
                                                         <asp:ListItem Text="Outside State" Value="N" />
                                                         <asp:ListItem Text="Both" Value="3" />
@@ -519,7 +501,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Availability of electric energy  *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblelectric" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblelectric_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblelectric" runat="server" RepeatDirection="Horizontal">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
@@ -624,7 +606,7 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="card-title ml-3">Upload Below Documents</h4>
+                                      <h4 class="card-title ml-3">Upload Below Documents</h4>
 
                                     <div class="col-md-12 d-flex">
                                         <div class="col-md-12">
@@ -788,7 +770,7 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
-        <Triggers>
+           <Triggers>
             <asp:PostBackTrigger ControlID="btnTaxClearance" />
             <asp:PostBackTrigger ControlID="btnGSTREG" />
             <asp:PostBackTrigger ControlID="btnLabourLic" />

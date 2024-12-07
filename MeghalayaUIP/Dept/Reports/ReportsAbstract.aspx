@@ -95,7 +95,7 @@
             <div class="card-header d-flex justify-content-between">
                 <h4 class="card-title mt-1"><b>Invest Meghalaya Reports</b></h4>
                 <div class="col-md-1">
-                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
             </div>
             <div class="card flex-fill">
@@ -160,7 +160,7 @@
                                     </div>
                                 </div>
 
-                                <%--------CFE Reports-------------------------%>
+                                <%--------CFO Reports-------------------------%>
                                 <div class="col-md-12 col-xs-12">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-default">
@@ -181,7 +181,7 @@
                                                                 <div id="DashBoardmenu2" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
                                                                     <ul>
                                                                         <li><a style="text-decoration: none;" target="_blank" href="CFODeptWiseReport.aspx"><i
-                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R3: CFO Department Wise Reports</a></li>
+                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R3: Pre-Operational Department Wise Reports</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -194,7 +194,7 @@
                                 </div>
                             </div>
                             <div class="col-md-5">
-                                <%--------CFO Reports------------------------%>
+                                <%--------CFE Reports------------------------%>
                                 <div class="col-md-12 col-xs-12">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-default">
@@ -215,7 +215,7 @@
                                                                 <div id="DashBoardmenu1" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
                                                                     <ul>
                                                                         <li><a style="text-decoration: none;" target="_blank" href="CFEDeptWiseReport.aspx"><i
-                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R2: CFE Department Wise Reports</a></li>
+                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R2: Pre-Establishment Department Wise Reports</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -261,7 +261,73 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-5">
+                                <%--------Grivance Reports------------------------%>
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                                                        class="collapsed">Griveance Reports
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingTwo" aria-expanded="false">
+                                                <div class="card">
+                                                    <section id="dashboardBasic1">
+                                                        <div class="container-fluid">
+                                                            <div class="row clearfix">
+                                                                <div id="DashBoardmenu1" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
+                                                                    <ul>
+                                                                        <li><a style="text-decoration: none;" target="_blank" href="GRDeptWiseReport.aspx"><i
+                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R5: Griveance Department Wise Reports</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%--------Land Reports--------------------%>
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingFour">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+                                                        class="collapsed">Land Allotment Reports
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingFour" aria-expanded="false">
+                                                <div class="card">
+                                                    <section id="dashboardBasic3">
+                                                        <div class="container-fluid">
+                                                            <div class="row clearfix">
+                                                                <div id="DashBoardmenu3" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
+                                                                    <ul>
+                                                                        <li><a style="text-decoration: none;" target="_blank" href="LandDistWiseReport.aspx"><i
+                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R6: Land Allotment District Wise Reports</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
+                            </div>
 
                             <div class="col-md-1"></div>
                         </div>

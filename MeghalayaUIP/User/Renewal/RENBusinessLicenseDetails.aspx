@@ -16,36 +16,7 @@
         else {
             input.style.border = "1px solid #767575b5";
         }
-        }
-        function validateDropdown(dropdown) {
-
-            if (dropdown.value === "0") {
-                dropdown.style.border = "2px solid red";
-                dropdown.focus();
-            } else {
-                dropdown.style.border = "1px solid #767575b5";
-            }
-        }
-
-
-        function validateRadioButtonList(radioGroupContainer) {
-            // Find all radio buttons inside the container
-            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
-
-            // Check if any radio button is selected
-            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
-
-            if (!isSelected) {
-                // If none are selected, apply red border
-                radioGroupContainer.style.border = "2px solid red";
-                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
-            } else {
-                // Reset the border if an option is selected
-                var id = radioGroupContainer.id;
-                document.getElementById(id).style.border = "1px solid #767575b5";
-                return false;
-            }
-        }
+    }
     </script>
     <style>
         i.fi.fi-br-circle-camera {
@@ -240,7 +211,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Type of Establishment  *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblApplication" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblApplication_SelectedIndexChanged">
+                                                        <asp:RadioButtonList ID="rblApplication" runat="server" RepeatDirection="Horizontal">
                                                             <asp:ListItem Text="Private owned establishment" Value="Y" />
                                                             <asp:ListItem Text="Municipal owned shop/establishment" Value="N" />
                                                         </asp:RadioButtonList>
