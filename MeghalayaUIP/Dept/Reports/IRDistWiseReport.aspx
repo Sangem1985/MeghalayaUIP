@@ -145,7 +145,7 @@
                                                                     <asp:Label ID="lblDistrictid" runat="server" Text='<%#Eval("DISTRICID") %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField DataField="DISTRICTNAME" HeaderText="District" ItemStyle-HorizontalAlign="Left" />
+                                                            <asp:BoundField DataField="DISTRICTNAME" HeaderText="District Name" ItemStyle-HorizontalAlign="Left" />
                                                             <%--  <asp:TemplateField HeaderText="District">
                                                                     <ItemTemplate>
                                                                         <asp:LinkButton runat="server" ID="lblBeyonReport" Text='<%#Eval("DISTRICTNAME") %>' />

@@ -22,6 +22,8 @@ namespace MeghalayaUIP.User.INCENTIVE
         {
             if (!IsPostBack)
             {
+                MVprereg.ActiveViewIndex = index;
+
                 FixedCapital();
                 SourceFinance();
                 EmploymentType();
@@ -945,7 +947,9 @@ namespace MeghalayaUIP.User.INCENTIVE
             IncentiveReg.EligibilityNo = txtEligibilityNo.Text;
             IncentiveReg.EligibilityDate = txtEligibility.Text;
 
-            return 1;
+            int result = iNCBAL.INSIncentiveReg(IncentiveReg);
+
+            return result;
         }
 
         protected void GVFiexed_RowDataBound(object sender, GridViewRowEventArgs e)

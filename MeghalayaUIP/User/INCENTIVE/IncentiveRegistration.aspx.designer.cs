@@ -186,6 +186,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.DropDownList ddlcompanytype;
 
         /// <summary>
+        /// rblNatureofActvty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblNatureofActvty;
+
+        /// <summary>
         /// txtLocality control.
         /// </summary>
         /// <remarks>
@@ -249,6 +258,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.DropDownList ddlVillage;
 
         /// <summary>
+        /// txtpincode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtpincode;
+
+        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
@@ -265,15 +283,6 @@ namespace MeghalayaUIP.User.INCENTIVE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMobileNo;
-
-        /// <summary>
-        /// txtpincode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtpincode;
 
         /// <summary>
         /// txtAreaoffice control.
@@ -348,6 +357,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.DropDownList ddlVillageoffice;
 
         /// <summary>
+        /// txtPincodeoffice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPincodeoffice;
+
+        /// <summary>
         /// txtEmailoffice control.
         /// </summary>
         /// <remarks>
@@ -373,15 +391,6 @@ namespace MeghalayaUIP.User.INCENTIVE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLandoffice;
-
-        /// <summary>
-        /// txtPincodeoffice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPincodeoffice;
 
         /// <summary>
         /// txtAreaReg control.
@@ -456,6 +465,15 @@ namespace MeghalayaUIP.User.INCENTIVE
         protected global::System.Web.UI.WebControls.DropDownList ddlVillageReg;
 
         /// <summary>
+        /// txtPicReg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPicReg;
+
+        /// <summary>
         /// txtEmailReg control.
         /// </summary>
         /// <remarks>
@@ -481,15 +499,6 @@ namespace MeghalayaUIP.User.INCENTIVE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLandReg;
-
-        /// <summary>
-        /// txtPicReg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPicReg;
 
         /// <summary>
         /// gvPromoters control.
