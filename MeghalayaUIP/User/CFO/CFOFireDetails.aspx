@@ -14,36 +14,7 @@
         else {
             input.style.border = "1px solid #767575b5";
         }
-        }
-        function validateDropdown(dropdown) {
-
-            if (dropdown.value === "0") {
-                dropdown.style.border = "2px solid red";
-                dropdown.focus();
-            } else {
-                dropdown.style.border = "1px solid #767575b5";
-            }
-        }
-
-
-        function validateRadioButtonList(radioGroupContainer) {
-            // Find all radio buttons inside the container
-            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
-
-            // Check if any radio button is selected
-            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
-
-            if (!isSelected) {
-                // If none are selected, apply red border
-                radioGroupContainer.style.border = "2px solid red";
-                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
-            } else {
-                // Reset the border if an option is selected
-                var id = radioGroupContainer.id;
-                document.getElementById(id).style.border = "1px solid #767575b5";
-                return false;
-            }
-        }
+    }
     </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -101,7 +72,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Category of Building for which Fire Clearance is applied  *</label>
                                                     <div class="col-lg-4 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlCategory" class="form-control" onchange="validateDropdown(this)">
+                                                        <asp:DropDownList runat="server" ID="ddlCategory" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
@@ -126,7 +97,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">District</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" onchange="validateDropdown(this)" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
                                                             <asp:ListItem Text="Select District" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -136,7 +107,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Mandal</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" onchange="validateDropdown(this)" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
                                                             <asp:ListItem Text="Select Mandal" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -146,7 +117,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Village/Town</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlVillage" runat="server" onchange="validateDropdown(this)" class="form-control">
+                                                        <asp:DropDownList ID="ddlVillage" runat="server" class="form-control">
                                                             <asp:ListItem Text="Select Village" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>

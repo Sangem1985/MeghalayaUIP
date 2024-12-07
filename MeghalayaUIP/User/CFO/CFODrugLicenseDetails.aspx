@@ -84,7 +84,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Application Type(H) :   *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:RadioButtonList ID="rblApplication" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblApplication_SelectedIndexChanged">
+                                                            <asp:RadioButtonList ID="rblApplication" runat="server" RepeatDirection="Horizontal">
                                                                 <asp:ListItem Text="Wholesale" Value="1" />
                                                                 <asp:ListItem Text="Retails" Value="2" />
                                                             </asp:RadioButtonList>
