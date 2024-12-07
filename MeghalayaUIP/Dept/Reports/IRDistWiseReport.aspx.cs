@@ -286,16 +286,65 @@ namespace MeghalayaUIP.Dept.Reports
                 Pending.Text = ImaPending.ToString();
                 if (Pending.Text != "0")
                     Pending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=IMAPENDING" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
-                e.Row.Cells[3].Text = ImaPending.ToString();
-                e.Row.Cells[3].Controls.Add(Pending);
+                e.Row.Cells[4].Text = ImaPending.ToString();
+                e.Row.Cells[4].Controls.Add(Pending);
+
+                LinkButton Query = new LinkButton();
+                Query.ForeColor = System.Drawing.Color.White;
+                Query.Text = ImaQuery.ToString();
+                if (Query.Text != "0")
+                    Query.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=IMAQUERYRAISED" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                e.Row.Cells[5].Text = ImaQuery.ToString();
+                e.Row.Cells[5].Controls.Add(Query);
+
+                LinkButton QueryRedressed = new LinkButton();
+                QueryRedressed.ForeColor = System.Drawing.Color.White;
+                QueryRedressed.Text = QueryRedressedima.ToString();
+                if (QueryRedressed.Text != "0")
+                    QueryRedressed.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=QUERYREDRESSEDTOIMA" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                e.Row.Cells[6].Text = QueryRedressedima.ToString();
+                e.Row.Cells[6].Controls.Add(QueryRedressed);
+
+
+                LinkButton CommonPending = new LinkButton();
+                CommonPending.ForeColor = System.Drawing.Color.White;
+                CommonPending.Text = CommPending.ToString();
+                if (CommonPending.Text != "0")
+                    CommonPending.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=COMMPENDING" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                e.Row.Cells[7].Text = CommPending.ToString();
+                e.Row.Cells[7].Controls.Add(CommonPending);
+
+                LinkButton CommonApproved = new LinkButton();
+                CommonApproved.ForeColor = System.Drawing.Color.White;
+                CommonApproved.Text = CommApproved.ToString();
+                if (CommonApproved.Text != "0")
+                    CommonApproved.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=COMMAPPROVED" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                e.Row.Cells[8].Text = CommApproved.ToString();
+                e.Row.Cells[8].Controls.Add(CommonApproved);
+
+                LinkButton CommonRejected = new LinkButton();
+                CommonRejected.ForeColor = System.Drawing.Color.White;
+                CommonRejected.Text = CommRejected.ToString();
+                if (CommonRejected.Text != "0")
+                    CommonRejected.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=COMMREJECTED" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                e.Row.Cells[9].Text = CommRejected.ToString();
+                e.Row.Cells[9].Controls.Add(CommonRejected);
+
+                LinkButton CommonQuery = new LinkButton();
+                CommonQuery.ForeColor = System.Drawing.Color.White;
+                CommonQuery.Text = CommQuery.ToString();
+                if (CommonQuery.Text != "0")
+                    CommonQuery.PostBackUrl = "IRDistWiseReportDrillDown.aspx?Distid=" + districtname + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=COMMQUERY" + "&District=" + districtname + "&EntType=" + ddlEnterPriseType.SelectedItem.Text;
+                e.Row.Cells[10].Text = CommQuery.ToString();
+                e.Row.Cells[10].Controls.Add(CommonQuery);
 
                 //e.Row.Cells[4].Text = ImaPending.ToString();
-                e.Row.Cells[5].Text = ImaQuery.ToString();
-                e.Row.Cells[6].Text = QueryRedressedima.ToString();
-                e.Row.Cells[7].Text = CommPending.ToString();
-                e.Row.Cells[8].Text = CommApproved.ToString();
-                e.Row.Cells[9].Text = CommRejected.ToString();
-                e.Row.Cells[10].Text = CommQuery.ToString();
+                // e.Row.Cells[5].Text = ImaQuery.ToString();
+                // e.Row.Cells[6].Text = QueryRedressedima.ToString();
+                // e.Row.Cells[7].Text = CommPending.ToString();
+                // e.Row.Cells[8].Text = CommApproved.ToString();
+                // e.Row.Cells[9].Text = CommRejected.ToString();
+                // e.Row.Cells[10].Text = CommQuery.ToString();
             }
         }
         public override void VerifyRenderingInServerForm(Control control)
