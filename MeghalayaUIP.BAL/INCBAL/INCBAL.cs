@@ -1,4 +1,5 @@
-﻿using MeghalayaUIP.DAL.INCDAL;
+﻿using MeghalayaUIP.Common;
+using MeghalayaUIP.DAL.INCDAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,6 +25,10 @@ namespace MeghalayaUIP.BAL.INCBAL
         public DataTable GetEmploymentGeneration()
         {
             return IRD.GetEmploymentGeneration();
+        }
+        public int INSIncentiveReg(IncentiveReg1 IncentiveReg)
+        {
+            return IRD.INSIncentiveReg(IncentiveReg);
         }
     }
 }
