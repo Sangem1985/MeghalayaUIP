@@ -11,6 +11,33 @@
                 input.style.border = "1px solid #767575b5";
             }
         }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
+        }
     </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -68,7 +95,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2. GPS Coordinates Latitude*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:RadioButtonList ID="RblLatitude" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="RblLatitude" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(radioGroupContainer)">
                                                             <asp:ListItem Text="N" Value="N" />
                                                             <asp:ListItem Text="S" Value="S" />
                                                         </asp:RadioButtonList>
@@ -109,7 +136,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">d. Longitude*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:RadioButtonList ID="rblLongitude" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblLongitude" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(radioGroupContainer)">
                                                             <asp:ListItem Text="E" Value="E" />
                                                             <asp:ListItem Text="W" Value="W" />
                                                         </asp:RadioButtonList>
@@ -165,7 +192,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">5. Forest Division</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlForest" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlForest" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>

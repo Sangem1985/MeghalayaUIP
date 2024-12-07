@@ -13,6 +13,34 @@
             input.style.border = "1px solid #767575b5";
         }
     }
+    function validateDropdown(dropdown) {
+
+        if (dropdown.value === "0") {
+            dropdown.style.border = "2px solid red";
+            dropdown.focus();
+        } else {
+            dropdown.style.border = "1px solid #767575b5";
+        }
+    }
+
+    function validateRadioButtonList(radioGroupContainer) {
+        // Find all radio buttons inside the container
+        const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+        // Check if any radio button is selected
+        const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+        if (!isSelected) {
+            // If none are selected, apply red border
+            radioGroupContainer.style.border = "2px solid red";
+            radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+        } else {
+            // Reset the border if an option is selected
+            var id = radioGroupContainer.id;
+            document.getElementById(id).style.border = "1px solid #767575b5";
+            return false;
+        }
+    }
     </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -87,7 +115,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">District *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList runat="server" ID="ddlLocDist" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLocDist_SelectedIndexChanged">
+                                                            <asp:DropDownList runat="server" ID="ddlLocDist" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLocDist_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             </asp:DropDownList>
                                                         </div>
@@ -107,7 +135,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Village *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList runat="server" ID="ddlLocVillage" class="form-control">
+                                                            <asp:DropDownList runat="server" ID="ddlLocVillage" class="form-control" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             </asp:DropDownList>
                                                         </div>
@@ -160,7 +188,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-10 col-form-label">Details of Interlock/Change over arrangement provided to prevent accidental paralleling of D.G. Sets to the Supply System *</label>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:RadioButtonList ID="rblInterlockProvision" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblInterlockProvision" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(radioGroupContainer)">
                                                             <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
                                                             <asp:ListItem Text="No" Value="N"></asp:ListItem>
                                                         </asp:RadioButtonList>
@@ -203,7 +231,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Generators Running Mode  (in case more than one will be installed) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlGenRunningMode" runat="server" class=" form-control">
+                                                        <asp:DropDownList ID="ddlGenRunningMode" runat="server" class=" form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             <asp:ListItem Text="Parallel" Value="Parallel"></asp:ListItem>
                                                             <asp:ListItem Text="Isolated" Value="Isolated"></asp:ListItem>
@@ -312,7 +340,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Capacity is in KW/KVA *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:RadioButtonList ID="rblDGSetCapacity" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblDGSetCapacity" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(radioGroupContainer)">
                                                             <asp:ListItem Text="KW" Value="KW"></asp:ListItem>
                                                             <asp:ListItem Text="KVA" Value="KVA"></asp:ListItem>
                                                         </asp:RadioButtonList>
@@ -362,7 +390,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Type of Equipment *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlEquipment" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlEquipment" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             <asp:ListItem Text="Alternator Body" Value="KW"></asp:ListItem>
                                                             <asp:ListItem Text="Alternator Neutral" Value="KVA"></asp:ListItem>
@@ -420,7 +448,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Type of lighting *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddllighting" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddllighting" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             <asp:ListItem Text="Arrester" Value="Arrester"></asp:ListItem>
                                                             <asp:ListItem Text="Conductor" Value="Conductor"></asp:ListItem>
