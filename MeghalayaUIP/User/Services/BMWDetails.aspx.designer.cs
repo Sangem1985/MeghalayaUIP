@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User.Services
-{
-
-
-    public partial class BMWDetails
-    {
+namespace MeghalayaUIP.User.Services {
+    
+    
+    public partial class BMWDetails {
     }
 }
