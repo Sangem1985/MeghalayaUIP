@@ -801,6 +801,7 @@
     <Content Include="User\Renewal\RENSafetySecurityDetails.aspx" />
     <Content Include="User\Renewal\RENShopsEstablishment.aspx" />
     <Content Include="User\Renewal\RENUserDashboard.aspx" />
+    <Content Include="User\Services\BMWDetails.aspx" />
     <Content Include="User\Services\EnterpriseDetails.aspx" />
     <Content Include="User\UserDashboard.aspx" />
     <Content Include="ViewCertifcateDetails.aspx" />
@@ -2313,6 +2314,13 @@
     </Compile>
     <Compile Include="User\Renewal\RENUserDashboard.aspx.designer.cs">
       <DependentUpon>RENUserDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\BMWDetails.aspx.cs">
+      <DependentUpon>BMWDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\BMWDetails.aspx.designer.cs">
+      <DependentUpon>BMWDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\EnterpriseDetails.aspx.cs">
       <DependentUpon>EnterpriseDetails.aspx</DependentUpon>
