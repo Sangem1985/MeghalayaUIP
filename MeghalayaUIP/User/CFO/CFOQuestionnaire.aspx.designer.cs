@@ -519,6 +519,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.RadioButtonList rblLicenceDealers;
 
         /// <summary>
+        /// rblVerificationInstrument control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblVerificationInstrument;
+
+        /// <summary>
         /// rblFireSafety control.
         /// </summary>
         /// <remarks>
@@ -625,6 +634,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblOccupancyCertificate;
+
+        /// <summary>
+        /// rblErectionPermission control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblErectionPermission;
 
         /// <summary>
         /// rblPipelineCertificate control.

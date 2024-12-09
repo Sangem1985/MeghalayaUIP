@@ -709,7 +709,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 12. Do you require Initial Verification And Stamping of Weighing and Measuring Instrument?</label>
                                                                             <div class="col-lg-6 d-flex ">
-                                                                                <asp:RadioButtonList ID="rblVerificationInstrument"onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblVerificationInstrument_SelectedIndexChanged">
+                                                                                <asp:RadioButtonList ID="rblVerificationInstrument" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblVerificationInstrument_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -892,7 +892,7 @@
                                                                                 25. Do you require Boilers steam Pipeline Erection Permission Certificate from Boilers Department?
                                                                             </label>
                                                                             <div class="col-lg-6 d-flex ">
-                                                                                <asp:RadioButtonList ID="rblErectionPermission" runat="server"onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblErectionPermission_SelectedIndexChanged">
+                                                                                <asp:RadioButtonList ID="rblErectionPermission" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblErectionPermission_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>

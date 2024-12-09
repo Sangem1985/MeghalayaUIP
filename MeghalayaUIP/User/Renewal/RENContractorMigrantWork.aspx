@@ -700,7 +700,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Title *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server"onchange="validateDropdown(this)" ID="ddlTitles" class="form-control">
+                                                        <asp:DropDownList runat="server" onchange="validateDropdown(this)" ID="ddlTitles" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             <asp:ListItem Text="Shri" Value="1"></asp:ListItem>
                                                             <asp:ListItem Text="Smt" Value="2"></asp:ListItem>
