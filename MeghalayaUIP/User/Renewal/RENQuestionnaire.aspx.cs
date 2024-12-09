@@ -43,5 +43,20 @@ namespace MeghalayaUIP.User.Renewal
         {
 
         }
+
+        protected void rblMIDCL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblMIDCL.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblWomen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblWomen.BorderColor = System.Drawing.Color.White;
+        }
+
+        protected void rblAbled_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblAbled.BorderColor = System.Drawing.Color.White;
+        }
     }
 }

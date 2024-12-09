@@ -16,7 +16,36 @@
          else {
              input.style.border = "1px solid #767575b5";
          }
-     }
+         }
+         function validateDropdown(dropdown) {
+
+             if (dropdown.value === "0") {
+                 dropdown.style.border = "2px solid red";
+                 dropdown.focus();
+             } else {
+                 dropdown.style.border = "1px solid #767575b5";
+             }
+         }
+
+
+         function validateRadioButtonList(radioGroupContainer) {
+             // Find all radio buttons inside the container
+             const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+             // Check if any radio button is selected
+             const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+             if (!isSelected) {
+                 // If none are selected, apply red border
+                 radioGroupContainer.style.border = "2px solid red";
+                 radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+             } else {
+                 // Reset the border if an option is selected
+                 var id = radioGroupContainer.id;
+                 document.getElementById(id).style.border = "1px solid #767575b5";
+                 return false;
+             }
+         }
      </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -89,7 +118,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label">Select Location of Stall*</label>
                                                     <div class="col-lg-9">
-                                                        <asp:RadioButtonList ID="rblBusiness" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblBusiness_SelectedIndexChanged">
+                                                        <asp:RadioButtonList ID="rblBusiness" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblBusiness_SelectedIndexChanged">
                                                             <asp:ListItem Text="Private owned establishment" Value="Y" />
                                                             <asp:ListItem Text="Municipal owned shop/establishment" Value="N" />
                                                         </asp:RadioButtonList>
@@ -110,7 +139,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Market Name  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlDistric" class="form-control">
+                                                        <asp:DropDownList runat="server" ID="ddlDistric" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
@@ -122,7 +151,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">District of Establishment *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlESTDistric" class="form-control">
+                                                        <asp:DropDownList runat="server" ID="ddlESTDistric" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
@@ -142,7 +171,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Whether the applicant is doing any business in Shillong Municipality during the previous 5 (five) years?  *</label>
                                                     <div class="col-lg-4">
-                                                        <asp:RadioButtonList ID="rblmunicipality" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblmunicipality_SelectedIndexChanged">
+                                                        <asp:RadioButtonList ID="rblmunicipality" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblmunicipality_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -167,7 +196,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Annual Gross Turnover (Rs in Lakhs) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlAnnual" class="form-control">
+                                                        <asp:DropDownList runat="server" ID="ddlAnnual" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
@@ -177,7 +206,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Nature of Business (Main Category) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlNature" class="form-control">
+                                                        <asp:DropDownList runat="server" ID="ddlNature" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
@@ -187,7 +216,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Nature of Business (Sub Category) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlBusiness" class="form-control">
+                                                        <asp:DropDownList runat="server" ID="ddlBusiness" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>

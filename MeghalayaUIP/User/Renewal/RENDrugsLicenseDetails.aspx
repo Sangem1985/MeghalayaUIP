@@ -16,7 +16,36 @@
         else {
             input.style.border = "1px solid #767575b5";
         }
-    }
+        }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
+
+
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
+        }
     </script>
     <style>
         div#drug, div#drugothers, div#drugcommom {
@@ -99,7 +128,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Do you hold any previous cancelled license?  *</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblCancelledLic" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCancelledLic_SelectedIndexChanged">
+                                                            <asp:RadioButtonList ID="rblCancelledLic" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCancelledLic_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -212,7 +241,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Is the premise and plan ready for inspection? *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:RadioButtonList ID="rblInspection" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblInspection_SelectedIndexChanged">
+                                                            <asp:RadioButtonList ID="rblInspection" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblInspection_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>

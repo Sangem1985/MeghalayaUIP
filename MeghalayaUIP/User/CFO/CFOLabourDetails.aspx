@@ -16,6 +16,35 @@
                 input.style.border = "1px solid #767575b5";
             }
         }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
+
+
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
+        }
     </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -64,7 +93,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Whether the firm has ever been approved by any Boilers’ Directorate / Inspectorate?*</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="RBLAPPROVED" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="RBLAPPROVED_SelectedIndexChanged">
+                                                            <asp:RadioButtonList ID="RBLAPPROVED" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="RBLAPPROVED_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -76,7 +105,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Classification applied for*</label>
                                                         <div class="col-lg-4">
-                                                            <asp:DropDownList ID="ddlApplied" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlApplied" onchange="validateDropdown(this)" runat="server" class="form-control">
                                                                 <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
                                                                 <asp:ListItem Value="1" Text="Special Class (For any Boiler Pressure)"></asp:ListItem>
                                                                 <asp:ListItem Value="2" Text="Class I (For Boiler Pressure upto 125 kg/cm2)"></asp:ListItem>
@@ -99,9 +128,9 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-8 col-form-label">Is any type of jobs executed by the firm earlier, with special reference to their maximum working pressure, temperature and the materials involved, with documentary evidence?*</label>
+                                                        <label>Is any type of jobs executed by the firm earlier, with special reference to their maximum working pressure, temperature and the materials involved, with documentary evidence?*</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblmaximum" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblmaximum" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblmaximum_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -117,7 +146,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Has your request for recognition as a repairer under Indian Boiler Regulation, 1950 been rejected by any authority*</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblregulation" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblregulation" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)" OnSelectedIndexChanged="rblregulation_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -128,7 +157,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Whether having rectifier / generator, grinder, general tools and tackles, dye penetrant kit, expander and measuring instruments or any other tools and tackles under regulation 392 (5) (i)?*</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblgenerator" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblgenerator" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)" OnSelectedIndexChanged="rblgenerator_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -142,7 +171,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Detailed list of technical personnel with designation, educational qualifications and relevant experience (attach copies of documents) who are permanently employed with the firm ?*</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rbldesignation" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rbldesignation" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)" OnSelectedIndexChanged="rbldesignation_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -164,7 +193,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Whether the firm is prepared to execute the job strictly in 81 conformity with the regulations and maintain a high standard of work ? *</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblstrictly" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblstrictly" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)" OnSelectedIndexChanged="rblstrictly_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -175,7 +204,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Whether the firm is prepared to accept full responsibility for the work done and is prepared to clarify any controversial issue, if required?*</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblfirm" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblfirm" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)" OnSelectedIndexChanged="rblfirm_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -189,7 +218,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Whether the firm is in a position to supply materials to required specification with proper test certificates if asked for ?*</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblmaterial" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblmaterial" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)" OnSelectedIndexChanged="rblmaterial_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -200,7 +229,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Whether the firm has an internal quality control system of their own ??  *</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblinternalcontrol" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rblinternalcontrol" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblinternalcontrol_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -213,7 +242,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Upload document for List of welders employed with copies of current certificate issued by a Competent Authority under the Indian Boiler Regulations, 1950? *</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rbldocument" runat="server" RepeatDirection="Horizontal">
+                                                            <asp:RadioButtonList ID="rbldocument" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rbldocument_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -282,7 +311,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Place of manufacture  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlManufacture" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlManufacture" onchange="validateDropdown(this)" runat="server" class="form-control">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -330,7 +359,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Working Season *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlWkgSeason" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlWkgSeason" onchange="validateDropdown(this)" runat="server" class="form-control">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -359,7 +388,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Type of Boiler *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlTypeBoiler" runat="server" class="form-control">
+                                                            <asp:DropDownList ID="ddlTypeBoiler" onchange="validateDropdown(this)" runat="server" class="form-control">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -388,7 +417,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">In case of Boiler ownership being transfer *</label>
                                                         <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblBoilerTrans" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblBoilerTrans_SelectedIndexChanged">
+                                                            <asp:RadioButtonList ID="rblBoilerTrans" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblBoilerTrans_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -527,7 +556,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Whether the contractor is convicted of any offence within the proceeding five years*</label>
                                                     <div class="col-lg-2">
-                                                        <asp:RadioButtonList ID="rblConvicated" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblConvicated_SelectedIndexChanged">
+                                                        <asp:RadioButtonList ID="rblConvicated" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblConvicated_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -549,7 +578,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Whether there was any order against the contractor revoking or suspending license or forfeiting Security Deposit in respect of an earlier contract. * *</label>
                                                     <div class="col-lg-2">
-                                                        <asp:RadioButtonList ID="rblrevoking" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblrevoking_SelectedIndexChanged">
+                                                        <asp:RadioButtonList ID="rblrevoking" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblrevoking_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -576,7 +605,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Whether the contractor has work in any other establishment within the past five years *</label>
                                                     <div class="col-lg-2">
-                                                        <asp:RadioButtonList ID="rblcontractor" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblcontractor_SelectedIndexChanged">
+                                                        <asp:RadioButtonList ID="rblcontractor" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblcontractor_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -637,7 +666,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Category of Establishmnet *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlCategory" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlCategory" onchange="validateDropdown(this)" runat="server" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -657,7 +686,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Do you have your family members employed in the establishment and residing with and wholly dependent upon you?  </label>
                                                     <div class="col-lg-6" style="align-items: flex-start;">
-                                                        <asp:RadioButtonList ID="rblresinding" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblresinding" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblresinding_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -668,7 +697,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Do you have employees working in the establishment? *</label>
                                                     <div class="col-lg-6" style="align-items: flex-start;">
-                                                        <asp:RadioButtonList ID="rblestemployee" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblestemployee" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblestemployee_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -692,7 +721,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Gender  </label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblGender" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblGender_SelectedIndexChanged">
                                                             <asp:ListItem Text="Male" Value="1" />
                                                             <asp:ListItem Text="Female" Value="2" />
                                                         </asp:RadioButtonList>

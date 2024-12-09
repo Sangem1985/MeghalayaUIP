@@ -16,7 +16,36 @@
         else {
             input.style.border = "1px solid #767575b5";
         }
-    }
+        }
+        function validateDropdown(dropdown) {
+
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
+
+
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
+        }
     </script>
     <style>
         .SO {
@@ -200,7 +229,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Maximum numbers of workers proposed to be employed on any one day during the year. *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlEmpday" class="form-control">
+                                                        <asp:DropDownList runat="server" onchange="validateDropdown(this)" ID="ddlEmpday" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
 
@@ -233,7 +262,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Whether the Unit is an Electricity/Power Generating Station? *</label>
                                                     <div class="col-lg-6 d-flex radio">
-                                                        <asp:RadioButtonList ID="rblpowerGeneration" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblpowerGeneration_SelectedIndexChanged">
+                                                        <asp:RadioButtonList onchange="validateRadioButtonList(this)" ID="rblpowerGeneration" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblpowerGeneration_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -248,7 +277,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total installed capacity of Generating Station- KW *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlGenerating" class="form-control">
+                                                        <asp:DropDownList runat="server" onchange="validateDropdown(this)" ID="ddlGenerating" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
 
@@ -261,7 +290,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total installed capacity of DG Set/Standby Power- KW *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlDGSet" class="form-control">
+                                                        <asp:DropDownList runat="server" onchange="validateDropdown(this)" ID="ddlDGSet" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
 
@@ -272,7 +301,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Maximum amount of power(K.W. installed or proposed to be installed) *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList runat="server" ID="ddlPowerAmount" class="form-control">
+                                                        <asp:DropDownList runat="server" onchange="validateDropdown(this)" ID="ddlPowerAmount" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
 
@@ -355,7 +384,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Whether the factory is a private firm proprietor concern? *</label>
                                                     <div class="col-lg-6 d-flex radio">
-                                                        <asp:RadioButtonList ID="rblfirmconcer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblfirmconcer_SelectedIndexChanged">
+                                                        <asp:RadioButtonList onchange="validateRadioButtonList(this)" ID="rblfirmconcer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblfirmconcer_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -402,7 +431,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Whether factory is Government or Local Fund Factory? *</label>
                                                     <div class="col-lg-6 d-flex radio">
-                                                        <asp:RadioButtonList ID="rbllocalfactory" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rbllocalfactory_SelectedIndexChanged">
+                                                        <asp:RadioButtonList ID="rbllocalfactory" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rbllocalfactory_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -413,7 +442,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Whether Managing Agent has been appointed? *</label>
                                                     <div class="col-lg-6 d-flex radio">
-                                                        <asp:RadioButtonList ID="rblAgent" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblAgent_SelectedIndexChanged">
+                                                        <asp:RadioButtonList ID="rblAgent" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblAgent_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -452,7 +481,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">In the case of factory constructed or extended after the date of the commencement of the Rules *</label>
                                                 <div class="col-lg-6 d-flex radio">
-                                                    <asp:RadioButtonList ID="rblDateofRules" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDateofRules_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblDateofRules" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDateofRules_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
