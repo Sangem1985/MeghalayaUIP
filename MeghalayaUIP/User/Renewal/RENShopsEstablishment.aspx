@@ -608,7 +608,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Mandal</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlMAND" runat="server"onchange="validateDropdown(this)" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMAND_SelectedIndexChanged">
+                                                            <asp:DropDownList ID="ddlMAND" runat="server" onchange="validateDropdown(this)" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMAND_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Select Mandal" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -619,7 +619,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Village</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlVilla" runat="server"onchange="validateDropdown(this)" class="form-control">
+                                                            <asp:DropDownList ID="ddlVilla" runat="server" onchange="validateDropdown(this)" class="form-control">
                                                                 <asp:ListItem Text="Select Village" Value="0" />
                                                             </asp:DropDownList>
                                                         </div>
@@ -724,7 +724,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Relationship</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlRelation" runat="server"onchange="validateDropdown(this)" class="form-control">
+                                                        <asp:DropDownList ID="ddlRelation" runat="server" onchange="validateDropdown(this)" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
