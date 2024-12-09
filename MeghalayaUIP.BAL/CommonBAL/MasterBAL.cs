@@ -60,9 +60,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetGrantManufacture();
         }
-        public List<MasterBMWWASTE> GetWasteDet()
+        public DataSet GetWasteDet(string Category)
         {
-            return objMasterDAL.GetWasteDet();
+            return objMasterDAL.GetWasteDet(Category);
         }
         public List<MasterElecRegulations> GetElectricRegulations()
         { return objMasterDAL.GetElectricRegulations(); }

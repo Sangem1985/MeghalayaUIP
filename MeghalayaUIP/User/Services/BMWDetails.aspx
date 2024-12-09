@@ -307,7 +307,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Type of waste*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlwaste" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlwaste" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlwaste_SelectedIndexChanged">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>

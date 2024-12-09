@@ -30,5 +30,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.InsertRenApplicationDetails(objApplicationDetails);
         }
+        public DataSet BMWEquipment()
+        {
+            return SvrcDal.BMWEquipment();
+        }
     }
 }

@@ -14,6 +14,8 @@ namespace MeghalayaUIP.Common
         public static string GetRENApplicantDetails = "USP_GETSRVCENTERPRISEDETAILS";
 
         public static string InsertRenApplicationDetails = "USP_INSSRVCENTERPRISEDETAILS";
+
+        public static string GetBMWEquipment = "USP_GETBMW_WASTETYPE";
     }
 
     public class SvrcApplicationDetails

@@ -2366,39 +2366,47 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public List<MasterBMWWASTE> GetWasteDet()
+        public DataSet GetWasteDet(string Category)
         {
-            List<MasterBMWWASTE> lstWaste = new List<MasterBMWWASTE>();
-            SqlDataReader drOptions = null;
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
             try
             {
-                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetBmwWasteDet);
 
-                if (drOptions != null && drOptions.HasRows)
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetBmwWasteDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetBmwWasteDet;
+
+                if (Category != "")
                 {
-                    while (drOptions.Read())
-                    {
-                        var bMWWASTE = new MasterBMWWASTE()
-                        {
-                            BMW_TYPE = Convert.ToString(drOptions["BMW_TYPE"]),
-                            BMW_NAME = Convert.ToString(drOptions["BMW_TYPE"])
-                        };
-                        lstWaste.Add(bMWWASTE);
-                    }
+                    da.SelectCommand.Parameters.AddWithValue("@BMW_TYPE", Category);
                 }
+
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
             }
             catch (Exception ex)
             {
+                transaction.Rollback();
                 throw ex;
             }
             finally
             {
-                if (drOptions != null)
-                {
-                    drOptions.Close();
-                }
+                connection.Close();
+                connection.Dispose();
             }
-            return lstWaste;
+            return ds;
         }
 
     }

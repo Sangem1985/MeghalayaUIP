@@ -1,4 +1,5 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.BAL.SVRCBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
@@ -11,16 +12,20 @@ using System.Web.UI.WebControls;
 
 namespace MeghalayaUIP.User.Services
 {
-	public partial class BMWDetails : System.Web.UI.Page
-	{
+    public partial class BMWDetails : System.Web.UI.Page
+    {
         MasterBAL mstrBAL = new MasterBAL();
+        SVRCBAL objSrvcbal = new SVRCBAL();
+
+        string Category;
         protected void Page_Load(object sender, EventArgs e)
-		{
+        {
             if (!IsPostBack)
             {
                 BindWasteDetails();
+                BindBMW();
             }
-		}
+        }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
@@ -56,7 +61,7 @@ namespace MeghalayaUIP.User.Services
                     ViewState[""] = dt;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -70,17 +75,18 @@ namespace MeghalayaUIP.User.Services
                 ddlcategory.Items.Clear();
                 ddlwaste.Items.Clear();
 
-                List<MasterBMWWASTE> objWaste = new List<MasterBMWWASTE>();
+                // List<MasterBMWWASTE> objWaste = new List<MasterBMWWASTE>();
+                DataSet ds = new DataSet();
 
-                objWaste = mstrBAL.GetWasteDet();
-                if (objWaste != null)
+                ds = mstrBAL.GetWasteDet(Category);
+                if (ds != null && ds.Tables.Count > 0)
                 {
-                    ddlcategory.DataSource = objWaste;
+                    ddlcategory.DataSource = ds.Tables[0];
                     ddlcategory.DataValueField = "BMW_TYPE";
                     ddlcategory.DataTextField = "BMW_TYPE";
                     ddlcategory.DataBind();
 
-                    ddlwaste.DataSource = objWaste;
+                    ddlwaste.DataSource = ds.Tables[1];
                     ddlwaste.DataValueField = "BMW_TYPE";
                     ddlwaste.DataTextField = "BMW_TYPE";
                     ddlwaste.DataBind();
@@ -121,5 +127,71 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+
+        protected void ddlwaste_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlwaste.ClearSelection();
+                AddSelect(ddlwaste);
+                if (ddlcategory.SelectedItem.Text != "--Select--")
+                {
+                    //  BindWasteDetails(ddlwaste, ddlcategory.SelectedValue);
+                }
+                else return;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void BindBMW()
+        {
+            try
+            {
+                DataSet dt = new DataSet();
+
+                dt = objSrvcbal.BMWEquipment();
+
+                if (dt != null && dt.Tables.Count > 3)
+                {
+                    GVBIOMedical.DataSource = dt.Tables[3];
+                    GVBIOMedical.DataBind();
+                }
+                else
+                {
+                    GVBIOMedical.DataSource = null;
+                    GVBIOMedical.DataBind();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        /*  public string Stepvalidations()
+          {
+              try
+              {
+                  int slno = 1;
+                  string errormsg = "";
+                  if (string.IsNullOrEmpty(txtUnitName.Text) || txtUnitName.Text == "" || txtUnitName.Text == null)
+                  {
+                      errormsg = errormsg + slno + ". Please Enter Unit Address Name of Unit...! \\n";
+                      slno = slno + 1;
+                  }
+
+                  return errormsg;
+              }
+              catch(Exception ex)
+              {
+
+              }
+          }*/
     }
 }
