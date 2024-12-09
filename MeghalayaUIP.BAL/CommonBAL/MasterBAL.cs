@@ -60,6 +60,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetGrantManufacture();
         }
+        public List<MasterBMWWASTE> GetWasteDet()
+        {
+            return objMasterDAL.GetWasteDet();
+        }
         public List<MasterElecRegulations> GetElectricRegulations()
         { return objMasterDAL.GetElectricRegulations(); }
         public List<MasterVoltages> GetVoltages()

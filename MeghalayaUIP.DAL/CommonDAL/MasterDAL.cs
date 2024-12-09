@@ -2366,6 +2366,40 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public List<MasterBMWWASTE> GetWasteDet()
+        {
+            List<MasterBMWWASTE> lstWaste = new List<MasterBMWWASTE>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetBmwWasteDet);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var bMWWASTE = new MasterBMWWASTE()
+                        {
+                            BMW_TYPE = Convert.ToString(drOptions["BMW_TYPE"]),
+                            BMW_NAME = Convert.ToString(drOptions["BMW_TYPE"])
+                        };
+                        lstWaste.Add(bMWWASTE);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstWaste;
+        }
 
     }
 }
