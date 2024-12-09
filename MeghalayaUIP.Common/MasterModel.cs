@@ -27,6 +27,8 @@ namespace MeghalayaUIP.Common
         public static string GetIndustryTypeMaster = "USP_GETINDUSTRYTYPEMASTER";
         public static string GetRegistrationType = "USP_GETREGISTRATIONTYPEMASTER";
         public static string GetCastemaster = "USP_GETCATSEMASTER";
+        public static string GetBmwWasteDet = "USP_GETBMW_WASTETYPE";
+
 
         public static string InsertInvestment = "USP_INSINTENTTOINVEST";
         public static string Getsector = "USP_GETSECTORS";
@@ -207,6 +209,12 @@ namespace MeghalayaUIP.Common
     {
         public string REGISTRATIONTYPEID { get; set; }
         public string REGISTRATIONTYPENAME { get; set; }
+    }
+    public class MasterBMWWASTE
+    {
+        public string BMW_NAME { get; set; }
+        public string BMW_TYPE { get; set; }
+
     }
     public class MasterSECTORS
     {
