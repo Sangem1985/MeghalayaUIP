@@ -573,24 +573,6 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.DropDownList ddldist;
 
         /// <summary>
-        /// ddlMAND control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMAND;
-
-        /// <summary>
-        /// ddlVilla control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlVilla;
-
-        /// <summary>
         /// txtLocal control.
         /// </summary>
         /// <remarks>
@@ -661,15 +643,6 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAge;
-
-        /// <summary>
-        /// ddlRelation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRelation;
 
         /// <summary>
         /// btnAdd control.

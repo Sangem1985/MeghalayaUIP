@@ -16,7 +16,36 @@
          else {
              input.style.border = "1px solid #767575b5";
          }
-     }
+         }
+         function validateDropdown(dropdown) {
+
+             if (dropdown.value === "0") {
+                 dropdown.style.border = "2px solid red";
+                 dropdown.focus();
+             } else {
+                 dropdown.style.border = "1px solid #767575b5";
+             }
+         }
+
+
+         function validateRadioButtonList(radioGroupContainer) {
+             // Find all radio buttons inside the container
+             const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+
+             // Check if any radio button is selected
+             const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+
+             if (!isSelected) {
+                 // If none are selected, apply red border
+                 radioGroupContainer.style.border = "2px solid red";
+                 radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+             } else {
+                 // Reset the border if an option is selected
+                 var id = radioGroupContainer.id;
+                 document.getElementById(id).style.border = "1px solid #767575b5";
+                 return false;
+             }
+         }
      </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -193,7 +222,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-9 col-form-label">Have you obtain any current registration number of factory/ shop/ establishment?  *</label>
                                                     <div class="col-lg-3">
-                                                        <asp:RadioButtonList ID="rblfactory" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblfactory_SelectedIndexChanged">
+                                                        <asp:RadioButtonList ID="rblfactory" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblfactory_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -230,7 +259,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-9 col-form-label">Have you obtain any current registration number of Municipal Trade licence/ADC?  *</label>
                                                     <div class="col-lg-3">
-                                                        <asp:RadioButtonList ID="rblMunicipal" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblMunicipal_SelectedIndexChanged" onkeyup="handleKeyUp(this)">
+                                                        <asp:RadioButtonList ID="rblMunicipal" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblMunicipal_SelectedIndexChanged" onkeyup="handleKeyUp(this)">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -272,7 +301,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Is it a partnership firm?   *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblFirm" runat="server" RepeatDirection="Horizontal">
+                                                    <asp:RadioButtonList ID="rblFirm" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblFirm_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
@@ -283,7 +312,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Is it a limited company?   *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblLimit" runat="server" RepeatDirection="Horizontal">
+                                                    <asp:RadioButtonList ID="rblLimit" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLimit_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
@@ -373,7 +402,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-8 col-form-label">Do you intend to import weights, etc. from places outside the State/Country?   *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblState" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblState_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblState" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblState_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
@@ -402,7 +431,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-7 col-form-label">Whether the item (s) proposed to be manufactured will be sold within the State or out side the state or both  *</label>
                                                 <div class="col-lg-5">
-                                                    <asp:RadioButtonList ID="rblstateside" runat="server" RepeatDirection="Horizontal">
+                                                    <asp:RadioButtonList ID="rblstateside" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblstateside_SelectedIndexChanged">
                                                         <asp:ListItem Text="Within State" Value="Y" />
                                                         <asp:ListItem Text="Outside State" Value="N" />
                                                         <asp:ListItem Text="Both" Value="3" />
@@ -501,7 +530,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Availability of electric energy  *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblelectric" runat="server" RepeatDirection="Horizontal">
+                                                    <asp:RadioButtonList ID="rblelectric" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblelectric_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
@@ -537,7 +566,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Do you received any loan from Government or financial Institution? *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblInstitute" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblInstitute_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblInstitute" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblInstitute_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
@@ -568,7 +597,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Have you sufficient stock of loan/test weights. etc.? *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblLoan" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLoan_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblLoan" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLoan_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
@@ -589,7 +618,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Have you applied previously for a repairer's licence? *</label>
                                                 <div class="col-lg-4">
-                                                    <asp:RadioButtonList ID="rblRepaire" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblRepaire_SelectedIndexChanged">
+                                                    <asp:RadioButtonList ID="rblRepaire" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblRepaire_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />
                                                         <asp:ListItem Text="No" Value="N" />
                                                     </asp:RadioButtonList>
