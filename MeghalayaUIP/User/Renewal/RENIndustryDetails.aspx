@@ -109,7 +109,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        2.Company Type</label>
+                                                        2.Firm Type</label>
                                                     <div class="col-lg-6">
                                                         <asp:DropDownList ID="ddlCompanyType" onchange="validateDropdown(this)" runat="server" class="form-control">
                                                             <asp:ListItem Text="Select CompanyType" Value="0" />

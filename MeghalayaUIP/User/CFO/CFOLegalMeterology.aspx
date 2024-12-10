@@ -310,7 +310,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">Is it a limited company?   *</label>
+                                                <label class="col-lg-6 col-form-label">Is it a limited Firm? *</label>
                                                 <div class="col-lg-4">
                                                     <asp:RadioButtonList ID="rblLimit" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblLimit_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />

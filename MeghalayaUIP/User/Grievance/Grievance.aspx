@@ -74,31 +74,31 @@
                                     </div>
                                     <div class="col-md-4" id="trData" visible="true" runat="server">
                                         <div class="form-group row" runat="server" id="divPreReg" visible="false">
-                                            <label class="col-lg-6 col-form-label">Select Company Name *</label>
+                                            <label class="col-lg-6 col-form-label">Select Firm Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList runat="server" ID="ddlPreRegUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlPreRegUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group row" runat="server" id="divCFE" visible="false">
-                                            <label class="col-lg-6 col-form-label">Select Company Name *</label>
+                                            <label class="col-lg-6 col-form-label">Select Firm Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList runat="server" ID="ddlCFEUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlCFEUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group row" runat="server" id="divCFO" visible="false">
-                                            <label class="col-lg-6 col-form-label">Select Company Name *</label>
+                                            <label class="col-lg-6 col-form-label">Select Firm Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList runat="server" ID="ddlCFOUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlCFOUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group row" runat="server" id="divIncentives" visible="false">
-                                            <label class="col-lg-6 col-form-label">Select Company Name *</label>
+                                            <label class="col-lg-6 col-form-label">Select Firm Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList runat="server" ID="ddlIncUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlIncUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group row" runat="server" id="divRenewals" visible="false">
-                                            <label class="col-lg-6 col-form-label">Select Company Name *</label>
+                                            <label class="col-lg-6 col-form-label">Select Firm Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:DropDownList runat="server" ID="ddlRENUnits" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlRENUnits_SelectedIndexChanged"></asp:DropDownList>
                                             </div>
@@ -110,7 +110,7 @@
                                 <div class="col-md-12 d-flex">
                                     <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Company Name *</label>
+                                            <label class="col-lg-6 col-form-label">Firm Name *</label>
                                             <div class="col-lg-6 d-flex">
                                                 <asp:TextBox ID="txtindname" runat="server" class="form-control txtbox"
                                                     MaxLength="40" TabIndex="1" ValidationGroup="group" onkeypress="return Names(event)"></asp:TextBox>

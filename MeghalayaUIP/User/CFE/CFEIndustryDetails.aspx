@@ -90,7 +90,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1. Name of Company<span class="star">*</span></label>
+                                                        <label class="col-lg-6 col-form-label">1. Name of Firm<span class="star">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:TextBox ID="txtIndustryName" runat="server" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -100,7 +100,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">
                                                             2. Type of
-														Company <span class="star">*</span></label>
+														Firm <span class="star">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             </asp:DropDownList>
@@ -109,7 +109,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">3. Company Proposal <span class="star">*</span></label>
+                                                        <label class="col-lg-6 col-form-label">3. Firm Proposal <span class="star">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:DropDownList ID="rblproposal" runat="server" TabIndex="1" class="form-control" Enabled="false" onchange="validateDropdown(this)">
                                                                 <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>

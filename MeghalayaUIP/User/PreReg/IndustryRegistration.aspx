@@ -232,7 +232,7 @@
                                                             <div class="col-md-12 d-flex">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">Company PAN card No <span class="star">*</span></label>
+                                                                        <label class="col-lg-6 col-form-label">Firm PAN card No <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:TextBox runat="server" ID="txtPANno" class="form-control" onblur="fnValidatePAN(this);" MaxLength="10" TabIndex="1" onkeyup="handleKeyUp(this)" />
                                                                         </div>
@@ -240,7 +240,7 @@
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">Company Name as per PAN <span class="star">*</span></label>
+                                                                        <label class="col-lg-6 col-form-label">Firm Name as per PAN <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:TextBox runat="server" ID="txtUnitName" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" />
                                                                         </div>
@@ -248,7 +248,7 @@
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">Company Type <span class="star">*</span></label>
+                                                                        <label class="col-lg-6 col-form-label">Firm Type <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:DropDownList ID="ddlcompanytype" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
                                                                             </asp:DropDownList>
@@ -269,7 +269,7 @@
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">Company Proposal <span class="star">*</span></label>
+                                                                        <label class="col-lg-6 col-form-label">Firm Proposal <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:DropDownList ID="ddlproposal" runat="server" TabIndex="1" class="form-control" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
@@ -306,7 +306,7 @@
                                                                 <%--    <link href="CSS.css" rel="stylesheet" type="text/css" />--%> <%--CssClass="disable_future_dates" --%>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">Company Registration / Incorporation Date<span class="star">*</span></label>
+                                                                        <label class="col-lg-6 col-form-label">Firm Registration / Incorporation Date<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" AutoPostBack="true" />
                                                                             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtCompnyRegDt"></cc1:CalendarExtender>
@@ -1308,7 +1308,7 @@
 
                                                             <div class="col-md-12" style="padding-top: 10px">
                                                                 <div class="form-group row">
-                                                                    <label class="col-lg-4 col-form-label">1. Company Registration Certificate <span class="star">*</span></label>
+                                                                    <label class="col-lg-4 col-form-label">1. Firm Registration Certificate <span class="star">*</span></label>
                                                                     <div class="col-lg-3 d-flex">
                                                                         <asp:FileUpload ID="fupcompanyregistration" runat="server" />
                                                                     </div>
