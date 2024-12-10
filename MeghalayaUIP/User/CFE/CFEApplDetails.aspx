@@ -305,13 +305,13 @@
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
-                                                                <div class="col-md-6">Name of Company</div>
+                                                                <div class="col-md-6">Name of Firm</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblBNameCompany" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 d-flex">
-                                                                <div class="col-md-6">Type of Company</div>
+                                                                <div class="col-md-6">Type of Firm</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblTypecompany" runat="server"></asp:Label>
                                                                 </div>
@@ -320,7 +320,7 @@
 
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
-                                                                <div class="col-md-6">Company Proposal</div>
+                                                                <div class="col-md-6">Firm Proposal</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblCompanyProposal" runat="server"></asp:Label>
                                                                 </div>

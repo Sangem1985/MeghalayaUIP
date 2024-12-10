@@ -59,7 +59,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group row">
                                             <label class="col-lg-6 col-form-label">
-                                                1. Company Name</label>
+                                                1. Firm Name</label>
                                             <div class="col-lg-6">
                                                 <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </div>

@@ -147,7 +147,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Name of Company</label>
+                                                    <label class="col-lg-6 col-form-label">1. Name of Firm</label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtIndustryName" runat="server" class="form-control" onkeypress="return validateNames(event)" ></asp:TextBox>
                                                     </div>
@@ -157,7 +157,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
                                                         2. Type of
-														Company *</label>
+														Firm *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlCompanyType" onchange="validateDropdown(this)" runat="server" class="form-control">
                                                         </asp:DropDownList>
@@ -166,7 +166,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3. Company Proposal *</label>
+                                                    <label class="col-lg-6 col-form-label">3. Firm Proposal *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="rblproposal" runat="server" onchange="validateDropdown(this)" TabIndex="1" class="form-control" Enabled="false">
                                                             <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>

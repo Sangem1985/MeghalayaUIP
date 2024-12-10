@@ -143,7 +143,7 @@
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label>Company Type</label>
+                                                            <label>Firm Type</label>
                                                         </div>
 
                                                         <div class="col-md-2">

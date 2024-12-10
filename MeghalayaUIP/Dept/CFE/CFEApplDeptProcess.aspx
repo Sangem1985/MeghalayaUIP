@@ -265,7 +265,7 @@
                                         </div>
                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                             <div class="col-md-2">
-                                                <label>1. Name of Company</label>
+                                                <label>1. Name of Firm</label>
                                             </div>
                                             <div class="col-md-2">
                                                 <spna class="dots">:</spna>
@@ -273,14 +273,14 @@
                                             </div>
 
                                             <div class="col-md-2">
-                                                <label>2. Type of Company</label>
+                                                <label>2. Type of Firm</label>
                                             </div>
                                             <div class="col-md-2">
                                                 <spna class="dots">:</spna>
                                                 <asp:Label ID="lblTypecompany" runat="server"></asp:Label>
                                             </div>
                                             <div class="col-md-2">
-                                                <label>3. Company Proposal</label>
+                                                <label>3. Firm Proposal</label>
                                             </div>
                                             <div class="col-md-2">
                                                 <spna class="dots">:</spna>

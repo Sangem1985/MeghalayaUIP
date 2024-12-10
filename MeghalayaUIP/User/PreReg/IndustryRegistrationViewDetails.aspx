@@ -134,11 +134,11 @@
                                             <div class="row clearfix">
                                                 <div class="card-body">
                                                     <div class="col-md-12 d-flex" style="width: 99%;">
-                                                        <h4 class="card-title1 col-lg-12">Company/Unit Details</h4>
+                                                        <h4 class="card-title1 col-lg-12">Firm/Unit Details</h4>
                                                     </div>
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2">
-                                                            <label>1. Company Name :</label>
+                                                            <label>1. Firm Name :</label>
                                                         </div>
 
                                                         <div class="col-md-2 fw-bold text-info">
@@ -146,7 +146,7 @@
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label>2. Company PAN No</label>
+                                                            <label>2. Firm PAN No</label>
                                                         </div>
 
                                                         <div class="col-md-2">
@@ -154,7 +154,7 @@
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label>3. Company Type</label>
+                                                            <label>3. Firm Type</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblcomptype" runat="server"></asp:Label>
@@ -170,7 +170,7 @@
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label>5. Company Proposal For</label>
+                                                            <label>5. Firm Proposal For</label>
                                                         </div>
 
                                                         <div class="col-md-2">
@@ -194,7 +194,7 @@
                                                         </div>
 
                                                         <div class="col-md-2">
-                                                            <label>8. Company Registration /Incorporation Date</label>
+                                                            <label>8. Firm Registration /Incorporation Date</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblregdate" runat="server"></asp:Label>

@@ -58,7 +58,7 @@
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
-                                                                <div class="col-md-6">Company Name</div>
+                                                                <div class="col-md-6">Firm Name</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblName" runat="server"></asp:Label>
                                                                 </div>
