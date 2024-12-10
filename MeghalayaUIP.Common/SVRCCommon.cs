@@ -20,6 +20,8 @@ namespace MeghalayaUIP.Common
         public static string InsertWasteDetails = "USP_INSBMWWASTEDETAILS";
         public static string InsertBMWBIOMEDICALDET = "USP_INSBMWEQUIPMENT";
         public static string InsertSVRCAttachments = "USP_INSSRVCATTACHMNETS";
+
+        public static string GetSRVCapplications = "USP_GETSRVCUSERDASHBOARD";
     }
 
     public class SvrcApplicationDetails

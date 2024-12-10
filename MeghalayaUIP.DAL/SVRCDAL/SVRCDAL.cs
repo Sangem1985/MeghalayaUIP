@@ -498,6 +498,41 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return Result;
         }
+        public DataSet GetSRVCapplications(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCapplications, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCapplications;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
 
 
     }

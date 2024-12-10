@@ -302,6 +302,7 @@ namespace MeghalayaUIP.User.Services
                         objAadhar.FileDescription = "";
                         objAadhar.CreatedBy = hdnUserID.Value;
                         objAadhar.IPAddress = getclientIP();
+                        objAadhar.ReferenceNo = txtCBWTFBIO.Text;
                         result = objSrvcbal.InsertSRVCAttachments(objAadhar);
                         if (result != "")
                         {
@@ -379,6 +380,7 @@ namespace MeghalayaUIP.User.Services
                         objSitePlan.FileDescription = "Site Plan";
                         objSitePlan.CreatedBy = hdnUserID.Value;
                         objSitePlan.IPAddress = getclientIP();
+                        objSitePlan.ReferenceNo = txtlegalDet.Text;
                         result = objSrvcbal.InsertSRVCAttachments(objSitePlan);
                         if (result != "")
                         {

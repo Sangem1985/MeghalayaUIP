@@ -357,6 +357,15 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.GridView GVBIOMedical;
 
         /// <summary>
+        /// txtCBWTFBIO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCBWTFBIO;
+
+        /// <summary>
         /// fupBiomedicalwaste control.
         /// </summary>
         /// <remarks>
@@ -391,6 +400,15 @@ namespace MeghalayaUIP.User.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBiomedicalwaste;
+
+        /// <summary>
+        /// txtlegalDet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtlegalDet;
 
         /// <summary>
         /// fuplegalnotice control.

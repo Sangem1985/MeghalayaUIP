@@ -5,8 +5,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .tableBMW {
-    width: 70%;
-}
+            width: 70%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -373,23 +373,23 @@
                                                             <itemstyle horizontalalign="Center" />
                                                             <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("BMW_NAME") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>                                                    
+                                                    </asp:TemplateField>
 
-                                                      <asp:TemplateField HeaderText="Quantity Generated or Collected, Kg/ day" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
+                                                    <asp:TemplateField HeaderText="Quantity Generated or Collected, Kg/ day" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
                                                             <itemstyle horizontalalign="Center" />
                                                             <asp:Label ID="lblQuantity" runat="server" Text='<%# Eval("BMW_QUANTITYGENERATED") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                      <asp:TemplateField HeaderText="Method of Treatment and Disposal (ReferSchedule – I)" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
+                                                    <asp:TemplateField HeaderText="Method of Treatment and Disposal (ReferSchedule – I)" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
                                                             <itemstyle horizontalalign="Center" />
                                                             <asp:Label ID="lblDisposal" runat="server" Text='<%# Eval("BMW_TREATMENTDISPOSAL") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                   
+
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
@@ -411,59 +411,76 @@
                                         <h6>ii) Details of treatment equipment (please give details such as the number, type & capacity of each unit)</h6>
                                         <div class="col-md-12 d-flex justify-content-center">
                                             <div class="tableBMW">
-                                            <asp:GridView ID="GVBIOMedical" runat="server" AutoGenerateColumns="false">
-                                                <HeaderStyle VerticalAlign="Middle" Width="70%" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
-                                                <RowStyle CssClass="GridviewScrollC1Item" />
-                                                <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                <asp:GridView ID="GVBIOMedical" runat="server" AutoGenerateColumns="false">
+                                                    <HeaderStyle VerticalAlign="Middle" Width="70%" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
 
-                                                <Columns>
-                                                    <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                        <ItemTemplate>
-                                                            <%# Container.DataItemIndex + 1%>
-                                                          </ItemTemplate>
-                                                        <HeaderStyle HorizontalAlign="Center" />
-                                                        <ItemStyle Width="70px" />
-                                                    </asp:TemplateField>
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="70px" />
+                                                        </asp:TemplateField>
 
 
-                                                    <asp:TemplateField HeaderText="Details Of Treatment" Visible="true" ItemStyle-Width="40%" HeaderStyle-HorizontalAlign="left">
-                                                        <ItemTemplate>
-                                                            <itemstyle horizontalalign="Center" />
-                                                            <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("BMW_NAME") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Details Of Treatment" Visible="true" ItemStyle-Width="40%" HeaderStyle-HorizontalAlign="left">
+                                                            <ItemTemplate>
+                                                                <itemstyle horizontalalign="Center" />
+                                                                <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("BMW_NAME") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="No of units" ItemStyle-Width="180px">
-                                                        <ItemTemplate>
-                                                            <asp:TextBox ID="txtSource" CssClass="form-control" TabIndex="1" runat="server" MaxLength="13" onpaste="return false;"></asp:TextBox>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="No of units" ItemStyle-Width="180px">
+                                                            <ItemTemplate>
+                                                                <asp:TextBox ID="txtSource" CssClass="form-control" TabIndex="1" runat="server" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="capacity of each unit" ItemStyle-Width="180px">
-                                                        <ItemTemplate>
-                                                            <asp:TextBox ID="txtCapacity" CssClass="form-control" TabIndex="1" runat="server" MaxLength="13" onpaste="return false;"></asp:TextBox>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="capacity of each unit" ItemStyle-Width="180px">
+                                                            <ItemTemplate>
+                                                                <asp:TextBox ID="txtCapacity" CssClass="form-control" TabIndex="1" runat="server" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
-                                                </Columns>
-                                            </asp:GridView>
-                                                </div>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
                                         </div>
 
 
                                         <h4 class="card-title ml-3">Upload Document</h4>
-
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 col-form-label"></label>
+                                                    <div class="col-lg-2 d-flex">
+                                                    </div>
+                                                    <div class="col-lg-4 d-flex">
+                                                        <label class="col-lg-5 col-form-label">Reference No </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">7. Contingency plan of common bio-medical waste treatment facility (CBWTF)  *</label>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtCBWTFBIO" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupBiomedicalwaste" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnBiomedicalwaste" OnClick="btnBiomedicalwaste_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypBiomedicalwaste" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
                                                     <asp:Label ID="lblBiomedicalwaste" runat="server" />
@@ -475,13 +492,19 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">8. Details of directions or notices or legal actions if any during the period of earlier authorisation:  *</label>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtlegalDet" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fuplegalnotice" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnlegalnotice" OnClick="btnlegalnotice_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hyplegalnotice" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
                                                     <asp:Label ID="lbllegalnotice" runat="server" />
