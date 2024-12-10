@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using System.Globalization;
 
 namespace MeghalayaUIP.DAL.SVRCDAL
 {
@@ -102,7 +103,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
         public DataSet GetSvrcApplicantDetails(string userid, string unitID)
         {
-           
+
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
@@ -134,7 +135,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Close();
                 connection.Dispose();
             }
-            
+
         }
 
         public string InsertRenApplicationDetails(SvrcApplicationDetails ObjApplicationDetails)
@@ -273,5 +274,231 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
             return dt;
         }
+        public string SRVCBMWDetails(SvrcBMWDet ObjBMWDetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.InsertBMWDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@BMW_CREATEDBY", Convert.ToInt32(ObjBMWDetails.Createdby));
+                com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
+
+                com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
+
+                com.Parameters.AddWithValue("@BMW_NAME", ObjBMWDetails.Name_applicant);
+                com.Parameters.AddWithValue("@BMW_NAMEHCF_CBWTF", ObjBMWDetails.HCFCBWTF);
+
+                com.Parameters.AddWithValue("@BMW_EMAILID", ObjBMWDetails.email);
+                com.Parameters.AddWithValue("@BMW_MOBILENO", Convert.ToInt64(ObjBMWDetails.mobile));
+                com.Parameters.AddWithValue("@BMW_WEBSITE", ObjBMWDetails.website);
+                com.Parameters.AddWithValue("@BMW_AUTHORIZATION", ObjBMWDetails.Authorizationactivity);
+                com.Parameters.AddWithValue("@BMW_APPLIEDCTO_CTE", ObjBMWDetails.AppliedCTO_CTE);
+
+
+                com.Parameters.AddWithValue("@BMW_RENAUTHORIZATIONNO", ObjBMWDetails.authorisationnumber);
+                // com.Parameters.AddWithValue("", Convert.ToDecimal(ObjBMWDetails.authorisation_Date));//
+                com.Parameters.AddWithValue("@BMW_RENAUTHORIZATIONDATE", DateTime.ParseExact(ObjBMWDetails.authorisation_Date, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@BMW_PCB1974", ObjBMWDetails.Pollution1974);
+                com.Parameters.AddWithValue("@BMW_PCB1981", ObjBMWDetails.ControlPollution1981);
+                com.Parameters.AddWithValue("@BMW_BIOHCF_CBWTF ", ObjBMWDetails.AddressHealthHCFCBWFT);
+                com.Parameters.AddWithValue("@BMW_GPSCOORDINATE", ObjBMWDetails.GPSCOORDINATES);
+                com.Parameters.AddWithValue("@BMW_NOBEDHCF", ObjBMWDetails.NumberBED);
+                com.Parameters.AddWithValue("@BMW_NOPATIENTSMONTHHCF", ObjBMWDetails.patientsHCF);
+                com.Parameters.AddWithValue("@BMW_NOHELTHCBMWTF", ObjBMWDetails.healthcareCBMWTF);
+                com.Parameters.AddWithValue("@BMW_NOBEDCBMWTF", ObjBMWDetails.NOBEDCBMWTF);
+                com.Parameters.AddWithValue("@BMW_CAPACITYCBMWTF", ObjBMWDetails.DISPOSALCBMWTF);
+                com.Parameters.AddWithValue("@BMW_AREADISTANCECBMWTF", ObjBMWDetails.DISTANCECBMWTF);
+                com.Parameters.AddWithValue("@BMW_BIOMEDICALDISPOSED", ObjBMWDetails.BMWTREATED);
+                com.Parameters.AddWithValue("@BMW_MODETRANSPORTATION", ObjBMWDetails.MODETRANSACTION);
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string SRVCBMWWASTEDET(SvrcBMWDet ObjBMWDetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.InsertWasteDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@BMW_CREATEDBY", Convert.ToInt32(ObjBMWDetails.Createdby));
+                com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
+                com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
+
+                com.Parameters.AddWithValue("@BMW_CATEGORY", ObjBMWDetails.Category);
+                com.Parameters.AddWithValue("@BMW_TYPEWASTE", ObjBMWDetails.Waste);
+                com.Parameters.AddWithValue("@BMW_QUANTITYGENERATED", ObjBMWDetails.QuantityGenerated);
+                com.Parameters.AddWithValue("@BMW_TREATMENTDISPOSAL", ObjBMWDetails.MethodDisposal);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertBMWWASTEDET(DataTable dtBMWDetails,string Unitid, string Createdby,string IPAddress)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                foreach (DataRow dr in dtBMWDetails.Rows)
+                {
+                    connection.Open();
+                    transaction = connection.BeginTransaction();
+                    SqlCommand cmd = new SqlCommand(SvrcConstants.InsertBMWBIOMEDICALDET, connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Transaction = transaction;
+
+                    cmd.Parameters.AddWithValue("@BMW_UNITID", Unitid);
+                    cmd.Parameters.AddWithValue("@BMW_CREATEDBY", Createdby);
+                    cmd.Parameters.AddWithValue("@BMW_CREATEDBYIP", IPAddress);
+                    cmd.Parameters.AddWithValue("@BMW_EQUIPMENT", dr["BMW_EQUIPMENT"]);
+                    cmd.Parameters.AddWithValue("@BMW_NO_UNIT", dr["BMW_NO_UNIT"]);
+                    cmd.Parameters.AddWithValue("@BMW_CAPACITY_UNIT", dr["BMW_CAPACITY_UNIT"]);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        result = "Success";
+                    }
+                    else
+                    {
+                        result = "Failed";
+                    }
+
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+        public string InsertSRVCAttachments(SRVCAttachments objAttachments)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.InsertSVRCAttachments;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@SRVCA_UNITID", Convert.ToInt32(objAttachments.UNITID));
+                com.Parameters.AddWithValue("@SRVCA_SRVCQDID", Convert.ToInt32(objAttachments.Questionnareid));
+                com.Parameters.AddWithValue("@SRVCA_QUERYID", objAttachments.QueryID);
+                com.Parameters.AddWithValue("@SRVCA_MASTERID", objAttachments.MasterID);
+                com.Parameters.AddWithValue("@SRVCA_FILEPATH", objAttachments.FilePath);
+                com.Parameters.AddWithValue("@SRVCA_FILENAME", objAttachments.FileName);
+                com.Parameters.AddWithValue("@SRVCA_FILETYPE", objAttachments.FileType);
+                com.Parameters.AddWithValue("@SRVCA_FILEDESCRIPTION", objAttachments.FileDescription);
+                com.Parameters.AddWithValue("@CFEA_DEPTID", objAttachments.DeptID);
+                com.Parameters.AddWithValue("@CFEA_APPROVALID", objAttachments.ApprovalID);
+                com.Parameters.AddWithValue("@SRVCA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
+                com.Parameters.AddWithValue("@SRVCA_CREATEDBYIP", objAttachments.IPAddress);
+                if (objAttachments.ReferenceNo != null && objAttachments.ReferenceNo != "")
+                {
+                    com.Parameters.AddWithValue("@SRVCA_FILLREFNO", objAttachments.ReferenceNo);
+                }
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+
     }
 }

@@ -3,6 +3,11 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .tableBMW {
+    width: 70%;
+}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -54,7 +59,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         i) Name of the Applicant:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtNameApplicant" runat="server" class="form-control" onkeypress="return Names()" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameApplicant" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,7 +81,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">E-Mail ID*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control" Type="text" onblur="validateEmail(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -93,7 +98,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Website Address:</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLANDMARK" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtweb" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -152,7 +157,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         ii) In case of renewal previous authorisation number</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtAltMobile" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRenno" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -163,7 +168,9 @@
                                                
                                                     </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandlineno" runat="server" class="form-control" onblur="validatePhoneNumber(input_str)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAuthorisationDate" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
+                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtAuthorisationDate"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,7 +182,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">a) Under the Water (Prevention and Control of Pollution) Act, 1974*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtDoorNo" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPCB" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -184,7 +191,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">b) Under the Air (Prevention and Control of Pollution) Act, 1981: *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLocal" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPCB1981" runat="server" class="form-control" Type="text"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -230,7 +237,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">i) Number of beds of HCF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtMale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNoHCF" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -238,7 +245,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">ii) Number of patients treated per month by HCF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtFemale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtHCFNO" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,7 +253,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">iii) Number healthcare facilities covered by CBMWTF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtDirectOthers" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtHealthCBMWFT" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -257,7 +264,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">iv) No of beds covered by CBMWTF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtIndirectMale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNobedcbmwtf" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,7 +272,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">v) Installed treatment and disposal capacity of CBMWTF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtIndirectFemale" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtcapacitytreat" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -273,7 +280,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">vi) Area or distance covered by CBMWTF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtInDirectOthers" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtdistance" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -283,7 +290,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">vii) Quantity of Bio-medical waste handled, treated or disposed.</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtwastetreat" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -293,9 +300,9 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Category*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlcategory" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlcategory" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlcategory_SelectedIndexChanged">
                                                             <asp:ListItem Text="--Select--" Value="0" />
-                                                           <%-- <asp:ListItem Text="Yellow" Value="1"></asp:ListItem>
+                                                            <%-- <asp:ListItem Text="Yellow" Value="1"></asp:ListItem>
                                                             <asp:ListItem Text="Red" Value="2"></asp:ListItem>
                                                             <asp:ListItem Text="White(Translucent)" Value="3"></asp:ListItem>
                                                             <asp:ListItem Text="Blue" Value="4"></asp:ListItem>--%>
@@ -307,7 +314,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Type of waste*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlwaste" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlwaste_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlwaste" runat="server" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -357,29 +364,32 @@
                                                     <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
                                                             <itemstyle horizontalalign="Center" />
-                                                            <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("PARAMETER_NAME") %>'></asp:Label>
+                                                            <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("BMW_TYPE") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
                                                     <asp:TemplateField HeaderText="Type of waste" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
                                                             <itemstyle horizontalalign="Center" />
-                                                            <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("PARAMETER_NAME") %>'></asp:Label>
+                                                            <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("BMW_NAME") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>                                                    
 
-                                                    <asp:TemplateField HeaderText="Quantity Generated or Collected, Kg/ day" ItemStyle-Width="180px">
+                                                      <asp:TemplateField HeaderText="Quantity Generated or Collected, Kg/ day" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
-                                                            <asp:TextBox ID="txtSource" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                            <itemstyle horizontalalign="Center" />
+                                                            <asp:Label ID="lblQuantity" runat="server" Text='<%# Eval("BMW_QUANTITYGENERATED") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="Method of Treatment and Disposal (ReferSchedule – I)" ItemStyle-Width="180px">
+                                                      <asp:TemplateField HeaderText="Method of Treatment and Disposal (ReferSchedule – I)" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
-                                                            <asp:TextBox ID="txtSource" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                            <itemstyle horizontalalign="Center" />
+                                                            <asp:Label ID="lblDisposal" runat="server" Text='<%# Eval("BMW_TREATMENTDISPOSAL") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
+                                                   
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
@@ -392,7 +402,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">i) Mode of transportation (if any) of bio-medical waste:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtBiowaste" runat="server" class="form-control" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -400,13 +410,9 @@
 
                                         <h6>ii) Details of treatment equipment (please give details such as the number, type & capacity of each unit)</h6>
                                         <div class="col-md-12 d-flex justify-content-center">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label"></label>
-                                                </div>
-                                            </div>
+                                            <div class="tableBMW">
                                             <asp:GridView ID="GVBIOMedical" runat="server" AutoGenerateColumns="false">
-                                                <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
+                                                <HeaderStyle VerticalAlign="Middle" Width="70%" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                 <RowStyle CssClass="GridviewScrollC1Item" />
                                                 <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
 
@@ -414,35 +420,34 @@
                                                     <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
                                                         <ItemTemplate>
                                                             <%# Container.DataItemIndex + 1%>
-                                                            <asp:HiddenField ID="HdfQueid" runat="server" />
-                                                            <asp:HiddenField ID="HdfApprovalid" runat="server" />
-                                                        </ItemTemplate>
+                                                          </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Center" />
                                                         <ItemStyle Width="70px" />
                                                     </asp:TemplateField>
 
 
-                                                    <asp:TemplateField HeaderText="Details Of Treatment" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
+                                                    <asp:TemplateField HeaderText="Details Of Treatment" Visible="true" ItemStyle-Width="40%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
                                                             <itemstyle horizontalalign="Center" />
-                                                            <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("PARAMETER_NAME") %>'></asp:Label>
+                                                            <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("BMW_NAME") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
                                                     <asp:TemplateField HeaderText="No of units" ItemStyle-Width="180px">
                                                         <ItemTemplate>
-                                                            <asp:TextBox ID="txtSource" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSource" CssClass="form-control" TabIndex="1" runat="server" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
                                                     <asp:TemplateField HeaderText="capacity of each unit" ItemStyle-Width="180px">
                                                         <ItemTemplate>
-                                                            <asp:TextBox ID="txtSource" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
+                                                            <asp:TextBox ID="txtCapacity" CssClass="form-control" TabIndex="1" runat="server" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
                                                 </Columns>
                                             </asp:GridView>
+                                                </div>
                                         </div>
 
 
@@ -456,7 +461,7 @@
                                                         <asp:FileUpload ID="fupBiomedicalwaste" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnBiomedicalwaste" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnBiomedicalwaste" OnClick="btnBiomedicalwaste_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:HyperLink ID="hypBiomedicalwaste" runat="server" Target="_blank"></asp:HyperLink>
@@ -474,7 +479,7 @@
                                                         <asp:FileUpload ID="fuplegalnotice" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnlegalnotice" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnlegalnotice" OnClick="btnlegalnotice_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:HyperLink ID="hyplegalnotice" runat="server" Target="_blank"></asp:HyperLink>
@@ -486,9 +491,8 @@
                                     </div>
 
                                     <div class="col-md-12 text-right mt-2 mb-2">
-
                                         <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-                                        <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                        <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
                                         <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                     </div>

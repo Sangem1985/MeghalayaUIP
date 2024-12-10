@@ -132,13 +132,13 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.TextBox txtMobileNo;
 
         /// <summary>
-        /// txtLANDMARK control.
+        /// txtweb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLANDMARK;
+        protected global::System.Web.UI.WebControls.TextBox txtweb;
 
         /// <summary>
         /// CHKAuthorized control.
@@ -159,40 +159,49 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.RadioButtonList rblauthorisation;
 
         /// <summary>
-        /// txtAltMobile control.
+        /// txtRenno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAltMobile;
+        protected global::System.Web.UI.WebControls.TextBox txtRenno;
 
         /// <summary>
-        /// txtLandlineno control.
+        /// txtAuthorisationDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLandlineno;
+        protected global::System.Web.UI.WebControls.TextBox txtAuthorisationDate;
 
         /// <summary>
-        /// txtDoorNo control.
+        /// CalendarExtender1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDoorNo;
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
 
         /// <summary>
-        /// txtLocal control.
+        /// txtPCB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLocal;
+        protected global::System.Web.UI.WebControls.TextBox txtPCB;
+
+        /// <summary>
+        /// txtPCB1981 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPCB1981;
 
         /// <summary>
         /// rblHealth control.
@@ -213,67 +222,67 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.RadioButtonList rblGPS;
 
         /// <summary>
-        /// txtMale control.
+        /// txtNoHCF control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMale;
+        protected global::System.Web.UI.WebControls.TextBox txtNoHCF;
 
         /// <summary>
-        /// txtFemale control.
+        /// txtHCFNO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFemale;
+        protected global::System.Web.UI.WebControls.TextBox txtHCFNO;
 
         /// <summary>
-        /// txtDirectOthers control.
+        /// txtHealthCBMWFT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDirectOthers;
+        protected global::System.Web.UI.WebControls.TextBox txtHealthCBMWFT;
 
         /// <summary>
-        /// txtIndirectMale control.
+        /// txtNobedcbmwtf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIndirectMale;
+        protected global::System.Web.UI.WebControls.TextBox txtNobedcbmwtf;
 
         /// <summary>
-        /// txtIndirectFemale control.
+        /// txtcapacitytreat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIndirectFemale;
+        protected global::System.Web.UI.WebControls.TextBox txtcapacitytreat;
 
         /// <summary>
-        /// txtInDirectOthers control.
+        /// txtdistance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInDirectOthers;
+        protected global::System.Web.UI.WebControls.TextBox txtdistance;
 
         /// <summary>
-        /// txtPropEmp control.
+        /// txtwastetreat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPropEmp;
+        protected global::System.Web.UI.WebControls.TextBox txtwastetreat;
 
         /// <summary>
         /// ddlcategory control.
@@ -330,13 +339,13 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.GridView GVWaste;
 
         /// <summary>
-        /// txtAnnualTurnOver control.
+        /// txtBiowaste control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnnualTurnOver;
+        protected global::System.Web.UI.WebControls.TextBox txtBiowaste;
 
         /// <summary>
         /// GVBIOMedical control.

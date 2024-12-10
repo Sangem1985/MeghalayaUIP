@@ -34,5 +34,21 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.BMWEquipment();
         }
+        public string SRVCBMWDetails(SvrcBMWDet ObjBMWDetails)
+        {
+            return SvrcDal.SRVCBMWDetails(ObjBMWDetails);
+        }
+        public string SRVCBMWWASTEDET(SvrcBMWDet ObjBMWDetails)
+        {
+            return SvrcDal.SRVCBMWWASTEDET(ObjBMWDetails);
+        }
+        public string InsertBMWWASTEDET(DataTable dtBMWDetails,string Unitid,string Createdby,string IPAddress)
+        {
+            return SvrcDal.InsertBMWWASTEDET(dtBMWDetails, Unitid, Createdby, IPAddress);
+        }
+        public string InsertSRVCAttachments(SRVCAttachments objAttach)
+        {
+            return SvrcDal.InsertSRVCAttachments(objAttach);
+        }
     }
 }

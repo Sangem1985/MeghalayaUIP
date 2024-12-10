@@ -16,6 +16,10 @@ namespace MeghalayaUIP.Common
         public static string InsertRenApplicationDetails = "USP_INSSRVCENTERPRISEDETAILS";
 
         public static string GetBMWEquipment = "USP_GETBMW_WASTETYPE";
+        public static string InsertBMWDetails = "USP_INSBMWDETAILS";
+        public static string InsertWasteDetails = "USP_INSBMWWASTEDETAILS";
+        public static string InsertBMWBIOMEDICALDET = "USP_INSBMWEQUIPMENT";
+        public static string InsertSVRCAttachments = "USP_INSSRVCATTACHMNETS";
     }
 
     public class SvrcApplicationDetails
@@ -84,8 +88,56 @@ namespace MeghalayaUIP.Common
         public string RenApprovalsXml { get; set; }
 
     }
-    public class SVRCCommon
+    public class SvrcBMWDet
     {
+        public string UnitId { get; set; }
+        public string Name_applicant { get; set; }
+        public string HCFCBWTF { get; set; }
+        public string email { get; set; }
+        public string mobile { get; set; }
+        public string website { get; set; }
+        public string Authorizationactivity { get; set; }
+        public string AppliedCTO_CTE { get; set; }
+        public string authorisationnumber { get; set; }
+        public string authorisation_Date { get; set; }
+        public string Pollution1974 { get; set; }
+        public string ControlPollution1981 { get; set; }
+        public string AddressHealthHCFCBWFT { get; set; }
+        public string GPSCOORDINATES { get; set; }
+        public string NumberBED { get; set; }
+        public string patientsHCF { get; set; }
+        public string healthcareCBMWTF { get; set; }
+        public string NOBEDCBMWTF { get; set; }
+        public string DISPOSALCBMWTF { get; set; }
+        public string DISTANCECBMWTF { get; set; }
+        public string BMWTREATED { get; set; }
+        public string MODETRANSACTION { get; set; }
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+        public string Category { get; set; }
+        public string Waste { get; set; }
+        public string QuantityGenerated { get; set; }
+        public string MethodDisposal { get; set; }
+        public string Bmwname { get; set; }
+        public string NoUnit { get; set; }
+        public string Capacity { get; set; }
+    }
+    public class SRVCAttachments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CFEUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public string FileDescription { get; set; }
+        public string FileType { get; set; }
+        public string MasterID { get; set; }
+        public string QueryID { get; set; }
+        public string ReferenceNo { get; set; }
 
     }
 }
