@@ -54,5 +54,18 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCapplications(USERID, UnitID);
         }
+        public DataSet GetSRVCApprovals(string userid, string UnitId)
+        {
+            return SvrcDal.GetSRVCApprovals(userid, UnitId);
+        }
+        public string InsertSRVCDeptApprovals(SRVCOtherServices ObjApplicationDetails)
+        {
+            return SvrcDal.InsertSRVCDeptApprovals(ObjApplicationDetails);
+        }
+        public DataSet GetSrvcBMWDet(string userid, string UNITID)
+        {
+            return SvrcDal.GetSrvcBMWDet(userid, UNITID);
+        }
+
     }
 }

@@ -61,7 +61,7 @@ namespace MeghalayaUIP.User.Renewal
                 string UserId = "1";
                 string UnitId = Session["RENUNITID"].ToString();
                 dsnew = objRenbal.GetRenApprovals(UserId,UnitId);
-                if (dsnew.Tables.Count > 0)
+                if (dsnew !=null && dsnew.Tables.Count > 0)
                 {
                     if (dsnew.Tables[0].Rows.Count > 0)
                     {

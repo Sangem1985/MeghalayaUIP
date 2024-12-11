@@ -50,7 +50,7 @@
 
                         <asp:GridView ID="GvServices" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
-                            GridLines="None" Width="100%" EnableModelValidation="True" ShowFooter="true">
+                            GridLines="None" Width="100%" EnableModelValidation="True" ShowFooter="true" OnRowDataBound="GvServices_RowDataBound">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <FooterStyle BackColor="#013161" CssClass="no-hover" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
@@ -101,9 +101,9 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apply For Renewal Approvals">
+                                <asp:TemplateField HeaderText="Apply For Services Approvals">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnApplyRenewal" Text="Apply" CssClass="btn btn-info btn-rounded btn-sm" />
+                                        <asp:Button runat="server" ID="btnApplySRVC" OnClick="btnApplySRVC_Click" Text="Apply" CssClass="btn btn-info btn-rounded btn-sm" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -126,15 +126,15 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="RENQDID" Visible="false">
+                                <asp:TemplateField HeaderText="SRVCQDID" Visible="false">
                                     <ItemTemplate>
-                                        <asp:Label runat="server" ID="lblRENQDID" Text='<%#Eval("SRVCQDID") %>'> </asp:Label>
+                                        <asp:Label runat="server" ID="lblSRVCQDID" Text='<%#Eval("SRVCQDID") %>'> </asp:Label>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="RENAPPLSTATUS" Visible="false">
+                                <asp:TemplateField HeaderText="SRVCAPPLSTATUS" Visible="false">
                                     <ItemTemplate>
-                                        <asp:Label runat="server" ID="lblRENAPPLSTATUS" Text='<%#Eval("SRVCAPPLSTATUS") %>'> </asp:Label>
+                                        <asp:Label runat="server" ID="lblSRVCAPPLSTATUS" Text='<%#Eval("SRVCAPPLSTATUS") %>'> </asp:Label>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>

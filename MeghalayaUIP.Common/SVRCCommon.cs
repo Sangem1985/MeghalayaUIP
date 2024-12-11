@@ -19,9 +19,13 @@ namespace MeghalayaUIP.Common
         public static string InsertBMWDetails = "USP_INSBMWDETAILS";
         public static string InsertWasteDetails = "USP_INSBMWWASTEDETAILS";
         public static string InsertBMWBIOMEDICALDET = "USP_INSBMWEQUIPMENT";
+        public static string GetSrvcBMWDetails = "USP_GETBMWDETAILS";
         public static string InsertSVRCAttachments = "USP_INSSRVCATTACHMNETS";
 
         public static string GetSRVCapplications = "USP_GETSRVCUSERDASHBOARD";
+
+        public static string GetSRVCApprovals = "USP_GETSRVCAPPROVALS";
+        public static string InsertSRVCDeptApprovals = "USP_INS_SRVCDPETAPPROVALS";
     }
 
     public class SvrcApplicationDetails
@@ -141,5 +145,26 @@ namespace MeghalayaUIP.Common
         public string QueryID { get; set; }
         public string ReferenceNo { get; set; }
 
+    }
+    public class SRVCOtherServices
+    {
+        public string Questionnariid { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string ApprovalID { get; set; }
+        public string SRVCApprovalsXml { get; set; }
+    }
+    public class SRVCApprovals
+    {
+        public string SRVCQDID { get; set; }
+        public string UnitId { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string ApprovalId { get; set; }
+        public string DeptId { get; set; }
+        public string ApprovalFee { get; set; }
+        public string UidNo { get; set; }
     }
 }

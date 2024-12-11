@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="OtherServices.aspx.cs" Inherits="MeghalayaUIP.User.Services.OtherServices" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -35,9 +36,9 @@
             </div>
             <div class="col-md-12 d-flex" id="divGrid" runat="server" visible="true" style="margin-top: 25px;">
                 <div class="table-responsive">
-                    <asp:GridView ID="gvRenewals" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                    <asp:GridView ID="GvServices" runat="server" AutoGenerateColumns="False" CellPadding="4"
                         CssClass="table-hover" ForeColor="#333333" Width="100%" BorderColor="#003399" BorderStyle="Solid" BorderWidth="1px"
-                        EmptyDataText="No Data Available" OnRowDataBound="gvRenewals_RowDataBound">
+                        EmptyDataText="No Data Available">
                         <RowStyle CssClass="GRDITEM" VerticalAlign="Middle" />
                         <HeaderStyle CssClass="GRDHEADER" Font-Bold="True" ForeColor="Black" BackColor="blanchedalmond" />
                         <Columns>

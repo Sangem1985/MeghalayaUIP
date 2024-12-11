@@ -346,7 +346,7 @@
 
 
                                         <div class="col-md-12 d-flex justify-content-center">
-                                            <asp:GridView ID="GVWaste" runat="server" AutoGenerateColumns="false">
+                                            <asp:GridView ID="GVWaste" runat="server" AutoGenerateColumns="false" OnRowDeleting="GVWaste_RowDeleting">
                                                 <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                 <RowStyle CssClass="GridviewScrollC1Item" />
                                                 <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
