@@ -41,13 +41,13 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["RENUNITID"]) != "")
+                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["RENUNITID"]);
+                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
                     }
                     else
                     {
-                        string newurl = "~/User/Renewal/RENUserDashboard.aspx";
+                        string newurl = "~/User/Services/SRVCUserDashboard.aspx";
                         Response.Redirect(newurl);
                     }
 
@@ -376,7 +376,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_UNITID"]);
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["SRVCUNITID"]);
                         txtUnitName.Text = ds.Tables[0].Rows[0]["SRVCED_NAMEOFUNIT"].ToString();
                         ddlCompanyType.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_COMPANYTYPE"].ToString();
                         ddlSectorEnter.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_SECTORENTERPRISE"].ToString();
@@ -459,7 +459,7 @@ namespace MeghalayaUIP.User.Services
                     }
                     else if (ds.Tables[1].Rows.Count > 0)
                     {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["UNITID"]);
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["SRVCUNITID"]);
                         txtUnitName.Text = ds.Tables[1].Rows[0]["COMPANYNAME"].ToString();
                         ddlCompanyType.SelectedValue = ds.Tables[1].Rows[0]["COMPANYTYPE"].ToString();
                         ddlSectorEnter.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_NOA"].ToString();
@@ -776,7 +776,7 @@ namespace MeghalayaUIP.User.Services
 
                     //  ObjApplicationDetails.Questionnariid = Quesstionriids;
                     ObjApplicationDetails.CreatedBy = hdnUserID.Value;
-                    ObjApplicationDetails.UnitId = Convert.ToString(Session["RENUNITID"]);
+                    ObjApplicationDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                     ObjApplicationDetails.IPAddress = getclientIP();
                     ObjApplicationDetails.UidNo = "1001";
 
