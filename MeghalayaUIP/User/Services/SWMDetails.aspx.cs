@@ -50,12 +50,52 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 ErrorMsg = stepValidations();
-                string message = "alert('" + ErrorMsg + "')";
+                if (ErrorMsg == "")
+                {
 
+
+                    SWMdetails swmdetails = new SWMdetails
+                    {
+                        namelocaloperator = txtNameLocalBody.Text,
+                        nodalauthorisedagency = txtDesignation.Text,
+                        authorizationopeartion = string.Join(",", CHKAuthorization.Items.Cast<ListItem>()
+                                       .Where(item => item.Selected)
+                                       .Select(item => item.Value)),
+                        totalquantitywaste = Convert.ToDouble(txtWasteProduced.Text),
+                        quantitywasterecycle = Convert.ToDouble(txtWasteRecycled.Text),
+                        quantitywastetreated = Convert.ToDouble(txtWasteTreated.Text),
+                        quantitywastedisposed = Convert.ToDouble(txtWasteDisposed.Text),
+                        quantityleachate = Convert.ToDouble(txtQuanLeachate.Text),
+                        treatmenttechleachate = txtTreatmentLeachate.Text,
+                        measurescep = txtMeasuresForPrevention.Text,
+                        measuressafteyplant = txtMeasuresForSafety.Text,
+                        nosites = Convert.ToInt32(txtSiteIdentified.Text),
+                        quantitywasteperday = Convert.ToDouble(txtQantityWasteDisposed.Text),
+                        detailsexistingsite = txtExistingSiteUnderOperation.Text,
+                        methodologydetails = txtLandfillingDetails.Text,
+                        checkenvironmentpollution = txtMeasureToChkEnvPoltn.Text,
+                        createdby = "UserName", // Replace with actual user name
+                        createdbyip = getclientIP()
+
+                    };
+
+                    result = objSrvcbal.SRVCSWDDetails(swmdetails);
+                    if (result != "")
+                    {
+                        string message = "alert('" + "SWMD Details Saved Successfully" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
             }
+
             catch (Exception ex)
             {
-                //lblmsg0.Text = ex.Message;
                 throw ex;
             }
         }

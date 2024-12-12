@@ -642,6 +642,61 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
         }
 
+        public string SRVCSWDDetails(SWMdetails objDetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
 
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.InsertSRVCSWDdetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@SRVCSWD_UNITID", objDetails.unitid);
+                com.Parameters.AddWithValue("@SRVCSWD_NAMELOCALOPERATOR", objDetails.namelocaloperator);
+                com.Parameters.AddWithValue("@SRVCSWD_NODALAUTHORISEDAGENCY", objDetails.nodalauthorisedagency);
+                com.Parameters.AddWithValue("@SRVCSWD_AUTHORIZATIONOPEARTION", objDetails.authorizationopeartion);
+                com.Parameters.AddWithValue("@SRVCSWD_TOTALQUANTITYWASTE", objDetails.totalquantitywaste);
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTERECYCLE", objDetails.quantitywasterecycle);
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTETREATED", objDetails.quantitywastetreated);
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTEDISPOSED", objDetails.quantitywastedisposed);
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYLEACHATE", objDetails.quantityleachate);
+                com.Parameters.AddWithValue("@SRVCSWD_TREATMENTTECHLEACHATE", objDetails.treatmenttechleachate);
+                com.Parameters.AddWithValue("@SRVCSWD_MEASURESCEP", objDetails.measurescep);
+                com.Parameters.AddWithValue("@SRVCSWD_MEASURESSAFTEYPLANT", objDetails.measuressafteyplant);
+                com.Parameters.AddWithValue("@SRVCSWD_NOSITES", objDetails.nosites);
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTEPERDAY", objDetails.quantitywasteperday);
+                com.Parameters.AddWithValue("@SRVCSWD_DETAILSEXISTINGSITE", objDetails.detailsexistingsite);
+                com.Parameters.AddWithValue("@SRVCSWD_METHODOLOGYDETAILS", objDetails.methodologydetails);
+                com.Parameters.AddWithValue("@SRVCSWD_CHECKENVIRONMENTPOLLUTION", objDetails.checkenvironmentpollution);
+                com.Parameters.AddWithValue("@SRVCSWD_CREATEDBY", objDetails.createdby);
+                com.Parameters.AddWithValue("@SRVCSWD_CREATEDBYIP", objDetails.createdbyip);
+
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

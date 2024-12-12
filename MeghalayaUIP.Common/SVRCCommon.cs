@@ -26,6 +26,7 @@ namespace MeghalayaUIP.Common
 
         public static string GetSRVCApprovals = "USP_GETSRVCAPPROVALS";
         public static string InsertSRVCDeptApprovals = "USP_INS_SRVCDPETAPPROVALS";
+        public static string InsertSRVCSWDdetails = "USP_INS_SRVCDPETAPPROVALS";
     }
 
     public class SvrcApplicationDetails
@@ -166,5 +167,29 @@ namespace MeghalayaUIP.Common
         public string DeptId { get; set; }
         public string ApprovalFee { get; set; }
         public string UidNo { get; set; }
+    }
+
+    public class SWMdetails
+    {
+        public string unitid { get; set; }
+        public string namelocaloperator { get; set; }
+        public string nodalauthorisedagency { get; set; }
+        public string authorizationopeartion { get; set; }
+        public double totalquantitywaste { get; set; }
+        public double quantitywasterecycle { get; set; }
+        public double quantitywastetreated { get; set; }
+        public double quantitywastedisposed { get; set; }
+        public double quantityleachate { get; set; }
+        public string treatmenttechleachate { get; set; }
+        public string measurescep { get; set; }
+        public string measuressafteyplant { get; set; }
+        public int nosites { get; set; }
+        public double quantitywasteperday { get; set; }
+        public string detailsexistingsite { get; set; }
+        public string methodologydetails { get; set; }
+        public string checkenvironmentpollution { get; set; }
+        public string createdby { get; set; }    
+        public string createdbyip { get; set; }
+
     }
 }
