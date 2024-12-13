@@ -39,10 +39,10 @@ namespace MeghalayaUIP.BAL.SVRCBAL
             return SvrcDal.SRVCBMWDetails(ObjBMWDetails);
         }
 
-        public string SRVCSWDDetails(SWMdetails ObjBMWDetails)
-        {
-            return SvrcDal.SRVCSWDDetails(ObjBMWDetails);
-        }
+        //public string SRVCSWDDetails(SWMdetails ObjBMWDetails)
+        //{
+        //    return SvrcDal.SRVCSWDDetails(ObjBMWDetails);
+        //}
         public string SRVCBMWWASTEDET(SvrcBMWDet ObjBMWDetails)
         {
             return SvrcDal.SRVCBMWWASTEDET(ObjBMWDetails);
@@ -70,6 +70,14 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         public DataSet GetSrvcBMWDet(string userid, string UNITID)
         {
             return SvrcDal.GetSrvcBMWDet(userid, UNITID);
+        }
+        public string INSSRVCSOLIDDDetails(SWMdetails ObjSWMDet)
+        {
+            return SvrcDal.INSSRVCSOLIDDDetails(ObjSWMDet);
+        }
+        public DataSet GetSrvcSWMDetails(string userid, string UNITID)
+        {
+            return SvrcDal.GetSrvcSWMDetails(userid, UNITID);
         }
 
     }

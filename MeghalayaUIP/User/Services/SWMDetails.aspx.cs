@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using static AjaxControlToolkit.AsyncFileUpload.Constants;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Data;
 
 namespace MeghalayaUIP.User.Services
 {
@@ -39,10 +40,49 @@ namespace MeghalayaUIP.User.Services
 
                 if (!IsPostBack)
                 {
-                    
+                    BindData();
                 }
             }
 
+        }
+        public void BindData()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objSrvcbal.GetSrvcSWMDetails(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]));
+
+                if (ds != null && ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        txtNameLocalBody.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NAMELOCALOPERATOR"]);
+                        txtDesignation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NODALAUTHORISEDAGENCY"]);
+                        CHKAuthorization.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
+                        txtWasteProduced.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
+                        txtWasteRecycled.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TOTALQUANTITYWASTE"]);
+                        txtWasteTreated.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_QUANTITYWASTERECYCLE"]);
+                        txtWasteDisposed.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_QUANTITYWASTETREATED"]);
+                        txtUtilisation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_QUANTITYWASTEDISPOSED"]);
+                        txtQuanLeachate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_QUANTITYLEACHATE"]);
+                        txtTreatmentLeachate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TREATMENTTECHLEACHATE"]);
+                        txtMeasuresForPrevention.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_MEASURESCEP"]);
+                        txtMeasuresForSafety.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_MEASURESSAFTEYPLANT"]);
+                        txtSiteIdentified.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NOSITES"]);
+                        txtQantityWasteDisposed.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_QUANTITYWASTEPERDAY"]);
+                        txtExistingSiteUnderOperation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_DETAILSEXISTINGSITE"]);
+                        txtLandfillingDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_METHODOLOGYDETAILS"]);
+                        txtMeasureToChkEnvPoltn.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_CHECKENVIRONMENTPOLLUTION"]);
+                       
+
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void btnsave_Click(object sender, EventArgs e)
@@ -54,32 +94,43 @@ namespace MeghalayaUIP.User.Services
                 {
 
 
-                    SWMdetails swmdetails = new SWMdetails
-                    {
-                        namelocaloperator = txtNameLocalBody.Text,
-                        nodalauthorisedagency = txtDesignation.Text,
-                        authorizationopeartion = string.Join(",", CHKAuthorization.Items.Cast<ListItem>()
-                                       .Where(item => item.Selected)
-                                       .Select(item => item.Value)),
-                        totalquantitywaste = Convert.ToDouble(txtWasteProduced.Text),
-                        quantitywasterecycle = Convert.ToDouble(txtWasteRecycled.Text),
-                        quantitywastetreated = Convert.ToDouble(txtWasteTreated.Text),
-                        quantitywastedisposed = Convert.ToDouble(txtWasteDisposed.Text),
-                        quantityleachate = Convert.ToDouble(txtQuanLeachate.Text),
-                        treatmenttechleachate = txtTreatmentLeachate.Text,
-                        measurescep = txtMeasuresForPrevention.Text,
-                        measuressafteyplant = txtMeasuresForSafety.Text,
-                        nosites = Convert.ToInt32(txtSiteIdentified.Text),
-                        quantitywasteperday = Convert.ToDouble(txtQantityWasteDisposed.Text),
-                        detailsexistingsite = txtExistingSiteUnderOperation.Text,
-                        methodologydetails = txtLandfillingDetails.Text,
-                        checkenvironmentpollution = txtMeasureToChkEnvPoltn.Text,
-                        createdby = "UserName", // Replace with actual user name
-                        createdbyip = getclientIP()
+                    SWMdetails ObjSWMDet = new SWMdetails();
 
-                    };
+                    var selectedItems = CHKAuthorization.Items.Cast<ListItem>()
+                            .Where(li => li.Selected)
+                            .Select(li => li.Text);
 
-                    result = objSrvcbal.SRVCSWDDetails(swmdetails);
+                    string selectedActivities = string.Join(", ", selectedItems);
+
+                    ObjSWMDet.unitid = "1001";
+                    ObjSWMDet.createdby= hdnUserID.Value;
+                    ObjSWMDet.createdbyip= getclientIP();
+                    ObjSWMDet.authorizationopeartion = selectedActivities;
+                    ObjSWMDet.namelocaloperator = txtNameLocalBody.Text;
+                    ObjSWMDet.nodalauthorisedagency = txtDesignation.Text;
+                    ObjSWMDet.totalquantitywaste = txtWasteProduced.Text;
+                    ObjSWMDet.quantitywasterecycle = txtWasteRecycled.Text;
+                    ObjSWMDet.quantitywastetreated = txtWasteTreated.Text;
+                    ObjSWMDet.quantitywastedisposed = txtWasteDisposed.Text;
+                    ObjSWMDet.quantityleachate = txtQuanLeachate.Text;
+                    ObjSWMDet.treatmenttechleachate = txtTreatmentLeachate.Text;
+                    ObjSWMDet.measurescep = txtMeasuresForPrevention.Text;
+                    ObjSWMDet.measuressafteyplant = txtMeasuresForSafety.Text;
+                    ObjSWMDet.nosites = txtSiteIdentified.Text;
+                    ObjSWMDet.quantitywasteperday = txtQantityWasteDisposed.Text;
+                    ObjSWMDet.detailsexistingsite = txtExistingSiteUnderOperation.Text;
+                    ObjSWMDet.methodologydetails = txtLandfillingDetails.Text;
+                    ObjSWMDet.checkenvironmentpollution = txtMeasureToChkEnvPoltn.Text;   
+                    //authorizationopeartion = string.Join(",", CHKAuthorization.Items.Cast<ListItem>()
+                    //               .Where(item => item.Selected)
+                    //               .Select(item => item.Value)),
+
+
+                  
+
+                   
+
+                    result = objSrvcbal.INSSRVCSOLIDDDetails(ObjSWMDet);
                     if (result != "")
                     {
                         string message = "alert('" + "SWMD Details Saved Successfully" + "')";
@@ -153,11 +204,11 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please enter quantity of leachate \\n";
                     slno = slno + 1;
                 }
-                if (!fupDisposal.HasFile)
-                {
-                    errormsg += slno + ". Please upload the methodology for disposal \\n";
-                    slno++;
-                }
+                //if (!fupDisposal.HasFile)
+                //{
+                //    errormsg += slno + ". Please upload the methodology for disposal \\n";
+                //    slno++;
+                //}
                 if (string.IsNullOrEmpty(txtTreatmentLeachate.Text) || txtTreatmentLeachate.Text == "" || txtTreatmentLeachate.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please enter  treatment technology for leachate \\n";
@@ -173,11 +224,11 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please enter measures to be taken for safety of workers working in the plant \\n";                                                   
                     slno = slno + 1;
                 }
-                if (!fupDetailsSolidWaste.HasFile)
-                {
-                    errormsg += slno + ". Please upload the details on solid waste processing/recycling/treatment/disposal facility \\n";
-                    slno++;
-                }
+                //if (!fupDetailsSolidWaste.HasFile)
+                //{
+                //    errormsg += slno + ". Please upload the details on solid waste processing/recycling/treatment/disposal facility \\n";
+                //    slno++;
+                //}
                 if (string.IsNullOrEmpty(txtSiteIdentified.Text) || txtSiteIdentified.Text == "" || txtSiteIdentified.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please enter number Of sites identified \\n";
@@ -320,9 +371,9 @@ namespace MeghalayaUIP.User.Services
                     Error = validations(fupDetailsSolidWaste);
                     if (Error == "")
                     {
-                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Site Plan" + "\\";
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "solid waste processing/recycling/treatment/disposal facility" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -349,11 +400,11 @@ namespace MeghalayaUIP.User.Services
                         SRVCAttachments objSWPRTD = new SRVCAttachments();
                         objSWPRTD.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
                         objSWPRTD.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
-                        objSWPRTD.MasterID = "15";
+                        objSWPRTD.MasterID = "9";
                         objSWPRTD.FilePath = serverpath + fupDetailsSolidWaste.PostedFile.FileName;
                         objSWPRTD.FileName = fupDetailsSolidWaste.PostedFile.FileName;
                         objSWPRTD.FileType = fupDetailsSolidWaste.PostedFile.ContentType;
-                        objSWPRTD.FileDescription = "Site Plan";
+                        objSWPRTD.FileDescription = "solid waste processing/recycling/treatment/disposal facility";
                         objSWPRTD.CreatedBy = hdnUserID.Value;
                         objSWPRTD.IPAddress = getclientIP();
                         objSWPRTD.ReferenceNo = txtSWPRTD.Text;
@@ -363,7 +414,7 @@ namespace MeghalayaUIP.User.Services
                             hypSWPRTD.Text = fupDetailsSolidWaste.PostedFile.FileName;
                             hypSWPRTD.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupDetailsSolidWaste.PostedFile.FileName);
                             hypSWPRTD.Target = "blank";
-                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            message = "alert('" + "Details on solid waste processing/recycling/treatment/disposal facility Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -400,9 +451,9 @@ namespace MeghalayaUIP.User.Services
                     Error = validations(fupDetailSiteSelection);
                     if (Error == "")
                     {
-                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Site Plan" + "\\";
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "methodology or criteria followed for site selection" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -429,11 +480,11 @@ namespace MeghalayaUIP.User.Services
                         SRVCAttachments objSiteSelection = new SRVCAttachments();
                         objSiteSelection.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
                         objSiteSelection.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
-                        objSiteSelection.MasterID = "15";
+                        objSiteSelection.MasterID = "8";
                         objSiteSelection.FilePath = serverpath + fupDetailSiteSelection.PostedFile.FileName;
                         objSiteSelection.FileName = fupDetailSiteSelection.PostedFile.FileName;
                         objSiteSelection.FileType = fupDetailSiteSelection.PostedFile.ContentType;
-                        objSiteSelection.FileDescription = "Site Plan";
+                        objSiteSelection.FileDescription = "methodology or criteria followed for site selection";
                         objSiteSelection.CreatedBy = hdnUserID.Value;
                         objSiteSelection.IPAddress = getclientIP();
                         objSiteSelection.ReferenceNo = txtDetailSiteSel.Text;
@@ -443,7 +494,7 @@ namespace MeghalayaUIP.User.Services
                             hypDetailSiteSel.Text = fupDetailSiteSelection.PostedFile.FileName;
                             hypDetailSiteSel.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupDetailSiteSelection.PostedFile.FileName);
                             hypDetailSiteSel.Target = "blank";
-                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            message = "alert('" + "Details of methodology or criteria followed for site selection Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -479,9 +530,9 @@ namespace MeghalayaUIP.User.Services
                     Error = validations(fupSiteClearance);
                     if (Error == "")
                     {
-                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Site Plan" + "\\";
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Site Clearance" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -508,11 +559,11 @@ namespace MeghalayaUIP.User.Services
                         SRVCAttachments objSiteClr = new SRVCAttachments();
                         objSiteClr.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
                         objSiteClr.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
-                        objSiteClr.MasterID = "15";
+                        objSiteClr.MasterID = "7";
                         objSiteClr.FilePath = serverpath + fupSiteClearance.PostedFile.FileName;
                         objSiteClr.FileName = fupSiteClearance.PostedFile.FileName;
                         objSiteClr.FileType = fupSiteClearance.PostedFile.ContentType;
-                        objSiteClr.FileDescription = "Site Plan";
+                        objSiteClr.FileDescription = "Site Clearance";
                         objSiteClr.CreatedBy = hdnUserID.Value;
                         objSiteClr.IPAddress = getclientIP();
                         objSiteClr.ReferenceNo = txtSiteClr.Text;
@@ -522,7 +573,7 @@ namespace MeghalayaUIP.User.Services
                             hypSiteClr.Text = fupSiteClearance.PostedFile.FileName;
                             hypSiteClr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupSiteClearance.PostedFile.FileName);
                             hypSiteClr.Target = "blank";
-                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            message = "alert('" + "Site Clearance Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -558,9 +609,9 @@ namespace MeghalayaUIP.User.Services
                     Error = validations(fupEnvironmentalClearance);
                     if (Error == "")
                     {
-                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Site Plan" + "\\";
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Environmental Clearance Consent for eshtablishment" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -587,11 +638,11 @@ namespace MeghalayaUIP.User.Services
                         SRVCAttachments objEnvClr = new SRVCAttachments();
                         objEnvClr.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
                         objEnvClr.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
-                        objEnvClr.MasterID = "15";
+                        objEnvClr.MasterID = "6";
                         objEnvClr.FilePath = serverpath + fupEnvironmentalClearance.PostedFile.FileName;
                         objEnvClr.FileName = fupEnvironmentalClearance.PostedFile.FileName;
                         objEnvClr.FileType = fupEnvironmentalClearance.PostedFile.ContentType;
-                        objEnvClr.FileDescription = "Site Plan";
+                        objEnvClr.FileDescription = "Environmental Clearance Consent for eshtablishment";
                         objEnvClr.CreatedBy = hdnUserID.Value;
                         objEnvClr.IPAddress = getclientIP();
                         objEnvClr.ReferenceNo = txtEnvClearance.Text;
@@ -601,7 +652,7 @@ namespace MeghalayaUIP.User.Services
                             hypEnvClearance.Text = fupEnvironmentalClearance.PostedFile.FileName;
                             hypEnvClearance.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupEnvironmentalClearance.PostedFile.FileName);
                             hypEnvClearance.Target = "blank";
-                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            message = "alert('" + "Environmental Clearance Consent for eshtablishment Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -637,9 +688,9 @@ namespace MeghalayaUIP.User.Services
                     Error = validations(fupAgreement);
                     if (Error == "")
                     {
-                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Site Plan" + "\\";
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "municipal authority and opearting agency" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -666,11 +717,11 @@ namespace MeghalayaUIP.User.Services
                         SRVCAttachments objAgreement = new SRVCAttachments();
                         objAgreement.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
                         objAgreement.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
-                        objAgreement.MasterID = "15";
+                        objAgreement.MasterID = "5";
                         objAgreement.FilePath = serverpath + fupAgreement.PostedFile.FileName;
                         objAgreement.FileName = fupAgreement.PostedFile.FileName;
                         objAgreement.FileType = fupAgreement.PostedFile.ContentType;
-                        objAgreement.FileDescription = "Site Plan";
+                        objAgreement.FileDescription = "municipal authority and opearting agency";
                         objAgreement.CreatedBy = hdnUserID.Value;
                         objAgreement.IPAddress = getclientIP();
                         objAgreement.ReferenceNo = txtAgreement.Text;
@@ -680,7 +731,7 @@ namespace MeghalayaUIP.User.Services
                             hypAgreement.Text = fupAgreement.PostedFile.FileName;
                             hypAgreement.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupAgreement.PostedFile.FileName);
                             hypAgreement.Target = "blank";
-                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            message = "alert('" + "Agreement Between municipal authority and opearting agency Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -742,7 +793,7 @@ namespace MeghalayaUIP.User.Services
                     {
                         string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Disposal" + "\\";
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Disposal" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -768,11 +819,11 @@ namespace MeghalayaUIP.User.Services
                         SRVCAttachments objDisposal = new SRVCAttachments();
                         objDisposal.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
                         objDisposal.Questionnareid = "101"; //Convert.ToString(Session["CFEQID"]);
-                        objDisposal.MasterID = "";
+                        objDisposal.MasterID = "4";
                         objDisposal.FilePath = serverpath + fupDisposal.PostedFile.FileName;
                         objDisposal.FileName = fupDisposal.PostedFile.FileName;
                         objDisposal.FileType = fupDisposal.PostedFile.ContentType;
-                        objDisposal.FileDescription = "";
+                        objDisposal.FileDescription = "Methodology for disposal";
                         objDisposal.CreatedBy = hdnUserID.Value;
                         objDisposal.IPAddress = getclientIP();
                         objDisposal.ReferenceNo = txtCBWTFSWM.Text;
@@ -782,7 +833,7 @@ namespace MeghalayaUIP.User.Services
                             hypSolidwaste.Text = fupDisposal.PostedFile.FileName;
                             hypSolidwaste.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupDisposal.PostedFile.FileName);
                             hypSolidwaste.Target = "blank";
-                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            message = "alert('" + "Methodology for disposal Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }

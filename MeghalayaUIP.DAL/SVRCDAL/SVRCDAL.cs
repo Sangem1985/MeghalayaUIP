@@ -642,7 +642,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
         }
 
-        public string SRVCSWDDetails(SWMdetails objDetails)
+       /* public string SRVCSWDDetails(SWMdetails objDetails)
         {
             string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
@@ -697,6 +697,98 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
             return Result;
+        }
+       */
+        public string INSSRVCSOLIDDDetails(SWMdetails ObjSWMDet)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.InsertSRVCSWDdetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@SRVCSWD_UNITID",Convert.ToInt32(ObjSWMDet.unitid));
+                com.Parameters.AddWithValue("@SRVCSWD_CREATEDBY", Convert.ToInt32(ObjSWMDet.createdby));
+                com.Parameters.AddWithValue("@SRVCSWD_CREATEDBYIP", ObjSWMDet.createdbyip);
+                com.Parameters.AddWithValue("@SRVCSWD_AUTHORIZATIONOPEARTION", ObjSWMDet.authorizationopeartion);
+                com.Parameters.AddWithValue("@SRVCSWD_NAMELOCALOPERATOR", ObjSWMDet.namelocaloperator);
+                com.Parameters.AddWithValue("@SRVCSWD_NODALAUTHORISEDAGENCY", ObjSWMDet.nodalauthorisedagency);
+                com.Parameters.AddWithValue("@SRVCSWD_TOTALQUANTITYWASTE", Convert.ToInt32(ObjSWMDet.totalquantitywaste));
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTERECYCLE", Convert.ToInt32(ObjSWMDet.quantitywasterecycle));
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTETREATED", Convert.ToInt32(ObjSWMDet.quantitywastetreated));
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTEDISPOSED", Convert.ToInt32(ObjSWMDet.quantitywastedisposed));
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYLEACHATE", Convert.ToInt32(ObjSWMDet.quantityleachate));
+                com.Parameters.AddWithValue("@SRVCSWD_TREATMENTTECHLEACHATE", ObjSWMDet.treatmenttechleachate);
+                com.Parameters.AddWithValue("@SRVCSWD_MEASURESCEP", ObjSWMDet.measurescep);
+                com.Parameters.AddWithValue("@SRVCSWD_MEASURESSAFTEYPLANT", ObjSWMDet.measuressafteyplant);
+                com.Parameters.AddWithValue("@SRVCSWD_NOSITES", Convert.ToInt32(ObjSWMDet.nosites));
+                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTEPERDAY", Convert.ToInt32(ObjSWMDet.quantitywasteperday));
+                com.Parameters.AddWithValue("@SRVCSWD_DETAILSEXISTINGSITE", ObjSWMDet.detailsexistingsite);
+                com.Parameters.AddWithValue("@SRVCSWD_METHODOLOGYDETAILS", ObjSWMDet.methodologydetails);
+                com.Parameters.AddWithValue("@SRVCSWD_CHECKENVIRONMENTPOLLUTION", ObjSWMDet.checkenvironmentpollution);
+              
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public DataSet GetSrvcSWMDetails(string userid, String UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSrvcSWMDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSrvcSWMDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
         }
     }
 }
