@@ -191,8 +191,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         //lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
                         //lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);
-
-                        lblApplNo.Text = Convert.ToString(row["DITREPORT_UPLOADFLAG"]);
+                      
 
                         //lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                         //lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
@@ -719,8 +718,8 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if (lblApplNo.Text == "Y")
-                {
+              //  if (lblApplNo.Text == "Y")
+               // {
                     var ObjUserInfo = new DeptUserInfo();
                     if (Session["DeptUserInfo"] != null)
                     {
@@ -744,12 +743,12 @@ namespace MeghalayaUIP.Dept.PreReg
                     // BindaApplicatinDetails();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DITProcess Successfully...!');  window.location.href='PreRegDITDashBoard.aspx'", true);
                     return;
-                }
-                else
-                {
-                    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
-                    Failure.Visible = true;
-                }
+               // }
+                //else
+                //{
+                //    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                //    Failure.Visible = true;
+                //}
             }
             catch (Exception ex)
             {
@@ -861,34 +860,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }
-
-        protected void lnkbutton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                }
-                prd.Unitid = Session["UNITID"].ToString();
-                prd.Investerid = Session["INVESTERID"].ToString();
-
-
-                Response.Redirect("~/Dept/PreReg/PreRegDITSiteInspection.aspx?Status=" + Request.QueryString["status"].ToString());
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
+        }       
         protected void btnsendresponsetoIMA_Click(object sender, EventArgs e)
         {
             try
@@ -1060,8 +1032,8 @@ namespace MeghalayaUIP.Dept.PreReg
 
         protected void grdApplStatus_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (lblApplNo.Text == "Y")
-            {
+           // if (lblApplNo.Text == "Y")
+          //  {
                 var ObjUserInfo = new DeptUserInfo();
                 if (Session["DeptUserInfo"] != null)
                 {
@@ -1083,27 +1055,27 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
                     else { lnkView.Visible = false; }
                 }
-            }
-            else
-            {
-                lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
-                Failure.Visible = true;
-            }
+          //  }
+            //else
+            //{
+            //    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+            //    Failure.Visible = true;
+            //}
         }
 
         protected void lnkView_Click(object sender, EventArgs e)
         {
             try
             {
-                if (lblApplNo.Text == "Y")
-                {
+              //  if (lblApplNo.Text == "Y")
+               // {
                     Response.Redirect("~/Dept/PreReg/PreRegDITSitePrintPage.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
-                }
-                else
-                {
-                    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
-                    Failure.Visible = true;
-                }
+               // }
+                //else
+                //{
+                //    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                //    Failure.Visible = true;
+                //}
             }
             catch (Exception ex)
             {

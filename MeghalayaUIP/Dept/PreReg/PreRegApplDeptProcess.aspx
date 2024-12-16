@@ -1388,6 +1388,20 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                 <div class="col-md-12 d-flex" runat="server">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">
+                                                                <%--                                                                <asp:HyperLink ID="HypLnkFinancialInstidtutionFormat" runat="server" Visible="true" CssClass="LBLBLACK" Width="300px" Target="_blank" NavigateUrl="../../Documents/Site%20Inspection%20template.pdf">Click here for Site Inspection Template</asp:HyperLink>--%>
+                                                                <asp:LinkButton ID="lnkbutton" runat="server" OnClick="lnkbutton_Click">Click here for Site Inspection Template</asp:LinkButton>
+                                                            </label>
+                                                            <div class="col-lg-1 d-flex">
+                                                            </div>
+                                                            <div class="col-lg-2 d-flex">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
@@ -1415,7 +1429,7 @@
 
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <asp:Label ID="Label2" runat="server"></asp:Label>
+                                                        <asp:Label ID="lblApplNo1" runat="server"></asp:Label>
                                                     </div>
 
                                                 </div>

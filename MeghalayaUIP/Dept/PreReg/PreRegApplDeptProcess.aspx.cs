@@ -189,8 +189,8 @@ namespace MeghalayaUIP.Dept.PreReg
                             lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
                             lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                             lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
+                            lblApplNo1.Text = Convert.ToString(row["DITREPORT_UPLOADFLAG"]);
                         }
-
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
                         {
                             grdRevenueProj.DataSource = ds.Tables[1];
@@ -1143,7 +1143,15 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                Response.Redirect("~/Dept/PreReg/PreRegDITSitePrintPage.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+                if (lblApplNo1.Text == "Y")
+                {
+                    Response.Redirect("~/Dept/PreReg/PreRegDITSitePrintPage.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                    Failure.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -1155,32 +1163,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
         protected void grdApplStatus_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            var ObjUserInfo = new DeptUserInfo();
-            if (Session["DeptUserInfo"] != null)
-            {
-
-                if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                {
-                    ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                }
-            }
-
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
-                string[] allowedUserIDs = { "1016", "1017", "1018", "1019", "1020", "1021", "1022", "1023", "1024", "1025", "1026", "1027" };
-                if (allowedUserIDs.Contains(ObjUserInfo.UserID))
-                {
-                    grdApplStatus.Columns[7].Visible = true;
-                    lnkView.Visible = true;
-                }
-                else { lnkView.Visible = false; }
-            }
-        }
-
-        protected void btnDICProcess_Click(object sender, EventArgs e)
-        {
-            try
+            if (lblApplNo1.Text == "Y")
             {
                 var ObjUserInfo = new DeptUserInfo();
                 if (Session["DeptUserInfo"] != null)
@@ -1192,18 +1175,59 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
                 }
 
-                prd.Unitid = Session["UNITID"].ToString();
-                prd.Investerid = Session["INVESTERID"].ToString();
-                prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                prd.Remark = txtRemarks.Text;
-                prd.DPRCRETEDBY = hdnUserID.Value;
-                prd.IPAddress = getclientIP();
-                string valid = PreBAL.PreRegDICProcess(prd);
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
+                    string[] allowedUserIDs = { "1016", "1017", "1018", "1019", "1020", "1021", "1022", "1023", "1024", "1025", "1026", "1027" };
+                    if (allowedUserIDs.Contains(ObjUserInfo.UserID))
+                    {
+                        grdApplStatus.Columns[7].Visible = true;
+                        lnkView.Visible = true;
+                    }
+                    else { lnkView.Visible = false; }
+                }
+            }
+            else
+            {
+                lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnDICProcess_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblApplNo1.Text == "Y")
+                {
+                    var ObjUserInfo = new DeptUserInfo();
+                    if (Session["DeptUserInfo"] != null)
+                    {
+
+                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                        {
+                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                        }
+                    }
+
+                    prd.Unitid = Session["UNITID"].ToString();
+                    prd.Investerid = Session["INVESTERID"].ToString();
+                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    prd.Remark = txtRemarks.Text;
+                    prd.DPRCRETEDBY = hdnUserID.Value;
+                    prd.IPAddress = getclientIP();
+                    string valid = PreBAL.PreRegDICProcess(prd);
 
 
-                // BindaApplicatinDetails();
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DICProcess Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
-                return;
+                    // BindaApplicatinDetails();
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DICProcess Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                    return;
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                    Failure.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -1261,6 +1285,32 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
+        }
+        protected void lnkbutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                }
+                prd.Unitid = Session["UNITID"].ToString();
+                prd.Investerid = Session["INVESTERID"].ToString();
+
+
+                Response.Redirect("~/Dept/PreReg/PreRegDITSiteInspection.aspx?Status=" + Request.QueryString["status"].ToString());
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
     }
