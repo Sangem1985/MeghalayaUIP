@@ -191,7 +191,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         //lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
                         //lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);
-                      
+                        lblApplNo.Text = Convert.ToString(row["DITREPORT_UPLOADFLAG"]);
 
                         //lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                         //lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
@@ -1048,7 +1048,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 {
                     LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
                     string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
-                    if (allowedUserIDs.Contains(ObjUserInfo.UserID))
+                    if (allowedUserIDs.Contains(ObjUserInfo.UserID) && lblApplNo.Text=="Y")
                     {
                         grdApplStatus.Columns[7].Visible = true;
                         lnkView.Visible = true;
