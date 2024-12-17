@@ -386,32 +386,52 @@ namespace MeghalayaUIP.Dept.Reports
                     {
                         using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                         {
-
+                            // To Export all pages
                             GVDistrictWise.AllowPaging = false;
                             this.BindGridData();
-                            GVDistrictWise.HeaderRow.ForeColor = System.Drawing.Color.Black;
-                            GVDistrictWise.FooterRow.Visible = false;
+                            GVDistrictWise.HeaderStyle.ForeColor = System.Drawing.Color.White;
+                            //GVDistrictWise.HeaderStyle.BackColor = System.Drawing.Color.Blue;
+                            GVDistrictWise.RowStyle.BorderColor = System.Drawing.Color.Black;
+                            GVDistrictWise.RowStyle.BorderStyle = BorderStyle.Solid;
+                            GVDistrictWise.RowStyle.BorderWidth = Unit.Pixel(1);
+                            GVDistrictWise.FooterStyle.ForeColor = System.Drawing.Color.White;
+
+                            hw.AddStyleAttribute(HtmlTextWriterStyle.BorderCollapse, "collapse");
+                            hw.AddStyleAttribute(HtmlTextWriterStyle.Width, "100%");
+                            hw.RenderBeginTag(HtmlTextWriterTag.Style);
+                            hw.Write(@"
+                                     table { border-collapse: collapse; width: 100%; }
+                                     th, td { border: 1px solid black; padding: 5px; text-decoration: none;}
+                                     th { background-color: #013161; text-decoration: none;}
+                                     td a { text-decoration: none; color: inherit; }
+                                     table tr th:nth-child(1), table tr td:nth-child(1) { width: 20%; }
+                                     table tr th:nth-child(3), table tr td:nth-child(3) { width: 50%; }
+                                     ");
+                            hw.RenderEndTag();
                             GVDistrictWise.RenderControl(hw);
 
+                            // Convert HTML to string
                             string htmlContent = sw.ToString();
 
-                            Document pdfDoc = new Document(PageSize.A3, 10f, 10f, 10f, 0f);
+                            // Create a PDF document
+                            Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
 
-
-                            //  PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+                            // Create a PdfWriter that writes to memory stream
+                            PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
 
                             pdfDoc.Open();
 
+                            // Use XMLWorkerHelper to parse the HTML content
                             using (StringReader sr = new StringReader(htmlContent))
                             {
-                                // XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
                             }
 
                             pdfDoc.Close();
 
                             // Send the generated PDF to the client browser
                             Response.ContentType = "application/pdf";
-                            Response.AddHeader("content-disposition", "attachment;filename=CFEDeptWiseReport " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
+                            Response.AddHeader("content-disposition", "attachment;filename=Pre-Establishment Department Wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
                             Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
                             // Write the PDF from memory stream to the Response OutputStream
@@ -428,6 +448,7 @@ namespace MeghalayaUIP.Dept.Reports
                 // Handle the error and provide feedback
             }
         }
+    
         protected void btnExcel_Click(object sender, ImageClickEventArgs e)
         {
             ExportToExcel();

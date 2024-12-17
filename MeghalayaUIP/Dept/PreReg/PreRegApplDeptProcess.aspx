@@ -7,6 +7,29 @@
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
+        .color-blink {
+        font-size: 24px;
+        font-weight: bold;
+        animation: colorBlink 1s infinite;
+      border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 4px 14px;
+    box-shadow: 1px 4px;
+    }
+
+    @keyframes colorBlink {
+        0%, 100% {
+            color: darkblue;
+        }
+        50% {
+            color: transparent;
+        }
+    }
+        a#ContentPlaceHolder1_lnkbutton {
+    font-weight: 900;
+    color: #2b2a29;
+    font-size: 18px;
+}
         spna.dots {
             margin-right: 24px;
             color: #000;
@@ -721,7 +744,7 @@
                                                     <div class="table-responsive">
                                                         <asp:GridView ID="grdAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333" OnRowDataBound="grdAttachments_RowDataBound"
-                                                            GridLines="Both" HeaderStyle-BackColor="Red" 
+                                                            GridLines="Both" HeaderStyle-BackColor="Red"
                                                             Width="100%" EnableModelValidation="True">
                                                             <RowStyle />
                                                             <AlternatingRowStyle BackColor="LightGray" />
@@ -739,7 +762,7 @@
                                                                 <asp:BoundField HeaderText="Attachment Name" DataField="FILEDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
                                                                 <asp:TemplateField HeaderText="View">
                                                                     <ItemTemplate>
-                                                                         <asp:HyperLink ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server"></asp:HyperLink>                                                                       
+                                                                        <asp:HyperLink ID="linkAttachment" Text='<%#Eval("FILENAME")%>' runat="server"></asp:HyperLink>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
                                                                 <asp:TemplateField HeaderText="View" Visible="false">
@@ -853,7 +876,7 @@
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                                 <ItemTemplate>
                                                                     <asp:HyperLink ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server"></asp:HyperLink>
-                                                                   
+
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="View" Visible="false">
@@ -1352,7 +1375,20 @@
                                     <section id="dashboardSiteInspection">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-
+                                                <div class="col-md-12 d-flex" runat="server">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">
+                                                                <%--                                                                <asp:HyperLink ID="HypLnkFinancialInstidtutionFormat" runat="server" Visible="true" CssClass="LBLBLACK" Width="300px" Target="_blank" NavigateUrl="../../Documents/Site%20Inspection%20template.pdf">Click here for Site Inspection Template</asp:HyperLink>--%>
+                                                                <asp:LinkButton ID="lnkbutton" runat="server" OnClick="lnkbutton_Click" CssClass="color-blink">Click here for Site Inspection Template</asp:LinkButton>
+                                                            </label>
+                                                            <div class="col-lg-1 d-flex">
+                                                            </div>
+                                                            <div class="col-lg-2 d-flex">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
@@ -1384,20 +1420,6 @@
                                                                 <asp:Button runat="server" ID="btnupldDCReport" Text="Upload" class="btn btn-dark btn-rounded" Height="35px" Width="110px" OnClick="btnupldDCReport_Click" /><br />
                                                                 <br />
                                                                 <asp:HyperLink ID="HyperLink1" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                 <div class="col-md-12 d-flex" runat="server">
-                                                    <div class="col-md-8">
-                                                        <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">
-                                                                <%--                                                                <asp:HyperLink ID="HypLnkFinancialInstidtutionFormat" runat="server" Visible="true" CssClass="LBLBLACK" Width="300px" Target="_blank" NavigateUrl="../../Documents/Site%20Inspection%20template.pdf">Click here for Site Inspection Template</asp:HyperLink>--%>
-                                                                <asp:LinkButton ID="lnkbutton" runat="server" OnClick="lnkbutton_Click">Click here for Site Inspection Template</asp:LinkButton>
-                                                            </label>
-                                                            <div class="col-lg-1 d-flex">
-                                                            </div>
-                                                            <div class="col-lg-2 d-flex">
                                                             </div>
                                                         </div>
                                                     </div>

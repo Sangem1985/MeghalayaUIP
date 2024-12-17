@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="CFODeptWiseReport.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.CFODeptWiseReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="CFODeptWiseReport.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.CFODeptWiseReport" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

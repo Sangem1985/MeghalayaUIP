@@ -354,13 +354,13 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Cells[6].Text = AfterDate.ToString();
                 e.Row.Cells[6].Controls.Add(DateAfter);
 
-                LinkButton Rejected = new LinkButton();
-                Rejected.ForeColor = System.Drawing.Color.White;
-                Rejected.Text = PreRejected.ToString();
-                if (Rejected.Text != "0")
-                    Rejected.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=PRESCRUTINY_REJECTED" + "&Department=" + ddldepartment.SelectedItem.Text;
+                LinkButton Rejecting = new LinkButton();
+                Rejecting.ForeColor = System.Drawing.Color.White;
+                Rejecting.Text = PreRejected.ToString();
+                if (Rejecting.Text != "0")
+                    Rejecting.PostBackUrl = "CFODeptWiseReportDrillDown.aspx?Deptid=" + DeptId + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&ViewType=PRESCRUTINY_REJECTED" + "&Department=" + ddldepartment.SelectedItem.Text;
                 e.Row.Cells[7].Text = PreRejected.ToString();
-                e.Row.Cells[7].Controls.Add(Rejected);
+                e.Row.Cells[7].Controls.Add(Rejecting);
 
                 LinkButton PayPending = new LinkButton();
                 PayPending.ForeColor = System.Drawing.Color.White;
@@ -522,7 +522,7 @@ namespace MeghalayaUIP.Dept.Reports
                     {
                         using (HtmlTextWriter hw = new HtmlTextWriter(sw))
                         {
-                            
+                            // To Export all pages
                             GVCFOReport.AllowPaging = false;
                             this.BindCFoDeptReports();
                             GVCFOReport.HeaderStyle.ForeColor = System.Drawing.Color.White;
@@ -567,7 +567,7 @@ namespace MeghalayaUIP.Dept.Reports
 
                             // Send the generated PDF to the client browser
                             Response.ContentType = "application/pdf";
-                            Response.AddHeader("content-disposition", "attachment;filename=Department Wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
+                            Response.AddHeader("content-disposition", "attachment;filename=Pre-Operational Department Wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
                             Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
                             // Write the PDF from memory stream to the Response OutputStream

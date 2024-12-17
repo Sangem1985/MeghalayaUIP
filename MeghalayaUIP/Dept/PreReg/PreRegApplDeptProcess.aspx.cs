@@ -21,7 +21,7 @@ namespace MeghalayaUIP.Dept.PreReg
         PreRegBAL PreBAL = new PreRegBAL();
         PreRegDtls prd = new PreRegDtls();
         MasterBAL mstrBAL = new MasterBAL();
-        string Queryid, i;
+        string Queryid, i, ErrorMsg;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -859,6 +859,10 @@ namespace MeghalayaUIP.Dept.PreReg
                     errormsg = errormsg + slno + ". Please Enter Remarks ....!\\n";
                     slno = slno + 1;
                 }
+                //if (lblApplNo1.Text == "Y")
+                //{
+                //    if(string.IsNullOrEmpty(lnkbutton)
+                //}
 
                 return errormsg;
             }
@@ -1198,35 +1202,45 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if (lblApplNo1.Text == "Y")
+                ErrorMsg = validations();
+                if (ErrorMsg == "")
                 {
-                    var ObjUserInfo = new DeptUserInfo();
-                    if (Session["DeptUserInfo"] != null)
+                    if (lblApplNo1.Text == "Y")
                     {
-
-                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                        var ObjUserInfo = new DeptUserInfo();
+                        if (Session["DeptUserInfo"] != null)
                         {
-                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+
+                            if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                            {
+                                ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                            }
                         }
+
+                        prd.Unitid = Session["UNITID"].ToString();
+                        prd.Investerid = Session["INVESTERID"].ToString();
+                        prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                        prd.Remark = txtRemarks.Text;
+                        prd.DPRCRETEDBY = hdnUserID.Value;
+                        prd.IPAddress = getclientIP();
+                        string valid = PreBAL.PreRegDICProcess(prd);
+
+
+                        // BindaApplicatinDetails();
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DICProcess Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                        return;
                     }
-
-                    prd.Unitid = Session["UNITID"].ToString();
-                    prd.Investerid = Session["INVESTERID"].ToString();
-                    prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    prd.Remark = txtRemarks.Text;
-                    prd.DPRCRETEDBY = hdnUserID.Value;
-                    prd.IPAddress = getclientIP();
-                    string valid = PreBAL.PreRegDICProcess(prd);
-
-
-                    // BindaApplicatinDetails();
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DICProcess Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
-                    return;
+                    else
+                    {
+                        lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                        Failure.Visible = true;
+                    }
                 }
                 else
                 {
-                    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
-                    Failure.Visible = true;
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
                 }
             }
             catch (Exception ex)

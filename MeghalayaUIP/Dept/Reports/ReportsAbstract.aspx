@@ -192,6 +192,39 @@
                                         </div>
                                     </div>
                                 </div>
+                                 <%--------Grivance Reports------------------------%>
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                                                        class="collapsed">Griveance Reports
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingTwo" aria-expanded="false">
+                                                <div class="card">
+                                                    <section id="dashboardBasic1">
+                                                        <div class="container-fluid">
+                                                            <div class="row clearfix">
+                                                                <div id="DashBoardmenu1" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
+                                                                    <ul>
+                                                                        <li><a style="text-decoration: none;" target="_blank" href="GRDeptWiseReport.aspx"><i
+                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R5: Griveance Department Wise Reports</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-md-5">
                                 <%--------CFE Reports------------------------%>
@@ -259,42 +292,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-5">
-                                <%--------Grivance Reports------------------------%>
-                                <div class="col-md-12 col-xs-12">
-                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-                                                        class="collapsed">Griveance Reports
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
-                                                aria-labelledby="headingTwo" aria-expanded="false">
-                                                <div class="card">
-                                                    <section id="dashboardBasic1">
-                                                        <div class="container-fluid">
-                                                            <div class="row clearfix">
-                                                                <div id="DashBoardmenu1" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
-                                                                    <ul>
-                                                                        <li><a style="text-decoration: none;" target="_blank" href="GRDeptWiseReport.aspx"><i
-                                                                            class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R5: Griveance Department Wise Reports</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </section>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <%--------Land Reports--------------------%>
+                                   <%--------Land Reports--------------------%>
                                 <div class="col-md-12 col-xs-12">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-default">
@@ -328,7 +327,7 @@
                                 </div>
 
                             </div>
-
+                         
                             <div class="col-md-1"></div>
                         </div>
                     </div>

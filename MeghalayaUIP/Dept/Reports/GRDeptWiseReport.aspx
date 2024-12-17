@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="GRDeptWiseReport.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.GRDeptWiseReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="GRDeptWiseReport.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.GRDeptWiseReport" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -61,8 +61,8 @@
                                                     <div class="panel-heading" style="text-align: center">
                                                         <h2 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
                                                             <asp:Label ID="lblHeading" runat="server" Visible="false">GrievanceDepartmentWiseReports</asp:Label>
-                                                            <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" />
-                                                            <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" /></h2>
+                                                            <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" OnClick="btnPdf_Click" />
+                                                            <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
 
 
                                                     </div>
