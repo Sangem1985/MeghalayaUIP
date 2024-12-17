@@ -157,6 +157,8 @@ namespace MeghalayaUIP
                             {
                                 try
                                 {
+                                    lblmsg0.Text = "Invalid Credentials...!";
+                                    Failure.Visible = true;
                                     //objloginBAL.GetDeptUserInfo(UserID, Password, getclientIP());
                                 }
                                 catch (SqlException ex)
