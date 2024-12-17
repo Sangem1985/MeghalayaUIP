@@ -196,21 +196,21 @@
                                 <div class="col-md-12 col-xs-12">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                            <div class="panel-heading" role="tab" id="headingFive">
                                                 <h4 class="panel-title">
                                                     <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                                                        href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"
                                                         class="collapsed">Griveance Reports
                                                     </a>
                                                 </h4>
                                             </div>
-                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel"
                                                 aria-labelledby="headingTwo" aria-expanded="false">
                                                 <div class="card">
-                                                    <section id="dashboardBasic1">
+                                                    <section id="dashboardBasic5">
                                                         <div class="container-fluid">
                                                             <div class="row clearfix">
-                                                                <div id="DashBoardmenu1" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
+                                                                <div id="DashBoardmenu5" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
                                                                     <ul>
                                                                         <li><a style="text-decoration: none;" target="_blank" href="GRDeptWiseReport.aspx"><i
                                                                             class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R5: Griveance Department Wise Reports</a></li>
@@ -297,21 +297,21 @@
                                 <div class="col-md-12 col-xs-12">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFour">
+                                            <div class="panel-heading" role="tab" id="headingSix">
                                                 <h4 class="panel-title">
                                                     <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                        href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+                                                        href="#collapseSix" aria-expanded="false" aria-controls="collapseSix"
                                                         class="collapsed">Land Allotment Reports
                                                     </a>
                                                 </h4>
                                             </div>
-                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                                            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel"
                                                 aria-labelledby="headingFour" aria-expanded="false">
                                                 <div class="card">
-                                                    <section id="dashboardBasic3">
+                                                    <section id="dashboardBasic6">
                                                         <div class="container-fluid">
                                                             <div class="row clearfix">
-                                                                <div id="DashBoardmenu3" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
+                                                                <div id="DashBoardmenu6" style="font-weight: bold; font-family: Cambria; font-size: 16px; width: 100%">
                                                                     <ul>
                                                                         <li><a style="text-decoration: none;" target="_blank" href="LandDistWiseReport.aspx"><i
                                                                             class="fa fa-fw fa-database" style="text-indent: 20px"></i>&nbsp;&nbsp;&nbsp;&nbsp;R6: Land Allotment District Wise Reports</a></li>

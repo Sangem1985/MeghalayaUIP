@@ -848,21 +848,19 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 int slno = 1;
                 string errormsg = "";
-
-                //if (.SelectedIndex == -1 || rblRevoking.SelectedItem.Text == "--Select--")
-                //{
-                //    errormsg = errormsg + slno + ". Please Select Whether there was any order against the contractor revoking \\n";
-                //    slno = slno + 1;
-                //}
-                if (string.IsNullOrEmpty(txtRemark.Text) || txtRemark.Text == "" || txtRemark.Text == null)
+                if (lblApplNo1.Text != "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Enter Remarks ....!\\n";
+                    errormsg = errormsg + slno + ". Please Fill Site Inspection report by clicking the given link ....!\\n";
                     slno = slno + 1;
                 }
-                //if (lblApplNo1.Text == "Y")
-                //{
-                //    if(string.IsNullOrEmpty(lnkbutton)
-                //}
+                else
+                {                  
+                    if (string.IsNullOrEmpty(txtRemark.Text) || txtRemark.Text == "" || txtRemark.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Remarks ....!\\n";
+                        slno = slno + 1;
+                    }                    
+                }
 
                 return errormsg;
             }

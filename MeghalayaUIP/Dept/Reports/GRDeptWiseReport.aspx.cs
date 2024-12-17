@@ -1,18 +1,20 @@
-﻿using iText.Kernel.Geom;
-using iText.Kernel.Pdf;
+﻿using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.ReportBAL;
 using MeghalayaUIP.Common;
-using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Reflection.Metadata;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
+using MeghalayaUIP.CommonClass;
 
 namespace MeghalayaUIP.Dept.Reports
 {
@@ -149,19 +151,52 @@ namespace MeghalayaUIP.Dept.Reports
                 e.Row.Font.Bold = true;
                 e.Row.Cells[2].Text = "Total";
                 LinkButton Total = new LinkButton();
-              //  Total.ForeColor = System.Drawing.Color.Black;
+                Total.ForeColor = System.Drawing.Color.White;
+                Total.Text = TotalApplications.ToString();
                 if (Total.Text != "0")
                 {
                     Total.PostBackUrl = "GRDeptWiseReportDrilldown.aspx?Deptid=" + Deptid + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddlDepartment.SelectedItem.Text;
                 }
-                Total.Text = TotalApplications.ToString();
                 e.Row.Cells[3].Text = TotalApplications.ToString();
                 e.Row.Cells[3].Controls.Add(Total);
 
                 e.Row.Cells[4].Text = Pending.ToString();
                 e.Row.Cells[5].Text = Redress.ToString();
                 e.Row.Cells[6].Text = Reject.ToString();
-              
+
+                /* LinkButton Pend = new LinkButton();
+                 Pend.ForeColor = System.Drawing.Color.White;
+                 Pend.Text = Pending.ToString();
+                 if (Pend.Text != "0")
+                 {
+                     Pend.PostBackUrl = "GRDeptWiseReportDrilldown.aspx?Deptid=" + Deptid + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddlDepartment.SelectedItem.Text;
+                 }
+                 e.Row.Cells[4].Text = Pending.ToString();
+                 e.Row.Cells[4].Controls.Add(Pend);
+
+                 LinkButton Redressed = new LinkButton();
+                 Redressed.ForeColor = System.Drawing.Color.White;
+                 Redressed.Text = Redress.ToString();
+                 if (Redressed.Text != "0")
+                 {
+                     Redressed.PostBackUrl = "GRDeptWiseReportDrilldown.aspx?Deptid=" + Deptid + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddlDepartment.SelectedItem.Text;
+                 }
+                 e.Row.Cells[5].Text = Redress.ToString();
+                 e.Row.Cells[5].Controls.Add(Redressed);
+
+                 LinkButton Rejected = new LinkButton();
+                 Rejected.ForeColor = System.Drawing.Color.White;
+                 Rejected.Text = Redress.ToString();
+                 if (Rejected.Text != "0")
+                 {
+                     Rejected.PostBackUrl = "GRDeptWiseReportDrilldown.aspx?Deptid=" + Deptid + "&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text + "&Department=" + ddlDepartment.SelectedItem.Text;
+                 }
+                 e.Row.Cells[6].Text = Reject.ToString();
+                 e.Row.Cells[6].Controls.Add(Rejected);
+
+                 */
+
+
             }
         }
         public void AddSelect(DropDownList ddl)
@@ -220,6 +255,21 @@ namespace MeghalayaUIP.Dept.Reports
         {
             ExportToExcel();
         }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Reports/ReportsAbstract.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         private void ExportGridToPDF()
         {
 
@@ -243,23 +293,14 @@ namespace MeghalayaUIP.Dept.Reports
 
                             hw.AddStyleAttribute(HtmlTextWriterStyle.BorderCollapse, "collapse");
                             hw.AddStyleAttribute(HtmlTextWriterStyle.Width, "100%");
-                            hw.RenderBeginTag(HtmlTextWriterTag.Style);
-                            hw.Write(@"
-                                     table { border-collapse: collapse; width: 100%; }
-                                     th, td { border: 1px solid black; padding: 5px; text-decoration: none;}
-                                     th { background-color: #013161; text-decoration: none;}
-                                     td a { text-decoration: none; color: inherit; }
-                                     table tr th:nth-child(1), table tr td:nth-child(1) { width: 20%; }
-                                     table tr th:nth-child(3), table tr td:nth-child(3) { width: 50%; }
-                                     ");
-                            hw.RenderEndTag();
+                            hw.RenderBeginTag(HtmlTextWriterTag.Style);                          
                             GVGrievance.RenderControl(hw);
 
                             // Convert HTML to string
                             string htmlContent = sw.ToString();
 
                             // Create a PDF document
-                         /*   Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
+                            Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
 
                             // Create a PdfWriter that writes to memory stream
                             PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
@@ -273,10 +314,10 @@ namespace MeghalayaUIP.Dept.Reports
                             }
 
                             pdfDoc.Close();
-                         */
+                         
                             // Send the generated PDF to the client browser
                             Response.ContentType = "application/pdf";
-                            Response.AddHeader("content-disposition", "attachment;filename=Pre-Operational Department Wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
+                            Response.AddHeader("content-disposition", "attachment;filename=Griveance Department Wise Report " + DateTime.Now.ToString("M/d/yyyy") + ".pdf");
                             Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
                             // Write the PDF from memory stream to the Response OutputStream
@@ -319,6 +360,10 @@ namespace MeghalayaUIP.Dept.Reports
             {
                 //throw e;
             }
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
         }
 
     }

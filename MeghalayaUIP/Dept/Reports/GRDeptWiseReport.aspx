@@ -14,7 +14,45 @@
         </ol>
     </nav>
     <style>
-       
+        /* Increase size and align to center */
+        .page-wrapper {
+            margin: 0 auto;
+            max-width: 1200px; /* Restrict the width for better alignment */
+        }
+
+        .form-control {
+            font-size: 16px; /* Increase input font size */
+            padding: 10px; /* Add padding */
+        }
+
+        .btn {
+            font-size: 16px; /* Increase button font size */
+            padding: 10px 20px; /* Adjust padding for better visibility */
+        }
+
+        .table-bordered {
+            font-size: 14px; /* Increase table font size */
+        }
+
+        .card-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .justify-content-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-group {
+            margin: 10px 0;
+        }
+
+        .alert {
+            font-size: 14px; /* Adjust alert text size */
+        }
     </style>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="false" />
@@ -27,7 +65,7 @@
                     <div class="card-header d-flex justify-content-between">
                         <h4 class="card-title mt-1"><b>Grievance Department Wise Report:</b></h4>
                         <div class="col-md-1">
-                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnBack" OnClick="lbtnBack_Click" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                         </div>
                     </div>
                     <div class="card">
@@ -60,7 +98,7 @@
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading" style="text-align: center">
                                                         <h2 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
-                                                            <asp:Label ID="lblHeading" runat="server" Visible="false">GrievanceDepartmentWiseReports</asp:Label>
+                                                            <asp:Label ID="lblHeading" runat="server" Visible="false">Grievance Department Wise Reports</asp:Label>
                                                             <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right" alt="PDF" OnClick="btnPdf_Click" />
                                                             <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
 
