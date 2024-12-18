@@ -853,13 +853,13 @@ namespace MeghalayaUIP.Dept.PreReg
                     errormsg = errormsg + slno + ". Please Fill Site Inspection report by clicking the given link ....!\\n";
                     slno = slno + 1;
                 }
-                else
-                {                  
+                else if(lblApplNo1.Text !="Y")
+                {
                     if (string.IsNullOrEmpty(txtRemark.Text) || txtRemark.Text == "" || txtRemark.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Remarks ....!\\n";
                         slno = slno + 1;
-                    }                    
+                    }
                 }
 
                 return errormsg;
@@ -1191,8 +1191,8 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             else
             {
-                lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
-                Failure.Visible = true;
+               // lblmsg0.Text = Message;
+                Failure.Visible = false;
             }
         }
 
