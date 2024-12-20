@@ -113,7 +113,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             try
             {
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(RENConstants.GetRENApplicantDetails, connection);
+                da = new SqlDataAdapter(SvrcConstants.GetRENApplicantDetails, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.CommandText = SvrcConstants.GetRENApplicantDetails;
 
@@ -160,10 +160,10 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@SRVCED_CREATEDBY", Convert.ToInt32(ObjApplicationDetails.CreatedBy));
                 com.Parameters.AddWithValue("@SRVCED_CREATEDBYIP", ObjApplicationDetails.IPAddress);
-                //  com.Parameters.AddWithValue("@RENID_RENQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
+                 com.Parameters.AddWithValue("@SRVCED_SRVCQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
                 com.Parameters.AddWithValue("@SRVCED_UNITID", Convert.ToInt32(ObjApplicationDetails.UnitId));
 
-                com.Parameters.AddWithValue("@SRVCED_UIDNO", ObjApplicationDetails.UidNo);
+                //com.Parameters.AddWithValue("@SRVCED_UIDNO", ObjApplicationDetails.UidNo);
                 com.Parameters.AddWithValue("@SRVCED_NAMEOFUNIT", ObjApplicationDetails.Nameofunit);
                 com.Parameters.AddWithValue("@SRVCED_COMPANYTYPE", ObjApplicationDetails.companyType);
                 com.Parameters.AddWithValue("@SRVCED_SECTORENTERPRISE", ObjApplicationDetails.INDUSTRY);
@@ -468,8 +468,8 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCA_FILENAME", objAttachments.FileName);
                 com.Parameters.AddWithValue("@SRVCA_FILETYPE", objAttachments.FileType);
                 com.Parameters.AddWithValue("@SRVCA_FILEDESCRIPTION", objAttachments.FileDescription);
-                com.Parameters.AddWithValue("@CFEA_DEPTID", objAttachments.DeptID);
-                com.Parameters.AddWithValue("@CFEA_APPROVALID", objAttachments.ApprovalID);
+                com.Parameters.AddWithValue("@SRVCA_DEPTID", objAttachments.DeptID);
+                com.Parameters.AddWithValue("@SRVCA_APPROVALID", objAttachments.ApprovalID);
                 com.Parameters.AddWithValue("@SRVCA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
                 com.Parameters.AddWithValue("@SRVCA_CREATEDBYIP", objAttachments.IPAddress);
                 if (objAttachments.ReferenceNo != null && objAttachments.ReferenceNo != "")
@@ -718,6 +718,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Connection = connection;
                 com.Parameters.AddWithValue("@SRVCSWD_UNITID",Convert.ToInt32(ObjSWMDet.unitid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBY", Convert.ToInt32(ObjSWMDet.createdby));
+                com.Parameters.AddWithValue("@SRVCSWD_SRVCQDID", Convert.ToInt32(ObjSWMDet.Questionnariid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBYIP", ObjSWMDet.createdbyip);
                 com.Parameters.AddWithValue("@SRVCSWD_AUTHORIZATIONOPEARTION", ObjSWMDet.authorizationopeartion);
                 com.Parameters.AddWithValue("@SRVCSWD_NAMELOCALOPERATOR", ObjSWMDet.namelocaloperator);
@@ -775,6 +776,48 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetsrvcapprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSrvcAppliedApprovalIDs, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSrvcAppliedApprovalIDs;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
+                da.SelectCommand.Parameters.AddWithValue("@USERID", userid);
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQID", QusestionnaireID);
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);
+                if (ApprovalID == "")
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", null);
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", ApprovalID);
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

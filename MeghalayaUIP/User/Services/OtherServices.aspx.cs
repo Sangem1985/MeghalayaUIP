@@ -158,7 +158,7 @@ namespace MeghalayaUIP.User.Services
                    int result = Convert.ToInt32(objSrvcbal.InsertSRVCDeptApprovals(ObjApplicationDetails));
                     if (result > 0)
                     {                        
-                        string newurl = "~/User/Services/.aspx?Next=" + "N";
+                        string newurl = "~/User/Services/SWMDetails.aspx?Next=" + "N";
                         Response.Redirect(newurl);
                     }
                     else

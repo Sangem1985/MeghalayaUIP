@@ -28,6 +28,7 @@ namespace MeghalayaUIP.Common
         public static string InsertSRVCDeptApprovals = "USP_INS_SRVCDPETAPPROVALS";
         public static string InsertSRVCSWDdetails = "USP_INSSRVCSOLIDWASTEDETAILS";//"USP_INS_SRVCDPETAPPROVALS";
         public static string GetSrvcSWMDetails = "USP_GETSRVCSOLIDWASTEDET";
+        public static string GetSrvcAppliedApprovalIDs = "USP_GETSRVCAPPROVALIDS";
     }
 
     public class SvrcApplicationDetails
@@ -173,6 +174,7 @@ namespace MeghalayaUIP.Common
     public class SWMdetails
     {
         public string unitid { get; set; }
+        public string Questionnariid { get; set; }
         public string namelocaloperator { get; set; }
         public string nodalauthorisedagency { get; set; }
         public string authorizationopeartion { get; set; }

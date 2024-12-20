@@ -48,10 +48,45 @@ namespace MeghalayaUIP.User.Services
 
                 if (!IsPostBack)
                 {
-                    BindBMW();
-                    BindWasteDetails();
-                    BindData();
+                    GetAppliedorNot();
                 }
+            }           
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "83");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "83")
+                    {
+                        BindBMW();
+                        BindWasteDetails();
+                        BindData();
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/Services/.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/Services/SWMDetails.aspx?Previous=" + "P");
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindData()
@@ -398,7 +433,8 @@ namespace MeghalayaUIP.User.Services
         }
 
         protected void btnlegalnotice_Click(object sender, EventArgs e)
-        {
+        {         
+
             try
             {
                 string Error = ""; string message = "";
@@ -409,10 +445,11 @@ namespace MeghalayaUIP.User.Services
                     {
                         string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Directions or notices or legal actions authorisation" + "\\";
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Directions or notices or legal actions authorisation" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
+
                         }
                         System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
                         int count = dir.GetFiles().Length;
@@ -432,11 +469,10 @@ namespace MeghalayaUIP.User.Services
                             }
                         }
 
-
                         SRVCAttachments objSitePlan = new SRVCAttachments();
-                        objSitePlan.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
-                        objSitePlan.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
-                        objSitePlan.MasterID = "2";
+                        objSitePlan.UNITID = Convert.ToString(Session["SRVCUNITID"]);
+                        objSitePlan.Questionnareid = Convert.ToString(Session["SRVCQID"]);
+                        objSitePlan.MasterID = "42";
                         objSitePlan.FilePath = serverpath + fuplegalnotice.PostedFile.FileName;
                         objSitePlan.FileName = fuplegalnotice.PostedFile.FileName;
                         objSitePlan.FileType = fuplegalnotice.PostedFile.ContentType;
@@ -450,7 +486,7 @@ namespace MeghalayaUIP.User.Services
                             hyplegalnotice.Text = fuplegalnotice.PostedFile.FileName;
                             hyplegalnotice.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fuplegalnotice.PostedFile.FileName);
                             hyplegalnotice.Target = "blank";
-                            message = "alert('" + "Details of directions or notices or legal actions authorisation Document Uploaded successfully" + "')";
+                            message = "alert('" + "Details of directions or notices or legal actions authorisation Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -458,7 +494,6 @@ namespace MeghalayaUIP.User.Services
                     {
                         message = "alert('" + Error + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
                     }
                 }
                 else
@@ -469,10 +504,11 @@ namespace MeghalayaUIP.User.Services
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+
+
         }
         public string validations(FileUpload Attachment)
         {
@@ -560,6 +596,36 @@ namespace MeghalayaUIP.User.Services
                     Failure.Visible = true;
                     lblmsg0.Text = "";
                 }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Services/SWMDetails.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Services/.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

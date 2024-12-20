@@ -79,6 +79,8 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSrvcSWMDetails(userid, UNITID);
         }
+        public DataSet GetsrvcapprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
+        { return SvrcDal.GetsrvcapprovalID(userid, UNITID, QusestionnaireID, DeptID, ApprovalID); }
 
     }
 }
