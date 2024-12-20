@@ -129,36 +129,42 @@ namespace MeghalayaUIP.User.Services
                                 hypSolidwaste.Visible = true;
                                 hypSolidwaste.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypSolidwaste.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtCBWTFSWM.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 5)
                             {
                                 hypSWPRTD.Visible = true;
                                 hypSWPRTD.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypSWPRTD.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtSWPRTD.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 6)
                             {
                                 hypDetailSiteSel.Visible = true;
                                 hypDetailSiteSel.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypDetailSiteSel.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtDetailSiteSel.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 7)
                             {
                                 hypSiteClr.Visible = true;
                                 hypSiteClr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypSiteClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtSiteClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 8)
                             {
                                 hypEnvClearance.Visible = true;
                                 hypEnvClearance.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypEnvClearance.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtEnvClearance.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 9)
                             {
                                 hypAgreement.Visible = true;
                                 hypAgreement.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypAgreement.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtAgreement.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
                         }
                     }

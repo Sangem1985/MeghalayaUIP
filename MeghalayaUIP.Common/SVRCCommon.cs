@@ -100,6 +100,7 @@ namespace MeghalayaUIP.Common
     public class SvrcBMWDet
     {
         public string UnitId { get; set; }
+        public string Questionnariid { get; set; }
         public string Name_applicant { get; set; }
         public string HCFCBWTF { get; set; }
         public string email { get; set; }

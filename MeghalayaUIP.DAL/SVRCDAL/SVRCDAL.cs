@@ -298,7 +298,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
 
                 com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
-
+                com.Parameters.AddWithValue("@BMW_QDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
                 com.Parameters.AddWithValue("@BMW_NAME", ObjBMWDetails.Name_applicant);
                 com.Parameters.AddWithValue("@BMW_NAMEHCF_CBWTF", ObjBMWDetails.HCFCBWTF);
 
@@ -370,7 +370,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_CREATEDBY", Convert.ToInt32(ObjBMWDetails.Createdby));
                 com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
                 com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
-
+                com.Parameters.AddWithValue("@BMW_QDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
                 com.Parameters.AddWithValue("@BMW_CATEGORY", ObjBMWDetails.Category);
                 com.Parameters.AddWithValue("@BMW_TYPEWASTE", ObjBMWDetails.Waste);
                 com.Parameters.AddWithValue("@BMW_QUANTITYGENERATED", ObjBMWDetails.QuantityGenerated);
