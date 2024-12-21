@@ -360,7 +360,7 @@
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Center" />
                                                         <ItemStyle Width="70px" />
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>                                                  
                                                     <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
                                                             <itemstyle horizontalalign="Center" />
@@ -411,7 +411,7 @@
                                         <h6>ii) Details of treatment equipment (please give details such as the number, type & capacity of each unit)</h6>
                                         <div class="col-md-12 d-flex justify-content-center">
                                             <div class="tableBMW">
-                                                <asp:GridView ID="GVBIOMedical" runat="server" AutoGenerateColumns="false">
+                                                <asp:GridView ID="GVBIOMedical" runat="server" AutoGenerateColumns="false" OnRowDataBound="GVBIOMedical_RowDataBound">
                                                     <HeaderStyle VerticalAlign="Middle" Width="70%" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                     <RowStyle CssClass="GridviewScrollC1Item" />
                                                     <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
@@ -424,7 +424,12 @@
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                             <ItemStyle Width="70px" />
                                                         </asp:TemplateField>
-
+                                                        <asp:TemplateField HeaderText="Category" Visible="false" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
+                                                            <ItemTemplate>
+                                                                <itemstyle horizontalalign="Center" />
+                                                                <asp:Label ID="lblBMWID" runat="server" Text='<%# Eval("BMW_ID") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
                                                         <asp:TemplateField HeaderText="Details Of Treatment" Visible="true" ItemStyle-Width="40%" HeaderStyle-HorizontalAlign="left">
                                                             <ItemTemplate>

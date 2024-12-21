@@ -100,10 +100,21 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        if (ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"].ToString().Contains("Waste Processing"))
+                            CHKAuthorization.Items[0].Selected = true;
+                        if (ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"].ToString().Contains("Recycling"))
+                            CHKAuthorization.Items[1].Selected = true;
+                        if (ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"].ToString().Contains("Treatment"))
+                            CHKAuthorization.Items[2].Selected = true;
+                        if (ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"].ToString().Contains("Dispersal at Landfill"))
+                            CHKAuthorization.Items[3].Selected = true;
+
                         txtNameLocalBody.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NAMELOCALOPERATOR"]);
                         txtDesignation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NODALAUTHORISEDAGENCY"]);
-                        CHKAuthorization.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
-                        txtWasteProduced.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
+                       // CHKAuthorization.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
+
+
+                        txtWasteProduced.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TOTALQUANTITYWASTE"]);
                         txtWasteRecycled.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TOTALQUANTITYWASTE"]);
                         txtWasteTreated.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_QUANTITYWASTERECYCLE"]);
                         txtWasteDisposed.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_QUANTITYWASTETREATED"]);
@@ -117,7 +128,6 @@ namespace MeghalayaUIP.User.Services
                         txtExistingSiteUnderOperation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_DETAILSEXISTINGSITE"]);
                         txtLandfillingDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_METHODOLOGYDETAILS"]);
                         txtMeasureToChkEnvPoltn.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_CHECKENVIRONMENTPOLLUTION"]);
-
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)

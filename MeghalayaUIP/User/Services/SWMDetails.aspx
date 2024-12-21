@@ -93,10 +93,10 @@
                                                     <label class="col-lg-8 col-form-label">For setting up and opeartion of the facility: (Please tick mark)*</label>
                                                     <div class="col-lg-12 d-flex">
                                                         <asp:CheckBoxList ID="CHKAuthorization" runat="server" RepeatDirection="Vertical" RepeatColumns="4" Style="padding: 20px">
-                                                            <asp:ListItem Text=" Waste Processing" Value="1" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text=" Recycling" Value="3" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text=" Treatment" Value="4" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text=" Dispersal at Landfill" Value="5" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Waste Processing" Value="1" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Recycling" Value="3" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Treatment" Value="4" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Dispersal at Landfill" Value="5" style="padding-right: 20px"></asp:ListItem>
                                                         </asp:CheckBoxList>
                                                     </div>
                                                 </div>

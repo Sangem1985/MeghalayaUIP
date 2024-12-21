@@ -298,7 +298,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
 
                 com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
-                com.Parameters.AddWithValue("@BMW_QDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
+                com.Parameters.AddWithValue("@BMW_ServicesQDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
                 com.Parameters.AddWithValue("@BMW_NAME", ObjBMWDetails.Name_applicant);
                 com.Parameters.AddWithValue("@BMW_NAMEHCF_CBWTF", ObjBMWDetails.HCFCBWTF);
 
@@ -370,7 +370,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_CREATEDBY", Convert.ToInt32(ObjBMWDetails.Createdby));
                 com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
                 com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
-                com.Parameters.AddWithValue("@BMW_QDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
+                com.Parameters.AddWithValue("@BMW_SERVICEQDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
                 com.Parameters.AddWithValue("@BMW_CATEGORY", ObjBMWDetails.Category);
                 com.Parameters.AddWithValue("@BMW_TYPEWASTE", ObjBMWDetails.Waste);
                 com.Parameters.AddWithValue("@BMW_QUANTITYGENERATED", ObjBMWDetails.QuantityGenerated);
@@ -397,50 +397,71 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return Result;
         }
-        public string InsertBMWWASTEDET(DataTable dtBMWDetails,string Unitid, string Createdby,string IPAddress)
+        public string InsertBMWWASTEDET(DataTable dtBMWDetails,string Unitid,string Questionnaire, string Createdby,string IPAddress)
         {
             string result = "";
             SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
 
             try
             {
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction(); 
+
                 foreach (DataRow dr in dtBMWDetails.Rows)
                 {
-                    connection.Open();
-                    transaction = connection.BeginTransaction();
-                    SqlCommand cmd = new SqlCommand(SvrcConstants.InsertBMWBIOMEDICALDET, connection);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Transaction = transaction;
-
-                    cmd.Parameters.AddWithValue("@BMW_UNITID", Unitid);
-                    cmd.Parameters.AddWithValue("@BMW_CREATEDBY", Createdby);
-                    cmd.Parameters.AddWithValue("@BMW_CREATEDBYIP", IPAddress);
-                    cmd.Parameters.AddWithValue("@BMW_EQUIPMENT", dr["BMW_EQUIPMENT"]);
-                    cmd.Parameters.AddWithValue("@BMW_NO_UNIT", dr["BMW_NO_UNIT"]);
-                    cmd.Parameters.AddWithValue("@BMW_CAPACITY_UNIT", dr["BMW_CAPACITY_UNIT"]);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
+                    try
                     {
-                        result = "Success";
-                    }
-                    else
-                    {
-                        result = "Failed";
-                    }
+                        SqlCommand cmd = new SqlCommand(SvrcConstants.InsertBMWBIOMEDICALDET, connection);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Transaction = transaction;
 
+                        cmd.Parameters.AddWithValue("@BMW_UNITID", Unitid);
+                        cmd.Parameters.AddWithValue("@BMW_CREATEDBY", Createdby);
+                        cmd.Parameters.AddWithValue("@BMW_CREATEDBYIP", IPAddress);
+                        cmd.Parameters.AddWithValue("@BMW_SERVICEQDID", Questionnaire);
+                        cmd.Parameters.AddWithValue("@BMW_ID", dr["BMW_ID"]);
+                        cmd.Parameters.AddWithValue("@BMW_EQUIPMENT", dr["BMW_EQUIPMENT"]);
+                        cmd.Parameters.AddWithValue("@BMW_NO_UNIT", dr["BMW_NO_UNIT"]);
+                        cmd.Parameters.AddWithValue("@BMW_CAPACITY_UNIT", dr["BMW_CAPACITY_UNIT"]);
+                        cmd.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        string outputResult = cmd.Parameters["@RESULT"].Value.ToString();
+
+                        if (rowsAffected > 0)
+                        {
+                            result = "Success";
+                        }
+                        else
+                        {
+                            result = "Failed";
+                            transaction.Rollback();
+                            break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback(); 
+                        throw;
+                    }
                 }
-            }
-            catch(Exception ex)
-            {
 
+                transaction.Commit(); 
+            }
+            catch (Exception ex)
+            {
+                result = $"Error: {ex.Message}"; 
+                throw;
             }
             finally
-            {
-                connection.Close();
+            {               
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
                 connection.Dispose();
             }
+
             return result;
         }
         public string InsertSRVCAttachments(SRVCAttachments objAttachments)

@@ -100,7 +100,7 @@ namespace MeghalayaUIP.User.Services
                         ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
                         txtRegNo.Text = ds.Tables[0].Rows[0]["SRVCED_REGNUMBER"].ToString();
                         txtRegDate.Text = ds.Tables[0].Rows[0]["SRVCED_REGDATE"].ToString();
-                        ddlsector.SelectedItem.Text = ds.Tables[0].Rows[0]["SRVCED_SECTOR"].ToString();
+                        ddlsector.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_SECTOR"].ToString();
                         ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlLineActivity.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_LINEOFACTIVITY"].ToString();
                         ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
@@ -183,7 +183,7 @@ namespace MeghalayaUIP.User.Services
                         ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
                         txtRegNo.Text = ds.Tables[1].Rows[0]["COMPANYREGNO"].ToString();
                         txtRegDate.Text = ds.Tables[1].Rows[0]["REGISTRATIONDATE"].ToString();
-                        ddlsector.SelectedItem.Text = ds.Tables[1].Rows[0]["PROJECT_SECTORNAME"].ToString();
+                        ddlsector.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_SECTORNAME"].ToString();
                         ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlLineActivity.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_LOAID"].ToString();
                         ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
