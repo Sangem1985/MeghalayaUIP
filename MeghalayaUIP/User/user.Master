@@ -216,7 +216,8 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fi fi-br-person-circle-question"></i>Other Services
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <asp:LinkButton ID="lnkCentralRep" runat="server" OnClick="lnkCentralRep_Click" class="dropdown-item">Central Repository<span class="sr-only">(current)</span></asp:LinkButton>
+                                        <asp:LinkButton ID="lnkServices" runat="server" OnClick="lnkServices_Click" class="dropdown-item">Other Services<span class="sr-only">(current)</span></asp:LinkButton>
+                                        <asp:LinkButton ID="lnkCentralRep" runat="server" OnClick="lnkCentralRep_Click" class="dropdown-item">Central Repository<span class="sr-only">(current)</span></asp:LinkButton>                                        
                                     </div>
                                 </li>
 
