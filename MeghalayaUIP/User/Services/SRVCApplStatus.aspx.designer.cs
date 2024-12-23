@@ -96,13 +96,13 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
 
         /// <summary>
-        /// gvPreRegUserDashboard control.
+        /// GVApplictionStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPreRegUserDashboard;
+        protected global::System.Web.UI.WebControls.GridView GVApplictionStatus;
 
         /// <summary>
         /// UpdateProgress control.

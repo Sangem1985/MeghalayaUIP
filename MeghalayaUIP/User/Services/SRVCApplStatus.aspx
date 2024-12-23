@@ -39,7 +39,7 @@
 
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-11">
-                                    <h4>Other Service</h4>
+                                    <h4>Other Services</h4>
                                 </div>
                                 <div class="col-md-1">
                                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
@@ -47,7 +47,7 @@
                             </div>
 
 
-                            <asp:GridView ID="gvPreRegUserDashboard" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                            <asp:GridView ID="GVApplictionStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-hover" ForeColor="#333333"
                                 GridLines="None" Width="100%" EnableModelValidation="True">
                                 <RowStyle />
@@ -63,11 +63,11 @@
                                     </asp:TemplateField>
                                     <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
                                     <asp:BoundField HeaderText="Acknowledgement ID" DataField="PREREGUIDNO" ItemStyle-Width="5%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
-                                    <asp:BoundField HeaderText="Invester ID" DataField="INVESTERID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" Visible="false" />
+                                    <asp:BoundField HeaderText="Invester ID" DataField="SRVCED_CREATEDBY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" Visible="false" />
                                     <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                     <asp:BoundField HeaderText="PAN No" DataField="COMPANYPANNO" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                    <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                    <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                    <asp:BoundField HeaderText="Unit Address" DataField="APPLICANTADDRESS" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                    <asp:BoundField HeaderText="Service Name" DataField="SERVICENAME" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                     <asp:BoundField HeaderText="Service Applied Date" DataField="CREATEDDATE" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                                     <asp:TemplateField HeaderText="Queries Count" ItemStyle-Width="5%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText">
@@ -79,7 +79,7 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Status" ItemStyle-Width="5%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText">
                                         <ItemTemplate>
-                                            <asp:HyperLink ID="hplApproval" runat="server" Text='<%#Eval("statusdescription") %>'></asp:HyperLink>
+                                            <asp:HyperLink ID="hplApproval" runat="server" Text='<%#Eval("STATUSDESCRIPTION") %>'></asp:HyperLink>
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
@@ -89,13 +89,13 @@
                                     <asp:TemplateField HeaderText="View" ItemStyle-Width="5%">
                                         <ItemTemplate>
                                             <asp:Button ID="btnView" runat="server" Text='View' CommandName="VIEW" CssClass="btn btn-info"
-                                                CommandArgument='<%# Eval("UNITID")+"$"+Eval("INVESTERID")%>' />
+                                                CommandArgument='<%# Eval("SRVCED_UNITID")+"$"+Eval("SRVCED_CREATEDBY")%>' />
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <asp:TemplateField Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblUnitID" Text='<%#Eval("UNITID")%>' runat="server"></asp:Label>
+                                            <asp:Label ID="lblUnitID" Text='<%#Eval("SRVCED_UNITID")%>' runat="server"></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                      <asp:TemplateField Visible="false">

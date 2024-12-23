@@ -854,5 +854,41 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
+        public DataSet GetApplicationStatus(string userid, string UnitID, string Status)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCApplUserDashboard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCApplUserDashboard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
+                da.SelectCommand.Parameters.AddWithValue("@STATUS", Status);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
 }

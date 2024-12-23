@@ -29,6 +29,7 @@ namespace MeghalayaUIP.Common
         public static string InsertSRVCSWDdetails = "USP_INSSRVCSOLIDWASTEDETAILS";//"USP_INS_SRVCDPETAPPROVALS";
         public static string GetSrvcSWMDetails = "USP_GETSRVCSOLIDWASTEDET";
         public static string GetSrvcAppliedApprovalIDs = "USP_GETSRVCAPPROVALIDS";
+        public static string GetSRVCApplUserDashboard = "USP_GETSRVCAPPLUSERDASHBOARD";
     }
 
     public class SvrcApplicationDetails

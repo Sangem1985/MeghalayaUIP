@@ -81,6 +81,10 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         }
         public DataSet GetsrvcapprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
         { return SvrcDal.GetsrvcapprovalID(userid, UNITID, QusestionnaireID, DeptID, ApprovalID); }
+        public DataSet GetApplicationStatus(string userid, string UnitID, string Status)
+        {
+            return SvrcDal.GetApplicationStatus(userid, UnitID, Status);
+        }
 
     }
 }
