@@ -45,10 +45,10 @@ namespace MeghalayaUIP.User.Services
                     {
                         UnitID = Convert.ToString(Session["SRVCUNITID"]);
                     }
-                    if (Convert.ToString(Session["SRVCQID"]) != "")
-                    {
-                        Questionnaire = Convert.ToString(Session["SRVCQID"]);
-                    }
+                    //if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
+                    //{
+                    //    Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                    //}
                     else
                     {
                         string newurl = "~/User/Services/SRVCUserDashboard.aspx";
@@ -175,7 +175,7 @@ namespace MeghalayaUIP.User.Services
                     }
                     else if (ds.Tables[1].Rows.Count > 0)
                     {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["SRVCUNITID"]);
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["UNITID"]);
                         txtUnitName.Text = ds.Tables[1].Rows[0]["COMPANYNAME"].ToString();
                         ddlCompanyType.SelectedValue = ds.Tables[1].Rows[0]["COMPANYTYPE"].ToString();
                         ddlSectorEnter.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_NOA"].ToString();
@@ -776,8 +776,12 @@ namespace MeghalayaUIP.User.Services
                 {
                     SvrcApplicationDetails ObjApplicationDetails = new SvrcApplicationDetails();
 
+                    if (Convert.ToString(Session["SRVCQID"]) == "")
+                        ObjApplicationDetails.Questionnariid = "";
+                    else
+                        ObjApplicationDetails.Questionnariid = Convert.ToString(Session["SRVCQID"]);
 
-                    ObjApplicationDetails.Questionnariid = Convert.ToString(Session["SRVCQID"]); 
+
                     ObjApplicationDetails.CreatedBy = hdnUserID.Value;
                     ObjApplicationDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                     ObjApplicationDetails.IPAddress = getclientIP();
