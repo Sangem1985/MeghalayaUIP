@@ -849,7 +849,7 @@ namespace MeghalayaUIP.User.Services
                     {
                         Session["RENQID"] = result;
                         success.Visible = true;
-                        lblmsg.Text = "Renewal Application Details Submitted Successfully";
+                        lblmsg.Text = "Enterprise Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
