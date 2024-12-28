@@ -70,7 +70,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 if (lblDPRTOBEPROCESSED.Text != "0")
                 {
-                    Response.Redirect("PreRegDITView.aspx?status=IMATODEPTQUERY");
+                    Response.Redirect("PreRegDITView.aspx?status=TOBEPROCESSED");
                 }
             }
             catch (Exception ex)
@@ -113,8 +113,8 @@ namespace MeghalayaUIP.Dept.PreReg
                 dt = PreBAL.GetPreRegDashBoard(prd);
 
                 lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
-                lblDPRTOBEPROCESSED.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
-                lblDPRPROCESSED.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
+                lblDPRTOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
+                lblDPRPROCESSED.Text = dt.Rows[0]["PROCESSED"].ToString();
                 lblForwardedDEPTQUERY.Text = dt.Rows[0]["DCSENTBACK"].ToString();
                 lblReceivedDEPT.Text = dt.Rows[0]["DCRECEIVED"].ToString();
 
