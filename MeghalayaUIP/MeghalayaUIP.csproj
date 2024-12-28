@@ -662,6 +662,7 @@
     <Content Include="Dept\Reports\RENDeptWiseReport.aspx" />
     <Content Include="Dept\Reports\RENDeptWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\ReportsAbstract.aspx" />
+    <Content Include="Dept\Services\SrvcApplDeptProcess.aspx" />
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
@@ -803,6 +804,7 @@
     <Content Include="User\Renewal\RENUserDashboard.aspx" />
     <Content Include="User\Services\BMWDetails.aspx" />
     <Content Include="User\Services\EnterpriseDetails.aspx" />
+    <Content Include="User\Services\HazardousDetails.aspx" />
     <Content Include="User\Services\OtherServices.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
     <Content Include="User\Services\SWMDetails.aspx" />
@@ -1337,6 +1339,13 @@
     </Compile>
     <Compile Include="Dept\Reports\ReportsAbstract.aspx.designer.cs">
       <DependentUpon>ReportsAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Services\SrvcApplDeptProcess.aspx.cs">
+      <DependentUpon>SrvcApplDeptProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Services\SrvcApplDeptProcess.aspx.designer.cs">
+      <DependentUpon>SrvcApplDeptProcess.aspx</DependentUpon>
     </Compile>
     <Compile Include="EODB.aspx.cs">
       <DependentUpon>EODB.aspx</DependentUpon>
@@ -2331,6 +2340,13 @@
     </Compile>
     <Compile Include="User\Services\EnterpriseDetails.aspx.designer.cs">
       <DependentUpon>EnterpriseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\HazardousDetails.aspx.cs">
+      <DependentUpon>HazardousDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\HazardousDetails.aspx.designer.cs">
+      <DependentUpon>HazardousDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\OtherServices.aspx.cs">
       <DependentUpon>OtherServices.aspx</DependentUpon>
