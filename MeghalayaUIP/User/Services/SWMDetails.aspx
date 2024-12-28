@@ -63,7 +63,7 @@
                                                         Name of the local body/agency appointed by them/operator of facility :
                                                     </label>
                                                     <div class="col-lg-3">
-                                                        <asp:TextBox ID="txtNameLocalBody" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameLocalBody" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                                         for operation of processing/treatment or disposal facility
                                                     </label>
                                                     <div class="col-lg-3">
-                                                        <asp:TextBox ID="txtDesignation" Type="text" class="form-control" runat="server" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDesignation" Type="text" class="form-control" runat="server" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -93,10 +93,10 @@
                                                     <label class="col-lg-8 col-form-label">For setting up and opeartion of the facility: (Please tick mark)*</label>
                                                     <div class="col-lg-12 d-flex">
                                                         <asp:CheckBoxList ID="CHKAuthorization" runat="server" RepeatDirection="Vertical" RepeatColumns="4" Style="padding: 20px">
-                                                            <asp:ListItem Text=" Waste Processing" Value="1" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text=" Recycling" Value="3" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text=" Treatment" Value="4" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text=" Dispersal at Landfill" Value="5" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Waste Processing" Value="1" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Recycling" Value="3" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Treatment" Value="4" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Dispersal at Landfill" Value="5" style="padding-right: 20px"></asp:ListItem>
                                                         </asp:CheckBoxList>
                                                     </div>
                                                 </div>
@@ -112,7 +112,7 @@
                                                         i. Total Quantity of waste to be processed per day:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtWasteProduced" Type="number" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtWasteProduced" Type="number" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,7 +122,7 @@
                                                         Quantity of waste to be recycled:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtWasteRecycled" runat="server" Type="number" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtWasteRecycled" runat="server" Type="number" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -132,7 +132,7 @@
                                                         Quantity of waste to be treated:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtWasteTreated" runat="server" Type="number" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtWasteTreated" runat="server" Type="number" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,7 +142,7 @@
                                                         Quantity of waste to be disposed into landfill:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtWasteDisposed" runat="server" Type="number" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtWasteDisposed" runat="server" Type="number" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,7 +152,7 @@
                                                         ii. Utitlization programme for waste processed(Product Utitlization) :
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtUtilisation" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtUtilisation" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -162,7 +162,7 @@
                                                         Quantity of leachate:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtQuanLeachate" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtQuanLeachate" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,7 +172,7 @@
                                                         Treatment technology for leachate:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtTreatmentLeachate" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtTreatmentLeachate" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,7 +182,7 @@
                                                         iv. Measures to be taken for prevention and control of environmental pollution
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtMeasuresForPrevention" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMeasuresForPrevention" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,7 +192,7 @@
                                                         v. Measures to be taken for safety of workers working in the plant
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtMeasuresForSafety" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMeasuresForSafety" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,7 +208,7 @@
                                                         Number Of sites identified:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtSiteIdentified" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSiteIdentified" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -218,7 +218,7 @@
                                                         Quantity of waste to be disposed per day:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtQantityWasteDisposed" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtQantityWasteDisposed" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -228,7 +228,7 @@
                                                         Details Of Existing Site under operation :
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtExistingSiteUnderOperation" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtExistingSiteUnderOperation" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -238,7 +238,7 @@
                                                         Methodology and operational details of landfilling :
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLandfillingDetails" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLandfillingDetails" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -248,7 +248,7 @@
                                                         Measures taken to check environmental pollution :
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtMeasureToChkEnvPoltn" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMeasureToChkEnvPoltn" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -411,9 +411,9 @@
                                         </div>
 
                                         <div class="col-md-12 text-right mt-2 mb-2">
-                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnPreviuos_Click" />
                                             <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnsave_Click" />
-                                            <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                            <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnNext_Click" />
                                         </div>
                                     </div>
                                 </div>
@@ -423,5 +423,13 @@
                 </div>
             </div>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnDisposal" />
+            <asp:PostBackTrigger ControlID="btnDetailsSolidWaste" />
+            <asp:PostBackTrigger ControlID="btnDetailSiteSelection" />
+            <asp:PostBackTrigger ControlID="btnSiteClearance" />
+            <asp:PostBackTrigger ControlID="btnEnvironmentalClearance" />
+            <asp:PostBackTrigger ControlID="btnAgreement" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

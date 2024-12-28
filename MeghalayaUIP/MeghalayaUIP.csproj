@@ -806,6 +806,8 @@
     <Content Include="User\Services\EnterpriseDetails.aspx" />
     <Content Include="User\Services\HazardousDetails.aspx" />
     <Content Include="User\Services\OtherServices.aspx" />
+    <Content Include="User\Services\PCBFinalCertificate.aspx" />
+    <Content Include="User\Services\SRVCApplStatus.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
     <Content Include="User\Services\SWMDetails.aspx" />
     <Content Include="User\UserDashboard.aspx" />
@@ -2354,6 +2356,20 @@
     </Compile>
     <Compile Include="User\Services\OtherServices.aspx.designer.cs">
       <DependentUpon>OtherServices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\PCBFinalCertificate.aspx.cs">
+      <DependentUpon>PCBFinalCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\PCBFinalCertificate.aspx.designer.cs">
+      <DependentUpon>PCBFinalCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCApplStatus.aspx.cs">
+      <DependentUpon>SRVCApplStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCApplStatus.aspx.designer.cs">
+      <DependentUpon>SRVCApplStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCUserDashboard.aspx.cs">
       <DependentUpon>SRVCUserDashboard.aspx</DependentUpon>

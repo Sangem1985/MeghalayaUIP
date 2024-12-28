@@ -128,6 +128,21 @@ namespace MeghalayaUIP.Dept.Reports
                 throw ex;
             }
         }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Reports/ReportsAbstract.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         public void FillGridData()
         {
             try
@@ -319,19 +334,27 @@ namespace MeghalayaUIP.Dept.Reports
                             // To Export all pages
                             GVLADistrictWise.AllowPaging = false;
                             this.FillGridData();
-                            GVLADistrictWise.HeaderRow.ForeColor = System.Drawing.Color.Black;
-                            GVLADistrictWise.FooterRow.Visible = false;
+                            GVLADistrictWise.HeaderStyle.ForeColor = System.Drawing.Color.White;
+                            //GVDistrictWise.HeaderStyle.BackColor = System.Drawing.Color.Blue;
+                            GVLADistrictWise.RowStyle.BorderColor = System.Drawing.Color.Black;
+                            GVLADistrictWise.RowStyle.BorderStyle = BorderStyle.Solid;
+                            GVLADistrictWise.RowStyle.BorderWidth = Unit.Pixel(1);
+                            GVLADistrictWise.FooterStyle.ForeColor = System.Drawing.Color.White;
+
+                            hw.AddStyleAttribute(HtmlTextWriterStyle.BorderCollapse, "collapse");
+                            hw.AddStyleAttribute(HtmlTextWriterStyle.Width, "100%");
+                            hw.RenderBeginTag(HtmlTextWriterTag.Style);
                             GVLADistrictWise.RenderControl(hw);
 
                             // Convert HTML to string
                             string htmlContent = sw.ToString();
 
                             // Create a PDF document
-                            Document pdfDoc = new Document(PageSize.A3, 10f, 10f, 10f, 0f);
+                            Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
 
                             // Create a PdfWriter that writes to memory stream
                             PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
-
+                           
                             pdfDoc.Open();
 
                             // Use XMLWorkerHelper to parse the HTML content

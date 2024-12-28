@@ -113,7 +113,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             try
             {
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(RENConstants.GetRENApplicantDetails, connection);
+                da = new SqlDataAdapter(SvrcConstants.GetRENApplicantDetails, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.CommandText = SvrcConstants.GetRENApplicantDetails;
 
@@ -160,10 +160,13 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@SRVCED_CREATEDBY", Convert.ToInt32(ObjApplicationDetails.CreatedBy));
                 com.Parameters.AddWithValue("@SRVCED_CREATEDBYIP", ObjApplicationDetails.IPAddress);
-                //  com.Parameters.AddWithValue("@RENID_RENQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
+                if (ObjApplicationDetails.Questionnariid != null && ObjApplicationDetails.Questionnariid != "")
+                {
+                    com.Parameters.AddWithValue("@SRVCED_SRVCQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
+                }
                 com.Parameters.AddWithValue("@SRVCED_UNITID", Convert.ToInt32(ObjApplicationDetails.UnitId));
 
-                com.Parameters.AddWithValue("@SRVCED_UIDNO", ObjApplicationDetails.UidNo);
+                //com.Parameters.AddWithValue("@SRVCED_UIDNO", ObjApplicationDetails.UidNo);
                 com.Parameters.AddWithValue("@SRVCED_NAMEOFUNIT", ObjApplicationDetails.Nameofunit);
                 com.Parameters.AddWithValue("@SRVCED_COMPANYTYPE", ObjApplicationDetails.companyType);
                 com.Parameters.AddWithValue("@SRVCED_SECTORENTERPRISE", ObjApplicationDetails.INDUSTRY);
@@ -298,7 +301,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
 
                 com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
-
+                com.Parameters.AddWithValue("@BMW_ServicesQDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
                 com.Parameters.AddWithValue("@BMW_NAME", ObjBMWDetails.Name_applicant);
                 com.Parameters.AddWithValue("@BMW_NAMEHCF_CBWTF", ObjBMWDetails.HCFCBWTF);
 
@@ -370,7 +373,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_CREATEDBY", Convert.ToInt32(ObjBMWDetails.Createdby));
                 com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
                 com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
-
+                com.Parameters.AddWithValue("@BMW_SERVICEQDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
                 com.Parameters.AddWithValue("@BMW_CATEGORY", ObjBMWDetails.Category);
                 com.Parameters.AddWithValue("@BMW_TYPEWASTE", ObjBMWDetails.Waste);
                 com.Parameters.AddWithValue("@BMW_QUANTITYGENERATED", ObjBMWDetails.QuantityGenerated);
@@ -397,50 +400,71 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return Result;
         }
-        public string InsertBMWWASTEDET(DataTable dtBMWDetails,string Unitid, string Createdby,string IPAddress)
+        public string InsertBMWWASTEDET(DataTable dtBMWDetails, string Unitid, string Questionnaire, string Createdby, string IPAddress)
         {
             string result = "";
             SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
 
             try
             {
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+
                 foreach (DataRow dr in dtBMWDetails.Rows)
                 {
-                    connection.Open();
-                    transaction = connection.BeginTransaction();
-                    SqlCommand cmd = new SqlCommand(SvrcConstants.InsertBMWBIOMEDICALDET, connection);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Transaction = transaction;
-
-                    cmd.Parameters.AddWithValue("@BMW_UNITID", Unitid);
-                    cmd.Parameters.AddWithValue("@BMW_CREATEDBY", Createdby);
-                    cmd.Parameters.AddWithValue("@BMW_CREATEDBYIP", IPAddress);
-                    cmd.Parameters.AddWithValue("@BMW_EQUIPMENT", dr["BMW_EQUIPMENT"]);
-                    cmd.Parameters.AddWithValue("@BMW_NO_UNIT", dr["BMW_NO_UNIT"]);
-                    cmd.Parameters.AddWithValue("@BMW_CAPACITY_UNIT", dr["BMW_CAPACITY_UNIT"]);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
+                    try
                     {
-                        result = "Success";
-                    }
-                    else
-                    {
-                        result = "Failed";
-                    }
+                        SqlCommand cmd = new SqlCommand(SvrcConstants.InsertBMWBIOMEDICALDET, connection);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Transaction = transaction;
 
+                        cmd.Parameters.AddWithValue("@BMW_UNITID", Unitid);
+                        cmd.Parameters.AddWithValue("@BMW_CREATEDBY", Createdby);
+                        cmd.Parameters.AddWithValue("@BMW_CREATEDBYIP", IPAddress);
+                        cmd.Parameters.AddWithValue("@BMW_SERVICEQDID", Questionnaire);
+                        cmd.Parameters.AddWithValue("@BMW_ID", dr["BMW_ID"]);
+                        cmd.Parameters.AddWithValue("@BMW_EQUIPMENT", dr["BMW_EQUIPMENT"]);
+                        cmd.Parameters.AddWithValue("@BMW_NO_UNIT", dr["BMW_NO_UNIT"]);
+                        cmd.Parameters.AddWithValue("@BMW_CAPACITY_UNIT", dr["BMW_CAPACITY_UNIT"]);
+                        cmd.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        string outputResult = cmd.Parameters["@RESULT"].Value.ToString();
+
+                        if (rowsAffected > 0)
+                        {
+                            result = "Success";
+                        }
+                        else
+                        {
+                            result = "Failed";
+                            transaction.Rollback();
+                            break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
                 }
-            }
-            catch(Exception ex)
-            {
 
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                result = $"Error: {ex.Message}";
+                throw;
             }
             finally
             {
-                connection.Close();
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
                 connection.Dispose();
             }
+
             return result;
         }
         public string InsertSRVCAttachments(SRVCAttachments objAttachments)
@@ -468,8 +492,8 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCA_FILENAME", objAttachments.FileName);
                 com.Parameters.AddWithValue("@SRVCA_FILETYPE", objAttachments.FileType);
                 com.Parameters.AddWithValue("@SRVCA_FILEDESCRIPTION", objAttachments.FileDescription);
-                com.Parameters.AddWithValue("@CFEA_DEPTID", objAttachments.DeptID);
-                com.Parameters.AddWithValue("@CFEA_APPROVALID", objAttachments.ApprovalID);
+                com.Parameters.AddWithValue("@SRVCA_DEPTID", objAttachments.DeptID);
+                com.Parameters.AddWithValue("@SRVCA_APPROVALID", objAttachments.ApprovalID);
                 com.Parameters.AddWithValue("@SRVCA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
                 com.Parameters.AddWithValue("@SRVCA_CREATEDBYIP", objAttachments.IPAddress);
                 if (objAttachments.ReferenceNo != null && objAttachments.ReferenceNo != "")
@@ -642,63 +666,63 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
         }
 
-       /* public string SRVCSWDDetails(SWMdetails objDetails)
-        {
-            string Result = "";
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
+        /* public string SRVCSWDDetails(SWMdetails objDetails)
+         {
+             string Result = "";
+             SqlConnection connection = new SqlConnection(connstr);
+             SqlTransaction transaction = null;
 
-            try
-            {
-                connection.Open();
-                transaction = connection.BeginTransaction();
+             try
+             {
+                 connection.Open();
+                 transaction = connection.BeginTransaction();
 
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = SvrcConstants.InsertSRVCSWDdetails;
+                 SqlCommand com = new SqlCommand();
+                 com.CommandType = CommandType.StoredProcedure;
+                 com.CommandText = SvrcConstants.InsertSRVCSWDdetails;
 
-                com.Transaction = transaction;
-                com.Connection = connection;
-                com.Parameters.AddWithValue("@SRVCSWD_UNITID", objDetails.unitid);
-                com.Parameters.AddWithValue("@SRVCSWD_NAMELOCALOPERATOR", objDetails.namelocaloperator);
-                com.Parameters.AddWithValue("@SRVCSWD_NODALAUTHORISEDAGENCY", objDetails.nodalauthorisedagency);
-                com.Parameters.AddWithValue("@SRVCSWD_AUTHORIZATIONOPEARTION", objDetails.authorizationopeartion);
-                com.Parameters.AddWithValue("@SRVCSWD_TOTALQUANTITYWASTE", objDetails.totalquantitywaste);
-                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTERECYCLE", objDetails.quantitywasterecycle);
-                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTETREATED", objDetails.quantitywastetreated);
-                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTEDISPOSED", objDetails.quantitywastedisposed);
-                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYLEACHATE", objDetails.quantityleachate);
-                com.Parameters.AddWithValue("@SRVCSWD_TREATMENTTECHLEACHATE", objDetails.treatmenttechleachate);
-                com.Parameters.AddWithValue("@SRVCSWD_MEASURESCEP", objDetails.measurescep);
-                com.Parameters.AddWithValue("@SRVCSWD_MEASURESSAFTEYPLANT", objDetails.measuressafteyplant);
-                com.Parameters.AddWithValue("@SRVCSWD_NOSITES", objDetails.nosites);
-                com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTEPERDAY", objDetails.quantitywasteperday);
-                com.Parameters.AddWithValue("@SRVCSWD_DETAILSEXISTINGSITE", objDetails.detailsexistingsite);
-                com.Parameters.AddWithValue("@SRVCSWD_METHODOLOGYDETAILS", objDetails.methodologydetails);
-                com.Parameters.AddWithValue("@SRVCSWD_CHECKENVIRONMENTPOLLUTION", objDetails.checkenvironmentpollution);
-                com.Parameters.AddWithValue("@SRVCSWD_CREATEDBY", objDetails.createdby);
-                com.Parameters.AddWithValue("@SRVCSWD_CREATEDBYIP", objDetails.createdbyip);
+                 com.Transaction = transaction;
+                 com.Connection = connection;
+                 com.Parameters.AddWithValue("@SRVCSWD_UNITID", objDetails.unitid);
+                 com.Parameters.AddWithValue("@SRVCSWD_NAMELOCALOPERATOR", objDetails.namelocaloperator);
+                 com.Parameters.AddWithValue("@SRVCSWD_NODALAUTHORISEDAGENCY", objDetails.nodalauthorisedagency);
+                 com.Parameters.AddWithValue("@SRVCSWD_AUTHORIZATIONOPEARTION", objDetails.authorizationopeartion);
+                 com.Parameters.AddWithValue("@SRVCSWD_TOTALQUANTITYWASTE", objDetails.totalquantitywaste);
+                 com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTERECYCLE", objDetails.quantitywasterecycle);
+                 com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTETREATED", objDetails.quantitywastetreated);
+                 com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTEDISPOSED", objDetails.quantitywastedisposed);
+                 com.Parameters.AddWithValue("@SRVCSWD_QUANTITYLEACHATE", objDetails.quantityleachate);
+                 com.Parameters.AddWithValue("@SRVCSWD_TREATMENTTECHLEACHATE", objDetails.treatmenttechleachate);
+                 com.Parameters.AddWithValue("@SRVCSWD_MEASURESCEP", objDetails.measurescep);
+                 com.Parameters.AddWithValue("@SRVCSWD_MEASURESSAFTEYPLANT", objDetails.measuressafteyplant);
+                 com.Parameters.AddWithValue("@SRVCSWD_NOSITES", objDetails.nosites);
+                 com.Parameters.AddWithValue("@SRVCSWD_QUANTITYWASTEPERDAY", objDetails.quantitywasteperday);
+                 com.Parameters.AddWithValue("@SRVCSWD_DETAILSEXISTINGSITE", objDetails.detailsexistingsite);
+                 com.Parameters.AddWithValue("@SRVCSWD_METHODOLOGYDETAILS", objDetails.methodologydetails);
+                 com.Parameters.AddWithValue("@SRVCSWD_CHECKENVIRONMENTPOLLUTION", objDetails.checkenvironmentpollution);
+                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBY", objDetails.createdby);
+                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBYIP", objDetails.createdbyip);
 
-                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
-                com.ExecuteNonQuery();
+                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                 com.ExecuteNonQuery();
 
-                Result = com.Parameters["@RESULT"].Value.ToString();
-                transaction.Commit();
-                connection.Close();
+                 Result = com.Parameters["@RESULT"].Value.ToString();
+                 transaction.Commit();
+                 connection.Close();
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-            return Result;
-        }
-       */
+             }
+             catch (Exception ex)
+             {
+                 throw ex;
+             }
+             finally
+             {
+                 connection.Close();
+                 connection.Dispose();
+             }
+             return Result;
+         }
+        */
         public string INSSRVCSOLIDDDetails(SWMdetails ObjSWMDet)
         {
             string Result = "";
@@ -716,8 +740,9 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-                com.Parameters.AddWithValue("@SRVCSWD_UNITID",Convert.ToInt32(ObjSWMDet.unitid));
+                com.Parameters.AddWithValue("@SRVCSWD_UNITID", Convert.ToInt32(ObjSWMDet.unitid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBY", Convert.ToInt32(ObjSWMDet.createdby));
+                com.Parameters.AddWithValue("@SRVCSWD_SRVCQDID", Convert.ToInt32(ObjSWMDet.Questionnariid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBYIP", ObjSWMDet.createdbyip);
                 com.Parameters.AddWithValue("@SRVCSWD_AUTHORIZATIONOPEARTION", ObjSWMDet.authorizationopeartion);
                 com.Parameters.AddWithValue("@SRVCSWD_NAMELOCALOPERATOR", ObjSWMDet.namelocaloperator);
@@ -735,7 +760,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCSWD_DETAILSEXISTINGSITE", ObjSWMDet.detailsexistingsite);
                 com.Parameters.AddWithValue("@SRVCSWD_METHODOLOGYDETAILS", ObjSWMDet.methodologydetails);
                 com.Parameters.AddWithValue("@SRVCSWD_CHECKENVIRONMENTPOLLUTION", ObjSWMDet.checkenvironmentpollution);
-              
+
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -775,6 +800,84 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetsrvcapprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSrvcAppliedApprovalIDs, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSrvcAppliedApprovalIDs;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
+                da.SelectCommand.Parameters.AddWithValue("@USERID", userid);
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQID", QusestionnaireID);
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);
+                if (ApprovalID == "")
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", null);
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", ApprovalID);
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetApplicationStatus(string userid, string UnitID, string Status)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCApplUserDashboard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCApplUserDashboard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
+                da.SelectCommand.Parameters.AddWithValue("@STATUS", Status);
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

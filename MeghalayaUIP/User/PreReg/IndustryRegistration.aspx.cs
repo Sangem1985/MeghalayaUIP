@@ -2068,6 +2068,8 @@ namespace MeghalayaUIP.User.PreReg
                 int slno = 1;
                 string errormsg = ""; string ApplAadhar = "";
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
 
                 if (string.IsNullOrEmpty(txtApplFrstName.Text.Trim()) || txtApplFrstName.Text.Trim() == "" || txtApplFrstName.Text.Trim() == null)
                 {

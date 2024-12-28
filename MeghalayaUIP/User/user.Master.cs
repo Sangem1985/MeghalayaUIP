@@ -239,5 +239,10 @@ namespace MeghalayaUIP.User
             Response.Redirect("~/User/ChangePassword.aspx");
 
         }
+
+        protected void lnkServices_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Services/SRVCUserDashboard.aspx");
+        }
     }
 }

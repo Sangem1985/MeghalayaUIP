@@ -59,7 +59,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         i) Name of the Applicant:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtNameApplicant" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameApplicant" runat="server" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,7 +81,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">E-Mail ID*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control" onblur="validateEmail(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -157,7 +157,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         ii) In case of renewal previous authorisation number</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRenno" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRenno" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,7 +182,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">a) Under the Water (Prevention and Control of Pollution) Act, 1974*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtPCB" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPCB" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -191,7 +191,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">b) Under the Air (Prevention and Control of Pollution) Act, 1981: *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtPCB1981" runat="server" class="form-control" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPCB1981" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -237,7 +237,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">i) Number of beds of HCF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtNoHCF" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNoHCF" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -245,7 +245,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">ii) Number of patients treated per month by HCF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtHCFNO" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtHCFNO" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -253,7 +253,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">iii) Number healthcare facilities covered by CBMWTF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtHealthCBMWFT" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtHealthCBMWFT" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -264,7 +264,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">iv) No of beds covered by CBMWTF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtNobedcbmwtf" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNobedcbmwtf" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -272,7 +272,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">v) Installed treatment and disposal capacity of CBMWTF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtcapacitytreat" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtcapacitytreat" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -280,7 +280,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">vi) Area or distance covered by CBMWTF:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtdistance" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtdistance" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -290,7 +290,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">vii) Quantity of Bio-medical waste handled, treated or disposed.</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtwastetreat" runat="server" class="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="txtwastetreat" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -324,7 +324,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Quantity Generated or Collected, Kg/ day</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtQuantity" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtQuantity" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -334,7 +334,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Method of Treatmentand Disposal (ReferSchedule – I)</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtMethod" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMethod" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -360,7 +360,7 @@
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Center" />
                                                         <ItemStyle Width="70px" />
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>                                                  
                                                     <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
                                                             <itemstyle horizontalalign="Center" />
@@ -411,7 +411,7 @@
                                         <h6>ii) Details of treatment equipment (please give details such as the number, type & capacity of each unit)</h6>
                                         <div class="col-md-12 d-flex justify-content-center">
                                             <div class="tableBMW">
-                                                <asp:GridView ID="GVBIOMedical" runat="server" AutoGenerateColumns="false">
+                                                <asp:GridView ID="GVBIOMedical" runat="server" AutoGenerateColumns="false" OnRowDataBound="GVBIOMedical_RowDataBound">
                                                     <HeaderStyle VerticalAlign="Middle" Width="70%" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                     <RowStyle CssClass="GridviewScrollC1Item" />
                                                     <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
@@ -424,7 +424,12 @@
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                             <ItemStyle Width="70px" />
                                                         </asp:TemplateField>
-
+                                                        <asp:TemplateField HeaderText="Category" Visible="false" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
+                                                            <ItemTemplate>
+                                                                <itemstyle horizontalalign="Center" />
+                                                                <asp:Label ID="lblBMWID" runat="server" Text='<%# Eval("BMW_ID") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
                                                         <asp:TemplateField HeaderText="Details Of Treatment" Visible="true" ItemStyle-Width="40%" HeaderStyle-HorizontalAlign="left">
                                                             <ItemTemplate>
@@ -514,9 +519,9 @@
                                     </div>
 
                                     <div class="col-md-12 text-right mt-2 mb-2">
-                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnPreviuos_Click" />
                                         <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                        <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                        <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnNext_Click" />
 
                                     </div>
                                 </div>
@@ -532,5 +537,9 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnBiomedicalwaste" />
+            <asp:PostBackTrigger ControlID="btnlegalnotice" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

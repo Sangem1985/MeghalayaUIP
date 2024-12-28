@@ -16,6 +16,21 @@ namespace MeghalayaUIP.Dept.Reports
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         ReportBAL Objreport = new ReportBAL();
         string Distid, FromDate, ToDate, District, ViewType;
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/Reports/LandDistWiseReport.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try

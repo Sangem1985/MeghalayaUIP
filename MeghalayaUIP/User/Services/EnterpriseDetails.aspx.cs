@@ -22,7 +22,7 @@ namespace MeghalayaUIP.User.Services
         decimal sum;
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, ErrorMsg = "", result = "";
+        string UnitID,Questionnaire, ErrorMsg = "", result = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,6 +45,10 @@ namespace MeghalayaUIP.User.Services
                     {
                         UnitID = Convert.ToString(Session["SRVCUNITID"]);
                     }
+                    //if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
+                    //{
+                    //    Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                    //}
                     else
                     {
                         string newurl = "~/User/Services/SRVCUserDashboard.aspx";
@@ -77,6 +81,164 @@ namespace MeghalayaUIP.User.Services
             }
             //lblTotProjCost.Text = Convert.ToString(Convert.ToString(string.IsNullOrEmpty(txtPropEmp.Text)) + Convert.ToDecimal(string.IsNullOrEmpty(txtLandValue.Text)) + Convert.ToDecimal(string.IsNullOrEmpty(txtBuildingValue.Text)) + Convert.ToDecimal(string.IsNullOrEmpty(txtPMCost.Text)) + Convert.ToString(string.IsNullOrEmpty(txtAnnualTurnOver.Text)));
 
+        }
+        public void BindData()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objSrvcbal.GetSvrcApplicantDetails(hdnUserID.Value, UnitID);
+                if (ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_UNITID"]);                     
+                        txtUnitName.Text = ds.Tables[0].Rows[0]["SRVCED_NAMEOFUNIT"].ToString();
+                        ddlCompanyType.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_COMPANYTYPE"].ToString();
+                        ddlSectorEnter.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_SECTORENTERPRISE"].ToString();
+                        ddlRegType.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_CATEGORYREG"].ToString();
+                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
+                        txtRegNo.Text = ds.Tables[0].Rows[0]["SRVCED_REGNUMBER"].ToString();
+                        txtRegDate.Text = ds.Tables[0].Rows[0]["SRVCED_REGDATE"].ToString();
+                        ddlsector.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_SECTOR"].ToString();
+                        ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlLineActivity.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_LINEOFACTIVITY"].ToString();
+                        ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
+                        lblPCBCategory.Text = ds.Tables[0].Rows[0]["SRVCED_POLLUTIONCATG"].ToString();
+
+                        txtDoors.Text = ds.Tables[0].Rows[0]["SRVCED_SURVEYDOOR"].ToString();
+                        txtLocality.Text = ds.Tables[0].Rows[0]["SRVCED_LOCALITY"].ToString();
+                        txtLANDMARK.Text = ds.Tables[0].Rows[0]["SRVCED_LANDMARK"].ToString();
+                        ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_DISTRIC"].ToString();
+                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_MANDAL"].ToString();
+                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_VILLAGE"].ToString();
+                        txtEmailId.Text = ds.Tables[0].Rows[0]["SRVCED_EMAILID"].ToString();
+                        txtMobileNo.Text = ds.Tables[0].Rows[0]["SRVCED_MOBILENO"].ToString();
+                        txtpincode.Text = ds.Tables[0].Rows[0]["SRVCED_PINCODE"].ToString();
+                        txtLandArea.Text = ds.Tables[0].Rows[0]["SRVCED_TOTALEXTENTLAND"].ToString();
+                        txtBuiltArea.Text = ds.Tables[0].Rows[0]["SRVCED_BUILTUPAREA"].ToString();
+
+                        txtName.Text = ds.Tables[0].Rows[0]["SRVCED_NAME"].ToString();
+                        txtSoWoDo.Text = ds.Tables[0].Rows[0]["SRVCED_SONOF"].ToString();
+                        txtEmail.Text = ds.Tables[0].Rows[0]["SRVCED_EMAIL"].ToString();
+                        txtphoneno.Text = ds.Tables[0].Rows[0]["SRVCED_MOBILENUMBER"].ToString();
+                        txtAltMobile.Text = ds.Tables[0].Rows[0]["SRVCED_ALTERNUMBER"].ToString();
+                        txtLandlineno.Text = ds.Tables[0].Rows[0]["SRVCED_LANDLINENUMBER"].ToString();
+                        txtDoorNo.Text = ds.Tables[0].Rows[0]["SRVCED_DOOR"].ToString();
+                        txtLocal.Text = ds.Tables[0].Rows[0]["SRVCED_LOCALITYADD"].ToString();
+                        ddlstate.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_STATE"].ToString();
+                        ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
+
+                        if (ddlstate.SelectedItem.Text == "Meghalaya")
+                        {
+                            otherDistric.Visible = true;
+                            trotherstate.Visible = false;
+                            ddldist.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_DISTRICS"].ToString();
+                            ddldist_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlmand.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_MANDALS"].ToString();
+                            ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlvilla.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_VILLAGES"].ToString();
+
+                        }
+                        else
+                        {
+                            trotherstate.Visible = true;
+                            otherDistric.Visible = false;
+                            txtApplDist.Text = ds.Tables[0].Rows[0]["SRVCED_DIST"].ToString();
+                            txtApplTaluka.Text = ds.Tables[0].Rows[0]["SRVCED_MANDA"].ToString();
+                            txtApplVillage.Text = ds.Tables[0].Rows[0]["SRVCED_VILLA"].ToString();
+                        }
+
+                        txtPin.Text = ds.Tables[0].Rows[0]["SRVCED_PIN"].ToString();
+                        txtAge.Text = ds.Tables[0].Rows[0]["SRVCED_AGE"].ToString();
+                        txtDesignation.Text = ds.Tables[0].Rows[0]["SRVCED_DESIGNATION"].ToString();
+                        rblWomen.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_WOMENENTREPRENEUR"].ToString();
+                        rblAbled.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_ABLED"].ToString();
+
+                        txtMale.Text = ds.Tables[0].Rows[0]["SRVCED_DIRECTMALE"].ToString();
+                        txtFemale.Text = ds.Tables[0].Rows[0]["SRVCED_DIRECTFEMALE"].ToString();
+                        txtDirectOthers.Text = ds.Tables[0].Rows[0]["SRVCED_DIRECTEMP"].ToString();
+                        txtIndirectMale.Text = ds.Tables[0].Rows[0]["SRVCED_INDIRECTMALE"].ToString();
+                        txtIndirectFemale.Text = ds.Tables[0].Rows[0]["SRVCED_INDIRECTFEMALE"].ToString();
+                        txtInDirectOthers.Text = ds.Tables[0].Rows[0]["SRVCED_INDIRECTEMP"].ToString();
+
+                        txtPropEmp.Text = ds.Tables[0].Rows[0]["SRVCED_TOTALEMP"].ToString();
+                        txtLandValue.Text = ds.Tables[0].Rows[0]["SRVCED_LANDSALEDEED"].ToString();
+                        txtBuildingValue.Text = ds.Tables[0].Rows[0]["SRVCED_BUILDING"].ToString();
+                        txtPMCost.Text = ds.Tables[0].Rows[0]["SRVCED_PLANTMACHINERY"].ToString();
+                        lblTotProjCost.Text = ds.Tables[0].Rows[0]["SRVCED_PROJECTCOST"].ToString();
+                        txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["SRVCED_ANNUALTURNOVER"].ToString();
+                        txtAnnualTurnOver_TextChanged(null, EventArgs.Empty);
+                        //lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
+                    }
+                    else if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["UNITID"]);
+                        txtUnitName.Text = ds.Tables[1].Rows[0]["COMPANYNAME"].ToString();
+                        ddlCompanyType.SelectedValue = ds.Tables[1].Rows[0]["COMPANYTYPE"].ToString();
+                        ddlSectorEnter.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_NOA"].ToString();
+                        ddlRegType.SelectedValue = ds.Tables[1].Rows[0]["COMPANYREGTYPE"].ToString();
+                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
+                        txtRegNo.Text = ds.Tables[1].Rows[0]["COMPANYREGNO"].ToString();
+                        txtRegDate.Text = ds.Tables[1].Rows[0]["REGISTRATIONDATE"].ToString();
+                        ddlsector.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_SECTORNAME"].ToString();
+                        ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlLineActivity.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_LOAID"].ToString();
+                        ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
+                        lblPCBCategory.Text = ds.Tables[1].Rows[0]["PROJECT_PCBCATEGORY"].ToString();
+
+
+                        txtDoors.Text = ds.Tables[1].Rows[0]["UNIT_DOORNO"].ToString();
+                        txtLocality.Text = ds.Tables[1].Rows[0]["UNIT_LOCALITY"].ToString();
+                        // txtLANDMARK.Text = ds.Tables[1].Rows[0]["RENID_LANDMARK"].ToString();
+                        if (Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DISTRICTID"]) != "0" ||
+                            Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DISTRICTID"]) != "")
+                        {
+                            ddlstate.SelectedValue = "23";
+                            ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
+                        }
+                        ddlDistrict.SelectedValue = ds.Tables[1].Rows[0]["UNIT_DISTRICTID"].ToString();
+                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlMandal.SelectedValue = ds.Tables[1].Rows[0]["UNIT_MANDALID"].ToString();
+                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlVillage.SelectedValue = ds.Tables[1].Rows[0]["UNIT_VILLAGEID"].ToString();
+                        txtpincode.Text = ds.Tables[1].Rows[0]["UNIT_PINCODE"].ToString();
+                        txtLandArea.Text = ds.Tables[1].Rows[0]["PROJECT_LANDAREA"].ToString();
+                        txtBuiltArea.Text = ds.Tables[1].Rows[0]["PROJECT_BUILDINGAREA"].ToString();
+
+
+                        txtName.Text = ds.Tables[1].Rows[0]["REP_NAME"].ToString();
+                        txtphoneno.Text = ds.Tables[1].Rows[0]["REP_MOBILE"].ToString();
+                        txtEmail.Text = ds.Tables[1].Rows[0]["REP_EMAIL"].ToString();
+                        txtDoorNo.Text = ds.Tables[1].Rows[0]["REP_DOORNO"].ToString();
+                        txtLocal.Text = ds.Tables[1].Rows[0]["REP_LOCALITY"].ToString();
+                        ddldist.SelectedValue = ds.Tables[1].Rows[0]["REP_DISTRICTID"].ToString();
+                        ddldist_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlmand.SelectedValue = ds.Tables[1].Rows[0]["REP_MANDALID"].ToString();
+                        ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlvilla.SelectedValue = ds.Tables[1].Rows[0]["REP_VILLAGEID"].ToString();
+                        txtPin.Text = ds.Tables[1].Rows[0]["REP_PINCODE"].ToString();
+
+                        txtLandValue.Text = ds.Tables[1].Rows[0]["PROJECT_LANDVALUE"].ToString();
+                        txtBuildingValue.Text = ds.Tables[1].Rows[0]["PROJECT_BUILDINGVALUE"].ToString();
+                        txtPMCost.Text = ds.Tables[1].Rows[0]["PROJECT_PMCOST"].ToString();
+                        //lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
+                        //txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
+                        //lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
+
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         protected void BindStates()
@@ -364,166 +526,7 @@ namespace MeghalayaUIP.User.Services
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }
-
-        public void BindData()
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                ds = objSrvcbal.GetSvrcApplicantDetails(hdnUserID.Value, UnitID);
-                if (ds.Tables.Count > 0)
-                {
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["SRVCUNITID"]);
-                        txtUnitName.Text = ds.Tables[0].Rows[0]["SRVCED_NAMEOFUNIT"].ToString();
-                        ddlCompanyType.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_COMPANYTYPE"].ToString();
-                        ddlSectorEnter.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_SECTORENTERPRISE"].ToString();
-                        ddlRegType.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_CATEGORYREG"].ToString();
-                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
-                        txtRegNo.Text = ds.Tables[0].Rows[0]["SRVCED_REGNUMBER"].ToString();
-                        txtRegDate.Text = ds.Tables[0].Rows[0]["SRVCED_REGDATE"].ToString();
-                        ddlsector.SelectedItem.Text = ds.Tables[0].Rows[0]["SRVCED_SECTOR"].ToString();
-                        ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlLineActivity.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_LINEOFACTIVITY"].ToString();
-                        ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
-                        lblPCBCategory.Text = ds.Tables[0].Rows[0]["SRVCED_POLLUTIONCATG"].ToString();
-
-                        txtDoors.Text = ds.Tables[0].Rows[0]["SRVCED_SURVEYDOOR"].ToString();
-                        txtLocality.Text = ds.Tables[0].Rows[0]["SRVCED_LOCALITY"].ToString();
-                        txtLANDMARK.Text = ds.Tables[0].Rows[0]["SRVCED_LANDMARK"].ToString();
-                        ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_DISTRIC"].ToString();
-                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_MANDAL"].ToString();
-                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_VILLAGE"].ToString();
-                        txtEmailId.Text = ds.Tables[0].Rows[0]["RENID_EMAILID"].ToString();
-                        txtMobileNo.Text = ds.Tables[0].Rows[0]["SRVCED_MOBILENO"].ToString();
-                        txtpincode.Text = ds.Tables[0].Rows[0]["SRVCED_PINCODE"].ToString();
-                        txtLandArea.Text = ds.Tables[0].Rows[0]["SRVCED_TOTALEXTENTLAND"].ToString();
-                        txtBuiltArea.Text = ds.Tables[0].Rows[0]["SRVCED_BUILTUPAREA"].ToString();
-
-                        txtName.Text = ds.Tables[0].Rows[0]["SRVCED_NAME"].ToString();
-                        txtSoWoDo.Text = ds.Tables[0].Rows[0]["SRVCED_SONOF"].ToString();
-                        txtEmail.Text = ds.Tables[0].Rows[0]["SRVCED_EMAIL"].ToString();
-                        txtphoneno.Text = ds.Tables[0].Rows[0]["SRVCED_MOBILENUMBER"].ToString();
-                        txtAltMobile.Text = ds.Tables[0].Rows[0]["SRVCED_ALTERNUMBER"].ToString();
-                        txtLandlineno.Text = ds.Tables[0].Rows[0]["SRVCED_LANDLINENUMBER"].ToString();
-                        txtDoorNo.Text = ds.Tables[0].Rows[0]["SRVCED_DOOR"].ToString();
-                        txtLocal.Text = ds.Tables[0].Rows[0]["SRVCED_LOCALITYADD"].ToString();
-                        ddlstate.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_STATE"].ToString();
-                        ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
-
-                        if (ddlstate.SelectedItem.Text == "Meghalaya")
-                        {
-                            otherDistric.Visible = true;
-                            trotherstate.Visible = false;
-                            ddldist.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_DISTRICS"].ToString();
-                            ddldist_SelectedIndexChanged(null, EventArgs.Empty);
-                            ddlmand.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_MANDALS"].ToString();
-                            ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
-                            ddlvilla.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_VILLAGES"].ToString();
-
-                        }
-                        else
-                        {
-                            trotherstate.Visible = true;
-                            otherDistric.Visible = false;
-                            txtApplDist.Text = ds.Tables[0].Rows[0]["SRVCED_DIST"].ToString();
-                            txtApplTaluka.Text = ds.Tables[0].Rows[0]["SRVCED_MANDA"].ToString();
-                            txtApplVillage.Text = ds.Tables[0].Rows[0]["SRVCED_VILLA"].ToString();
-                        }
-
-                        txtPin.Text = ds.Tables[0].Rows[0]["SRVCED_PIN"].ToString();
-                        txtAge.Text = ds.Tables[0].Rows[0]["SRVCED_AGE"].ToString();
-                        txtDesignation.Text = ds.Tables[0].Rows[0]["SRVCED_DESIGNATION"].ToString();
-                        rblWomen.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_WOMENENTREPRENEUR"].ToString();
-                        rblAbled.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_ABLED"].ToString();
-
-                        txtMale.Text = ds.Tables[0].Rows[0]["SRVCED_DIRECTMALE"].ToString();
-                        txtFemale.Text = ds.Tables[0].Rows[0]["SRVCED_DIRECTFEMALE"].ToString();
-                        txtDirectOthers.Text = ds.Tables[0].Rows[0]["SRVCED_DIRECTEMP"].ToString();
-                        txtIndirectMale.Text = ds.Tables[0].Rows[0]["SRVCED_INDIRECTMALE"].ToString();
-                        txtIndirectFemale.Text = ds.Tables[0].Rows[0]["SRVCED_INDIRECTFEMALE"].ToString();
-                        txtInDirectOthers.Text = ds.Tables[0].Rows[0]["SRVCED_INDIRECTEMP"].ToString();
-
-                        txtPropEmp.Text = ds.Tables[0].Rows[0]["SRVCED_TOTALEMP"].ToString();
-                        txtLandValue.Text = ds.Tables[0].Rows[0]["SRVCED_LANDSALEDEED"].ToString();
-                        txtBuildingValue.Text = ds.Tables[0].Rows[0]["SRVCED_BUILDING"].ToString();
-                        txtPMCost.Text = ds.Tables[0].Rows[0]["SRVCED_PLANTMACHINERY"].ToString();
-                        lblTotProjCost.Text = ds.Tables[0].Rows[0]["SRVCED_PROJECTCOST"].ToString();
-                        txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["SRVCED_ANNUALTURNOVER"].ToString();
-                        txtAnnualTurnOver_TextChanged(null, EventArgs.Empty);
-                        //lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
-                    }
-                    else if (ds.Tables[1].Rows.Count > 0)
-                    {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["SRVCUNITID"]);
-                        txtUnitName.Text = ds.Tables[1].Rows[0]["COMPANYNAME"].ToString();
-                        ddlCompanyType.SelectedValue = ds.Tables[1].Rows[0]["COMPANYTYPE"].ToString();
-                        ddlSectorEnter.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_NOA"].ToString();
-                        ddlRegType.SelectedValue = ds.Tables[1].Rows[0]["COMPANYREGTYPE"].ToString();
-                        ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
-                        txtRegNo.Text = ds.Tables[1].Rows[0]["COMPANYREGNO"].ToString();
-                        txtRegDate.Text = ds.Tables[1].Rows[0]["REGISTRATIONDATE"].ToString();
-                        ddlsector.SelectedItem.Text = ds.Tables[1].Rows[0]["PROJECT_SECTORNAME"].ToString();
-                        ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlLineActivity.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_LOAID"].ToString();
-                        ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
-                        lblPCBCategory.Text = ds.Tables[1].Rows[0]["PROJECT_PCBCATEGORY"].ToString();
-
-
-                        txtDoors.Text = ds.Tables[1].Rows[0]["UNIT_DOORNO"].ToString();
-                        txtLocality.Text = ds.Tables[1].Rows[0]["UNIT_LOCALITY"].ToString();
-                        // txtLANDMARK.Text = ds.Tables[1].Rows[0]["RENID_LANDMARK"].ToString();
-                        if (Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DISTRICTID"]) != "0" ||
-                            Convert.ToString(ds.Tables[1].Rows[0]["UNIT_DISTRICTID"]) != "")
-                        {
-                            ddlstate.SelectedValue = "23";
-                            ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
-                        }
-                        ddlDistrict.SelectedValue = ds.Tables[1].Rows[0]["UNIT_DISTRICTID"].ToString();
-                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandal.SelectedValue = ds.Tables[1].Rows[0]["UNIT_MANDALID"].ToString();
-                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = ds.Tables[1].Rows[0]["UNIT_VILLAGEID"].ToString();
-                        txtpincode.Text = ds.Tables[1].Rows[0]["UNIT_PINCODE"].ToString();
-                        txtLandArea.Text = ds.Tables[1].Rows[0]["PROJECT_LANDAREA"].ToString();
-                        txtBuiltArea.Text = ds.Tables[1].Rows[0]["PROJECT_BUILDINGAREA"].ToString();
-
-
-                        txtName.Text = ds.Tables[1].Rows[0]["REP_NAME"].ToString();
-                        txtphoneno.Text = ds.Tables[1].Rows[0]["REP_MOBILE"].ToString();
-                        txtEmail.Text = ds.Tables[1].Rows[0]["REP_EMAIL"].ToString();
-                        txtDoorNo.Text = ds.Tables[1].Rows[0]["REP_DOORNO"].ToString();
-                        txtLocal.Text = ds.Tables[1].Rows[0]["REP_LOCALITY"].ToString();
-                        ddldist.SelectedValue = ds.Tables[1].Rows[0]["REP_DISTRICTID"].ToString();
-                        ddldist_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlmand.SelectedValue = ds.Tables[1].Rows[0]["REP_MANDALID"].ToString();
-                        ddlmand_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlvilla.SelectedValue = ds.Tables[1].Rows[0]["REP_VILLAGEID"].ToString();
-                        txtPin.Text = ds.Tables[1].Rows[0]["REP_PINCODE"].ToString();
-
-                        txtLandValue.Text = ds.Tables[1].Rows[0]["PROJECT_LANDVALUE"].ToString();
-                        txtBuildingValue.Text = ds.Tables[1].Rows[0]["PROJECT_BUILDINGVALUE"].ToString();
-                        txtPMCost.Text = ds.Tables[1].Rows[0]["PROJECT_PMCOST"].ToString();
-                        //lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
-                        //txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
-                        //lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
-
-                    }
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
+        }      
 
         protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -773,12 +776,16 @@ namespace MeghalayaUIP.User.Services
                 {
                     SvrcApplicationDetails ObjApplicationDetails = new SvrcApplicationDetails();
 
+                    if (Convert.ToString(Session["SRVCQID"]) == "")
+                        ObjApplicationDetails.Questionnariid = "";
+                    else
+                        ObjApplicationDetails.Questionnariid = Convert.ToString(Session["SRVCQID"]);
 
-                    //  ObjApplicationDetails.Questionnariid = Quesstionriids;
+
                     ObjApplicationDetails.CreatedBy = hdnUserID.Value;
                     ObjApplicationDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                     ObjApplicationDetails.IPAddress = getclientIP();
-                    ObjApplicationDetails.UidNo = "1001";
+                  //  ObjApplicationDetails.UidNo = "1001";
 
                     ObjApplicationDetails.Nameofunit = txtUnitName.Text;
                     ObjApplicationDetails.companyType = ddlCompanyType.SelectedValue;
@@ -842,7 +849,7 @@ namespace MeghalayaUIP.User.Services
                     {
                         Session["RENQID"] = result;
                         success.Visible = true;
-                        lblmsg.Text = "Renewal Application Details Submitted Successfully";
+                        lblmsg.Text = "Enterprise Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -1131,6 +1138,26 @@ namespace MeghalayaUIP.User.Services
                 throw ex;
             }
         }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Services/OtherServices.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                if (ex.Message != "Thread was being aborted.")
+                {
+                    MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                }
+            }
+        }
+
         public static string getclientIP()
         {
             string result = string.Empty;

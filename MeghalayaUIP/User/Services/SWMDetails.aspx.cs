@@ -21,7 +21,7 @@ namespace MeghalayaUIP.User.Services
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
 
-        string ErrorMsg = "", result;
+        string UnitID, ErrorMsg = "", result;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -35,15 +35,59 @@ namespace MeghalayaUIP.User.Services
                 if (hdnUserID.Value == "")
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
-
                 }
+                if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                {
+                    UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                }
+                else
+                {
+                    string newurl = "~/User/Services/SRVCUserDashboard.aspx";
+                    Response.Redirect(newurl);
+                }
+
 
                 if (!IsPostBack)
                 {
-                    BindData();
+                    GetAppliedorNot();
                 }
             }
 
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "82");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "82")
+                    {
+                        BindData();
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/Services/BMWDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/Services/OtherServices.aspx?Previous=" + "P");
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
         public void BindData()
         {
@@ -56,10 +100,21 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        if (ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"].ToString().Contains("Waste Processing"))
+                            CHKAuthorization.Items[0].Selected = true;
+                        if (ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"].ToString().Contains("Recycling"))
+                            CHKAuthorization.Items[1].Selected = true;
+                        if (ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"].ToString().Contains("Treatment"))
+                            CHKAuthorization.Items[2].Selected = true;
+                        if (ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"].ToString().Contains("Dispersal at Landfill"))
+                            CHKAuthorization.Items[3].Selected = true;
+
                         txtNameLocalBody.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NAMELOCALOPERATOR"]);
                         txtDesignation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NODALAUTHORISEDAGENCY"]);
-                        CHKAuthorization.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
-                        txtWasteProduced.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
+                       // CHKAuthorization.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
+
+
+                        txtWasteProduced.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TOTALQUANTITYWASTE"]);
                         txtWasteRecycled.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TOTALQUANTITYWASTE"]);
                         txtWasteTreated.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_QUANTITYWASTERECYCLE"]);
                         txtWasteDisposed.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_QUANTITYWASTETREATED"]);
@@ -73,13 +128,60 @@ namespace MeghalayaUIP.User.Services
                         txtExistingSiteUnderOperation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_DETAILSEXISTINGSITE"]);
                         txtLandfillingDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_METHODOLOGYDETAILS"]);
                         txtMeasureToChkEnvPoltn.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_CHECKENVIRONMENTPOLLUTION"]);
-                       
 
+                    }
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 4)
+                            {
+                                hypSolidwaste.Visible = true;
+                                hypSolidwaste.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypSolidwaste.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtCBWTFSWM.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 5)
+                            {
+                                hypSWPRTD.Visible = true;
+                                hypSWPRTD.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypSWPRTD.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtSWPRTD.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 6)
+                            {
+                                hypDetailSiteSel.Visible = true;
+                                hypDetailSiteSel.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypDetailSiteSel.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtDetailSiteSel.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 7)
+                            {
+                                hypSiteClr.Visible = true;
+                                hypSiteClr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypSiteClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtSiteClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 8)
+                            {
+                                hypEnvClearance.Visible = true;
+                                hypEnvClearance.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypEnvClearance.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtEnvClearance.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 9)
+                            {
+                                hypAgreement.Visible = true;
+                                hypAgreement.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypAgreement.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtAgreement.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                        }
                     }
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -102,9 +204,10 @@ namespace MeghalayaUIP.User.Services
 
                     string selectedActivities = string.Join(", ", selectedItems);
 
-                    ObjSWMDet.unitid = "1001";
-                    ObjSWMDet.createdby= hdnUserID.Value;
-                    ObjSWMDet.createdbyip= getclientIP();
+                    ObjSWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
+                    ObjSWMDet.Questionnariid = Convert.ToString(Session["SRVCQID"]);
+                    ObjSWMDet.createdby = hdnUserID.Value;
+                    ObjSWMDet.createdbyip = getclientIP();
                     ObjSWMDet.authorizationopeartion = selectedActivities;
                     ObjSWMDet.namelocaloperator = txtNameLocalBody.Text;
                     ObjSWMDet.nodalauthorisedagency = txtDesignation.Text;
@@ -120,15 +223,15 @@ namespace MeghalayaUIP.User.Services
                     ObjSWMDet.quantitywasteperday = txtQantityWasteDisposed.Text;
                     ObjSWMDet.detailsexistingsite = txtExistingSiteUnderOperation.Text;
                     ObjSWMDet.methodologydetails = txtLandfillingDetails.Text;
-                    ObjSWMDet.checkenvironmentpollution = txtMeasureToChkEnvPoltn.Text;   
+                    ObjSWMDet.checkenvironmentpollution = txtMeasureToChkEnvPoltn.Text;
                     //authorizationopeartion = string.Join(",", CHKAuthorization.Items.Cast<ListItem>()
                     //               .Where(item => item.Selected)
                     //               .Select(item => item.Value)),
 
 
-                  
 
-                   
+
+
 
                     result = objSrvcbal.INSSRVCSOLIDDDetails(ObjSWMDet);
                     if (result != "")
@@ -150,7 +253,7 @@ namespace MeghalayaUIP.User.Services
                 throw ex;
             }
         }
-         //textbox validations
+        //textbox validations
         public string stepValidations()
         {
             try
@@ -169,12 +272,12 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please Enter Nodal Officer Designation authorized by local body or agency \\n";
                     slno = slno + 1;
                 }
-                if (CHKAuthorization.SelectedItem == null) 
+                if (CHKAuthorization.SelectedItem == null)
                 {
                     errormsg = errormsg + slno + ". Please select at least one option for setting up and operation of the facility \\n";
                     slno = slno + 1;
                 }
-                if(string.IsNullOrEmpty(txtWasteProduced.Text) || txtWasteProduced.Text == "" || txtWasteProduced.Text == null)
+                if (string.IsNullOrEmpty(txtWasteProduced.Text) || txtWasteProduced.Text == "" || txtWasteProduced.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please enter total waste to be produced per day \\n";
                     slno = slno + 1;
@@ -214,14 +317,14 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please enter  treatment technology for leachate \\n";
                     slno = slno + 1;
                 }
-                if(string.IsNullOrEmpty(txtMeasuresForPrevention.Text) || txtMeasuresForPrevention.Text == "" || txtMeasuresForPrevention.Text == null)
+                if (string.IsNullOrEmpty(txtMeasuresForPrevention.Text) || txtMeasuresForPrevention.Text == "" || txtMeasuresForPrevention.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please enter measures to be taken for prevention and control of environmental pollution \\n";
                     slno = slno + 1;
                 }
-                if(string.IsNullOrEmpty(txtMeasuresForSafety.Text) || txtMeasuresForSafety.Text == "" || txtMeasuresForSafety.Text == null)
+                if (string.IsNullOrEmpty(txtMeasuresForSafety.Text) || txtMeasuresForSafety.Text == "" || txtMeasuresForSafety.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please enter measures to be taken for safety of workers working in the plant \\n";                                                   
+                    errormsg = errormsg + slno + ". Please enter measures to be taken for safety of workers working in the plant \\n";
                     slno = slno + 1;
                 }
                 //if (!fupDetailsSolidWaste.HasFile)
@@ -287,12 +390,12 @@ namespace MeghalayaUIP.User.Services
 
                 return errormsg;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 throw ex;
             }
 
-            }
+        }
 
         public string validations(FileUpload Attachment)
         {
@@ -398,8 +501,8 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objSWPRTD = new SRVCAttachments();
-                        objSWPRTD.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
-                        objSWPRTD.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
+                        objSWPRTD.UNITID = Convert.ToString(Session["SRVCUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
+                        objSWPRTD.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objSWPRTD.MasterID = "9";
                         objSWPRTD.FilePath = serverpath + fupDetailsSolidWaste.PostedFile.FileName;
                         objSWPRTD.FileName = fupDetailsSolidWaste.PostedFile.FileName;
@@ -478,8 +581,8 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objSiteSelection = new SRVCAttachments();
-                        objSiteSelection.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
-                        objSiteSelection.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
+                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
+                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objSiteSelection.MasterID = "8";
                         objSiteSelection.FilePath = serverpath + fupDetailSiteSelection.PostedFile.FileName;
                         objSiteSelection.FileName = fupDetailSiteSelection.PostedFile.FileName;
@@ -557,8 +660,8 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objSiteClr = new SRVCAttachments();
-                        objSiteClr.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
-                        objSiteClr.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
+                        objSiteClr.UNITID = Convert.ToString(Session["SRVCUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
+                        objSiteClr.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objSiteClr.MasterID = "7";
                         objSiteClr.FilePath = serverpath + fupSiteClearance.PostedFile.FileName;
                         objSiteClr.FileName = fupSiteClearance.PostedFile.FileName;
@@ -636,8 +739,8 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objEnvClr = new SRVCAttachments();
-                        objEnvClr.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
-                        objEnvClr.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
+                        objEnvClr.UNITID = Convert.ToString(Session["SRVCUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
+                        objEnvClr.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objEnvClr.MasterID = "6";
                         objEnvClr.FilePath = serverpath + fupEnvironmentalClearance.PostedFile.FileName;
                         objEnvClr.FileName = fupEnvironmentalClearance.PostedFile.FileName;
@@ -715,8 +818,8 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objAgreement = new SRVCAttachments();
-                        objAgreement.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
-                        objAgreement.Questionnareid = "1001"; //Convert.ToString(Session["CFEQID"]);
+                        objAgreement.UNITID = Convert.ToString(Session["SRVCUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
+                        objAgreement.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objAgreement.MasterID = "5";
                         objAgreement.FilePath = serverpath + fupAgreement.PostedFile.FileName;
                         objAgreement.FileName = fupAgreement.PostedFile.FileName;
@@ -781,6 +884,36 @@ namespace MeghalayaUIP.User.Services
             return emptyTextboxes;
         }
 
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Services/BMWDetails.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Services/OtherServices.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         protected void btnDisposal_Click(object sender, EventArgs e)
         {
             try
@@ -817,8 +950,8 @@ namespace MeghalayaUIP.User.Services
                         }
 
                         SRVCAttachments objDisposal = new SRVCAttachments();
-                        objDisposal.UNITID = "1001";//Convert.ToString(Session["CFEUNITID"]);
-                        objDisposal.Questionnareid = "101"; //Convert.ToString(Session["CFEQID"]);
+                        objDisposal.UNITID = Convert.ToString(Session["SRVCUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
+                        objDisposal.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objDisposal.MasterID = "4";
                         objDisposal.FilePath = serverpath + fupDisposal.PostedFile.FileName;
                         objDisposal.FileName = fupDisposal.PostedFile.FileName;

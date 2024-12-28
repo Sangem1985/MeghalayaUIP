@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="../Services/SRVCUserDashboard.aspx">Dashboard</a></li>
             <li class="breadcrumb-item active" aria-current="page">Services</li>
         </ol>
     </nav>
@@ -33,12 +33,12 @@
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <div class="col-md-12 d-flex">
                         <div class="col-md-11">
-                            <h4 style="margin-left: -10px;">Other Service Approvals :
+                            <h4 style="margin-left: -10px;">Other Services DashBoard :
                                 <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
                         </div>
 
                         <div class="col-md-1">
-                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                         </div>
                     </div>
                     <%--<div class="justify-content-between justify-content-around">
@@ -116,7 +116,7 @@
 
                                 <asp:TemplateField HeaderText="View Application Status " ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnApplStatus" Text="Application Status" CssClass="btn btn-info btn-rounded" />
+                                        <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="Application Status" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>

@@ -53,6 +53,21 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Dashboard/MainDashboard.aspx");
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         public void BindApproved()
         {
             try
@@ -179,6 +194,27 @@ namespace MeghalayaUIP.User.Services
                 Session["SRVCUNITID"] = lblunitId.Text;
                 Session["SRVCQID"] = lblSRVCQDID.Text;
                 string newurl = "EnterpriseDetails.aspx";
+                Response.Redirect(newurl);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void btnApplStatus_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblSRVCQDID = (Label)row.FindControl("lblSRVCQDID");
+                Session["SRVCUNITID"] = lblunitId.Text;
+                Session["SRVCQID"] = lblSRVCQDID.Text;
+                string newurl = "SRVCApplStatus.aspx";
                 Response.Redirect(newurl);
             }
             catch (Exception ex)

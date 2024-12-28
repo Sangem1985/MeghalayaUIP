@@ -47,9 +47,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.SRVCBMWWASTEDET(ObjBMWDetails);
         }
-        public string InsertBMWWASTEDET(DataTable dtBMWDetails,string Unitid,string Createdby,string IPAddress)
+        public string InsertBMWWASTEDET(DataTable dtBMWDetails, string Unitid, string Questionnaire, string Createdby, string IPAddress)
         {
-            return SvrcDal.InsertBMWWASTEDET(dtBMWDetails, Unitid, Createdby, IPAddress);
+            return SvrcDal.InsertBMWWASTEDET(dtBMWDetails, Unitid, Questionnaire, Createdby, IPAddress);
         }
         public string InsertSRVCAttachments(SRVCAttachments objAttach)
         {
@@ -78,6 +78,12 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         public DataSet GetSrvcSWMDetails(string userid, string UNITID)
         {
             return SvrcDal.GetSrvcSWMDetails(userid, UNITID);
+        }
+        public DataSet GetsrvcapprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
+        { return SvrcDal.GetsrvcapprovalID(userid, UNITID, QusestionnaireID, DeptID, ApprovalID); }
+        public DataSet GetApplicationStatus(string userid, string UnitID, string Status)
+        {
+            return SvrcDal.GetApplicationStatus(userid, UnitID, Status);
         }
 
     }

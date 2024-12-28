@@ -20,7 +20,7 @@ namespace MeghalayaUIP.User.Services
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
 
-        string Category, ErrorMsg, result, UnitID;
+        string Category, ErrorMsg, result, UnitID, Questionnaire;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -40,6 +40,10 @@ namespace MeghalayaUIP.User.Services
                 {
                     UnitID = Convert.ToString(Session["SRVCUNITID"]);
                 }
+                if (Convert.ToString(Session["SRVCQID"]) != "")
+                {
+                    Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                }
                 else
                 {
                     string newurl = "~/User/Services/SRVCUserDashboard.aspx";
@@ -48,10 +52,45 @@ namespace MeghalayaUIP.User.Services
 
                 if (!IsPostBack)
                 {
-                    BindBMW();
-                    BindWasteDetails();
-                    BindData();
+                    GetAppliedorNot();
                 }
+            }           
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "83");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "83")
+                    {
+                        BindBMW();
+                        BindWasteDetails();
+                        BindData();
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/Services/.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/Services/SWMDetails.aspx?Previous=" + "P");
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
         public void BindData()
@@ -70,7 +109,34 @@ namespace MeghalayaUIP.User.Services
                         txtEmailId.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_EMAILID"]);
                         txtMobileNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_MOBILENO"]);
                         txtweb.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_WEBSITE"]);
-                        CHKAuthorized.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"]);
+                        //CHKAuthorized.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"]);
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Generation"))
+                            CHKAuthorized.Items[0].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("segregation"))
+                            CHKAuthorized.Items[1].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Collection"))
+                            CHKAuthorized.Items[2].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Storage"))
+                            CHKAuthorized.Items[3].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Packing"))
+                            CHKAuthorized.Items[4].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Reception"))
+                            CHKAuthorized.Items[5].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Transportation"))
+                            CHKAuthorized.Items[6].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Treatment or processing or conversation"))
+                            CHKAuthorized.Items[7].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Recycling"))
+                            CHKAuthorized.Items[8].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Disposal or destruction"))
+                            CHKAuthorized.Items[9].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Disposal or destruction"))
+                            CHKAuthorized.Items[10].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("transfer"))
+                            CHKAuthorized.Items[11].Selected = true;
+                        if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Any other form of handling"))
+                            CHKAuthorized.Items[12].Selected = true;                       
+
                         rblauthorisation.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BMW_APPLIEDCTO_CTE"]);
                         txtRenno.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_RENAUTHORIZATIONNO"]);
                         txtAuthorisationDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_RENAUTHORIZATIONDATE"]);
@@ -97,7 +163,32 @@ namespace MeghalayaUIP.User.Services
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
+                        DataTable dt = ds.Tables[2];
+                        ViewState["BioMedical"] = dt;
 
+                        GVBIOMedical.Visible = true;
+                        GVBIOMedical.DataSource = dt;
+                        GVBIOMedical.DataBind();
+                    }
+                    if(ds.Tables[3].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds.Tables[3].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(ds.Tables[3].Rows[i]["SRVCA_MASTERID"]) == 10)
+                            {
+                                hypBiomedicalwaste.Visible = true;
+                                hypBiomedicalwaste.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["SRVCA_FILEPATH"]));
+                                hypBiomedicalwaste.Text = Convert.ToString(ds.Tables[3].Rows[i]["SRVCA_FILENAME"]);
+                                txtCBWTFBIO.Text = Convert.ToString(ds.Tables[3].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[3].Rows[i]["SRVCA_MASTERID"]) == 11)
+                            {
+                                hyplegalnotice.Visible = true;
+                                hyplegalnotice.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[3].Rows[i]["SRVCA_FILEPATH"]));
+                                hyplegalnotice.Text = Convert.ToString(ds.Tables[3].Rows[i]["SRVCA_FILENAME"]);
+                                txtlegalDet.Text = Convert.ToString(ds.Tables[3].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                        }
                     }
                 }
             }
@@ -244,7 +335,7 @@ namespace MeghalayaUIP.User.Services
                     }
                     DataRow dr = dt.NewRow();
                     dr["BMW_TYPE"] = ddlcategory.SelectedValue;
-                    dr["BMW_NAME"] = ddlwaste.SelectedValue;
+                    dr["BMW_NAME"] = ddlwaste.SelectedItem.Text;
                     dr["BMW_QUANTITYGENERATED"] = txtQuantity.Text;
                     dr["BMW_TREATMENTDISPOSAL"] = txtMethod.Text;
 
@@ -253,6 +344,12 @@ namespace MeghalayaUIP.User.Services
                     GVWaste.DataSource = dt;
                     GVWaste.DataBind();
                     ViewState["BMWWasteData"] = dt;
+
+                    ddlcategory.ClearSelection();
+                    ddlwaste.ClearSelection();
+                    txtQuantity.Text = "";
+                    txtMethod.Text = "";
+
                 }
             }
             catch (Exception ex)
@@ -278,47 +375,110 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        /*  public string SaveBMWMedical()
+          {
+              string result = "";
+
+              DataTable dt = new DataTable();           
+              dt.Columns.Add("BMW_UNITID");
+              dt.Columns.Add("BMW_CREATEDBY");
+              dt.Columns.Add("BMW_EQUIPMENT");
+              dt.Columns.Add("BMW_NO_UNIT");
+              dt.Columns.Add("BMW_CAPACITY_UNIT");
+
+
+              if (GVBIOMedical.Rows.Count > 0)
+              {
+                  foreach (GridViewRow row in GVBIOMedical.Rows)
+                  {
+
+                      Label lblitem = row.FindControl("lblItemName") as Label;
+                      TextBox txtsource = row.FindControl("txtSource") as TextBox;
+                      TextBox txtcapacity = row.FindControl("txtCapacity") as TextBox;
+
+                      if (lblitem != null && txtsource != null && txtcapacity != null)
+                      {
+
+                          DataRow dr = dt.NewRow();
+                          dr["BMW_EQUIPMENT"] = lblitem.Text;
+                          dr["BMW_NO_UNIT"] = txtsource.Text;
+                          dr["BMW_CAPACITY_UNIT"] = txtcapacity.Text;
+
+                          dt.Rows.Add(dr);
+                      }
+                  }
+                  if (dt.Rows.Count > 0)
+                  {
+                      // SvrcBMWDet objSrvcbal = new SvrcBMWDet();
+                      result = objSrvcbal.InsertBMWWASTEDET(dt, UnitID, hdnUserID.Value, getclientIP());
+                  }
+              }
+
+              return result;
+          }*/
         public string SaveBMWMedical()
         {
             string result = "";
-
             DataTable dt = new DataTable();
-            dt.Columns.Add("BMW_UNITID");
-            dt.Columns.Add("BMW_CREATEDBY");
-            dt.Columns.Add("BMW_EQUIPMENT");
-            dt.Columns.Add("BMW_NO_UNIT");
-            dt.Columns.Add("BMW_CAPACITY_UNIT");
 
+            // Define columns for the DataTable
+            dt.Columns.Add("BMW_ID", typeof(string));
+            dt.Columns.Add("BMW_SERVICEQDID", typeof(string));
+            dt.Columns.Add("BMW_UNITID", typeof(string));
+            dt.Columns.Add("BMW_CREATEDBY", typeof(string));
+            dt.Columns.Add("BMW_EQUIPMENT", typeof(string));
+            dt.Columns.Add("BMW_NO_UNIT", typeof(string));
+            dt.Columns.Add("BMW_CAPACITY_UNIT", typeof(string));
 
-            if (GVBIOMedical.Rows.Count > 0)
+            try
             {
-                foreach (GridViewRow row in GVBIOMedical.Rows)
+               
+                if (GVBIOMedical.Rows.Count > 0)
                 {
-
-                    Label lblitem = row.FindControl("lblItemName") as Label;
-                    TextBox txtsource = row.FindControl("txtSource") as TextBox;
-                    TextBox txtcapacity = row.FindControl("txtCapacity") as TextBox;
-
-                    if (lblitem != null && txtsource != null && txtcapacity != null)
+                    foreach (GridViewRow row in GVBIOMedical.Rows)
                     {
-
-                        DataRow dr = dt.NewRow();
-                        dr["BMW_EQUIPMENT"] = lblitem.Text;
-                        dr["BMW_NO_UNIT"] = txtsource.Text;
-                        dr["BMW_CAPACITY_UNIT"] = txtcapacity.Text;
-
-                        dt.Rows.Add(dr);
+                        Label lblBMW = row.FindControl("lblBMWID") as Label;
+                        Label lblItem = row.FindControl("lblItemName") as Label;
+                        TextBox txtSource = row.FindControl("txtSource") as TextBox;
+                        TextBox txtCapacity = row.FindControl("txtCapacity") as TextBox;
+                      
+                        if (lblItem != null && txtSource != null && txtCapacity != null)
+                        {
+                          
+                            if (!string.IsNullOrEmpty(lblItem.Text) &&   
+                                !string.IsNullOrEmpty(lblBMW.Text)&&
+                                !string.IsNullOrEmpty(txtSource.Text) &&
+                                !string.IsNullOrEmpty(txtCapacity.Text))
+                            {                               
+                                DataRow dr = dt.NewRow();
+                                dr["BMW_ID"] = lblBMW.Text;
+                                dr["BMW_EQUIPMENT"] = lblItem.Text;
+                                dr["BMW_NO_UNIT"] = txtSource.Text;
+                                dr["BMW_CAPACITY_UNIT"] = txtCapacity.Text;
+                                dt.Rows.Add(dr);
+                            }
+                        }
                     }
-                }
+                }               
                 if (dt.Rows.Count > 0)
                 {
-                    // SvrcBMWDet objSrvcbal = new SvrcBMWDet();
-                    result = objSrvcbal.InsertBMWWASTEDET(dt, "1001", hdnUserID.Value, getclientIP());
+                   // SvrcBMWDet objSrvcbal = new SvrcBMWDet(); // Ensure this is initialized
+                    result = objSrvcbal.InsertBMWWASTEDET(dt, UnitID, Questionnaire, hdnUserID.Value, getclientIP());
                 }
+                else
+                {
+                    result = "No data to save.";
+                }
+            }
+            catch (Exception ex)
+            {              
+                result = "Error: " + ex.Message;
             }
 
             return result;
         }
+
+
 
         protected void btnBiomedicalwaste_Click(object sender, EventArgs e)
         {
@@ -358,7 +518,7 @@ namespace MeghalayaUIP.User.Services
                         SRVCAttachments objAadhar = new SRVCAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
-                        objAadhar.MasterID = "1";
+                        objAadhar.MasterID = "10";
                         objAadhar.FilePath = serverpath + fupBiomedicalwaste.PostedFile.FileName;
                         objAadhar.FileName = fupBiomedicalwaste.PostedFile.FileName;
                         objAadhar.FileType = fupBiomedicalwaste.PostedFile.ContentType;
@@ -369,9 +529,9 @@ namespace MeghalayaUIP.User.Services
                         result = objSrvcbal.InsertSRVCAttachments(objAadhar);
                         if (result != "")
                         {
-                            hyplegalnotice.Text = fupBiomedicalwaste.PostedFile.FileName;
-                            hyplegalnotice.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupBiomedicalwaste.PostedFile.FileName);
-                            hyplegalnotice.Target = "blank";
+                            hypBiomedicalwaste.Text = fupBiomedicalwaste.PostedFile.FileName;
+                            hypBiomedicalwaste.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupBiomedicalwaste.PostedFile.FileName);
+                            hypBiomedicalwaste.Target = "blank";
                             message = "alert('" + "Bio-medical waste treatment facility (CBWTF) Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
@@ -398,7 +558,8 @@ namespace MeghalayaUIP.User.Services
         }
 
         protected void btnlegalnotice_Click(object sender, EventArgs e)
-        {
+        {         
+
             try
             {
                 string Error = ""; string message = "";
@@ -409,10 +570,11 @@ namespace MeghalayaUIP.User.Services
                     {
                         string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Directions or notices or legal actions authorisation" + "\\";
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Directions or notices or legal actions authorisation" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
+
                         }
                         System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
                         int count = dir.GetFiles().Length;
@@ -432,11 +594,10 @@ namespace MeghalayaUIP.User.Services
                             }
                         }
 
-
                         SRVCAttachments objSitePlan = new SRVCAttachments();
-                        objSitePlan.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
-                        objSitePlan.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
-                        objSitePlan.MasterID = "2";
+                        objSitePlan.UNITID = Convert.ToString(Session["SRVCUNITID"]);
+                        objSitePlan.Questionnareid = Convert.ToString(Session["SRVCQID"]);
+                        objSitePlan.MasterID = "11";
                         objSitePlan.FilePath = serverpath + fuplegalnotice.PostedFile.FileName;
                         objSitePlan.FileName = fuplegalnotice.PostedFile.FileName;
                         objSitePlan.FileType = fuplegalnotice.PostedFile.ContentType;
@@ -450,7 +611,7 @@ namespace MeghalayaUIP.User.Services
                             hyplegalnotice.Text = fuplegalnotice.PostedFile.FileName;
                             hyplegalnotice.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fuplegalnotice.PostedFile.FileName);
                             hyplegalnotice.Target = "blank";
-                            message = "alert('" + "Details of directions or notices or legal actions authorisation Document Uploaded successfully" + "')";
+                            message = "alert('" + "Details of directions or notices or legal actions authorisation Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -458,7 +619,6 @@ namespace MeghalayaUIP.User.Services
                     {
                         message = "alert('" + Error + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
                     }
                 }
                 else
@@ -469,10 +629,11 @@ namespace MeghalayaUIP.User.Services
             }
             catch (Exception ex)
             {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+
+
         }
         public string validations(FileUpload Attachment)
         {
@@ -569,6 +730,66 @@ namespace MeghalayaUIP.User.Services
             }
         }
 
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Services/SWMDetails.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void GVBIOMedical_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    DataTable dt = (DataTable)ViewState["BioMedical"];
+                    if (dt != null)
+                    {
+                        if (e.Row.RowIndex < 12)
+                        {
+                            GridViewRow gvr = e.Row;
+                            TextBox Source = (TextBox)gvr.FindControl("txtSource");
+                            TextBox Capacity = (TextBox)gvr.FindControl("txtCapacity");
+
+                            Source.Text = dt.Rows[e.Row.RowIndex]["BMW_NO_UNIT"].ToString();
+                            Capacity.Text = dt.Rows[e.Row.RowIndex]["BMW_CAPACITY_UNIT"].ToString();
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Services/.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         protected void btnsave_Click(object sender, EventArgs e)
         {
             try
@@ -581,7 +802,8 @@ namespace MeghalayaUIP.User.Services
                     for (int i = 0; i < GVWaste.Rows.Count; i++)
                     {
                         ObjBMWDetails.Createdby = hdnUserID.Value;
-                        ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]); 
+                        ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
+                        ObjBMWDetails.Questionnariid = Convert.ToString(Session["SRVCQID"]);
                         ObjBMWDetails.IPAddress = getclientIP();
                         ObjBMWDetails.Category = ddlcategory.SelectedValue;
                         ObjBMWDetails.Waste = ddlwaste.SelectedValue;
@@ -608,7 +830,8 @@ namespace MeghalayaUIP.User.Services
                     string selectedActivities = string.Join(", ", selectedItems);
 
 
-                    ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]); 
+                    ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
+                    ObjBMWDetails.Questionnariid= Convert.ToString(Session["SRVCQID"]);
                     ObjBMWDetails.Createdby = hdnUserID.Value;
                     ObjBMWDetails.IPAddress = getclientIP();
                     ObjBMWDetails.Name_applicant = txtNameApplicant.Text;
