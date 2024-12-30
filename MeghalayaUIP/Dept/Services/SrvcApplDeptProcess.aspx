@@ -201,7 +201,7 @@
                                                             <label>Locality</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Label2" runat="server"></asp:Label>
+                                                            <span class="dots">:</span><asp:Label ID="lblLocalitys" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <label>Nearest Landmark</label>
@@ -222,13 +222,13 @@
                                                             <label>Mandal</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Label3" runat="server"></asp:Label>
+                                                            <span class="dots">:</span><asp:Label ID="lblMandal1" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <label>Village</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Label4" runat="server"></asp:Label>
+                                                            <span class="dots">:</span><asp:Label ID="lblVillage1" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <label>E-Mail ID</label>
@@ -249,7 +249,7 @@
                                                             <label>Pincode</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Label5" runat="server"></asp:Label>
+                                                            <span class="dots">:</span><asp:Label ID="lblpincode1" runat="server"></asp:Label>
                                                         </div>
 
                                                     </div>
@@ -287,7 +287,7 @@
                                                             <label>Mobile Number</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Label6" runat="server"></asp:Label>
+                                                            <span class="dots">:</span><asp:Label ID="lblnumber" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <label>Alternative Mobile No</label>
@@ -364,7 +364,7 @@
                                                             <label>Designation</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Label7" runat="server"></asp:Label>
+                                                            <span class="dots">:</span><asp:Label ID="lblDesignation1" runat="server"></asp:Label>
                                                         </div>
                                                     </div>
 
@@ -483,355 +483,360 @@
                                                         </div>
                                                     </div>
 
+                                                    <div id="Solidwaste" runat="server" visible="true">
 
-                                                    <h4 class="card-title1 col-lg-12">Solid Waste Management Details</h4>
+                                                        <h4 class="card-title1 col-lg-12">Solid Waste Management Details</h4>
 
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>Name of the local body/agency appointed by them/operator of facility</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblNameLocalBody" runat="server"></asp:Label>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>Name of the local body/agency appointed by them/operator of facility</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblNameLocalBody" runat="server"></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label>Officer authorised by the local body/agency</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblDesignation" runat="server"></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label>For setting up and operation of the facility (Authorization)</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblAuthorization" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>Officer authorised by the local body/agency</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblDesignation" runat="server"></asp:Label>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>Total Quantity of waste to be processed per day</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblWasteProduced" runat="server"></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label>Quantity of waste to be recycled</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblWasteRecycled" runat="server"></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label>Quantity of waste to be treated</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblWasteTreated" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>For setting up and operation of the facility (Authorization)</label>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>Quantity of waste to be disposed into landfill</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblWasteDisposed" runat="server"></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label>Utilization programme for waste processed (Product Utilization)</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblUtilisation" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>Quantity of leachate</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblQuanLeachate" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblAuthorization" runat="server"></asp:Label>
+
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+
+                                                            <div class="col-md-2">
+                                                                <label>Treatment technology for leachate</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblTreatmentLeachate" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>Measures to be taken for prevention and control of environmental pollution</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblMeasuresForPrevention" runat="server"></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label>Measures to be taken for safety of workers</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblMeasuresForSafety" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>Number of sites identified</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblSiteIdentified" runat="server"></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label>Quantity of waste to be disposed per day</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblQuantityWasteDisposed" runat="server"></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label>Details of existing site under operation</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblExistingSiteUnderOperation" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>Methodology and operational details of landfilling</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblLandfillingDetails" runat="server"></asp:Label>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label>Measures taken to check environmental pollution</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblMeasureToChkEnvPoltn" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>Total Quantity of waste to be processed per day</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblWasteProduced" runat="server"></asp:Label>
+                                                    <div id="BioMedical" runat="server" visible="true">
+                                                        <h4 class="card-title1 col-lg-12">Bio-Medical Waste Management Details</h4>
+                                                        <h5 class="card-title ml-3">Particulars of Application:</h5>
+
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>i) Name of the Applicant:</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblNameApplicant" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>ii) Name of the health care facility (HCF)/common bio-medical waste treatment facility (CBWTF):</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblMedical" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>E-Mail ID*</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="Labelemail" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>Quantity of waste to be recycled</label>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+
+                                                            <div class="col-md-2">
+                                                                <label>Mobile Number *</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="Labelmobile" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>Website Address:</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblWebsite" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblWasteRecycled" runat="server"></asp:Label>
+                                                        <h5 class="card-title ml-3">Activity for which authorisation is sought:</h5>
+
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>Authorization Required for</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelAuthreqfor" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>Quantity of waste to be treated</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblWasteTreated" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>Quantity of waste to be disposed into landfill</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblWasteDisposed" runat="server"></asp:Label>
-                                                        </div>
-
-                                                        <div class="col-md-2">
-                                                            <label>Utilization programme for waste processed (Product Utilization)</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblUtilisation" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Quantity of leachate</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblQuanLeachate" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-
-                                                        <div class="col-md-2">
-                                                            <label>Treatment technology for leachate</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblTreatmentLeachate" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Measures to be taken for prevention and control of environmental pollution</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblMeasuresForPrevention" runat="server"></asp:Label>
+                                                        <h5 class="card-title ml-3">Application for fresh or renewal of authorisation:</h5>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>Applied for CTO/CTE</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelCtoCte" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>In case of renewal previous authorisation number</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelRenno" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>In case of renewal previous authorisation Date:</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="Labelrenprvsdate" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>Measures to be taken for safety of workers</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblMeasuresForSafety" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
+                                                        <h5 class="card-title ml-3">Status of Consents</h5>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>Under the Water (Prevention and Control of Pollution) Act, 1974</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="Labelpcb" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>Under the Air (Prevention and Control of Pollution) Act, 1981</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="Labelpcb1981" runat="server"></asp:Label>
+                                                            </div>
 
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>Number of sites identified</label>
                                                         </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblSiteIdentified" runat="server"></asp:Label>
+                                                        <h5 class="card-title ml-3">(HCF/CBWTF)</h5>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>Address of the health care facility (HCF) or common bio-medical waste treatment facility (CBWTF)</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelrblHealth" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>GPS coordinates of health care facility (HCF) or common bio-medical waste treatment facility (CBWTF)</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelrblGPS" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
-
-                                                        <div class="col-md-2">
-                                                            <label>Quantity of waste to be disposed per day</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblQuantityWasteDisposed" runat="server"></asp:Label>
-                                                        </div>
-
-                                                        <div class="col-md-2">
-                                                            <label>Details of existing site under operation</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblExistingSiteUnderOperation" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>Methodology and operational details of landfilling</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblLandfillingDetails" runat="server"></asp:Label>
-                                                        </div>
-
-                                                        <div class="col-md-2">
-                                                            <label>Measures taken to check environmental pollution</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblMeasureToChkEnvPoltn" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-
-                                                    <h4 class="card-title1 col-lg-12">Bio-Medical Waste Management Details</h4>
-                                                    <h5 class="card-title ml-3">Particulars of Application:</h5>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>i) Name of the Applicant:</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblNameApplicant" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>ii) Name of the health care facility (HCF)/common bio-medical waste treatment facility (CBWTF):</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblMedical" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>E-Mail ID*</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Labelemail" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-
-                                                        <div class="col-md-2">
-                                                            <label>Mobile Number *</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Labelmobile" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Website Address:</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="lblWebsite" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-                                                    <h5 class="card-title ml-3">Activity for which authorisation is sought:</h5>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>Authorization Required for</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelAuthreqfor" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-
-                                                    <h5 class="card-title ml-3">Application for fresh or renewal of authorisation:</h5>
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>Applied for CTO/CTE</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelCtoCte" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>In case of renewal previous authorisation number</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelRenno" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>In case of renewal previous authorisation Date:</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Labelrenprvsdate" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-
-                                                    <h5 class="card-title ml-3">Status of Consents</h5>
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>Under the Water (Prevention and Control of Pollution) Act, 1974</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Labelpcb" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Under the Air (Prevention and Control of Pollution) Act, 1981</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Labelpcb1981" runat="server"></asp:Label>
+                                                        <h5 class="card-title ml-3">Details of health care facility (HCF) or common bio-medical waste treatment facility (CBWTF)</h5>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>i) Number of beds of HCF</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelNoHCF" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>ii) Number of patients treated per month by HCF</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelHCFNO" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>iii) Number healthcare facilities covered by CBMWTF</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelHealthCBMWFT" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
 
-                                                    </div>
-                                                    <h5 class="card-title ml-3">(HCF/CBWTF)</h5>
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>Address of the health care facility (HCF) or common bio-medical waste treatment facility (CBWTF)</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelrblHealth" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>GPS coordinates of health care facility (HCF) or common bio-medical waste treatment facility (CBWTF)</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelrblGPS" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-                                                    <h5 class="card-title ml-3">Details of health care facility (HCF) or common bio-medical waste treatment facility (CBWTF)</h5>
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>i) Number of beds of HCF</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelNoHCF" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>ii) Number of patients treated per month by HCF</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelHCFNO" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>iii) Number healthcare facilities covered by CBMWTF</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelHealthCBMWFT" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>iv) No of beds covered by CBMWTF</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelNobedcbmwtf" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>v) Installed treatment and disposal capacity of CBMWTF</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelCapacityTreat" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>vi) Area or distance covered by CBMWTF</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelDistance" runat="server"></asp:Label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>vii) Quantity of Bio-medical waste handled, treated or disposed</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="LabelWasteTreat" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Category</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Labelcategory" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>Type of Waste</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <span class="dots">:</span><asp:Label ID="Labeltypwaste" runat="server"></asp:Label>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>iv) No of beds covered by CBMWTF</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelNobedcbmwtf" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>v) Installed treatment and disposal capacity of CBMWTF</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelCapacityTreat" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>vi) Area or distance covered by CBMWTF</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelDistance" runat="server"></asp:Label>
+                                                            </div>
                                                         </div>
 
-                                                    </div>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>vii) Quantity of Bio-medical waste handled, treated or disposed</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="LabelWasteTreat" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>Category</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="Labelcategory" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>Type of Waste</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="Labeltypwaste" runat="server"></asp:Label>
+                                                            </div>
 
-                                                    <div class="col-md-12 d-flex justify-content-center">
-                                                        <asp:GridView ID="GVWaste" runat="server" AutoGenerateColumns="false">
-                                                            <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
-                                                            <RowStyle CssClass="GridviewScrollC1Item" />
-                                                            <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                        </div>
 
-                                                            <Columns>
-                                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                                    <ItemTemplate>
-                                                                        <%# Container.DataItemIndex + 1%>
-                                                                        <asp:HiddenField ID="HdfQueid" runat="server" />
-                                                                        <asp:HiddenField ID="HdfApprovalid" runat="server" />
-                                                                    </ItemTemplate>
-                                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                                    <ItemStyle Width="70px" />
-                                                                </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
-                                                                    <ItemTemplate>
-                                                                        <itemstyle horizontalalign="Center" />
-                                                                        <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("BMW_TYPE") %>'></asp:Label>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
+                                                        <br />
+                                                        <div class="col-md-12 d-flex justify-content-center">
+                                                            <asp:GridView ID="GVWaste" runat="server" AutoGenerateColumns="false">
+                                                                <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
+                                                                <RowStyle CssClass="GridviewScrollC1Item" />
+                                                                <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
 
-                                                                <asp:TemplateField HeaderText="Type of waste" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
-                                                                    <ItemTemplate>
-                                                                        <itemstyle horizontalalign="Center" />
-                                                                        <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("BMW_NAME") %>'></asp:Label>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
+                                                                <Columns>
+                                                                    <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                                        <ItemTemplate>
+                                                                            <%# Container.DataItemIndex + 1%>
+                                                                            <asp:HiddenField ID="HdfQueid" runat="server" />
+                                                                            <asp:HiddenField ID="HdfApprovalid" runat="server" />
+                                                                        </ItemTemplate>
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle Width="70px" />
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
+                                                                        <ItemTemplate>
+                                                                            <itemstyle horizontalalign="Center" />
+                                                                            <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("BMW_CATEGORY") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
 
-                                                                <asp:TemplateField HeaderText="Quantity Generated or Collected, Kg/ day" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
-                                                                    <ItemTemplate>
-                                                                        <itemstyle horizontalalign="Center" />
-                                                                        <asp:Label ID="lblQuantity" runat="server" Text='<%# Eval("BMW_QUANTITYGENERATED") %>'></asp:Label>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Type of waste" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
+                                                                        <ItemTemplate>
+                                                                            <itemstyle horizontalalign="Center" />
+                                                                            <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("BMW_TYPEWASTE") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
 
-                                                                <asp:TemplateField HeaderText="Method of Treatment and Disposal (ReferSchedule – I)" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
-                                                                    <ItemTemplate>
-                                                                        <itemstyle horizontalalign="Center" />
-                                                                        <asp:Label ID="lblDisposal" runat="server" Text='<%# Eval("BMW_TREATMENTDISPOSAL") %>'></asp:Label>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Quantity Generated or Collected, Kg/ day" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
+                                                                        <ItemTemplate>
+                                                                            <itemstyle horizontalalign="Center" />
+                                                                            <asp:Label ID="lblQuantity" runat="server" Text='<%# Eval("BMW_QUANTITYGENERATED") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+
+                                                                    <asp:TemplateField HeaderText="Method of Treatment and Disposal (ReferSchedule – I)" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
+                                                                        <ItemTemplate>
+                                                                            <itemstyle horizontalalign="Center" />
+                                                                            <asp:Label ID="lblDisposal" runat="server" Text='<%# Eval("BMW_TREATMENTDISPOSAL") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
 
 
-                                                            </Columns>
-                                                        </asp:GridView>
+                                                                </Columns>
+                                                            </asp:GridView>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1062,7 +1067,7 @@
                                                                 <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:TemplateField HeaderText="Site Inspection Report" Visible="false">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton ID="lnkView" runat="server"  Visible="false" Text="View"></asp:LinkButton>
+                                                                        <asp:LinkButton ID="lnkView" runat="server" Visible="false" Text="View"></asp:LinkButton>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
                                                             </Columns>
@@ -1214,7 +1219,7 @@
                                                                 </td>
 
                                                                 <td colspan="2" align="Center">
-                                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit"  class="btn btn-rounded btn-submit btn-lg" />
+                                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" class="btn btn-rounded btn-submit btn-lg" />
                                                                 </td>
 
                                                             </tr>
@@ -1327,7 +1332,7 @@
                                                     <br />
                                                     <asp:FileUpload ID="FileUploadquery" runat="server" />
                                                     <br />
-                                                    <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload"  class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+                                                    <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
                                                     <br />
                                                     <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                                 </ItemTemplate>

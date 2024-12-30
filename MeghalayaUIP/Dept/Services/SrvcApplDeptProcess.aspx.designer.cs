@@ -186,13 +186,13 @@ namespace MeghalayaUIP.Dept.Services
         protected global::System.Web.UI.WebControls.Label lblLandArea;
 
         /// <summary>
-        /// Label2 control.
+        /// lblLocalitys control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblLocalitys;
 
         /// <summary>
         /// lblLandmark control.
@@ -213,22 +213,22 @@ namespace MeghalayaUIP.Dept.Services
         protected global::System.Web.UI.WebControls.Label lblDistrict;
 
         /// <summary>
-        /// Label3 control.
+        /// lblMandal1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblMandal1;
 
         /// <summary>
-        /// Label4 control.
+        /// lblVillage1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label lblVillage1;
 
         /// <summary>
         /// lblEmailId control.
@@ -249,13 +249,13 @@ namespace MeghalayaUIP.Dept.Services
         protected global::System.Web.UI.WebControls.Label lblMobileNo;
 
         /// <summary>
-        /// Label5 control.
+        /// lblpincode1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label lblpincode1;
 
         /// <summary>
         /// lblName control.
@@ -285,13 +285,13 @@ namespace MeghalayaUIP.Dept.Services
         protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// Label6 control.
+        /// lblnumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label lblnumber;
 
         /// <summary>
         /// lblAltMobile control.
@@ -393,13 +393,13 @@ namespace MeghalayaUIP.Dept.Services
         protected global::System.Web.UI.WebControls.Label lblAge;
 
         /// <summary>
-        /// Label7 control.
+        /// lblDesignation1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.Label lblDesignation1;
 
         /// <summary>
         /// lblWomenEntrepreneur control.
@@ -535,6 +535,15 @@ namespace MeghalayaUIP.Dept.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEntCategory;
+
+        /// <summary>
+        /// Solidwaste control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Solidwaste;
 
         /// <summary>
         /// lblNameLocalBody control.
@@ -688,6 +697,15 @@ namespace MeghalayaUIP.Dept.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMeasureToChkEnvPoltn;
+
+        /// <summary>
+        /// BioMedical control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BioMedical;
 
         /// <summary>
         /// lblNameApplicant control.
