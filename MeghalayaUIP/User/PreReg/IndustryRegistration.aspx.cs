@@ -709,12 +709,15 @@ namespace MeghalayaUIP.User.PreReg
                     txtUdyamorIEMNo.Enabled = true;
                     lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No ";
                     txtUdyamorIEMNo.Text = "";
+                    ddlRegType.BorderColor = System.Drawing.Color.Black;
+
                 }
                 else
                 {
                     txtUdyamorIEMNo.Enabled = false;
                     lblregntype.InnerText = " Registration No *";
                     txtUdyamorIEMNo.Text = "";
+                    ddlRegType.BorderColor = System.Drawing.Color.Red;
                 }
 
             }
@@ -760,7 +763,12 @@ namespace MeghalayaUIP.User.PreReg
                 if (ddlLineOfActivity.SelectedItem.Text != "--Select--")
                 {
                     lblPCBCategory.Text = mstrBAL.GetPCBCategory(ddlLineOfActivity.SelectedValue);
+                    ddlLineOfActivity.BorderColor = System.Drawing.Color.Black;
 
+                }
+                else
+                {
+                    ddlLineOfActivity.BorderColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception ex)
@@ -785,8 +793,9 @@ namespace MeghalayaUIP.User.PreReg
                 if (ddlAuthReprDist.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlAuthReprTaluka, ddlAuthReprDist.SelectedValue);
+                    ddlAuthReprDist.BorderColor = System.Drawing.Color.Black;
                 }
-                else return;
+                else ddlAuthReprDist.BorderColor = System.Drawing.Color.Red; return;
             }
             catch (Exception ex)
             {
@@ -794,6 +803,7 @@ namespace MeghalayaUIP.User.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+
         }
         protected void ddlAuthReprTaluka_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -806,6 +816,11 @@ namespace MeghalayaUIP.User.PreReg
                 if (ddlAuthReprTaluka.SelectedItem.Text != "--Select--")
                 {
                     BindVillages(ddlAuthReprVillage, ddlAuthReprTaluka.SelectedValue);
+                    ddlAuthReprTaluka.BorderColor = System.Drawing.Color.Black;
+                }
+                else
+                {
+                    ddlAuthReprTaluka.BorderColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception ex)
@@ -831,8 +846,9 @@ namespace MeghalayaUIP.User.PreReg
                 if (ddlPropLocDist.SelectedItem.Text != "--Select--")
                 {
                     BindMandal(ddlPropLocTaluka, ddlPropLocDist.SelectedValue);
+                    ddlPropLocDist.BorderColor = System.Drawing.Color.Black;
                 }
-                else return;
+                else ddlPropLocDist.BorderColor = System.Drawing.Color.Red; return;
             }
             catch (Exception ex)
             {
@@ -852,6 +868,11 @@ namespace MeghalayaUIP.User.PreReg
                 if (ddlPropLocTaluka.SelectedItem.Text != "--Select--")
                 {
                     BindVillages(ddlPropLocVillage, ddlPropLocTaluka.SelectedValue);
+                    ddlPropLocTaluka.BorderColor = System.Drawing.Color.Black;
+                }
+                else
+                {
+                    ddlPropLocTaluka.BorderColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception ex)
@@ -1697,6 +1718,7 @@ namespace MeghalayaUIP.User.PreReg
                     txtApplTaluka.Text = "";
                     txtApplVillage.Text = "";
 
+                    ValidateDropdown(ddlApplCountry);
                 }
                 else if (ddlApplCountry.SelectedValue == "78")
                 {
@@ -1718,7 +1740,12 @@ namespace MeghalayaUIP.User.PreReg
                     ddlApplTaluka.ClearSelection();
                     ddlApplVillage.ClearSelection();
 
+                    ValidateDropdown(ddlApplCountry);
                 }
+                ValidateDropdown(ddlApplState);
+                ValidateDropdown(ddlApplDist);
+                ValidateDropdown(ddlApplTaluka);
+                ValidateDropdown(ddlApplVillage);
             }
             catch (Exception ex)
             {
@@ -1739,7 +1766,7 @@ namespace MeghalayaUIP.User.PreReg
                     txtApplTaluka.Text = "";
                     txtApplVillage.Text = "";
 
-
+                    ValidateDropdown(ddlApplState);
                 }
                 else if (ddlApplState.SelectedValue == "23")
                 {
@@ -1756,6 +1783,10 @@ namespace MeghalayaUIP.User.PreReg
                     ddlApplVillage.Items.Clear();
                     AddSelect(ddlApplVillage);
 
+                    ValidateDropdown(ddlApplState);
+                    ValidateDropdown(ddlApplDist);
+                    ValidateDropdown(ddlApplTaluka);
+                    ValidateDropdown(ddlApplVillage);
                 }
             }
             catch (Exception ex)
@@ -1765,6 +1796,17 @@ namespace MeghalayaUIP.User.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
+        }
+        private void ValidateDropdown(DropDownList dropdown)
+        {
+            if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedIndex == -1 || dropdown.SelectedItem.Text == "--Select--")
+            {
+                dropdown.BorderColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                dropdown.BorderColor = System.Drawing.Color.Black;
+            }
         }
         protected void ddlApplDist_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1781,8 +1823,10 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     ddlApplTaluka.Enabled = true;
                     BindMandal(ddlApplTaluka, ddlApplDist.SelectedValue);
+                    ddlApplDist.BorderColor = System.Drawing.Color.Black;
+
                 }
-                else return;
+                else ddlApplDist.BorderColor = System.Drawing.Color.Red; return;
             }
             catch (Exception ex)
             {
@@ -1804,7 +1848,9 @@ namespace MeghalayaUIP.User.PreReg
                     ddlApplVillage.Enabled = true;
 
                     BindVillages(ddlApplVillage, ddlApplTaluka.SelectedValue);
+                    ddlApplTaluka.BorderColor = System.Drawing.Color.Black;
                 }
+                else { ddlApplTaluka.BorderColor = System.Drawing.Color.Red; }
             }
             catch (Exception ex)
             {
@@ -3436,13 +3482,13 @@ namespace MeghalayaUIP.User.PreReg
                     if (string.IsNullOrWhiteSpace(radioButtonList.SelectedValue) || radioButtonList.SelectedIndex == -1)
                     {
                         emptyRadioButtonLists.Add(radioButtonList);
-                       
+
                         radioButtonList.BorderColor = System.Drawing.Color.Red;
                         radioButtonList.BorderWidth = Unit.Pixel(2);
                         radioButtonList.BorderStyle = BorderStyle.Solid;
                     }
                     else
-                    {                      
+                    {
                         radioButtonList.BorderColor = System.Drawing.Color.Empty;
                         radioButtonList.BorderWidth = Unit.Empty;
                         radioButtonList.BorderStyle = BorderStyle.NotSet;

@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="RENDeptWiseReportDrillDown.aspx.cs" Inherits="MeghalayaUIP.Dept.Reports.RENDeptWiseReportDrillDown" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <link href="../assets/admin/css/user.css" rel="stylesheet" />
+    <link href="../assets/admin/css/user.css" rel="stylesheet" />
 
     <div class="page-wrapper griddesignmulticount">
         <div class="content container-fluid">
@@ -12,8 +13,14 @@
                 <h4 class="card-title mt-1">
                     <label id="lblStatus" runat="server" visible="false"></label>
                 </h4>
-                <div class="col-md-1">
+                <div class="col-md-1 d-flex " style="align-items: center; margin-right: 60px;">
                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    <div class="panel-heading" style="text-align: center">
+                        <h2 id="H1" runat="server" class="panel-title d-flex" style="margin-top: 8px; padding: 0px 10px;">
+                            <asp:Label ID="lblHeading" runat="server" Visible="false">Renewal Department Wise Report</asp:Label>
+                            <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right; margin-right: 10px;" alt="PDF" OnClick="btnPdf_Click" />
+                            <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
+                    </div>
                 </div>
             </div>
 
@@ -56,18 +63,18 @@
                                         <%# Container.DataItemIndex + 1%>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                               
+
                                 <asp:BoundField HeaderText="UID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" ItemStyle-Width="10%" />
                                 <asp:BoundField HeaderText="Name of the Industry" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
-                                 <asp:BoundField HeaderText="ProjectCost" DataField="PROJECTCOST" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
+                                <asp:BoundField HeaderText="ProjectCost" DataField="PROJECTCOST" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
                                 <asp:BoundField HeaderText="District" DataField="DISTRICT" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="30%" />
                                 <asp:BoundField HeaderText="Department Name" DataField="DEPARTMENT" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="40%" />
                                 <asp:BoundField HeaderText="Approval Name" DataField="APPROVAL" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="50%" />
                                 <asp:BoundField HeaderText="Line Of Activity" DataField="LINEOFACTIVITY" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="60%" />
                                 <asp:BoundField HeaderText="Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="50%" />
-                                   <asp:BoundField HeaderText="Date of application" DataField="DATEOFAPPLICATION" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="20%" />
+                                <asp:BoundField HeaderText="Date of application" DataField="DATEOFAPPLICATION" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="20%" />
                                 <asp:BoundField HeaderText="Date of scrutiny" DataField="COMPLETEDDATE" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
-                               
+
                             </Columns>
                         </asp:GridView>
                     </div>

@@ -20,8 +20,14 @@
                 <h4 class="card-title mt-1">
                     <label id="lblStatus" runat="server" visible="false"></label>
                 </h4>
-                <div class="col-md-1">
+                <div class="col-md-1 d-flex " style="align-items: center; margin-right: 60px;">
                     <asp:LinkButton ID="lbtnBack" runat="server" OnClick="lbtnBack_Click" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                      <div class="panel-heading" style="text-align: center">
+                        <h2 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
+                            <asp:Label ID="lblHeading" runat="server" Visible="false">CFO Department Wise Report</asp:Label>
+                            <asp:ImageButton ID="btnPdf" runat="server" ImageUrl="../../assets/admin/img/pdf-icon.png" Width="30px" Height="30px" Style="float: right; margin-right: 10px;" alt="PDF" OnClick="btnPdf_Click" />
+                            <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
+                    </div>
                 </div>
             </div>
 

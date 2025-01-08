@@ -1,15 +1,21 @@
-﻿using MeghalayaUIP.BAL.CommonBAL;
-using MeghalayaUIP.BAL.PreRegBAL;
+﻿using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.BAL.ReportBAL;
 using MeghalayaUIP.Common;
-using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
+using MeghalayaUIP.CommonClass;
+using MeghalayaUIP.BAL.PreRegBAL;
 
 namespace MeghalayaUIP.Dept
 {
@@ -122,6 +128,85 @@ namespace MeghalayaUIP.Dept
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void ExportToExcel()
+        {
+            try
+            {
+                gvPreRegDtls.Columns[4].Visible = true;
+                gvPreRegDtls.Columns[5].Visible = true;
+                gvPreRegDtls.Columns[6].Visible = true;
+                gvPreRegDtls.Columns[9].Visible = true;
+                gvPreRegDtls.Columns[10].Visible = true;
+                gvPreRegDtls.Columns[11].Visible = true;
+                gvPreRegDtls.Columns[12].Visible = true;
+                gvPreRegDtls.Columns[13].Visible = true;
+                gvPreRegDtls.Columns[14].Visible = true;
+                gvPreRegDtls.Columns[15].Visible = true;
+                gvPreRegDtls.Columns[16].Visible = true;
+                gvPreRegDtls.Columns[17].Visible = true;
+                gvPreRegDtls.Columns[18].Visible = true;
+                gvPreRegDtls.Columns[19].Visible = true;
+                gvPreRegDtls.Columns[20].Visible = true;
+                gvPreRegDtls.Columns[21].Visible = true;
+                gvPreRegDtls.Columns[23].Visible = false;
+
+                Response.Clear();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment;filename=IntentToInvestApplications" + DateTime.Now.ToString("M/d/yyyy") + ".xls");
+                Response.Charset = "";
+                Response.ContentType = "application/vnd.ms-excel";
+                using (StringWriter sw = new StringWriter())
+                {
+                    string style = @"<style>
+                        .gridTable { border-collapse: collapse; width: 100%; }
+                        .gridTable th, .gridTable td { border: 1px solid black; padding: 5px; text-align: left; }
+                     </style>";
+
+                    gvPreRegDtls.Style["width"] = "680px";
+                    gvPreRegDtls.CssClass = "gridTable"; 
+
+                    HtmlTextWriter hw = new HtmlTextWriter(sw);
+                    gvPreRegDtls.RenderControl(hw);
+
+                    // Add a custom header and include styles
+                    string headerTable = @"<table class='gridTable'>
+                              <tr>
+                                  <td align='center' colspan='13'><h4>" + lblHeading.Text + @"</h4></td>
+                              </tr>
+                          </table>";
+
+                    Response.Write(style); // Write the CSS to the response
+                    Response.Write(headerTable); // Write the custom header
+                    Response.Write(sw.ToString()); // Write the GridView HTML with borders
+                    Response.Flush();
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                foreach (DataControlField column in gvPreRegDtls.Columns)
+                {
+                    if (column.HeaderText == "Details")
+                    {
+                        column.Visible = false;
+                    }
+                }
+            }
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
+        }
+
+        protected void btnExcel_Click(object sender, ImageClickEventArgs e)
+        {
+            ExportToExcel();
         }
     }
 }
