@@ -19,7 +19,7 @@
                     <div class="panel-heading" style="text-align: center">
                         <h2 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
                             <asp:Label ID="lblHeading" runat="server" Visible="false">Industry Registrations</asp:Label>
-                            <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
+                            <asp:ImageButton ID="btnExcel" runat="server" ImageUrl="../../assets/admin/img/Excel-icon.png" Width="30px" Height="30px" Style="float: right;margin-left:20px;" alt="EXCEL" OnClick="btnExcel_Click" /></h2>
                     </div>
                 </div>
 
