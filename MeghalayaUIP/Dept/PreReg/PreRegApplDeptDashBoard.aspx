@@ -12,6 +12,14 @@
             opacity: 0.3;
             color: #fff;
         }
+        i.fi.fi-tr-file-edit {
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    font-size: 50px;
+    opacity: 0.3;
+    color: #fff;
+}
     </style>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
