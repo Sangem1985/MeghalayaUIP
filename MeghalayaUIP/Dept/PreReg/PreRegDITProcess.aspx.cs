@@ -251,7 +251,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         if (Convert.ToString(Request.QueryString["status"]) != "ApplicationTracker")
                         {
 
-                            if (Request.QueryString["status"].ToString() == "IMATODEPTQUERY"
+                            if ((Request.QueryString["status"].ToString() == "IMATODEPTQUERY"|| Request.QueryString["status"].ToString() == "TOBEPROCESSED")
                            && (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "6"
                            || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "13") || Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "19")
                             {

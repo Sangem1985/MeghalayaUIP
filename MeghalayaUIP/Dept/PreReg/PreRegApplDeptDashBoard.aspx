@@ -191,7 +191,7 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="ApplicationPending" runat="server">
                                     <asp:LinkButton runat="server" ID="linkQryRcvd" OnClick="linkQryRcvd_Click" ForeColor="White">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
@@ -212,7 +212,7 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="ApplicationProcessed" runat="server">
                                     <asp:LinkButton runat="server" ID="linkQryRepld" OnClick="linkQryRepld_Click" ForeColor="White">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
