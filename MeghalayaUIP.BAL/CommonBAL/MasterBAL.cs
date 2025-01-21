@@ -263,6 +263,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.InsPageAccessed(Userid, Email, Pagename, IPAddress, RoleId);
         }
+        public DataSet SWPDDrilldown(string Deptid, string FromDate, string ToDate,string ViewType)
+        {
+            return objMasterDAL.SWPDDrilldown(Deptid, FromDate, ToDate, ViewType);
+        }
 
         ///////user search////
 

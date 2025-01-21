@@ -1141,7 +1141,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList runat="server" ID="ddlApplDist" class="form-control" TabIndex="1" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplDist_SelectedIndexChanged">
+                                                                            <asp:DropDownList runat="server" ID="ddlApplDist" class="form-control" TabIndex="1" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="ddlApplDist_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                             </asp:DropDownList>
 

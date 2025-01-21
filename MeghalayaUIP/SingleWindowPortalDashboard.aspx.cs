@@ -133,6 +133,18 @@ namespace MeghalayaUIP
                         gvApprovals.DataSource = null;
                         gvApprovals.DataBind();
                     }
+
+                    Label lblDeptid = (Label)e.Row.FindControl("lblDeptid");
+                    LinkButton lnkApplProcess = (LinkButton)e.Row.FindControl("lblApplProcess");
+                    LinkButton lnkAlprocess = (LinkButton)e.Row.FindControl("lblAlprocess");
+                    string Departmentname = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "TMD_DeptName")).Trim();
+
+                    if (lnkApplProcess.Text != "0")
+                        lnkApplProcess.PostBackUrl = "SingleWindowPortalDashboardDrillDown.aspx?Depatid=" + lblDeptid.Text + "&FromDate=" + txtFDate.Value + "&ToDate=" + txtTDate.Value + "&ViewType=TOTALAPPLICATIONSRCVD" + "&Departmentname=" + Departmentname;
+
+                    if (lnkAlprocess.Text != "0")
+                        lnkAlprocess.PostBackUrl = "SingleWindowPortalDashboardDrillDown.aspx?Depatid=" + lblDeptid.Text + "&FromDate=" + txtFDate.Value + "&ToDate=" + txtTDate.Value + "&ViewType=TOTALPROCESSED" +  "&Departmentname=" + Departmentname;
+
                 }
             }
             catch

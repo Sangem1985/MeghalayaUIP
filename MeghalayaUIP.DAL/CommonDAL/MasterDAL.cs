@@ -1296,9 +1296,19 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@FDATE", fdate);
-                da.SelectCommand.Parameters.AddWithValue("@TDATE", tdate);
-                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptId);
+                if (fdate != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", fdate);
+                }
+                if (tdate != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", tdate);
+                }
+                if (DeptId != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptId);
+                }
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -2328,6 +2338,51 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
             return Result;
+        }
+        public DataSet SWPDDrilldown(string Deptid, string FromDate, string ToDate,string ViewType)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.SWPDashboardDrilldown, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.SWPDashboardDrilldown;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Deptid);
+                if (FromDate != null && FromDate != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                    // da.SelectCommand.Parameters.AddWithValue("@FDATE", FromDate);
+                }
+                if (ToDate != null && ToDate != "")
+                {
+                    //da.SelectCommand.Parameters.AddWithValue("@TDATE", ToDate);
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(ToDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+
+                da.SelectCommand.Parameters.AddWithValue("@VIWETYPE", ViewType);
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
         }
         public DataSet UserSearch(string Userid, string username)
         {
