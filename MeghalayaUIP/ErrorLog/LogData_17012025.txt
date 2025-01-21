@@ -1,0 +1,157 @@
+Time: 17/01/2025 12:19:06 AM
+-----------------------------------------------------------
+Message: System.Net.Http.FormUrlEncodedContent
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:19:07 AM
+-----------------------------------------------------------
+Message: StatusCode: 503, ReasonPhrase: 'Service Temporarily Unavailable', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Connection: keep-alive
+  X-Cache: Error from cloudfront
+  X-Amz-Cf-Pop: HYD57-P1
+  X-Amz-Cf-Id: cpxHAFcIejouqgpTGF6HCqLVzyIXXlbkBqB3CDWu2OIeGhWVTiSujQ==
+  Date: Thu, 16 Jan 2025 18:38:51 GMT
+  Server: awselb/2.0
+  Via: 1.1 a3c23a87f9de6b516cee838aab6858b6.cloudfront.net (CloudFront)
+  Content-Length: 162
+  Content-Type: text/html
+}
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:19:45 AM
+-----------------------------------------------------------
+Message: System.Net.Http.FormUrlEncodedContent
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:19:57 AM
+-----------------------------------------------------------
+Message: StatusCode: 503, ReasonPhrase: 'Service Temporarily Unavailable', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Connection: keep-alive
+  X-Cache: Error from cloudfront
+  X-Amz-Cf-Pop: HYD57-P1
+  X-Amz-Cf-Id: ZD0Na7o2eO-Rapg1rE43lZdvgIdN1sDRPU0dWBr1VeW_gNGCa7DwrQ==
+  Date: Thu, 16 Jan 2025 18:39:31 GMT
+  Server: awselb/2.0
+  Via: 1.1 a9d867e65388db9de25cf2229162a746.cloudfront.net (CloudFront)
+  Content-Length: 162
+  Content-Type: text/html
+}
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:22:05 AM
+-----------------------------------------------------------
+Message: System.Net.Http.FormUrlEncodedContent
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:22:06 AM
+-----------------------------------------------------------
+Message: StatusCode: 503, ReasonPhrase: 'Service Temporarily Unavailable', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Connection: keep-alive
+  X-Cache: Error from cloudfront
+  X-Amz-Cf-Pop: HYD57-P1
+  X-Amz-Cf-Id: vKWtxyXftJlnmCuE2uoiZ6nci70qcADYjR9SM6bFw-3r00cKiZvYpA==
+  Date: Thu, 16 Jan 2025 18:41:50 GMT
+  Server: awselb/2.0
+  Via: 1.1 3f1993afa92d45de4d6fa8968b86a848.cloudfront.net (CloudFront)
+  Content-Length: 162
+  Content-Type: text/html
+}
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:23:46 AM
+-----------------------------------------------------------
+Message: System.Net.Http.FormUrlEncodedContent
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:23:48 AM
+-----------------------------------------------------------
+Message: StatusCode: 503, ReasonPhrase: 'Service Temporarily Unavailable', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Connection: keep-alive
+  X-Cache: Error from cloudfront
+  X-Amz-Cf-Pop: HYD57-P1
+  X-Amz-Cf-Id: grfbPJE0UKs9km4GMRisLZjbBl-XLyz2lL-CFBmc64ljHrT3j9eRlg==
+  Date: Thu, 16 Jan 2025 18:43:31 GMT
+  Server: awselb/2.0
+  Via: 1.1 a9d867e65388db9de25cf2229162a746.cloudfront.net (CloudFront)
+  Content-Length: 162
+  Content-Type: text/html
+}
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:23:54 AM
+-----------------------------------------------------------
+Message: System.Net.HttpWebRequest
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:24:07 AM
+-----------------------------------------------------------
+Message: Error response: The remote server returned an error: (503) Server Unavailable.
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:24:07 AM
+-----------------------------------------------------------
+Message: <html>
+<head><title>503 Service Temporarily Unavailable</title></head>
+<body>
+<center><h1>503 Service Temporarily Unavailable</h1></center>
+</body>
+</html>
+
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:26:16 AM
+-----------------------------------------------------------
+Message: System.Net.Http.FormUrlEncodedContent
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:26:17 AM
+-----------------------------------------------------------
+Message: StatusCode: 503, ReasonPhrase: 'Service Temporarily Unavailable', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Connection: keep-alive
+  X-Cache: Error from cloudfront
+  X-Amz-Cf-Pop: HYD57-P1
+  X-Amz-Cf-Id: lKFSj-smOSWYcWnNR6dQwN2EMR7hufrTH3tZTxT5rI0B4YKrC6Evrg==
+  Date: Thu, 16 Jan 2025 18:46:01 GMT
+  Server: awselb/2.0
+  Via: 1.1 01b987de8709a3e575a7bbdf9ad96382.cloudfront.net (CloudFront)
+  Content-Length: 162
+  Content-Type: text/html
+}
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:26:20 AM
+-----------------------------------------------------------
+Message: System.Net.HttpWebRequest
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:29:57 AM
+-----------------------------------------------------------
+Message: System.Net.Http.FormUrlEncodedContent
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:29:57 AM
+-----------------------------------------------------------
+Message: StatusCode: 503, ReasonPhrase: 'Service Temporarily Unavailable', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Connection: keep-alive
+  X-Cache: Error from cloudfront
+  X-Amz-Cf-Pop: HYD57-P1
+  X-Amz-Cf-Id: GIWHAkslSE3wGgQIKuXrcT5OnJIZtmq8CmnHdbplT-4y_m5nLPrsLQ==
+  Date: Thu, 16 Jan 2025 18:49:41 GMT
+  Server: awselb/2.0
+  Via: 1.1 2dd685def3177b31ca37906704b5f400.cloudfront.net (CloudFront)
+  Content-Length: 162
+  Content-Type: text/html
+}
+-----------------------------------------------------------
+
+Time: 17/01/2025 12:30:00 AM
+-----------------------------------------------------------
+Message: System.Net.HttpWebRequest
+-----------------------------------------------------------
+
