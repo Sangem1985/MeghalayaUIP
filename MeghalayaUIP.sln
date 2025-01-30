@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33423.256
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeghalayaUIP", "MeghalayaUIP\MeghalayaUIP.csproj", "{515C813F-6671-4047-991A-08CA8D4114FD}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeghalayaUIP.Common", "MeghalayaUIP.Common\MeghalayaUIP.Common.csproj", "{13F801A3-3577-426E-8F5C-FE99501AE37F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeghalayaUIP.Payments", "MeghalayaUIP.Payments\MeghalayaUIP.Payments.csproj", "{D5C20567-D646-486E-A529-AEC0C9F0738D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeghalayaAPI", "MeghalayaAPI\MeghalayaAPI.csproj", "{54521EAC-5740-45E1-9AF4-866993DEF101}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D5C20567-D646-486E-A529-AEC0C9F0738D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5C20567-D646-486E-A529-AEC0C9F0738D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5C20567-D646-486E-A529-AEC0C9F0738D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54521EAC-5740-45E1-9AF4-866993DEF101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54521EAC-5740-45E1-9AF4-866993DEF101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54521EAC-5740-45E1-9AF4-866993DEF101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54521EAC-5740-45E1-9AF4-866993DEF101}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

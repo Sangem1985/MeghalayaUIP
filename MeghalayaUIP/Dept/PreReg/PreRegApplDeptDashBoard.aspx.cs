@@ -61,6 +61,16 @@ namespace MeghalayaUIP.Dept.PreReg
                         //    linkQryRcvd.Text = "To be Processed";
                         //    linkQryRepld.Text = "Processed";
                         //}
+                        if(ObjUserInfo.Roleid=="4")
+                        {
+                            ApplicationPending.Visible = false;
+                            ApplicationProcessed.Visible = false;
+                        }
+                        else
+                        {
+                            ApplicationPending.Visible = true;
+                            ApplicationProcessed.Visible = true;
+                        }
                     }
                   
                 }

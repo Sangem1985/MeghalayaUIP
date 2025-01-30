@@ -692,6 +692,7 @@
     <Content Include="RTIACT.aspx" />
     <Content Include="SetNewPassword.aspx" />
     <Content Include="SingleWindowPortalDashboard.aspx" />
+    <Content Include="SingleWindowPortalDashboardDrillDown.aspx" />
     <Content Include="stateprofile.aspx" />
     <Content Include="StateProfileNew.aspx" />
     <Content Include="Tourism.aspx" />
@@ -1558,6 +1559,13 @@
     </Compile>
     <Compile Include="SingleWindowPortalDashboard.aspx.designer.cs">
       <DependentUpon>SingleWindowPortalDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SingleWindowPortalDashboardDrillDown.aspx.cs">
+      <DependentUpon>SingleWindowPortalDashboardDrillDown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SingleWindowPortalDashboardDrillDown.aspx.designer.cs">
+      <DependentUpon>SingleWindowPortalDashboardDrillDown.aspx</DependentUpon>
     </Compile>
     <Compile Include="stateprofile.aspx.cs">
       <DependentUpon>stateprofile.aspx</DependentUpon>

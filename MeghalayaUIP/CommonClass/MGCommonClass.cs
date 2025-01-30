@@ -23,8 +23,7 @@ namespace MeghalayaUIP.CommonClass
             {
                 throw exp;
             }
-        }
-     
+        }     
         public static void LogerrorDB(Exception ex, string path, string CreatedBy)
         {
             MGCommonDAL objCommonBLL = new MGCommonDAL();
@@ -62,6 +61,27 @@ namespace MeghalayaUIP.CommonClass
                 System.IO.Directory.CreateDirectory(path);
             }
             path = path + filename + ".txt";
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine(message);
+                writer.Close();
+            }
+        }
+
+        public static void LogData(string strData)
+        {
+            string filename = "LogData_" + DateTime.Now.ToString("dd") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("yyyy");
+
+            string message = string.Format("Time: {0}", DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"));
+            message += Environment.NewLine;
+            message += "-----------------------------------------------------------";
+            message += Environment.NewLine;
+            message += string.Format("Message: {0}", strData);
+
+            message += Environment.NewLine;
+            message += "-----------------------------------------------------------";
+            message += Environment.NewLine;
+            string path = System.Web.HttpContext.Current.Server.MapPath("~/ErrorLog/" + filename + ".txt");
             using (StreamWriter writer = new StreamWriter(path, true))
             {
                 writer.WriteLine(message);

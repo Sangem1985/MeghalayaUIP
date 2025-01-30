@@ -175,9 +175,26 @@
                                             <HeaderStyle HorizontalAlign="Center" />
                                             <ItemStyle Width="5%" />
                                         </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Deptid" Visible="false">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblDeptid" runat="server" Text='<%#Eval("TMD_DEPTID")%>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                         <asp:BoundField ItemStyle-Width="1028px" DataField="TMD_DeptName" HeaderText="Department Name" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
-                                        <asp:BoundField ItemStyle-Width="400px" DataField="TOTALAPPLICATIONSRCVD" HeaderText="Total Applications Received" HeaderStyle-CssClass="fw-bold" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="bg-info" />
-                                        <asp:BoundField ItemStyle-Width="400px" DataField="TOTALPROCESSED" HeaderText="Total Applications Processed" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />
+                                        <%-- <asp:BoundField ItemStyle-Width="400px" DataField="TOTALAPPLICATIONSRCVD" HeaderText="Total Applications Received" HeaderStyle-CssClass="fw-bold" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="bg-info" />
+                                        <asp:BoundField ItemStyle-Width="400px" DataField="TOTALPROCESSED" HeaderText="Total Applications Processed" HeaderStyle-CssClass="fw-bold" ItemStyle-CssClass="bg-info" />--%>
+                                        <asp:TemplateField HeaderText="Total Applications Received">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblApplProcess" Text='<%#Eval("TOTALAPPLICATIONSRCVD")%>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Total Applications Processed">
+                                            <ItemTemplate>
+                                                <asp:LinkButton runat="server" ID="lblAlprocess" Text='<%#Eval("TOTALPROCESSED")%>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
                             </div>

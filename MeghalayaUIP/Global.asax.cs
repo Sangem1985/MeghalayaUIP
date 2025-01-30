@@ -143,11 +143,11 @@ namespace MeghalayaUIP
             //if (!Convert.ToString(exmsg).Contains("ErrorPage.aspx' does not exist."))
             //    MGCommonClass.LogerrorDB(exmsg, HttpContext.Current.Request.Url.AbsoluteUri, "");
             string rawUrl = Request.RawUrl;
-            if (rawUrl.Contains("<") || rawUrl.Contains(">") || !Request.Url.ToString().Contains(expectedHostPath))
-            {
-                //Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
-                Response.Redirect(Redirectionurl, true);
-            }
+            //if (rawUrl.Contains("<") || rawUrl.Contains(">") || !Request.Url.ToString().Contains(expectedHostPath))
+            //{
+            //    //Response.Redirect("http://103.154.75.191/InvestMeghalaya/Home.aspx", true);
+            //    Response.Redirect(Redirectionurl, true);
+            //}
         }
 
         protected void Session_End(object sender, EventArgs e)
