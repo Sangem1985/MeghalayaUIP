@@ -85,6 +85,28 @@
                 transform: scale(1.2);
                 font-weight: 600;
             }
+            body.khasi {
+    section .project-section.case-page-3 .inner-box {
+        height: 175px !important;
+    }
+        .cis1.\35 {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    right: 4%;
+    top: 39%;
+    line-height: 25px;
+    font-size: 12px;
+}
+        .cis1.\32 {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    left: 4%;
+    bottom: 44%;
+    width: 27%;
+}
+}
     </style>
     <section class="innerpages">
         <div class="container">

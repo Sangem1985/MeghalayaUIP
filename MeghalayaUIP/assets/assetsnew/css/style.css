@@ -20925,3 +20925,26 @@ div#bottombox a, div#bottombox1 a {
         width: 40% !important;
     }
 }
+
+
+
+
+/*Khasi Langauage Css Added Here onwards*/
+/*state profile page*/
+body.khasi {
+    section .project-section.case-page-3 .inner-box
+
+{
+    height: 480px !important;
+}
+
+.project-block-one .inner-box .lower-content {
+    height: 480px !important;
+}
+.service-block-two .inner-box .lower-content {
+    height: 345px;
+}
+.counter-block-two .inner-box .text {
+    height: 72px;
+}
+}

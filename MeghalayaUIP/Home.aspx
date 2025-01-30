@@ -450,7 +450,7 @@
                         <div class="top-content">
 
 
-                            <h2 class="head2" style="font-size: 30px !important;">The only interface with Investors</h2>
+                            <h2 class="head2">The only interface with Investors</h2>
                             <div class="middle-content">
                                 <div class="text"><i class="fi fi-sr-check-double"></i>&nbsp; End to end online and transparent systems for granting clearance.</div>
                                 <div class="text mt-2"><i class="fi fi-sr-check-double"></i>&nbsp; Participating 20+ departments provide 100+ regulatory clearance.</div>
@@ -469,7 +469,7 @@
                                 <a href="login.aspx" class="" style="margin-left: 82px;">
 
                                     <img src="assets/assetsnew/images/form.gif" style="width: 26%; margin-left: -94px; margin-right: 10px;">
-                                    Apply for Clearance/<br />
+                                    Apply for Clearance/
                                     approvals
                                     for your business</a>
                             </div>

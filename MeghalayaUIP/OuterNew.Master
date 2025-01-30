@@ -2,7 +2,9 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <head runat="server">
     <title>Invest Meghalaya</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -10,7 +12,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
 
-
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <!-- Stylesheets -->
     <link href="assets/assetsnew/css/style.css" rel="stylesheet" />
 
@@ -22,6 +24,44 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css' />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css' />
     <style>
+        .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+    display: none !important;
+}
+               iframe#\:2\.container {
+    display: none;
+}
+
+        body.VIpgJd-ZVi9od-ORHb {
+   display:none !important;
+}
+        img.goog-te-gadget-icon {
+            display: none;
+        }
+
+        div#\:0\.targetLanguage {
+    border-radius: 6px;
+    margin-top: -1px;
+    border-color: #b1b1b1;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 0;
+    padding: 4px 9px;
+}
+
+        body {
+            top: 0px !important;
+        }
+
+        .translate.d-flex.mt-1.rounded a span {
+            color: #192d66 !important;
+            font-weight: 600;
+        }
+
+        body.VIpgJd-ZVi9od-ORHb {
+            display: none;
+        }
+
         i.fi {
             vertical-align: middle;
         }
@@ -188,9 +228,86 @@
             padding: 20px 0px;
         }
     </style>
+    <style>
+        a.VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+    color: #ffffff;
+}
+       .VIpgJd-ZVi9od-vH1Gmf {
+    background-color: #192d66;
+    text-decoration: none;
+    border: 1px solid #6B90DA;
+    overflow: hidden;
+    padding: 5px 16px;
+}
+        .goog-te-gadget-simple {
+            background: #164976 !important;
+        }
+        /*a.VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+    color: #192d66;
+}*/
+        /*body {
+      font-size: 20px; 
+      font-weight:900;
+    }*/
+    body.khasi {
+      font-size: 14px; /* Decreased font size for Khasi */
+      ul.header-info.pull-left {
+        width: 32% !important;
+        
+    }
+                               div#google_translate_element {
+    margin-top: 5px;
+}
+      div#blinkkashi{
+                    font-size: 14px;
+                    }
+       .main-menu .navigation > li {
+                    margin: 0px 8px;
+                    }
+       .main-menu .navigation > li > a, div#bottombox a, div#bottombox1 a{
+                    font-size: 14px;
 
+                   }
+       .text p{
+           font-size: 16px;
+       }
+       .counter-style-two .content-box .top-text, .bold-text, p.pftext, h2.head2{
+           font-size: 20px !important;
+       }
+       /*.testimonial-style-five .testimonial-content .inner-box{
+           padding: 0px 6px 0px 6px;
+       }*/
+        .testimonial-style-five .testimonial-content .inner-box .author-info .designation{
+                   font-size: 14px;
+                   font-weight: 500;
+        line-height: 18px;
+        width: 100%;
+                   }
+        .testimonial-style-five .testimonial-content .inner-box .author-info {
+            min-height: 135px;
+        }
+        .testimonial-style-five {
+    padding: 70px 0px 267px 0px;
+            }
+        section.about-section-two1.\32 .easy.active {
+    height: 400px;
+            }
+        p.textboxyk {
+            height: 215px;
+        }
+        .team-block-one .inner-box .lower-content .designation{
+            font-size:14px;
+            line-height:18px;
+            font-weight: 500;
+        }
+        div#bottombox a, div#bottombox1 a {
+            font-size: 11px !important;
+        }
+    }
+   
+    </style>
 </head>
-<body class="boxed_wrapper">
+<body class="boxed_wrapper" id="content">
     <form id="form1" runat="server">
         <div>
 
@@ -203,19 +320,25 @@
 
             <!-- main header -->
             <!-- main header -->
-            <header class="main-header style-four style-six">
+            <header class="main-header style-four style-six" lang="kha">
                 <!-- header-top -->
                 <div class="header-top">
                     <div class="container">
                         <div class="inner-container clearfix">
                             <ul class="header-info pull-left" style="width: 30%;">
+                                
                                 <li><a href="tel:+91 7085741695" style="text-transform: none;">Toll Free Number : <b>+91 7085741695</b></a></li>
+                                <li><div class="language dropdownn" id="google_translate_element"></div></li>
                                 <!-- <li><a href="beta2/index.html" target="_blank"><i class="fi fi-rr-chevron-double-down"></i> Click here for Second Design</a></li> -->
-
+                              <%--  <li>
+                                    <div class="translate d-flex rounded">
+                                        <div id="google_translate_element"></div>
+                                    </div>
+                                </li>--%>
                             </ul>
                             <ul class="header-nav pull-right">
                                 <li>
-                                    <div class="blink">*MIIPP 2024 Registrations open till 31st&nbsp;March 2026</div>
+                                    <div class="blink" id="blinkkashi">*MIIPP 2024 Registrations open till 31st&nbsp;March 2026</div>
                                 </li>
                                 <li class="phone"><a href="tel:(+88)01912704287">A+</a></li>
                                 <li class="phone"><a href="tel:(+88)01912704287">A</a></li>
@@ -231,6 +354,7 @@
                                         </ul>
                                     </div>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
@@ -434,6 +558,7 @@
         </div>
     </div> -->
             </header>
+            <%--<p>Hello Investers, Version 2.0</p>--%>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
             <footer class="main-footer style-two style-four home-5">
@@ -609,6 +734,53 @@
                     }
                 }
             </script>
+
+            <%--<script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        
+                        includedLanguages: 'kha,en', // Khasi
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                }
+        </script>
+            --%>
+            <%--<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>--%>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        //pageLanguage: 'en',
+                        includedLanguages: 'kha,en', // Include Khasi (kha) as a target language
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                }
+
+                // Load Google Translate script
+                (function () {
+                    var gtScript = document.createElement('script');
+                    gtScript.type = 'text/javascript';
+                    gtScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                    document.body.appendChild(gtScript);
+                })();
+
+                // Adjust font size when language changes
+                const observer = new MutationObserver(() => {
+                    const htmlLang = document.querySelector('html').getAttribute('lang');
+                    const body = document.body;
+
+                    if (htmlLang === 'kha') {
+                        body.classList.add('khasi'); // Apply decreased font size
+                    } else {
+                        body.classList.remove('khasi'); // Reset to default font size
+                    }
+                });
+
+                // Observe changes in the `lang` attribute of the <html> tag
+                observer.observe(document.documentElement, {
+                    attributes: true,
+                    attributeFilter: ['lang'],
+                });
+  </script>
         </div>
 
     </form>

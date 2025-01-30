@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css'>
     <style>
+       
         section.project-section.case-page-3 .inner-box {
             height: 330px !important;
         }
@@ -16,7 +17,7 @@
             display: block;
             background: #fff;
             padding: 2px 5px 25px 10px;
-            height: 330px !important;
+            height: 480px !important;
         }
 
         .owl-dots {
@@ -478,7 +479,8 @@
 
                                             <div class="lower-content">
                                                 <div class="icon-box">
-                                                    <img src="assets/assetsnew/images/road.png" style="width: 50%;" /></div>
+                                                    <img src="assets/assetsnew/images/road.png" style="width: 50%;" />
+                                                </div>
                                                 <h3><a href="#">Road Connectivity</a></h3>
                                                 <div class="text">
                                                     <ul>
@@ -499,7 +501,8 @@
 
                                             <div class="lower-content">
                                                 <div class="icon-box">
-                                                    <img src="assets/assetsnew/images/train.png" style="width: 50%;" /></div>
+                                                    <img src="assets/assetsnew/images/train.png" style="width: 50%;" />
+                                                </div>
                                                 <h3><a href="#">Rail Connectivity</a></h3>
                                                 <div class="text">
                                                     <ul>
@@ -519,7 +522,8 @@
 
                                             <div class="lower-content">
                                                 <div class="icon-box">
-                                                    <img src="assets/assetsnew/images/airplane.png" style="width: 50%;" /></div>
+                                                    <img src="assets/assetsnew/images/airplane.png" style="width: 50%;" />
+                                                </div>
                                                 <h3><a href="#">Air Connectivity</a></h3>
                                                 <div class="text">
                                                     <ul>
