@@ -107,24 +107,29 @@
             <asp:Button ID="btnSave" runat="server" Text="ADD" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
         </div>
 
+       
 
+        <div class="col-md-12 d-flex justify-content-center mb-3">
+            <div class="col-md-8">
+                <asp:GridView ID="gvTeamMembers" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                    GridLines="Both" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="gvTeamMembers_RowDeleting">
+                    <Columns>
+                  
 
-        <div class="col-md-12 d-flex justify-content-center">
-            <asp:GridView ID="gvTeamMembers" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                GridLines="None" OnRowDeleting="gvTeamMembers_RowDeleting"
-                Width="100%" EnableModelValidation="True" Visible="false">
-                <RowStyle BackColor="#ffffff" />
-                <Columns>
-                    <asp:BoundField HeaderText="Name of the Site Inspection Team Member" DataField="MemberName" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                    <asp:BoundField HeaderText="Designation/ Department" DataField="Designation" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                </Columns>
-                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                <AlternatingRowStyle BackColor="White" />
-            </asp:GridView>
+                        <asp:BoundField HeaderText="Name of the Site Inspection Team Member" DataField="MEMBERNAME" ItemStyle-BackColor="Wheat"
+                            ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />                      
+                        <asp:BoundField HeaderText="Designation/ Department" DataField="DESIGNATION" ItemStyle-BackColor="Wheat"
+                            ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat"
+                            ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                    </Columns>
+                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                    <AlternatingRowStyle BackColor="White" />
+                </asp:GridView>
+
+            </div>
         </div>
-
 
         <h3>Site Verification Report</h3>
 
@@ -151,13 +156,13 @@
                     <td>3</td>
                     <td>Coordinates of the Site</td>
                     <td>
-                        <asp:TextBox ID="txtCoordinates" runat="server" Width="400px" Placeholder="40.7128° N, 74.0060° W" TabIndex="1" MaxLength="9" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox ID="txtCoordinates" runat="server" Width="400px" Placeholder="40.7128° N, 74.0060° W" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>4</td>
                     <td>Total area of Site</td>
                     <td>
-                        <asp:TextBox ID="txtArea" runat="server" Width="200px" Placeholder="In sq.ft/ acres" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="6" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox ID="txtArea" runat="server" Width="200px" Placeholder="In sq.ft/ acres" TabIndex="1" MaxLength="6" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>5</td>

@@ -104,64 +104,69 @@
                 <asp:HiddenField ID="hdnUserID" runat="server" />
             </div>
             <div class="col-md-12">
-                <%--    <div class="header">
-                    <div class="header-left">
-                        <a href="index.html" class="logo">
-                            <img src="../../assets/admin/img/logo.png" alt="Logo" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold">The Field Officers Inspected Report</span>
-                    </div>
-                </div>--%>
 
 
                 <div class="card">
                     <div class="col-md-1 pb-2 pt-2">
                         <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark" OnClientClick="history.back(); return false;"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                     </div>
-                    <div class="card-header">
+                    <div class="card-header d-flex" style="display: contents !important;">
                         <h3>Field Inspection Report</h3>
                     </div>
+                    
                     <div style="display: flex; justify-content: center;">
                         <section id="dashboardBasic" style="width: 70%;">
                             <div class="container-fluid">
                                 <div class="row clearfix">
                                     <div class="card-body">
-                                        <div class="col-md-12 d-flex" style="width: 99%;">
-                                            <h4 class="card-title1 col-lg-12">Field Visit Team Inspection</h4>
-                                        </div>
-                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left; border: 1px solid #ddd; padding: 10px;">
-                                            <div class="col-md-4">
-                                                <label>1. Unit :</label>
+                                     
+                                        
+
+
+                                        
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title1 col-lg-12">Field Visit Team Inspection</h4>
                                             </div>
+                                            <div class="card-body">
+                                                <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left; border: 1px solid #ddd; padding: 10px;">
+                                            <div class="col-md-4">
+                                                <label>1. Unit </label>
+                                            </div>
+                                            
                                             <div class="col-md-4 fw-bold text-info">
-                                                <span class="dots">:</span><asp:Label ID="unitNamelbl" runat="server"></asp:Label>
+                                                <span class="dots">:</span> <asp:Label ID="unitNamelbl" runat="server" CssClass="ml-5"></asp:Label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left; border: 1px solid #ddd; padding: 10px;">
                                             <div class="col-md-4">
-                                                <label>2. Place of Inspection:</label>
+                                                <label>2. Place of Inspection</label>
                                             </div>
-                                            <div class="col-md-4">
-                                                <span class="dots">:</span><asp:Label ID="placelbl" runat="server"></asp:Label>
+                                            <div class="col-md-8">
+                                                <span class="dots">:</span> <asp:Label ID="placelbl" runat="server" CssClass="ml-5"></asp:Label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left; border: 1px solid #ddd; padding: 10px;">
                                             <div class="col-md-4">
-                                                <label>3. Inspected Date:</label>
+                                                <label>3. Inspected Date</label>
                                             </div>
-                                            <div class="col-md-4">
-                                                <span class="dots">:</span><asp:Label ID="datelbl" runat="server"></asp:Label>
+                                            <div class="col-md-8">
+                                                <span class="dots">:</span> <asp:Label ID="datelbl" runat="server" CssClass="ml-5"></asp:Label>
                                             </div>
                                         </div>
+                                            </div>
+                                            </div>
 
 
-                                        <h4 class="card-title1 col-lg-12">Inspection Team Details</h4>
-                                        <br />
-                                        <%--<div class="col-md-12 d-flex">
-                                        <label class="col-lg-12 col-form-label fw-bold">
-                                            <span style="font-weight: 900; font-size: 20px;">Inspection Team Details</span></label>
-                                    </div>--%>
-                                        <div class="table-responsive">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title1 col-lg-12">Inspection Team Details</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+
                                             <asp:GridView ID="inspectionTeam" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
                                                 GridLines="Both" HeaderStyle-BackColor="Red"
@@ -172,30 +177,38 @@
                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                 <AlternatingRowStyle BackColor="White" />
                                                 <Columns>
-                                                    <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="10px">
+                                                    <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="14%">
                                                         <HeaderStyle HorizontalAlign="Center" />
                                                         <ItemStyle HorizontalAlign="Center" />
                                                         <ItemTemplate>
                                                             <%# Container.DataItemIndex + 1%>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:BoundField HeaderText="Officer Name" DataField="MEMBERNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
-                                                    <asp:BoundField HeaderText="Designation" DataField="DESIGNATION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                    <asp:BoundField HeaderText="Officer Name" ItemStyle-Width="40%" DataField="MEMBERNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" />
+                                                    <asp:BoundField HeaderText="Designation" ItemStyle-Width="40%" DataField="DESIGNATION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                 </Columns>
 
                                             </asp:GridView>
                                         </div>
+                                            </div>
+                                        </div>
+                                        
                                         <br />
 
-                                        <h4 class="card-title1 col-lg-12">Site Verification Report</h4>
-                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered text-center report-table">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title1 col-lg-12">Site Verification Report</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <div class="table-responsive" style="text-align-last: LEFT;">
+                                                <table class="table table-bordered text-center report-table" width="100%">
                                                     <thead>
+
                                                         <tr>
-                                                            <th>S.No</th>
-                                                            <th>Particulars</th>
-                                                            <th>Remarks</th>
+                                                            <th style="width: 2px;">S.No</th>
+                                                            <th style="width: 2px; justify-content: left">Particulars</th>
+                                                            <th style="width: 2px;">Remarks</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -292,6 +305,16 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            
+                                        </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <h4 class="card-title1 col-lg-12"></h4>
+                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                            
 
                                         </div>
 
