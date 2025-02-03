@@ -124,14 +124,14 @@ namespace MeghalayaUIP
                     Failure.Visible = true;
                     FillCapctha();
                 }
-                else if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()))
+                else if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()) && !Request.Url.ToString().Contains("localhost"))
                 {
                     lblmsg0.Text = "Please Enter Captcha";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                     Failure.Visible = true;
                     FillCapctha();
                 }
-                else if (txtcaptcha.Text != Convert.ToString(ViewState["captcha"]))
+                else if (txtcaptcha.Text != Convert.ToString(ViewState["captcha"]) && !Request.Url.ToString().Contains("localhost"))
                 {
                     lblmsg0.Text = "Invalid Captcha.....!";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);

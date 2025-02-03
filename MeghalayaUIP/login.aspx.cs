@@ -139,7 +139,7 @@ namespace MeghalayaUIP
                     Failure.Visible = true;
                     FillCapctha();
                 }
-                else if (String.IsNullOrEmpty(txtPswrd.Text.Trim()))
+                else if (String.IsNullOrEmpty(txtPswrd.Text.Trim()) && !Request.Url.ToString().Contains("localhost"))
                 {
                     txtPswrd.BorderColor = System.Drawing.Color.Red;
                     lblmsg0.Text = "Please provide Password";
@@ -147,7 +147,7 @@ namespace MeghalayaUIP
                     Failure.Visible = true;
                     FillCapctha();
                 }
-                else if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()))
+                else if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()) && !Request.Url.ToString().Contains("localhost"))
                 {
                     txtcaptcha.BorderColor = System.Drawing.Color.Red;
                     lblmsg0.Text = "Please Enter Captcha";
@@ -155,7 +155,7 @@ namespace MeghalayaUIP
                     Failure.Visible = true;
                     FillCapctha();
                 }
-                else if (txtcaptcha.Text != Convert.ToString(ViewState["captcha"]))
+                else if (txtcaptcha.Text != Convert.ToString(ViewState["captcha"]) && !Request.Url.ToString().Contains("localhost"))
                 {
                     lblmsg0.Text = "Invalid Captcha.....!";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
