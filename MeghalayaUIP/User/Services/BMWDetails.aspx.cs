@@ -54,7 +54,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     GetAppliedorNot();
                 }
-            }           
+            }
         }
         protected void GetAppliedorNot()
         {
@@ -135,7 +135,7 @@ namespace MeghalayaUIP.User.Services
                         if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("transfer"))
                             CHKAuthorized.Items[11].Selected = true;
                         if (ds.Tables[0].Rows[0]["BMW_AUTHORIZATION"].ToString().Contains("Any other form of handling"))
-                            CHKAuthorized.Items[12].Selected = true;                       
+                            CHKAuthorized.Items[12].Selected = true;
 
                         rblauthorisation.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BMW_APPLIEDCTO_CTE"]);
                         txtRenno.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_RENAUTHORIZATIONNO"]);
@@ -170,7 +170,7 @@ namespace MeghalayaUIP.User.Services
                         GVBIOMedical.DataSource = dt;
                         GVBIOMedical.DataBind();
                     }
-                    if(ds.Tables[3].Rows.Count > 0)
+                    if (ds.Tables[3].Rows.Count > 0)
                     {
                         for (int i = 0; i < ds.Tables[3].Rows.Count; i++)
                         {
@@ -316,10 +316,13 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (string.IsNullOrEmpty(ddlcategory.SelectedValue) || string.IsNullOrEmpty(ddlwaste.SelectedValue) || string.IsNullOrEmpty(txtQuantity.Text) || string.IsNullOrEmpty(txtMethod.Text))
+                if (ddlcategory.SelectedIndex == -1 || ddlwaste.SelectedIndex == -1 ||
+    string.IsNullOrWhiteSpace(txtQuantity.Text) || string.IsNullOrWhiteSpace(txtMethod.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details of BMW WASTE";
                     Failure.Visible = true;
+                    string message = $"alert('{lblmsg0.Text}')";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", message, true);
                 }
                 else
                 {
@@ -432,7 +435,7 @@ namespace MeghalayaUIP.User.Services
 
             try
             {
-               
+
                 if (GVBIOMedical.Rows.Count > 0)
                 {
                     foreach (GridViewRow row in GVBIOMedical.Rows)
@@ -441,15 +444,15 @@ namespace MeghalayaUIP.User.Services
                         Label lblItem = row.FindControl("lblItemName") as Label;
                         TextBox txtSource = row.FindControl("txtSource") as TextBox;
                         TextBox txtCapacity = row.FindControl("txtCapacity") as TextBox;
-                      
+
                         if (lblItem != null && txtSource != null && txtCapacity != null)
                         {
-                          
-                            if (!string.IsNullOrEmpty(lblItem.Text) &&   
-                                !string.IsNullOrEmpty(lblBMW.Text)&&
+
+                            if (!string.IsNullOrEmpty(lblItem.Text) &&
+                                !string.IsNullOrEmpty(lblBMW.Text) &&
                                 !string.IsNullOrEmpty(txtSource.Text) &&
                                 !string.IsNullOrEmpty(txtCapacity.Text))
-                            {                               
+                            {
                                 DataRow dr = dt.NewRow();
                                 dr["BMW_ID"] = lblBMW.Text;
                                 dr["BMW_EQUIPMENT"] = lblItem.Text;
@@ -459,10 +462,10 @@ namespace MeghalayaUIP.User.Services
                             }
                         }
                     }
-                }               
+                }
                 if (dt.Rows.Count > 0)
                 {
-                   // SvrcBMWDet objSrvcbal = new SvrcBMWDet(); // Ensure this is initialized
+                    // SvrcBMWDet objSrvcbal = new SvrcBMWDet(); // Ensure this is initialized
                     result = objSrvcbal.InsertBMWWASTEDET(dt, UnitID, Questionnaire, hdnUserID.Value, getclientIP());
                 }
                 else
@@ -471,7 +474,7 @@ namespace MeghalayaUIP.User.Services
                 }
             }
             catch (Exception ex)
-            {              
+            {
                 result = "Error: " + ex.Message;
             }
 
@@ -558,7 +561,7 @@ namespace MeghalayaUIP.User.Services
         }
 
         protected void btnlegalnotice_Click(object sender, EventArgs e)
-        {         
+        {
 
             try
             {
@@ -765,7 +768,7 @@ namespace MeghalayaUIP.User.Services
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -831,7 +834,7 @@ namespace MeghalayaUIP.User.Services
 
 
                     ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
-                    ObjBMWDetails.Questionnariid= Convert.ToString(Session["SRVCQID"]);
+                    ObjBMWDetails.Questionnariid = Convert.ToString(Session["SRVCQID"]);
                     ObjBMWDetails.Createdby = hdnUserID.Value;
                     ObjBMWDetails.IPAddress = getclientIP();
                     ObjBMWDetails.Name_applicant = txtNameApplicant.Text;

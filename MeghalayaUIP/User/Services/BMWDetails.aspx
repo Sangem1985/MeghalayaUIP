@@ -422,7 +422,7 @@
                                                                 <%# Container.DataItemIndex + 1%>
                                                             </ItemTemplate>
                                                             <HeaderStyle HorizontalAlign="Center" />
-                                                            <ItemStyle Width="70px" />
+                                                            <ItemStyle Width="60px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Category" Visible="false" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                             <ItemTemplate>

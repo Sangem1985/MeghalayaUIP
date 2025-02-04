@@ -14,7 +14,12 @@
         </ol>
     </nav>
     <style>
-       
+        .gridview-header {
+            position: sticky;
+            top: 0;
+            background-color: #f9f9f9; /* Set the background color */
+            z-index: 1; /* Ensure it stays above content */
+        }
     </style>
 
 
@@ -107,10 +112,10 @@
 
                                                     <%--CssClass="table-bordered mb-0 GRD;"--%>
                                                     <asp:GridView ID="GVDistrictWise" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="grid-view" ForeColor="#333333"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="grid-view" ForeColor="#333333" 
                                                         GridLines="Both" ShowFooter="true" OnRowCreated="GVDistrictWise_RowCreated" OnRowDataBound="GVDistrictWise_RowDataBound"
                                                         Width="100%" EnableModelValidation="True">
-                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" CssClass=gridview-header />
                                                         <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
                                                         <RowStyle Height="40px" BorderColor="Blue" Font-Bold="true" />
                                                         <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />

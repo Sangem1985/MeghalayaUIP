@@ -155,8 +155,8 @@ namespace MeghalayaUIP.Dept.PreReg
                     int count1 = 0;
                     for (int i = 0; i < gvTeamMembers.Rows.Count; i++)
                     {
-                        teamMember.MemberName = gvTeamMembers.Rows[i].Cells[1].Text.Trim();
-                        teamMember.Designation = gvTeamMembers.Rows[i].Cells[2].Text;
+                        teamMember.MemberName = gvTeamMembers.Rows[i].Cells[0].Text.Trim();
+                        teamMember.Designation = gvTeamMembers.Rows[i].Cells[1].Text;
                         teamMember.District = txtUnitLocation.Text;
                         teamMember.createdBy = hdnUserID.Value;
                         teamMember.ipAddress = getclientIP();
@@ -241,18 +241,20 @@ namespace MeghalayaUIP.Dept.PreReg
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("MemberName", typeof(string));
-                    dt.Columns.Add("Designation", typeof(string));
-
                     if (ViewState["TeamMembers"] != null)
+                    {
+                        dt.Columns.Add("MEMBERNAME", typeof(string));
+                        dt.Columns.Add("DESIGNATION", typeof(string));
+                    }
+                    else //(ViewState["TeamMembers"] != null)
                     {
                         dt = (DataTable)ViewState["TeamMembers"];
                     }
 
                     DataRow dr = dt.NewRow();
 
-                    dr["MemberName"] = txtName.Text;
-                    dr["Designation"] = txtDepartment.Text;
+                    dr["MEMBERNAME"] = txtName.Text.Trim();
+                    dr["DESIGNATION"] = txtDepartment.Text.Trim();
 
 
                     dt.Rows.Add(dr);
