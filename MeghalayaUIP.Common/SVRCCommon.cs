@@ -31,6 +31,7 @@ namespace MeghalayaUIP.Common
         public static string GetSrvcAppliedApprovalIDs = "USP_GETSRVCAPPROVALIDS";
         public static string GetSRVCApplUserDashboard = "USP_GETSRVCAPPLUSERDASHBOARD";
         public static string GetSRVCApplicationDet = "USP_GETSRVCAPPLICATIONDET";
+        public static string InsertPDCLDetails = "";
     }
 
     public class SvrcApplicationDetails
@@ -133,6 +134,16 @@ namespace MeghalayaUIP.Common
         public string Bmwname { get; set; }
         public string NoUnit { get; set; }
         public string Capacity { get; set; }
+    }
+    public class PDCLD
+    {
+        public string UnitId { get; set; }
+        public string Questionnariid { get; set; }
+        public string StatusRelation { get; set; }
+        public string PoliceStation { get; set; }
+        public string LTSupply { get; set; }
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
     }
     public class SRVCAttachments
     {

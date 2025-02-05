@@ -38,6 +38,10 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.SRVCBMWDetails(ObjBMWDetails);
         }
+        public string SRVCPSCLDetails(PDCLD Power)
+        {
+            return SvrcDal.SRVCPSCLDetails(Power);
+        }
 
         //public string SRVCSWDDetails(SWMdetails ObjBMWDetails)
         //{

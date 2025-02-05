@@ -926,5 +926,57 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
+        public string SRVCPSCLDetails(PDCLD Power)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.InsertPDCLDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("", Convert.ToInt32(Power.Createdby));
+                com.Parameters.AddWithValue("", Power.IPAddress);
+                com.Parameters.AddWithValue("", Convert.ToInt32(Power.UnitId));
+                com.Parameters.AddWithValue("", Convert.ToInt32(Power.Questionnariid));
+                com.Parameters.AddWithValue("", Power.StatusRelation);
+                com.Parameters.AddWithValue("", Power.PoliceStation);
+                com.Parameters.AddWithValue("", Power.LTSupply);
+
+
+
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

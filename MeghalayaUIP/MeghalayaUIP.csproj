@@ -808,6 +808,7 @@
     <Content Include="User\Services\HazardousDetails.aspx" />
     <Content Include="User\Services\OtherServices.aspx" />
     <Content Include="User\Services\PCBFinalCertificate.aspx" />
+    <Content Include="User\Services\PDCLDetails.aspx" />
     <Content Include="User\Services\SRVCApplStatus.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
     <Content Include="User\Services\SWMDetails.aspx" />
@@ -2371,6 +2372,13 @@
     </Compile>
     <Compile Include="User\Services\PCBFinalCertificate.aspx.designer.cs">
       <DependentUpon>PCBFinalCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\PDCLDetails.aspx.cs">
+      <DependentUpon>PDCLDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\PDCLDetails.aspx.designer.cs">
+      <DependentUpon>PDCLDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCApplStatus.aspx.cs">
       <DependentUpon>SRVCApplStatus.aspx</DependentUpon>
