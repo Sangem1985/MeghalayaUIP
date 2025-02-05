@@ -7,6 +7,11 @@
         .tableBMW {
             width: 70%;
         }
+                input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 6px 0px !important;
+    margin: 0px 3px !important;
+}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -53,7 +58,7 @@
                                         <div class="col-md-12 d-flex">
                                             <h4 class="card-title ml-3">1. Particulars of Application: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
@@ -107,10 +112,10 @@
                                         </div>
 
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex mt-3">
                                             <h4 class="card-title ml-3">2. Activity for which authorisation is sought: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Authorization required for (Please tick appropriate activity or activities *</label>
@@ -135,18 +140,18 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex mt-3">
                                             <h4 class="card-title ml-3">3. Application for fresh or renewal of authorisation (please tick whatever is applicable): </h4>
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
                                                         i) Applied for CTO/CTE</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:RadioButtonList ID="rblauthorisation" runat="server" RepeatDirection="Horizontal">
-                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                            <asp:ListItem Text="Yes" Value="Y"  style="margin-right:20px;"/>
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
                                                     </div>
@@ -176,10 +181,12 @@
                                             </div>
                                         </div>
 
-                                        <h6>iii) Status of Consents</h6>
+                                        <label class="col-lg-12 col-form-label">iii) Status of Consents</label>
                                         <div class="col-md-12 d-flex">
+                                            
                                             <div class="col-md-4">
                                                 <div class="form-group row">
+                                                  
                                                     <label class="col-lg-6 col-form-label">a) Under the Water (Prevention and Control of Pollution) Act, 1974*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtPCB" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
@@ -198,10 +205,10 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex mt-3">
                                             <h4 class="card-title ml-3">4. (HCF/CBWTF) </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
@@ -227,12 +234,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex mt-3">
                                             <h4 class="card-title ml-3">5. Details of health care facility (HCF) or common bio-medical waste treatment facility (CBWTF):</h4>
                                         </div>
 
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">i) Number of beds of HCF:</label>
@@ -393,11 +400,11 @@
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex mt-3">
                                             <h4 class="card-title ml-3">6. Brief description of arrangements for handling of biomedical waste (attach details): </h4>
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">i) Mode of transportation (if any) of bio-medical waste:</label>
@@ -408,7 +415,7 @@
                                             </div>
                                         </div>
 
-                                        <h6>ii) Details of treatment equipment (please give details such as the number, type & capacity of each unit)</h6>
+                                        <label class="col-lg-6 col-form-label">ii) Details of treatment equipment (please give details such as the number, type & capacity of each unit)</label>
                                         <div class="col-md-12 d-flex justify-content-center">
                                             <div class="tableBMW">
                                                 <asp:GridView ID="GVBIOMedical" runat="server" AutoGenerateColumns="false" OnRowDataBound="GVBIOMedical_RowDataBound">
@@ -456,8 +463,8 @@
                                         </div>
 
 
-                                        <h4 class="card-title ml-3">Upload Document</h4>
-                                        <div class="col-md-12 d-flex">
+                                        <h4 class="card-title ml-3 mt-5">Upload Document:</h4>
+                                        <div class="col-md-12 d-flex" style="margin-top:-35px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label"></label>

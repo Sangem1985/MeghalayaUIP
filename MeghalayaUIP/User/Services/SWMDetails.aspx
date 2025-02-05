@@ -3,6 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 6px 0px !important;
+    margin: 0px 6px !important;
+}
+    </style>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <script type="text/javascript">
         function handleKeyUp(input) {
@@ -56,7 +63,7 @@
                                         <div class="col-md-12 d-flex">
                                             <h4 class="card-title ml-3">1. Particulars of Application: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
                                             <div class="col-md-8">
                                                 <div class="form-group row">
                                                     <label class="col-lg-9 col-form-label">
@@ -68,10 +75,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex mt-2">
                                             <h4 class="card-title ml-3">2. Nodal Officer & Designation: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
                                             <div class="col-md-8">
                                                 <div class="form-group row">
                                                     <label class="col-lg-9 col-form-label">
@@ -84,28 +91,28 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex mt-2">
                                             <h4 class="card-title ml-3">3. Authorization Requirements: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">For setting up and opeartion of the facility: (Please tick mark)*</label>
                                                     <div class="col-lg-12 d-flex">
                                                         <asp:CheckBoxList ID="CHKAuthorization" runat="server" RepeatDirection="Vertical" RepeatColumns="4" Style="padding: 20px">
-                                                            <asp:ListItem Text="Waste Processing" Value="1" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text="Recycling" Value="3" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text="Treatment" Value="4" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text="Dispersal at Landfill" Value="5" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Waste Processing" Value="1" class="pr-4"></asp:ListItem>
+                                                            <asp:ListItem Text="Recycling" Value="3" class="pr-4"></asp:ListItem>
+                                                            <asp:ListItem Text="Treatment" Value="4" class="pr-4"></asp:ListItem>
+                                                            <asp:ListItem Text="Dispersal at Landfill" Value="5" class="pr-4"></asp:ListItem>
                                                         </asp:CheckBoxList>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex mt-2">
                                             <h4 class="card-title ml-3">4. Processing / Recycling / Treatment of solid waste</h4>
                                         </div>
-                                        <div class="col-md-12 d-flex flex-wrap">
+                                        <div class="col-md-12 d-flex flex-wrap" style="margin-top:-10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
@@ -254,10 +261,10 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex mt-4">
                                             <h4 class="card-title ml-3">6. Attachments: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top:-25px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label"></label>
