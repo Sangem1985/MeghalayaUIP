@@ -1,6 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="PDCLDetails.aspx.cs" Inherits="MeghalayaUIP.User.Services.PDCLDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        table#ContentPlaceHolder1_rblstatus td {
+            display: ruby-text;
+        }
+
+        input[type=checkbox], input[type=radio] {
+            box-sizing: border-box;
+            padding: 3px 0px !important;
+            margin: 0px 4px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -43,7 +54,7 @@
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <div class="row">
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-6">
+                                            <div class="col-md-5">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
                                                         a) Status in Relation to the premises</label>
@@ -55,7 +66,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-7">
                                                 <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">
                                                         b)Location and Address of the premises including Police Sation:</label>
@@ -69,9 +80,9 @@
 
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-8 col-form-label">c)Nature of LT Supply:*</label>
-                                                    <div class="col-lg-12 d-flex">
+                                                <div class="form-group row d-flex">
+                                                    <label class="col-lg-2 col-form-label">c)Nature of LT Supply:*</label>
+                                                    <div class="col-lg-10 d-flex mt-2">
                                                         <asp:CheckBoxList ID="chkNature" runat="server" RepeatDirection="Vertical" RepeatColumns="9" Style="padding: 40px">
                                                             <asp:ListItem Text="Commercial" Value="1" style="padding-right: 20px"></asp:ListItem>
                                                             <asp:ListItem Text="Industrial" Value="2" style="padding-right: 20px"></asp:ListItem>
@@ -88,10 +99,10 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
-                                            <h4 class="card-title ml-3">6. Attachments: </h4>
+                                        <div class="col-md-12 d-flex mt-4">
+                                            <h4 class="card-title ml-3">Attachments: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" style="margin-top: -25px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label"></label>
@@ -291,9 +302,9 @@
                                         </div>
 
                                         <div class="col-md-12 text-right mt-2 mb-2">
-                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnPreviuos_Click" />
                                             <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnsave_Click" />
-                                            <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                            <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnNext_Click" />
                                         </div>
                                     </div>
                                 </div>
@@ -303,14 +314,14 @@
                 </div>
             </div>
         </ContentTemplate>
-        <Triggers>            
+        <Triggers>
             <asp:PostBackTrigger ControlID="btnDisposal" />
             <asp:PostBackTrigger ControlID="btnduly" />
             <asp:PostBackTrigger ControlID="btnownership" />
             <asp:PostBackTrigger ControlID="btnpole" />
             <asp:PostBackTrigger ControlID="btnowner" />
             <asp:PostBackTrigger ControlID="btnPCB" />
-              <asp:PostBackTrigger ControlID="btnBuilding" />
+            <asp:PostBackTrigger ControlID="btnBuilding" />
             <asp:PostBackTrigger ControlID="btnOccupancy" />
         </Triggers>
     </asp:UpdatePanel>

@@ -944,18 +944,13 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-
-
-                com.Parameters.AddWithValue("", Convert.ToInt32(Power.Createdby));
-                com.Parameters.AddWithValue("", Power.IPAddress);
-                com.Parameters.AddWithValue("", Convert.ToInt32(Power.UnitId));
-                com.Parameters.AddWithValue("", Convert.ToInt32(Power.Questionnariid));
-                com.Parameters.AddWithValue("", Power.StatusRelation);
-                com.Parameters.AddWithValue("", Power.PoliceStation);
-                com.Parameters.AddWithValue("", Power.LTSupply);
-
-
-
+                com.Parameters.AddWithValue("@SRVCPDC_CREATEDBY", Convert.ToInt32(Power.Createdby));
+                com.Parameters.AddWithValue("@SRVCPDC_CREATEDBYIP", Power.IPAddress);
+                com.Parameters.AddWithValue("@SRVCPDC_UNITID", Convert.ToInt32(Power.UnitId));
+                com.Parameters.AddWithValue("@SRVCPDC_SERVICESQDID", Convert.ToInt32(Power.Questionnariid));
+                com.Parameters.AddWithValue("@SRVCPDC_STATUSRELATION", Power.StatusRelation);
+                com.Parameters.AddWithValue("@SRVCPDC_POLICESATION", Power.PoliceStation);
+                com.Parameters.AddWithValue("@SRVCPDC_LTSUPPLY", Power.LTSupply);
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -988,7 +983,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             try
             {
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(SvrcConstants.GetSrvcSWMDetails, connection);
+                da = new SqlDataAdapter(SvrcConstants.GetSrvcPDCLDetails, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.CommandText = SvrcConstants.GetSrvcPDCLDetails;
 

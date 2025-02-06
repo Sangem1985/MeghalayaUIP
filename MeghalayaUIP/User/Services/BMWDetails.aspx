@@ -1,4 +1,4 @@
-﻿F<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="BMWDetails.aspx.cs" Inherits="MeghalayaUIP.User.Services.BMWDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="BMWDetails.aspx.cs" Inherits="MeghalayaUIP.User.Services.BMWDetails" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 

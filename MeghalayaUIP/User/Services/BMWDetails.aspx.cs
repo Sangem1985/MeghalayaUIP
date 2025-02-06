@@ -78,7 +78,7 @@ namespace MeghalayaUIP.User.Services
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Services/.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Services/PDCLDetails.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
                             Response.Redirect("~/User/Services/SWMDetails.aspx?Previous=" + "P");
                     }
@@ -783,7 +783,7 @@ namespace MeghalayaUIP.User.Services
             {
                 btnsave_Click(sender, e);
                 if (ErrorMsg == "")
-                    Response.Redirect("~/User/Services/.aspx?Next=" + "N");
+                    Response.Redirect("~/User/Services/PDCLDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

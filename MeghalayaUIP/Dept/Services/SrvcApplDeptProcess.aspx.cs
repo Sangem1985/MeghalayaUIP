@@ -34,7 +34,7 @@ namespace MeghalayaUIP.Dept.Services
                         {
                             hdnUserID.Value = ObjUserInfo.UserID;
                         }
-                      
+
                     }
 
                     BindSRVCApplicatinDetails();
@@ -66,15 +66,15 @@ namespace MeghalayaUIP.Dept.Services
                 DataSet ds = new DataSet();
                 ds = objSrvcbal.GetSRVCApplicationDetails("1001", "1001");
 
-             /*   if (ObjUserInfo.Deptid == "12") //SolidWaste Management
-                {
-                    Solidwaste.Visible = true;
-                }
+                /*   if (ObjUserInfo.Deptid == "12") //SolidWaste Management
+                   {
+                       Solidwaste.Visible = true;
+                   }
 
-                if (ObjUserInfo.Deptid == "12")//BioMedical
-                {
-                    BioMedical.Visible = true;
-                } */
+                   if (ObjUserInfo.Deptid == "12")//BioMedical
+                   {
+                       BioMedical.Visible = true;
+                   } */
 
                 if (ds != null && ds.Tables.Count > 0)
                 {
@@ -182,6 +182,12 @@ namespace MeghalayaUIP.Dept.Services
                     {
                         GVWaste.DataSource = ds.Tables[3];
                         GVWaste.DataBind();
+                    }
+                    if (ds.Tables[5].Rows.Count > 0)
+                    {
+                        lblStatus.Text = ds.Tables[5].Rows[0]["SRVCPDC_STATUSRELATION"].ToString();
+                        lblPSAddress.Text = ds.Tables[5].Rows[0]["SRVCPDC_POLICESATION"].ToString();
+                        lblLTSupply.Text = ds.Tables[5].Rows[0]["SRVCPDC_LTSUPPLY"].ToString();
                     }
                 }
                 // }

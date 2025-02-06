@@ -663,6 +663,7 @@
     <Content Include="Dept\Reports\RENDeptWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\ReportsAbstract.aspx" />
     <Content Include="Dept\Services\SrvcApplDeptProcess.aspx" />
+    <Content Include="Dept\Services\SrvcDeptDashboard.aspx" />
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
@@ -1350,6 +1351,13 @@
     </Compile>
     <Compile Include="Dept\Services\SrvcApplDeptProcess.aspx.designer.cs">
       <DependentUpon>SrvcApplDeptProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\Services\SrvcDeptDashboard.aspx.cs">
+      <DependentUpon>SrvcDeptDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\Services\SrvcDeptDashboard.aspx.designer.cs">
+      <DependentUpon>SrvcDeptDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="EODB.aspx.cs">
       <DependentUpon>EODB.aspx</DependentUpon>

@@ -838,6 +838,31 @@
                                                             </asp:GridView>
                                                         </div>
                                                     </div>
+
+                                                    <div id="Div1" runat="server" visible="true">
+                                                        <h4 class="card-title1 col-lg-12">Power Distribution Corporation Limited</h4>
+                                                        <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                            <div class="col-md-2">
+                                                                <label>i) Status in Relation to the premises:</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblStatus" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>ii) Location and Address of the premises including Police Sation:</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblPSAddress" runat="server"></asp:Label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label>iii)Nature of LT Supply*</label>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <span class="dots">:</span><asp:Label ID="lblLTSupply" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
