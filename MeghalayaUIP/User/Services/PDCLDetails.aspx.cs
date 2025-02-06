@@ -5,6 +5,7 @@ using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -50,32 +51,106 @@ namespace MeghalayaUIP.User.Services
                 }
             }
         }
-        public string Validations()
+        public void BindData()
         {
             try
             {
-                int slno = 1;
-                string errormsg = "";
-                if (string.IsNullOrEmpty(txtPolicest.Text) || txtPolicest.Text == "" || txtPolicest.Text == null)
+                DataSet ds = new DataSet();
+                ds = objSrvcbal.GetSrvcPDCLDetails(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]));
+
+                if (ds != null && ds.Tables.Count > 0)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Location and Address & Police Sation....! \\n";
-                    slno = slno + 1;
-                }
-                if (rblstatus.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Select Status in Relation to the premises...! \\n";
-                    slno = slno + 1;
-                }
-                if (chkNature.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Select Nature of LT Supply...! \\n";
-                    slno = slno + 1;
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows[0][""].ToString().Contains("Commercial"))
+                            chkNature.Items[0].Selected = true;
+                        if (ds.Tables[0].Rows[0][""].ToString().Contains("Industrial"))
+                            chkNature.Items[1].Selected = true;
+                        if (ds.Tables[0].Rows[0][""].ToString().Contains("WSLT"))
+                            chkNature.Items[2].Selected = true;
+                        if (ds.Tables[0].Rows[0][""].ToString().Contains("Agriculture"))
+                            chkNature.Items[3].Selected = true;
+                        if (ds.Tables[0].Rows[0][""].ToString().Contains("Domestic"))
+                            chkNature.Items[4].Selected = true;
+                        if (ds.Tables[0].Rows[0][""].ToString().Contains("General purpose"))
+                            chkNature.Items[5].Selected = true;
+                        if (ds.Tables[0].Rows[0][""].ToString().Contains("Public lighting"))
+                            chkNature.Items[6].Selected = true;
+                        if (ds.Tables[0].Rows[0][""].ToString().Contains("KJ"))
+                            chkNature.Items[7].Selected = true;
+                        if (ds.Tables[0].Rows[0][""].ToString().Contains("MeECL Employee"))
+                            chkNature.Items[8].Selected = true;
+
+                        rblstatus.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtPolicest.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+
+                    }
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 4)
+                            {
+                                hypReport.Visible = true;
+                                hypReport.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypReport.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                                txtReport.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 4)
+                            {
+                                hypduly.Visible = true;
+                                hypduly.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypduly.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                                txtduly.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 4)
+                            {
+                                hypownership.Visible = true;
+                                hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypownership.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                                txtownership.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 4)
+                            {
+                                hyppole.Visible = true;
+                                hyppole.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hyppole.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                                txtpole.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 4)
+                            {
+                                hypowner.Visible = true;
+                                hypowner.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypowner.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                                txtowner.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 4)
+                            {
+                                hypPCB.Visible = true;
+                                hypPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypPCB.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                                txtPCB.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 4)
+                            {
+                                hypBuilding.Visible = true;
+                                hypBuilding.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypBuilding.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                                txtBuilding.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 4)
+                            {
+                                hypOccupancy.Visible = true;
+                                hypOccupancy.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypOccupancy.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                                txtOccupancy.Text = Convert.ToString(ds.Tables[1].Rows[i][""]);
+                            }
+                        }
+                    }
                 }
 
-
-                return errormsg;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 throw ex;
             }
@@ -202,6 +277,36 @@ namespace MeghalayaUIP.User.Services
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public string Validations()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+                if (string.IsNullOrEmpty(txtPolicest.Text) || txtPolicest.Text == "" || txtPolicest.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Location and Address & Police Sation....! \\n";
+                    slno = slno + 1;
+                }
+                if (rblstatus.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Status in Relation to the premises...! \\n";
+                    slno = slno + 1;
+                }
+                if (chkNature.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Nature of LT Supply...! \\n";
+                    slno = slno + 1;
+                }
+
+
+                return errormsg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
         public static string getclientIP()

@@ -32,6 +32,7 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCApplUserDashboard = "USP_GETSRVCAPPLUSERDASHBOARD";
         public static string GetSRVCApplicationDet = "USP_GETSRVCAPPLICATIONDET";
         public static string InsertPDCLDetails = "";
+        public static string GetSrvcPDCLDetails = "";
     }
 
     public class SvrcApplicationDetails
