@@ -14,10 +14,10 @@
         <div class="content container-fluid">
             <div class="col-md-12 d-flex">
                 <div class="col-md-11">
-                    <h4 style="margin-left: -10px; padding-top: 20px">Othere Services Applications :</h4>
+                    <h4 style="margin-left: -10px; padding-top: 20px">Other Services Applications :</h4>
                 </div>
                 <div class="col-md-1" style="padding-top: 20px">
-                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"> Back <i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 69px;margin-top: 16px;"></i></asp:LinkButton>
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark" OnClick="lbtnBack_Click"> Back <i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 69px;margin-top: 16px;"></i></asp:LinkButton>
                 </div>
             </div>
             <div class="col-md-12 d-flex">

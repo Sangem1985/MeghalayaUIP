@@ -1007,5 +1007,97 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
+        public DataTable GetSrvcDashBoard(CFEDtls objSrvc)
+        {
+            DataTable dt = new DataTable();
+            string valid = "";
+            //  IDno = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCDashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCDashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", objSrvc.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objSrvc.Role);
+                if (objSrvc.deptid != null && objSrvc.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objSrvc.deptid);
+                }
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
+        public DataTable GetSRVCDashBoardView(SVRCDtls SRVCDET)
+        {
+            DataTable dt = new DataTable();
+            string valid = "";
+            //  IDno = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCDashBoardVIEW, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCDashBoardVIEW;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", SRVCDET.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", SRVCDET.Role);
+                if (SRVCDET.deptid != null && SRVCDET.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", SRVCDET.deptid);
+                }
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
     }
 }

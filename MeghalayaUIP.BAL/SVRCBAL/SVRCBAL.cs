@@ -83,10 +83,10 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSrvcSWMDetails(userid, UNITID);
         }
-        public DataSet GetSrvcPDCLDetails(string userid, string UNITID)
+       public DataSet GetSrvcPDCLDetails(string userid, string UNITID)
         {
             return SvrcDal.GetSrvcPDCLDetails(userid, UNITID);
-        }
+        } 
         public DataSet GetsrvcapprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
         { return SvrcDal.GetsrvcapprovalID(userid, UNITID, QusestionnaireID, DeptID, ApprovalID); }
         public DataSet GetApplicationStatus(string userid, string UnitID, string Status)
@@ -96,6 +96,14 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         public DataSet GetSRVCApplicationDetails(string UnitID, string InvesterID)
         {
             return SvrcDal.GetSRVCApplicationDetails(UnitID, InvesterID);
+        }
+        public DataTable GetSrvcDashBoard(CFEDtls objSrvc)
+        {
+            return SvrcDal.GetSrvcDashBoard(objSrvc);
+        }
+        public DataTable GetSRVCDashBoardView(SVRCDtls SRVCDET)
+        {
+            return SvrcDal.GetSRVCDashBoardView(SRVCDET);
         }
 
     }
