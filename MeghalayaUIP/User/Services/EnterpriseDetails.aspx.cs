@@ -41,19 +41,19 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                    {
-                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                    }
+                    //if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    //{
+                    //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                    //}
                     //if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
                     //{
                     //    Questionnaire = Convert.ToString(Session["SRVCQID"]);
                     //}
-                    else
-                    {
-                        string newurl = "~/User/Services/SRVCUserDashboard.aspx";
-                        Response.Redirect(newurl);
-                    }
+                    //else
+                    //{
+                    //    string newurl = "~/User/Services/SRVCUserDashboard.aspx";
+                    //    Response.Redirect(newurl);
+                    //}
 
                     Page.MaintainScrollPositionOnPostBack = true;
 
@@ -848,10 +848,13 @@ namespace MeghalayaUIP.User.Services
                     if (result != "")
                     {
                         Session["RENQID"] = result;
+                        result= "SRVC"+"/"+ DateTime.Now.Year.ToString() + "/" + result;
                         success.Visible = true;
                         lblmsg.Text = "Enterprise Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                      //  Response.Redirect("AckSlip.aspx?UID=" + result);
                     }
                 }
                 else
