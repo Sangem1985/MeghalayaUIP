@@ -77,7 +77,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (Request.QueryString.Count > 0)
                     {
-                        UnitID = Request.QueryString[0];
+                        UnitID = "%";
                     }
                 }
                 else
@@ -88,6 +88,7 @@ namespace MeghalayaUIP.User.Services
                     lblHdng.Text = " Status of Application for All Units";
                 else lblHdng.Text = "";
 
+                UnitID = "%";
                 dsApproved = objSrvcbal.GetSRVCapplications(hdnUserID.Value, UnitID);
                 if (dsApproved.Tables.Count > 0)
                 {
