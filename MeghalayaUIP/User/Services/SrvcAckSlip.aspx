@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SrvcAckSlip.aspx.cs" Inherits="MeghalayaUIP.Dept.Services.SrvcAckSlip" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SrvcAckSlip.aspx.cs" Inherits="MeghalayaUIP.User.Services.SrvcAckSlip" %>
 
 <!DOCTYPE html>
 

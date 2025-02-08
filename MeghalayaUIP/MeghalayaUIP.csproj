@@ -662,7 +662,6 @@
     <Content Include="Dept\Reports\RENDeptWiseReport.aspx" />
     <Content Include="Dept\Reports\RENDeptWiseReportDrillDown.aspx" />
     <Content Include="Dept\Reports\ReportsAbstract.aspx" />
-    <Content Include="Dept\Services\SrvcAckSlip.aspx" />
     <Content Include="Dept\Services\SrvcApplDeptdrill.aspx" />
     <Content Include="Dept\Services\SrvcApplDeptProcess.aspx" />
     <Content Include="Dept\Services\SrvcApplDeptView.aspx" />
@@ -813,6 +812,7 @@
     <Content Include="User\Services\OtherServices.aspx" />
     <Content Include="User\Services\PCBFinalCertificate.aspx" />
     <Content Include="User\Services\PDCLDetails.aspx" />
+    <Content Include="User\Services\SrvcAckSlip.aspx" />
     <Content Include="User\Services\SRVCApplStatus.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
     <Content Include="User\Services\SWMDetails.aspx" />
@@ -1347,13 +1347,6 @@
     </Compile>
     <Compile Include="Dept\Reports\ReportsAbstract.aspx.designer.cs">
       <DependentUpon>ReportsAbstract.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Dept\Services\SrvcAckSlip.aspx.cs">
-      <DependentUpon>SrvcAckSlip.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dept\Services\SrvcAckSlip.aspx.designer.cs">
-      <DependentUpon>SrvcAckSlip.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\Services\SrvcApplDeptdrill.aspx.cs">
       <DependentUpon>SrvcApplDeptdrill.aspx</DependentUpon>
@@ -2411,6 +2404,13 @@
     </Compile>
     <Compile Include="User\Services\PDCLDetails.aspx.designer.cs">
       <DependentUpon>PDCLDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SrvcAckSlip.aspx.cs">
+      <DependentUpon>SrvcAckSlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SrvcAckSlip.aspx.designer.cs">
+      <DependentUpon>SrvcAckSlip.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCApplStatus.aspx.cs">
       <DependentUpon>SRVCApplStatus.aspx</DependentUpon>

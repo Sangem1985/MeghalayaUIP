@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.Dept.Services
+namespace MeghalayaUIP.User.Services
 {
 
 

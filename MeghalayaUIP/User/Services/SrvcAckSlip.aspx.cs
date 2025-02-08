@@ -14,7 +14,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 
-namespace MeghalayaUIP.Dept.Services
+namespace MeghalayaUIP.User.Services
 {
     public partial class SrvcAckSlip : System.Web.UI.Page
     {
