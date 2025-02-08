@@ -731,6 +731,7 @@
     <Content Include="User\CFO\CFODrugLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOExcise.aspx" />
     <Content Include="User\CFO\CFOFireDetails.aspx" />
+    <Content Include="User\CFO\CFOForestTransit.aspx" />
     <Content Include="User\CFO\CFOIndustryDetails.aspx" />
     <Content Include="User\CFO\CFOLabourDetails.aspx" />
     <Content Include="User\CFO\CFOLegalMeterology.aspx" />
@@ -813,6 +814,7 @@
     <Content Include="User\Services\PCBFinalCertificate.aspx" />
     <Content Include="User\Services\PDCLDetails.aspx" />
     <Content Include="User\Services\SRVCApplStatus.aspx" />
+    <Content Include="User\Services\SrvcPaymentPage.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
     <Content Include="User\Services\SWMDetails.aspx" />
     <Content Include="User\UserDashboard.aspx" />
@@ -1837,6 +1839,13 @@
     <Compile Include="User\CFO\CFOFireDetails.aspx.designer.cs">
       <DependentUpon>CFOFireDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFO\CFOForestTransit.aspx.cs">
+      <DependentUpon>CFOForestTransit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOForestTransit.aspx.designer.cs">
+      <DependentUpon>CFOForestTransit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFO\CFOIndustryDetails.aspx.cs">
       <DependentUpon>CFOIndustryDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2410,6 +2419,13 @@
     </Compile>
     <Compile Include="User\Services\SRVCApplStatus.aspx.designer.cs">
       <DependentUpon>SRVCApplStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SrvcPaymentPage.aspx.cs">
+      <DependentUpon>SrvcPaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SrvcPaymentPage.aspx.designer.cs">
+      <DependentUpon>SrvcPaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCUserDashboard.aspx.cs">
       <DependentUpon>SRVCUserDashboard.aspx</DependentUpon>

@@ -33,8 +33,10 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCApplicationDet = "USP_GETSRVCAPPLICATIONDET";
         public static string InsertPDCLDetails = "USP_INSSRVCPDCLDETAILS";
         public static string GetSrvcPDCLDetails = "USP_GETSRVCPDCLDETAILS";
-        public static String GetSRVCDashBoard = "";
-        public static string GetSRVCDashBoardVIEW = "";
+        public static String GetSRVCDashBoard = "USP_SRVCDASHBOARDCOUNT";
+        public static string GetSRVCDashBoardVIEW = "USP_SRVCDASHBOARDVIEW";
+        public static string InsertPaymentDetails = "USP_INSSRVCPAYMENTDETAILS_BKP";
+        public static string GetSRVCApprovalsAmounttoPay = "USP_GETSRVCAPPROVALSAMOUNTTOPAY";
     }
 
     public class SvrcApplicationDetails
@@ -230,6 +232,24 @@ namespace MeghalayaUIP.Common
         public string checkenvironmentpollution { get; set; }
         public string createdby { get; set; }    
         public string createdbyip { get; set; }
+
+    }
+
+    public class SRVCPayments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CFEUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string OnlineOrderNo { get; set; }
+        public string OnlineOrderAmount { get; set; }
+        public string PaymentFlag { get; set; }
+        public string TransactionNo { get; set; }
+        public string TransactionDate { get; set; }
+        public string BankName { get; set; }
 
     }
 }

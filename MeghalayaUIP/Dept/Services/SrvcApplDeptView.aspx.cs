@@ -17,7 +17,7 @@ namespace MeghalayaUIP.Dept.Services
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         SVRCBAL objSRVCBAL = new SVRCBAL();
         SVRCBAL svrcDtls = new SVRCBAL();
-        //  SRVCBAL SrvcBAL = new SRVCBAL();
+          //SRVCBAL SrvcBAL = new SRVCBAL();
         //SVRCDAL objSRVCDAL = new SVRCDAL();
         SVRCDtls SRVCDET = new SVRCDtls();
         protected void Page_Load(object sender, EventArgs e)

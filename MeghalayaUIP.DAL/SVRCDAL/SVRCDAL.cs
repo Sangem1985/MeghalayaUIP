@@ -314,7 +314,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@BMW_RENAUTHORIZATIONNO", ObjBMWDetails.authorisationnumber);
                 // com.Parameters.AddWithValue("", Convert.ToDecimal(ObjBMWDetails.authorisation_Date));//
-                com.Parameters.AddWithValue("@BMW_RENAUTHORIZATIONDATE", DateTime.ParseExact(ObjBMWDetails.authorisation_Date, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));                
+                com.Parameters.AddWithValue("@BMW_RENAUTHORIZATIONDATE", DateTime.ParseExact(ObjBMWDetails.authorisation_Date, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@BMW_PCB1974", ObjBMWDetails.Pollution1974);
                 com.Parameters.AddWithValue("@BMW_PCB1981", ObjBMWDetails.ControlPollution1981);
                 com.Parameters.AddWithValue("@BMW_BIOHCF_CBWTF ", ObjBMWDetails.AddressHealthHCFCBWFT);
@@ -926,6 +926,141 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
+
+        public string InsertPaymentDetails(SRVCPayments objpay)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.InsertPaymentDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@SRVCPD_UNITID", Convert.ToInt32(objpay.UNITID));
+                com.Parameters.AddWithValue("@SRVCPD_SRVCQDID", Convert.ToInt32(objpay.Questionnareid));
+                com.Parameters.AddWithValue("@SRVCPD_UIDNO", objpay.CFEUID);
+                com.Parameters.AddWithValue("@SRVCPD_DEPTID", objpay.DeptID);
+                com.Parameters.AddWithValue("@SRVCPD_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
+                com.Parameters.AddWithValue("@SRVCPD_ONLINEORDERNO", objpay.OnlineOrderNo);
+                com.Parameters.AddWithValue("@SRVCPD_ONLINEAMOUNT", objpay.OnlineOrderAmount);
+                com.Parameters.AddWithValue("@SRVCPD_PAYMENTFLAG", objpay.PaymentFlag);
+                com.Parameters.AddWithValue("@SRVCPD_TRANSACTIONNO", objpay.TransactionNo);
+                com.Parameters.AddWithValue("@SRVCPD_BANKNAME", objpay.BankName);
+                com.Parameters.AddWithValue("@SRVCPD_TRANSACTIONDATE", objpay.TransactionDate);
+                com.Parameters.AddWithValue("@SRVCPD_CREATEDBY", Convert.ToInt32(objpay.CreatedBy));
+                com.Parameters.AddWithValue("@SRVCPD_CREATEDBYIP", objpay.IPAddress);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+        public DataSet GetPaymentAmounttoPay(string userid, object uNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCApprovalsAmounttoPay, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCApprovalsAmounttoPay;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(uNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataTable GetSRVCDashBoardView(SVRCDtls SRVCDET)
+        {
+            DataTable dt = new DataTable();
+            string valid = "";
+            //  IDno = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCDashBoardVIEW, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCDashBoardVIEW;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", SRVCDET.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", SRVCDET.Role);
+                if (SRVCDET.deptid != null && SRVCDET.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", SRVCDET.deptid);
+                }
+                da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", SRVCDET.ViewStatus);
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
         public string SRVCPSCLDetails(PDCLD Power)
         {
             string Result = "";
@@ -973,40 +1108,6 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return Result;
         }
-        public DataSet GetSrvcPDCLDetails(string userid, String UNITID)
-        {
-            DataSet ds = new DataSet();
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
-            connection.Open();
-            transaction = connection.BeginTransaction();
-            try
-            {
-                SqlDataAdapter da;
-                da = new SqlDataAdapter(SvrcConstants.GetSrvcPDCLDetails, connection);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = SvrcConstants.GetSrvcPDCLDetails;
-
-                da.SelectCommand.Transaction = transaction;
-                da.SelectCommand.Connection = connection;
-
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
-                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
-                da.Fill(ds);
-                transaction.Commit();
-                return ds;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-        }
         public DataTable GetSrvcDashBoard(CFEDtls objSrvc)
         {
             DataTable dt = new DataTable();
@@ -1053,39 +1154,28 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return dt;
         }
-        public DataTable GetSRVCDashBoardView(SVRCDtls SRVCDET)
+        public DataSet GetSrvcPDCLDetails(string userid, String UNITID)
         {
-            DataTable dt = new DataTable();
-            string valid = "";
-            //  IDno = "";
+            DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
             connection.Open();
             transaction = connection.BeginTransaction();
             try
             {
-
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(SvrcConstants.GetSRVCDashBoardVIEW, connection);
+                da = new SqlDataAdapter(SvrcConstants.GetSrvcPDCLDetails, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = SvrcConstants.GetSRVCDashBoardVIEW;
+                da.SelectCommand.CommandText = SvrcConstants.GetSrvcPDCLDetails;
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-
-                da.SelectCommand.Parameters.AddWithValue("@USERID", SRVCDET.UserID);
-                da.SelectCommand.Parameters.AddWithValue("@ROLEID", SRVCDET.Role);
-                if (SRVCDET.deptid != null && SRVCDET.deptid != 0)
-                {
-                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", SRVCDET.deptid);
-                }
-
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
-
-                    transaction.Commit();
-                connection.Close();
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
             }
             catch (Exception ex)
             {
@@ -1097,7 +1187,6 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Close();
                 connection.Dispose();
             }
-            return dt;
         }
     }
 }

@@ -38,10 +38,6 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.SRVCBMWDetails(ObjBMWDetails);
         }
-        public string SRVCPSCLDetails(PDCLD Power)
-        {
-            return SvrcDal.SRVCPSCLDetails(Power);
-        }
 
         //public string SRVCSWDDetails(SWMdetails ObjBMWDetails)
         //{
@@ -83,10 +79,6 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSrvcSWMDetails(userid, UNITID);
         }
-       public DataSet GetSrvcPDCLDetails(string userid, string UNITID)
-        {
-            return SvrcDal.GetSrvcPDCLDetails(userid, UNITID);
-        } 
         public DataSet GetsrvcapprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
         { return SvrcDal.GetsrvcapprovalID(userid, UNITID, QusestionnaireID, DeptID, ApprovalID); }
         public DataSet GetApplicationStatus(string userid, string UnitID, string Status)
@@ -97,13 +89,31 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCApplicationDetails(UnitID, InvesterID);
         }
-        public DataTable GetSrvcDashBoard(CFEDtls objSrvc)
+
+        public string InsertPaymentDetails(SRVCPayments objpay)
         {
-            return SvrcDal.GetSrvcDashBoard(objSrvc);
+            return SvrcDal.InsertPaymentDetails(objpay);
+        }
+
+        public DataSet GetPaymentAmounttoPay(string userid, string unitID)
+        {
+            return SvrcDal.GetPaymentAmounttoPay(userid, unitID);
         }
         public DataTable GetSRVCDashBoardView(SVRCDtls SRVCDET)
         {
             return SvrcDal.GetSRVCDashBoardView(SRVCDET);
+        }
+        public string SRVCPSCLDetails(PDCLD Power)
+        {
+            return SvrcDal.SRVCPSCLDetails(Power);
+        }
+        public DataTable GetSrvcDashBoard(CFEDtls objSrvc)
+        {
+            return SvrcDal.GetSrvcDashBoard(objSrvc);
+        }
+        public DataSet GetSrvcPDCLDetails(string userid, string UNITID)
+        {
+            return SvrcDal.GetSrvcPDCLDetails(userid, UNITID);
         }
 
     }
