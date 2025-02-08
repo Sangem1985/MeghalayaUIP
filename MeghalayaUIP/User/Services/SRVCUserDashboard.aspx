@@ -21,7 +21,7 @@
                                 <span aria-hidden="true">×</span></button>
                         </div>
                     </div>
-                    <div class="col-md-12 ">
+                    <div class="col-md-12">
                         <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                             <strong>Warning!</strong>
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
