@@ -22,7 +22,7 @@ namespace MeghalayaUIP.User.Services
         decimal sum;
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID,Questionnaire, ErrorMsg = "", result = "";
+        string UnitID, Questionnaire, ErrorMsg = "", result = "", UID = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,14 +41,14 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    //if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                    //{
-                    //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                    //}
-                    //if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
-                    //{
-                    //    Questionnaire = Convert.ToString(Session["SRVCQID"]);
-                    //}
+                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    {
+                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                    }
+                    if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
+                    {
+                        Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                    }
                     //else
                     //{
                     //    string newurl = "~/User/Services/SRVCUserDashboard.aspx";
@@ -92,7 +92,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_UNITID"]);                     
+                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_UNITID"]);
                         txtUnitName.Text = ds.Tables[0].Rows[0]["SRVCED_NAMEOFUNIT"].ToString();
                         ddlCompanyType.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_COMPANYTYPE"].ToString();
                         ddlSectorEnter.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_SECTORENTERPRISE"].ToString();
@@ -526,7 +526,7 @@ namespace MeghalayaUIP.User.Services
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }      
+        }
 
         protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -767,7 +767,7 @@ namespace MeghalayaUIP.User.Services
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            //   string Quesstionriids = "1001";
+            
             try
             {
 
@@ -785,7 +785,7 @@ namespace MeghalayaUIP.User.Services
                     ObjApplicationDetails.CreatedBy = hdnUserID.Value;
                     ObjApplicationDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                     ObjApplicationDetails.IPAddress = getclientIP();
-                  //  ObjApplicationDetails.UidNo = "1001";
+                   // ObjApplicationDetails.UidNo = UID;
 
                     ObjApplicationDetails.Nameofunit = txtUnitName.Text;
                     ObjApplicationDetails.companyType = ddlCompanyType.SelectedValue;
@@ -840,7 +840,7 @@ namespace MeghalayaUIP.User.Services
                     ObjApplicationDetails.TotalProjectCost = lblTotProjCost.Text;
                     ObjApplicationDetails.AnnualTurnOver = txtAnnualTurnOver.Text;
                     ObjApplicationDetails.EnterpriseCategory = lblEntCategory.Text;
-
+                    ObjApplicationDetails.UidNo = "SRVC" + "/" + DateTime.Now.Year.ToString() + "/" + ObjApplicationDetails.Questionnariid;
 
 
                     result = objSrvcbal.InsertRenApplicationDetails(ObjApplicationDetails);
@@ -848,13 +848,13 @@ namespace MeghalayaUIP.User.Services
                     if (result != "")
                     {
                         Session["RENQID"] = result;
-                        result= "SRVC"+"/"+ DateTime.Now.Year.ToString() + "/" + result;
+                        result = "SRVC" + "/" + DateTime.Now.Year.ToString() + "/" + result;
                         success.Visible = true;
                         lblmsg.Text = "Enterprise Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
 
-                      //  Response.Redirect("AckSlip.aspx?UID=" + result);
+                        //  Response.Redirect("AckSlip.aspx?UID=" + result);
                     }
                 }
                 else
@@ -1203,5 +1203,5 @@ namespace MeghalayaUIP.User.Services
             return emptyTextboxes;
         }
     }
-    
+
 }

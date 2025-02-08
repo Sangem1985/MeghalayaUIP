@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
 
-                                  <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
+                                <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
                                     <div class="card-counter danger First">
                                         <asp:LinkButton ID="lnkIntent" runat="server" OnClick="lnkIntent_Click">
 									<i class="fi fi-tr-invest"></i>
@@ -45,7 +45,7 @@
                                     <span class="count-name"></span>
                                         </asp:LinkButton>
                                     </div>
-                                </div>                              
+                                </div>
 
                             </div>
                             <div class="col-md-12 d-flex">
@@ -81,6 +81,19 @@
 
                                 </div>
 
+                                <div class="col-md-3" id="Services" runat="server" visible="false">
+                                    <div class="card-counter primary">
+                                        <asp:LinkButton runat="server" ID="linkServices" OnClick="lnkServices_Click">
+					                    <img src="../../assets/admin/img/prl.png" alt="logo">
+					                    <span class="count-numbers">Other Services<br /> Approval</span>
+					                    <span class="count-name"></span>
+                                        </asp:LinkButton>
+                                    </div>
+
+                                </div>
+
+
+
                             </div>
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-3" id="prereg" runat="server" visible="false">
@@ -103,7 +116,7 @@
                                     </div>
                                 </div>
 
-                                   <div class="col-md-3" id="Report" runat="server" visible="false">
+                                <div class="col-md-3" id="Report" runat="server" visible="false">
                                     <div class="card-counter primary Reports">
                                         <asp:LinkButton runat="server" ID="lnkReport" OnClick="lnkReport_Click">
 									<i class="fi fi-tr-newspaper"></i>

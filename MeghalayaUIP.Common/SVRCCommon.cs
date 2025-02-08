@@ -35,8 +35,6 @@ namespace MeghalayaUIP.Common
         public static string GetSrvcPDCLDetails = "USP_GETSRVCPDCLDETAILS";
         public static String GetSRVCDashBoard = "USP_SRVCDASHBOARDCOUNT";
         public static string GetSRVCDashBoardVIEW = "USP_SRVCDASHBOARDVIEW";
-        public static string InsertPaymentDetails = "USP_INSSRVCPAYMENTDETAILS_BKP";
-        public static string GetSRVCApprovalsAmounttoPay = "USP_GETSRVCAPPROVALSAMOUNTTOPAY";
     }
 
     public class SvrcApplicationDetails

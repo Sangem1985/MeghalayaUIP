@@ -813,6 +813,7 @@
     <Content Include="User\Services\OtherServices.aspx" />
     <Content Include="User\Services\PCBFinalCertificate.aspx" />
     <Content Include="User\Services\PDCLDetails.aspx" />
+    <Content Include="User\Services\SrvcAckSlip.aspx" />
     <Content Include="User\Services\SRVCApplStatus.aspx" />
     <Content Include="User\Services\SrvcPaymentPage.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
@@ -2412,6 +2413,13 @@
     </Compile>
     <Compile Include="User\Services\PDCLDetails.aspx.designer.cs">
       <DependentUpon>PDCLDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SrvcAckSlip.aspx.cs">
+      <DependentUpon>SrvcAckSlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SrvcAckSlip.aspx.designer.cs">
+      <DependentUpon>SrvcAckSlip.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCApplStatus.aspx.cs">
       <DependentUpon>SRVCApplStatus.aspx</DependentUpon>

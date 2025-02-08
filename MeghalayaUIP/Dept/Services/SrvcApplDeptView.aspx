@@ -50,11 +50,11 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
-                            <asp:BoundField HeaderText="Unit ID" DataField="SrvcQDID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
+                            <asp:BoundField HeaderText="Unit ID" DataField="SRVCED_SRVCQDID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
                             <asp:BoundField HeaderText="Invester ID" DataField="INVESTERID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" Visible="false" />
-                            <asp:BoundField HeaderText="ID" DataField="SrvcQD_SrvcUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                            <asp:BoundField HeaderText="Unit ID" DataField="SrvcQD_UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
-                            <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                            <asp:BoundField HeaderText="ID" DataField="SRVCED_UIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                           <%-- <asp:BoundField HeaderText="Unit ID" DataField="SrvcQD_UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
+                            <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />--%>
                             <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                             <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                             <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
@@ -67,7 +67,7 @@
                                 <%--SortExpression="ciw_id"--%>
                                 <ItemTemplate>
                                     <asp:Button ID="ciw_id" runat="server" Text='Process' CommandName="VIEW" CssClass="btn btn-info"
-                                        CommandArgument='<%# Eval("SrvcQDID")+"$"+Eval("INVESTERID")+"$"+Eval("SrvcQD_UNITID")+"$"+Eval("SrvcDA_APPROVALID")+"$"+Eval("SrvcDA_DEPTID")%>' />
+                                        CommandArgument='<%# Eval("SRVCED_SRVCQDID")+"$"+Eval("INVESTERID")+"$"+Eval("SRVCED_UNITID")+"$"+Eval("SRVCDA_APPROVALID")+"$"+Eval("SRVCDA_DEPTID")%>' />
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
