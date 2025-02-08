@@ -12,6 +12,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.BAL.CommonBAL;
 
 
+
 namespace MeghalayaAPI.Controllers
 {
     [RoutePrefix("api/Meghalaya")]
@@ -28,8 +29,8 @@ namespace MeghalayaAPI.Controllers
         }
         #region Get Districts
         [BasicAuthentication]
-        [HttpPost]
-        [Route("GetDistrcitsOnline")]
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.Route("GetDistrcitsOnline")]
         public async Task<List<MasterDistrcits>> GetDistrcitsOnline()
         {
             MasterBAL mstrBAL = new MasterBAL();
@@ -52,8 +53,8 @@ namespace MeghalayaAPI.Controllers
 
         #region insert DATA
         [BasicAuthentication]
-        [HttpPost]
-        [Route("InsertNSWSUser")]
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.Route("InsertNSWSUser")]
         public async Task<InsertUserDetailsResponse> InsertNSWSUser(InsertNSWSUserRequest ObjNSWSUserRequest)
         {
             var identity = (ClaimsIdentity)User.Identity;

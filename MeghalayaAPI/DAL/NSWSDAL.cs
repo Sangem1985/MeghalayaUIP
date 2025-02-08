@@ -8,6 +8,9 @@ using System.Configuration;
 using MeghalayaAPI.Common;
 using System.Drawing;
 using MeghalayaAPI.Models;
+using MeghalayaUIP.Common;
+using Microsoft.Kiota.Abstractions;
+using MeghalayaAPI.Services;
 
 
 namespace MeghalayaAPI.DAL
@@ -15,6 +18,9 @@ namespace MeghalayaAPI.DAL
     public class NSWSDAL
     {
         string connstr = ConfigurationManager.ConnectionStrings["MIPASS"].ToString();
+        List<string> consumedSwsids = new List<string>();
+        List<string> consumedPanNumbers = new List<string>();
+        CommonServices _getSRVC = new CommonServices();
         public DataTable NSWSUserAuthentication(string Username, string Password)
         {
             DataSet ds = new DataSet();
@@ -102,5 +108,117 @@ namespace MeghalayaAPI.DAL
             }
             return Result;
         }
+
+        public ApiResponse_ACK InsertNSWSDETAILS(List<CompanyInfo> companyInfos)
+        {
+
+            string Result = "";
+            string Result2 = "";
+            
+
+            using (SqlConnection connection = new SqlConnection(connstr))
+            {
+                SqlTransaction transaction = null;
+
+                try
+                {
+                    connection.Open();
+                    transaction = connection.BeginTransaction();
+
+                    // This will store the result of the batch operation (Valid value)
+                    var validParam = new SqlParameter("@Valid", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    SqlCommand command;
+                    
+                    foreach (var item in companyInfos)
+                    {
+                        if (item.PanNumber != null && item.SwsId != null)
+                        {
+                            // Prepare the command to execute the stored procedure
+                            using (command = new SqlCommand(Constants.InsertNSWSPANUsers, connection, transaction))
+                            {
+                                command.CommandType = CommandType.StoredProcedure;
+
+                                // Add parameters for the stored procedure
+                                command.Parameters.AddWithValue("@PANNumber", item.PanNumber ?? (object)DBNull.Value);
+                                command.Parameters.AddWithValue("@NameAsPerPAN", item.NameAsPerPan ?? (object)DBNull.Value);
+                                command.Parameters.AddWithValue("@GSTNumebr", item.GstIn ?? (object)DBNull.Value);
+                                command.Parameters.AddWithValue("@CINNumber", item.CinNumber ?? (object)DBNull.Value);
+                                command.Parameters.AddWithValue("@NSWSId", item.SwsId ?? (object)DBNull.Value);
+
+                                command.Parameters.AddWithValue("@Valid", SqlDbType.Int);
+                                command.Parameters["@Valid"].Direction = ParameterDirection.Output;
+
+                                consumedSwsids.Add(item.SwsId);
+                                consumedPanNumbers.Add(item.PanNumber);
+
+                                // Execute the stored procedure within the transaction
+                                Result = Convert.ToString(command.ExecuteNonQuery());
+                                Result = command.Parameters["@Valid"].Value.ToString();
+
+                            }
+                        }
+                        
+                        
+                    }
+
+                   
+                    
+                    // Avoid blocking if possible, use async
+                    ApiResponse_ACK apiResponse_ACK = _getSRVC.ACKPanDetailsAsync(consumedSwsids, "24").Result;
+
+                    if (apiResponse_ACK != null)
+                    {
+                        for (int i = 0; i < consumedSwsids.Count; i++)
+                        {
+                            if (consumedPanNumbers[i] != null && consumedSwsids[i] != null)
+                            {
+                                using (command = new SqlCommand(Constants.UPDATEACKNSWSPANUSERS, connection, transaction))
+                                {
+                                    command.CommandType = CommandType.StoredProcedure;
+
+                                    // Add parameters for the stored procedure
+                                    command.Parameters.AddWithValue("@PANNumber", consumedPanNumbers[i]);
+                                    command.Parameters.AddWithValue("@NSWSId", consumedSwsids[i]);
+                                    command.Parameters.AddWithValue("@AckStatusCode", apiResponse_ACK.StatusCode);
+                                    command.Parameters.AddWithValue("@AckResponse", apiResponse_ACK.Status.ToString());
+                                    command.Parameters.AddWithValue("@AckMsg", apiResponse_ACK.Message);
+
+                                    command.Parameters.AddWithValue("@Valid", SqlDbType.Int);
+                                    command.Parameters["@Valid"].Direction = ParameterDirection.Output;
+
+                                    Result2 = Convert.ToString(command.ExecuteNonQuery());
+                                    Result2 = command.Parameters["@Valid"].Value.ToString();
+
+
+                                }
+                            }
+                               
+                        }
+                        // Commit the transaction since all operations are successful
+                        transaction.Commit();
+                    }
+                    
+                    
+                    return apiResponse_ACK;
+                                                                              
+                }
+                catch (Exception ex)
+                {
+                    ErrorLog.LogData(Result.ToString(), "NSWS_ACKRESPONSE");
+                    transaction.Rollback();
+                    throw ex;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+            }
+
+        }
     }
+    
 }

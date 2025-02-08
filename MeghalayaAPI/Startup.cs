@@ -4,6 +4,9 @@ using Microsoft.Owin;
 using Owin;
 using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
+using MeghalayaAPI.Services;
+using MeghalayaAPI.BAL;
+using Microsoft.Extensions.DependencyInjection;
 [assembly: OwinStartup(typeof(MeghalayaAPI.Startup))]
 namespace MeghalayaAPI
 {
@@ -17,6 +20,10 @@ namespace MeghalayaAPI
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
             HttpConfiguration config = new HttpConfiguration();
             WebApiConfig.Register(config);
+            
         }
+
+       
+        
     }
 }

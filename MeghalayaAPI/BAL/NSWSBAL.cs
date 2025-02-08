@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
+using MeghalayaUIP.Common;
 
 namespace MeghalayaAPI.BAL
 {
@@ -455,6 +456,12 @@ namespace MeghalayaAPI.BAL
             return responecafdetail;
 
         }
+
+        
+        public ApiResponse_ACK InsertNSWSDETAILS(List<CompanyInfo> companyList)
+         {
+            return ObjNswsdal.InsertNSWSDETAILS(companyList);
+         }
 
         #endregion
 

@@ -9,5 +9,7 @@ namespace MeghalayaAPI.Common
     {
         public static string NSWSUserAuthentication = "USP_NSWS_USERAUTHENTICATION";
         public static string InsertNSWSOnlineUsers = "USP_INSERT_NSWSONLINEUSER";
+        public static string InsertNSWSPANUsers = "USP_INSNSWSPANUSERS";
+        public static string UPDATEACKNSWSPANUSERS = "USP_UPDATENSWSPANUSERS";
     }
 }
