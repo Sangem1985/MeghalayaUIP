@@ -1142,17 +1142,17 @@ namespace MeghalayaUIP.User.PreReg
                 }
                 else if (ddlstate.SelectedValue != "23" && ddlstate.SelectedValue != "0")
                 {
-                    if (string.IsNullOrEmpty(txtDistricted.Text) || txtDistricted.Text == "" || txtDistricted.Text == null || txtDistricted.Text.Length != 6 || txtDistricted.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtDistricted.Text, @"^0+(\.0+)?$"))
+                    if (string.IsNullOrEmpty(txtDistricted.Text) || txtDistricted.Text == "" || txtDistricted.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Authorised Representative District...! \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtMandaled.Text) || txtMandaled.Text == "" || txtMandaled.Text == null || txtMandaled.Text.Length != 6 || txtMandaled.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtMandaled.Text, @"^0+(\.0+)?$"))
+                    if (string.IsNullOrEmpty(txtMandaled.Text) || txtMandaled.Text == "" || txtMandaled.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Authorised Representative Mandal...! \\n";
                         slno = slno + 1;
                     }
-                    if (string.IsNullOrEmpty(txtVillagede.Text) || txtVillagede.Text == "" || txtVillagede.Text == null || txtVillagede.Text.Length != 6 || txtVillagede.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtVillagede.Text, @"^0+(\.0+)?$"))
+                    if (string.IsNullOrEmpty(txtVillagede.Text) || txtVillagede.Text == "" || txtVillagede.Text == null)
                     {
                         errormsg = errormsg + slno + ". Please Enter Authorised Representative Village...! \\n";
                         slno = slno + 1;
@@ -2113,9 +2113,9 @@ namespace MeghalayaUIP.User.PreReg
 
                 int slno = 1;
                 string errormsg = ""; string ApplAadhar = "";
-                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
-                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
-                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
+                //List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                //List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+                //List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
 
                 if (string.IsNullOrEmpty(txtApplFrstName.Text.Trim()) || txtApplFrstName.Text.Trim() == "" || txtApplFrstName.Text.Trim() == null)
                 {

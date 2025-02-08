@@ -132,7 +132,7 @@
                                     <li>
                                         <label runat="server" id="lblEnterPrise"></label>
                                     </li>
-                                    <li>Dear Applicant,<br />
+                                    <li>Dear : <label runat="server" id="lblApplicant"></label>,<br />
                                         Your Request for Registration under MIIPP 2024 has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
                                 </ul>
                                 <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
@@ -169,6 +169,7 @@
                                     <li>Copy of GSTIN Certificate.</li>
                                     <li>Proof of CIN.</li>
                                     <li>Detailed Project Report.</li>
+                                    <li>Bank Appraisal Document.</li>
                                 </ol>
 
 
