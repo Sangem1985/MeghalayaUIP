@@ -223,6 +223,8 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCED_PROJECTCOST", Convert.ToDecimal(ObjApplicationDetails.TotalProjectCost));
                 com.Parameters.AddWithValue("@SRVCED_ANNUALTURNOVER", Convert.ToDecimal(ObjApplicationDetails.AnnualTurnOver));
                 com.Parameters.AddWithValue("@SRVCED_ENTERPRISECATEG", ObjApplicationDetails.EnterpriseCategory);
+                com.Parameters.AddWithValue("@SRVCED_UIDNO", ObjApplicationDetails.UidNo);
+
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
