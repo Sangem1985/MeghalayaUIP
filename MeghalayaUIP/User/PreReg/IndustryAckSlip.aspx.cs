@@ -75,6 +75,8 @@ namespace MeghalayaUIP.User.PreReg
                             if (ds.Tables[0].Rows.Count > 0)
                             {
                                 lblUIDNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["PREREGUIDNO"]);
+                                lblApplicant.InnerText= Convert.ToString(ds.Tables[0].Rows[0]["COMPANYNAME"]); 
+ 
 
                             }
                             if (ds.Tables[3].Rows.Count > 0)
