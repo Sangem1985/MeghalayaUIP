@@ -123,6 +123,24 @@ namespace MeghalayaUIP.Dept.Dashboard
         protected global::System.Web.UI.WebControls.LinkButton lnkrenewal;
 
         /// <summary>
+        /// Services control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Services;
+
+        /// <summary>
+        /// linkServices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkServices;
+
+        /// <summary>
         /// prereg control.
         /// </summary>
         /// <remarks>

@@ -1080,6 +1080,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@DEPTID", SRVCDET.deptid);
                 }
+                da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", SRVCDET.ViewStatus);
 
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)

@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?status=TOTALAPPLICATIONS" style="text-decoration: none;" id="anchrTotal" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?status=TOTALAPPLICATIONS" style="text-decoration: none;" id="anchrTotal" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-file-download"></i>
@@ -265,7 +265,7 @@
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?Status=TOTALOFFLINEAPPLICATIONS" style="text-decoration: none;" id="anchrOffilineTotal" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=TOTALOFFLINEAPPLICATIONS" style="text-decoration: none;" id="anchrOffilineTotal" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -331,7 +331,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptView.aspx?Status=OFFLINEREJECTED" style="text-decoration: none;" id="ancheOfflineRejcted" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=OFFLINEREJECTED" style="text-decoration: none;" id="ancheOfflineRejcted" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-vote-nay"></i>

@@ -81,6 +81,8 @@ namespace MeghalayaUIP.Dept.Dashboard
                     Renewal.Visible = true;
                     Land.Visible = false;
                     Report.Visible = false;
+                    Services.Visible = true;
+
                     if (ObjUserInfo.Roleid == "8")
                     {
                         Ammendments.Visible = true;
@@ -130,6 +132,11 @@ namespace MeghalayaUIP.Dept.Dashboard
                 prereg.Visible = false;
                 string url = "~/Dept/PreReg/PreRegDITDashBoard.aspx";
                 Response.Redirect(url);
+            }
+            else if(ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
+            {
+                prereg.Visible = false;
+                string url = "~/Dept/Services/SrvcDeptDashboard.aspx";
             }
         }
 
@@ -207,5 +214,15 @@ namespace MeghalayaUIP.Dept.Dashboard
                 Response.Redirect(url);
             }
         }
+        protected void lnkServices_Click(object sender, EventArgs e)
+        {
+            if (ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
+            {
+                Report.Visible = true;
+                string url = "~/Dept/Services/SrvcDeptDashboard.aspx";
+                Response.Redirect(url);
+            }
+        }
+
     }
 }
