@@ -28,7 +28,10 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-
+                if (Request.QueryString.Count > 0)
+                {
+                    Questionnaire = Convert.ToString(Request.QueryString[0]);                  
+                }
 
                 if (Session["UserInfo"] != null)
                 {
