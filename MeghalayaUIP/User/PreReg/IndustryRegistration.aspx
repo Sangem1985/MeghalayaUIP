@@ -263,7 +263,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">GSTIN Number <span class="star">*</span> </label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtGSTNo" class="form-control" Onkeypress="validateCharandNumberinput();" onblur="validateGST(event)" TabIndex="1" MaxLength="15" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtGSTNo" class="form-control" TabIndex="1" MaxLength="15" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -271,7 +271,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Firm Proposal <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:DropDownList ID="ddlproposal" runat="server" TabIndex="1" class="form-control" onchange="validateDropdown(this)">
+                                                                            <asp:DropDownList ID="ddlproposal" runat="server" TabIndex="1" class="form-control">
                                                                                 <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
                                                                                 <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                                 <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
@@ -299,7 +299,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">Registration No <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtUdyamorIEMNo" Enabled="false" TabIndex="1" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="25" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtUdyamorIEMNo" Enabled="false" TabIndex="1" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="25" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -308,7 +308,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Firm Registration / Incorporation Date<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" AutoPostBack="true" />
+                                                                            <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control"   TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" AutoPostBack="true" />
                                                                             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtCompnyRegDt"></cc1:CalendarExtender>
                                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
@@ -532,7 +532,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" onkeypress="validateNumberAndHyphen();" onblur="validateDateFormat(this)" OnTextChanged="txtDCPorOperation_TextChanged" AutoPostBack="true" MaxLength="10" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1"  OnTextChanged="txtDCPorOperation_TextChanged" AutoPostBack="true" MaxLength="10" />
                                                                             <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDCPorOperation"></cc1:CalendarExtender>
                                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                                         </div>
@@ -829,7 +829,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Equity Amount (INR)<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtEquityAmount" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtEquityAmount" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -837,7 +837,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Term/ Working loan (INR)<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtLoanAmount" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtLoanAmount" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -845,7 +845,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Unsecured Loan (INR)<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtUnsecuredLoan" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtUnsecuredLoan" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -856,7 +856,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Internal Resources (INR)<span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtInternalResources" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtInternalResources" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -864,7 +864,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">State Scheme (INR) <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtstatescheme" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtstatescheme" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -872,7 +872,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Central Scheme  (INR) <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtcentral" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtcentral" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -882,7 +882,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Capital Subsidy (INR) <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtCapitalSubsidy" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtCapitalSubsidy" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -890,7 +890,7 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Benefit from UNNATI (INR) <span class="star">*</span></label>
                                                                         <div class="col-lg-6 d-flex">
-                                                                            <asp:TextBox runat="server" ID="txtUNNATI" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                            <asp:TextBox runat="server" ID="txtUNNATI" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                         </div>
                                                                     </div>
                                                                 </div>

@@ -103,7 +103,11 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(ID.UserID));
                 da.SelectCommand.Parameters.AddWithValue("@IPADDRESS", ID.IPAddress);
-                da.SelectCommand.Parameters.AddWithValue("@REGISTRATIONDATE", DateTime.ParseExact(ID.CompnyRegDt, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ID.CompnyRegDt != "" && ID.CompnyRegDt != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@REGISTRATIONDATE", DateTime.ParseExact(ID.CompnyRegDt, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYNAME", ID.CompanyName);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYPANNO", ID.CompanyPAN);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYTYPE", ID.CompnyType);
@@ -116,9 +120,18 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@REP_EMAIL", ID.AuthReprEmail);
                 da.SelectCommand.Parameters.AddWithValue("@REP_LOCALITY", ID.AuthReprLocality);
                 da.SelectCommand.Parameters.AddWithValue("@STATEID", ID.REP_STATEID);
-                da.SelectCommand.Parameters.AddWithValue("@REP_DISTRICTID", Convert.ToInt32(ID.AuthReprDistID));
-                da.SelectCommand.Parameters.AddWithValue("@REP_MANDALID", Convert.ToInt32(ID.AuthReprTalukaID));
-                da.SelectCommand.Parameters.AddWithValue("@REP_VILLAGEID", Convert.ToInt32(ID.AuthReprVillageID));
+                if (ID.AuthReprDistID != "" && ID.AuthReprDistID != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@REP_DISTRICTID", Convert.ToInt32(ID.AuthReprDistID));
+                }
+                if (ID.AuthReprTalukaID != "" && ID.AuthReprTalukaID != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@REP_MANDALID", Convert.ToInt32(ID.AuthReprTalukaID));
+                }
+                if (ID.AuthReprVillageID != "" && ID.AuthReprVillageID != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@REP_VILLAGEID", Convert.ToInt32(ID.AuthReprVillageID));
+                }
                 da.SelectCommand.Parameters.AddWithValue("@REP_DISTRICTNAME", ID.REP_DISTRICNAME);
                 da.SelectCommand.Parameters.AddWithValue("@REP_MANDALNAME", ID.REP_MANDALNAME);
                 da.SelectCommand.Parameters.AddWithValue("@REP_VILLAGENAME", ID.REP_VILLAGENAME);
@@ -131,12 +144,23 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
 
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_LOCALITY", ID.PropLocLocality);
-                da.SelectCommand.Parameters.AddWithValue("@UNIT_DISTRICTID", Convert.ToInt32(ID.PropLocDistID));
-                da.SelectCommand.Parameters.AddWithValue("@UNIT_MANDALID", Convert.ToInt32(ID.PropLocTalukaID));
-                da.SelectCommand.Parameters.AddWithValue("@UNIT_VILLAGEID", Convert.ToInt32(ID.PropLocVillageID));
+                if (ID.PropLocDistID != "" && ID.PropLocDistID != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@UNIT_DISTRICTID", Convert.ToInt32(ID.PropLocDistID));
+                }
+                if (ID.PropLocTalukaID != "" && ID.PropLocTalukaID != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@UNIT_MANDALID", Convert.ToInt32(ID.PropLocTalukaID));
+                }
+                if (ID.PropLocVillageID != "" && ID.PropLocVillageID != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@UNIT_VILLAGEID", Convert.ToInt32(ID.PropLocVillageID));
+                }
                 da.SelectCommand.Parameters.AddWithValue("@UNIT_PINCODE", ID.PropLocPincode);
-
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_DCP", DateTime.ParseExact(ID.DCPorOperation, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ID.DCPorOperation != "" && ID.DCPorOperation != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_DCP", DateTime.ParseExact(ID.DCPorOperation, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_NOA", ID.NatureofActivity);
 
                 if (ID.ManfActivity != "")
@@ -153,7 +177,10 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                     da.SelectCommand.Parameters.AddWithValue("@PROJECT_SRVCNO", ID.ServiceNo);
 
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_SECTORNAME", ID.SectorName);
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_LOAID", Convert.ToInt32(ID.Lineofacitivityid));
+                if (ID.Lineofacitivityid != "" && ID.Lineofacitivityid != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_LOAID", Convert.ToInt32(ID.Lineofacitivityid));
+                }
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_PCBCATEGORY", ID.Category);
 
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_MAINRM", ID.Rawmaterial);
@@ -161,40 +188,102 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_HAZWASTEDETAILS", ID.HazWasteDetails);
 
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_CIVILCONSTR", ID.CivilConstr);
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_LANDAREA", Convert.ToDecimal(ID.LandAreainSqft));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_BUILDINGAREA", Convert.ToDecimal(ID.BuildingAreaSqm));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_WATERREQ", Convert.ToDecimal(ID.WaterReqKLD));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_POWERRREQ", Convert.ToDecimal(ID.PowerReqKV));
+                if (ID.LandAreainSqft != "" && ID.LandAreainSqft != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_LANDAREA", Convert.ToDecimal(ID.LandAreainSqft));
+                }
+                if (ID.BuildingAreaSqm != "" && ID.BuildingAreaSqm != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_BUILDINGAREA", Convert.ToDecimal(ID.BuildingAreaSqm));
+                }
+                if (ID.WaterReqKLD != "" && ID.WaterReqKLD != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_WATERREQ", Convert.ToDecimal(ID.WaterReqKLD));
+                }
+                if (ID.PowerReqKV != "" && ID.PowerReqKV != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_POWERRREQ", Convert.ToDecimal(ID.PowerReqKV));
+                }
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_UNITOFMEASURE", ID.MeasurementUnits);
 
                 da.SelectCommand.Parameters.AddWithValue("@PROJECT_ANNUALCOST", ID.AnnualCapacity);
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_EPCOST", Convert.ToDecimal(ID.EstimatedProjCost));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_PMCOST", Convert.ToDecimal(ID.PlantnMachineryCost));
-
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_IFC", Convert.ToDecimal(ID.CapitalInvestment));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_DFA", Convert.ToDecimal(ID.FixedAssets));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_LANDVALUE", Convert.ToDecimal(ID.LandValue));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_BUILDINGVALUE", Convert.ToDecimal(ID.BuildingValue));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_WATERVALUE", Convert.ToDecimal(ID.WaterValue));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_ELECTRICITYVALUE", Convert.ToDecimal(ID.ElectricityValue));
-                da.SelectCommand.Parameters.AddWithValue("@PROJECT_WORKINGCAPITAL", Convert.ToDecimal(ID.WorkingCapital));
+                if (ID.EstimatedProjCost != "" && ID.EstimatedProjCost != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_EPCOST", Convert.ToDecimal(ID.EstimatedProjCost));
+                }
+                if (ID.PlantnMachineryCost != "" && ID.PlantnMachineryCost != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_PMCOST", Convert.ToDecimal(ID.PlantnMachineryCost));
+                }
+                if (ID.CapitalInvestment != "" && ID.CapitalInvestment != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_IFC", Convert.ToDecimal(ID.CapitalInvestment));
+                }
+                if (ID.FixedAssets != "" && ID.FixedAssets != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_DFA", Convert.ToDecimal(ID.FixedAssets));
+                }
+                if (ID.LandValue != "" && ID.LandValue != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_LANDVALUE", Convert.ToDecimal(ID.LandValue));
+                }
+                if (ID.BuildingValue != "" && ID.BuildingValue != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_BUILDINGVALUE", Convert.ToDecimal(ID.BuildingValue));
+                }
+                if (ID.WaterValue != "" && ID.WaterValue != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_WATERVALUE", Convert.ToDecimal(ID.WaterValue));
+                }
+                if (ID.ElectricityValue != "" && ID.ElectricityValue != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_ELECTRICITYVALUE", Convert.ToDecimal(ID.ElectricityValue));
+                }
+                if (ID.WorkingCapital != "" && ID.WorkingCapital != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@PROJECT_WORKINGCAPITAL", Convert.ToDecimal(ID.WorkingCapital));
+                }
                 if (ID.CapitalSubsidy != "")
                     da.SelectCommand.Parameters.AddWithValue("@FRD_CAPITALSUBSIDY", Convert.ToDecimal(ID.CapitalSubsidy));
                 if (ID.PromoterEquity != "")
                     da.SelectCommand.Parameters.AddWithValue("@FRD_PROMOTEREQUITY", Convert.ToDecimal(ID.PromoterEquity));
-                da.SelectCommand.Parameters.AddWithValue("@FRD_LOAN", Convert.ToDecimal(ID.LoanAmount));
+                if (ID.LoanAmount != "" && ID.LoanAmount != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FRD_LOAN", Convert.ToDecimal(ID.LoanAmount));
+                }
                 da.SelectCommand.Parameters.AddWithValue("@STAGEID", 1);
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", ID.UnitID);
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", ID.Deptid);
-                da.SelectCommand.Parameters.AddWithValue("@COMPANYREGTYPE", Convert.ToInt32(ID.RegistrationType));
+                if (ID.RegistrationType != "" && ID.RegistrationType != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@COMPANYREGTYPE", Convert.ToInt32(ID.RegistrationType));
+                }
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYREGNO", ID.RegistrationNo);
                 da.SelectCommand.Parameters.AddWithValue("@REP_DOORNO", ID.DoorNo);
-                da.SelectCommand.Parameters.AddWithValue("@FRD_EQUITY", Convert.ToDecimal(ID.EquityAmount));
-                da.SelectCommand.Parameters.AddWithValue("@FRD_UNSECUREDLOAN", Convert.ToDecimal(ID.UnsecuredLoan));
-                da.SelectCommand.Parameters.AddWithValue("@FRD_INTERNALRESOURCE", Convert.ToDecimal(ID.InternalResources));
-                da.SelectCommand.Parameters.AddWithValue("@FRD_UNNATI", Convert.ToDecimal(ID.UnnatiSchemeAmount));
-                da.SelectCommand.Parameters.AddWithValue("@FRD_CENTRAL", Convert.ToDecimal(ID.CetralSchemeAmount));
-                da.SelectCommand.Parameters.AddWithValue("@FRD_STATE", Convert.ToDecimal(ID.StateSchemeAmount));
+                if (ID.EquityAmount != "" && ID.EquityAmount != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FRD_EQUITY", Convert.ToDecimal(ID.EquityAmount));
+                }
+                if (ID.UnsecuredLoan != "" && ID.UnsecuredLoan != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FRD_UNSECUREDLOAN", Convert.ToDecimal(ID.UnsecuredLoan));
+                }
+                if (ID.InternalResources != "" && ID.InternalResources != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FRD_INTERNALRESOURCE", Convert.ToDecimal(ID.InternalResources));
+                }
+                if (ID.UnnatiSchemeAmount != "" && ID.UnnatiSchemeAmount != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FRD_UNNATI", Convert.ToDecimal(ID.UnnatiSchemeAmount));
+                }
+                if (ID.CetralSchemeAmount != "" && ID.CetralSchemeAmount != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FRD_CENTRAL", Convert.ToDecimal(ID.CetralSchemeAmount));
+                }
+                if (ID.StateSchemeAmount != "" && ID.StateSchemeAmount != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@FRD_STATE", Convert.ToDecimal(ID.StateSchemeAmount));
+                }
                 da.SelectCommand.Parameters.AddWithValue("@ELIGIBLE_FLAG", (ID.EligibleFlag));
 
                 da.SelectCommand.Parameters.Add("@RESULT", SqlDbType.Int, 100);

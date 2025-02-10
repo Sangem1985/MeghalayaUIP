@@ -709,7 +709,7 @@ namespace MeghalayaUIP.User.PreReg
                     txtUdyamorIEMNo.Enabled = true;
                     lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No ";
                     txtUdyamorIEMNo.Text = "";
-                    ddlRegType.BorderColor = System.Drawing.Color.Black;
+                   // ddlRegType.BorderColor = System.Drawing.Color.Black;
 
                 }
                 else
@@ -717,7 +717,7 @@ namespace MeghalayaUIP.User.PreReg
                     txtUdyamorIEMNo.Enabled = false;
                     lblregntype.InnerText = " Registration No *";
                     txtUdyamorIEMNo.Text = "";
-                    ddlRegType.BorderColor = System.Drawing.Color.Red;
+                   // ddlRegType.BorderColor = System.Drawing.Color.Red;
                 }
 
             }
@@ -1046,53 +1046,53 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Select Company Proposal\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtGSTNo.Text) || txtGSTNo.Text == "" || txtGSTNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter GST Number \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtGSTNo.Text) || txtGSTNo.Text == "" || txtGSTNo.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter GST Number \\n";
+                //    slno = slno + 1;
+                //}
 
-                if (ddlRegType.SelectedValue == "0" || ddlRegType.SelectedValue == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Category of Registration\\n";
-                    slno = slno + 1;
-                }
-                if (ddlRegType.SelectedValue == "1" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Prov.SSI No\\n";
-                    slno = slno + 1;
-                }
-                if (ddlRegType.SelectedValue == "2" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
-                {
-                    errormsg = errormsg + slno + ". Please Enter IME No\\n";
-                    slno = slno + 1;
-                }
-                if (ddlRegType.SelectedValue == "3" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
-                {
-                    errormsg = errormsg + slno + ". Please Enter EOU No\\n";
-                    slno = slno + 1;
-                }
-                if (ddlRegType.SelectedValue == "4" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
-                {
-                    errormsg = errormsg + slno + ". Please Enter LOI No\\n";
-                    slno = slno + 1;
-                }
-                if (ddlRegType.SelectedValue == "5" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
-                {
-                    errormsg = errormsg + slno + ". Please Enter EM Part-II No\\n";
-                    slno = slno + 1;
-                }
-                if (ddlRegType.SelectedValue == "6" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Udyog Aadhar No\\n";
-                    slno = slno + 1;
-                }
+                //if (ddlRegType.SelectedValue == "0" || ddlRegType.SelectedValue == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Category of Registration\\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlRegType.SelectedValue == "1" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Prov.SSI No\\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlRegType.SelectedValue == "2" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter IME No\\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlRegType.SelectedValue == "3" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter EOU No\\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlRegType.SelectedValue == "4" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter LOI No\\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlRegType.SelectedValue == "5" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter EM Part-II No\\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlRegType.SelectedValue == "6" && string.IsNullOrEmpty(txtUdyamorIEMNo.Text))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Udyog Aadhar No\\n";
+                //    slno = slno + 1;
+                //}
 
-                if (string.IsNullOrEmpty(txtCompnyRegDt.Text) || txtCompnyRegDt.Text == "" || txtCompnyRegDt.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Select Company Registration /Incorporation Date \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtCompnyRegDt.Text) || txtCompnyRegDt.Text == "" || txtCompnyRegDt.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Company Registration /Incorporation Date \\n";
+                //    slno = slno + 1;
+                //}
 
 
                 if (string.IsNullOrEmpty(txtAuthReprName.Text) || txtAuthReprName.Text == "" || txtAuthReprName.Text == null)
@@ -1210,19 +1210,19 @@ namespace MeghalayaUIP.User.PreReg
                     slno = slno + 1;
                 }
 
-                if (string.IsNullOrEmpty(txtDCPorOperation.Text) || txtDCPorOperation.Text == "" || txtDCPorOperation.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Select Date of Commencement of Production /Operation \\n";
-                    slno = slno + 1;
-                }
-                if (txtDCPorOperation.Text != "" && txtCompnyRegDt.Text != "")
-                {
-                    if (DateTime.ParseExact(txtCompnyRegDt.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture) > DateTime.ParseExact(txtDCPorOperation.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture))
-                    {
-                        errormsg = errormsg + slno + ". Company Registration Date should be before the Date of Commencement of Production /Operation \\n";
-                        slno = slno + 1;
-                    }
-                }
+                //if (string.IsNullOrEmpty(txtDCPorOperation.Text) || txtDCPorOperation.Text == "" || txtDCPorOperation.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Date of Commencement of Production /Operation \\n";
+                //    slno = slno + 1;
+                //}
+                //if (txtDCPorOperation.Text != "" && txtCompnyRegDt.Text != "")
+                //{
+                //    if (DateTime.ParseExact(txtCompnyRegDt.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture) > DateTime.ParseExact(txtDCPorOperation.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture))
+                //    {
+                //        errormsg = errormsg + slno + ". Company Registration Date should be before the Date of Commencement of Production /Operation \\n";
+                //        slno = slno + 1;
+                //    }
+                //}
                 if (rblNatureofActvty.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Nature of Activity \\n";
@@ -1369,46 +1369,46 @@ namespace MeghalayaUIP.User.PreReg
                 //    errormsg = errormsg + slno + ". Please Enter Promoter’s and Contributors (INR) \\n";
                 //    slno = slno + 1;
                 //}
-                if (string.IsNullOrEmpty(txtEquityAmount.Text) || txtEquityAmount.Text == "" || txtEquityAmount.Text == null || txtEquityAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEquityAmount.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Equity Amount (INR) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLoanAmount.Text) || txtLoanAmount.Text == "" || txtLoanAmount.Text == null || txtLoanAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLoanAmount.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Term/ Working loan (INR) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtUnsecuredLoan.Text) || txtUnsecuredLoan.Text == "" || txtUnsecuredLoan.Text == null || txtUnsecuredLoan.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtUnsecuredLoan.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Unsecured Loan (INR)\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtInternalResources.Text) || txtInternalResources.Text == "" || txtInternalResources.Text == null || txtInternalResources.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtInternalResources.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Internal Resources (INR)\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtstatescheme.Text) || txtstatescheme.Text == "" || txtstatescheme.Text == null || txtstatescheme.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtstatescheme.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter State Scheme (INR)\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtEquityAmount.Text) || txtEquityAmount.Text == "" || txtEquityAmount.Text == null || txtEquityAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEquityAmount.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Equity Amount (INR) \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtLoanAmount.Text) || txtLoanAmount.Text == "" || txtLoanAmount.Text == null || txtLoanAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLoanAmount.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Term/ Working loan (INR) \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtUnsecuredLoan.Text) || txtUnsecuredLoan.Text == "" || txtUnsecuredLoan.Text == null || txtUnsecuredLoan.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtUnsecuredLoan.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Unsecured Loan (INR)\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtInternalResources.Text) || txtInternalResources.Text == "" || txtInternalResources.Text == null || txtInternalResources.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtInternalResources.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Internal Resources (INR)\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtstatescheme.Text) || txtstatescheme.Text == "" || txtstatescheme.Text == null || txtstatescheme.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtstatescheme.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter State Scheme (INR)\\n";
+                //    slno = slno + 1;
+                //}
                 //if (string.IsNullOrEmpty(txtCapitalSubsidy.Text) || txtCapitalSubsidy.Text == "" || txtCapitalSubsidy.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter Capital Subsidy (INR)\\n";
                 //    slno = slno + 1;
                 //}
-                if (string.IsNullOrEmpty(txtUNNATI.Text) || txtUNNATI.Text == "" || txtUNNATI.Text == null || txtUNNATI.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtUNNATI.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Benefits from UNNATI (INR)\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtcentral.Text) || txtcentral.Text == "" || txtcentral.Text == null || txtcentral.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtcentral.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Central Scheme (INR)\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtUNNATI.Text) || txtUNNATI.Text == "" || txtUNNATI.Text == null || txtUNNATI.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtUNNATI.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Benefits from UNNATI (INR)\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtcentral.Text) || txtcentral.Text == "" || txtcentral.Text == null || txtcentral.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtcentral.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Central Scheme (INR)\\n";
+                //    slno = slno + 1;
+                //}
 
                 return errormsg;
             }
@@ -1632,11 +1632,11 @@ namespace MeghalayaUIP.User.PreReg
                         TextBox txtYear4 = grdRevenueProj.Rows[j].FindControl("txtYear4") as TextBox;
                         TextBox txtYear5 = grdRevenueProj.Rows[j].FindControl("txtYear5") as TextBox;
 
-                        if (string.IsNullOrEmpty(txtYear1.Text) || txtYear1.Text == "" || txtYear1.Text == null || txtYear1.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear1.Text, @"^0+(\.0+)?$") ||
-                            string.IsNullOrEmpty(txtYear2.Text) || txtYear2.Text == "" || txtYear2.Text == null || txtYear2.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear2.Text, @"^0+(\.0+)?$") ||
-                            string.IsNullOrEmpty(txtYear3.Text) || txtYear3.Text == "" || txtYear3.Text == null || txtYear3.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear3.Text, @"^0+(\.0+)?$") ||
-                            string.IsNullOrEmpty(txtYear4.Text) || txtYear4.Text == "" || txtYear4.Text == null || txtYear4.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear4.Text, @"^0+(\.0+)?$") ||
-                            string.IsNullOrEmpty(txtYear5.Text) || txtYear5.Text == "" || txtYear5.Text == null || txtYear5.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear5.Text, @"^0+(\.0+)?$"))
+                        if (string.IsNullOrEmpty(txtYear1.Text) || txtYear1.Text == "" || txtYear1.Text == null || //txtYear1.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear1.Text, @"^0+(\.0+)?$") ||
+                            string.IsNullOrEmpty(txtYear2.Text) || txtYear2.Text == "" || txtYear2.Text == null || //txtYear2.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear2.Text, @"^0+(\.0+)?$") ||
+                            string.IsNullOrEmpty(txtYear3.Text) || txtYear3.Text == "" || txtYear3.Text == null || //txtYear3.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear3.Text, @"^0+(\.0+)?$") ||
+                            string.IsNullOrEmpty(txtYear4.Text) || txtYear4.Text == "" || txtYear4.Text == null || //txtYear4.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear4.Text, @"^0+(\.0+)?$") ||
+                            string.IsNullOrEmpty(txtYear5.Text) || txtYear5.Text == "" || txtYear5.Text == null) //|| //txtYear5.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtYear5.Text, @"^0+(\.0+)?$"))
                         {
                             errormsg = errormsg + lblIBPID.Text + " .Please Enter all details of " + lblItem.Text + "\\n";
                             slno = slno + 1;
