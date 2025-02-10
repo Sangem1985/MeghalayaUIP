@@ -513,7 +513,7 @@
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPRegisteredBusinessManufacturingLocations%>', '_blank'); return false;">ODOP Manufacturing locations</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=CommonFacilityCentreswithSOPandFees%>', '_blank'); return false;">Common facility centers with SOP & Fees</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPSchemesandOtherDetailsforBenificiaries%>', '_blank'); return false;">ODOP Schemes and Other Details Beneficial for Entrepreneurs</a></li>
-                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=TelecominfrastructurePolicy%>', '_blank'); return false;" target="_blank">ODOP Sectoral Information</a></li>
+                                                                <li><a href="#" onclick="window.open('Sectoralinformation.aspx', '_blank'); return false;" target="_blank">ODOP Sectoral Information</a></li>
                                                                 <li><a href="#" onclick="window.open('https://dofpmeghalaya.org/odop/', '_blank'); return false;">ODOP Facilitation Centre</a></li>
                                                                 <li><a href="#" onclick="window.open('https://www.meghalayaone.gov.in/meghalaya-one', '_blank'); return false;">ODOP Grievance Mechanism</a></li>
                                                             </ul>

@@ -596,6 +596,7 @@
     <Content Include="assets\assetsnew\js\script.js" />
     <Content Include="assets\assetsnew\js\validation.js" />
     <Content Include="assets\assetsnew\js\wow.js" />
+    <Content Include="Bestpractices.aspx" />
     <Content Include="BusinessRegulation.aspx" />
     <Content Include="CentralInspectionDashboard.aspx" />
     <Content Include="CommentsonAmmendments.aspx" />
@@ -695,6 +696,7 @@
     <Content Include="Registration.aspx" />
     <Content Include="RenewalServices.aspx" />
     <Content Include="RTIACT.aspx" />
+    <Content Include="Sectoralinformation.aspx" />
     <Content Include="SetNewPassword.aspx" />
     <Content Include="SingleWindowPortalDashboard.aspx" />
     <Content Include="SingleWindowPortalDashboardDrillDown.aspx" />
@@ -874,6 +876,13 @@
     </Compile>
     <Compile Include="AmmendmentsFinal.aspx.designer.cs">
       <DependentUpon>AmmendmentsFinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bestpractices.aspx.cs">
+      <DependentUpon>Bestpractices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bestpractices.aspx.designer.cs">
+      <DependentUpon>Bestpractices.aspx</DependentUpon>
     </Compile>
     <Compile Include="BusinessRegulation.aspx.cs">
       <DependentUpon>BusinessRegulation.aspx</DependentUpon>
@@ -1589,6 +1598,13 @@
     </Compile>
     <Compile Include="RTIACT.aspx.designer.cs">
       <DependentUpon>RTIACT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sectoralinformation.aspx.cs">
+      <DependentUpon>Sectoralinformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sectoralinformation.aspx.designer.cs">
+      <DependentUpon>Sectoralinformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="SetNewPassword.aspx.cs">
       <DependentUpon>SetNewPassword.aspx</DependentUpon>
