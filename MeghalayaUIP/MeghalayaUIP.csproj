@@ -669,6 +669,7 @@
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
+    <Content Include="Feedback.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Global.asax" />
     <Content Include="GrievanceMisReport.aspx" />
@@ -687,6 +688,7 @@
     <Content Include="login.aspx" />
     <Content Include="MISIncentiveDashboard.aspx" />
     <Content Include="Notifications.aspx" />
+    <Content Include="ODOPDashboard.aspx" />
     <Content Include="OtherService.aspx" />
     <Content Include="Power.aspx" />
     <Content Include="RegisterGrievance.aspx" />
@@ -1399,6 +1401,13 @@
     <Compile Include="Faq.aspx.designer.cs">
       <DependentUpon>Faq.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1520,6 +1529,13 @@
     </Compile>
     <Compile Include="Notifications.aspx.designer.cs">
       <DependentUpon>Notifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ODOPDashboard.aspx.cs">
+      <DependentUpon>ODOPDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ODOPDashboard.aspx.designer.cs">
+      <DependentUpon>ODOPDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="OtherService.aspx.cs">
       <DependentUpon>OtherService.aspx</DependentUpon>
