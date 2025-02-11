@@ -40,6 +40,10 @@ namespace MeghalayaUIP.Common
         public static string GetHelpDeskReportDrilldown = "";
 
         public static string GetFeedBackQuestions = "GETFEEDBACKQUES";
+        public static string InsertFeedBackTracker = "SP_INSFEEDBACKTRACKER";
+        public static string InsertFeedBack = "SP_INSFEEDBACK";
+
+
 
         ////////------------------ApplicationTracker----------------///////
 
@@ -50,5 +54,22 @@ namespace MeghalayaUIP.Common
         public static string InsertPswdResetKey = "USP_INSERTFORGOTPASSWORDKEYS";
         public static string GetPswdResetKey = "USP_GETPASSWORDSECRETKEY";
 
+
+    }
+
+    public class FeedbackTracker
+    {
+        public int FBQ_TRACKERID { get; set; }
+        public string FBQ_SUGGESTIONS { get; set; }
+        public string FBQ_ISSUES { get; set; }
+        public string FBQ_CATEGORY { get; set; }
+    }
+
+    public class FeedbackData
+    {
+        public int FBQ_QUESTIONID { get; set; }
+        public string FBQ_FEEDBACKVALUE { get; set; }
+        public string FBQ_FEEDBACKTEXT { get; set; }
+        public string FBQ_CATEGORY { get; set; }
     }
 }

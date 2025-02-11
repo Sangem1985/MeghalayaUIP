@@ -76,6 +76,23 @@
                     </nav>
                     <section class="innerpages">
                         <div class="container">
+                            <div class="col-md-12 ">
+                                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span></button>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                                    <strong>Warning!</strong>
+                                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="feedback-container">
@@ -86,17 +103,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <asp:Repeater ID="rptFeedback1" runat="server">
+                                                <asp:Repeater ID="rptFeedback1" runat="server" OnItemDataBound="rptFeedback1_ItemDataBound">
                                                     <ItemTemplate>
                                                         <tr>
-                                                            <td><%# Container.ItemIndex + 1 %>. <%# Eval("Question") %></td>
+                                                            <td><%# Container.ItemIndex + 1 %>. <%# Eval("FBQ_QUESTIONDESC") %></td>
+                                                             <asp:HiddenField ID="hfQuestionID1" runat="server" Value='<%# Eval("FBQ_QUESTIONID") %>' />
                                                             <td>
                                                                 <asp:RadioButtonList ID="rblFeedback1" runat="server" RepeatDirection="Horizontal">
-                                                                    <asp:ListItem Value="1"> Strongly Disagree </asp:ListItem>
-                                                                    <asp:ListItem Value="2"> Disagree </asp:ListItem>
-                                                                    <asp:ListItem Value="3"> Neutral </asp:ListItem>
-                                                                    <asp:ListItem Value="4"> Agree </asp:ListItem>
-                                                                    <asp:ListItem Value="5"> Strongly Agree </asp:ListItem>
+                                                                    <asp:ListItem Value="1" Text="Strongly Disagree"> Strongly Disagree </asp:ListItem>
+                                                                    <asp:ListItem Value="2" Text="Disagree"> Disagree </asp:ListItem>
+                                                                    <asp:ListItem Value="3" Text="Neutral"> Neutral </asp:ListItem>
+                                                                    <asp:ListItem Value="4" Text="Agree"> Agree </asp:ListItem>
+                                                                    <asp:ListItem Value="5" Text="Strongly Agree">Strongly Agree  </asp:ListItem>
                                                                 </asp:RadioButtonList>
                                                             </td>
                                                         </tr>
@@ -115,31 +133,51 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <asp:Repeater ID="rptFeedback2" runat="server">
+                                                <asp:Repeater ID="rptFeedback2" runat="server" OnItemDataBound="rptFeedback2_ItemDataBound">
                                                     <ItemTemplate>
                                                         <tr>
-                                                            <td><%# Container.ItemIndex + 1 %>. <%# Eval("Question") %></td>
+                                                            <td><%# Container.ItemIndex + 1 %>. <%# Eval("FBQ_QUESTIONDESC") %></td>
+                                                            <asp:HiddenField ID="hfQuestionID2" runat="server" Value='<%# Eval("FBQ_QUESTIONID") %>' />
                                                             <td>
                                                                 <asp:RadioButtonList ID="rblFeedback2" runat="server" RepeatDirection="Horizontal">
-                                                                    <asp:ListItem Value="1"> Strongly Disagree </asp:ListItem>
-                                                                    <asp:ListItem Value="2"> Disagree </asp:ListItem>
-                                                                    <asp:ListItem Value="3"> Neutral </asp:ListItem>
-                                                                    <asp:ListItem Value="4"> Agree </asp:ListItem>
-                                                                    <asp:ListItem Value="5"> Strongly Agree </asp:ListItem>
+                                                                    <asp:ListItem Value="1" Text="Strongly Disagree"> Strongly Disagree </asp:ListItem>
+                                                                    <asp:ListItem Value="2" Text="Disagree"> Disagree </asp:ListItem>
+                                                                    <asp:ListItem Value="3" Text="Neutral"> Neutral </asp:ListItem>
+                                                                    <asp:ListItem Value="4" Text="Agree"> Agree </asp:ListItem>
+                                                                    <asp:ListItem Value="5" Text="Strongly Agree">Strongly Agree  </asp:ListItem>
                                                                 </asp:RadioButtonList>
                                                             </td>
                                                         </tr>
                                                     </ItemTemplate>
                                                 </asp:Repeater>
+
                                             </tbody>
                                         </table>
+                                        <div>
+
+                                            <h4>3. Additional Feedback</h4>
+                                            <p>1. What improvements would you suggest for the Invest Meghalaya Portal?</p>
+                                            <p>
+                                                <asp:TextBox ID="sugstn" runat="server" CssClass="form-control"
+                                                    TextMode="MultiLine" Width="100%" Height="80px"></asp:TextBox>
+                                            </p>
+
+                                            <p>2. Were there any difficulties you faced while using the portal? If yes, please specify.</p>
+                                            <p>
+                                                <asp:TextBox ID="diffculties" runat="server" CssClass="form-control"
+                                                    TextMode="MultiLine" Width="100%" Height="80px"></asp:TextBox>
+                                            </p>
+
+                                        </div>
 
                                         <br />
-                                        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click1" CssClass="btn btn-success"/>
+                                        <p class="align-content-center">
+                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click1" CssClass="btn btn-success" />
+                                        </p>
                                     </div>
                                 </div>
-                            
-                        </div>
+
+                            </div>
                     </section>
                 </div>
             </div>

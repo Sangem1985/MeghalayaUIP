@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MeghalayaUIP.DAL.CommonDAL;
 using MeghalayaUIP.Common;
+using System.Diagnostics;
 
 namespace MeghalayaUIP.BAL.CommonBAL
 {
@@ -121,6 +122,17 @@ namespace MeghalayaUIP.BAL.CommonBAL
         public DataSet GetFeedBackQuestions()
         {
             return objCommonDAL.GetFeedBackQuestions();
+        }
+
+        public int InsertFeedbackTracker(FeedbackTracker tracker)
+        {
+            return objCommonDAL.InsertFeedbackTracker(tracker);
+        }
+
+
+        public string InsertFeedback(int trackerId, List<FeedbackData> feedbackList)
+        {
+            return objCommonDAL.InsertFeedback(trackerId, feedbackList);
         }
     }
 }

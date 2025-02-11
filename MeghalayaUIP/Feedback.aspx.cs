@@ -39,73 +39,113 @@ namespace MeghalayaUIP
             }
         }
 
-      
-        // Save to Database
-        private void SaveFeedback(List<FeedbackResponse> feedbackResponses)
+
+        protected void rptFeedback1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            string connstr = ConfigurationManager.ConnectionStrings["MIPASS"].ToString();
-            using (SqlConnection con = new SqlConnection(connstr))
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                con.Open();
-                foreach (var feedback in feedbackResponses)
+                RadioButtonList rblFeedback = (RadioButtonList)e.Item.FindControl("rblFeedback1");
+                if (rblFeedback != null)
                 {
-                    using (SqlCommand cmd = new SqlCommand(
-                        "INSERT INTO TBL_FEEDBACK (QuestionID, Rating) VALUES (@QuestionID, @Rating)", con))
-                    {
-                        cmd.Parameters.AddWithValue("@QuestionID", feedback.QuestionID);
-                        cmd.Parameters.AddWithValue("@Rating", feedback.Rating);
-                        cmd.ExecuteNonQuery();
-                    }
+                    rblFeedback.ClearSelection();  // Ensure no previous selection
                 }
             }
         }
 
-       
+        protected void rptFeedback2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                RadioButtonList rblFeedback = (RadioButtonList)e.Item.FindControl("rblFeedback2");
+                if (rblFeedback != null)
+                {
+                    rblFeedback.ClearSelection();
+                }
+            }
+        }
+
+
+
 
         protected void btnSubmit_Click1(object sender, EventArgs e)
         {
-            string result = "";
-            List<FeedbackResponse> responses = new List<FeedbackResponse>();
-
-            foreach (RepeaterItem item in rptFeedback1.Items)
+            try
             {
-                RadioButtonList rbl = (RadioButtonList)item.FindControl("rblFeedback1");
-                if (rbl.SelectedItem != null)
+                int trackerId;
+                FeedbackTracker tracker = new FeedbackTracker
                 {
-                    responses.Add(new FeedbackResponse
-                    {
-                        QuestionID = Convert.ToInt32(rbl.Attributes["QuestionID"]),
-                        Rating = Convert.ToInt32(rbl.SelectedValue)
-                    });
-                }
-            }
+                    FBQ_SUGGESTIONS = sugstn.Text,
+                    FBQ_ISSUES = diffculties.Text,
+                    FBQ_CATEGORY = "A"
+                };
+                trackerId = mGCommonBAL.InsertFeedbackTracker(tracker);
+                if (trackerId > 0)
+                {
+                    List<FeedbackData> feedbackList = new List<FeedbackData>();
 
-            foreach (RepeaterItem item in rptFeedback2.Items)
-            {
-                RadioButtonList rbl = (RadioButtonList)item.FindControl("rblFeedback2");
-                if (rbl.SelectedItem != null)
-                {
-                    responses.Add(new FeedbackResponse
+                    // Process First Repeater (Category 'A')
+                    foreach (RepeaterItem item in rptFeedback1.Items)
                     {
-                        QuestionID = Convert.ToInt32(rbl.Attributes["QuestionID"]),
-                        Rating = Convert.ToInt32(rbl.SelectedValue)
-                    });
+                        HiddenField hfQuestionID = (HiddenField)item.FindControl("hfQuestionID1");
+                        RadioButtonList rblFeedback = (RadioButtonList)item.FindControl("rblFeedback1");
+
+                        if (hfQuestionID != null && rblFeedback != null && rblFeedback.SelectedItem != null)
+                        {
+                            FeedbackData feedback = new FeedbackData
+                            {
+                                FBQ_QUESTIONID = Convert.ToInt32(hfQuestionID.Value),
+                                FBQ_FEEDBACKVALUE = rblFeedback.SelectedValue,
+                                FBQ_FEEDBACKTEXT = rblFeedback.SelectedItem.Text != null ? rblFeedback.SelectedItem.Text.Trim() : "",
+                                FBQ_CATEGORY = "A"
+                            };
+                            feedbackList.Add(feedback);
+                        }
+                    }
+
+                    // Process Second Repeater (Category 'O')
+                    foreach (RepeaterItem item in rptFeedback2.Items)
+                    {
+                        HiddenField hfQuestionID = (HiddenField)item.FindControl("hfQuestionID2");
+                        RadioButtonList rblFeedback = (RadioButtonList)item.FindControl("rblFeedback2");
+
+                        if (hfQuestionID != null && rblFeedback != null && rblFeedback.SelectedItem != null)
+                        {
+                            FeedbackData feedback = new FeedbackData
+                            {
+                                FBQ_QUESTIONID = Convert.ToInt32(hfQuestionID.Value),
+                                FBQ_FEEDBACKVALUE = rblFeedback.SelectedValue,
+                                FBQ_FEEDBACKTEXT = rblFeedback.SelectedItem.Text != null ? rblFeedback.SelectedItem.Text.Trim() : "",
+                                FBQ_CATEGORY = "O"
+                            };
+                            feedbackList.Add(feedback);
+                        }
+                    }
+
+                    // Insert Feedback Data
+                    string result = mGCommonBAL.InsertFeedback(trackerId, feedbackList);
+
+                    // Show Success Message
+                    success.Visible = true;
+                    Label1.Text = "Feedback submitted successfully!";
+                    Label1.ForeColor = System.Drawing.Color.Green;
                 }
-            }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "Error inserting feedback tracker.";
+                    lblmsg0.ForeColor = System.Drawing.Color.Red;
+                }
             
-            //SaveFeedback(responses);
-        }
-        // Model for saving feedback
-        public class FeedbackResponse
-        {
-            public int QuestionID { get; set; }
-            public int Rating { get; set; }
-        }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = "Error inserting feedback tracker.";
+                lblmsg0.ForeColor = System.Drawing.Color.Red;
+            }
 
-        public class QuestionModel
-        {
-            public int QuestionID { get; set; }
-            public string Question { get; set; }
+
         }
+        
     }
 }

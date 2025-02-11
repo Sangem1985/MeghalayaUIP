@@ -1185,7 +1185,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 SqlDataAdapter da;
                 da = new SqlDataAdapter(CommonConstants.GetFeedBackQuestions, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CommonConstants.GetHelpDeskReports;
+                da.SelectCommand.CommandText = CommonConstants.GetFeedBackQuestions;
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
@@ -1205,6 +1205,114 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+
+        public int InsertFeedbackTracker(FeedbackTracker tracker)
+        {
+            int trackerId = 0;
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlDataAdapter da = new SqlDataAdapter(CommonConstants.InsertFeedBackTracker, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.InsertFeedBackTracker;
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@FBQ_SUGGESTIONS", tracker.FBQ_SUGGESTIONS);
+                da.SelectCommand.Parameters.AddWithValue("@FBQ_ISSUES", tracker.FBQ_ISSUES);
+                da.SelectCommand.Parameters.AddWithValue("@FBQ_CATEGORY", tracker.FBQ_CATEGORY);
+
+                SqlParameter outputId = new SqlParameter("@FBQ_TRACKERID", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Output
+                };
+                da.SelectCommand.Parameters.Add(outputId);
+
+                da.SelectCommand.ExecuteNonQuery();
+                trackerId = Convert.ToInt32(outputId.Value);
+
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
+                Console.WriteLine("Error inserting feedback tracker: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return trackerId;
+
+        }
+
+        public string InsertFeedback(int trackerId, List<FeedbackData> feedbackList)
+        {
+            string result  = null;
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                foreach (var feedback in feedbackList)
+                {
+                    try
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter(CommonConstants.InsertFeedBack, connection);
+                        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                        da.SelectCommand.CommandText = CommonConstants.InsertFeedBack;
+                        da.SelectCommand.Transaction = transaction;
+                        da.SelectCommand.Connection = connection;
+
+                        da.SelectCommand.Parameters.AddWithValue("@FBQ_TRACKERID", trackerId);
+                        da.SelectCommand.Parameters.AddWithValue("@FBQ_QUESTIONID", feedback.FBQ_QUESTIONID);
+                        da.SelectCommand.Parameters.AddWithValue("@FBQ_FEEDBACKVALUE", feedback.FBQ_FEEDBACKVALUE);
+                        da.SelectCommand.Parameters.AddWithValue("@FBQ_FEEDBACKTEXT", feedback.FBQ_FEEDBACKTEXT);
+                        da.SelectCommand.Parameters.AddWithValue("@FBQ_CATEGORY", feedback.FBQ_CATEGORY);
+
+                        da.SelectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error inserting feedback for Question ID {feedback.FBQ_QUESTIONID}: {ex.Message}");
+                        throw;
+                    }
+                }
+
+                transaction.Commit();
+                result = "S";
+
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
+                Console.WriteLine("Error in feedback insertion process: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
     }
-    }
+    
 }
