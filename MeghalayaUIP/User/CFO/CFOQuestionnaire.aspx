@@ -4,47 +4,46 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-     <script type="text/javascript">
-         //let originalValue = "";
-         function handleKeyUp(input)
-         {
-             if (input.value.trim() === "") {
-                 input.style.border = "2px solid red";
-             }
-             else {
-                 input.style.border = "1px solid #767575b5";
-             }
-         }
-         function validateDropdown(dropdown) {
+    <script type="text/javascript">
+        //let originalValue = "";
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            }
+            else {
+                input.style.border = "1px solid #767575b5";
+            }
+        }
+        function validateDropdown(dropdown) {
 
-             if (dropdown.value === "0") {
-                 dropdown.style.border = "2px solid red";
-                 dropdown.focus();
-             } else {
-                 dropdown.style.border = "1px solid #767575b5";
-             }
-         }
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
+        }
 
 
-         function validateRadioButtonList(radioGroupContainer) {
-             // Find all radio buttons inside the container
-             const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
 
-             // Check if any radio button is selected
-             const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
 
-             if (!isSelected) {
-                 // If none are selected, apply red border
-                 radioGroupContainer.style.border = "2px solid red";
-                 radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
-             } else {
-                 // Reset the border if an option is selected
-                 var id = radioGroupContainer.id;
-                 document.getElementById(id).style.border = "1px solid #767575b5";
-                 return false;
-             }
-         }
-     </script>
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
+        }
+    </script>
     <style>
         .page-wrapper.tabs {
             a #ContentPlaceHolder1_Link1
@@ -998,6 +997,20 @@
                                                                         </div>
                                                                     </div>
 
+                                                                </div>
+                                                                <div class="col-md-12 d-flex">
+                                                                    <div class="col-md-6" id="Div1" runat="server" visible="false">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">
+                                                                                Do you Require Forest Tree Transit Approval<span class="text-danger">*</span></label>
+                                                                            <div class="col-lg-4">
+                                                                                <asp:RadioButtonList ID="rblforesttransit" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblforesttransit_SelectedIndexChanged">
+                                                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                                                    <asp:ListItem Text="No" Value="N" />
+                                                                                </asp:RadioButtonList>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
 
 

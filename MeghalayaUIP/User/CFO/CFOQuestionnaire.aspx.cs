@@ -1482,6 +1482,11 @@ namespace MeghalayaUIP.User.CFO
             rblExciseVerification.BorderColor = System.Drawing.Color.White;
         }
 
+        protected void rblforesttransit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rblforesttransit.BorderColor = System.Drawing.Color.White;  
+        }
+
         public string Validations()
         {
             try
@@ -1647,6 +1652,11 @@ namespace MeghalayaUIP.User.CFO
                 if (rblExciseVerification.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Whether State Excise - Excise Verification Certificate Required or not \\n";
+                    slno = slno + 1;
+                }
+                if (rblforesttransit.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether  Forest - Transit Permission is Required or not \\n";
                     slno = slno + 1;
                 }
 

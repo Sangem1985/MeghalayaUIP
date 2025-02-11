@@ -3098,8 +3098,8 @@ namespace MeghalayaUIP.DAL.CFODAL
                 using (SqlCommand cmd = new SqlCommand(CFOConstants.GETCFOFORESTTRANSITDATA, connection, transaction))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@CreatedBy", createdBy);
-                    cmd.Parameters.AddWithValue("@UnitID", unitId);
+                    cmd.Parameters.AddWithValue("@CFOFT_CREATEDBY", createdBy);
+                    cmd.Parameters.AddWithValue("@CFOFT_UNITID", unitId);
 
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
