@@ -19,7 +19,7 @@
                     <ul>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=NoUAU1102020Pt11_dated15thOctober2024%>', '_blank'); return false;">Notification from Urban Affairs Dept [No.UAU.110.2020.Pt.11 dated 15th October, 2024]</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=NoUAU1102020Pt10_dated15thOctober2024%>', '_blank'); return false;">Notification from Urban Affairs Dept [No.UAU.110.2020.Pt.10 dated 15th October, 2024]</a></li>
-                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=%>', '_blank'); return false;">Notification from Urban Affairs Dept-NA2 reforms [No.DUA(U)R-13-2019-307 dated 10th October, 2024]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=NoDUAUR132019307dated10thOctober2024%>', '_blank'); return false;">Notification from Urban Affairs Dept-NA2 reforms [No.DUA(U)R-13-2019-307 dated 10th October, 2024]</a></li>
                         
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Notification_6May2022%>', '_blank'); return false;">The Meghalaya Right to Public Services Act, 2020 [No.PER(ARC)3.2012/Pt.I/813 Dated
                   Shillong, the 6th May 2022]</a></li>
