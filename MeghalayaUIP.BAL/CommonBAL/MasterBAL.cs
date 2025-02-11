@@ -247,6 +247,23 @@ namespace MeghalayaUIP.BAL.CommonBAL
         //{
         //    return objMasterDAL.GetUserCommentsofAmmendmentsid(ammendentid);
         //}      
+        public List<MasterDeptBestPractice> GetDetBestPractice()
+        {
+            return objMasterDAL.GetDetBestPractice();
+        }
+        public List<MasterSubDepartment> GetSubDepartment(string Deptid)
+        {
+            return objMasterDAL.GetSubDepartment(Deptid);
+        }
+        public List<MasterSectors> GetSectorBestPractice()
+        {
+            return objMasterDAL.GetSectorBestPractice();
+        }
+        public DataSet GetDeptBestPractice(string Department, string Subdept, string Sector)
+        {
+            return objMasterDAL.GetDeptBestPractice(Department, Subdept, Sector);
+        }
+
         public string InsertDeptAmmendments(AmmendmentVo ammendment, List<Deptcomments> lstformvo)
         {
             return objMasterDAL.InsertDeptAmmendments(ammendment, lstformvo);

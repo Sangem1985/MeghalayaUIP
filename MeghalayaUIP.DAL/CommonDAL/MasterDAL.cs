@@ -736,6 +736,147 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstEnterpriseMstr;
         }
+        public List<MasterDeptBestPractice> GetDetBestPractice()
+        {
+            List<MasterDeptBestPractice> lstDeptMstr = new List<MasterDeptBestPractice>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetDeptBestPractice);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Department = new MasterDeptBestPractice()
+                        {
+                            DEPTID = Convert.ToString(drOptions["DEPTID"]),
+                            DEPARTMENTNAME = Convert.ToString(drOptions["DEPARTMENTNAME"])
+                        };
+                        lstDeptMstr.Add(Department);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstDeptMstr;
+        }
+        public List<MasterSubDepartment> GetSubDepartment(string Deptid)
+        {
+            List<MasterSubDepartment> lstsubdepart = new List<MasterSubDepartment>();
+            SqlDataReader drOptions = null;
+            try
+            {
+
+                SqlParameter[] param = new SqlParameter[]
+                {
+                    new SqlParameter("@DEPTID",Convert.ToInt32(Deptid))
+                };
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetSubDepartment, param);
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var subDepartment = new MasterSubDepartment()
+                        {
+                            SUB_DEPTID = Convert.ToString(drOptions["SUB_DEPTID"]),
+                            SUB_DEPARTMENTNAME = Convert.ToString(drOptions["SUB_DEPARTMENTNAME"])
+                        };
+                        lstsubdepart.Add(subDepartment);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstsubdepart;
+        }
+        public List<MasterSectors> GetSectorBestPractice()
+        {
+            List<MasterSectors> lstSectorMstr = new List<MasterSectors>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetSectorBestPractice);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Sector = new MasterSectors()
+                        {
+                            SECTOR_ID = Convert.ToString(drOptions["SECTOR_ID"]),
+                            SECTOR_NAME = Convert.ToString(drOptions["SECTOR_NAME"])
+                        };
+                        lstSectorMstr.Add(Sector);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstSectorMstr;
+        }
+        public DataSet GetDeptBestPractice(string Department=null, string Subdept=null, string Sector=null)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("USP_GETBESTPRACTICES", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                if (Department != "")
+                    cmd.Parameters.AddWithValue("@DEPTID", Department);
+                else
+                    cmd.Parameters.AddWithValue("@DEPTID", DBNull.Value);
+                if (Subdept != "")
+                    cmd.Parameters.AddWithValue("@SUBDEPARTMENT", Subdept);
+                else
+                    cmd.Parameters.AddWithValue("@SUBDEPARTMENT", DBNull.Value);
+                if (Sector != "")
+                    cmd.Parameters.AddWithValue("@SECTOR", Sector);
+                else
+                    cmd.Parameters.AddWithValue("@SECTOR", DBNull.Value);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+            }
+            catch (Exception ex)
+            {               
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
 
         public List<MasterENERGYLOAD> GetPowerEnergyLoad()
         {

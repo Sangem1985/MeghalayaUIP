@@ -28,6 +28,9 @@ namespace MeghalayaUIP.Common
         public static string GetRegistrationType = "USP_GETREGISTRATIONTYPEMASTER";
         public static string GetCastemaster = "USP_GETCATSEMASTER";
         public static string GetBmwWasteDet = "USP_GETBMW_WASTETYPE";
+        public static string GetDeptBestPractice = "USP_GETDEAPRTMENTBESTPRACTICE";
+        public static string GetSubDepartment = "USP_GETSUB_DEPARTMENT";
+        public static string GetSectorBestPractice = "USP_GETSECTORBESTPRACTICE";
 
 
         public static string InsertInvestment = "USP_INSINTENTTOINVEST";
@@ -371,6 +374,23 @@ namespace MeghalayaUIP.Common
     {
         public string MONTH_ID { get; set; }
         public string MONTH_NAME { get; set; }
+    }
+    public class MasterDeptBestPractice
+    {
+        public string DEPTID { get; set; }
+        public string DEPARTMENTNAME { get; set; }
+    }
+    public class MasterSubDepartment
+    {
+        public string SUB_DEPTID { get; set; }
+        public string SUB_DEPARTMENTNAME { get; set; }
+
+    }
+    public class MasterSectors
+    {
+        public string SECTOR_ID { get; set; }
+        public string SECTOR_NAME { get; set; }
+
     }
     public class Ammendmentvo
     {
