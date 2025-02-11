@@ -41,13 +41,6 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <%-- <nav aria-label="breadcrumb">
-                     <ol class="breadcrumb">
-                         <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
-                         <li class="breadcrumb-item">Services</li>
-                         <li class="breadcrumb-item active" aria-current="page">Information Wizard</li>
-                     </ol>
-                 </nav>--%>
 
                                             <h3>Sectoral Information</h3>
                                             <div class="card">
@@ -56,107 +49,109 @@
                                                         <div class="col-md-12 d-flex">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Department :</label>
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="ddldept" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddldept_SelectedIndexChanged">
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Approval Name :</label>
-                                                                    <select class="form-control" aria-label="Default select example">
-                                                                        <option selected>select Approval</option>
-                                                                        <option value="1">Consent For Establishment from Pollution Control Board</option>
-                                                                        <option value="2">Service Connection Certificate </option>
-                                                                        <option value="3">NOC DG Set</option>
-                                                                    </select>
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="ddlApprovals" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlApprovals_SelectedIndexChanged">
+                                                                        </asp:DropDownList>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">State/Center Level Approval : </label>
                                                                     <div class="col-lg-12 d-flex">
-                                                                        <select class="form-control" aria-label="Default select example">
-                                                                            <option selected>select State/Center Level Approval</option>
-                                                                            <option value="1">State</option>
-                                                                            <option value="2">Center</option>
+                                                                        <asp:DropDownList ID="ddlState" runat="server" class="form-control"
+                                                                            AutoPostBack="true">
+                                                                            <asp:ListItem Text="All" Value="%"></asp:ListItem>
+                                                                            <asp:ListItem Text="State" Value="State"></asp:ListItem>
+                                                                            <asp:ListItem Text="Center" Value="Center"></asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-12 col-form-label">Department :</label>
-                                                                    <div class="col-lg-12 d-flex">
-                                                                        <select class="form-control" aria-label="Default select example">
-                                                                            <option selected>select Department</option>
-                                                                            <option value="1">MSPCB</option>
-                                                                            <option value="2">Power</option>
-                                                                            <option value="3">Urban Affairs</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex">
 
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Sector:</label>
-                                                                   
-                                                                        <select class="form-control" aria-label="Default select example">
-                                                                            <option selected>select Sector</option>
-                                                                            <option value="1">Applicable for All Sector Product</option>
-                                                                            <option value="2">Priority Sector-Hotels & Hospitality</option>
-                                                                            <option value="3">Priority Sector-Food Processing</option>
-                                                                        </select>
-                                                                  
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="ddlSector" runat="server" class="form-control"
+                                                                            AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged">
+                                                                        </asp:DropDownList>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Stage: </label>
                                                                     <div class="col-lg-12 d-flex">
-                                                                        <select class="form-control" aria-label="Default select example">
-                                                                            <option selected>select Stage</option>
-                                                                            <option value="1">Pre-Establishment</option>
-                                                                            <option value="2">Pre-Operational</option>
-
-                                                                        </select>
+                                                                        <asp:DropDownList ID="ddlModule" runat="server" class="form-control"
+                                                                            AutoPostBack="true" OnSelectedIndexChanged="ddlModule_SelectedIndexChanged">
+                                                                            <asp:ListItem Text="All" Value="%"></asp:ListItem>
+                                                                            <asp:ListItem Text="Pre Establishment" Value="CFE"></asp:ListItem>
+                                                                            <asp:ListItem Text="Pre Operational" Value="CFO"></asp:ListItem>
+                                                                            <asp:ListItem Text="Renewals" Value="REN"></asp:ListItem>
+                                                                            <asp:ListItem Text="Others" Value="Other"></asp:ListItem>
+                                                                        </asp:DropDownList>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4 mt-4 ml-4">
                                                                 <div class="form-group">
-                                                                    <input type="submit" name="ctl00$ContentPlaceHolder1$btnSearch" text="Search" id="ContentPlaceHolder1_btnSearch" class="btn btn-rounded btn-success btn-lg" style="width: 150px;">
+                                                                    <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="btn btn-rounded btn-success" Width="80px" />
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <%--<div class="col-md-12 d-flex">
-                                                         <div class="col-md-4">
-                                                             <div class="form-group">
-                                                                 <label class="col-lg-12 col-form-label">Risk Category:</label>
-                                                                 <div class="col-lg-12 d-flex">
-                                                                     
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                         <div class="col-md-4">
-                                                             <div class="form-group">
-                                                                 <label class="col-lg-12 col-form-label">Investor Type:</label>
-                                                                 <div class="col-lg-12 d-flex">
-                                                                     
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                         <div class="col-md-4">
-                                                             <div class="form-group">
-                                                                 <label class="col-lg-12 col-form-label">No of Employee:</label>
-                                                                 <div class="col-lg-12 d-flex">
-                                                                     
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                     </div>--%>
-
 
                                                         <div class="col-md-12 d-flex">
-                                                            <p>Table Grid</p>
+                                                            <asp:GridView ID="GVSector" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                                                BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
+                                                                GridLines="Both" Width="100%" EnableModelValidation="True"
+                                                                ShowFooter="true">
+                                                                <RowStyle />
+                                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                                                <FooterStyle BackColor="#013161" CssClass="no-hover" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                                                <AlternatingRowStyle BackColor="#ccccff" />
+                                                                <Columns>
+                                                                    <asp:TemplateField HeaderText="Sl.No." ItemStyle-Width="3%">
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                        <ItemTemplate>
+                                                                            <%# Container.DataItemIndex + 1%>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+
+                                                                    <%-- <asp:TemplateField>
+                                                                        <ItemTemplate>
+                                                                            <asp:Label ID="lblApprovalid" runat="server" Text='<%#Eval("IW_APPROVALID") %>' HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="false"></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>--%>
+
+                                                                    <asp:BoundField HeaderText="Name of Approval" DataField="ApprovalName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" Visible="true" />
+                                                                    <asp:BoundField HeaderText="State/Center level approval" DataField="ApprovalLevel" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Name of Department" DataField="TMD_DeptName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Name of Sector" DataField="Sector" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Stage" DataField="STAGES" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+
+                                                                </Columns>
+                                                                <EmptyDataTemplate>
+                                                                    <div align="center" style="text-align: center; padding: 20px;">
+                                                                        No Services Found
+                                                                    </div>
+                                                                </EmptyDataTemplate>
+                                                            </asp:GridView>
                                                         </div>
                                                     </div>
 
@@ -166,12 +161,6 @@
                                     </div>
                                 </div>
                             </section>
-                            <%--<asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-                             <ProgressTemplate>
-                                 <div class="update">
-                                 </div>
-                             </ProgressTemplate>
-                         </asp:UpdateProgress>--%>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

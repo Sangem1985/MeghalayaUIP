@@ -31,7 +31,8 @@ namespace MeghalayaUIP.Common
         public static string GetDeptBestPractice = "USP_GETDEAPRTMENTBESTPRACTICE";
         public static string GetSubDepartment = "USP_GETSUB_DEPARTMENT";
         public static string GetSectorBestPractice = "USP_GETSECTORBESTPRACTICE";
-
+        public static string GetApprovals = "USP_GETAPPROVALS";
+        public static string GetSectorInformation = "USP_GETSECTORALINFORMATION";
 
         public static string InsertInvestment = "USP_INSINTENTTOINVEST";
         public static string Getsector = "USP_GETSECTORS";
@@ -160,6 +161,12 @@ namespace MeghalayaUIP.Common
     {
         public string SectorId { get; set; }
         public string SectorName { get; set; }
+
+    }
+    public class MasterAPPROVALS
+    {
+        public string ApprovalID { get; set; }
+        public string ApprovalName { get; set; }
 
     }
     public class MasterConstType
