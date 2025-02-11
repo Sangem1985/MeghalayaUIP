@@ -304,6 +304,32 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstApprovalsMstr;
         }
+        public List<MasterODOP> GetODOPProduct()
+        {
+            List<MasterODOP> lstodopMstr = new List<MasterODOP>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetODOPProducts);
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var ODOP = new MasterODOP()
+                        {
+                            PRODUCTID = Convert.ToString(drOptions["PRODUCTID"]),
+                            PRODUCTNAME = Convert.ToString(drOptions["PRODUCTNAME"])
+                        };
+                        lstodopMstr.Add(ODOP);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lstodopMstr;
+        }
         public List<MasterLineOfActivity> GetLineOfActivity(string Sector)
         {
             List<MasterLineOfActivity> lstActivityMstr = new List<MasterLineOfActivity>();
@@ -1768,7 +1794,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetSectorInformation(string Approval, string deptid, string sector, string Stage)
+        public DataSet GetSectorInformation(string Approval, string deptid, string sector, string Stage, string odop)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1788,6 +1814,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Parameters.AddWithValue("@DEPARTMENTID", deptid);
                 da.SelectCommand.Parameters.AddWithValue("@SECTOR", sector);
                 da.SelectCommand.Parameters.AddWithValue("@STAGES", Stage);
+                da.SelectCommand.Parameters.AddWithValue("@PRODUCT", odop);
 
 
                 da.Fill(ds);

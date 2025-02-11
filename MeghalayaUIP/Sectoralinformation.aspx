@@ -107,12 +107,25 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-12 col-form-label">Products:</label>
+                                                                    <div class="col-lg-12 d-flex">
+                                                                        <asp:DropDownList ID="ddlodop" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlodop_SelectedIndexChanged">
+                                                                            <asp:ListItem Text="All" Value="%"></asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex justify-content-center">
                                                             <div class="col-md-4 mt-4 ml-4">
                                                                 <div class="form-group">
                                                                     <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="btn btn-rounded btn-success" Width="80px" />
                                                                 </div>
                                                             </div>
                                                         </div>
+
 
 
                                                         <div class="col-md-12 d-flex">
@@ -143,6 +156,7 @@
                                                                     <asp:BoundField HeaderText="State/Center level approval" DataField="ApprovalLevel" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-ForeColor="WindowText" />
                                                                     <asp:BoundField HeaderText="Name of Department" DataField="TMD_DeptName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                                                     <asp:BoundField HeaderText="Name of Sector" DataField="Sector" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                                                    <asp:BoundField HeaderText="Product" DataField="PRODUCTS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                                                     <asp:BoundField HeaderText="Stage" DataField="STAGES" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                                                                 </Columns>

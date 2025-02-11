@@ -33,6 +33,7 @@ namespace MeghalayaUIP.Common
         public static string GetSectorBestPractice = "USP_GETSECTORBESTPRACTICE";
         public static string GetApprovals = "USP_GETAPPROVALS";
         public static string GetSectorInformation = "USP_GETSECTORALINFORMATION";
+        public static string GetODOPProducts = "USP_GETODOPPRODUCTS";
 
         public static string InsertInvestment = "USP_INSINTENTTOINVEST";
         public static string Getsector = "USP_GETSECTORS";
@@ -167,6 +168,12 @@ namespace MeghalayaUIP.Common
     {
         public string ApprovalID { get; set; }
         public string ApprovalName { get; set; }
+
+    }
+    public class MasterODOP
+    {
+        public string PRODUCTID { get; set; }
+        public string PRODUCTNAME { get; set; }
 
     }
     public class MasterConstType

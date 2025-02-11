@@ -20,6 +20,7 @@ namespace MeghalayaUIP
                 BindApprovals();
                 BindDepartments();
                 BindSectors();
+                BindODOP();
                 BindSectorInformation();
             }
         }
@@ -106,6 +107,34 @@ namespace MeghalayaUIP
                 throw ex;
             }
         }
+        protected void BindODOP()
+        {
+            try
+            {
+                ddlodop.Items.Clear();
+
+                List<MasterODOP> objODOPModel = new List<MasterODOP>();
+
+                objODOPModel = mstrBAL.GetODOPProduct();
+                if (objODOPModel != null)
+                {
+                    ddlodop.DataSource = objODOPModel;
+                    ddlodop.DataValueField = "PRODUCTID";
+                    ddlodop.DataTextField = "PRODUCTNAME";
+                    ddlodop.DataBind();
+                }
+                else
+                {
+                    ddlodop.DataSource = null;
+                    ddlodop.DataBind();
+                }
+                AddSelect(ddlodop);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -125,7 +154,7 @@ namespace MeghalayaUIP
             try
             {
                 DataSet ds = new DataSet();
-                ds = mstrBAL.GetSectorInformation(ddlApprovals.SelectedValue, ddldept.SelectedValue, ddlSector.SelectedValue, ddlModule.SelectedValue);
+                ds = mstrBAL.GetSectorInformation(ddlApprovals.SelectedValue, ddldept.SelectedValue, ddlSector.SelectedValue, ddlModule.SelectedValue, ddlodop.SelectedValue);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     GVSector.DataSource = ds.Tables[0];
@@ -192,6 +221,18 @@ namespace MeghalayaUIP
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindSectorInformation();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void ddlodop_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
