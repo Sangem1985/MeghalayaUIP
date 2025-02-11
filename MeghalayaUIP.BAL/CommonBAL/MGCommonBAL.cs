@@ -117,5 +117,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetHelpDeskReportDrilldown(Status, Districtid, FDate, TDate);
         }
+
+        public DataSet GetFeedBackQuestions()
+        {
+            return objCommonDAL.GetFeedBackQuestions();
+        }
     }
 }

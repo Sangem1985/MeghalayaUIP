@@ -640,6 +640,7 @@ namespace MeghalayaUIP.User.CFO
                     objCFOQsnaire.Stateexciseverfcert = rblExciseVerification.SelectedValue;
                     objCFOQsnaire.PowerReqKW = ddlPowerReq.SelectedValue;
                     objCFOQsnaire.GrantManufacture = ddlManufacture.SelectedValue;
+                    objCFOQsnaire.ForestTransit = rblforesttransit.SelectedValue;
                     objCFOQsnaire.CreatedBy = hdnUserID.Value;
                     int count = 0;
                     result = objcfobal.InsertQuestionnaireCFO(objCFOQsnaire);
@@ -907,6 +908,12 @@ namespace MeghalayaUIP.User.CFO
                 {
                     ApprovalIds = ApprovalIds + ",61";
                 }
+                if (rblforesttransit.SelectedValue == "Y")
+                {
+                    ApprovalIds = ApprovalIds + ",85";
+                }
+
+
                 objCFOQ.ApprovalID = ApprovalIds;
                 DataSet dsApprovals = new DataSet();
                 dsApprovals = objcfobal.GetApprovalsReqWithFee(objCFOQ);

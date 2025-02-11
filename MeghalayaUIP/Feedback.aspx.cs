@@ -1,6 +1,10 @@
-﻿using System;
+﻿using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.Common;
+using MeghalayaUIP.DAL.CommonDAL;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -11,6 +15,8 @@ namespace MeghalayaUIP
 {
     public partial class Feedback : System.Web.UI.Page
     {
+        MasterBAL mstrBAL = new MasterBAL();
+        MGCommonBAL mGCommonBAL = new MGCommonBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,39 +26,17 @@ namespace MeghalayaUIP
         }
         private void LoadFeedbackQuestions()
         {
-            List<QuestionModel> section1 = new List<QuestionModel>
+            DataSet ds = mGCommonBAL.GetFeedBackQuestions();
+            if (ds != null && ds.Tables.Count >= 2)
             {
-                new QuestionModel { QuestionID = 1, Question = "The service I applied for was easy to find on the portal." },
-                new QuestionModel { QuestionID = 2, Question = "The information provided about the service was clear and sufficient." },
-                new QuestionModel { QuestionID = 3, Question = "The application process was simple and user-friendly." },
-                new QuestionModel { QuestionID = 4, Question = "The required documentation for the service was clearly outlined." },
-                new QuestionModel { QuestionID = 5, Question = "The time taken for service approval was reasonable." },
-                new QuestionModel { QuestionID = 6, Question = "I received timely updates on the status of my application." },
-                new QuestionModel { QuestionID = 7, Question = "Customer support/helpdesk assistance was prompt and helpful." },
-                new QuestionModel { QuestionID = 8, Question = "The service was processed efficiently without unnecessary delays." },
-                new QuestionModel { QuestionID = 9, Question = "The grievance redressal mechanism was effective in resolving my concerns." },
-                new QuestionModel { QuestionID = 10, Question = "Overall, I am satisfied with the service provided through Invest Meghalaya Portal." }
-            };
+                // Bind the first table to rptFeedback1
+                rptFeedback1.DataSource = ds.Tables[0];
+                rptFeedback1.DataBind();
 
-            List<QuestionModel> section2 = new List<QuestionModel>
-            {
-                new QuestionModel { QuestionID = 11, Question = "The Invest Meghalaya Portal is easy to navigate and use." },
-                new QuestionModel { QuestionID = 12, Question = "The design and layout of the portal are visually appealing and intuitive." },
-                new QuestionModel { QuestionID = 13, Question = "The portal loads quickly and functions smoothly." },
-                new QuestionModel { QuestionID = 14, Question = "The information available on the portal is accurate and up-to-date." },
-                new QuestionModel { QuestionID = 15, Question = "The portal provides all necessary resources and guidelines for investors." },
-                new QuestionModel { QuestionID = 16, Question = "The search function helps in finding relevant information easily." },
-                new QuestionModel { QuestionID = 17, Question = "The online payment and transaction system (if applicable) is secure and reliable." },
-                new QuestionModel { QuestionID = 18, Question = "The portal is accessible on both desktop and mobile devices without issues." },
-                new QuestionModel { QuestionID = 19, Question = "I feel that the portal enhances the ease of doing business in Meghalaya." },
-                new QuestionModel { QuestionID = 20, Question = "Overall, I am satisfied with my experience using the Invest Meghalaya Portal." }
-            };
-
-            rptFeedback1.DataSource = section1;
-            rptFeedback1.DataBind();
-
-            rptFeedback2.DataSource = section2;
-            rptFeedback2.DataBind();
+                // Bind the second table to rptFeedback2
+                rptFeedback2.DataSource = ds.Tables[1];
+                rptFeedback2.DataBind();
+            }
         }
 
       
@@ -76,22 +60,11 @@ namespace MeghalayaUIP
             }
         }
 
-        // Model for saving feedback
-        public class FeedbackResponse
-        {
-            public int QuestionID { get; set; }
-            public int Rating { get; set; }
-        }
-
-
-        public class QuestionModel
-        {
-            public int QuestionID { get; set; }
-            public string Question { get; set; }
-        }
+       
 
         protected void btnSubmit_Click1(object sender, EventArgs e)
         {
+            string result = "";
             List<FeedbackResponse> responses = new List<FeedbackResponse>();
 
             foreach (RepeaterItem item in rptFeedback1.Items)
@@ -119,8 +92,20 @@ namespace MeghalayaUIP
                     });
                 }
             }
-
+            
             //SaveFeedback(responses);
+        }
+        // Model for saving feedback
+        public class FeedbackResponse
+        {
+            public int QuestionID { get; set; }
+            public int Rating { get; set; }
+        }
+
+        public class QuestionModel
+        {
+            public int QuestionID { get; set; }
+            public string Question { get; set; }
         }
     }
 }

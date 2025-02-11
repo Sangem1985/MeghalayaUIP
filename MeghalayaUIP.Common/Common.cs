@@ -39,6 +39,8 @@ namespace MeghalayaUIP.Common
 
         public static string GetHelpDeskReportDrilldown = "";
 
+        public static string GetFeedBackQuestions = "GETFEEDBACKQUES";
+
         ////////------------------ApplicationTracker----------------///////
 
         public static string GetApplicationTracker = "USP_GETAPPLICATIONTRACKER";
