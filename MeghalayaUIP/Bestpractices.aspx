@@ -170,20 +170,21 @@
                                                                 <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="btn btn-rounded btn-success" Width="80px" />
                                                             </div>
                                                         </div>
-                                                        
 
-                                                        <div class="col-md-100 d-flex">
+
+                                                        <div class="col-md-12 d-flex">
                                                             <asp:GridView ID="GvBestPractices" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                                BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333" 
-                                                                GridLines="Both" Width="100%" EnableModelValidation="True"
+                                                                BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
+                                                                GridLines="Both" Width="100%" EnableModelValidation="True" 
                                                                 ShowFooter="false">
+                                                                <EmptyDataRowStyle Width="100%"  />
                                                                 <RowStyle BorderColor="Black" />
                                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                                 <FooterStyle BackColor="#013161" CssClass="no-hover" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                                                 <AlternatingRowStyle BackColor="#ccccff" BorderColor="Black" />
 
                                                                 <Columns>
-                                                                    <asp:TemplateField HeaderText="Sl.No." >
+                                                                    <asp:TemplateField HeaderText="Sl.No.">
                                                                         <HeaderStyle HorizontalAlign="Center" />
                                                                         <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" />
                                                                         <ItemTemplate>
@@ -192,16 +193,16 @@
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Department">
                                                                         <HeaderStyle HorizontalAlign="Center" />
-                                                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top"  />
+                                                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                                                                         <ItemTemplate>
-                                                                            <asp:Label ID="lblDeptID" runat="server" Visible="false"  Text='<%# Eval("DEPTID") %>'></asp:Label>
+                                                                            <asp:Label ID="lblDeptID" runat="server" Visible="false" Text='<%# Eval("DEPTID") %>'></asp:Label>
                                                                             <asp:Label ID="lblDept" runat="server" Text='<%# Eval("DEPARTMENTNAME") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
 
                                                                     <asp:TemplateField HeaderText="Sub Department Name">
                                                                         <HeaderStyle HorizontalAlign="Center" />
-                                                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top"  />
+                                                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                                                                         <ItemTemplate>
                                                                             <asp:Label ID="lblSubDeptID" runat="server" Visible="false" Text='<%# Eval("SUB_DEPTID") %>'></asp:Label>
                                                                             <asp:Label ID="lblSubDept" runat="server" Text='<%# Eval("SUB_DEPARTMENTNAME") %>'></asp:Label>
@@ -210,7 +211,7 @@
 
                                                                     <asp:TemplateField HeaderText="Sector">
                                                                         <HeaderStyle HorizontalAlign="Center" />
-                                                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top"  />
+                                                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                                                                         <ItemTemplate>
                                                                             <asp:Label ID="lblSector" runat="server" Text='<%# Eval("SECTOR") %>'></asp:Label>
                                                                         </ItemTemplate>
@@ -218,13 +219,19 @@
 
                                                                     <asp:TemplateField HeaderText="Best Practice Description ">
                                                                         <HeaderStyle HorizontalAlign="Center" />
-                                                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Top"  />
+                                                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" />
                                                                         <ItemTemplate>
                                                                             <asp:Label ID="lblSubBestPractice" runat="server" Text='<%# Eval("SUB_BESTPRACTICE") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
 
                                                                 </Columns>
+                                                                <EmptyDataTemplate>
+                                                                    
+                                                                    <div align="center" style="text-align: center;padding-left:300px ; padding: 20px;">
+                                                                        <b>No Records Found...!</b>
+                                                                    </div>
+                                                                </EmptyDataTemplate>
                                                             </asp:GridView>
                                                         </div>
                                                     </div>
