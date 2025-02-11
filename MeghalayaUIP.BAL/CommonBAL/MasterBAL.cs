@@ -48,6 +48,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetApprovals();
         }
+        public List<MasterODOP> GetODOPProduct()
+        {
+            return objMasterDAL.GetODOPProduct();
+        }
         public string GetPCBCategory(string LineofActivityID)
         {
             return objMasterDAL.GetPCBCategory(LineofActivityID);
@@ -199,9 +203,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetInformationWizard(module, deptid, sector);
         }
-        public DataSet GetSectorInformation(string Approval, string deptid, string sector, string Stage)
+        public DataSet GetSectorInformation(string Approval, string deptid, string sector, string Stage,string odop)
         {
-            return objMasterDAL.GetSectorInformation(Approval, deptid, sector, Stage);
+            return objMasterDAL.GetSectorInformation(Approval, deptid, sector, Stage,odop);
         }
         //Decriminalisation
         public DataSet GetDecriminalisation(string deptId, string sector)
