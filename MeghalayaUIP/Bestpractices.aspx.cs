@@ -19,7 +19,7 @@ namespace MeghalayaUIP
             {
                 BINDDEPARTMENT();
                 BINDSECTORS();
-               // BindBestPractice();
+               BindBestPractice();
             }
         }
         protected void BINDDEPARTMENT()
@@ -115,7 +115,7 @@ namespace MeghalayaUIP
             {
                 System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
                 li.Text = "--Select--";
-                li.Value = "0";
+                li.Value = "%";
                 ddl.Items.Insert(0, li);
             }
             catch (Exception ex)
@@ -163,16 +163,16 @@ namespace MeghalayaUIP
                 {
                     if (dsInfo.Tables.Count > 0)
                     {
-                        if (dsInfo.Tables[0].Rows.Count > 0)
+                        if (dsInfo.Tables[3].Rows.Count > 0)
                         {
-                            GvBest.DataSource = dsInfo.Tables[0];
-                            GvBest.DataBind();
+                            GvBestPractices.DataSource = dsInfo.Tables[3];
+                            GvBestPractices.DataBind();
                         }
                     }
                     else
                     {
-                        GvBest.DataSource = null;
-                        GvBest.DataBind();
+                        GvBestPractices.DataSource = null;
+                        GvBestPractices.DataBind();
                     }
                 }
             }
