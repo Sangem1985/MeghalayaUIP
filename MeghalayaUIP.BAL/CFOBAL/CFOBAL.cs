@@ -250,5 +250,25 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.GetCFOPaymentReceipt(UnitId, Createdby, TransactionNo, Uid);
         }
+
+        public string InsertCFOFTransitDetails(ForestTransit forestTransit)
+        {
+            return objCFODAL.InsertCFOFTransitDetails(forestTransit);
+        }
+
+        public string InsertCFOFTransitLogs(List<ForestTransitLog> logList)
+        {
+            return objCFODAL.InsertCFOFTransitLogs(logList);
+        }
+
+        public string InsertCFOFTransitBarriers(List<ForestTransitBarrier> barrierList)
+        {
+            return objCFODAL.InsertCFOFTransitBarriers(barrierList);
+        }
+
+        public DataSet GetForestTransitData(int createdBy, int unitId)
+        {
+            return objCFODAL.GetForestTransitData(createdBy, unitId);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MeghalayaUIP.Common;
+using Org.BouncyCastle.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,6 +8,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -539,14 +541,14 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOLD_ADDRESSAGENT", ObjCFOLabourDet.Address);
                 com.Parameters.AddWithValue("@CFOLD_WORKETAILS", ObjCFOLabourDet.NameNature);
                 com.Parameters.AddWithValue("@CFOLD_DAYSLABOUR", Convert.ToInt32(ObjCFOLabourDet.contractorlabour));
-                com.Parameters.AddWithValue("@CFOLD_ESTDATE", DateTime.ParseExact( ObjCFOLabourDet.Estimateddate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFOLD_ENDDATE", DateTime.ParseExact( ObjCFOLabourDet.Endingdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFOLD_ESTDATE", DateTime.ParseExact(ObjCFOLabourDet.Estimateddate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFOLD_ENDDATE", DateTime.ParseExact(ObjCFOLabourDet.Endingdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFOLD_CONTRACTEMP", Convert.ToInt32(ObjCFOLabourDet.Maximumemployed));
                 com.Parameters.AddWithValue("@CFOLD_FIVEYEARCONVICTED", ObjCFOLabourDet.withinfiveyear);
                 com.Parameters.AddWithValue("@CFOLD_DETAILS", ObjCFOLabourDet.Details);
                 com.Parameters.AddWithValue("@CFOLD_REVORKING", ObjCFOLabourDet.licenseDeposite);
                 com.Parameters.AddWithValue("@CFOLD_ORDERDAET", ObjCFOLabourDet.OrderDate);
-              //  com.Parameters.AddWithValue("@CFOLD_ORDERDAET", DateTime.ParseExact(ObjCFOLabourDet.OrderDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                //  com.Parameters.AddWithValue("@CFOLD_ORDERDAET", DateTime.ParseExact(ObjCFOLabourDet.OrderDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFOLD_ESTCONTRACTOR", ObjCFOLabourDet.establishmentpast);
                 com.Parameters.AddWithValue("@CFOLD_PRINCIPLEEMP", ObjCFOLabourDet.PrincipalEMP);
                 com.Parameters.AddWithValue("@CFOLD_ESTDETAILS", ObjCFOLabourDet.EstablishmentDET);
@@ -870,7 +872,7 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 com.Parameters.AddWithValue("@CFOPS_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPS_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
-                com.Parameters.AddWithValue("@CFOPS_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid)); 
+                com.Parameters.AddWithValue("@CFOPS_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
                 com.Parameters.AddWithValue("@CFOPS_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
 
                 com.Parameters.AddWithValue("@CFOPS_PLACEBUSINESS", ObjCFOPROFESSIONALTAX.Business);
@@ -923,7 +925,7 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 com.Parameters.AddWithValue("@CFOPC_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPC_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
-                com.Parameters.AddWithValue("@CFOPC_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid)); 
+                com.Parameters.AddWithValue("@CFOPC_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
                 com.Parameters.AddWithValue("@CFOPC_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
 
                 com.Parameters.AddWithValue("@CFOPC_PLACEBUSINESS", ObjCFOPROFESSIONALTAX.PlaceBUSINESS);
@@ -977,7 +979,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOPF_CREATEDBY", Convert.ToInt32(ObjCFOPROFESSIONALTAX.CreatedBy));
                 com.Parameters.AddWithValue("@CFOPF_CREATEDBYIP", ObjCFOPROFESSIONALTAX.IPAddress);
                 com.Parameters.AddWithValue("@CFOPF_CFOQDID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.Questionnariid));
-                com.Parameters.AddWithValue("@CFOPF_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID)); 
+                com.Parameters.AddWithValue("@CFOPF_CFOUNITID", Convert.ToInt32(ObjCFOPROFESSIONALTAX.UNITID));
 
                 com.Parameters.AddWithValue("@CFOPF_PRINCIPLEWORK", ObjCFOPROFESSIONALTAX.PrincipalWORK);
                 com.Parameters.AddWithValue("@CFOPF_ADDRESS", ObjCFOPROFESSIONALTAX.AddressWORK);
@@ -1215,7 +1217,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOB_CFOQDID", Convert.ToInt32(ObjCFOPollutionControl.Questionnariid));
                 com.Parameters.AddWithValue("@CFOB_UNITID", Convert.ToInt32(ObjCFOPollutionControl.UnitId));
 
-                com.Parameters.AddWithValue("@CFOB_ESTBDATE", DateTime.ParseExact( ObjCFOPollutionControl.DateEst, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFOB_ESTBDATE", DateTime.ParseExact(ObjCFOPollutionControl.DateEst, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFOB_STALLLOCATION", ObjCFOPollutionControl.LocationStall);
                 com.Parameters.AddWithValue("@CFOB_HOLDINGNO", ObjCFOPollutionControl.HoldingNumber);
                 com.Parameters.AddWithValue("@CFOB_MARKETNAME", ObjCFOPollutionControl.MarketName);
@@ -1281,7 +1283,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOWC_CONTRBANKNAME", ObjCFOWorkDepartment.BankerName);
                 com.Parameters.AddWithValue("@CFOWC_CONTRTURNOVER", Convert.ToDecimal(ObjCFOWorkDepartment.Turnover));
                 com.Parameters.AddWithValue("@CFOWC_CONTR3YRSTURNOVER", Convert.ToDecimal(ObjCFOWorkDepartment.financialYear));
-                com.Parameters.AddWithValue("@CFOWC_CONTRSTARTDATE", DateTime.ParseExact( ObjCFOWorkDepartment.Datework, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFOWC_CONTRSTARTDATE", DateTime.ParseExact(ObjCFOWorkDepartment.Datework, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
 
 
 
@@ -1479,13 +1481,13 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFODL_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UnitId));
 
                 com.Parameters.AddWithValue("@CFODL_APPLTYPE", ObjCFOHealthyWelfare.TypeApplication);
-                com.Parameters.AddWithValue("@CFODL_TRADELICVALDTYDATE", DateTime.ParseExact( ObjCFOHealthyWelfare.TradingLICDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFODL_MUNCPERMVALDTYDATE",DateTime.ParseExact( ObjCFOHealthyWelfare.Valideuptodate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFODL_TRADELICVALDTYDATE", DateTime.ParseExact(ObjCFOHealthyWelfare.TradingLICDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFODL_MUNCPERMVALDTYDATE", DateTime.ParseExact(ObjCFOHealthyWelfare.Valideuptodate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@CFODL_COLDSTORGDETAILS", ObjCFOHealthyWelfare.coldstorage);
                 com.Parameters.AddWithValue("@CFODL_ANYPREVLIC", ObjCFOHealthyWelfare.cancelledlicense);
                 com.Parameters.AddWithValue("@CFODL_PREVLICDETAILS", ObjCFOHealthyWelfare.specifylicense);
                 com.Parameters.AddWithValue("@CFODL_PREMISERDYFORINSP", ObjCFOHealthyWelfare.readyinspection);
-                com.Parameters.AddWithValue("@CFODL_DATEOFINSP",DateTime.ParseExact( ObjCFOHealthyWelfare.inceptionDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFODL_DATEOFINSP", DateTime.ParseExact(ObjCFOHealthyWelfare.inceptionDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
 
 
 
@@ -1758,7 +1760,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@POWERKW_ID", objCFOQ.Power);
                 }
-                if(objCFOQ.GrantManufacture !=null && objCFOQ.GrantManufacture != "")
+                if (objCFOQ.GrantManufacture != null && objCFOQ.GrantManufacture != "")
                 {
                     da.SelectCommand.Parameters.AddWithValue("@TYPEID", objCFOQ.GrantManufacture);
                 }
@@ -2905,6 +2907,220 @@ namespace MeghalayaUIP.DAL.CFODAL
                 connection.Dispose();
             }
         }
+
+        public string InsertCFOFTransitDetails(ForestTransit forestTransit)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+
+                using (SqlCommand cmd = new SqlCommand(CFOConstants.INSCFOFORESTTRANSIT, connection, transaction))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Mapping object properties to stored procedure parameters
+                    cmd.Parameters.AddWithValue("@CFOFT_CREATEDBY", forestTransit.CREATEDBY);
+                    cmd.Parameters.AddWithValue("@CFOFT_UNITID", forestTransit.UNITID);
+                    cmd.Parameters.AddWithValue("@CFOFT_CFOQDID", forestTransit.CFOQDID ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_PERMITNO", forestTransit.PERMITNO ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_OWNERNAME", forestTransit.OWNERNAME ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_OWNERIDENTITYNO", forestTransit.OWNERIDENTITYNO ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_OWNEREMAIL", forestTransit.OWNEREMAIL ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_OWNERADDRESS", forestTransit.OWNERADDRESS ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_OWNERMOBILE", forestTransit.OWNERMOBILE ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_OWNERPRODUCE", forestTransit.OWNERPRODUCE ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_VEHICLETYPE", forestTransit.VEHICLETYPE ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_DRIVERLICENSE", forestTransit.DRIVERLICENSE ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_DRIVERNAME", forestTransit.DRIVERNAME ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_COMPARTMENTNOOBTAINED", forestTransit.COMPARTMENTNOOBTAINED ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_RANGEWHEREOBTAINED", forestTransit.RANGEWHEREOBTAINED ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_CIRCLEWHEREOBTAINED", forestTransit.CIRCLEWHEREOBTAINED ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_ADDRESSWHEREOBTAINED", forestTransit.ADDRESSWHEREOBTAINED ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_DIVISIONWHEREOBTAINED", forestTransit.DIVISIONWHEREOBTAINED ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_STATEDESTINATION", forestTransit.STATEDESTINATION ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_DESTRANGE", forestTransit.DESTRANGE ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_DESTADDRESS", forestTransit.DESTADDRESS ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_DESTCIRCLE", forestTransit.DESTCIRCLE ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_DESTDIVISION", forestTransit.DESTDIVISION ?? (object)DBNull.Value);
+
+                    cmd.Parameters.AddWithValue("@CFOFT_DATEOFISSUE", forestTransit.DATEOFISSUE != null ? (object)forestTransit.DATEOFISSUE : DBNull.Value);
+
+                    cmd.Parameters.AddWithValue("@CFOFT_IMPRINTOFTRANSITMARK", forestTransit.IMPRINTOFTRANSITMARK ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_DATEOFEXPIRYOFPERMIT", forestTransit.DATEOFEXPIRYOFPERMIT != null ? (object)forestTransit.DATEOFEXPIRYOFPERMIT : DBNull.Value);
+
+
+                    cmd.Parameters.AddWithValue("@CFOFT_DESIGNATIONOFOFFICER", forestTransit.DESIGNATIONOFOFFICER ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_OFFICERTELEPHONEMOBILE", forestTransit.OFFICERTELEPHONEMOBILE ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_OFFICEREMAIL", forestTransit.OFFICEREMAIL ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@CFOFT_OFFICEADDRESS", forestTransit.OFFICEADDRESS ?? (object)DBNull.Value);
+
+                    cmd.Parameters.AddWithValue("@CFOFT_CREATEDIP", forestTransit.CREATEDIP);
+
+                    // OUTPUT parameter for the generated Transit ID
+                    SqlParameter outputIdParam = new SqlParameter("@CFOFT_TRANSITID", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(outputIdParam);
+
+                    cmd.ExecuteNonQuery();
+                    transaction.Commit();
+
+                    result = outputIdParam.Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                    transaction.Rollback();
+                result = "Error: " + ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return result;
+        }
+
+        public string InsertCFOFTransitLogs(List<ForestTransitLog> logList)
+        {
+            string result = "Success";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                foreach (var log in logList)
+                {
+                    using (SqlCommand logCmd = new SqlCommand(CFOConstants.INSCFOLOGSFORESTTRANSIT, connection, transaction))
+                    {
+                        logCmd.CommandType = CommandType.StoredProcedure;
+                        logCmd.Parameters.AddWithValue("@CFOFT_TRANSITID", log.TRANSITID);
+                        logCmd.Parameters.AddWithValue("@CFOFT_CREATEDBY", log.CREATEDBY);
+                        logCmd.Parameters.AddWithValue("@CFOFT_UNITID", log.UNITID);
+                        logCmd.Parameters.AddWithValue("@CFOFT_CFOQDID", log.CFOQDID ?? (object)DBNull.Value);
+                        logCmd.Parameters.AddWithValue("@CFOFT_SPECIESNAME", log.SPECIESNAME ?? (object)DBNull.Value);
+                        logCmd.Parameters.AddWithValue("@CFOFT_LOGNUMBER", log.LOGNUMBER ?? (object)DBNull.Value);
+                        logCmd.Parameters.AddWithValue("@CFOFT_GIRTH", log.GIRTH != null ? (object)log.GIRTH : DBNull.Value);
+                        logCmd.Parameters.AddWithValue("@CFOFT_LENGTH", log.LENGTH ?? (object)DBNull.Value);
+                        logCmd.Parameters.AddWithValue("@CFOFT_VOLUMEORWEIGHT", log.VOLUMEORWEIGHT != null ? (object)log.VOLUMEORWEIGHT : DBNull.Value);
+                        logCmd.Parameters.AddWithValue("@CFOFT_CREATEDIP", log.CREATEDIP);
+
+                        logCmd.ExecuteNonQuery();
+                    }
+                }
+
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                result = "Error: " + ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return result;
+        }
+
+        public string InsertCFOFTransitBarriers(List<ForestTransitBarrier> barrierList)
+        {
+            string result = "Success";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                foreach (var barrier in barrierList)
+                {
+                    using (SqlCommand barrierCmd = new SqlCommand(CFOConstants.INSCFOBARRIERFORESTTRANSIT, connection, transaction))
+                    {
+                        barrierCmd.CommandType = CommandType.StoredProcedure;
+
+                        barrierCmd.Parameters.AddWithValue("@CFOFT_TRANSITID", barrier.TRANSITID);
+                        barrierCmd.Parameters.AddWithValue("@CFOFT_CFOQDID", barrier.CFOQDID ?? (object)DBNull.Value);
+                        barrierCmd.Parameters.AddWithValue("@CFOFT_STATE", barrier.STATE ?? (object)DBNull.Value);
+                        barrierCmd.Parameters.AddWithValue("@CFOFT_BARRIERS", barrier.BARRIERS ?? (object)DBNull.Value);
+                        barrierCmd.Parameters.AddWithValue("@CFOFT_CREATEDBY", barrier.CREATEDBY);
+
+                        barrierCmd.Parameters.AddWithValue("@CFOFT_CREATEDIP", barrier.CREATEDIP);
+
+
+                        barrierCmd.ExecuteNonQuery();
+                    }
+                }
+
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                result = "Error: " + ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return result;
+
+        }
+
+        public DataSet GetForestTransitData(int createdBy, int unitId)
+        {
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            DataSet ds = new DataSet();
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                using (SqlCommand cmd = new SqlCommand(CFOConstants.GETCFOFORESTTRANSITDATA, connection, transaction))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CreatedBy", createdBy);
+                    cmd.Parameters.AddWithValue("@UnitID", unitId);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ds);
+                    }
+                }
+
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                    transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
-    
 }

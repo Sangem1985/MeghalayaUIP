@@ -74,8 +74,16 @@ namespace MeghalayaUIP.Common
 
         public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
         public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
+        public static string INSCFOFORESTTRANSIT = "SP_INSCFOFORESTTRANSIT";
+        public static string INSCFOLOGSFORESTTRANSIT = "SP_INSCFOFORESTTRANSITLOGS";
+        public static string INSCFOBARRIERFORESTTRANSIT = "SP_INSCFOFORESTTRANSITBARRIERS";
+        public static string GETCFOFORESTTRANSITDATA = "SP_GETCFOFORESTFORMDATA";
+
+
 
         public static string GetCFOPaymentReceipt = "GET_CFOPAYMENTRECEIPT";
+
+
 
     }
     public class CFOExciseDetails
@@ -695,5 +703,77 @@ namespace MeghalayaUIP.Common
         public string Questionnariid { get; set; }
 
     }
+
+
+    public class ForestTransit
+    {
+        public string CFOQDID { get; set; }
+        public string UNITID { get; set; }
+        public string PERMITNO { get; set; }
+        public string OWNERNAME { get; set; }
+        public string OWNERIDENTITYNO { get; set; }
+        public string OWNEREMAIL { get; set; }
+        public string OWNERADDRESS { get; set; }
+        public string OWNERMOBILE { get; set; }
+        public string OWNERPRODUCE { get; set; }
+        public string VEHICLETYPE { get; set; }
+        public string DRIVERLICENSE { get; set; }
+        public string DRIVERNAME { get; set; }
+        public string COMPARTMENTNOOBTAINED { get; set; }
+        public string RANGEWHEREOBTAINED { get; set; }
+        public string CIRCLEWHEREOBTAINED { get; set; }
+        public string ADDRESSWHEREOBTAINED { get; set; }
+        public string DIVISIONWHEREOBTAINED { get; set; }
+        public string STATEDESTINATION { get; set; }
+        public string DESTRANGE { get; set; }
+        public string DESTADDRESS { get; set; }
+        public string DESTCIRCLE { get; set; }
+        public string DESTDIVISION { get; set; }
+        public DateTime DATEOFISSUE { get; set; }
+        public string IMPRINTOFTRANSITMARK { get; set; }
+        public DateTime DATEOFEXPIRYOFPERMIT { get; set; }
+        public string DESIGNATIONOFOFFICER { get; set; }
+        public string OFFICERTELEPHONEMOBILE { get; set; }
+        public string OFFICEREMAIL { get; set; }
+        public string OFFICEADDRESS { get; set; }
+        public int CREATEDBY { get; set; }
+        public string CREATEDIP { get; set; }
+
+
+
+    }
+
+    public class ForestTransitLog
+    {
+        
+        public int TRANSITID { get; set; }
+        public string CFOQDID { get; set; }
+        public string UNITID { get; set; }
+        public string SPECIESNAME { get; set; }
+        public string LOGNUMBER { get; set; }
+        public decimal GIRTH { get; set; }
+        public decimal? LENGTH { get; set; }
+        public decimal VOLUMEORWEIGHT { get; set; }
+        public string CREATEDBY { get; set; }
+        public string CREATEDIP { get; set; }
+        
+    }
+
+    public class ForestTransitBarrier
+    {
+        
+        public int TRANSITID { get; set; }
+        public string UNITID { get; set; }
+        public string CFOQDID { get; set; }
+        public string STATE { get; set; }
+        public string BARRIERS { get; set; }
+        public string CREATEDBY { get; set; }
+        
+        public string CREATEDIP { get; set; }
+   
+    }
+
+
+
 
 }
