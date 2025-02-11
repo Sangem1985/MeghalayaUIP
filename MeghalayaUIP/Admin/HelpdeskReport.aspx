@@ -52,7 +52,7 @@
                             <asp:HiddenField ID="hdnUserID" runat="server" />
 
                             <div align="center">
-                                <div class="row" align="center">
+                                <div class="" align="center">
 
                                     <div class="panel panel-primary">
                                         <div class="panel-body">
@@ -61,11 +61,11 @@
                                                 <div class="panel panel-default">
 
 
-                                                    <div class="col-md-12 d-flex justify-content-center align-items-center">
+                                                    <div class="col-md-12 d-flex">
                                                         <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="col-lg-12 col-form-label">From Date:</label>
-                                                                <div class="col-lg-12 d-flex">
+                                                            <div class="form-group d-flex">
+                                                                <label class="col-lg-4 col-form-label">From Date:</label>
+                                                                <div class="col-lg-6 ">
                                                                     <asp:TextBox runat="server" ID="txtFormDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                                     <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtFormDate"></cc1:CalendarExtender>
                                                                     <i class="fi fi-rr-calendar-lines"></i>
@@ -73,21 +73,22 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="col-lg-12 col-form-label">To Date: </label>
-                                                                <div class="col-lg-12 d-flex">
+                                                            <div class="form-group d-flex">
+                                                                <label class="col-lg-4 col-form-label">To Date: </label>
+                                                                <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtToDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                                     <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="txtToDate"></cc1:CalendarExtender>
                                                                     <i class="fi fi-rr-calendar-lines"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12 float-left ">
-                                                        <div class="form-group row justify-content-center" style="padding: 20px">
-                                                            <asp:Button ID="btnsubmit" runat="server" Text="Submit" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" OnClick="btnsubmit_Click" />
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row justify-content-center" style="padding: 0px">
+                                                            <asp:Button ID="btnsubmit" runat="server" Text="Get Data" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" OnClick="btnsubmit_Click" />
+                                                        </div>
                                                         </div>
                                                     </div>
+                                                   
 
                                                     <div align="center" style="padding: 5px; margin: 5px; width: 60%" id="divPrint" runat="server">
                                                         <asp:GridView ID="grdDetails" runat="server" AutoGenerateColumns="False" CellPadding="4"

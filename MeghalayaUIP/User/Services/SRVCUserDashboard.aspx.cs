@@ -60,11 +60,23 @@ namespace MeghalayaUIP.User.Services
             {
                 Response.Redirect("~/User/Dashboard/MainDashboard.aspx");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnApplyAgain_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("EnterpriseDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -116,7 +128,7 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (e.Row.RowType==DataControlRowType.DataRow)
+                if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     Button btnApply;
                     Button btnApprvlsReq;
@@ -124,11 +136,13 @@ namespace MeghalayaUIP.User.Services
                     Label lblSRVCQuesnrID = (Label)e.Row.FindControl("lblSRVCQDID");
                     Label lblunitId = (Label)e.Row.FindControl("lblUNITID");
                     Label APPLSTATUS = (Label)e.Row.FindControl("lblSRVCAPPLSTATUS");
+                    Label lblSRVCQDID = (e.Row.FindControl("lblSRVCQDID") as Label);
                     HyperLink hplAppld = (HyperLink)e.Row.FindControl("hplApplied");
                     HyperLink hplApprvd = (HyperLink)e.Row.FindControl("hplApproved");
                     HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
                     HyperLink hplRejctd = (HyperLink)e.Row.FindControl("hplRejected");
                     HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");
+                    HyperLink anchortaglinkStatus = (e.Row.FindControl("anchortaglinkStatus") as HyperLink);
 
                     int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
                     TotApplied = TotApplied + TotalAppl;
@@ -145,6 +159,22 @@ namespace MeghalayaUIP.User.Services
                     int TotalQuery = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "QUERYCOUNT"));
                     TotQueryRaised = TotQueryRaised + TotalQuery;
                     string Applstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "SRVCAPPLSTATUS"));
+
+                    if (Applstatus == "3")
+                    {
+
+                        string intqnreid = lblSRVCQDID.Text.ToString();
+                        anchortaglinkStatus.NavigateUrl = "EnterpriseDetails.aspx?intqnreid=" + intqnreid.ToString();
+                        anchortaglinkStatus.Visible = true;
+                    }
+                    else if (Applstatus == "2")
+                    {
+                        string intqnreid = lblSRVCQDID.Text.ToString();
+                        anchortaglinkStatus.NavigateUrl = "EnterpriseDetails.aspx?intqnreid" + intqnreid.ToString();
+                        anchortaglinkStatus.Text = "Incomplete Application";
+                        btnApplyAgain.Visible = false;
+                        anchortaglinkStatus.Visible = true;
+                    }
 
                     if (Applstatus == "" || Applstatus == null || Applstatus == "2")
                     {
@@ -176,8 +206,8 @@ namespace MeghalayaUIP.User.Services
                     e.Row.Cells[10].Text = TotRejected.ToString();
                     e.Row.Cells[11].Text = TotQueryRaised.ToString();
                 }
-            }            
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;

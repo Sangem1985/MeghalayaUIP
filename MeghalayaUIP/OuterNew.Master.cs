@@ -1,4 +1,5 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
+using Razorpay.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,13 @@ namespace MeghalayaUIP
         protected string EVPolicy { get; set; }
         protected string MIIPP2024 { get; set; }
         protected string Decriminalizationlist { get; set; }
+        protected string ODOPProductListandDescription { get; set; }
+        protected string ODOPRegisteredBusinessManufacturingLocations {get; set;}
+
+        protected string CommonFacilityCentreswithSOPandFees {get; set;}
+
+        protected string ODOPSchemesandOtherDetailsforBenificiaries { get; set;}
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Request.Url.ToString().Contains("localhost"))
@@ -48,7 +56,10 @@ namespace MeghalayaUIP
             MIIPP2024 = masterball.EncryptFilePath("D:/Meghalaya/Documents/MIIPP 2024.pdf");
             Decriminalizationlist = masterball.EncryptFilePath("D:/Meghalaya/Documents/Decriminalization list (1) (1).pdf");
             MeghalayaMicroSmallEnterprises = masterball.EncryptFilePath("D:/Meghalaya/Documents/Procure MSME.pdf");
-
+            ODOPProductListandDescription = masterball.EncryptFilePath("D:/Meghalaya/Documents/ODOP/ODOP Product List and Description.pdf");
+            ODOPRegisteredBusinessManufacturingLocations = masterball.EncryptFilePath("D:/Meghalaya/Documents/ODOP/ODOP Registered Business Manufacturing Locations.pdf");
+            CommonFacilityCentreswithSOPandFees = masterball.EncryptFilePath("D:/Meghalaya/Documents/ODOP/Common Facility Centres with SOP and Fees.pdf");
+            ODOPSchemesandOtherDetailsforBenificiaries = masterball.EncryptFilePath("D:/Meghalaya/Documents/ODOP/ODOP Schemes and Other Details for Benificiaries");
         }
         public static string getclientIP()
         {

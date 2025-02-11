@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <head runat="server">
     <title>Invest Meghalaya</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -25,29 +25,31 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css' />
     <style>
         .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
-    display: none !important;
-}
-               iframe#\:2\.container {
-    display: none;
-}
+            display: none !important;
+        }
+
+        iframe#\:2\.container {
+            display: none;
+        }
 
         body.VIpgJd-ZVi9od-ORHb {
-   display:none !important;
-}
+            display: none !important;
+        }
+
         img.goog-te-gadget-icon {
             display: none;
         }
 
         div#\:0\.targetLanguage {
-    border-radius: 6px;
-    margin-top: -1px;
-    border-color: #b1b1b1;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 0;
-    padding: 4px 9px;
-}
+            border-radius: 6px;
+            margin-top: -1px;
+            border-color: #b1b1b1;
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 0;
+            padding: 4px 9px;
+        }
 
         body {
             top: 0px !important;
@@ -230,15 +232,17 @@
     </style>
     <style>
         a.VIpgJd-ZVi9od-xl07Ob-lTBxed span {
-    color: #ffffff;
-}
-       .VIpgJd-ZVi9od-vH1Gmf {
-    background-color: #192d66;
-    text-decoration: none;
-    border: 1px solid #6B90DA;
-    overflow: hidden;
-    padding: 5px 16px;
-}
+            color: #ffffff;
+        }
+
+        .VIpgJd-ZVi9od-vH1Gmf {
+            background-color: #192d66;
+            text-decoration: none;
+            border: 1px solid #6B90DA;
+            overflow: hidden;
+            padding: 5px 16px;
+        }
+
         .goog-te-gadget-simple {
             background: #164976 !important;
         }
@@ -249,62 +253,79 @@
       font-size: 20px; 
       font-weight:900;
     }*/
-    body.khasi {
-      font-size: 14px; /* Decreased font size for Khasi */
-      ul.header-info.pull-left {
-        width: 32% !important;
-        
-    }
-                               div#google_translate_element {
-    margin-top: 5px;
-}
-      div#blinkkashi{
-                    font-size: 14px;
-                    }
-       .main-menu .navigation > li {
-                    margin: 0px 8px;
-                    }
-       .main-menu .navigation > li > a, div#bottombox a, div#bottombox1 a{
-                    font-size: 14px;
+        body.khasi {
+            font-size: 14px; /* Decreased font size for Khasi */
+            ul .header-info.pull-left
 
-                   }
-       .text p{
-           font-size: 16px;
-       }
-       .counter-style-two .content-box .top-text, .bold-text, p.pftext, h2.head2{
-           font-size: 20px !important;
-       }
-       /*.testimonial-style-five .testimonial-content .inner-box{
+        {
+            width: 32% !important;
+        }
+
+        div#google_translate_element {
+            margin-top: 5px;
+        }
+
+        div#blinkkashi {
+            font-size: 14px;
+        }
+
+        .main-menu .navigation > li {
+            margin: 0px 8px;
+        }
+
+            .main-menu .navigation > li > a, div#bottombox a, div#bottombox1 a {
+                font-size: 14px;
+            }
+
+        .text p {
+            font-size: 16px;
+        }
+
+        .counter-style-two .content-box .top-text, .bold-text, p.pftext, h2.head2 {
+            font-size: 20px !important;
+        }
+        /*.testimonial-style-five .testimonial-content .inner-box{
            padding: 0px 6px 0px 6px;
        }*/
-        .testimonial-style-five .testimonial-content .inner-box .author-info .designation{
-                   font-size: 14px;
-                   font-weight: 500;
-        line-height: 18px;
-        width: 100%;
-                   }
+        .testimonial-style-five .testimonial-content .inner-box .author-info .designation {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 18px;
+            width: 100%;
+        }
+
         .testimonial-style-five .testimonial-content .inner-box .author-info {
             min-height: 135px;
         }
+
         .testimonial-style-five {
-    padding: 70px 0px 267px 0px;
-            }
+            padding: 70px 0px 267px 0px;
+        }
+
         section.about-section-two1.\32 .easy.active {
-    height: 400px;
-            }
+            height: 400px;
+        }
+
         p.textboxyk {
             height: 215px;
         }
-        .team-block-one .inner-box .lower-content .designation{
-            font-size:14px;
-            line-height:18px;
+
+        .team-block-one .inner-box .lower-content .designation {
+            font-size: 14px;
+            line-height: 18px;
             font-weight: 500;
         }
+
         div#bottombox a, div#bottombox1 a {
             font-size: 11px !important;
         }
-    }
-   
+
+        }
+
+
+        ul.ODOP {
+    left: -125% !important;
+}
     </style>
 </head>
 <body class="boxed_wrapper" id="content">
@@ -326,11 +347,13 @@
                     <div class="container">
                         <div class="inner-container clearfix">
                             <ul class="header-info pull-left" style="width: 30%;">
-                                
+
                                 <li><a href="tel:+91 7085741695" style="text-transform: none;">Toll Free Number : <b>+91 7085741695</b></a></li>
-                                <li><div class="language dropdownn" id="google_translate_element"></div></li>
+                                <li>
+                                    <div class="language dropdownn" id="google_translate_element"></div>
+                                </li>
                                 <!-- <li><a href="beta2/index.html" target="_blank"><i class="fi fi-rr-chevron-double-down"></i> Click here for Second Design</a></li> -->
-                              <%--  <li>
+                                <%--  <li>
                                     <div class="translate d-flex rounded">
                                         <div id="google_translate_element"></div>
                                     </div>
@@ -483,6 +506,20 @@
                                                         <li><a href="BusinessRegulation.aspx">Business Regulation</a></li>
                                                         <li><a href="Decriminalisation.aspx">Decriminalisation</a></li>
                                                         <li><a href="RTIACT.aspx">RTI Acts</a></li>
+                                                        <li class="dropdown"><a href="#">ODOP</a>
+                                                            <ul class="ODOP">
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPProductListandDescription%>', '_blank'); return false;">ODOP List and Description</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPRegisteredBusinessManufacturingLocations%>', '_blank'); return false;">ODOP Registered business</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPRegisteredBusinessManufacturingLocations%>', '_blank'); return false;">ODOP Manufacturing locations</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=CommonFacilityCentreswithSOPandFees%>', '_blank'); return false;">Common facility centers with SOP & Fees</a></li>
+                                                                <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPSchemesandOtherDetailsforBenificiaries%>', '_blank'); return false;">ODOP Schemes and Other Details Beneficial for Entrepreneurs</a></li>
+                                                                <li><a href="#" onclick="window.open('Sectoralinformation.aspx', '_blank'); return false;" target="_blank">ODOP Sectoral Information</a></li>
+                                                                <li><a href="#" onclick="window.open('https://dofpmeghalaya.org/odop/', '_blank'); return false;">ODOP Facilitation Centre</a></li>
+                                                                <li><a href="#" onclick="window.open('https://www.meghalayaone.gov.in/meghalaya-one', '_blank'); return false;">ODOP Grievance Mechanism</a></li>
+                                                            </ul>
+
+
+                                                        </li>
 
                                                     </ul>
                                                 </li>
@@ -491,7 +528,7 @@
                                                         <li><a href="SingleWindowPortalDashboard.aspx">Single Window Dashboard</a></li>
                                                         <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>
                                                         <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grievance Timelines</a></li>
-
+                                                        <li><a href="ODOPDashboard.aspx">ODOP Dashboard</a></li>
                                                     </ul>
                                                 </li>
                                                 <!-- <a href="login.html"><li class="button-box"><i class="fas fa-arrow-right"></i> Login </li></a>  -->
@@ -780,7 +817,7 @@
                     attributes: true,
                     attributeFilter: ['lang'],
                 });
-  </script>
+            </script>
         </div>
 
     </form>
