@@ -278,6 +278,32 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstSectorMstr;
         }
+        public List<MasterAPPROVALS> GetApprovals()
+        {
+            List<MasterAPPROVALS> lstApprovalsMstr = new List<MasterAPPROVALS>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetApprovals);
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var sectors = new MasterAPPROVALS()
+                        {
+                            ApprovalID = Convert.ToString(drOptions["ApprovalID"]),
+                            ApprovalName = Convert.ToString(drOptions["ApprovalName"])
+                        };
+                        lstApprovalsMstr.Add(sectors);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lstApprovalsMstr;
+        }
         public List<MasterLineOfActivity> GetLineOfActivity(string Sector)
         {
             List<MasterLineOfActivity> lstActivityMstr = new List<MasterLineOfActivity>();
@@ -1725,6 +1751,43 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Parameters.AddWithValue("@MODULE", module);
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", deptid);
                 da.SelectCommand.Parameters.AddWithValue("@SECTOR", sector);
+
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetSectorInformation(string Approval, string deptid, string sector, string Stage)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(MasterConstants.GetSectorInformation, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = MasterConstants.GetSectorInformation;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@APPROVALID", Approval);
+                da.SelectCommand.Parameters.AddWithValue("@DEPARTMENTID", deptid);
+                da.SelectCommand.Parameters.AddWithValue("@SECTOR", sector);
+                da.SelectCommand.Parameters.AddWithValue("@STAGES", Stage);
 
 
                 da.Fill(ds);
