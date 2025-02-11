@@ -168,12 +168,13 @@ namespace MeghalayaUIP
                             GvBestPractices.DataSource = dsInfo.Tables[3];
                             GvBestPractices.DataBind();
                         }
+                        else
+                        {
+                            GvBestPractices.DataSource = null;
+                            GvBestPractices.DataBind();
+                        }
                     }
-                    else
-                    {
-                        GvBestPractices.DataSource = null;
-                        GvBestPractices.DataBind();
-                    }
+                    
                 }
             }
             catch (Exception ex)

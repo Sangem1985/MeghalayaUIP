@@ -25,7 +25,7 @@
     font-size: 1.125rem;
     font-weight: normal;
     color: #fff;
-    margin: 0px 25px 0.8em;
+    margin: 0px 10px 0.8em;
 }
         .contact-pg-section {
     padding-bottom: 35px;
@@ -51,7 +51,7 @@
         .contact-pg-section .office-info > div + div {
     padding-top: 30px;
     margin-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #fff;
 }
         i.ti-location-pin, i.ti-mobile, i.ti-email {
     display: none !important;
@@ -88,7 +88,7 @@
                             </div>
                             <div>
                                 <h3>Smti. D. Kharjana</h3>
-                                <ul>
+                                <ul style="height:120px;">
                                     <li><i class="ti-location-pin"></i> Deputy Director (Planning),<br /> Commerce and Industries</li>
                                     
                                     <li><i class="ti-email"></i> Email : daphira[at]yahoo[dot]co[dot]in</li>
@@ -106,7 +106,7 @@ West Jaintia Hills District, Jowai.</li>
 
                             <div>
                                 <h3>Shri. P. R. Marak, General Manager</h3>
-                                <ul>
+                                <ul style="height:90px;">
                                     <li><i class="ti-location-pin"></i> District Commerce and Industries Centre,
 West Garo Hills District, Tura.</li>
                                     <li><i class="ti-mobile"></i> Phone No: 03564 - 222247</li>
@@ -126,7 +126,7 @@ East Jaintia Hills District, Khliehriat.</li>
 
                             <div>
                                 <h3>Shri. J. T. Sangma, General Manager</h3>
-                                <ul style="height:76px;">
+                                <ul style="height:98px;">
                                     <li><i class="ti-location-pin"></i> District Commerce and Industries Centre,
 North Garo Hills District, Resubelpara.</li>
                                     
@@ -151,7 +151,7 @@ Shillong - 793001.</li>
                             </div>
                             <div>
                                 <h3>Shri. W. Warshong</h3>
-                                <ul style="height: 75px;">
+                                <ul style="height:120px;">
                                     <li><i class="ti-location-pin"></i> Deputy Director (Technical)</li>
                                     
                                     <li><i class="ti-email"></i> Email : winfredwarshong[at]gmail.com</li>
@@ -169,7 +169,7 @@ West Khasi Hills District, Nongstoin.</li>
 
                             <div>
                                 <h3>Shri. Moshe R. Marak, General Manager</h3>
-                                <ul style="height:58px;">
+                                <ul style="height:88px;">
                                     <li><i class="ti-location-pin"></i> District Commerce and Industries Centre,
 East Garo Hills District, Williamnagar.</li>
                                     <li><i class="ti-mobile"></i> Phone No: 03658 - 220398</li>
@@ -203,7 +203,7 @@ South West Khasi Hills District, Mawkyrwat.</li>
                         <div class="office-info">
                             <div>
                                 <h3>Shri. M. L. Wanshnong</h3>
-                                <ul style="height: 125px;">
+                                <ul style="height:125px;">
                                     <li><i class="ti-location-pin"></i> Deputy Director (Marketing), Commerce and Industries.</li>
                                     
                                     <li><i class="ti-email"></i> Email : moonwanshnong[at]gmail[dot]com</li>
@@ -241,14 +241,29 @@ South Garo Hills District, Baghmara.</li>
 
                             <div>
                                 <h3>Shri. D. F. R. Marak, General Manager</h3>
-                                <ul>
+                                <ul style="height:76px;">
                                     <li><i class="ti-location-pin"></i> District Commerce and Industries Centre,
 South West Garo Hills District, Ampati.</li>
                                    
                                     
                                 </ul>
                             </div>
-
+                                <div>
+                                <h3>Shri. Pooja Ghosalkar, Relationship manager</h3>
+                                <ul>
+                                    <li><i class="ti-location-pin"></i> Master in Urban and Regional Planning.</li>
+                                   
+                                    
+                                </ul>
+                            </div>
+                                <div>
+    <h3>Shri. Chandan Kumar, Relationship manager</h3>
+    <ul>
+        <li><i class="ti-location-pin"></i> Master in Business Administration.</li>
+       
+        
+    </ul>
+</div>
                           
                         </div>
                     </div>
