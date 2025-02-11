@@ -72,7 +72,7 @@
                                 <td>0</td>
 
                             </tr>
-                            <tr>
+                            <%--<tr>
                                 <th scope="col">ODOP Registration</th>
                                 <td>NA</td>
                                 <td>0</td>
@@ -83,7 +83,7 @@
                                 <td>0</td>
                                 <td>0</td>
 
-                            </tr>
+                            </tr>--%>
 
                         </tbody>
                     </table>
