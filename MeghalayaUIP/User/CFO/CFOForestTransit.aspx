@@ -244,15 +244,15 @@
                                                 <Columns>
                                                     <asp:BoundField DataField="SlNo" HeaderText="Sl No."
                                                         ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField DataField="SpeciesName" HeaderText="Name of Species"
+                                                    <asp:BoundField DataField="CFOFT_SPECIESNAME" HeaderText="Name of Species"
                                                         ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField DataField="LogNumber" HeaderText="Log Number"
+                                                    <asp:BoundField DataField="CFOFT_LOGNUMBER" HeaderText="Log Number"
                                                         ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField DataField="Girth" HeaderText="Girth (cm)"
+                                                    <asp:BoundField DataField="CFOFT_GIRTH" HeaderText="Girth (cm)"
                                                         ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField DataField="Length" HeaderText="Length (cm)"
+                                                    <asp:BoundField DataField="CFOFT_LENGTH" HeaderText="Length (cm)"
                                                         ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField DataField="VolumeOrWeight" HeaderText="Volume (cum) / Weight (kg)"
+                                                    <asp:BoundField DataField="CFOFT_VOLUMEORWEIGHT" HeaderText="Volume (cum) / Weight (kg)"
                                                         ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
 
                                                     <asp:CommandField HeaderText="Edit" ShowSelectButton="True" Visible="False" />
@@ -314,9 +314,9 @@
                                                 <Columns>
                                                     <asp:BoundField DataField="SlNo" HeaderText="Sl No."
                                                         ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField DataField="State" HeaderText="State"
+                                                    <asp:BoundField DataField="CFOFT_STATE" HeaderText="State"
                                                         ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField DataField="Barriers" HeaderText="Barriers"
+                                                    <asp:BoundField DataField="CFOFT_BARRIERS" HeaderText="Barriers"
                                                         ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
 
                                                     <asp:CommandField HeaderText="Edit" ShowSelectButton="True" Visible="False" />
@@ -612,7 +612,7 @@
                                         </div>
                                         <div class="col-md-12 text-right mb-3">
 
-                                            <asp:Button ID="btnPrevious" runat="server" Text="Previous"  class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                            <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                             <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-success btn-lg" Width="150px" />
                                             <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 

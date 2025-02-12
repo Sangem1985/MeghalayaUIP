@@ -679,6 +679,7 @@
     <Content Include="Home.aspx" />
     <Content Include="HomeNew.aspx" />
     <Content Include="Hospitality.aspx" />
+    <Content Include="IncEligibilty.aspx" />
     <Content Include="InformationWizard.aspx" />
     <Content Include="IntentInvest.aspx" />
     <Content Include="IntenttoInvestPrint.aspx" />
@@ -1468,6 +1469,13 @@
     </Compile>
     <Compile Include="Hospitality.aspx.designer.cs">
       <DependentUpon>Hospitality.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IncEligibilty.aspx.cs">
+      <DependentUpon>IncEligibilty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IncEligibilty.aspx.designer.cs">
+      <DependentUpon>IncEligibilty.aspx</DependentUpon>
     </Compile>
     <Compile Include="InformationWizard.aspx.cs">
       <DependentUpon>InformationWizard.aspx</DependentUpon>

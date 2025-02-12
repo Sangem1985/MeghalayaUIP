@@ -267,6 +267,10 @@ namespace MeghalayaUIP.User.CFO
                 if (Errormsg == "")
                 {
                     SaveData();
+                    success.Visible = true;
+                    lblmsg.Text = "Forest Transit Details Submitted Successfully";
+                    string message = "alert('" + lblmsg.Text + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
                 else
                 {
@@ -297,6 +301,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 CFOQDID = Convert.ToString(Session["CFOQID"]),
                 UNITID = Convert.ToString(Session["CFOUNITID"]),
+                CREATEDBY = Convert.ToInt32(hdnUserID.Value),
                 PERMITNO = txtpermitno.Text.Trim(),
                 OWNERNAME = txtName.Text.Trim(),
                 OWNERIDENTITYNO = txtIdentity.Text.Trim(),
@@ -665,6 +670,17 @@ namespace MeghalayaUIP.User.CFO
 
         }
 
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFO/CFOExcise.aspx?next=P");
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         protected List<TextBox> FindEmptyTextboxes(Control container)
         {

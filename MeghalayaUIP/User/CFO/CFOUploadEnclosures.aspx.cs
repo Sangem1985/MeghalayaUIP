@@ -136,7 +136,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                Response.Redirect("~/User/CFO/CFOExcise.aspx?Previous=P");
+                Response.Redirect("~/User/CFO/CFOForestTransit.aspx?Previous=P");
             }
             catch (Exception ex)
             {
