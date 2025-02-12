@@ -80,7 +80,7 @@
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <asp:HiddenField ID="hdnQuesID" runat="server" />
 
-                                    <div class="row">
+                                    <div class="row" id="divText" runat="server">
                                         <div class="col-md-12 d-flex">
                                             <h4 class="card-title ml-3">1) Forest Permit Details: </h4>
                                         </div>

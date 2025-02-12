@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using static AjaxControlToolkit.AsyncFileUpload.Constants;
 
 namespace MeghalayaUIP.User.CFO
 {
@@ -17,7 +18,7 @@ namespace MeghalayaUIP.User.CFO
     {
         MasterBAL mstrBAL = new MasterBAL();
         CFOBAL objcfobal = new CFOBAL();
-        string Unitid;
+        string Unitid, Errormsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -51,6 +52,7 @@ namespace MeghalayaUIP.User.CFO
                         GetAppliedorNot();
                     }
                 }
+
             }
             catch (Exception ex)
             {
@@ -258,6 +260,35 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+           
+            try
+            {
+                Errormsg = Validations();
+                if (Errormsg == "")
+                {
+                    SaveData();
+                }
+                else
+                {
+                    string message = "alert('" + Errormsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+           
+
+
+
+
+        }
+
+        public void SaveData()
+        {
             string result = "";
             string result2 = "";
             string result3 = "";
@@ -365,19 +396,8 @@ namespace MeghalayaUIP.User.CFO
 
             }
 
-            if (result3 != "")
-            {
-                success.Visible = true;
-                lblmsg.Text = "All Details Submitted Successfully";
-                string message = "alert('" + lblmsg.Text + "')";
-                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-            }
-
-
-
-
+            
         }
-
 
         private void LoadTransitData()
         {
@@ -467,9 +487,9 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                // btnSave_Click(sender, e);
+                btnSave_Click(sender, e);
 
-                //if (ErrorMsg == "")
+                if (Errormsg == "")
                 Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
             }
             catch (Exception ex)
@@ -478,6 +498,196 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        public string Validations()
+        {
+            try
+            {
+                int slno = 1;
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                
+                string errormsg = "";
+                if (gvLogs.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please enter Logs Details \\n";
+                    slno = slno + 1;
+                }
+                if (gvBarriers.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please enter Barrier Details \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtpermitno.Text) || txtpermitno.Text == "" || txtpermitno.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Permit No \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Owner Name \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtIdentity.Text) || txtIdentity.Text == "" || txtIdentity.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Owner Identity No \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtemail.Text) || txtemail.Text == "" || txtemail.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Owner Email \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtowneraddress.Text) || txtowneraddress.Text == "" || txtowneraddress.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Owner Address \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtmobile.Text) || txtmobile.Text == "" || txtmobile.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Owner Mobile No \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtproduce.Text) || txtproduce.Text == "" || txtproduce.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Owner Produce \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtVehicleType.Text) || txtVehicleType.Text == "" || txtVehicleType.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Vehicle Type \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDriverLicense.Text) || txtDriverLicense.Text == "" || txtDriverLicense.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Driver License No \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDriverName.Text) || txtDriverName.Text == "" || txtDriverName.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Driver Name \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtCompartmentNo.Text) || txtCompartmentNo.Text == "" || txtCompartmentNo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Compartment No Obtained \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtRangeWhereObtained.Text) || txtRangeWhereObtained.Text == "" || txtRangeWhereObtained.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Range Where Obtained \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtCircleWhereObtained.Text) || txtCircleWhereObtained.Text == "" || txtCircleWhereObtained.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Circle Where Obtained \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtAddressWhereObtained.Text) || txtAddressWhereObtained.Text == "" || txtAddressWhereObtained.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Address Where Obtained \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDivisionWhereObtained.Text) || txtDivisionWhereObtained.Text == "" || txtDivisionWhereObtained.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Division Where Obtained \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtstateDestination.Text) || txtstateDestination.Text == "" || txtstateDestination.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter State Destination \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtdestRange.Text) || txtdestRange.Text == "" || txtdestRange.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Destination Range \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtdestAddress.Text) || txtdestAddress.Text == "" || txtdestAddress.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Destination Address \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtdestCircle.Text) || txtdestCircle.Text == "" || txtdestCircle.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Destination Circle \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtdestDivision.Text) || txtdestDivision.Text == "" || txtdestDivision.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Destination Division \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtImprintOfTransitMark.Text) || txtImprintOfTransitMark.Text == "" || txtImprintOfTransitMark.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Imprint Of Transit Mark \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDesignationOfOfficial.Text) || txtDesignationOfOfficial.Text == "" || txtDesignationOfOfficial.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Designation Of Officer \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtOfficialTelephoneMobile.Text) || txtOfficialTelephoneMobile.Text == "" || txtOfficialTelephoneMobile.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Officer Telephone/Mobile \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtOfficialEmail.Text) || txtOfficialEmail.Text == "" || txtOfficialEmail.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Officer Email \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtOfficeAddress.Text) || txtOfficeAddress.Text == "" || txtOfficeAddress.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Office Address \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDateOfIssue.Text) || txtDateOfIssue.Text == "" || txtDateOfIssue.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Office Address \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtDateOfExpiryOfPermit.Text) || txtDateOfExpiryOfPermit.Text == "" || txtDateOfExpiryOfPermit.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please enter Office Address \\n";
+                    slno = slno + 1;
+                }
+
+
+                return errormsg;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
+        protected List<TextBox> FindEmptyTextboxes(Control container)
+        {
+
+            List<TextBox> emptyTextboxes = new List<TextBox>();
+            foreach (Control control in container.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textbox = (TextBox)control;
+                    if (string.IsNullOrWhiteSpace(textbox.Text))
+                    {
+                        emptyTextboxes.Add(textbox);
+                        textbox.BorderColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (control.HasControls())
+                {
+                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+                }
+            }
+            return emptyTextboxes;
         }
     }
 }
