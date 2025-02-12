@@ -34,9 +34,9 @@ namespace MeghalayaUIP
 
         protected string ERTS_MAAAR_04022020;
         protected string ERTS_MARA_10082018;
-        protected string NoUAU1102020Pt11_dated15thOctober2024;
-        protected string NoUAU1102020Pt10_dated15thOctober2024;
-        protected string NoDUAUR132019307dated10thOctober2024;
+        //protected string NoUAU1102020Pt11_dated15thOctober2024;
+        //protected string NoUAU1102020Pt10_dated15thOctober2024;
+        //protected string NoDUAUR132019307dated10thOctober2024;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,9 +58,9 @@ namespace MeghalayaUIP
             GO_CS_1 = mbal.EncryptFilePath("D:/Meghalaya/Documents/GO_CS_1.pdf");
             ERTS_MAAAR_04022020 = mbal.EncryptFilePath("D:/Meghalaya/Documents/ERTS_MAAAR_04022020.pdf");
             ERTS_MARA_10082018 = mbal.EncryptFilePath("D:/Meghalaya/Documents/ERTS_MARA_10082018.pdf");
-            NoUAU1102020Pt11_dated15thOctober2024 = mbal.EncryptFilePath("D:/Meghalaya/Documents/Urban Affairs Dept[NoUAU1102020Pt11dated15thOctober2024].pdf");
-            NoUAU1102020Pt10_dated15thOctober2024 = mbal.EncryptFilePath("D:/Meghalaya/Documents/Urban Affairs Dept[NoUAU1102020Pt10dated15thOctober2024].pdf");
-            NoDUAUR132019307dated10thOctober2024 = mbal.EncryptFilePath("D:/Meghalaya/Documents/Urban Affairs DeptNA2reforms[NoDUAUR132019307dated10thOctober2024].pdf");
+            //NoUAU1102020Pt11_dated15thOctober2024 = mbal.EncryptFilePath("D:/Meghalaya/Documents/Urban Affairs Dept[NoUAU1102020Pt11dated15thOctober2024].pdf");
+            //NoUAU1102020Pt10_dated15thOctober2024 = mbal.EncryptFilePath("D:/Meghalaya/Documents/Urban Affairs Dept[NoUAU1102020Pt10dated15thOctober2024].pdf");
+            //NoDUAUR132019307dated10thOctober2024 = mbal.EncryptFilePath("D:/Meghalaya/Documents/Urban Affairs DeptNA2reforms[NoDUAUR132019307dated10thOctober2024].pdf");
 
         }
     }

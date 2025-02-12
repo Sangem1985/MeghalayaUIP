@@ -1039,6 +1039,8 @@ namespace MeghalayaUIP.User.CFO
                         ddlManufacture.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_GRANTMANUFACTURE"].ToString();
                     }
                     else { Manufacture.Visible = false; }
+
+                    rblforesttransit.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_FORESTTRANSIT"].ToString();
                     rblProftaxcert.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_PROFTAXCERT"].ToString();
                     rblCFOPCB.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_CFOPCB"].ToString();
                     rblOccupancyCertificate.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_OCCUPANCYCERT"].ToString();

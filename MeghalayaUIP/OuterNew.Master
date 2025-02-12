@@ -324,8 +324,8 @@
 
 
         ul.ODOP {
-    left: -125% !important;
-}
+            left: -125% !important;
+        }
     </style>
 </head>
 <body class="boxed_wrapper" id="content">
@@ -451,6 +451,8 @@
                                                         <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= ITPolicy2024 %>', '_blank'); return false;">IT/ITES Policy 2024</a></li>
                                                         <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= MeghalayaPowerPolicy %>', '_blank'); return false;">Meghalaya
                                                 Power Policy, 2024</a></li>
+                                                        <%--<li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= ConstructionandDemolitionWasterPolicy %>', '_blank'); return false;">Construction and demolition waste 2024</a></li>--%>
+                                                        <li><a href="Documents/ConstructionandDemolitionWasterPolicy.pdf" target="_blank">Construction and demolition waste 2024</a></li>
                                                         <li class="dropdown"><a href="#">Others</a>
                                                             <ul>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=MeghalayaMicroSmallEnterprises%>', '_blank'); return false;">Meghalaya
@@ -526,6 +528,7 @@
                                                 <li class="dropdown"><a href="#">Dashboard <i class="fi fi-br-chevron-double-down"></i></a>
                                                     <ul>
                                                         <li><a href="SingleWindowPortalDashboard.aspx">Single Window Dashboard</a></li>
+                                                        <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>
                                                         <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>
                                                         <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grievance Timelines</a></li>
                                                         <li><a href="ODOPDashboard.aspx">ODOP Dashboard</a></li>
