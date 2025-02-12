@@ -136,6 +136,10 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.InsertCFOQuestionnaireApprovals(objCFOQsnaire);
         }
+        public string DeleteDepartmentApprovalsCFO(CFOQuestionnaireDet objCFOQsnaire)
+        {
+            return objCFODAL.DeleteDepartmentApprovalsCFO(objCFOQsnaire);
+        }
         public DataSet RetrieveQuestionnaireDetails(string userid, string UnitID)
         {
             return objCFODAL.RetrieveQuestionnaireDetails(userid, UnitID);

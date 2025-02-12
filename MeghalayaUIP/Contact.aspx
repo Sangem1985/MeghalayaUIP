@@ -249,7 +249,7 @@ South West Garo Hills District, Ampati.</li>
                                 </ul>
                             </div>
                                 <div>
-                                <h3>Shri. Pooja Ghosalkar, Relationship manager</h3>
+                                <h3>Miss. Pooja Ghosalkar, Relationship manager</h3>
                                 <ul>
                                     <li><i class="ti-location-pin"></i> Master in Urban and Regional Planning.</li>
                                    
@@ -257,7 +257,7 @@ South West Garo Hills District, Ampati.</li>
                                 </ul>
                             </div>
                                 <div>
-    <h3>Shri. Chandan Kumar, Relationship manager</h3>
+    <h3>Shri. Chandan Kumar, Relationship manager & Sectorial Expert</h3>
     <ul>
         <li><i class="ti-location-pin"></i> Master in Business Administration.</li>
        

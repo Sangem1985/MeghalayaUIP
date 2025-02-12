@@ -42,6 +42,7 @@ namespace MeghalayaUIP.Common
         public static string GetCFORegDetails = "USP_GETAPPROVEDINDUSTRYREGDATA_CFO";
         public static string InsertCFOQuestionnaire = "USP_INSCFOQUESTIONNAREDETAILS";
         public static string InsertCFOQuestionnaireApprovals = "USP_INSCFOREQUIREDAPPROVALS";
+        public static string DeleteDepartmentApprovalsCFO = "USP_DELETECFODEPARTMENTAPPROVALS";
         public static string RetrieveQuestionnaire = "USP_RETRIEVECFOQUESFILLEDDATA";
         public static string GetCFEApprovalsAmounttoPay = "USP_GETCFOAPPROVALSAMOUNTTOPAY";
         public static string InsertPaymentDetails = "USP_INSCFOPAYMENTDETAILS";

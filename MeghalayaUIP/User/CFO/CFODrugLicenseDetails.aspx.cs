@@ -149,7 +149,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFODM_CFOQDID"]);
+                        //hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFODM_CFOQDID"]);
                         ViewState["MANUFACTURE"] = ds.Tables[2];
                         GVHealthy.DataSource = ds.Tables[2];
                         GVHealthy.DataBind();
@@ -157,7 +157,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (ds.Tables[3].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["CFODT_CFOQDID"]);
+                        //hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["CFODT_CFOQDID"]);
                         ViewState["TESTING"] = ds.Tables[3];
                         GVTESTING.DataSource = ds.Tables[3];
                         GVTESTING.DataBind();
@@ -165,7 +165,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (ds.Tables[4].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["CFOD_CFOQDID"]);
+                        //hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["CFOD_CFOQDID"]);
                         ViewState["NameDrug"] = ds.Tables[4];
                         GVDrug.DataSource = ds.Tables[4];
                         GVDrug.DataBind();

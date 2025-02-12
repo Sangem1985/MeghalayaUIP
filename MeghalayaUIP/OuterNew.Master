@@ -512,7 +512,7 @@
                                                         <li class="dropdown"><a href="#">Meghalaya Startup</a>
                                                             <ul class="ODOP">
                                                                 <li><a href="Documents/Consolidated Startup Information.pdf" target="_blank">Startup Consolidated Information</a></li>
-                                                                <li><a href="Documents/Startup Registration.pdf" target="_blank">Startup Registration</a></li>
+                                                                <li><a href="Documents/Startup Registration.pdf" target="_blank">Entrepreneur Registration</a></li>
                                                                 <li><a href="Documents/Startup Online Grievance Mechanism.pdf" target="_blank">Startup Online Grievance Mechanism</a></li>
                                                                 <li><a href=" https://www.primemeghalaya.com/" target="_blank">Meghalaya PRIME portal</a></li>
 
@@ -543,6 +543,11 @@
                                                         <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>
                                                         <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>
                                                         <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grievance Timelines</a></li>
+                                                          <li class="dropdown"><a href="#">Other dashboard</a>
+                                                               <ul class="ODOP">
+                                                                     <li><a href="https://smb.gov.in/index.php/content/index/dashboard" target="_blank">Water Dashboard</a></li>
+                                                                   </ul>
+                                                              </li>
                                                         <li><a href="ODOPDashboard.aspx">ODOP Dashboard</a></li>
                                                     </ul>
                                                 </li>
@@ -650,7 +655,7 @@
                                                 <li><a href="InformationWizard.aspx">Information Wizard</a></li>
                                                 <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
                                                 <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
-
+                                                <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>
 
                                             </ul>
                                         </div>
