@@ -112,7 +112,7 @@ namespace MeghalayaUIP
                                 + "</b><br/> Invest Meghalaya Authority";
                         SMSandMail smsMail = new SMSandMail();
 
-                        smsMail.SendEmailSingle(txtEmail.Text.Trim(), "", "Welcome to Our Web Portal", EmailText, "", "User Registration",
+                        smsMail.SendEmailSingle(txtEmail.Text.Trim(), "sangem_madhuri@cms.co.in,chinni_sowjanya@cms.co.in", "Welcome to Our Web Portal", EmailText, "", "User Registration",
                                  "", "", valid);
 
                         lblmsg.Text = "Registered Successfully!";
