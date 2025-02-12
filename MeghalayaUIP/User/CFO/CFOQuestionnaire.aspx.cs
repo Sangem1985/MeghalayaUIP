@@ -668,6 +668,7 @@ namespace MeghalayaUIP.User.CFO
                         }
                         if (grdApprovals.Rows.Count == count)
                         {
+                            objcfobal.DeleteDepartmentApprovalsCFO(objCFOQsnaire);
                             success.Visible = true;
                             lblmsg.Text = "Pre Operational - Questionnaire Details Submitted Successfully";
                             string message = "alert('" + lblmsg.Text + "')";

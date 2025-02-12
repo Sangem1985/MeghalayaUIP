@@ -1861,6 +1861,46 @@ namespace MeghalayaUIP.DAL.CFODAL
             }
             return Result;
         }
+        public string DeleteDepartmentApprovalsCFO(CFOQuestionnaireDet objCFOQsnaire)
+        {
+            string Result = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.DeleteDepartmentApprovalsCFO;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOQDID", Convert.ToInt32(objCFOQsnaire.CFEQDID));
+                com.Parameters.AddWithValue("@CFOQA_CREATEDBY", Convert.ToInt32(objCFOQsnaire.CreatedBy));
+                com.Parameters.AddWithValue("@CFOQA_UNITID", Convert.ToInt32(objCFOQsnaire.UNITID));
+
+                int QAID = Convert.ToInt32(com.ExecuteScalar());
+                transaction.Commit();
+                connection.Close();
+                Result = Convert.ToString(QAID);
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
         public DataSet RetrieveQuestionnaireDetails(string userid, string UnitID)
         {
             DataSet ds = new DataSet();

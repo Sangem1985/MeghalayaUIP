@@ -17,10 +17,15 @@
 
                     <h3>Archive</h3>
                     <ul>
-                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Urban Affairs Dept[NoUAU1102020Pt11dated15thOctober2024].pdf"> Notification from Urban Affairs Dept [No.UAU.110.2020.Pt.11 dated 15th October, 2024]</a></li>
-  <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Urban Affairs Dept[NoUAU1102020Pt10dated15thOctober2024].pdf"> Notification from Urban Affairs Dept [No.UAU.110.2020.Pt.10 dated 15th October, 2024]</a></li>
-  <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Urban Affairs DeptNA2reforms[NoDUAUR132019307dated10thOctober2024].pdf"> Notification from Urban Affairs Dept-NA2 reforms [No.DUA(U)R-13-2019-307 dated 10th October, 2024]</a></li>
-                        
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Applications Online.pdf">Application Online- Notification from Labour Dept [No.LE&SD.39/14/Pt/487 dated 5th Feb, 2025]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Single Integrated Return.pdf">Single Integrated Return - Notification from Labour Dept [No.LE&SD.39/14/Pt/488 dated 5th Feb, 2025]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/20250205170815.pdf">Online Dashboard - Notification from Labour Dept [No.LE&SD.39/14/Pt/489 dated 5th Feb, 2025]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Categorisation of Services.pdf">Risk Categorization(20250205170815) - Notification from Labour Dept [No.LE&SD.39/14/Pt/490 dated 5th Feb, 2025]</a></li>
+
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Urban Affairs Dept[NoUAU1102020Pt11dated15thOctober2024].pdf">Notification from Urban Affairs Dept [No.UAU.110.2020.Pt.11 dated 15th October, 2024]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Urban Affairs Dept[NoUAU1102020Pt10dated15thOctober2024].pdf">Notification from Urban Affairs Dept [No.UAU.110.2020.Pt.10 dated 15th October, 2024]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Urban Affairs DeptNA2reforms[NoDUAUR132019307dated10thOctober2024].pdf">Notification from Urban Affairs Dept-NA2 reforms [No.DUA(U)R-13-2019-307 dated 10th October, 2024]</a></li>
+
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Notification_6May2022%>', '_blank'); return false;">The Meghalaya Right to Public Services Act, 2020 [No.PER(ARC)3.2012/Pt.I/813 Dated
                   Shillong, the 6th May 2022]</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=Notification_29July2021%>', '_blank'); return false;">The Meghalaya Right to Public Services Act, 2020 [No.PER(ARC)3.2012/Pt.I/693 Dated

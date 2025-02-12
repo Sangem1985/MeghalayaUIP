@@ -193,7 +193,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLD_CFOQDID"]);
+                      //  hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLD_CFOQDID"]);
                         ViewState["LabourDetails"] = ds.Tables[2];
                         GVCFOLabour.DataSource = ds.Tables[2];
                         GVCFOLabour.DataBind();

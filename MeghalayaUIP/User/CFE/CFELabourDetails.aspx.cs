@@ -1098,7 +1098,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                         + hdnUserID.Value + "\\" + "License Grant" + "\\";
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "License Grant" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1210,7 +1210,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                         + hdnUserID.Value + "\\" + "Form5" + "\\";
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Form5" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1269,7 +1269,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                         + hdnUserID.Value + "\\" + "Form 8" + "\\";
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Form 8" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1329,7 +1329,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + hdnUserID.Value + "\\" + "Form 10" + "\\";
+                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Form 10" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1389,7 +1389,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + hdnUserID.Value + "\\" + "Criminal Issues" + "\\";
+                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Criminal Issues" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -1449,7 +1449,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + hdnUserID.Value + "\\" + "Employer" + "\\";
+                        + Convert.ToString(Session["CFEQID"]) + "\\" + "Employer" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
