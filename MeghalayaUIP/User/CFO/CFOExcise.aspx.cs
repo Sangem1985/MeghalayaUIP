@@ -75,7 +75,7 @@ namespace MeghalayaUIP.User.CFO
                             {
                                 if (Request.QueryString[0].ToString() == "N")
                                 {
-                                    Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+                                    Response.Redirect("~/User/CFO/CFOForestTransit.aspx?next=N");
                                 }
                                 else
                                 {

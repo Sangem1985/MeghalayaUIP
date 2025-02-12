@@ -266,7 +266,7 @@ namespace MeghalayaUIP.BAL.CFOBAL
             return objCFODAL.InsertCFOFTransitBarriers(barrierList);
         }
 
-        public DataSet GetForestTransitData(int createdBy, int unitId)
+        public DataSet GetForestTransitData(string createdBy, string unitId)
         {
             return objCFODAL.GetForestTransitData(createdBy, unitId);
         }

@@ -34,9 +34,6 @@ namespace MeghalayaUIP.User.CFO
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    //Session["CFEUNITID"] = "1001";
-                    //UnitID = Convert.ToString(Session["CFEUNITID"]);
-
                     if (Convert.ToString(Session["CFOUNITID"]) != "")
                     {
                         Unitid = Convert.ToString(Session["CFOUNITID"]);
@@ -47,12 +44,11 @@ namespace MeghalayaUIP.User.CFO
                         Response.Redirect(newurl);
                     }
                     Page.MaintainScrollPositionOnPostBack = true;
+                    Failure.Visible = false;
+                    success.Visible = false;
                     if (!IsPostBack)
                     {
-                        int createdBy = 1; // Replace with session or actual value
-                        int unitId = 1; // Replace with session or actual value
-
-                        LoadTransitData(createdBy, unitId);
+                        GetAppliedorNot();
                     }
                 }
             }
@@ -63,7 +59,41 @@ namespace MeghalayaUIP.User.CFO
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
 
+                ds = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "4");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["CFOQA_APPROVALID"]) == "85")
+                    {
+                        LoadTransitData();
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFO/CFOExcise.aspx?Previous=P");
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
 
         private DataTable CreateLogsDataTable()
         {
@@ -234,10 +264,8 @@ namespace MeghalayaUIP.User.CFO
 
             ForestTransit forestTransit = new ForestTransit
             {
-                CFOQDID = "1",//Session[""] != null && !string.IsNullOrWhiteSpace(Session[""].ToString())
-                //?(Session[""].ToString())
-                //: null,
-                UNITID = "2",//(Session[""]).ToString(), // Assuming this is an integer
+                CFOQDID = Convert.ToString(Session["CFOQID"]),
+                UNITID = Convert.ToString(Session["CFOUNITID"]),
                 PERMITNO = txtpermitno.Text.Trim(),
                 OWNERNAME = txtName.Text.Trim(),
                 OWNERIDENTITYNO = txtIdentity.Text.Trim(),
@@ -260,7 +288,7 @@ namespace MeghalayaUIP.User.CFO
                 DESTDIVISION = txtdestDivision.Text.Trim(),
                 CREATEDIP = getclientIP(),
                 IMPRINTOFTRANSITMARK = txtImprintOfTransitMark.Text.Trim(),
-                
+
                 DESIGNATIONOFOFFICER = txtDesignationOfOfficial.Text.Trim(),
                 OFFICERTELEPHONEMOBILE = txtOfficialTelephoneMobile.Text.Trim(),
                 OFFICEREMAIL = txtOfficialEmail.Text.Trim(),
@@ -287,21 +315,21 @@ namespace MeghalayaUIP.User.CFO
                     ForestTransitLog log = new ForestTransitLog
                     {
                         TRANSITID = transitId,
-                        CREATEDBY = "1",//Session["CFOUNITID"].ToString(),
-                        UNITID ="1",//Session["CFOUNITID"].ToString(), // Ensure conversion to int
-                        CFOQDID = "1",//(Session["CFOUNITID"] == null || string.IsNullOrEmpty(Session["CFOUNITID"].ToString().Trim()))
+                        CREATEDBY = hdnUserID.Value,
+                        UNITID = Convert.ToString(Session["CFOUNITID"]),
+                        CFOQDID = Convert.ToString(Session["CFOQID"]),
                         //? null: Session["CFOUNITID"].ToString().Trim(),
 
                         SPECIESNAME = row.Cells[1].Text.Trim(),
                         LOGNUMBER = row.Cells[2].Text.Trim(),
 
-                                            GIRTH = (decimal)((!string.IsNullOrWhiteSpace(row.Cells[3].Text))
+                        GIRTH = (decimal)((!string.IsNullOrWhiteSpace(row.Cells[3].Text))
                         ? Convert.ToDecimal(row.Cells[3].Text.Trim())
                         : (decimal?)null),
 
-                        LENGTH = (!string.IsNullOrWhiteSpace(row.Cells[4].Text))? Convert.ToDecimal(row.Cells[4].Text.Trim()): (decimal?)null,
+                        LENGTH = (!string.IsNullOrWhiteSpace(row.Cells[4].Text)) ? Convert.ToDecimal(row.Cells[4].Text.Trim()) : (decimal?)null,
 
-                        VOLUMEORWEIGHT = (decimal)((!string.IsNullOrWhiteSpace(row.Cells[5].Text))? Convert.ToDecimal(row.Cells[5].Text.Trim()): (decimal?)null),
+                        VOLUMEORWEIGHT = (decimal)((!string.IsNullOrWhiteSpace(row.Cells[5].Text)) ? Convert.ToDecimal(row.Cells[5].Text.Trim()) : (decimal?)null),
                         CREATEDIP = getclientIP()
                     };
 
@@ -321,14 +349,14 @@ namespace MeghalayaUIP.User.CFO
                 {
                     ForestTransitBarrier barrier = new ForestTransitBarrier
                     {
-                        
+
                         TRANSITID = transitId,
-                        CREATEDBY = "1",//Session["CFOUNITID"].ToString(),
-                        UNITID = "1",//Session["CFOUNITID"].ToString(), 
-                        CFOQDID = "1",//(Session["CFOUNITID"] == null || string.IsNullOrEmpty(Session["CFOUNITID"].ToString().Trim()))? null: Session[""].ToString(),
+                        CREATEDBY = hdnUserID.Value,
+                        UNITID = Convert.ToString(Session["CFOUNITID"]),
+                        CFOQDID = Convert.ToString(Session["CFOQID"]),
                         STATE = row.Cells[1].Text.Trim(),
-                        BARRIERS = row.Cells[2].Text.Trim(),                                            
-                        CREATEDIP = Request.UserHostAddress,                                                               
+                        BARRIERS = row.Cells[2].Text.Trim(),
+                        CREATEDIP = Request.UserHostAddress,
                     };
 
                     barrierList.Add(barrier);
@@ -351,9 +379,9 @@ namespace MeghalayaUIP.User.CFO
         }
 
 
-        private void LoadTransitData(int createdBy, int unitId)
+        private void LoadTransitData()
         {
-            DataSet ds = objcfobal.GetForestTransitData(createdBy, unitId);
+            DataSet ds = objcfobal.GetForestTransitData(hdnUserID.Value, Unitid);
 
             if (ds != null && ds.Tables.Count > 0)
             {
@@ -435,9 +463,21 @@ namespace MeghalayaUIP.User.CFO
             return result;
         }
 
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // btnSave_Click(sender, e);
 
-
-
-
+                //if (ErrorMsg == "")
+                Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
     }
 }

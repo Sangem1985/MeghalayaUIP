@@ -3084,7 +3084,7 @@ namespace MeghalayaUIP.DAL.CFODAL
 
         }
 
-        public DataSet GetForestTransitData(int createdBy, int unitId)
+        public DataSet GetForestTransitData(string createdBy, string unitId)
         {
 
             SqlConnection connection = new SqlConnection(connstr);
