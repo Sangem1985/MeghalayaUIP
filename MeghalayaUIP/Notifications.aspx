@@ -17,6 +17,9 @@
 
                     <h3>Archive</h3>
                     <ul>
+                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/OM No.PLR.44-2020-Pt-IV-58 dated 13th February, 2025_0001.pdf">OM No.PLR.44-2020-Pt-IV-58 dated 13th February, 2025_0001</a></li>
+                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/OM No.PLR.44-2020-Pt-IV-54 dated 13th February, 2025_0001.pdf">OM No.PLR.44-2020-Pt-IV-54 dated 13th February, 2025_0001</a></li>
+
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/TSU_EGOS_NPG_Notification dated 20th May 2022.pdf">TSU_EGOS_NPG_Notification dated 20th May 2022</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Model SOP Layers for all departments dated 21st Novemebr 2024.pdf">Model SOP Layers for all departments dated 21st Novemebr 2024</a></li>
 
