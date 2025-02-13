@@ -110,6 +110,8 @@ namespace MeghalayaUIP
                     Module = "CFO";
                 if (ddlModule.SelectedValue == "4")
                     Module = "REN";
+                if (ddlModule.SelectedValue == "5")
+                    Module = "LAND";
                 DataSet dsInfo = new DataSet();
                 dsInfo = mstrBAL.GetInformationWizard(Module, ddldept.SelectedValue, ddlSector.SelectedValue);
                 if (dsInfo != null && dsInfo.Tables.Count > 0 && dsInfo.Tables[0].Rows.Count > 0)
@@ -164,12 +166,12 @@ namespace MeghalayaUIP
                         if (hplRules.NavigateUrl == null || hplRules.NavigateUrl == "")
                         { hplRules.Text = ""; }
                     }
-                    HyperLink hpPreReqs = (HyperLink)e.Row.FindControl("hplPrerequisites");
-                    if (hpPreReqs != null)
-                    {
-                        if (hpPreReqs.NavigateUrl == null || hpPreReqs.NavigateUrl == "")
-                        { hpPreReqs.Text = ""; }
-                    }
+                    //HyperLink hpPreReqs = (HyperLink)e.Row.FindControl("hplPrerequisites");
+                    //if (hpPreReqs != null)
+                    //{
+                    //    if (hpPreReqs.NavigateUrl == null || hpPreReqs.NavigateUrl == "")
+                    //    { hpPreReqs.Text = ""; }
+                    //}
                     HyperLink hplAppl = (HyperLink)e.Row.FindControl("hplApplForm");
                     if (hplAppl != null)
                     {

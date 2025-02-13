@@ -495,6 +495,7 @@
                                                         <li><a href="ViewCertifcateDetails.aspx">Third Party Verification</a></li>
                                                         <li><a href="CentralInspectionDashboard.aspx">Central Inspection System</a></li>
                                                         <li><a href="OtherService.aspx">Other Services</a></li>
+                                                        <li><a href="Documents/CommerceIndustries_Timeline_LandAllotmentIncentives.pdf" target="_blank">Commerce&Industries_Timeline</a></li>
 
                                                     </ul>
                                                 </li>
@@ -543,12 +544,14 @@
                                                         <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>
                                                         <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>
                                                         <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grievance Timelines</a></li>
-                                                          <li class="dropdown"><a href="#">Other dashboard</a>
-                                                               <ul class="ODOP">
-                                                                     <li><a href="https://smb.gov.in/index.php/content/index/dashboard" target="_blank">Water Dashboard</a></li>
-                                                                   </ul>
-                                                              </li>
+                                                        <li><a href="Documents/InvestMeghalayaFacilitationCentre_Grievance_Timeline.pdf" target="_blank">Timelines</a></li>
                                                         <li><a href="ODOPDashboard.aspx">ODOP Dashboard</a></li>
+                                                        <li class="dropdown"><a href="#">Other dashboard</a>
+                                                            <ul class="ODOP">
+                                                                <li><a href="https://smb.gov.in/index.php/content/index/dashboard" target="_blank">Water Dashboard</a></li>
+                                                            </ul>
+                                                        </li>
+
                                                     </ul>
                                                 </li>
                                                 <!-- <a href="login.html"><li class="button-box"><i class="fas fa-arrow-right"></i> Login </li></a>  -->
