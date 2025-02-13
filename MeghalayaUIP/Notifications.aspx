@@ -17,6 +17,11 @@
 
                     <h3>Archive</h3>
                     <ul>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Planning_AccesstoTransparency_Notification_06.03.2025.pdf">Planning_AccesstoTransparency_Notification_06.03.2025</a></li>
+
+                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Agriculture_EoDB_ODOP_Notifcation_Dated-10.02.2025.pdf">Agriculture EoDB_ODOP Notifcation Dated 10.02.2025</a></li>
+                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/SuperNotificationAndOM_EoDB_Dated_30thOctober2024.pdf">Super Notification And OM EoDB Dated 30thOctober2024</a></li>
+
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Applications Online.pdf">Application Online- Notification from Labour Dept [No.LE&SD.39/14/Pt/487 dated 5th Feb, 2025]</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Single Integrated Return.pdf">Single Integrated Return - Notification from Labour Dept [No.LE&SD.39/14/Pt/488 dated 5th Feb, 2025]</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/20250205170815.pdf">Online Dashboard - Notification from Labour Dept [No.LE&SD.39/14/Pt/489 dated 5th Feb, 2025]</a></li>
