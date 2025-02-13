@@ -64,6 +64,7 @@
                                                                             <asp:ListItem Text="Pre Establishment" Value="2"></asp:ListItem>
                                                                             <asp:ListItem Text="Pre Operational" Value="3"></asp:ListItem>
                                                                             <asp:ListItem Text="Renewals" Value="4"></asp:ListItem>
+                                                                            <asp:ListItem Text="LAND" Value="5"></asp:ListItem>
                                                                         </asp:DropDownList>
                                                                     </div>
                                                                 </div>
@@ -185,7 +186,7 @@
                                                         <div class="col-md-12 d-flex">
                                                             <asp:GridView ID="gvInfoWiz" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                                 BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
-                                                                GridLines="Both" Width="100%" EnableModelValidation="True" OnRowDataBound="gvInfoWiz_RowDataBound"
+                                                                GridLines="Both" Width="100%" EnableModelValidation="True" 
                                                                 ShowFooter="true">
                                                                 <RowStyle />
                                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
@@ -213,25 +214,25 @@
                                                                     <asp:BoundField HeaderText="Application Category" DataField="CATEGORY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                                                     <asp:TemplateField HeaderText="Standard Operating Procedure">
                                                                         <ItemTemplate>
-                                                                            <asp:HyperLink runat="server" ID="hplViewSOP" Text="View SOP" NavigateUrl='<%#Eval("IW_SOP") %>' Target="_blank" />
+                                                                            <asp:HyperLink runat="server" ID="hplViewSOP" Text="View SOP" style="color: dodgerblue;" NavigateUrl='<%#Eval("IW_SOP") %>' Target="_blank" />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Rules and Regulations">
                                                                         <ItemTemplate>
-                                                                            <asp:HyperLink runat="server" ID="hplRulesandReg" Text="View Document" NavigateUrl='<%#Eval("IW_RULESANDREGL") %>' Target="_blank" />
+                                                                            <asp:HyperLink runat="server" ID="hplRulesandReg" Text="View Document" style="color: dodgerblue;" NavigateUrl='<%#Eval("IW_RULESANDREGL") %>' Target="_blank" />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Prerequisites">
                                                                         <ItemTemplate>
-                                                                            <asp:HyperLink runat="server" ID="hplPrerequisites" Text="View Enclosures" NavigateUrl='<%#Eval("IW_PREREQUISITES") %>' Target="_blank" />
+                                                                            <asp:HyperLink runat="server" ID="hplPrerequisites" Text="View Enclosures" style="color: dodgerblue;" NavigateUrl='<%#Eval("IW_PREREQUISITES") %>' Target="_blank" />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Application Form Format">
                                                                         <ItemTemplate>
-                                                                            <asp:HyperLink runat="server" ID="hplApplForm" Text="Download Form" NavigateUrl='<%#Eval("IW_APPLFORMAT") %>' Target="_blank" />
+                                                                            <asp:HyperLink runat="server" ID="hplApplForm" Text="Download Form" style="color: dodgerblue;" NavigateUrl='<%#Eval("IW_APPLFORMAT") %>' Target="_blank" />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
