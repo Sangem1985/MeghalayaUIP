@@ -408,5 +408,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
             return bytes;
         }
 
+        public DataSet GetEligibleInc(string category, string sector, string expansionType, string pwd, string area)
+        {
+            return objMasterDAL.GetEligibleInc(category, sector, expansionType, pwd, area);
+        }
     }
 }

@@ -34,6 +34,7 @@ namespace MeghalayaUIP.Common
         public static string GetApprovals = "USP_GETAPPROVALS";
         public static string GetSectorInformation = "USP_GETSECTORALINFORMATION";
         public static string GetODOPProducts = "USP_GETODOPPRODUCTS";
+        
 
         public static string InsertInvestment = "USP_INSINTENTTOINVEST";
         public static string Getsector = "USP_GETSECTORS";
@@ -93,6 +94,8 @@ namespace MeghalayaUIP.Common
         public static string InsertUSERACCESSEDPAGES = "USP_INSUSERACCESSEDPAGES";
 
         public static string GetUserSearch = "USP_GETUSERNAMEANDPSWD";
+
+        public static string GetEligibileInc = "SP_GETELIGIBLEINCENTIVES";
     }
     public class MasterCountry
     {

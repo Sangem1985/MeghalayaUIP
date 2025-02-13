@@ -2695,5 +2695,62 @@ namespace MeghalayaUIP.DAL.CommonDAL
             return ds;
         }
 
+        public DataSet GetEligibleInc(string category, string sector, string expansionType, string pwd, string area)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlDataAdapter da = new SqlDataAdapter(MasterConstants.GetEligibileInc, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                // Assign the transaction to the command
+                da.SelectCommand.Transaction = transaction;
+
+                // Add parameters
+                if (!string.IsNullOrEmpty(category))
+                    da.SelectCommand.Parameters.AddWithValue("@Category", category);
+
+                if (!string.IsNullOrEmpty(sector))
+                    da.SelectCommand.Parameters.AddWithValue("@Sector", sector);
+
+                if (!string.IsNullOrEmpty(expansionType))
+                    da.SelectCommand.Parameters.AddWithValue("@ExpansionType", expansionType);
+
+                if (!string.IsNullOrEmpty(pwd))
+                    da.SelectCommand.Parameters.AddWithValue("@PWD", pwd);
+
+                if (!string.IsNullOrEmpty(area))
+                    da.SelectCommand.Parameters.AddWithValue("@Area", area);
+
+                // Fill the dataset
+                da.Fill(ds);
+
+                if (ds.Tables.Count > 0)
+                    transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                    transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+            }
+
+            return ds;
+        }
+
     }
 }
