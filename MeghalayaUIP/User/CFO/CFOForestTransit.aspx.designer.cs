@@ -51,15 +51,6 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblmsg;
 
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
         /// Failure control.
         /// </summary>
         /// <remarks>
@@ -393,13 +384,13 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.TextBox txtDateOfIssue;
 
         /// <summary>
-        /// calDateOfIssue control.
+        /// CalendarExtender1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender calDateOfIssue;
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
 
         /// <summary>
         /// txtDateOfExpiryOfPermit control.
@@ -411,13 +402,13 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.TextBox txtDateOfExpiryOfPermit;
 
         /// <summary>
-        /// calDateOfExpiryOfPermit control.
+        /// CalendarExtender2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender calDateOfExpiryOfPermit;
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
 
         /// <summary>
         /// txtImprintOfTransitMark control.

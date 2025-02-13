@@ -63,7 +63,7 @@
                                     <div class="col-md-12 ">
                                         <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                                            
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">×</span></button>
                                         </div>
@@ -90,7 +90,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         1. Permit NO.</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtpermitno" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtpermitno" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,7 +115,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         Identity card and Number:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtIdentity" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtIdentity" runat="server" onkeypress="return validateNameAndNumbers(event)" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,7 +124,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         Email:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtemail" runat="server" class="form-control"  TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtemail" runat="server" onblur="validateEmail(event)" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,7 +136,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         4.Address:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtowneraddress" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtowneraddress" runat="server" onkeypress="return Address(event)" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -145,7 +145,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         5.Mobile No:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtmobile" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtmobile" runat="server" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -188,7 +188,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         Log Number:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLogNumber" runat="server" class="form-control"  TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLogNumber" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,7 +197,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         Girth(cm)</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtGirth" runat="server" class="form-control"  TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtGirth" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -209,7 +209,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         Length(cm):</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLength" runat="server" class="form-control"  TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLength" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -218,7 +218,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         Volume (cum) / Weight (kg):</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtVolumeWeight" runat="server" class="form-control"  TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtVolumeWeight" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,7 +226,7 @@
                                                 <div class="form-group row">
 
                                                     <div class="col-lg-6">
-                                                        <asp:Button ID="btnAddlogs" runat="server" CssClass="btn btn-rounded btn-info btn-lg" Text="Add" OnClick="BtnAddlogs_Click"/>
+                                                        <asp:Button ID="btnAddlogs" runat="server" CssClass="btn btn-rounded btn-info btn-lg" Text="Add" OnClick="BtnAddlogs_Click" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -279,7 +279,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         Enter State:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtState" runat="server" class="form-control"
+                                                        <asp:TextBox ID="txtState" runat="server" class="form-control" onkeypress="return validateNames(event)"
                                                             Height="28px" Width="180px"></asp:TextBox>
                                                     </div>
                                                 </div>
@@ -289,7 +289,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         Enter Barrier:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtBarriers" runat="server" class="form-control"  TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtBarriers" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -297,7 +297,7 @@
                                                 <div class="form-group row">
 
                                                     <div class="col-lg-6">
-                                                        <asp:Button ID="btnAddBarrier" runat="server" CssClass="btn btn-rounded btn-info btn-lg" Text="Add" OnClick="BtnAddBarrier_Click"/>
+                                                        <asp:Button ID="btnAddBarrier" runat="server" CssClass="btn btn-rounded btn-info btn-lg" Text="Add" OnClick="BtnAddBarrier_Click" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -345,8 +345,8 @@
                                                         Type of Vehicle with Registration Number:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtVehicleType" runat="server" class="form-control" TabIndex="8"
-                                                             onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtVehicleType" runat="server" class="form-control" TabIndex="8" onkeypress="return validateNameAndNumbers(event)"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -371,8 +371,8 @@
                                                         Driving License No.:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtDriverLicense" runat="server" class="form-control" TabIndex="1"
-                                                             onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDriverLicense" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -390,8 +390,8 @@
                                                         Compartment No.:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtCompartmentNo" runat="server" class="form-control" TabIndex="1"
-                                                           onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtCompartmentNo" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -403,8 +403,8 @@
                                                         Circle:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtCircleWhereObtained" runat="server" class="form-control" TabIndex="6"
-                                                             onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtCircleWhereObtained" runat="server" class="form-control" TabIndex="6" onkeypress="return validateNameAndNumbers(event)"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -416,8 +416,8 @@
                                                         Division:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtDivisionWhereObtained" runat="server" class="form-control" TabIndex="7"
-                                                             onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDivisionWhereObtained" runat="server" class="form-control" TabIndex="7" onkeypress="return validateNameAndNumbers(event)"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -431,8 +431,8 @@
                                                         Range:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtRangeWhereObtained" runat="server" class="form-control" TabIndex="8"
-                                                             onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRangeWhereObtained" runat="server" class="form-control" TabIndex="8" onkeypress="return validateNameAndNumbers(event)"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -444,8 +444,8 @@
                                                         Address:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtAddressWhereObtained" runat="server" class="form-control" TabIndex="9"
-                                                            onkeypress="return Names()" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAddressWhereObtained" runat="server" onkeypress="return Address(event)" class="form-control" TabIndex="9"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -464,7 +464,7 @@
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtstateDestination" runat="server" class="form-control" TabIndex="5"
-                                                             onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -476,8 +476,8 @@
                                                         Circle:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtdestCircle" runat="server" class="form-control" TabIndex="1"
-                                                             onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtdestCircle" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -504,8 +504,8 @@
                                                         Range:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtdestRange" runat="server" class="form-control" TabIndex="3"
-                                                             onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtdestRange" runat="server" class="form-control" TabIndex="3" onkeypress="return validateNameAndNumbers(event)"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -517,8 +517,8 @@
                                                         Address:
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtdestAddress" runat="server" class="form-control" TabIndex="4"
-                                                             onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtdestAddress" runat="server" class="form-control" TabIndex="4" onkeypress="return Address(event)"
+                                                            onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -535,8 +535,9 @@
                                                     <label class="col-lg-6 col-form-label">Date of Issue:</label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtDateOfIssue" runat="server" class="form-control" MaxLength="10"
-                                                            TabIndex="10"></asp:TextBox>
-                                                        <cc1:CalendarExtender ID="calDateOfIssue" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDateOfIssue"></cc1:CalendarExtender>
+                                                            TabIndex="10" onkeypress="validateNumberAndHyphen(event);" onblur="validateDateFormat(this)"></asp:TextBox>
+                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDateOfIssue"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -547,8 +548,9 @@
                                                     <label class="col-lg-6 col-form-label">Date of Expiry of Permit:</label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtDateOfExpiryOfPermit" runat="server" class="form-control" MaxLength="10"
-                                                            TabIndex="11"></asp:TextBox>
-                                                        <cc1:CalendarExtender ID="calDateOfExpiryOfPermit" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDateOfExpiryOfPermit"></cc1:CalendarExtender>
+                                                            TabIndex="11" onkeypress="validateNumberAndHyphen(event);" onblur="validateDateFormat(this)"></asp:TextBox>
+                                                        <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDateOfExpiryOfPermit"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -574,7 +576,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Designation of Official:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtDesignationOfOfficial" runat="server" class="form-control" MaxLength="50" TabIndex="13"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDesignationOfOfficial" onkeypress="return validateNameAndNumbers(event)" runat="server" class="form-control" MaxLength="50" TabIndex="13"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -584,7 +586,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Office Address:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtOfficeAddress" runat="server" class="form-control" MaxLength="100" TabIndex="14"></asp:TextBox>
+                                                        <asp:TextBox ID="txtOfficeAddress" runat="server" class="form-control" onkeypress="return Address(event)" MaxLength="100" TabIndex="14"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -594,7 +596,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Official Telephone No. / Mobile No:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtOfficialTelephoneMobile" runat="server" class="form-control" MaxLength="15" TabIndex="15"></asp:TextBox>
+                                                        <asp:TextBox ID="txtOfficialTelephoneMobile" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);" runat="server" class="form-control" TabIndex="15"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -605,7 +607,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Official Email:</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtOfficialEmail" runat="server" class="form-control" MaxLength="50" TabIndex="16"></asp:TextBox>
+                                                        <asp:TextBox ID="txtOfficialEmail" runat="server" onblur="validateEmail(event)" class="form-control" MaxLength="50" TabIndex="16"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
