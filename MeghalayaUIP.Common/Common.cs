@@ -43,7 +43,7 @@ namespace MeghalayaUIP.Common
         public static string InsertFeedBackTracker = "SP_INSFEEDBACKTRACKER";
         public static string InsertFeedBack = "SP_INSFEEDBACK";
 
-
+        public static string GetApllicationDetails = "USP_GETCMPLNC_DETAILS";
 
         ////////------------------ApplicationTracker----------------///////
 
