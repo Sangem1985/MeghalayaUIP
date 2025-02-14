@@ -551,7 +551,7 @@
                                                         <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>
                                                         <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>
                                                         <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grievance Timelines</a></li>
-                                                        <li><a href="Documents/InvestMeghalayaFacilitationCentre_Grievance_Timeline.pdf" target="_blank">Timelines</a></li>
+                                                        <li><a href="Timelines.aspx" target="_blank">Timelines</a></li>
                                                         <li><a href="ODOPDashboard.aspx">ODOP Dashboard</a></li>
                                                         <li class="dropdown"><a href="#">Other dashboard</a>
                                                             <ul class="ODOP">
@@ -666,7 +666,7 @@
                                                 <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
                                                 <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
                                                 <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>
-
+                                                <li><a href="https://mspsdc.meghalaya.gov.in/index.htm" target="_blank">MSPSDC</a></li>
                                             </ul>
                                         </div>
                                     </div>

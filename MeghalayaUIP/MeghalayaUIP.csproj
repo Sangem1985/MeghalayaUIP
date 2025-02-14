@@ -703,6 +703,7 @@
     <Content Include="SingleWindowPortalDashboardDrillDown.aspx" />
     <Content Include="stateprofile.aspx" />
     <Content Include="StateProfileNew.aspx" />
+    <Content Include="Timelines.aspx" />
     <Content Include="Tourism.aspx" />
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
@@ -1649,6 +1650,13 @@
     </Compile>
     <Compile Include="StateProfileNew.aspx.designer.cs">
       <DependentUpon>StateProfileNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Timelines.aspx.cs">
+      <DependentUpon>Timelines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Timelines.aspx.designer.cs">
+      <DependentUpon>Timelines.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tourism.aspx.cs">
       <DependentUpon>Tourism.aspx</DependentUpon>
