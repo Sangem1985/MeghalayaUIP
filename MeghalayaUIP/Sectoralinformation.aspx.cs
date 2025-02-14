@@ -1,5 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,7 +21,12 @@ namespace MeghalayaUIP
                 BindApprovals();
                 BindDepartments();
                 BindSectors();
-                BindODOP();
+                if (Request.QueryString.Count > 0)
+                {
+                    BindODOP();
+                    divproducts.Visible = true;
+
+                }
                 BindSectorInformation();
             }
         }
@@ -94,6 +100,7 @@ namespace MeghalayaUIP
                     ddlApprovals.DataValueField = "ApprovalID";
                     ddlApprovals.DataTextField = "ApprovalName";
                     ddlApprovals.DataBind();
+
                 }
                 else
                 {
@@ -159,6 +166,11 @@ namespace MeghalayaUIP
                 {
                     GVSector.DataSource = ds.Tables[0];
                     GVSector.DataBind();
+                    if(Request.QueryString.Count == 0)
+                    { 
+                        GVSector.Columns[5].Visible = false; 
+                    }
+
                 }
                 else
                 {
@@ -178,7 +190,7 @@ namespace MeghalayaUIP
             {
                 BindSectorInformation();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

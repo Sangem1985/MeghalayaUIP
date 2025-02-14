@@ -488,12 +488,12 @@
                                                                 <li><a href="KnowYourApprovalsCFO.aspx" class="text-black" target="_blank">Pre-Operational</a></li>
                                                             </ul>
                                                         </li>
-                                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>                                                        
-                                                         <li class="dropdown"><a href="#">Incentive</a>
-                                                              <ul class="ODOP">
-                                                                   <li><a href="IncEligibilty.aspx" class="text-black" target="_blank">Incentive Eligibility</a></li>
-                                                                  </ul>
-                                                             </li>
+                                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>
+                                                        <li class="dropdown"><a href="#">Incentive</a>
+                                                            <ul class="ODOP">
+                                                                <li><a href="IncEligibilty.aspx" class="text-black" target="_blank">Incentive Eligibility</a></li>
+                                                            </ul>
+                                                        </li>
                                                         <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
                                                         <%--<li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
                                                         <li><a href="GrievanceMisReport.aspx" target="_blank">Grievance/Query Dashboard</a></li>--%>
@@ -534,6 +534,8 @@
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=CommonFacilityCentreswithSOPandFees%>', '_blank'); return false;">Common facility centers with SOP & Fees</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPSchemesandOtherDetailsforBenificiaries%>', '_blank'); return false;">ODOP Schemes and Other Details Beneficial for Entrepreneurs</a></li>
                                                                 <li><a href="#" onclick="window.open('Sectoralinformation.aspx', '_blank'); return false;" target="_blank">ODOP Sectoral Information</a></li>
+                                                                <li><a href="#" onclick="window.open('Sectoralinformation.aspx?Products=P', '_blank'); return false;" target="_blank">ODOP Sectoral Information(Products)</a></li>
+
                                                                 <li><a href="#" onclick="window.open('https://dofpmeghalaya.org/odop/', '_blank'); return false;">ODOP Facilitation Centre</a></li>
                                                                 <li><a href="#" onclick="window.open('https://www.meghalayaone.gov.in/meghalaya-one', '_blank'); return false;">ODOP Grievance Mechanism</a></li>
                                                             </ul>

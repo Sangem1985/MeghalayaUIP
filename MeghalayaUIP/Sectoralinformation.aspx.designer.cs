@@ -78,6 +78,15 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.DropDownList ddlModule;
 
         /// <summary>
+        /// divproducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divproducts;
+
+        /// <summary>
         /// ddlodop control.
         /// </summary>
         /// <remarks>
