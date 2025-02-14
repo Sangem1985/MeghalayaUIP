@@ -170,10 +170,10 @@
                                             </asp:Panel>
                                             <%--</asp:Panel>--%>
                                         </td>
-                                        <td style="width: 250px; border: 2px solid; vertical-align: top" id="tdFinal" runat="server" visible="false">
-                                            <table style="text-align: center; width: 100%" align="center">
+                                        <td style="width: 450px; border: 2px solid; vertical-align: top" id="tdFinal" runat="server" visible="false">
+                                            <table style="text-align: center; width: 450px" align="center">
                                                 <tr>
-                                                    <td style="padding-top: 20px; width: 250px">
+                                                    <td style="padding-top: 20px; width: 450px">
                                                         <table cellpadding="4" cellspacing="5" align="center">
 
                                                             <tr>
@@ -226,7 +226,7 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <table>
+                                <table style=" border: 2px solid;">
                                     <tr>
                                         <td>
                                             <asp:Label runat="server" ID="lblNocomments" ForeColor="Red" Visible="false"></asp:Label>

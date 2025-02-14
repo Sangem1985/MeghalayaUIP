@@ -48,21 +48,20 @@ namespace MeghalayaUIP
             dsdepts = mstrBAL.GetAmmendamentFullName(Request.QueryString[0]);
             if (dsdepts != null && dsdepts.Tables.Count > 0 && dsdepts.Tables[0].Rows.Count > 0)
             {
-                lblAmendment.Text=lblAmendmentFinal.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_NAME"]);
-                lblDepatname.Text=lblDeptFinal.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_NAME"]);
+                lblAmendment.Text = lblAmendmentFinal.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_NAME"]);
+                lblDepatname.Text = lblDeptFinal.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_NAME"]);
                 lblAmendmentID.Text = Convert.ToString(Request.QueryString[0]);
                 lblDeptID.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_ID"]);
-                lblLegalBasis.Text= Convert.ToString(dsdepts.Tables[0].Rows[0]["LEGALBASIS"]);
+                lblLegalBasis.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["LEGALBASIS"]);
                 lblNecessity.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["NECESSITY"]);
                 lblbusinsfrndly.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["BUSINESSFRIENDLY"]);
 
                 string PathFile = dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"].ToString();
                 PathFile = PathFile.Replace("@\\", "/");
-                IframePanel.Attributes["src"] = "~/PdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(PathFile));
-               // Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/").Replace(@"D:/InvestMegha/MeghalayaUIP/", @"~/");
-
-                //hypLink.NavigateUrl = "~/PdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]).Replace(@"\", @"/"));
-                //hypLink.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"]);
+                PathFile = mstrBAL.EncryptFilePath(Convert.ToString("D:/MeghalayaAttachments/Ammendments/3/Final/13022025080818/MIIPP 2024.pdf"));
+                IframePanel.Attributes["src"] = "~/PdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString("D:/MeghalayaAttachments/Ammendments/3/Final/13022025080818/MIIPP 2024.pdf"));
+                //"~/PdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(PathFile));
+                
 
             }
             if (dsdepts != null && dsdepts.Tables.Count > 1 && dsdepts.Tables[1].Rows.Count > 0)
@@ -71,7 +70,12 @@ namespace MeghalayaUIP
                 grdComments.DataSource = dsdepts.Tables[1];
                 grdComments.DataBind();
             }
-            else { lblNocomments.Text = "There are no Comments on this Ammendment"; }
+            else
+            {
+                lblNocomments.Text = "There are no Comments on this Ammendment";
+                grdComments.DataSource = null;
+                grdComments.DataBind();
+            }
             if (Request.QueryString["Type"] == "Final")
             {
                 tdFinal.Visible = true;
