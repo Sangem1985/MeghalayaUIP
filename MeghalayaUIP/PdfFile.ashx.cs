@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.CommonClass;
+
 namespace MeghalayaUIP
 {
     /// <summary>
@@ -16,14 +18,18 @@ namespace MeghalayaUIP
         {
 
             string filePath = context.Request.QueryString["filePath"];
+            MGCommonClass.LogData("PDFFILEPPATH - " + filePath);
             filePath = objmbal.DecryptFilePath(filePath);
+            MGCommonClass.LogData("DECRPYPT FILEPPATH - " + filePath);
             if (!string.IsNullOrEmpty(filePath) &&
                 !(filePath.Contains("PreRegAttachments") || filePath.Contains("CFEAttachments")
                   || filePath.Contains("CFOAttachments") || filePath.Contains("RENAttachments")
-                   || filePath.Contains("GrievanceAttachments") || filePath.Contains("HelpDeskAttachments")))
+                   || filePath.Contains("GrievanceAttachments") || filePath.Contains("HelpDeskAttachments")
+                    ))
             {
                 if (File.Exists(filePath))
                 {
+                    MGCommonClass.LogData("FILE OPEN - " + filePath);
                     context.Response.ContentType = "application/pdf";
                     context.Response.AppendHeader("Content-Disposition", "inline; filename=" + Path.GetFileName(filePath));
                     context.Response.TransmitFile(filePath);

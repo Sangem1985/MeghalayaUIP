@@ -14,7 +14,7 @@ using static System.Net.WebRequestMethods;
 namespace MeghalayaUIP
 {
     public partial class CommentsonAmmendments : System.Web.UI.Page
-    {
+    { 
         MasterBAL mstrBAL = new MasterBAL();
         string Result;
         protected void Page_Load(object sender, EventArgs e)
@@ -57,11 +57,16 @@ namespace MeghalayaUIP
                 lblbusinsfrndly.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["BUSINESSFRIENDLY"]);
 
                 string PathFile = dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"].ToString();
+                MGCommonClass.LogData("PDFFILEPPATH - " + PathFile);
                 PathFile = PathFile.Replace("@\\", "/");
-                PathFile = mstrBAL.EncryptFilePath(Convert.ToString("D:/MeghalayaAttachments/Ammendments/3/Final/13022025080818/MIIPP 2024.pdf"));
-                IframePanel.Attributes["src"] = "~/PdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString("D:/MeghalayaAttachments/Ammendments/3/Final/13022025080818/MIIPP 2024.pdf"));
+                MGCommonClass.LogData("AFTER REPLACE PDFFILEPPATH - " + PathFile);
+                //PathFile = mstrBAL.EncryptFilePath(Convert.ToString(PathFile));
+                //MGCommonClass.LogData("AFTER ENCRYPT PDFFILEPPATH - " + PathFile);
+                IframePanel.Attributes["src"] = "~/PdfFile.ashx?filePath=" + PathFile;
+                //IframePanel.Attributes["src"] = "https://invest.meghalaya.gov.in/Documents/mipp2024.pdf";
+                //MGCommonClass.LogData("SRC PDFFILEPPATH - " + IframePanel.Attributes["src"]);
                 //"~/PdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(PathFile));
-                
+
 
             }
             if (dsdepts != null && dsdepts.Tables.Count > 1 && dsdepts.Tables[1].Rows.Count > 0)
