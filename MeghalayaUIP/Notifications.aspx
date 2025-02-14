@@ -18,8 +18,9 @@
                     <h3>Archive</h3>
 
                     <ul>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/FOR622020Pt315_250214_170406.pdf">Forest Notification [No.FOR.62/2020/Pt/315]</a></li>
 
-                        <%--<li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PRIME Timeline PLR44-2020-Pt-463 dated 14th February2025_0001.pdf">Entrepreneurship Registration - PRIME ID timeline</a></li>--%>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PRIME Timeline PLR44-2020-Pt-463 dated 14th February2025_0001.pdf">Entrepreneurship Registration - PRIME ID timeline</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PRIME_43_44_45_UpdatedInformation (Planning Seal).pdf">PRIME Notification 14.02.2025</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/MSPCB_Notifications_14.02.2025.pdf">MSPCB Notifications 14.02.2025</a></li>
 
