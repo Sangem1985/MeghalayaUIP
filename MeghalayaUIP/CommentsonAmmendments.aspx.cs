@@ -48,10 +48,14 @@ namespace MeghalayaUIP
             dsdepts = mstrBAL.GetAmmendamentFullName(Request.QueryString[0]);
             if (dsdepts != null && dsdepts.Tables.Count > 0 && dsdepts.Tables[0].Rows.Count > 0)
             {
-                lblAmendment.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_NAME"]);
-                lblDepatname.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_NAME"]);
+                lblAmendment.Text=lblAmendmentFinal.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["AMMENDMENT_NAME"]);
+                lblDepatname.Text=lblDeptFinal.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_NAME"]);
                 lblAmendmentID.Text = Convert.ToString(Request.QueryString[0]);
                 lblDeptID.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_ID"]);
+                lblLegalBasis.Text= Convert.ToString(dsdepts.Tables[0].Rows[0]["LEGALBASIS"]);
+                lblNecessity.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["NECESSITY"]);
+                lblbusinsfrndly.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["BUSINESSFRIENDLY"]);
+
                 string PathFile = dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"].ToString();
                 PathFile = PathFile.Replace("@\\", "/");
                 IframePanel.Attributes["src"] = "~/PdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(PathFile));
@@ -70,6 +74,7 @@ namespace MeghalayaUIP
             else { lblNocomments.Text = "There are no Comments on this Ammendment"; }
             if (Request.QueryString["Type"] == "Final")
             {
+                tdFinal.Visible = true;
                 grdComments.Visible = true; lblNocomments.Visible = true;
                 lblheading.Text = "Final Ammendment ";
                 tdComments.Visible = false;

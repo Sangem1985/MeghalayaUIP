@@ -62,7 +62,7 @@ namespace MeghalayaUIP
             ODOPProductListandDescription = masterball.EncryptFilePath("D:/Meghalaya/Documents/ODOP/ODOP Product List and Description.pdf");
             ODOPRegisteredBusinessManufacturingLocations = masterball.EncryptFilePath("D:/Meghalaya/Documents/ODOP/ODOP Registered Business Manufacturing Locations.pdf");
             CommonFacilityCentreswithSOPandFees = masterball.EncryptFilePath("D:/Meghalaya/Documents/ODOP/Common Facility Centres with SOP and Fees.pdf");
-            ODOPSchemesandOtherDetailsforBenificiaries = masterball.EncryptFilePath("D:/Meghalaya/Documents/ODOP/ODOP Schemes and Other Details for Benificiaries");
+            ODOPSchemesandOtherDetailsforBenificiaries = masterball.EncryptFilePath("D:/Meghalaya/Documents/ODOP/ODOP Schemes and Other Details for Benificiaries.pdf");
         }
         public static string getclientIP()
         {

@@ -38,9 +38,9 @@
                                     <tr>
                                         <td style="width: 500px; border: 2px solid">
                                             <asp:Panel runat="server" ID="Panel1">
-                                                 <iframe runat="server" id="IframePanel" width="500px" height="700px" title="Document Viewer"></iframe>
+                                                <iframe runat="server" id="IframePanel" width="500px" height="700px" title="Document Viewer"></iframe>
 
-                                            <%--    <asp:HyperLink ID="hypLink" runat="server" Text="View" Target="_blank" />--%>
+                                                <%--    <asp:HyperLink ID="hypLink" runat="server" Text="View" Target="_blank" />--%>
                                             </asp:Panel>
                                         </td>
                                         <td style="width: 250px; border: 2px solid; vertical-align: top" id="tdComments" runat="server">
@@ -170,29 +170,59 @@
                                             </asp:Panel>
                                             <%--</asp:Panel>--%>
                                         </td>
-                                        <%--<td style="width: 500px; border: 2px solid; vertical-align: top; text-align: center;" align="center" runat="server" id="tdFinalComments">Comments On this Ammendment:
-                                            <asp:GridView ID="grdFinalComments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                BorderStyle="Solid" BorderWidth="1px" CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
-                                                GridLines="None" AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
-                                                Width="135%" EnableModelValidation="True" Visible="false">
-                                                <HeaderStyle BackColor="#3366cc" />
-                                                <RowStyle BackColor="#ffffff" />
-                                                <Columns>
-                                                    <asp:TemplateField HeaderText="Sl.No." HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20px">
-                                                        <ItemTemplate>
-                                                            <%#Container.DataItemIndex+1 %>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:BoundField HeaderText="User Name" DataField="USERNAME" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="District" DataField="DistrictName" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Mobile No." DataField="MOBILENO" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Mail Id" DataField="MAILID" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Comments" DataField="COMMENTS" ItemStyle-Width="200px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Comments Date" DataField="CREATEDDATE" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                        <td style="width: 250px; border: 2px solid; vertical-align: top" id="tdFinal" runat="server" visible="false">
+                                            <table style="text-align: center; width: 100%" align="center">
+                                                <tr>
+                                                    <td style="padding-top: 20px; width: 250px">
+                                                        <table cellpadding="4" cellspacing="5" align="center">
 
-                                                </Columns>
-                                            </asp:GridView>
-                                        </td>--%>
+                                                            <tr>
+                                                                <td style="padding: 5px; margin: 5px; text-align: left;">Department:
+                                                                </td>
+                                                                <td style="padding: 5px; margin: 5px; text-align: left;" colspan="4">
+                                                                    <asp:Label runat="server" ID="lblDeptFinal"></asp:Label>
+                                                                    <br />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 5px; margin: 5px; text-align: left;">Amendment:
+                                                                </td>
+                                                                <td style="padding: 5px; margin: 5px; text-align: left;" colspan="4">
+                                                                    <asp:Label runat="server" ID="lblAmendmentFinal"></asp:Label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 5px; margin: 5px; text-align: left;" colspan="6">
+                                                                    <h3><u>Legal Basis</u></h3>
+                                                                    <asp:Label ID="lblLegalBasis" runat="server"></asp:Label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 5px; margin: 5px; text-align: left;" colspan="6">
+                                                                    <h3><u>Necessity</u></h3>
+                                                                    <asp:Label ID="lblNecessity" runat="server"></asp:Label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 5px; margin: 5px; text-align: left;" colspan="6">
+                                                                    <h3><u>Business Friendly</u></h3>
+                                                                    <asp:Label ID="lblbusinsfrndly" runat="server"></asp:Label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="6" style="text-align: center; height: 20px">&nbsp;
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td colspan="6" style="text-align: center">&nbsp;
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
                                     </tr>
                                 </table>
                                 <br />

@@ -249,6 +249,60 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.Label lblerrMsg;
 
         /// <summary>
+        /// tdFinal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdFinal;
+
+        /// <summary>
+        /// lblDeptFinal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeptFinal;
+
+        /// <summary>
+        /// lblAmendmentFinal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAmendmentFinal;
+
+        /// <summary>
+        /// lblLegalBasis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLegalBasis;
+
+        /// <summary>
+        /// lblNecessity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNecessity;
+
+        /// <summary>
+        /// lblbusinsfrndly control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblbusinsfrndly;
+
+        /// <summary>
         /// lblNocomments control.
         /// </summary>
         /// <remarks>
