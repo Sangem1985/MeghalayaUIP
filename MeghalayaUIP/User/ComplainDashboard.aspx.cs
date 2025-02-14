@@ -56,7 +56,6 @@ namespace MeghalayaUIP.User
                     labNameandAddress.Text = ds.Tables[0].Rows[0]["UnitName"].ToString();
                     labLineofActivity.Text = ds.Tables[0].Rows[0]["LineofActivity"].ToString();
                     labTotalInvestment.Text = ds.Tables[0].Rows[0]["PROJECTCOST"].ToString();
-
                     labNameandAddress0.Text = ds.Tables[0].Rows[0]["ADDRESSED"].ToString();
                     lblindustryscale.Text = ds.Tables[0].Rows[0]["CATEGORY"].ToString();
                     lblriskcategory.Text = ds.Tables[0].Rows[0]["POLLUTION"].ToString();
