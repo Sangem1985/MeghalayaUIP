@@ -57,40 +57,7 @@ namespace MeghalayaUIP.User.CFO
                         //dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "8");
                         //if (dsnew.Tables[0].Rows.Count > 0)
                         //{
-                        //    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
-                        //    {
-                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "39" || dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "46")
-                        //        {
-                        //            div_39_46.Visible = true;
-                        //        }
-                        //        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "48")
-                        //        {
-                        //            div_48.Visible = true;
-                        //        }
-                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "49")
-                        //        {
-                        //            div_48.Visible = true;
-                        //            div_Staff_Manf.Visible = true;
-                        //            div_Staff_Test.Visible = true;
-                        //        }
-                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "50")
-                        //        {
-                        //            div_48.Visible = true;
-                        //            div_Staff_Manf.Visible = true;
-                        //        }
-                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "51")
-                        //        {
-                        //            div_48.Visible = true;
-                        //            div_Staff_Test.Visible = true;
-                        //        }
-                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "52")
-                        //        {
-                        //            div_52.Visible = true;
-                        //            div_48.Visible = true;
-                        //            div_Staff_Manf.Visible = true;
-                        //            div_Staff_Test.Visible = true;
-                        //        }
-                        //    }
+                      
                         //}
                         //else
                         //{
@@ -106,6 +73,58 @@ namespace MeghalayaUIP.User.CFO
                         Binddata();
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet dsnew = new DataSet();
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "10", "");
+                if (dsnew.Tables[0].Rows.Count > 0)
+                {
+                    //    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                    //    {
+                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "39" || dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "46")
+                    //        {
+                    //            div_39_46.Visible = true;
+                    //        }
+                    //        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "48")
+                    //        {
+                    //            div_48.Visible = true;
+                    //        }
+                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "49")
+                    //        {
+                    //            div_48.Visible = true;
+                    //            div_Staff_Manf.Visible = true;
+                    //            div_Staff_Test.Visible = true;
+                    //        }
+                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "50")
+                    //        {
+                    //            div_48.Visible = true;
+                    //            div_Staff_Manf.Visible = true;
+                    //        }
+                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "51")
+                    //        {
+                    //            div_48.Visible = true;
+                    //            div_Staff_Test.Visible = true;
+                    //        }
+                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "52")
+                    //        {
+                    //            div_52.Visible = true;
+                    //            div_48.Visible = true;
+                    //            div_Staff_Manf.Visible = true;
+                    //            div_Staff_Test.Visible = true;
+                    //        }
+                    //    }
+                }
+
             }
             catch(Exception ex)
             {

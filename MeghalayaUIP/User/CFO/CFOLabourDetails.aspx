@@ -441,7 +441,7 @@
                                             </div>
                                         </div>
 
-                                      <%--  <div class="col-md-12 d-flex">
+                                        <%--  <div class="col-md-12 d-flex">
                                             <label class="col-lg-12 col-form-label fw-bold">Boiler Technical Details:</label>
                                         </div>
                                         <div class="col-md-12 d-flex">
@@ -819,30 +819,31 @@
                                                 </div>
                                             </div>
 
-                                        </div>
-
-                                        <div class="col-md-12 d-flex justify-content-center">
-                                            <asp:GridView ID="GVCFOLabour" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                GridLines="None"
-                                                Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVCFOLabour_RowDeleting">
-                                                <RowStyle BackColor="#ffffff" />
-                                                <Columns>
-                                                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Name" DataField="CFOLD_NAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Gender" DataField="CFOLD_GENDER" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Age" DataField="CFOLD_AGE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Community" DataField="CFOLD_COMMUNITY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Full Present Address" DataField="CFOLD_FULLADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Permanent Address [With District & State]" DataField="CFOLD_ADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Half Day Leave" DataField="CFOLD_HALFDAY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Full Day Leave" DataField="CFOLD_FULLDAY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
 
-                                                </Columns>
-                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                <AlternatingRowStyle BackColor="White" />
-                                            </asp:GridView>
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <asp:GridView ID="GVCFOLabour" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                    GridLines="None"
+                                                    Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVCFOLabour_RowDeleting">
+                                                    <RowStyle BackColor="#ffffff" />
+                                                    <Columns>
+                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Name" DataField="CFOLD_NAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Gender" DataField="CFOLD_GENDER" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Age" DataField="CFOLD_AGE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Community" DataField="CFOLD_COMMUNITY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Full Present Address" DataField="CFOLD_FULLADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Permanent Address [With District & State]" DataField="CFOLD_ADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Half Day Leave" DataField="CFOLD_HALFDAY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Full Day Leave" DataField="CFOLD_FULLDAY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+
+
+                                                    </Columns>
+                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                    <AlternatingRowStyle BackColor="White" />
+                                                </asp:GridView>
+                                            </div>
                                         </div>
 
                                         <h4 class="card-title ml-3">Upload Below Documents</h4>

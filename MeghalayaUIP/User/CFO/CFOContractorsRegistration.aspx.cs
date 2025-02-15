@@ -48,24 +48,9 @@ namespace MeghalayaUIP.User.CFO
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        //DataSet dsnew = new DataSet();
-                        //dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "16");
-                        //if (dsnew.Tables[0].Rows.Count > 0)
-                        //{
+                        GetAppliedorNot();
 
-                        //}
-                        //else
-                        //{
-                        //    if (Request.QueryString[0].ToString() == "N")
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?next=N");
-                        //    }
-                        //    else
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?Previous=P");
-                        //    }
-                        //}
-                        Binddata();
+
                     }
                 }
             }
@@ -82,10 +67,16 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 DataSet dsnew = new DataSet();
-                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "11", "");
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "16", "");
                 if (dsnew.Tables[0].Rows.Count > 0)
                 {
-
+                    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "34")
+                        {
+                            Binddata();
+                        }
+                    }
                 }
                 else
                 {

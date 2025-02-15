@@ -81,7 +81,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "32")
                         {
-                            RegManuBoiler.Visible = false;
+                           
                         }
                         if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "33")
                         {
