@@ -77,6 +77,35 @@ namespace MeghalayaUIP.User.CFO
             }
             
         }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet dsnew = new DataSet();
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "11", "");
+                if (dsnew.Tables[0].Rows.Count > 0)
+                {
+
+                }
+                else
+                {
+                    if (Request.QueryString[0].ToString() == "N")
+                    {
+                        Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?next=N");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?Previous=P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         public void Binddata()
         {
             try

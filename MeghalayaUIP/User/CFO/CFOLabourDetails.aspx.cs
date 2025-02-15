@@ -637,10 +637,14 @@ namespace MeghalayaUIP.User.CFO
                 List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
                 List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
                 string errormsg = "";
-                if (GVCFOLabour.Rows.Count <= 0)
+                if (RegShopEst.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter CFOLABOUR \\n";
-                    slno = slno + 1;
+
+                    if (GVCFOLabour.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter CFOLABOUR \\n";
+                        slno = slno + 1;
+                    }
                 }
 
                 if (RegManuBoiler.Visible == true)
