@@ -53,56 +53,56 @@ namespace MeghalayaUIP.User.CFO
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        DataSet dsnew = new DataSet();
-                        dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "8");
-                        if (dsnew.Tables[0].Rows.Count > 0)
-                        {
-                            for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
-                            {
-                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "39" || dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "46")
-                                {
-                                    div_39_46.Visible = true;
-                                }
-                                if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "48")
-                                {
-                                    div_48.Visible = true;
-                                }
-                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "49")
-                                {
-                                    div_48.Visible = true;
-                                    div_Staff_Manf.Visible = true;
-                                    div_Staff_Test.Visible = true;
-                                }
-                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "50")
-                                {
-                                    div_48.Visible = true;
-                                    div_Staff_Manf.Visible = true;
-                                }
-                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "51")
-                                {
-                                    div_48.Visible = true;
-                                    div_Staff_Test.Visible = true;
-                                }
-                                if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "52")
-                                {
-                                    div_52.Visible = true;
-                                    div_48.Visible = true;
-                                    div_Staff_Manf.Visible = true;
-                                    div_Staff_Test.Visible = true;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (Request.QueryString[0].ToString() == "N")
-                            {
-                                Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
-                            }
-                            else
-                            {
-                                Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
-                            }
-                        }
+                        //DataSet dsnew = new DataSet();
+                        //dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "8");
+                        //if (dsnew.Tables[0].Rows.Count > 0)
+                        //{
+                        //    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                        //    {
+                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "39" || dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "46")
+                        //        {
+                        //            div_39_46.Visible = true;
+                        //        }
+                        //        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "48")
+                        //        {
+                        //            div_48.Visible = true;
+                        //        }
+                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "49")
+                        //        {
+                        //            div_48.Visible = true;
+                        //            div_Staff_Manf.Visible = true;
+                        //            div_Staff_Test.Visible = true;
+                        //        }
+                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "50")
+                        //        {
+                        //            div_48.Visible = true;
+                        //            div_Staff_Manf.Visible = true;
+                        //        }
+                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "51")
+                        //        {
+                        //            div_48.Visible = true;
+                        //            div_Staff_Test.Visible = true;
+                        //        }
+                        //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "52")
+                        //        {
+                        //            div_52.Visible = true;
+                        //            div_48.Visible = true;
+                        //            div_Staff_Manf.Visible = true;
+                        //            div_Staff_Test.Visible = true;
+                        //        }
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    if (Request.QueryString[0].ToString() == "N")
+                        //    {
+                        //        Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
+                        //    }
+                        //    else
+                        //    {
+                        //        Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
+                        //    }
+                        //}
                         Binddata();
                     }
                 }

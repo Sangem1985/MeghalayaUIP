@@ -161,9 +161,9 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.GetCFEApprovedandCFOAppliedApplications(userid, UnitID);
         }
-        public DataSet GetApprovalDataByDeptId(string CFOQDID, string UNITID, string DEPTID)
+        public DataSet GetApprovalDataByDeptId(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
         {
-            return objCFODAL.GetApprovalDataByDeptId(CFOQDID, UNITID, DEPTID);
+            return objCFODAL.GetApprovalDataByDeptId(userid, UNITID, QusestionnaireID, DeptID, ApprovalID);
         }
 
         public DataSet GetCFOTracker(string UserID, string UnitID, string Type)

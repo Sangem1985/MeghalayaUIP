@@ -74,37 +74,40 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 DataSet dsnew = new DataSet();
-                dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "10");
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "10","");
                 if (dsnew.Tables[0].Rows.Count > 0)
                 {
-                    if (Convert.ToString(dsnew.Tables[0].Rows[0]["CFODA_APPROVALID"]) == "32")
+                    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
                     {
-                        RegManuBoiler.Visible = false;
-                    }
-                    if (Convert.ToString(dsnew.Tables[0].Rows[0]["CFODA_APPROVALID"]) == "33")
-                    {
-                        RegManuBoiler.Visible = true;
-                    }
-                    if (Convert.ToString(dsnew.Tables[0].Rows[0]["CFODA_APPROVALID"]) == "35")
-                    {
-                        RegBoiler.Visible = true;
-                    }
-                    if (Convert.ToString(dsnew.Tables[0].Rows[0]["CFODA_APPROVALID"]) == "36")
-                    {
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "32")
+                        {
+                            RegManuBoiler.Visible = false;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "33")
+                        {
+                            RegManuBoiler.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "35")
+                        {
+                            RegBoiler.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "36")
+                        {
 
-                    }
-                    if (Convert.ToString(dsnew.Tables[0].Rows[0]["CFODA_APPROVALID"]) == "37")
-                    {
-                        Migrant1979.Visible = true;
-                    }
-                    if (Convert.ToString(dsnew.Tables[0].Rows[0]["CFODA_APPROVALID"]) == "38")
-                    {
-                        MigrantWorkmen.Visible = true;
-                        Migrant1979.Visible = true;
-                    }
-                    if (Convert.ToString(dsnew.Tables[0].Rows[0]["CFODA_APPROVALID"]) == "58")
-                    {
-                        RegShopEst.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "37")
+                        {
+                            Migrant1979.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "38")
+                        {
+                            MigrantWorkmen.Visible = true;
+                            Migrant1979.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "58")
+                        {
+                            RegShopEst.Visible = true;
+                        }
                     }
                 }
                 else

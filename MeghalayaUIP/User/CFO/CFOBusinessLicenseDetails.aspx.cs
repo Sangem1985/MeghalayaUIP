@@ -46,23 +46,23 @@ namespace MeghalayaUIP.User.CFO
                 success.Visible = false;
                 if (!IsPostBack)
                 {
-                    DataSet dsnew = new DataSet();
-                    dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "12");
-                    if (dsnew != null && dsnew.Tables.Count > 0 && dsnew.Tables[0].Rows.Count > 0)
-                    {
+                    //DataSet dsnew = new DataSet();
+                    //dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "12");
+                    //if (dsnew != null && dsnew.Tables.Count > 0 && dsnew.Tables[0].Rows.Count > 0)
+                    //{
 
-                    }
-                    else
-                    {
-                        if (Request.QueryString[0].ToString() == "N")
-                        {
-                            Response.Redirect("~/User/CFO/CFOExcise.aspx?next=N");
-                        }
-                        else
-                        {
-                            Response.Redirect("~/User/CFO/CFOFireDetails.aspx?Previous=P");
-                        }
-                    }
+                    //}
+                    //else
+                    //{
+                    //    if (Request.QueryString[0].ToString() == "N")
+                    //    {
+                    //        Response.Redirect("~/User/CFO/CFOExcise.aspx?next=N");
+                    //    }
+                    //    else
+                    //    {
+                    //        Response.Redirect("~/User/CFO/CFOFireDetails.aspx?Previous=P");
+                    //    }
+                    //}
                     BindDistricEST();
                     BindMARKET();
                     BindANNUALGROSS();

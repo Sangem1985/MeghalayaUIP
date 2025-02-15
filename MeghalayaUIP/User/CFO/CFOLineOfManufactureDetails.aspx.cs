@@ -49,23 +49,7 @@ namespace MeghalayaUIP.User.CFO
                     if (!IsPostBack)
                     {
 
-                        DataSet dsnew = new DataSet();
-                        dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "");
-                        //if (dsnew.Tables[0].Rows.Count > 0)
-                        //{
-
-                        //}
-                        //else
-                        //{
-                        //    if (Request.QueryString[0].ToString() == "N")
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?next=N");
-                        //    }
-                        //    else
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFOCombinedApplication.aspx?Previous=P");
-                        //    }
-                        //}
+                        DataSet dsnew = new DataSet();                     
                         BindLineOfActivity("");
                         BindData();
 
