@@ -55,33 +55,33 @@ namespace MeghalayaUIP.User.CFO
                         success.Visible = false;
                         if (!IsPostBack)
                         {
-                            DataSet dsnew = new DataSet();
-                            dsnew = bal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "7");
-                            if (dsnew.Tables[0].Rows.Count > 0)
-                            {
-                                for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
-                                {
-                                    if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "45")
-                                    {
-                                        div_45_AplicntDtls.Visible = true;
-                                    }
-                                    if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "47")
-                                    {
-                                        div_47_BLR.Visible = true;
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                if (Request.QueryString[0].ToString() == "N")
-                                {
-                                    Response.Redirect("~/User/CFO/CFOForestTransit.aspx?next=N");
-                                }
-                                else
-                                {
-                                    Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
-                                }
-                            }                           
+                            //DataSet dsnew = new DataSet();
+                            //dsnew = bal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "7");
+                            //if (dsnew.Tables[0].Rows.Count > 0)
+                            //{
+                            //    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                            //    {
+                            //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "45")
+                            //        {
+                            //            div_45_AplicntDtls.Visible = true;
+                            //        }
+                            //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "47")
+                            //        {
+                            //            div_47_BLR.Visible = true;
+                            //        }
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    if (Request.QueryString[0].ToString() == "N")
+                            //    {
+                            //        Response.Redirect("~/User/CFO/CFOForestTransit.aspx?next=N");
+                            //    }
+                            //    else
+                            //    {
+                            //        Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
+                            //    }
+                            //}                           
                             BindCountry();
                             BindDetails();
                             AttachmentBind();

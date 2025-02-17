@@ -45,23 +45,23 @@ namespace MeghalayaUIP.User.CFO
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        DataSet dsnew = new DataSet();
-                        dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "6");
-                        if (dsnew.Tables[0].Rows.Count > 0)
-                        {
+                        //DataSet dsnew = new DataSet();
+                        //dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "6");
+                        //if (dsnew.Tables[0].Rows.Count > 0)
+                        //{
 
-                        }
-                        else
-                        {
-                            if (Request.QueryString[0].ToString() == "N")
-                            {
-                                Response.Redirect("~/User/CFO/CFOFireDetails.aspx?next=N");
-                            }
-                            else
-                            {
-                                Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
-                            }
-                        }
+                        //}
+                        //else
+                        //{
+                        //    if (Request.QueryString[0].ToString() == "N")
+                        //    {
+                        //        Response.Redirect("~/User/CFO/CFOFireDetails.aspx?next=N");
+                        //    }
+                        //    else
+                        //    {
+                        //        Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
+                        //    }
+                        //}
                         BindDistric();
                         BindRegType();
                         BindState();

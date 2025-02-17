@@ -55,36 +55,79 @@ namespace MeghalayaUIP.User.CFO
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        DataSet dsnew = new DataSet();
-                        dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "10");
-                        if (dsnew.Tables[0].Rows.Count > 0)
-                        {
-                            BindBoilerType();
-                            Binddata();
-                        }
-                        else
-                        {
-                            if (Request.QueryString[0].ToString() == "N")
-                            {
-                                Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?next=N");
-                            }
-                            else
-                            {
-                                Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
-                            }
-                        }
-                       
-
+                        GetAppliedorNot();
+                        BindBoilerType();
+                        Binddata();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-            
+
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet dsnew = new DataSet();
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "10","");
+                if (dsnew.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "32")
+                        {
+                           
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "33")
+                        {
+                            RegManuBoiler.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "35")
+                        {
+                            RegBoiler.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "36")
+                        {
+
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "37")
+                        {
+                            Migrant1979.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "38")
+                        {
+                            MigrantWorkmen.Visible = true;
+                            Migrant1979.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "58")
+                        {
+                            RegShopEst.Visible = true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString[0].ToString() == "N")
+                    {
+                        Response.Redirect("~/User/CFO/CFOLegalMeterology.aspx?next=N");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
         public void Binddata()
         {
@@ -93,111 +136,145 @@ namespace MeghalayaUIP.User.CFO
             {
                 DataSet ds = new DataSet();
                 ds = objcfobal.GetLabourDetails(hdnUserID.Value, UnitID);
-                
+
                 if (ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0 || ds.Tables[3].Rows.Count > 0)
                 {
                     if (ds.Tables[1].Rows.Count > 0)
                     {
                         ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOLD_UNITID"]);
 
-                        RBLAPPROVED.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_DIRECTINDIRECT"].ToString();
-                        if (RBLAPPROVED.Text == "Y")
+                        if (RegManuBoiler.Visible == true)
                         {
-                            Approved.Visible = true;
-                            txtProvide.Text = ds.Tables[1].Rows[0]["CFOLD_PROVIDEDETAILS"].ToString();
-                        }
-                        else { Approved.Visible = false; }
-                        ddlApplied.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_APPLIED"].ToString();
-                        txtESTYear.Text = ds.Tables[1].Rows[0]["CFOLD_YEAR"].ToString();
-                        rblmaximum.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TEMPMATERIAL"].ToString();
-                        rblregulation.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REGULATION1950"].ToString();
-                        rblgenerator.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_GENGRINDE"].ToString();
-                        rbldesignation.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_DESIGNATION"].ToString();
-                        txtSite.Text = ds.Tables[1].Rows[0]["CFOLD_SITES"].ToString();
-                        rblstrictly.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REGULATION81"].ToString();
-                        rblfirm.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_CONTROVERSIAL"].ToString();
-                        rblmaterial.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_MATERIAL"].ToString();
-                        rblinternalcontrol.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_OWNSYSTEM"].ToString();
-                        rbldocument.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_UPLOADDOCUMENT"].ToString();
-                        txtname1.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTURENAME"].ToString();
-                        txtfather.Text = ds.Tables[1].Rows[0]["CFOLD_MANUYEAR"].ToString();
-                        txtage.Text = ds.Tables[1].Rows[0]["CFOLD_MANUPLACE"].ToString();
-                        txtBoilerNumber.Text = ds.Tables[1].Rows[0]["CFOLD_BOILERNUMBER"].ToString();
-                        txtIntendedPressure.Text = ds.Tables[1].Rows[0]["CFOLD_INTENDED"].ToString();
-                        ddlManufacture.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTUREPLACE"].ToString();
-                        txtSuperRating.Text = ds.Tables[1].Rows[0]["CFOLD_HEATERRATING"].ToString();
-                        txtEconomise.Text = ds.Tables[1].Rows[0]["CFOLD_ECONOMISERRATING"].ToString();
-                        txtTonnes.Text = ds.Tables[1].Rows[0]["CFOLD_EVAPORATION"].ToString();
-                        txtHeaterRating.Text = ds.Tables[1].Rows[0]["CFOLD_REHEATERRATING"].ToString();
-                        ddlWkgSeason.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_SEASON"].ToString();
-                        txtPressure.Text = ds.Tables[1].Rows[0]["CFOLD_PRESSURE"].ToString();
-                        txtOwner.Text = ds.Tables[1].Rows[0]["CFOLD_OWNERNAME"].ToString();
-                        ddlTypeBoiler.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TYPEBOILER"].ToString();
-                        txtDESCBoiler.Text = ds.Tables[1].Rows[0]["CFOLD_DESCBOILER"].ToString();
-                        txtBoilerRating.Text = ds.Tables[1].Rows[0]["CFOLD_BOILERRATING"].ToString();
-                        rblBoilerTrans.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_BOILEROWNERTRANSF"].ToString();
-                        if (rblBoilerTrans.Text == "Y")
-                        {
-                            txtBoiler.Visible = true;
-                            txtRemark.Text = ds.Tables[1].Rows[0]["CFOLD_REMARK"].ToString();
-                        }
-                        else { txtBoiler.Visible = false; }
 
-                        txtNameManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUNAME"].ToString();
-                        txtYearManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTUREYEAR"].ToString();
-                        txtPlaceManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTPLACE"].ToString();
-                        txtNameAgent.Text = ds.Tables[1].Rows[0]["CFOLD_NAMEAGENT"].ToString();
-                        txtAddress.Text = ds.Tables[1].Rows[0]["CFOLD_ADDRESSAGENT"].ToString();
-                        txtlocation.Text = ds.Tables[1].Rows[0]["CFOLD_WORKETAILS"].ToString();
-                        txtdayslabour.Text = ds.Tables[1].Rows[0]["CFOLD_DAYSLABOUR"].ToString();
-                        txtEStdate.Text = ds.Tables[1].Rows[0]["CFOLD_ESTDATE"].ToString();
-                        txtEndDate.Text = ds.Tables[1].Rows[0]["CFOLD_ENDDATE"].ToString();
-                        txtMaximumnumber.Text = ds.Tables[1].Rows[0]["CFOLD_CONTRACTEMP"].ToString();
-                        rblConvicated.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_FIVEYEARCONVICTED"].ToString();
-                        if (rblConvicated.Text == "Y")
-                        {
-                            txtcontractor.Visible = true;
-                            txtDetails.Text = ds.Tables[1].Rows[0]["CFOLD_DETAILS"].ToString();
+                            RBLAPPROVED.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_DIRECTINDIRECT"].ToString();
+                            if (RBLAPPROVED.Text == "Y")
+                            {
+                                Approved.Visible = true;
+                                txtProvide.Text = ds.Tables[1].Rows[0]["CFOLD_PROVIDEDETAILS"].ToString();
+                            }
+                            else { Approved.Visible = false; }
+                            ddlApplied.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_APPLIED"].ToString();
+                            txtESTYear.Text = ds.Tables[1].Rows[0]["CFOLD_YEAR"].ToString();
+                            rblmaximum.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TEMPMATERIAL"].ToString();
+                            rblregulation.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REGULATION1950"].ToString();
+                            rblgenerator.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_GENGRINDE"].ToString();
+                            rbldesignation.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_DESIGNATION"].ToString();
+                            txtSite.Text = ds.Tables[1].Rows[0]["CFOLD_SITES"].ToString();
+                            rblstrictly.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REGULATION81"].ToString();
+                            rblfirm.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_CONTROVERSIAL"].ToString();
+                            rblmaterial.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_MATERIAL"].ToString();
+                            rblinternalcontrol.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_OWNSYSTEM"].ToString();
+                            rbldocument.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_UPLOADDOCUMENT"].ToString();
                         }
-                        else { txtcontractor.Visible = false; }
+                        else { RegManuBoiler.Visible = false; }
 
-                        rblrevoking.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REVORKING"].ToString();
-                        if (rblrevoking.Text == "Y")
+                        if (RegBoiler.Visible == true)
                         {
-                            suspend.Visible = true;
-                            txtOrderDate.Text = ds.Tables[1].Rows[0]["CFOLD_ORDERDAET"].ToString();
+                            txtname1.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTURENAME"].ToString();
+                            txtfather.Text = ds.Tables[1].Rows[0]["CFOLD_MANUYEAR"].ToString();
+                            txtage.Text = ds.Tables[1].Rows[0]["CFOLD_MANUPLACE"].ToString();
+                            txtBoilerNumber.Text = ds.Tables[1].Rows[0]["CFOLD_BOILERNUMBER"].ToString();
+                            txtIntendedPressure.Text = ds.Tables[1].Rows[0]["CFOLD_INTENDED"].ToString();
+                            ddlManufacture.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTUREPLACE"].ToString();
+                            txtSuperRating.Text = ds.Tables[1].Rows[0]["CFOLD_HEATERRATING"].ToString();
+                            txtEconomise.Text = ds.Tables[1].Rows[0]["CFOLD_ECONOMISERRATING"].ToString();
+                            txtTonnes.Text = ds.Tables[1].Rows[0]["CFOLD_EVAPORATION"].ToString();
+                            txtHeaterRating.Text = ds.Tables[1].Rows[0]["CFOLD_REHEATERRATING"].ToString();
+                            ddlWkgSeason.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_SEASON"].ToString();
+                            txtPressure.Text = ds.Tables[1].Rows[0]["CFOLD_PRESSURE"].ToString();
+                            txtOwner.Text = ds.Tables[1].Rows[0]["CFOLD_OWNERNAME"].ToString();
+                            ddlTypeBoiler.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TYPEBOILER"].ToString();
+                            txtDESCBoiler.Text = ds.Tables[1].Rows[0]["CFOLD_DESCBOILER"].ToString();
+                            txtBoilerRating.Text = ds.Tables[1].Rows[0]["CFOLD_BOILERRATING"].ToString();
+                            rblBoilerTrans.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_BOILEROWNERTRANSF"].ToString();
+                            if (rblBoilerTrans.Text == "Y")
+                            {
+                                txtBoiler.Visible = true;
+                                txtRemark.Text = ds.Tables[1].Rows[0]["CFOLD_REMARK"].ToString();
+                            }
+                            else { txtBoiler.Visible = false; }
                         }
-                        else { suspend.Visible = false; }
-                        rblcontractor.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_ESTCONTRACTOR"].ToString();
-                        if (rblcontractor.Text == "Y")
-                        {
-                            fiveyear.Visible = true;
-                            txtprinciple.Text = ds.Tables[1].Rows[0]["CFOLD_PRINCIPLEEMP"].ToString();
-                        }
-                        else { fiveyear.Visible = false; }
+                        else { RegBoiler.Visible = false; }
 
-                        if (rblcontractor.Text == "Y")
+
+                        //txtNameManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUNAME"].ToString();
+                        //txtYearManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTUREYEAR"].ToString();
+                        //txtPlaceManu.Text = ds.Tables[1].Rows[0]["CFOLD_MANUFACTPLACE"].ToString();
+
+                        if (Migrant1979.Visible == true)
                         {
-                            nature.Visible = true;
-                            txtEstablishment.Text = ds.Tables[1].Rows[0]["CFOLD_ESTDETAILS"].ToString();
-                            txtNature.Text = ds.Tables[1].Rows[0]["CFOLD_NATUREWORK"].ToString();
+                            if (MigrantWorkmen.Visible == true)
+                            {
+
+                                txtNameAgent.Text = ds.Tables[1].Rows[0]["CFOLD_NAMEAGENT"].ToString();
+                                txtAddress.Text = ds.Tables[1].Rows[0]["CFOLD_ADDRESSAGENT"].ToString();
+                                txtlocation.Text = ds.Tables[1].Rows[0]["CFOLD_WORKETAILS"].ToString();
+                                txtdayslabour.Text = ds.Tables[1].Rows[0]["CFOLD_DAYSLABOUR"].ToString();
+                                txtEStdate.Text = ds.Tables[1].Rows[0]["CFOLD_ESTDATE"].ToString();
+                                txtEndDate.Text = ds.Tables[1].Rows[0]["CFOLD_ENDDATE"].ToString();
+                                txtMaximumnumber.Text = ds.Tables[1].Rows[0]["CFOLD_CONTRACTEMP"].ToString();
+                            }
+                            else { MigrantWorkmen.Visible = false; }
                         }
-                        else { nature.Visible = false; }
-                        txtAgent.Text = ds.Tables[1].Rows[0]["CFOLD_MANAGERNAME"].ToString();
-                        txtfathername.Text = ds.Tables[1].Rows[0]["CFOLD_ADDRESSMANAGER"].ToString();
-                        ddlCategory.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_CATEGORYEST"].ToString();
-                        txtNaturebusiness.Text = ds.Tables[1].Rows[0]["CFOLD_NATUREBUSINESS"].ToString();
-                        rblresinding.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_FAMILYEMP"].ToString();
-                        rblestemployee.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_EMPEST"].ToString();
-                        txtTotalEMP.Text = ds.Tables[1].Rows[0]["CFOLD_TOTALEMP"].ToString();
+                        else { Migrant1979.Visible = false; }
+
+                        if (MigrantWorkmen.Visible == true)
+                        {
+                            rblConvicated.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_FIVEYEARCONVICTED"].ToString();
+                            if (rblConvicated.Text == "Y")
+                            {
+                                txtcontractor.Visible = true;
+                                txtDetails.Text = ds.Tables[1].Rows[0]["CFOLD_DETAILS"].ToString();
+                            }
+                            else { txtcontractor.Visible = false; }
+
+                            rblrevoking.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_REVORKING"].ToString();
+                            if (rblrevoking.Text == "Y")
+                            {
+                                suspend.Visible = true;
+                                txtOrderDate.Text = ds.Tables[1].Rows[0]["CFOLD_ORDERDAET"].ToString();
+                            }
+                            else { suspend.Visible = false; }
+                            rblcontractor.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_ESTCONTRACTOR"].ToString();
+                            if (rblcontractor.Text == "Y")
+                            {
+                                fiveyear.Visible = true;
+                                txtprinciple.Text = ds.Tables[1].Rows[0]["CFOLD_PRINCIPLEEMP"].ToString();
+                            }
+                            else { fiveyear.Visible = false; }
+
+                            if (rblcontractor.Text == "Y")
+                            {
+                                nature.Visible = true;
+                                txtEstablishment.Text = ds.Tables[1].Rows[0]["CFOLD_ESTDETAILS"].ToString();
+                                txtNature.Text = ds.Tables[1].Rows[0]["CFOLD_NATUREWORK"].ToString();
+                            }
+                            else { nature.Visible = false; }
+                        }
+                        else { MigrantWorkmen.Visible = false; }
+
+                        if (RegShopEst.Visible == true)
+                        {
+                            txtAgent.Text = ds.Tables[1].Rows[0]["CFOLD_MANAGERNAME"].ToString();
+                            txtfathername.Text = ds.Tables[1].Rows[0]["CFOLD_ADDRESSMANAGER"].ToString();
+                            ddlCategory.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_CATEGORYEST"].ToString();
+                            txtNaturebusiness.Text = ds.Tables[1].Rows[0]["CFOLD_NATUREBUSINESS"].ToString();
+                            rblresinding.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_FAMILYEMP"].ToString();
+                            rblestemployee.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_EMPEST"].ToString();
+                            txtTotalEMP.Text = ds.Tables[1].Rows[0]["CFOLD_TOTALEMP"].ToString();
+                        }
+                        else { RegShopEst.Visible = false; }
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
-                      //  hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLD_CFOQDID"]);
-                        ViewState["LabourDetails"] = ds.Tables[2];
-                        GVCFOLabour.DataSource = ds.Tables[2];
-                        GVCFOLabour.DataBind();
-                        GVCFOLabour.Visible = true;
+                        if (RegShopEst.Visible == true)
+                        {
+                            //  hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLD_CFOQDID"]);
+                            ViewState["LabourDetails"] = ds.Tables[2];
+                            GVCFOLabour.DataSource = ds.Tables[2];
+                            GVCFOLabour.DataBind();
+                            GVCFOLabour.Visible = true;
+                        }
                     }
                     if (ds.Tables[3].Rows.Count > 0)
                     {
@@ -434,9 +511,9 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOLabourDet.BoilerRating = txtBoilerRating.Text;
                     ObjCFOLabourDet.ownershipBoiler = rblBoilerTrans.SelectedValue;
                     ObjCFOLabourDet.Remarks = txtRemark.Text;
-                    ObjCFOLabourDet.ManufactureNames = txtNameManu.Text;
-                    ObjCFOLabourDet.ManufactureYears = txtYearManu.Text;
-                    ObjCFOLabourDet.Placemanu = txtPlaceManu.Text;
+                    //ObjCFOLabourDet.ManufactureNames = txtNameManu.Text;
+                    //ObjCFOLabourDet.ManufactureYears = txtYearManu.Text;
+                    //ObjCFOLabourDet.Placemanu = txtPlaceManu.Text;
                     ObjCFOLabourDet.NameAgent = txtNameAgent.Text;
                     ObjCFOLabourDet.Address = txtAddress.Text;
                     ObjCFOLabourDet.NameNature = txtlocation.Text;
@@ -560,310 +637,354 @@ namespace MeghalayaUIP.User.CFO
                 List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
                 List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
                 string errormsg = "";
-                if (GVCFOLabour.Rows.Count <= 0)
+                if (RegShopEst.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter CFOLABOUR \\n";
-                    slno = slno + 1;
-                }
-                if (RBLAPPROVED.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Select Whether the firm has ever been approved by any Boilers’ Directorate / Inspectorate? \\n";
-                    slno = slno + 1;
-                }
-                if (RBLAPPROVED.SelectedValue == "Y")
-                {
-                    if (string.IsNullOrEmpty(txtProvide.Text) || txtProvide.Text == "" || txtProvide.Text == null)
+
+                    if (GVCFOLabour.Rows.Count <= 0)
                     {
-                        errormsg = errormsg + slno + ". Please Enter Provide Details \\n";
+                        errormsg = errormsg + slno + ". Please Enter CFOLABOUR \\n";
                         slno = slno + 1;
                     }
                 }
 
-                if (ddlApplied.SelectedIndex == 0)
+                if (RegManuBoiler.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Classification applied for  \\n";
-                    slno = slno + 1;
+
+
+
+                    if (RBLAPPROVED.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Whether the firm has ever been approved by any Boilers’ Directorate / Inspectorate? \\n";
+                        slno = slno + 1;
+                    }
+                    if (RBLAPPROVED.SelectedValue == "Y")
+                    {
+                        if (string.IsNullOrEmpty(txtProvide.Text) || txtProvide.Text == "" || txtProvide.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Provide Details \\n";
+                            slno = slno + 1;
+                        }
+                    }
+
+                    if (ddlApplied.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Classification applied for  \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtESTYear.Text) || txtESTYear.Text == "" || txtESTYear.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Year of Establishment \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblmaximum.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter temperature and the materials involved, with documentary evidence? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblregulation.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter repairer under Indian Boiler Regulation, 1950 been rejected by any authority \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblgenerator.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter  expander and measuring instruments or any other tools and tackles under regulation 392 (5) (i)? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rbldesignation.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter educational qualifications and relevant experience (attach copies of documents) who are permanently employed with the firm ? \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtSite.Text) || txtSite.Text == "" || txtSite.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter working sites can be handled by the firm simultaneously? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblstrictly.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter the firm is prepared to execute the job strictly in 81 conformity with the regulations and maintain a high standard of work ? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblfirm.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter accept full responsibility for the work done and is prepared to clarify any controversial issue, if required? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblmaterial.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter a position to supply materials to required specification with proper test certificates if asked for ? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblinternalcontrol.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter the firm has an internal quality control system of their own ?? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rbldocument.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter employed with copies of current certificate issued by a Competent Authority under the Indian Boiler Regulations, 1950? \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (string.IsNullOrEmpty(txtESTYear.Text) || txtESTYear.Text == "" || txtESTYear.Text == null)
+                else { RegManuBoiler.Visible = false; }
+
+                if (RegBoiler.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Year of Establishment \\n";
-                    slno = slno + 1;
+
+                    if (string.IsNullOrEmpty(txtname1.Text.Trim()) || txtname1.Text.Trim() == "" || txtname1.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter MANUFACTURE NAME \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtfather.Text) || txtfather.Text == "" || txtfather.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Year of manufacture  \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtage.Text) || txtage.Text == "" || txtage.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Place of manufacture \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtBoilerNumber.Text) || txtBoilerNumber.Text == "" || txtBoilerNumber.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Boiler Maker's Number\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtIntendedPressure.Text) || txtIntendedPressure.Text == "" || txtIntendedPressure.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Intended Working Pressure \\n";
+                        slno = slno + 1;
+                    }
+                    //if (ddlManufacture.SelectedIndex == 0)
+                    //{
+                    //    errormsg = errormsg + slno + ". Please Enter Place of manufacture  \\n";
+                    //    slno = slno + 1;
+                    //}
+                    if (string.IsNullOrEmpty(txtSuperRating.Text) || txtSuperRating.Text == "" || txtSuperRating.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Super Heater Rating \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtEconomise.Text) || txtEconomise.Text == "" || txtEconomise.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Economiser Rating \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtTonnes.Text) || txtTonnes.Text == "" || txtTonnes.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Maximum Continuous Evaporation (Tonnes/Hour) \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtHeaterRating.Text) || txtHeaterRating.Text == "" || txtHeaterRating.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Re-Heater Rating \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlWkgSeason.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Working Season  \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtPressure.Text) || txtPressure.Text == "" || txtPressure.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Working Pressure \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtOwner.Text.Trim()) || txtOwner.Text.Trim() == "" || txtOwner.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Name of the owner  \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlTypeBoiler.SelectedIndex == 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Type of Boiler  \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtDESCBoiler.Text) || txtDESCBoiler.Text == "" || txtDESCBoiler.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Description of Boiler  \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtBoilerRating.Text) || txtBoilerRating.Text == "" || txtBoilerRating.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter BoilerRating \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblBoilerTrans.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Boiler ownership being transfer  \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblBoilerTrans.SelectedValue == "Y")
+                    {
+                        if (string.IsNullOrEmpty(txtRemark.Text) || txtRemark.Text == "" || txtRemark.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Remarks  \\n";
+                            slno = slno + 1;
+                        }
+                    }
                 }
-                if (rblmaximum.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter temperature and the materials involved, with documentary evidence? \\n";
-                    slno = slno + 1;
-                }
-                if (rblregulation.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter repairer under Indian Boiler Regulation, 1950 been rejected by any authority \\n";
-                    slno = slno + 1;
-                }
-                if (rblgenerator.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter  expander and measuring instruments or any other tools and tackles under regulation 392 (5) (i)? \\n";
-                    slno = slno + 1;
-                }
-                if (rbldesignation.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter educational qualifications and relevant experience (attach copies of documents) who are permanently employed with the firm ? \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtSite.Text) || txtSite.Text == "" || txtSite.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter working sites can be handled by the firm simultaneously? \\n";
-                    slno = slno + 1;
-                }
-                if (rblstrictly.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter the firm is prepared to execute the job strictly in 81 conformity with the regulations and maintain a high standard of work ? \\n";
-                    slno = slno + 1;
-                }
-                if (rblfirm.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter accept full responsibility for the work done and is prepared to clarify any controversial issue, if required? \\n";
-                    slno = slno + 1;
-                }
-                if (rblmaterial.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter a position to supply materials to required specification with proper test certificates if asked for ? \\n";
-                    slno = slno + 1;
-                }
-                if (rblinternalcontrol.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter the firm has an internal quality control system of their own ?? \\n";
-                    slno = slno + 1;
-                }
-                if (rbldocument.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Enter employed with copies of current certificate issued by a Competent Authority under the Indian Boiler Regulations, 1950? \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtname1.Text.Trim()) || txtname1.Text.Trim() == "" || txtname1.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter MANUFACTURE NAME \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtfather.Text) || txtfather.Text == "" || txtfather.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Year of manufacture  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtage.Text) || txtage.Text == "" || txtage.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Place of manufacture \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtBoilerNumber.Text) || txtBoilerNumber.Text == "" || txtBoilerNumber.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Boiler Maker's Number\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtIntendedPressure.Text) || txtIntendedPressure.Text == "" || txtIntendedPressure.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Intended Working Pressure \\n";
-                    slno = slno + 1;
-                }
-                //if (ddlManufacture.SelectedIndex == 0)
+                else { RegBoiler.Visible = false; }
+
+                //if (string.IsNullOrEmpty(txtNameManu.Text) || txtNameManu.Text == "" || txtNameManu.Text == null)
                 //{
-                //    errormsg = errormsg + slno + ". Please Enter Place of manufacture  \\n";
+                //    errormsg = errormsg + slno + ". Please Enter Name of the Manufacturer \\n";
                 //    slno = slno + 1;
                 //}
-                if (string.IsNullOrEmpty(txtSuperRating.Text) || txtSuperRating.Text == "" || txtSuperRating.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Super Heater Rating \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEconomise.Text) || txtEconomise.Text == "" || txtEconomise.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Economiser Rating \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtTonnes.Text) || txtTonnes.Text == "" || txtTonnes.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Maximum Continuous Evaporation (Tonnes/Hour) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtHeaterRating.Text) || txtHeaterRating.Text == "" || txtHeaterRating.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Re-Heater Rating \\n";
-                    slno = slno + 1;
-                }
-                //if (ddlWkgSeason.SelectedIndex == 0)
+                //if (string.IsNullOrEmpty(txtYearManu.Text) || txtYearManu.Text == "" || txtYearManu.Text == null)
                 //{
-                //    errormsg = errormsg + slno + ". Please Enter Working Season  \\n";
+                //    errormsg = errormsg + slno + ". Please Enter Year of manufacture  \\n";
                 //    slno = slno + 1;
                 //}
-                if (string.IsNullOrEmpty(txtPressure.Text) || txtPressure.Text == "" || txtPressure.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Working Pressure \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtOwner.Text.Trim()) || txtOwner.Text.Trim() == "" || txtOwner.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Name of the owner  \\n";
-                    slno = slno + 1;
-                }
-                if (ddlTypeBoiler.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Type of Boiler  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtDESCBoiler.Text) || txtDESCBoiler.Text == "" || txtDESCBoiler.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Description of Boiler  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtBoilerRating.Text) || txtBoilerRating.Text == "" || txtBoilerRating.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter BoilerRating \\n";
-                    slno = slno + 1;
-                }
-                if (rblBoilerTrans.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Select Boiler ownership being transfer  \\n";
-                    slno = slno + 1;
-                }
-                if (rblBoilerTrans.SelectedValue == "Y")
-                {
-                    if (string.IsNullOrEmpty(txtRemark.Text) || txtRemark.Text == "" || txtRemark.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Remarks  \\n";
-                        slno = slno + 1;
-                    }
-                }
-                if (string.IsNullOrEmpty(txtNameManu.Text) || txtNameManu.Text == "" || txtNameManu.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Name of the Manufacturer \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtYearManu.Text) || txtYearManu.Text == "" || txtYearManu.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Year of manufacture  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtPlaceManu.Text) || txtPlaceManu.Text == "" || txtPlaceManu.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Place of manufacture \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtNameAgent.Text.Trim()) || txtNameAgent.Text.Trim() == "" || txtNameAgent.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Name of agent or manager\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtAddress.Text) || txtAddress.Text == "" || txtAddress.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Address of the agent or manager  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtlocation.Text) || txtlocation.Text == "" || txtlocation.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter which contract labour is employed / is to be employed in the establishment  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtdayslabour.Text) || txtdayslabour.Text == "" || txtdayslabour.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter No of days of contract labour \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEStdate.Text) || txtEStdate.Text == "" || txtEStdate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Estimated date of commencement \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEndDate.Text) || txtEndDate.Text == "" || txtEndDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Ending Date  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtMaximumnumber.Text) || txtMaximumnumber.Text == "" || txtMaximumnumber.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Maximum number of contract labour proposed to be employed \\n";
-                    slno = slno + 1;
-                }
-                if (rblConvicated.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Select the contractor is convicted of any offence within the proceeding five years \\n";
-                    slno = slno + 1;
-                }
-                if (rblConvicated.SelectedValue == "Y")
-                {
-                    if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Details  \\n";
-                        slno = slno + 1;
-                    }
-                }
-                if (rblrevoking.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Select there was any order against the contractor revoking or suspending license or forfeiting Security Deposit in respect of an earlier contract.  \\n";
-                    slno = slno + 1;
-                }
-                if (rblrevoking.SelectedValue == "Y")
-                {
-                    if (string.IsNullOrEmpty(txtOrderDate.Text) || txtOrderDate.Text == "" || txtOrderDate.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Order Date  \\n";
-                        slno = slno + 1;
-                    }
-                }
-                if (rblcontractor.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Select the contractor has work in any other establishment within the past five years  \\n";
-                    slno = slno + 1;
-                }
-                if (rblcontractor.SelectedValue == "Y")
-                {
-                    if (string.IsNullOrEmpty(txtprinciple.Text) || txtprinciple.Text == "" || txtprinciple.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Principal's Employers Details  \\n";
-                        slno = slno + 1;
-                    }
-
-                    if (string.IsNullOrEmpty(txtEstablishment.Text) || txtEstablishment.Text == "" || txtEstablishment.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Establishment's Details  \\n";
-                        slno = slno + 1;
-                    }
-
-                    if (string.IsNullOrEmpty(txtNature.Text) || txtNature.Text == "" || txtNature.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Nature of work  \\n";
-                        slno = slno + 1;
-                    }
-
-                }
-                if (string.IsNullOrEmpty(txtAgent.Text.Trim()) || txtAgent.Text.Trim() == "" || txtAgent.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Name of the Manager /Agent/other  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtfathername.Text) || txtfathername.Text == "" || txtfathername.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Address of the Manager/Agent \\n";
-                    slno = slno + 1;
-                }
-                //if (ddlCategory.SelectedIndex==0)
+                //if (string.IsNullOrEmpty(txtPlaceManu.Text) || txtPlaceManu.Text == "" || txtPlaceManu.Text == null)
                 //{
-                //    errormsg = errormsg + slno + ". Please Enter Category of Establishmnet   \\n";
+                //    errormsg = errormsg + slno + ". Please Enter Place of manufacture \\n";
                 //    slno = slno + 1;
                 //}
-                if (string.IsNullOrEmpty(txtNaturebusiness.Text) || txtNaturebusiness.Text == "" || txtNaturebusiness.Text == null)
+                if (Migrant1979.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Nature of Business  \\n";
-                    slno = slno + 1;
+                    if (MigrantWorkmen.Visible == true)
+                    {
+
+
+                        if (string.IsNullOrEmpty(txtNameAgent.Text.Trim()) || txtNameAgent.Text.Trim() == "" || txtNameAgent.Text.Trim() == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Name of agent or manager\\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtAddress.Text) || txtAddress.Text == "" || txtAddress.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Address of the agent or manager  \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtlocation.Text) || txtlocation.Text == "" || txtlocation.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter which contract labour is employed / is to be employed in the establishment  \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtdayslabour.Text) || txtdayslabour.Text == "" || txtdayslabour.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter No of days of contract labour \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtEStdate.Text) || txtEStdate.Text == "" || txtEStdate.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Estimated date of commencement \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtEndDate.Text) || txtEndDate.Text == "" || txtEndDate.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Ending Date  \\n";
+                            slno = slno + 1;
+                        }
+                        if (string.IsNullOrEmpty(txtMaximumnumber.Text) || txtMaximumnumber.Text == "" || txtMaximumnumber.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Maximum number of contract labour proposed to be employed \\n";
+                            slno = slno + 1;
+                        }
+                    }
                 }
-                if (rblresinding.SelectedIndex == -1)
+
+                if (MigrantWorkmen.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter your family members employed in the establishment and residing with and wholly dependent upon you?    \\n";
-                    slno = slno + 1;
+
+                    if (rblConvicated.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select the contractor is convicted of any offence within the proceeding five years \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblConvicated.SelectedValue == "Y")
+                    {
+                        if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Details  \\n";
+                            slno = slno + 1;
+                        }
+                    }
+                    if (rblrevoking.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select there was any order against the contractor revoking or suspending license or forfeiting Security Deposit in respect of an earlier contract.  \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblrevoking.SelectedValue == "Y")
+                    {
+                        if (string.IsNullOrEmpty(txtOrderDate.Text) || txtOrderDate.Text == "" || txtOrderDate.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Order Date  \\n";
+                            slno = slno + 1;
+                        }
+                    }
+                    if (rblcontractor.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select the contractor has work in any other establishment within the past five years  \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblcontractor.SelectedValue == "Y")
+                    {
+                        if (string.IsNullOrEmpty(txtprinciple.Text) || txtprinciple.Text == "" || txtprinciple.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Principal's Employers Details  \\n";
+                            slno = slno + 1;
+                        }
+
+                        if (string.IsNullOrEmpty(txtEstablishment.Text) || txtEstablishment.Text == "" || txtEstablishment.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Establishment's Details  \\n";
+                            slno = slno + 1;
+                        }
+
+                        if (string.IsNullOrEmpty(txtNature.Text) || txtNature.Text == "" || txtNature.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Nature of work  \\n";
+                            slno = slno + 1;
+                        }
+
+                    }
                 }
-                if (rblestemployee.SelectedIndex == -1)
+
+                if (RegShopEst.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Do you have employees working in the establishment?   \\n";
-                    slno = slno + 1;
+
+
+                    if (string.IsNullOrEmpty(txtAgent.Text.Trim()) || txtAgent.Text.Trim() == "" || txtAgent.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Name of the Manager /Agent/other  \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtfathername.Text) || txtfathername.Text == "" || txtfathername.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Address of the Manager/Agent \\n";
+                        slno = slno + 1;
+                    }
+                    //if (ddlCategory.SelectedIndex==0)
+                    //{
+                    //    errormsg = errormsg + slno + ". Please Enter Category of Establishmnet   \\n";
+                    //    slno = slno + 1;
+                    //}
+                    if (string.IsNullOrEmpty(txtNaturebusiness.Text) || txtNaturebusiness.Text == "" || txtNaturebusiness.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Nature of Business  \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblresinding.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter your family members employed in the establishment and residing with and wholly dependent upon you?    \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblestemployee.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Do you have employees working in the establishment?   \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtTotalEMP.Text) || txtTotalEMP.Text == "" || txtTotalEMP.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Total Number of Employees...!   \\n";
+                        slno = slno + 1;
+                    }
                 }
+                else { RegShopEst.Visible = false; }
 
 
                 return errormsg;
@@ -906,7 +1027,7 @@ namespace MeghalayaUIP.User.CFO
                     Approved.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -928,7 +1049,7 @@ namespace MeghalayaUIP.User.CFO
                     txtBoiler.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -950,7 +1071,7 @@ namespace MeghalayaUIP.User.CFO
                     txtcontractor.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -972,7 +1093,7 @@ namespace MeghalayaUIP.User.CFO
                     suspend.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -996,7 +1117,7 @@ namespace MeghalayaUIP.User.CFO
                     nature.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -1620,7 +1741,7 @@ namespace MeghalayaUIP.User.CFO
             }
             catch (Exception ex)
             { throw ex; }
-        }    
+        }
         public void DeleteFile(string strFileName)
         {
             if (strFileName.Trim().Length > 0)

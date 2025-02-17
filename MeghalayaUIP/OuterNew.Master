@@ -488,19 +488,19 @@
                                                                 <li><a href="KnowYourApprovalsCFO.aspx" class="text-black" target="_blank">Pre-Operational</a></li>
                                                             </ul>
                                                         </li>
-                                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>                                                        
-                                                         <li class="dropdown"><a href="#">Incentive</a>
-                                                              <ul class="ODOP">
-                                                                   <li><a href="IncEligibilty.aspx" class="text-black" target="_blank">Incentive Eligibility</a></li>
-                                                                  </ul>
-                                                             </li>
+                                                        <li><a href="InformationWizard.aspx">Information Wizard</a></li>
+                                                        <li class="dropdown"><a href="#">Incentive</a>
+                                                            <ul class="ODOP">
+                                                                <li><a href="IncEligibilty.aspx" class="text-black" target="_blank">Incentive Eligibility</a></li>
+                                                            </ul>
+                                                        </li>
                                                         <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
                                                         <%--<li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
                                                         <li><a href="GrievanceMisReport.aspx" target="_blank">Grievance/Query Dashboard</a></li>--%>
                                                         <li><a href="ViewCertifcateDetails.aspx">Third Party Verification</a></li>
                                                         <li><a href="CentralInspectionDashboard.aspx">Central Inspection System</a></li>
                                                         <li><a href="OtherService.aspx">Other Services</a></li>
-                                                        <li><a href="Documents/CommerceIndustries_Timeline_LandAllotmentIncentives.pdf" target="_blank">Commerce&Industries_Timeline</a></li>
+                                                        <li><a href="Documents/CommerceIndustries_Timeline_LandAllotmentIncentives.pdf" target="_blank">Commerce&Industries Timeline</a></li>
 
                                                     </ul>
                                                 </li>
@@ -534,6 +534,8 @@
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=CommonFacilityCentreswithSOPandFees%>', '_blank'); return false;">Common facility centers with SOP & Fees</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPSchemesandOtherDetailsforBenificiaries%>', '_blank'); return false;">ODOP Schemes and Other Details Beneficial for Entrepreneurs</a></li>
                                                                 <li><a href="#" onclick="window.open('Sectoralinformation.aspx', '_blank'); return false;" target="_blank">ODOP Sectoral Information</a></li>
+                                                                <li><a href="#" onclick="window.open('Sectoralinformation.aspx?Products=P', '_blank'); return false;" target="_blank">ODOP Sectoral Information(Products)</a></li>
+
                                                                 <li><a href="#" onclick="window.open('https://dofpmeghalaya.org/odop/', '_blank'); return false;">ODOP Facilitation Centre</a></li>
                                                                 <li><a href="#" onclick="window.open('https://www.meghalayaone.gov.in/meghalaya-one', '_blank'); return false;">ODOP Grievance Mechanism</a></li>
                                                             </ul>
@@ -549,7 +551,7 @@
                                                         <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>
                                                         <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>
                                                         <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grievance Timelines</a></li>
-                                                        <li><a href="Documents/InvestMeghalayaFacilitationCentre_Grievance_Timeline.pdf" target="_blank">Timelines</a></li>
+                                                        <li><a href="Timelines.aspx" target="_blank">Timelines</a></li>
                                                         <li><a href="ODOPDashboard.aspx">ODOP Dashboard</a></li>
                                                         <li class="dropdown"><a href="#">Other dashboard</a>
                                                             <ul class="ODOP">
@@ -664,7 +666,7 @@
                                                 <li><a href="RenewalServices.aspx">Auto Renewal</a></li>
                                                 <li><a href="SingleWindowPortalDashboard.aspx" target="_blank">Single Window Dashboard</a></li>
                                                 <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>
-
+                                                <li><a href="https://mspsdc.meghalaya.gov.in/index.htm" target="_blank">MSPSDC</a></li>
                                             </ul>
                                         </div>
                                     </div>

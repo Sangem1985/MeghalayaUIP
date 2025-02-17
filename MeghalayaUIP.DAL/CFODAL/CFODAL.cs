@@ -495,71 +495,241 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-
-
                 com.Parameters.AddWithValue("@CFOLD_CREATEDBY", Convert.ToInt32(ObjCFOLabourDet.CreatedBy));
                 com.Parameters.AddWithValue("@CFOLD_CREATEDBYIP", ObjCFOLabourDet.IPAddress);
                 com.Parameters.AddWithValue("@CFOLD_CFOQDID", Convert.ToInt32(ObjCFOLabourDet.Questionnariid));
                 com.Parameters.AddWithValue("@CFOLD_UNITID", Convert.ToInt32(ObjCFOLabourDet.UnitId));
 
-                com.Parameters.AddWithValue("@CFOLD_DIRECTINDIRECT", ObjCFOLabourDet.DirectorateBoiler);
-                com.Parameters.AddWithValue("@CFOLD_APPLIED", ObjCFOLabourDet.Classification);
-                com.Parameters.AddWithValue("@CFOLD_PROVIDEDETAILS", ObjCFOLabourDet.ProvideDetails);
-                com.Parameters.AddWithValue("@CFOLD_YEAR", Convert.ToInt32(ObjCFOLabourDet.Establishmentyear));
-                com.Parameters.AddWithValue("@CFOLD_TEMPMATERIAL", ObjCFOLabourDet.temperature);
-                com.Parameters.AddWithValue("@CFOLD_REGULATION1950", ObjCFOLabourDet.BoilerRegulation);
-                com.Parameters.AddWithValue("@CFOLD_GENGRINDE", ObjCFOLabourDet.generatortool);
-                com.Parameters.AddWithValue("@CFOLD_DESIGNATION", ObjCFOLabourDet.Document);
-                com.Parameters.AddWithValue("@CFOLD_SITES", Convert.ToInt32(ObjCFOLabourDet.firm));
-                com.Parameters.AddWithValue("@CFOLD_REGULATION81", ObjCFOLabourDet.regulationstrictly);
-                com.Parameters.AddWithValue("@CFOLD_CONTROVERSIAL", ObjCFOLabourDet.controversial);
-                com.Parameters.AddWithValue("@CFOLD_MATERIAL", ObjCFOLabourDet.materials);
-                com.Parameters.AddWithValue("@CFOLD_OWNSYSTEM", ObjCFOLabourDet.OwnSystem);
-                com.Parameters.AddWithValue("@CFOLD_UPLOADDOCUMENT", ObjCFOLabourDet.Upload_Document);
-                com.Parameters.AddWithValue("@CFOLD_MANUFACTURENAME", ObjCFOLabourDet.NameManufacture);
-                com.Parameters.AddWithValue("@CFOLD_MANUYEAR", Convert.ToInt32(ObjCFOLabourDet.manufactureYear));
-                com.Parameters.AddWithValue("@CFOLD_MANUPLACE", ObjCFOLabourDet.manufactureplace);
-                com.Parameters.AddWithValue("@CFOLD_BOILERNUMBER", Convert.ToInt32(ObjCFOLabourDet.BoilerNumber));
-                com.Parameters.AddWithValue("@CFOLD_INTENDED", ObjCFOLabourDet.Intendedpressure);
-                com.Parameters.AddWithValue("@CFOLD_MANUFACTUREPLACE", ObjCFOLabourDet.manufacture);
-                com.Parameters.AddWithValue("@CFOLD_HEATERRATING", Convert.ToDecimal(ObjCFOLabourDet.HeaterRating));
-                com.Parameters.AddWithValue("@CFOLD_ECONOMISERRATING", Convert.ToDecimal(ObjCFOLabourDet.Economiser));
-                com.Parameters.AddWithValue("@CFOLD_EVAPORATION", Convert.ToDecimal(ObjCFOLabourDet.MaximumTonne));
-                com.Parameters.AddWithValue("@CFOLD_REHEATERRATING", Convert.ToDecimal(ObjCFOLabourDet.RatingHeaters));
-                com.Parameters.AddWithValue("@CFOLD_SEASON", ObjCFOLabourDet.WorkingSeason);
-                com.Parameters.AddWithValue("@CFOLD_PRESSURE", Convert.ToDecimal(ObjCFOLabourDet.PressurePSI));
-                com.Parameters.AddWithValue("@CFOLD_OWNERNAME", ObjCFOLabourDet.NameOwner);
-                com.Parameters.AddWithValue("@CFOLD_TYPEBOILER", ObjCFOLabourDet.BoilerType);
-                com.Parameters.AddWithValue("@CFOLD_DESCBOILER", ObjCFOLabourDet.DescriptionBoiler);
-                com.Parameters.AddWithValue("@CFOLD_BOILERRATING", Convert.ToInt32(ObjCFOLabourDet.BoilerRating));
-                com.Parameters.AddWithValue("@CFOLD_BOILEROWNERTRANSF", ObjCFOLabourDet.ownershipBoiler);
-                com.Parameters.AddWithValue("@CFOLD_REMARK", ObjCFOLabourDet.Remarks);
-                com.Parameters.AddWithValue("@CFOLD_MANUNAME", ObjCFOLabourDet.ManufactureNames);
-                com.Parameters.AddWithValue("@CFOLD_MANUFACTUREYEAR", Convert.ToInt32(ObjCFOLabourDet.ManufactureYears));
-                com.Parameters.AddWithValue("@CFOLD_MANUFACTPLACE", ObjCFOLabourDet.Placemanu);
-                com.Parameters.AddWithValue("@CFOLD_NAMEAGENT", ObjCFOLabourDet.NameAgent);
-                com.Parameters.AddWithValue("@CFOLD_ADDRESSAGENT", ObjCFOLabourDet.Address);
-                com.Parameters.AddWithValue("@CFOLD_WORKETAILS", ObjCFOLabourDet.NameNature);
-                com.Parameters.AddWithValue("@CFOLD_DAYSLABOUR", Convert.ToInt32(ObjCFOLabourDet.contractorlabour));
-                com.Parameters.AddWithValue("@CFOLD_ESTDATE", DateTime.ParseExact(ObjCFOLabourDet.Estimateddate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFOLD_ENDDATE", DateTime.ParseExact(ObjCFOLabourDet.Endingdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFOLD_CONTRACTEMP", Convert.ToInt32(ObjCFOLabourDet.Maximumemployed));
-                com.Parameters.AddWithValue("@CFOLD_FIVEYEARCONVICTED", ObjCFOLabourDet.withinfiveyear);
-                com.Parameters.AddWithValue("@CFOLD_DETAILS", ObjCFOLabourDet.Details);
-                com.Parameters.AddWithValue("@CFOLD_REVORKING", ObjCFOLabourDet.licenseDeposite);
-                com.Parameters.AddWithValue("@CFOLD_ORDERDAET", ObjCFOLabourDet.OrderDate);
-                //  com.Parameters.AddWithValue("@CFOLD_ORDERDAET", DateTime.ParseExact(ObjCFOLabourDet.OrderDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFOLD_ESTCONTRACTOR", ObjCFOLabourDet.establishmentpast);
-                com.Parameters.AddWithValue("@CFOLD_PRINCIPLEEMP", ObjCFOLabourDet.PrincipalEMP);
-                com.Parameters.AddWithValue("@CFOLD_ESTDETAILS", ObjCFOLabourDet.EstablishmentDET);
-                com.Parameters.AddWithValue("@CFOLD_NATUREWORK", ObjCFOLabourDet.NatureWORK);
-                com.Parameters.AddWithValue("@CFOLD_MANAGERNAME", ObjCFOLabourDet.generalManagement);
-                com.Parameters.AddWithValue("@CFOLD_ADDRESSMANAGER", ObjCFOLabourDet.AddressAgent);
-                com.Parameters.AddWithValue("@CFOLD_CATEGORYEST", ObjCFOLabourDet.CategoryEst);
-                com.Parameters.AddWithValue("@CFOLD_NATUREBUSINESS", ObjCFOLabourDet.NatureBusiness);
-                com.Parameters.AddWithValue("@CFOLD_FAMILYEMP", ObjCFOLabourDet.establishmentfamily);
-                com.Parameters.AddWithValue("@CFOLD_EMPEST", ObjCFOLabourDet.employeeswork);
-                com.Parameters.AddWithValue("@CFOLD_TOTALEMP", Convert.ToInt32(ObjCFOLabourDet.TotalNumberEMP));
+                if (ObjCFOLabourDet.DirectorateBoiler != null && ObjCFOLabourDet.DirectorateBoiler != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_DIRECTINDIRECT", ObjCFOLabourDet.DirectorateBoiler);
+                }
+                if (ObjCFOLabourDet.Classification != null && ObjCFOLabourDet.Classification != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_APPLIED", ObjCFOLabourDet.Classification);
+                }
+                if (ObjCFOLabourDet.ProvideDetails != null && ObjCFOLabourDet.ProvideDetails != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_PROVIDEDETAILS", ObjCFOLabourDet.ProvideDetails);
+                }
+                if (ObjCFOLabourDet.Establishmentyear != null && ObjCFOLabourDet.Establishmentyear != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_YEAR", Convert.ToInt32(ObjCFOLabourDet.Establishmentyear));
+                }
+                if (ObjCFOLabourDet.temperature != null && ObjCFOLabourDet.temperature != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_TEMPMATERIAL", ObjCFOLabourDet.temperature);
+                }
+                if (ObjCFOLabourDet.BoilerRegulation != null && ObjCFOLabourDet.BoilerRegulation != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_REGULATION1950", ObjCFOLabourDet.BoilerRegulation);
+                }
+                if (ObjCFOLabourDet.generatortool != null && ObjCFOLabourDet.generatortool != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_GENGRINDE", ObjCFOLabourDet.generatortool);
+                }
+                if (ObjCFOLabourDet.Document != null && ObjCFOLabourDet.Document != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_DESIGNATION", ObjCFOLabourDet.Document);
+                }
+                if (ObjCFOLabourDet.firm != null && ObjCFOLabourDet.firm != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_SITES", Convert.ToInt32(ObjCFOLabourDet.firm));
+                }
+                if (ObjCFOLabourDet.regulationstrictly != null && ObjCFOLabourDet.regulationstrictly != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_REGULATION81", ObjCFOLabourDet.regulationstrictly);
+                }
+                if (ObjCFOLabourDet.controversial != null && ObjCFOLabourDet.controversial != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_CONTROVERSIAL", ObjCFOLabourDet.controversial);
+                }
+                if (ObjCFOLabourDet.materials != null && ObjCFOLabourDet.materials != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_MATERIAL", ObjCFOLabourDet.materials);
+                }
+                if (ObjCFOLabourDet.OwnSystem != null && ObjCFOLabourDet.OwnSystem != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_OWNSYSTEM", ObjCFOLabourDet.OwnSystem);
+                }
+                if (ObjCFOLabourDet.Upload_Document != null && ObjCFOLabourDet.Upload_Document != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_UPLOADDOCUMENT", ObjCFOLabourDet.Upload_Document);
+                }
+                if (ObjCFOLabourDet.NameManufacture != null && ObjCFOLabourDet.NameManufacture != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_MANUFACTURENAME", ObjCFOLabourDet.NameManufacture);
+                }
+                if (ObjCFOLabourDet.manufactureYear != null && ObjCFOLabourDet.manufactureYear != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_MANUYEAR", Convert.ToInt32(ObjCFOLabourDet.manufactureYear));
+                }
+                if (ObjCFOLabourDet.manufactureplace != null && ObjCFOLabourDet.manufactureplace != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_MANUPLACE", ObjCFOLabourDet.manufactureplace);
+                }
+                if (ObjCFOLabourDet.BoilerNumber != null && ObjCFOLabourDet.BoilerNumber != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_BOILERNUMBER", Convert.ToInt32(ObjCFOLabourDet.BoilerNumber));
+                }
+                if (ObjCFOLabourDet.Intendedpressure != null && ObjCFOLabourDet.Intendedpressure != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_INTENDED", ObjCFOLabourDet.Intendedpressure);
+                }
+                if (ObjCFOLabourDet.manufacture != null && ObjCFOLabourDet.manufacture != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_MANUFACTUREPLACE", ObjCFOLabourDet.manufacture);
+                }
+                if (ObjCFOLabourDet.HeaterRating != null && ObjCFOLabourDet.HeaterRating != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_HEATERRATING", Convert.ToDecimal(ObjCFOLabourDet.HeaterRating));
+                }
+                if (ObjCFOLabourDet.Economiser != null && ObjCFOLabourDet.Economiser != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_ECONOMISERRATING", Convert.ToDecimal(ObjCFOLabourDet.Economiser));
+                }
+                if (ObjCFOLabourDet.MaximumTonne != null && ObjCFOLabourDet.MaximumTonne != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_EVAPORATION", Convert.ToDecimal(ObjCFOLabourDet.MaximumTonne));
+                }
+                if (ObjCFOLabourDet.RatingHeaters != null && ObjCFOLabourDet.RatingHeaters != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_REHEATERRATING", Convert.ToDecimal(ObjCFOLabourDet.RatingHeaters));
+                }
+                if (ObjCFOLabourDet.WorkingSeason != null && ObjCFOLabourDet.WorkingSeason != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_SEASON", ObjCFOLabourDet.WorkingSeason);
+                }
+                if (ObjCFOLabourDet.PressurePSI != null && ObjCFOLabourDet.PressurePSI != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_PRESSURE", Convert.ToDecimal(ObjCFOLabourDet.PressurePSI));
+                }
+                if (ObjCFOLabourDet.NameOwner != null && ObjCFOLabourDet.NameOwner != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_OWNERNAME", ObjCFOLabourDet.NameOwner);
+                }
+
+                if (ObjCFOLabourDet.BoilerType != null && ObjCFOLabourDet.BoilerType != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_TYPEBOILER", ObjCFOLabourDet.BoilerType);
+                }
+                if (ObjCFOLabourDet.DescriptionBoiler != null && ObjCFOLabourDet.DescriptionBoiler != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_DESCBOILER", ObjCFOLabourDet.DescriptionBoiler);
+                }
+                if (ObjCFOLabourDet.BoilerRating != null && ObjCFOLabourDet.BoilerRating != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_BOILERRATING", Convert.ToInt32(ObjCFOLabourDet.BoilerRating));
+                }
+                if (ObjCFOLabourDet.ownershipBoiler != null && ObjCFOLabourDet.ownershipBoiler != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_BOILEROWNERTRANSF", ObjCFOLabourDet.ownershipBoiler);
+                }
+                if (ObjCFOLabourDet.Remarks != null && ObjCFOLabourDet.Remarks != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_REMARK", ObjCFOLabourDet.Remarks);
+                }
+                if (ObjCFOLabourDet.ManufactureNames != null && ObjCFOLabourDet.ManufactureNames != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_MANUNAME", ObjCFOLabourDet.ManufactureNames);
+                }
+                if (ObjCFOLabourDet.ManufactureYears != null && ObjCFOLabourDet.ManufactureYears != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_MANUFACTUREYEAR", Convert.ToInt32(ObjCFOLabourDet.ManufactureYears));
+                }
+                if (ObjCFOLabourDet.Placemanu != null && ObjCFOLabourDet.Placemanu != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_MANUFACTPLACE", ObjCFOLabourDet.Placemanu);
+                }
+                if (ObjCFOLabourDet.NameAgent != null && ObjCFOLabourDet.NameAgent != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_NAMEAGENT", ObjCFOLabourDet.NameAgent);
+                }
+                if (ObjCFOLabourDet.Address != null && ObjCFOLabourDet.Address != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_ADDRESSAGENT", ObjCFOLabourDet.Address);
+                }
+                if (ObjCFOLabourDet.NameNature != null && ObjCFOLabourDet.NameNature != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_WORKETAILS", ObjCFOLabourDet.NameNature);
+                }
+                if (ObjCFOLabourDet.contractorlabour != null && ObjCFOLabourDet.contractorlabour != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_DAYSLABOUR", Convert.ToInt32(ObjCFOLabourDet.contractorlabour));
+                }
+                if (ObjCFOLabourDet.Estimateddate != null && ObjCFOLabourDet.Estimateddate != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_ESTDATE", DateTime.ParseExact(ObjCFOLabourDet.Estimateddate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjCFOLabourDet.Endingdate != null && ObjCFOLabourDet.Endingdate != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_ENDDATE", DateTime.ParseExact(ObjCFOLabourDet.Endingdate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjCFOLabourDet.Maximumemployed != null && ObjCFOLabourDet.Maximumemployed != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_CONTRACTEMP", Convert.ToInt32(ObjCFOLabourDet.Maximumemployed));
+                }
+                if (ObjCFOLabourDet.withinfiveyear != null && ObjCFOLabourDet.withinfiveyear != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_FIVEYEARCONVICTED", ObjCFOLabourDet.withinfiveyear);
+                }
+                if (ObjCFOLabourDet.Details != null && ObjCFOLabourDet.Details != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_DETAILS", ObjCFOLabourDet.Details);
+                }
+
+                if (ObjCFOLabourDet.licenseDeposite != null && ObjCFOLabourDet.licenseDeposite != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_REVORKING", ObjCFOLabourDet.licenseDeposite);
+                }
+                if (ObjCFOLabourDet.OrderDate != null && ObjCFOLabourDet.OrderDate != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_ORDERDAET", ObjCFOLabourDet.OrderDate);
+                }
+                if (ObjCFOLabourDet.establishmentpast != null && ObjCFOLabourDet.establishmentpast != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_ESTCONTRACTOR", ObjCFOLabourDet.establishmentpast);
+                }
+                if (ObjCFOLabourDet.PrincipalEMP != null && ObjCFOLabourDet.PrincipalEMP != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_PRINCIPLEEMP", ObjCFOLabourDet.PrincipalEMP);
+                }
+                if (ObjCFOLabourDet.EstablishmentDET != null && ObjCFOLabourDet.EstablishmentDET != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_ESTDETAILS", ObjCFOLabourDet.EstablishmentDET);
+                }
+                if (ObjCFOLabourDet.NatureWORK != null && ObjCFOLabourDet.NatureWORK != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_NATUREWORK", ObjCFOLabourDet.NatureWORK);
+                }
+                if (ObjCFOLabourDet.generalManagement != null && ObjCFOLabourDet.generalManagement != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_MANAGERNAME", ObjCFOLabourDet.generalManagement);
+                }
+                if (ObjCFOLabourDet.AddressAgent != null && ObjCFOLabourDet.AddressAgent != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_ADDRESSMANAGER", ObjCFOLabourDet.AddressAgent);
+                }
+                if (ObjCFOLabourDet.CategoryEst != null && ObjCFOLabourDet.CategoryEst != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_CATEGORYEST", ObjCFOLabourDet.CategoryEst);
+                }
+                if (ObjCFOLabourDet.NatureBusiness != null && ObjCFOLabourDet.NatureBusiness != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_NATUREBUSINESS", ObjCFOLabourDet.NatureBusiness);
+                }
+                if (ObjCFOLabourDet.establishmentfamily != null && ObjCFOLabourDet.establishmentfamily != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_FAMILYEMP", ObjCFOLabourDet.establishmentfamily);
+                }
+                if (ObjCFOLabourDet.employeeswork != null && ObjCFOLabourDet.employeeswork != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_EMPEST", ObjCFOLabourDet.employeeswork);
+                }
+                if (ObjCFOLabourDet.TotalNumberEMP != null && ObjCFOLabourDet.TotalNumberEMP != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLD_TOTALEMP", Convert.ToInt32(ObjCFOLabourDet.TotalNumberEMP));
+                }
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -657,43 +827,153 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOLGM_CFOUNITID", Convert.ToInt32(ObjCFOlegalDet.UnitId));
                 com.Parameters.AddWithValue("@CFOLGM_CFOQDID", Convert.ToInt32(ObjCFOlegalDet.Questionnariid));
 
-                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHDATE", DateTime.ParseExact(ObjCFOlegalDet.DateEstablish, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFOLGM_HADESTBLSHREG", ObjCFOlegalDet.RegFactoryShop);
-                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGDATE", DateTime.ParseExact(ObjCFOlegalDet.DateReg, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGNO", ObjCFOlegalDet.CurrentRegNumber);
-                com.Parameters.AddWithValue("@CFOLGM_HADMTLREG", ObjCFOlegalDet.LicADCnO);
+
+                if (ObjCFOlegalDet.DateEstablish != null && ObjCFOlegalDet.DateEstablish != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_ESTBLSHDATE", DateTime.ParseExact(ObjCFOlegalDet.DateEstablish, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjCFOlegalDet.RegFactoryShop != null && ObjCFOlegalDet.RegFactoryShop != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_HADESTBLSHREG", ObjCFOlegalDet.RegFactoryShop);
+                }
+                if (ObjCFOlegalDet.DateReg != null && ObjCFOlegalDet.DateReg != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGDATE", DateTime.ParseExact(ObjCFOlegalDet.DateReg, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjCFOlegalDet.CurrentRegNumber != null && ObjCFOlegalDet.CurrentRegNumber != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGNO", ObjCFOlegalDet.CurrentRegNumber);
+                }
+                if (ObjCFOlegalDet.LicADCnO != null && ObjCFOlegalDet.LicADCnO != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_HADMTLREG", ObjCFOlegalDet.LicADCnO);
+                }
+                if (ObjCFOlegalDet.RegDateNo != null && ObjCFOlegalDet.RegDateNo != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_MTLREGDATE", DateTime.ParseExact(ObjCFOlegalDet.RegDateNo, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjCFOlegalDet.RegCurrentNo != null && ObjCFOlegalDet.RegCurrentNo != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_MTLREGNO", ObjCFOlegalDet.RegCurrentNo);
+                }
+                if (ObjCFOlegalDet.Weight != null && ObjCFOlegalDet.Weight != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_WEIGHS", ObjCFOlegalDet.Weight);
+                }
+                if (ObjCFOlegalDet.Measures != null && ObjCFOlegalDet.Measures != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_MEASURES", ObjCFOlegalDet.Measures);
+                }
+                if (ObjCFOlegalDet.WeightingIns != null && ObjCFOlegalDet.WeightingIns != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_WEIGHINGINSTR", ObjCFOlegalDet.WeightingIns);
+                }
+                if (ObjCFOlegalDet.ProfessionalTax != null && ObjCFOlegalDet.ProfessionalTax != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_PROFTAXREGNO", ObjCFOlegalDet.ProfessionalTax);
+                }
+                if (ObjCFOlegalDet.GST != null && ObjCFOlegalDet.GST != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_GSTREGNO", ObjCFOlegalDet.GST);
+                }
+                if (ObjCFOlegalDet.ITNUMBER != null && ObjCFOlegalDet.ITNUMBER != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_ITNO", ObjCFOlegalDet.ITNUMBER);
+                }
+                if (ObjCFOlegalDet.StateCountry != null && ObjCFOlegalDet.StateCountry != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_ISIMPORTING", ObjCFOlegalDet.StateCountry);
+                }
+                if (ObjCFOlegalDet.LICNUMBER != null && ObjCFOlegalDet.LICNUMBER != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_IMPORTLICNO", ObjCFOlegalDet.LICNUMBER);
+                }
+                if (ObjCFOlegalDet.WeightMeasure != null && ObjCFOlegalDet.WeightMeasure != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_REGOFIMPORTER", ObjCFOlegalDet.WeightMeasure);
+                }
+                if (ObjCFOlegalDet.StateSide != null && ObjCFOlegalDet.StateSide != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_SELLINGPLACE", ObjCFOlegalDet.StateSide);
+                }
+                if (ObjCFOlegalDet.Skilled != null && ObjCFOlegalDet.Skilled != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_SKILLEDEMP", Convert.ToInt32(ObjCFOlegalDet.Skilled));
+                }
+                if (ObjCFOlegalDet.SemiSkilled != null && ObjCFOlegalDet.SemiSkilled != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_SEMISKILLEDEMP", Convert.ToInt32(ObjCFOlegalDet.SemiSkilled));
+                }
+                if (ObjCFOlegalDet.Unskilled != null && ObjCFOlegalDet.Unskilled != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_UNSKILLEDEMP", Convert.ToInt32(ObjCFOlegalDet.Unskilled));
+                }
+                if (ObjCFOlegalDet.SpecialistTrain != null && ObjCFOlegalDet.SpecialistTrain != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_TRAINEDEMP", Convert.ToInt32(ObjCFOlegalDet.SpecialistTrain));
+                }
+                if (ObjCFOlegalDet.MachinaryOwn != null && ObjCFOlegalDet.MachinaryOwn != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_MACHINERYDETAILS", ObjCFOlegalDet.MachinaryOwn);
+                }
+                if (ObjCFOlegalDet.ownershiplong != null && ObjCFOlegalDet.ownershiplong != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_WORKSHOPDETAILS", ObjCFOlegalDet.ownershiplong);
+                }
+                if (ObjCFOlegalDet.FacilitiesSteel != null && ObjCFOlegalDet.FacilitiesSteel != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_TESTFACILITIES", ObjCFOlegalDet.FacilitiesSteel);
+                }
+                if (ObjCFOlegalDet.ElectricEnergy != null && ObjCFOlegalDet.ElectricEnergy != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_ELCENRGYAVLBL", ObjCFOlegalDet.ElectricEnergy);
+                }
+                if (ObjCFOlegalDet.Institution != null && ObjCFOlegalDet.Institution != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_LOANAVAILED", ObjCFOlegalDet.Institution);
+                }
+                if (ObjCFOlegalDet.NameBankers != null && ObjCFOlegalDet.NameBankers != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_LOANBANKERS", ObjCFOlegalDet.NameBankers);
+                }
+                if (ObjCFOlegalDet.DetailsDet != null && ObjCFOlegalDet.DetailsDet != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_LOANDETAILS", ObjCFOlegalDet.DetailsDet);
+                }
+                if (ObjCFOlegalDet.LICState != null && ObjCFOlegalDet.LICState != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_MANFLICAPPLIED", ObjCFOlegalDet.LICState);
+                }
+                if (ObjCFOlegalDet.GiveDetailsin != null && ObjCFOlegalDet.GiveDetailsin != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_MANFLICDETAILS", ObjCFOlegalDet.GiveDetailsin);
+                }
+                if (ObjCFOlegalDet.LICDeal != null && ObjCFOlegalDet.LICDeal != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_DEALERLICAPPLIED", ObjCFOlegalDet.LICDeal);
+                }
+                if (ObjCFOlegalDet.GiveDetails != null && ObjCFOlegalDet.GiveDetails != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_DEALERLICDETAILS", ObjCFOlegalDet.GiveDetails);
+                }
+                if (ObjCFOlegalDet.repairerLic != null && ObjCFOlegalDet.repairerLic != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_REPAIRERLICAPPLIED", ObjCFOlegalDet.repairerLic);
+                }
+                if (ObjCFOlegalDet.results != null && ObjCFOlegalDet.results != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_REPAIRERLICDETAILS", ObjCFOlegalDet.results);
+                }
+                if (ObjCFOlegalDet.stock != null && ObjCFOlegalDet.stock != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_HADSUFFSTOCK", ObjCFOlegalDet.stock);
+                }
+                if (ObjCFOlegalDet.GetDetails != null && ObjCFOlegalDet.GetDetails != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_STOCKDETAILS", ObjCFOlegalDet.GetDetails);
+                }
+
                 //com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGDATE",DateTime.ParseExact( ObjCFOlegalDet.DateReg, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFOLGM_MTLREGDATE", DateTime.ParseExact(ObjCFOlegalDet.RegDateNo, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFOLGM_MTLREGNO", ObjCFOlegalDet.RegCurrentNo);
-                com.Parameters.AddWithValue("@CFOLGM_WEIGHS", ObjCFOlegalDet.Weight);
-                com.Parameters.AddWithValue("@CFOLGM_MEASURES", ObjCFOlegalDet.Measures);
-                com.Parameters.AddWithValue("@CFOLGM_WEIGHINGINSTR", ObjCFOlegalDet.WeightingIns);
-                com.Parameters.AddWithValue("@CFOLGM_PROFTAXREGNO", ObjCFOlegalDet.ProfessionalTax);
-                com.Parameters.AddWithValue("@CFOLGM_GSTREGNO", ObjCFOlegalDet.GST);
-                com.Parameters.AddWithValue("@CFOLGM_ITNO", ObjCFOlegalDet.ITNUMBER);
-                com.Parameters.AddWithValue("@CFOLGM_ISIMPORTING", ObjCFOlegalDet.StateCountry);
-                com.Parameters.AddWithValue("@CFOLGM_IMPORTLICNO", ObjCFOlegalDet.LICNUMBER);
-                com.Parameters.AddWithValue("@CFOLGM_REGOFIMPORTER", ObjCFOlegalDet.WeightMeasure);
-                com.Parameters.AddWithValue("@CFOLGM_SELLINGPLACE", ObjCFOlegalDet.StateSide);
-                com.Parameters.AddWithValue("@CFOLGM_SKILLEDEMP", Convert.ToInt32(ObjCFOlegalDet.Skilled));
-                com.Parameters.AddWithValue("@CFOLGM_SEMISKILLEDEMP", Convert.ToInt32(ObjCFOlegalDet.SemiSkilled));
-                com.Parameters.AddWithValue("@CFOLGM_UNSKILLEDEMP", Convert.ToInt32(ObjCFOlegalDet.Unskilled));
-                com.Parameters.AddWithValue("@CFOLGM_TRAINEDEMP", Convert.ToInt32(ObjCFOlegalDet.SpecialistTrain));
-                com.Parameters.AddWithValue("@CFOLGM_MACHINERYDETAILS", ObjCFOlegalDet.MachinaryOwn);
-                com.Parameters.AddWithValue("@CFOLGM_WORKSHOPDETAILS", ObjCFOlegalDet.ownershiplong);
-                com.Parameters.AddWithValue("@CFOLGM_TESTFACILITIES", ObjCFOlegalDet.FacilitiesSteel);
-                com.Parameters.AddWithValue("@CFOLGM_ELCENRGYAVLBL", ObjCFOlegalDet.ElectricEnergy);
-                com.Parameters.AddWithValue("@CFOLGM_LOANAVAILED", ObjCFOlegalDet.Institution);
-                com.Parameters.AddWithValue("@CFOLGM_LOANBANKERS", ObjCFOlegalDet.NameBankers);
-                com.Parameters.AddWithValue("@CFOLGM_LOANDETAILS", ObjCFOlegalDet.DetailsDet);
-                com.Parameters.AddWithValue("@CFOLGM_MANFLICAPPLIED", ObjCFOlegalDet.LICState);
-                com.Parameters.AddWithValue("@CFOLGM_MANFLICDETAILS", ObjCFOlegalDet.GiveDetailsin);
-                com.Parameters.AddWithValue("@CFOLGM_DEALERLICAPPLIED", ObjCFOlegalDet.LICDeal);
-                com.Parameters.AddWithValue("@CFOLGM_DEALERLICDETAILS", ObjCFOlegalDet.GiveDetails);
-                com.Parameters.AddWithValue("@CFOLGM_REPAIRERLICAPPLIED", ObjCFOlegalDet.repairerLic);
-                com.Parameters.AddWithValue("@CFOLGM_REPAIRERLICDETAILS", ObjCFOlegalDet.results);
-                com.Parameters.AddWithValue("@CFOLGM_HADSUFFSTOCK", ObjCFOlegalDet.stock);
-                com.Parameters.AddWithValue("@CFOLGM_STOCKDETAILS", ObjCFOlegalDet.GetDetails);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -2106,7 +2386,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 connection.Dispose();
             }
         }
-        public DataSet GetApprovalDataByDeptId(string CFOQDID, string UNITID, string DEPTID)
+        public DataSet GetApprovalDataByDeptId(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2123,9 +2403,14 @@ namespace MeghalayaUIP.DAL.CFODAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@CFOQDID", CFOQDID);
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
-                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DEPTID);
+                da.SelectCommand.Parameters.AddWithValue("@USERID", userid);
+                da.SelectCommand.Parameters.AddWithValue("@CFOQID", QusestionnaireID);
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);
+                if (ApprovalID == "")
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", null);
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", ApprovalID);
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

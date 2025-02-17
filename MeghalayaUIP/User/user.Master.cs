@@ -244,5 +244,10 @@ namespace MeghalayaUIP.User
         {
             Response.Redirect("~/User/Services/SRVCUserDashboard.aspx");
         }
+
+        protected void lnkCompliance_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/ComplainDashboard.aspx");
+        }
     }
 }

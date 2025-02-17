@@ -134,5 +134,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.InsertFeedback(trackerId, feedbackList);
         }
+        public DataSet GetApplicationDetails(string Unitid,string Createdby)
+        {
+            return objCommonDAL.GetApplicationDetails(Unitid, Createdby);
+        }
     }
 }

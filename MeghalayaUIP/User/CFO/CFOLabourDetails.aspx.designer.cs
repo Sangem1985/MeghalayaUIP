@@ -96,13 +96,13 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// div33 control.
+        /// RegManuBoiler control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div33;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RegManuBoiler;
 
         /// <summary>
         /// RBLAPPROVED control.
@@ -240,13 +240,13 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.TextBox txtProvide;
 
         /// <summary>
-        /// div35 control.
+        /// RegBoiler control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div35;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RegBoiler;
 
         /// <summary>
         /// txtname1 control.
@@ -420,31 +420,13 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.TextBox txtRemark;
 
         /// <summary>
-        /// txtNameManu control.
+        /// Migrant1979 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNameManu;
-
-        /// <summary>
-        /// txtYearManu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtYearManu;
-
-        /// <summary>
-        /// txtPlaceManu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPlaceManu;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Migrant1979;
 
         /// <summary>
         /// txtNameAgent control.
@@ -526,6 +508,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMaximumnumber;
+
+        /// <summary>
+        /// MigrantWorkmen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MigrantWorkmen;
 
         /// <summary>
         /// rblConvicated control.
@@ -634,6 +625,15 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNature;
+
+        /// <summary>
+        /// RegShopEst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RegShopEst;
 
         /// <summary>
         /// txtAgent control.

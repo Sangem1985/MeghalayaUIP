@@ -703,6 +703,7 @@
     <Content Include="SingleWindowPortalDashboardDrillDown.aspx" />
     <Content Include="stateprofile.aspx" />
     <Content Include="StateProfileNew.aspx" />
+    <Content Include="Timelines.aspx" />
     <Content Include="Tourism.aspx" />
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
@@ -753,6 +754,7 @@
     <Content Include="User\CFO\CFOUserDashboard.aspx" />
     <Content Include="User\CFO\demo.aspx" />
     <Content Include="User\ChangePassword.aspx" />
+    <Content Include="User\ComplainDashboard.aspx" />
     <Content Include="User\DashboardDrill.aspx" />
     <Content Include="User\Dashboardstatus.aspx" />
     <Content Include="User\Dashboard\CentralRepository.aspx" />
@@ -1649,6 +1651,13 @@
     <Compile Include="StateProfileNew.aspx.designer.cs">
       <DependentUpon>StateProfileNew.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Timelines.aspx.cs">
+      <DependentUpon>Timelines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Timelines.aspx.designer.cs">
+      <DependentUpon>Timelines.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tourism.aspx.cs">
       <DependentUpon>Tourism.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1998,6 +2007,13 @@
     </Compile>
     <Compile Include="User\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ComplainDashboard.aspx.cs">
+      <DependentUpon>ComplainDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ComplainDashboard.aspx.designer.cs">
+      <DependentUpon>ComplainDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\DashboardDrill.aspx.cs">
       <DependentUpon>DashboardDrill.aspx</DependentUpon>

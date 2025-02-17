@@ -11,214 +11,178 @@ namespace MeghalayaUIP.User
 {
 
 
-    public partial class User
+    public partial class ComplainDashboard
     {
 
         /// <summary>
-        /// head control.
+        /// hdnUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// form1 control.
+        /// Label353 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label Label353;
 
         /// <summary>
-        /// imgLogo control.
+        /// labNameandAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgLogo;
+        protected global::System.Web.UI.WebControls.Label labNameandAddress;
 
         /// <summary>
-        /// lblUser control.
+        /// Label355 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUser;
+        protected global::System.Web.UI.WebControls.Label Label355;
 
         /// <summary>
-        /// lbltime control.
+        /// labLineofActivity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbltime;
+        protected global::System.Web.UI.WebControls.Label labLineofActivity;
 
         /// <summary>
-        /// lblusername control.
+        /// Label357 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblusername;
+        protected global::System.Web.UI.WebControls.Label Label357;
 
         /// <summary>
-        /// linkChngPswd control.
+        /// labTotalInvestment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkChngPswd;
+        protected global::System.Web.UI.WebControls.Label labTotalInvestment;
 
         /// <summary>
-        /// linklogout control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linklogout;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// linkuserdshbrd control.
+        /// lblindustryscale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkuserdshbrd;
+        protected global::System.Web.UI.WebControls.Label lblindustryscale;
 
         /// <summary>
-        /// linkIndReg control.
+        /// Label362 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkIndReg;
+        protected global::System.Web.UI.WebControls.Label Label362;
 
         /// <summary>
-        /// linkland control.
+        /// labNameandAddress0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkland;
+        protected global::System.Web.UI.WebControls.Label labNameandAddress0;
 
         /// <summary>
-        /// linkCFEDashbrd control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkCFEDashbrd;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// LinkCFODashBoard control.
+        /// lblriskcategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkCFODashBoard;
+        protected global::System.Web.UI.WebControls.Label lblriskcategory;
 
         /// <summary>
-        /// linkINC control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkINC;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// LinkRENDashBoard control.
+        /// lblCmplncRtg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkRENDashBoard;
+        protected global::System.Web.UI.WebControls.Label lblCmplncRtg;
 
         /// <summary>
-        /// lnkGrievance control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkGrievance;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// lnkGrvStatus control.
+        /// grdDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkGrvStatus;
+        protected global::System.Web.UI.WebControls.GridView grdDetails;
 
         /// <summary>
-        /// lnkServices control.
+        /// ActvlRenGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkServices;
+        protected global::System.Web.UI.WebControls.GridView ActvlRenGridView;
 
         /// <summary>
-        /// lnkCentralRep control.
+        /// InspCmplncGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCentralRep;
-
-        /// <summary>
-        /// lnkCompliance control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCompliance;
-
-        /// <summary>
-        /// LinkButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
-
-        /// <summary>
-        /// hdnUToken control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnUToken;
+        protected global::System.Web.UI.WebControls.GridView InspCmplncGridView;
     }
 }

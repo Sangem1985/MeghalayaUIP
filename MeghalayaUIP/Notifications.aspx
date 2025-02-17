@@ -16,20 +16,28 @@
                     </nav>
 
                     <h3>Archive</h3>
+
                     <ul>
-                          <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/PA Reforms Cell- No.PER(ARC)3-2012-Pt.I-847.I-847.pdf">P & A Reforms Cell- No.PER(ARC)3-2012-Pt.I-847</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/FOR622020Pt315_250214_170406.pdf">Forest Notification [No.FOR.62/2020/Pt/315]</a></li>
 
-                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Labour Notification Manufacturer 10 years.pdf">Labour Notification Manufacturer 10 years- Notification from Labour Dept(CIBF) [No: LE&SD.62/2024/83:-dated 16th Jan, 2025]</a></li>
-                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Labour Meghalaya 10 year amendment.pdf">Labour Meghalaya 10 year amendment - Notification from Labour Dept(CIBF) [No: LE&SD.62/2024/85:dated 16th Jan, 2025]</a></li>
-                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Amendemnt Women OSH Latest.pdf">Amendment Women OSH Latest - Notification from Labour Dept(CIBF) [No.LE&SD.62/2024/84 dated 16th Jan, 2025]</a></li>
-                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/3rdparty_noboiler.pdf">Third party certification Boiler</a></li>
-                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/3drparty_NA2.pdf">Self certification/third party factories</a></li>
-                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Scan Letter to DPIIT.pdf">IT Mobile tower approval</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PRIME Timeline PLR44-2020-Pt-463 dated 14th February2025_0001.pdf">Entrepreneurship Registration - PRIME ID timeline</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PRIME_43_44_45_UpdatedInformation (Planning Seal).pdf">PRIME Notification 14.02.2025</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/MSPCB_Notifications_14.02.2025.pdf">MSPCB Notifications 14.02.2025</a></li>
 
 
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/LabourDeptNoLESD62202497.pdf">CIBF Risk Categorization - Notification from Labour Dept  [No.LE&SD.62/2024/97 dated 14th Feb, 2025]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PA Reforms Cell- No.PER(ARC)3-2012-Pt.I-847.I-847.pdf">P & A Reforms Cell- No.PER(ARC)3-2012-Pt.I-847</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Labour Notification Manufacturer 10 years.pdf">Labour Notification Manufacturer 10 years- Notification from Labour Dept(CIBF) [No: LE&SD.62/2024/83:-dated 16th Jan, 2025]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Labour Meghalaya 10 year amendment.pdf">Labour Meghalaya 10 year amendment - Notification from Labour Dept(CIBF) [No: LE&SD.62/2024/85:dated 16th Jan, 2025]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Amendemnt Women OSH Latest.pdf">Amendment Women OSH Latest - Notification from Labour Dept(CIBF) [No.LE&SD.62/2024/84 dated 16th Jan, 2025]</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/3rdparty_noboiler.pdf">Third party certification Boiler</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/3drparty_NA2.pdf">Self certification/third party factories</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Scan Letter to DPIIT.pdf">IT Mobile tower approval</a></li>
 
-                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/OM No.PLR.44-2020-Pt-IV-58 dated 13th February, 2025_0001.pdf">OM No.PLR.44-2020-Pt-IV-58 dated 13th February, 2025_0001</a></li>
-                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/OM No.PLR.44-2020-Pt-IV-54 dated 13th February, 2025_0001.pdf">OM No.PLR.44-2020-Pt-IV-54 dated 13th February, 2025_0001</a></li>
+
+
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/OM No.PLR.44-2020-Pt-IV-58 dated 13th February, 2025_0001.pdf">OM No.PLR.44-2020-Pt-IV-58 dated 13th February, 2025_0001</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/OM No.PLR.44-2020-Pt-IV-54 dated 13th February, 2025_0001.pdf">OM No.PLR.44-2020-Pt-IV-54 dated 13th February, 2025_0001</a></li>
 
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/TSU_EGOS_NPG_Notification dated 20th May 2022.pdf">TSU_EGOS_NPG_Notification dated 20th May 2022</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Model SOP Layers for all departments dated 21st Novemebr 2024.pdf">Model SOP Layers for all departments dated 21st Novemebr 2024</a></li>

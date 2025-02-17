@@ -65,27 +65,27 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                DataSet ds = new DataSet();
+                //DataSet ds = new DataSet();
 
-                ds = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "4");
+                //ds = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "4");
 
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    if (Convert.ToString(ds.Tables[0].Rows[0]["CFOQA_APPROVALID"]) == "85")
-                    {
-                        LoadTransitData();
-                    }
-                }
-                else
-                {
-                    if (Request.QueryString.Count > 0)
-                    {
-                        if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
-                        else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/CFO/CFOExcise.aspx?Previous=P");
-                    }
-                }
+                //if (ds.Tables[0].Rows.Count > 0)
+                //{
+                //    if (Convert.ToString(ds.Tables[0].Rows[0]["CFOQA_APPROVALID"]) == "85")
+                //    {
+                //        LoadTransitData();
+                //    }
+                //}
+                //else
+                //{
+                //    if (Request.QueryString.Count > 0)
+                //    {
+                //        if (Convert.ToString(Request.QueryString[0]) == "N")
+                //            Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+                //        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                //            Response.Redirect("~/User/CFO/CFOExcise.aspx?Previous=P");
+                //    }
+                //}
 
 
             }
