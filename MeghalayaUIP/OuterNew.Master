@@ -440,6 +440,7 @@
                                                         <%--<li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= MeghalayaNextVision2028 %>', '_blank'); return false;">Meghalaya Next Vision
                                                 2028</a></li>--%>
                                                         <li><a href="InvestibleProject.aspx">Investible Projects </a></li>
+                                                        <li><a href="https://www.meghalayatourism.in/notices-and-updates/" target="_blank">Tourism notices & updates </a></li>
 
                                                     </ul>
                                                 </li>
@@ -455,6 +456,8 @@
                                                         <li><a href="Documents/ConstructionandDemolitionWasterPolicy.pdf" target="_blank">Construction and demolition waste 2024</a></li>
                                                         <li class="dropdown"><a href="#">Others</a>
                                                             <ul>
+
+                                                                <li><a href="Documents/MRPS Act 2020.pdf" target="_blank">MRPS Act 2020</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=MeghalayaMicroSmallEnterprises%>', '_blank'); return false;">Meghalaya
                                                     Procurement Preference Policy for Micro and small Enterprises,
                                                     2020</a></li>

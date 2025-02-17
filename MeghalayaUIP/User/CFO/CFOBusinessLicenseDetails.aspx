@@ -86,6 +86,7 @@
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <div class="row">
+                                        <div id="PCB59" runat="server" visible="false"></div>
                                         <div class="col-md-12 d-flex">
                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Establishment Details</span></label>
                                         </div>

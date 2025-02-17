@@ -96,6 +96,15 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
+        /// PCB59 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PCB59;
+
+        /// <summary>
         /// txtaddress control.
         /// </summary>
         /// <remarks>

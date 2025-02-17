@@ -53,28 +53,12 @@ namespace MeghalayaUIP.User.CFO
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        //DataSet dsnew = new DataSet();
-                        //dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "8");
-                        //if (dsnew.Tables[0].Rows.Count > 0)
-                        //{
-                      
-                        //}
-                        //else
-                        //{
-                        //    if (Request.QueryString[0].ToString() == "N")
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
-                        //    }
-                        //    else
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
-                        //    }
-                        //}
+                        GetAppliedorNot();
                         Binddata();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -86,47 +70,58 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 DataSet dsnew = new DataSet();
-                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "10", "");
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "8", "");
                 if (dsnew.Tables[0].Rows.Count > 0)
                 {
-                    //    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
-                    //    {
-                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "39" || dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "46")
-                    //        {
-                    //            div_39_46.Visible = true;
-                    //        }
-                    //        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"]) == "48")
-                    //        {
-                    //            div_48.Visible = true;
-                    //        }
-                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "49")
-                    //        {
-                    //            div_48.Visible = true;
-                    //            div_Staff_Manf.Visible = true;
-                    //            div_Staff_Test.Visible = true;
-                    //        }
-                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "50")
-                    //        {
-                    //            div_48.Visible = true;
-                    //            div_Staff_Manf.Visible = true;
-                    //        }
-                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "51")
-                    //        {
-                    //            div_48.Visible = true;
-                    //            div_Staff_Test.Visible = true;
-                    //        }
-                    //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "52")
-                    //        {
-                    //            div_52.Visible = true;
-                    //            div_48.Visible = true;
-                    //            div_Staff_Manf.Visible = true;
-                    //            div_Staff_Test.Visible = true;
-                    //        }
-                    //    }
+                    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                    {
+                        if (dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"].ToString() == "39" || dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"].ToString() == "46")
+                        {
+                            div_39_46.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "48")
+                        {
+                            div_48.Visible = true;
+                        }
+                        if (dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"].ToString() == "49")
+                        {
+                            div_48.Visible = true;
+                            div_Staff_Manf.Visible = true;
+                            div_Staff_Test.Visible = true;
+                        }
+                        if (dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"].ToString() == "50")
+                        {
+                            div_48.Visible = true;
+                            div_Staff_Manf.Visible = true;
+                        }
+                        if (dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"].ToString() == "51")
+                        {
+                            div_48.Visible = true;
+                            div_Staff_Test.Visible = true;
+                        }
+                        if (dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"].ToString() == "52")
+                        {
+                            div_52.Visible = true;
+                            div_48.Visible = true;
+                            div_Staff_Manf.Visible = true;
+                            div_Staff_Test.Visible = true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString[0].ToString() == "N")
+                    {
+                        Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?next=N");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/User/CFO/CFOContractorsRegistration.aspx?Previous=P");
+                    }
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -144,11 +139,16 @@ namespace MeghalayaUIP.User.CFO
                     if (ds.Tables[1].Rows.Count > 0)
                     {
                         ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFODL_UNITID"]);
+                        if (div_39_46.Visible == true)
+                        {
+                            rblApplication.SelectedValue = ds.Tables[1].Rows[0]["CFODL_APPLTYPE"].ToString();
+                            txttradeLic.Text = ds.Tables[1].Rows[0]["CFODL_TRADELICVALDTYDATE"].ToString();
+                            txtClass.Text = ds.Tables[1].Rows[0]["CFODL_MUNCPERMVALDTYDATE"].ToString();
+                            txtCapacity.Text = ds.Tables[1].Rows[0]["CFODL_COLDSTORGDETAILS"].ToString();
+                        }
+                        else { div_39_46.Visible = false; }
 
-                        rblApplication.SelectedValue = ds.Tables[1].Rows[0]["CFODL_APPLTYPE"].ToString();
-                        txttradeLic.Text = ds.Tables[1].Rows[0]["CFODL_TRADELICVALDTYDATE"].ToString();
-                        txtClass.Text = ds.Tables[1].Rows[0]["CFODL_MUNCPERMVALDTYDATE"].ToString();
-                        txtCapacity.Text = ds.Tables[1].Rows[0]["CFODL_COLDSTORGDETAILS"].ToString();
+
                         rblLicense.SelectedValue = ds.Tables[1].Rows[0]["CFODL_ANYPREVLIC"].ToString();
                         if (rblLicense.Text == "Yes")
                         {
@@ -157,38 +157,56 @@ namespace MeghalayaUIP.User.CFO
                         }
                         else { CanceledLIC.Visible = false; }
 
-                        rblinsection.SelectedValue = ds.Tables[1].Rows[0]["CFODL_PREMISERDYFORINSP"].ToString();
-                        if (rblinsection.Text == "Y")
+                        if (div_52.Visible == true)
                         {
-                            InspectionDate.Visible = true;
-                            txtInspection.Text = ds.Tables[1].Rows[0]["CFODL_DATEOFINSP"].ToString();
+                            rblinsection.SelectedValue = ds.Tables[1].Rows[0]["CFODL_PREMISERDYFORINSP"].ToString();
+                            if (rblinsection.Text == "Y")
+                            {
+                                InspectionDate.Visible = true;
+                                txtInspection.Text = ds.Tables[1].Rows[0]["CFODL_DATEOFINSP"].ToString();
+                            }
+                            else { InspectionDate.Visible = false; }
                         }
-                        else { InspectionDate.Visible = false; }
+                        else { div_52.Visible = false; }
 
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         //hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFODM_CFOQDID"]);
-                        ViewState["MANUFACTURE"] = ds.Tables[2];
-                        GVHealthy.DataSource = ds.Tables[2];
-                        GVHealthy.DataBind();
-                        GVHealthy.Visible = true;
+                        if (div_Staff_Manf.Visible == true)
+                        {
+                            ViewState["MANUFACTURE"] = ds.Tables[2];
+                            GVHealthy.DataSource = ds.Tables[2];
+                            GVHealthy.DataBind();
+                            GVHealthy.Visible = true;
+                        }
+                        else { div_Staff_Manf.Visible = false; }
+                       
                     }
                     if (ds.Tables[3].Rows.Count > 0)
                     {
-                        //hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["CFODT_CFOQDID"]);
-                        ViewState["TESTING"] = ds.Tables[3];
-                        GVTESTING.DataSource = ds.Tables[3];
-                        GVTESTING.DataBind();
-                        GVTESTING.Visible = true;
+                        if (div_Staff_Test.Visible == true)
+                        {
+
+                            //hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["CFODT_CFOQDID"]);
+                            ViewState["TESTING"] = ds.Tables[3];
+                            GVTESTING.DataSource = ds.Tables[3];
+                            GVTESTING.DataBind();
+                            GVTESTING.Visible = true;
+                        }
+                        else { div_Staff_Test.Visible = false; }
                     }
                     if (ds.Tables[4].Rows.Count > 0)
                     {
-                        //hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["CFOD_CFOQDID"]);
-                        ViewState["NameDrug"] = ds.Tables[4];
-                        GVDrug.DataSource = ds.Tables[4];
-                        GVDrug.DataBind();
-                        GVDrug.Visible = true;
+                        if (div_48.Visible == true)
+                        {
+                            //hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["CFOD_CFOQDID"]);
+                            ViewState["NameDrug"] = ds.Tables[4];
+                            GVDrug.DataSource = ds.Tables[4];
+                            GVDrug.DataBind();
+                            GVDrug.Visible = true;
+                        }
+                        else { div_48.Visible = false; }
                     }
                     if (ds.Tables[5].Rows.Count > 0)
                     {
@@ -304,7 +322,7 @@ namespace MeghalayaUIP.User.CFO
                     InspectionDate.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -505,64 +523,87 @@ namespace MeghalayaUIP.User.CFO
                 List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
                 string errormsg = "";
 
-                if (string.IsNullOrEmpty(txtClass.Text) || txtClass.Text == "" || txtClass.Text == null)
+                if (div_39_46.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Valida Permission\\n";
-                    slno = slno + 1;
-                }
-                if (rblApplication.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Select Applicant Type \\n";
-                    slno = slno + 1;
-                }
-                //if (rblLicense.SelectedIndex == -1 || rblLicense.SelectedItem.Text == "--Select--")
-                //{
-                //    errormsg = errormsg + slno + ". Please Select Canceled License \\n";
-                //    slno = slno + 1;
-                //}
-                if (string.IsNullOrEmpty(txttradeLic.Text) || txttradeLic.Text == "" || txttradeLic.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Trade License\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtClass.Text) || txtClass.Text == "" || txtClass.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Valid up to date permission\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Cold Storage\\n";
-                    slno = slno + 1;
-                }
-                if (rblinsection.SelectedIndex == -1)
-                {
-                    errormsg = errormsg + slno + ". Please Select Yes or No Is the premise and plan ready for inspection? \\n";
-                    slno = slno + 1;
-                }
-                if (rblinsection.SelectedValue == "Y")
-                {
-                    if (string.IsNullOrEmpty(txtInspection.Text) || txtInspection.Text == "" || txtInspection.Text == null)
+                    if (string.IsNullOrEmpty(txtClass.Text) || txtClass.Text == "" || txtClass.Text == null)
                     {
-                        errormsg = errormsg + slno + ". Please Enter Date for Inspection\\n";
+                        errormsg = errormsg + slno + ". Please Enter Valida Permission\\n";
+                        slno = slno + 1;
+                    }
+                    if (rblApplication.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Applicant Type \\n";
+                        slno = slno + 1;
+                    }
+                    //if (rblLicense.SelectedIndex == -1 || rblLicense.SelectedItem.Text == "--Select--")
+                    //{
+                    //    errormsg = errormsg + slno + ". Please Select Canceled License \\n";
+                    //    slno = slno + 1;
+                    //}
+                    if (string.IsNullOrEmpty(txttradeLic.Text) || txttradeLic.Text == "" || txttradeLic.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Trade License\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtClass.Text) || txtClass.Text == "" || txtClass.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Valid up to date permission\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtCapacity.Text) || txtCapacity.Text == "" || txtCapacity.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Cold Storage\\n";
                         slno = slno + 1;
                     }
                 }
-                if (GVHealthy.Rows.Count <= 0)
+                else { div_39_46.Visible = false; }
+
+                if (div_52.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Details of Technical Staff employed for Manufacturing \\n";
-                    slno = slno + 1;
+                    if (rblinsection.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Yes or No Is the premise and plan ready for inspection? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblinsection.SelectedValue == "Y")
+                    {
+                        if (string.IsNullOrEmpty(txtInspection.Text) || txtInspection.Text == "" || txtInspection.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Date for Inspection\\n";
+                            slno = slno + 1;
+                        }
+                    }
                 }
-                if (GVTESTING.Rows.Count <= 0)
+                else { div_52.Visible = false; }
+                if (div_Staff_Manf.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Details Of Technical Staff Employed For Testing \\n";
-                    slno = slno + 1;
+
+                    if (GVHealthy.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Details of Technical Staff employed for Manufacturing \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (GVDrug.Rows.Count <= 0)
+                else { div_Staff_Manf.Visible = false; }
+                if (div_Staff_Test.Visible == true)
                 {
-                    errormsg = errormsg + slno + ". Please Enter Drug Details \\n";
-                    slno = slno + 1;
+
+                    if (GVTESTING.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Details Of Technical Staff Employed For Testing \\n";
+                        slno = slno + 1;
+                    }
                 }
+                else { div_Staff_Test.Visible = false; }
+                if (div_48.Visible == true)
+                {
+                    if (GVDrug.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Drug Details \\n";
+                        slno = slno + 1;
+                    }
+                }
+                else { div_48.Visible = false; }
                 //if (string.IsNullOrEmpty(txtName.Text) || txtName.Text == "" || txtName.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter Name\\n";
@@ -690,7 +731,7 @@ namespace MeghalayaUIP.User.CFO
                     CanceledLIC.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -994,7 +1035,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypTribal.Text = fupTribal.PostedFile.FileName;
-                            hypTribal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypTribal.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypTribal.Target = "blank";
                             message = "alert('" + "ST Certificate/Trading License in case of Non Tribal of new proprietor  Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1056,7 +1097,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypQualification.Text = fupQualification.PostedFile.FileName;
-                            hypQualification.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypQualification.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypQualification.Target = "blank";
                             message = "alert('" + "Qualification Certificate of new proprietor  Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1117,7 +1158,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypSpecimen.Text = fupSpecimen.PostedFile.FileName;
-                            hypSpecimen.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypSpecimen.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypSpecimen.Target = "blank";
                             message = "alert('" + "Specimen signature of new proprietor Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1178,7 +1219,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypHeadman.Text = fupHeadman.PostedFile.FileName;
-                            hypHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypHeadman.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypHeadman.Target = "blank";
                             message = "alert('" + "NOC from Local Headman/Municipal/Cantonment Board in favour of new proprietor Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1239,7 +1280,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypTenancy.Text = fupTenancy.PostedFile.FileName;
-                            hypTenancy.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypTenancy.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypTenancy.Target = "blank";
                             message = "alert('" + "Tenancy agreement Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1300,7 +1341,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypRegistration.Text = fupRegistration.PostedFile.FileName;
-                            hypRegistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypRegistration.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypRegistration.Target = "blank";
                             message = "alert('" + "Up to Date Registration of Pharmacist Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1361,7 +1402,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypPharmacist.Text = fupPharmacist.PostedFile.FileName;
-                            hypPharmacist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypPharmacist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypPharmacist.Target = "blank";
                             message = "alert('" + "Specimen Signature of Pharmacist Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1422,7 +1463,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypQualificationcertificate.Text = fupQualificationcertificate.PostedFile.FileName;
-                            hypQualificationcertificate.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypQualificationcertificate.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypQualificationcertificate.Target = "blank";
                             message = "alert('" + "Qualification Certificate of Pharmacist Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1483,7 +1524,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypsiteplan.Text = fupsiteplan.PostedFile.FileName;
-                            hypsiteplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypsiteplan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypsiteplan.Target = "blank";
                             message = "alert('" + "Key and Site Plan Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1544,7 +1585,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypCompetentperson.Text = fupCompetentperson.PostedFile.FileName;
-                            hypCompetentperson.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypCompetentperson.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypCompetentperson.Target = "blank";
                             message = "alert('" + "Specimen Signature of pharmacist/ Competent person Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1605,7 +1646,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hyppharmacistlist.Text = fuppharmacistlist.PostedFile.FileName;
-                            hyppharmacistlist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hyppharmacistlist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hyppharmacistlist.Target = "blank";
                             message = "alert('" + "Qualification Certificate of pharmacist/ Competent person Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1666,7 +1707,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypundertaking1.Text = fupundertaking1.PostedFile.FileName;
-                            hypundertaking1.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypundertaking1.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypundertaking1.Target = "blank";
                             message = "alert('" + "Undertaking I Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1727,7 +1768,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypundertaking2.Text = fupundertaking2.PostedFile.FileName;
-                            hypundertaking2.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypundertaking2.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypundertaking2.Target = "blank";
                             message = "alert('" + "Undertaking II Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -1788,7 +1829,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypstaff.Text = fupstaff.PostedFile.FileName;
-                            hypstaff.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath); 
+                            hypstaff.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
                             hypstaff.Target = "blank";
                             message = "alert('" + "Staff List Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);

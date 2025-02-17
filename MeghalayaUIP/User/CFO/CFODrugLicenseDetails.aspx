@@ -91,7 +91,7 @@
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <div class="row">
-                                        <div id="div_39_46" runat="server" visible="false">
+                                        <div id="div_39_46" runat="server" visible="true">
                                             <div class="col-md-12 d-flex">
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Application Type and Ownership Details</span></label>
                                             </div>
