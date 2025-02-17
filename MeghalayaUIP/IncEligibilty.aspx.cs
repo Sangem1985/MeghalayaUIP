@@ -27,10 +27,15 @@ namespace MeghalayaUIP
             string area = ddlSelectArea.SelectedItem.Text;
 
             ds = mstrBAL.GetEligibleInc(category,sector, expansionType,pwd,area);
-            if (ds != null)
+            if (ds != null && ds.Tables.Count>0 && ds.Tables[0].Rows.Count>0)
             {
-                grdDetails.DataSource = ds;
+                fail.Visible = false;
+                grdDetails.DataSource = ds.Tables[0];
                 grdDetails.DataBind();
+            }
+            else
+            {
+                fail.Visible = true;
             }
 
         }

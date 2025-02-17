@@ -152,10 +152,9 @@
 
                             <HeaderStyle CssClass="blue-header" />
                         </asp:GridView>
-
-
-
-
+                    </div>
+                    <div id="fail" runat="server" style="color: red; font-weight: bold;">
+                        No eligible incentives found.
                     </div>
                 </div>
             </div>
