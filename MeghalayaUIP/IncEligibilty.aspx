@@ -38,6 +38,15 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-md-12 ">
+                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                            <strong>Warning!</strong>
+                            <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
                     <%--<!-- Caste Field -->
                     <div class="col-md-6">
                         <asp:Label ID="Label376" runat="server" CssClass="LBLBLACK">1. Caste<font color="red">*</font></asp:Label>

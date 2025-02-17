@@ -30,11 +30,15 @@ namespace MeghalayaUIP
             if (ds != null && ds.Tables.Count>0 && ds.Tables[0].Rows.Count>0)
             {
                 fail.Visible = false;
+                Failure.Visible = false;
                 grdDetails.DataSource = ds.Tables[0];
                 grdDetails.DataBind();
             }
             else
             {
+                Failure.Visible = true;
+                lblmsg0.Text = "No Eligible Incentives Available";
+                grdDetails.Visible = false;
                 fail.Visible = true;
             }
 
