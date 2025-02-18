@@ -29,6 +29,7 @@ namespace MeghalayaUIP
             ds = mstrBAL.GetEligibleInc(category,sector, expansionType,pwd,area);
             if (ds != null && ds.Tables.Count>0 && ds.Tables[0].Rows.Count>0)
             {
+                grdDetails.Visible = true;
                 fail.Visible = false;
                 Failure.Visible = false;
                 grdDetails.DataSource = ds.Tables[0];
