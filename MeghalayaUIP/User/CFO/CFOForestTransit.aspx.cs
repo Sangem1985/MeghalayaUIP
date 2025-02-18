@@ -60,34 +60,34 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }
+        }     
         protected void GetAppliedorNot()
         {
             try
             {
-                //DataSet ds = new DataSet();
+                DataSet dsnew = new DataSet();
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "4", "");
+                if (dsnew.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "85")
+                        {
+                            LoadTransitData();
+                        }
 
-                //ds = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "4");
-
-                //if (ds.Tables[0].Rows.Count > 0)
-                //{
-                //    if (Convert.ToString(ds.Tables[0].Rows[0]["CFOQA_APPROVALID"]) == "85")
-                //    {
-                //        LoadTransitData();
-                //    }
-                //}
-                //else
-                //{
-                //    if (Request.QueryString.Count > 0)
-                //    {
-                //        if (Convert.ToString(Request.QueryString[0]) == "N")
-                //            Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
-                //        else if (Convert.ToString(Request.QueryString[0]) == "P")
-                //            Response.Redirect("~/User/CFO/CFOExcise.aspx?Previous=P");
-                //    }
-                //}
-
-
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/CFO/CFOExcise.aspx?Previous=P");
+                    }
+                }
             }
             catch (Exception ex)
             {

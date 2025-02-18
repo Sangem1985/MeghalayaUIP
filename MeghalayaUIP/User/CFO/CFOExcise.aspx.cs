@@ -55,43 +55,59 @@ namespace MeghalayaUIP.User.CFO
                         success.Visible = false;
                         if (!IsPostBack)
                         {
-                            //DataSet dsnew = new DataSet();
-                            //dsnew = bal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "7");
-                            //if (dsnew.Tables[0].Rows.Count > 0)
-                            //{
-                            //    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
-                            //    {
-                            //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "45")
-                            //        {
-                            //            div_45_AplicntDtls.Visible = true;
-                            //        }
-                            //        if (dsnew.Tables[0].Rows[i]["CFOQA_APPROVALID"].ToString() == "47")
-                            //        {
-                            //            div_47_BLR.Visible = true;
-                            //        }
-                            //    }
-                            //}
-                            //else
-                            //{
-                            //    if (Request.QueryString[0].ToString() == "N")
-                            //    {
-                            //        Response.Redirect("~/User/CFO/CFOForestTransit.aspx?next=N");
-                            //    }
-                            //    else
-                            //    {
-                            //        Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
-                            //    }
-                            //}                           
+                            GetAppliedorNot();
                             BindCountry();
                             BindDetails();
                             AttachmentBind();
                         }
                     }
-                    
+
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet dsnew = new DataSet();
+                dsnew = bal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "7", "");
+                if (dsnew.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "45")
+                        {
+                            div_45_AplicntDtls.Visible = true;
+                        }
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "47")
+                        {
+                            div_47_BLR.Visible = true;
+                        }
+
+
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString[0].ToString() == "N")
+                    {
+                        Response.Redirect("~/User/CFO/CFOForestTransit.aspx?next=N");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?Previous=P");
+                    }
+                }
+
+            }
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -104,10 +120,10 @@ namespace MeghalayaUIP.User.CFO
             {
 
 
-                CFOExciseDetails cFOExciseDetails = bal.GetCFOExciseData(UnitID, hdnUserID.Value); 
+                CFOExciseDetails cFOExciseDetails = bal.GetCFOExciseData(UnitID, hdnUserID.Value);
                 List<CFOExciseBrandDetails> brandDetailsList = cFOExciseDetails.brandgridlist;
                 List<CFOExciseLiquorDetails> liquorDetailsList = cFOExciseDetails.liquorgridlist;
-               // List<CFOAttachments> objAadharlist = cFOExciseDetails.CFOAttachment;             
+                // List<CFOAttachments> objAadharlist = cFOExciseDetails.CFOAttachment;             
 
                 ViewState["BrandDetails"] = brandDetailsList;
                 ViewState["LiquorDetails"] = liquorDetailsList;
@@ -151,10 +167,10 @@ namespace MeghalayaUIP.User.CFO
                     GvLiquor.Visible = true;
                     GvLiquor.DataSource = liquorDetailsList;
                     GvLiquor.DataBind();
-                }               
-             
+                }
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -270,13 +286,13 @@ namespace MeghalayaUIP.User.CFO
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-           
+
         }
         protected void rblConvicted_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -291,7 +307,7 @@ namespace MeghalayaUIP.User.CFO
                     convictedlaw.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -313,7 +329,7 @@ namespace MeghalayaUIP.User.CFO
                     txtlaw.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -335,7 +351,7 @@ namespace MeghalayaUIP.User.CFO
                     Excisedept.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -357,7 +373,7 @@ namespace MeghalayaUIP.User.CFO
                     MRPGRID.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -381,7 +397,7 @@ namespace MeghalayaUIP.User.CFO
                     TodateReg.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -405,7 +421,7 @@ namespace MeghalayaUIP.User.CFO
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -443,7 +459,7 @@ namespace MeghalayaUIP.User.CFO
                 objcfo.ConvictedDetails = rblConvicted.SelectedValue == "Y" ? txtDetails.Text : "";
                 objcfo.RenewBrand = rblBrand.SelectedValue;
                 if (rblBrand.SelectedValue == "Y")
-                    objcfo.RegFromDate = DateTime.ParseExact(txtFromDate.Text, "dd-MM-yyyy",CultureInfo.InvariantCulture);
+                    objcfo.RegFromDate = DateTime.ParseExact(txtFromDate.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 if (rblBrand.SelectedValue == "Y")
                     objcfo.RegToDate = DateTime.ParseExact(txtTodate.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 objcfo.FirmAddress = txtAddress.Text;
@@ -465,7 +481,7 @@ namespace MeghalayaUIP.User.CFO
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -1143,7 +1159,7 @@ namespace MeghalayaUIP.User.CFO
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
-           
+
         }
 
         protected void btnSpecimen_Click(object sender, EventArgs e)
@@ -1668,7 +1684,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hyppharmacistlist.Text = fuppharmacistlist.PostedFile.FileName;
-                            hyppharmacistlist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fuppharmacistlist.PostedFile.FileName);                           hyppharmacistlist.Target = "blank";
+                            hyppharmacistlist.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fuppharmacistlist.PostedFile.FileName); hyppharmacistlist.Target = "blank";
                             message = "alert('" + "Trade Licence/ Factories Licence Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
@@ -1789,7 +1805,7 @@ namespace MeghalayaUIP.User.CFO
                         if (result != "")
                         {
                             hypundertaking2.Text = fupundertaking2.PostedFile.FileName;
-                            hypundertaking2.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupundertaking2.PostedFile.FileName); 
+                            hypundertaking2.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupundertaking2.PostedFile.FileName);
                             hypundertaking2.Target = "blank";
                             message = "alert('" + "Excise licence held individually/jointly for one Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
