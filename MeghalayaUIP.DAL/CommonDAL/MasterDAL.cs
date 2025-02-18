@@ -894,7 +894,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstSectorMstr;
         }
-        public DataSet GetDeptBestPractice(string Department=null, string Subdept=null, string Sector=null)
+        public DataSet GetDeptBestPractice(string Department = null, string Subdept = null, string Sector = null)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -919,7 +919,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.Fill(ds);
             }
             catch (Exception ex)
-            {               
+            {
                 throw ex;
             }
             finally
@@ -1406,7 +1406,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstDistricESTMstr;
         }
-        public DataSet GetCertifcateDetails(string TypeOfApplication, string UIDNo, string UnitName)
+        public DataSet GetCertifcateDetails(string TypeOfApplication, string UIDNo = null, string UnitName = null)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1423,8 +1423,15 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@APPTYPE", TypeOfApplication);
-                da.SelectCommand.Parameters.AddWithValue("@UIDNO", UIDNo);
-                da.SelectCommand.Parameters.AddWithValue("@UNITNAME", UnitName);
+                if (UIDNo != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@UIDNO", UIDNo);
+                }
+                if (UnitName != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@UNITNAME", UnitName);
+                }
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -2570,7 +2577,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return Result;
         }
-        public DataSet SWPDDrilldown(string Deptid, string FromDate, string ToDate,string ViewType)
+        public DataSet SWPDDrilldown(string Deptid, string FromDate, string ToDate, string ViewType)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);

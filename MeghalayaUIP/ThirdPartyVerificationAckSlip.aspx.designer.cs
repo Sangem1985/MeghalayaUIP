@@ -11,79 +11,61 @@ namespace MeghalayaUIP
 {
 
 
-    public partial class ViewCertifcateDetails
+    public partial class ThirdPartyVerificationAckSlip
     {
 
         /// <summary>
-        /// ddlTypeApplication control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTypeApplication;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtUIDNo control.
+        /// lblDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUIDNo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDate;
 
         /// <summary>
-        /// txtUnitName control.
+        /// lblDear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUnitName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDear;
 
         /// <summary>
-        /// btnsubmit control.
+        /// lblPrime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsubmit;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPrime;
 
         /// <summary>
-        /// divGrid control.
+        /// lblUIDNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGrid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUIDNo;
 
         /// <summary>
-        /// gvDetails control.
+        /// lblDate1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDetails;
-
-        /// <summary>
-        /// divStatup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divStatup;
-
-        /// <summary>
-        /// GVStratup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVStratup;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDate1;
     }
 }

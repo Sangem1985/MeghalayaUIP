@@ -602,6 +602,7 @@
     <Content Include="CommentsonAmmendments.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Dashboarddrill.aspx" />
+    <Content Include="Deap.aspx" />
     <Content Include="Decriminalisation.aspx" />
     <Content Include="demoinnerpage.aspx" />
     <Content Include="Deptlogin.aspx" />
@@ -703,6 +704,7 @@
     <Content Include="SingleWindowPortalDashboardDrillDown.aspx" />
     <Content Include="stateprofile.aspx" />
     <Content Include="StateProfileNew.aspx" />
+    <Content Include="ThirdPartyVerificationAckSlip.aspx" />
     <Content Include="Timelines.aspx" />
     <Content Include="Tourism.aspx" />
     <Content Include="User\CFE\CFEApplDetails.aspx" />
@@ -925,6 +927,13 @@
     </Compile>
     <Compile Include="Dashboarddrill.aspx.designer.cs">
       <DependentUpon>Dashboarddrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Deap.aspx.cs">
+      <DependentUpon>Deap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Deap.aspx.designer.cs">
+      <DependentUpon>Deap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Decriminalisation.aspx.cs">
       <DependentUpon>Decriminalisation.aspx</DependentUpon>
@@ -1650,6 +1659,13 @@
     </Compile>
     <Compile Include="StateProfileNew.aspx.designer.cs">
       <DependentUpon>StateProfileNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdPartyVerificationAckSlip.aspx.cs">
+      <DependentUpon>ThirdPartyVerificationAckSlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThirdPartyVerificationAckSlip.aspx.designer.cs">
+      <DependentUpon>ThirdPartyVerificationAckSlip.aspx</DependentUpon>
     </Compile>
     <Compile Include="Timelines.aspx.cs">
       <DependentUpon>Timelines.aspx</DependentUpon>

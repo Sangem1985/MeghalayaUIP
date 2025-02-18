@@ -1760,17 +1760,38 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFODL_CFOQDID", Convert.ToInt32(ObjCFOHealthyWelfare.Questionnariid));
                 com.Parameters.AddWithValue("@CFODL_UNITID", Convert.ToInt32(ObjCFOHealthyWelfare.UnitId));
 
-                com.Parameters.AddWithValue("@CFODL_APPLTYPE", ObjCFOHealthyWelfare.TypeApplication);
-                com.Parameters.AddWithValue("@CFODL_TRADELICVALDTYDATE", DateTime.ParseExact(ObjCFOHealthyWelfare.TradingLICDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFODL_MUNCPERMVALDTYDATE", DateTime.ParseExact(ObjCFOHealthyWelfare.Valideuptodate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFODL_COLDSTORGDETAILS", ObjCFOHealthyWelfare.coldstorage);
-                com.Parameters.AddWithValue("@CFODL_ANYPREVLIC", ObjCFOHealthyWelfare.cancelledlicense);
-                com.Parameters.AddWithValue("@CFODL_PREVLICDETAILS", ObjCFOHealthyWelfare.specifylicense);
-                com.Parameters.AddWithValue("@CFODL_PREMISERDYFORINSP", ObjCFOHealthyWelfare.readyinspection);
-                com.Parameters.AddWithValue("@CFODL_DATEOFINSP", DateTime.ParseExact(ObjCFOHealthyWelfare.inceptionDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-
-
-
+                if (ObjCFOHealthyWelfare.TypeApplication != null && ObjCFOHealthyWelfare.TypeApplication != "")
+                {
+                    com.Parameters.AddWithValue("@CFODL_APPLTYPE", ObjCFOHealthyWelfare.TypeApplication);
+                }
+                if (ObjCFOHealthyWelfare.TradingLICDate != null && ObjCFOHealthyWelfare.TradingLICDate != "")
+                {
+                    com.Parameters.AddWithValue("@CFODL_TRADELICVALDTYDATE", DateTime.ParseExact(ObjCFOHealthyWelfare.TradingLICDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjCFOHealthyWelfare.Valideuptodate != null && ObjCFOHealthyWelfare.Valideuptodate != "")
+                {
+                    com.Parameters.AddWithValue("@CFODL_MUNCPERMVALDTYDATE", DateTime.ParseExact(ObjCFOHealthyWelfare.Valideuptodate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjCFOHealthyWelfare.coldstorage != null && ObjCFOHealthyWelfare.coldstorage != "")
+                {
+                    com.Parameters.AddWithValue("@CFODL_COLDSTORGDETAILS", ObjCFOHealthyWelfare.coldstorage);
+                }
+                if (ObjCFOHealthyWelfare.cancelledlicense != null && ObjCFOHealthyWelfare.cancelledlicense != "")
+                {
+                    com.Parameters.AddWithValue("@CFODL_ANYPREVLIC", ObjCFOHealthyWelfare.cancelledlicense);
+                }
+                if (ObjCFOHealthyWelfare.specifylicense != null && ObjCFOHealthyWelfare.specifylicense != "")
+                {
+                    com.Parameters.AddWithValue("@CFODL_PREVLICDETAILS", ObjCFOHealthyWelfare.specifylicense);
+                }
+                if (ObjCFOHealthyWelfare.readyinspection != null && ObjCFOHealthyWelfare.readyinspection != "")
+                {
+                    com.Parameters.AddWithValue("@CFODL_PREMISERDYFORINSP", ObjCFOHealthyWelfare.readyinspection);
+                }
+                if (ObjCFOHealthyWelfare.inceptionDate != null && ObjCFOHealthyWelfare.inceptionDate != "")
+                {
+                    com.Parameters.AddWithValue("@CFODL_DATEOFINSP", DateTime.ParseExact(ObjCFOHealthyWelfare.inceptionDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }                  
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

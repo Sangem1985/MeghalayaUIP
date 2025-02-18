@@ -201,9 +201,6 @@ namespace MeghalayaUIP.User.CFO
                             {
                                 if (LicManufacture.Visible == true)
                                 {
-
-
-
                                     txtskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_SKILLEDEMP"].ToString();
                                     txtsemiskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_SEMISKILLEDEMP"].ToString();
                                     txtunskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_UNSKILLEDEMP"].ToString();
