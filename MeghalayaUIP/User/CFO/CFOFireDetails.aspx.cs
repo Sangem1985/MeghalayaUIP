@@ -53,37 +53,57 @@ namespace MeghalayaUIP.User.CFO
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        //DataSet dsnew = new DataSet();
-                        //dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "9");
-                        //if (dsnew.Tables[0].Rows.Count > 0)
-                        //{
 
-                        //}
-                        //else
-                        //{
-                        //    if (Request.QueryString[0].ToString() == "N")
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?next=N");
-                        //    }
-                        //    else
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
-                        //    }
-                        //}
-                        BindDistricts();
-                        BindBuildingType();
-                        Binddata();
+                        GetAppliedorNot();
+
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet dsnew = new DataSet();
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "9", "");
+                if (dsnew.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
+                    {
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "44" || Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "55")
+                        {
+                            BindDistricts();
+                            BindBuildingType();
+                            Binddata();
+                        }
 
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString[0].ToString() == "N")
+                    {
+                        Response.Redirect("~/User/CFO/CFOBusinessLicenseDetails.aspx?next=N");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/User/CFO/CFOProffessionalTax.aspx?Previous=P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected List<TextBox> FindEmptyTextboxes(Control container)
         {
 
@@ -1058,7 +1078,7 @@ namespace MeghalayaUIP.User.CFO
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-                                   
+
         }
 
         public string validations(FileUpload Attachment)

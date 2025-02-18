@@ -44,30 +44,47 @@ namespace MeghalayaUIP.User.CFO
                     Failure.Visible = false;
                     success.Visible = false;
                     if (!IsPostBack)
+                    {                     
+
+                        GetAppliedorNot();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet dsnew = new DataSet();
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "6", "53");
+                if (dsnew.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
                     {
-                        //DataSet dsnew = new DataSet();
-                        //dsnew = objcfobal.GetApprovalDataByDeptId(Session["CFOQID"].ToString(), Session["CFOUNITID"].ToString(), "6");
-                        //if (dsnew.Tables[0].Rows.Count > 0)
-                        //{
-
-                        //}
-                        //else
-                        //{
-                        //    if (Request.QueryString[0].ToString() == "N")
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFOFireDetails.aspx?next=N");
-                        //    }
-                        //    else
-                        //    {
-                        //        Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
-                        //    }
-                        //}
-                        BindDistric();
-                        BindRegType();
-                        BindState();
-                        Binddata();
-
-
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "53")
+                        {
+                            BindDistric();
+                            BindRegType();
+                            BindState();
+                            Binddata();
+                        }
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString[0].ToString() == "N")
+                    {
+                        Response.Redirect("~/User/CFO/CFOFireDetails.aspx?next=N");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/User/CFO/CFODrugLicenseDetails.aspx?Previous=P");
                     }
                 }
             }

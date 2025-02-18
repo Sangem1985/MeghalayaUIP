@@ -26,7 +26,7 @@ namespace MeghalayaUIP
             if (!Request.Url.ToString().Contains("localhost"))
                 masterball.InsPageAccessed("", "", Request.Url.ToString(), getclientIP(), "");
 
-            MIIPP2024 = masterball.EncryptFilePath("D:/Meghalaya/Documents/MIIPP%202024.pdf");
+            MIIPP2024 = masterball.EncryptFilePath("D:/Meghalaya/Documents/mipp2024.pdf");
             MSIPFACT2024 = masterball.EncryptFilePath("D:/Meghalaya/Documents/RTIACT/MSIPF Act 2024.pdf");
             AppointmentShriPBakshiIASCEO = masterball.EncryptFilePath("D:/Meghalaya/Documents/RTIACT/Additional and Jt CEO Notification IMA.pdf");
             AppointmentShriRChitturiIASCEO = masterball.EncryptFilePath("D:/Meghalaya/Documents/RTIACT/Additional and Jt CEO Notification IMA (1).pdf");

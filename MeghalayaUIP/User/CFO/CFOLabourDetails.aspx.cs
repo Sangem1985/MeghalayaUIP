@@ -79,22 +79,15 @@ namespace MeghalayaUIP.User.CFO
                 {
                     for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
                     {
-                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "32")
-                        {
-                           
-                        }
-                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "33")
+                        
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "33" || Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "32")
                         {
                             RegManuBoiler.Visible = true;
                         }
-                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "35")
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "35" || Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "36")
                         {
                             RegBoiler.Visible = true;
-                        }
-                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "36")
-                        {
-
-                        }
+                        }                       
                         if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "37")
                         {
                             Migrant1979.Visible = true;

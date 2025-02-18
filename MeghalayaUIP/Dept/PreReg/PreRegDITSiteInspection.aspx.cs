@@ -246,7 +246,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         dt.Columns.Add("MEMBERNAME", typeof(string));
                         dt.Columns.Add("DESIGNATION", typeof(string));
                     }
-                    else //(ViewState["TeamMembers"] != null)
+                    else 
                     {
                         dt = (DataTable)ViewState["TeamMembers"];
                     }
