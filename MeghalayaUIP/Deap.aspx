@@ -23,7 +23,23 @@
         }
 
         tr th, td {
-            padding: 10px 90px;
+            padding: 6px 15px !important;
+            text-align: left;
+        }
+
+        b, strong {
+            font-weight: bolder;
+            color: #38373e;
+        }
+
+        a.btn.btn-primary.btn-sm {
+            width: 100%;
+            box-shadow: 1px 2px 4px #b5aaaa;
+        }
+
+        .table-responsive {
+            display: flex;
+            justify-content: space-around;
         }
     </style>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -41,20 +57,17 @@
                                     <li class="breadcrumb-item active" aria-current="page">District Export Action Plan</li>
                                 </ol>
                             </nav>
-                            <h3 class="text-center">District Export Action Plan</h3>
+                            <h3 class="">District Export Action Plan</h3>
 
-                            <div class="card shadow p-3">
-                                <div class="card-body text-center">
+                            <div class="">
+                                <div class="">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered table-striped">
-                                            <thead style="background-color:#003399;color:white;">
+                                        <table class="table table-bordered table-striped" style="width: 60%">
+                                            <thead style="background-color: #003399; color: white;">
                                                 <tr>
-                                                    <th>Sl.No</th>
-                                                    <th>District Name</th>
-                                                    <th>Important Links</th>
-                                                    <th>Sl.No</th>
-                                                    <th>District Name</th>
-                                                    <th>Important Links</th>
+                                                    <th style="width: 7%">Sl.No</th>
+                                                    <th style="width: 40%">District Name</th>
+                                                    <th style="width: 13%">Important Links</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -63,51 +76,69 @@
                                                     <td><strong>EAST GARO HILLS</strong></td>
                                                     <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
 
-                                                    <td>7</td>
-                                                    <td><strong>WEST JAINTIA HILLS</strong></td>
-                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+
                                                 </tr>
                                                 <tr>
                                                     <td>2</td>
                                                     <td><strong>WEST GARO HILLS</strong></td>
                                                     <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
 
-                                                    <td>8</td>
-                                                    <td><strong>EAST KHASI HILLS</strong></td>
-                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+
                                                 </tr>
                                                 <tr>
                                                     <td>3</td>
                                                     <td><strong>NORTH GARO HILLS</strong></td>
                                                     <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
 
-                                                    <td>9</td>
-                                                    <td><strong>WEST KHASI HILLS</strong></td>
-                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+
                                                 </tr>
                                                 <tr>
                                                     <td>4</td>
                                                     <td><strong>SOUTH GARO HILLS</strong></td>
                                                     <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
 
-                                                    <td>10</td>
-                                                    <td><strong>SOUTH WEST KHASI HILLS</strong></td>
-                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+
                                                 </tr>
                                                 <tr>
                                                     <td>5</td>
                                                     <td><strong>SOUTH WEST GARO HILLS</strong></td>
                                                     <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
 
-                                                    <td>11</td>
-                                                    <td><strong>EASTERN WEST KHASI HILLS</strong></td>
-                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+
                                                 </tr>
                                                 <tr>
                                                     <td>6</td>
                                                     <td><strong>EAST JAINTIA HILLS</strong></td>
                                                     <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
 
+
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td><strong>WEST JAINTIA HILLS</strong></td>
+                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td><strong>EAST KHASI HILLS</strong></td>
+                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td><strong>WEST KHASI HILLS</strong></td>
+                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td><strong>SOUTH WEST KHASI HILLS</strong></td>
+                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td><strong>EASTERN WEST KHASI HILLS</strong></td>
+                                                    <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>
+                                                </tr>
+                                                <tr>
                                                     <td>12</td>
                                                     <td><strong>RI BHOI</strong></td>
                                                     <td><a href="Documents/Notifications/.pdf" target="_blank" class="btn btn-primary btn-sm">View</a></td>

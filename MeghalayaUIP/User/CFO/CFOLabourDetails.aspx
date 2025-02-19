@@ -311,10 +311,16 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Place of manufacture  *</label>
+                                                        <label class="col-lg-6 col-form-label">Fuel use  *</label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:DropDownList ID="ddlManufacture" onchange="validateDropdown(this)" runat="server" class="form-control">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
+                                                                <asp:ListItem Text="Husk" Value="1"></asp:ListItem>
+                                                                <asp:ListItem Text="Furnace Oil" Value="2"></asp:ListItem>
+                                                                <asp:ListItem Text="Hi-speed Diesel" Value="3"></asp:ListItem>
+                                                                 <asp:ListItem Text="Coal" Value="4"></asp:ListItem>
+                                                                 <asp:ListItem Text="Waste Gases" Value="5"></asp:ListItem>
+                                                                 <asp:ListItem Text="Others" Value="6"></asp:ListItem>
                                                             </asp:DropDownList>
                                                         </div>
                                                     </div>

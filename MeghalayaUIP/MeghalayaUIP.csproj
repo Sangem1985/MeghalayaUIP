@@ -693,6 +693,7 @@
     <Content Include="Notifications.aspx" />
     <Content Include="ODOPDashboard.aspx" />
     <Content Include="OtherService.aspx" />
+    <Content Include="PMGATISHAKTI.aspx" />
     <Content Include="Power.aspx" />
     <Content Include="RegisterGrievance.aspx" />
     <Content Include="Registration.aspx" />
@@ -1581,6 +1582,13 @@
     </Compile>
     <Compile Include="PdfFile.ashx.cs">
       <DependentUpon>PdfFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="PMGATISHAKTI.aspx.cs">
+      <DependentUpon>PMGATISHAKTI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PMGATISHAKTI.aspx.designer.cs">
+      <DependentUpon>PMGATISHAKTI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Power.aspx.cs">
       <DependentUpon>Power.aspx</DependentUpon>

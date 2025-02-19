@@ -126,130 +126,130 @@ namespace MeghalayaUIP.User.CFO
                     {
                         if (Weightmeasuer.Visible == true)
                         {
-                            if (Measuer.Visible == true)
+                            // if (Measuer.Visible == true)
+                            // {
+
+                            ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOLGM_CFOUNITID"]);
+                            txtESTDate.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHDATE"].ToString();
+                            rblfactory.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADESTBLSHREG"].ToString();
+                            if (rblfactory.SelectedValue == "Y")
                             {
-
-                                ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOLGM_CFOUNITID"]);
-                                txtESTDate.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHDATE"].ToString();
-                                rblfactory.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADESTBLSHREG"].ToString();
-                                if (rblfactory.SelectedValue == "Y")
-                                {
-                                    Registration.Visible = true;
-                                    txtRegDate.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHREGDATE"].ToString();
-                                    txtRegNumber.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHREGNO"].ToString();
-                                }
-                                else { Registration.Visible = false; }
-
-                                rblMunicipal.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADMTLREG"].ToString();
-                                if (rblMunicipal.SelectedValue == "Y")
-                                {
-                                    ADCLicense.Visible = true;
-                                    DateReg.Visible = true;
-                                    txtDate.Text = ds.Tables[1].Rows[0]["CFOLGM_MTLREGDATE"].ToString();
-                                    txtcurrentReg.Text = ds.Tables[1].Rows[0]["CFOLGM_MTLREGNO"].ToString();
-                                }
-                                else
-                                {
-                                    ADCLicense.Visible = false;
-                                    DateReg.Visible = false;
-                                }
+                                Registration.Visible = true;
+                                txtRegDate.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHREGDATE"].ToString();
+                                txtRegNumber.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHREGNO"].ToString();
                             }
-                            else { Measuer.Visible = false; }
+                            else { Registration.Visible = false; }
+
+                            rblMunicipal.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADMTLREG"].ToString();
+                            if (rblMunicipal.SelectedValue == "Y")
+                            {
+                                ADCLicense.Visible = true;
+                                DateReg.Visible = true;
+                                txtDate.Text = ds.Tables[1].Rows[0]["CFOLGM_MTLREGDATE"].ToString();
+                                txtcurrentReg.Text = ds.Tables[1].Rows[0]["CFOLGM_MTLREGNO"].ToString();
+                            }
+                            else
+                            {
+                                ADCLicense.Visible = false;
+                                DateReg.Visible = false;
+                            }
+                            //}
+                            //else { Measuer.Visible = false; }
                         }
                         else { Weightmeasuer.Visible = false; }
 
                         if (LicManufacture.Visible == true)
                         {
-                            if (Weightmeasuer.Visible == true)
+                            //if (Weightmeasuer.Visible == true)
+                            //{
+                            txtWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_WEIGHS"].ToString();
+                            txtMeasure.Text = ds.Tables[1].Rows[0]["CFOLGM_MEASURES"].ToString();
+                            txtInstruWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_WEIGHINGINSTR"].ToString();
+                            txtTaxReg.Text = ds.Tables[1].Rows[0]["CFOLGM_PROFTAXREGNO"].ToString();
+                            txtGST.Text = ds.Tables[1].Rows[0]["CFOLGM_GSTREGNO"].ToString();
+                            txtITNmumber.Text = ds.Tables[1].Rows[0]["CFOLGM_ITNO"].ToString();
+                            rblState.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_ISIMPORTING"].ToString();
+                            if (rblState.SelectedValue == "Y")
                             {
-                                txtWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_WEIGHS"].ToString();
-                                txtMeasure.Text = ds.Tables[1].Rows[0]["CFOLGM_MEASURES"].ToString();
-                                txtInstruWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_WEIGHINGINSTR"].ToString();
-                                txtTaxReg.Text = ds.Tables[1].Rows[0]["CFOLGM_PROFTAXREGNO"].ToString();
-                                txtGST.Text = ds.Tables[1].Rows[0]["CFOLGM_GSTREGNO"].ToString();
-                                txtITNmumber.Text = ds.Tables[1].Rows[0]["CFOLGM_ITNO"].ToString();
-                                rblState.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_ISIMPORTING"].ToString();
-                                if (rblState.SelectedValue == "Y")
-                                {
-                                    State.Visible = true;
-                                    Country.Visible = true;
-                                    txtLICNumber.Text = ds.Tables[1].Rows[0]["CFOLGM_IMPORTLICNO"].ToString();
-                                    txtRegWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_REGOFIMPORTER"].ToString();
-                                }
-                                else
-                                {
-                                    State.Visible = false;
-                                    Country.Visible = false;
-                                }
-
-                                rblstateside.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_SELLINGPLACE"].ToString();
-                                rblDealer.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_DEALERLICAPPLIED"].ToString();
-                                if (rblDealer.SelectedValue == "Y")
-                                {
-                                    DealerLic.Visible = true;
-                                    txtGiveDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_DEALERLICDETAILS"].ToString();
-                                }
-                                else { DealerLic.Visible = false; }
+                                State.Visible = true;
+                                Country.Visible = true;
+                                txtLICNumber.Text = ds.Tables[1].Rows[0]["CFOLGM_IMPORTLICNO"].ToString();
+                                txtRegWeight.Text = ds.Tables[1].Rows[0]["CFOLGM_REGOFIMPORTER"].ToString();
                             }
-                            else { Weightmeasuer.Visible = false; }
+                            else
+                            {
+                                State.Visible = false;
+                                Country.Visible = false;
+                            }
+
+                            rblstateside.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_SELLINGPLACE"].ToString();
+                            rblDealer.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_DEALERLICAPPLIED"].ToString();
+                            if (rblDealer.SelectedValue == "Y")
+                            {
+                                DealerLic.Visible = true;
+                                txtGiveDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_DEALERLICDETAILS"].ToString();
+                            }
+                            else { DealerLic.Visible = false; }
+                            //}
+                            //else { Weightmeasuer.Visible = false; }
                         }
                         else { LicManufacture.Visible = false; }
 
                         if (Measuer.Visible == true)
                         {
-                            if (Weightmeasuer.Visible == true)
+                            //if (Weightmeasuer.Visible == true)
+                            //{
+                            //if (LicManufacture.Visible == true)
+                            //{
+                            txtskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_SKILLEDEMP"].ToString();
+                            txtsemiskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_SEMISKILLEDEMP"].ToString();
+                            txtunskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_UNSKILLEDEMP"].ToString();
+                            txttrained.Text = ds.Tables[1].Rows[0]["CFOLGM_TRAINEDEMP"].ToString();
+                            txtmanuowned.Text = ds.Tables[1].Rows[0]["CFOLGM_MACHINERYDETAILS"].ToString();
+                            txtownership.Text = ds.Tables[1].Rows[0]["CFOLGM_WORKSHOPDETAILS"].ToString();
+                            txtsteel.Text = ds.Tables[1].Rows[0]["CFOLGM_TESTFACILITIES"].ToString();
+                            rblelectric.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_ELCENRGYAVLBL"].ToString();
+                            rblLicdealer.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_MANFLICAPPLIED"].ToString();
+                            if (rblLicdealer.SelectedValue == "Y")
                             {
-                                if (LicManufacture.Visible == true)
-                                {
-                                    txtskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_SKILLEDEMP"].ToString();
-                                    txtsemiskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_SEMISKILLEDEMP"].ToString();
-                                    txtunskilled.Text = ds.Tables[1].Rows[0]["CFOLGM_UNSKILLEDEMP"].ToString();
-                                    txttrained.Text = ds.Tables[1].Rows[0]["CFOLGM_TRAINEDEMP"].ToString();
-                                    txtmanuowned.Text = ds.Tables[1].Rows[0]["CFOLGM_MACHINERYDETAILS"].ToString();
-                                    txtownership.Text = ds.Tables[1].Rows[0]["CFOLGM_WORKSHOPDETAILS"].ToString();
-                                    txtsteel.Text = ds.Tables[1].Rows[0]["CFOLGM_TESTFACILITIES"].ToString();
-                                    rblelectric.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_ELCENRGYAVLBL"].ToString();
-                                    rblLicdealer.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_MANFLICAPPLIED"].ToString();
-                                    if (rblLicdealer.SelectedValue == "Y")
-                                    {
-                                        applieddealer.Visible = true;
-                                        txtDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_MANFLICDETAILS"].ToString();
-                                    }
-                                    else { applieddealer.Visible = false; }
-
-                                    rblInstitute.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_LOANAVAILED"].ToString();
-                                    if (rblInstitute.SelectedValue == "Y")
-                                    {
-                                        NameBanker.Visible = true;
-                                        txtBanker.Text = ds.Tables[1].Rows[0]["CFOLGM_LOANBANKERS"].ToString();
-                                    }
-                                    else { NameBanker.Visible = false; }
-
-                                    if (rblInstitute.SelectedValue == "Y")
-                                    {
-                                        DetailsGet.Visible = true;
-                                        txtGetDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_LOANDETAILS"].ToString();
-                                    }
-                                    else { DetailsGet.Visible = false; }
-
-                                    rblLoan.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADSUFFSTOCK"].ToString();
-                                    if (rblLoan.SelectedValue == "Y")
-                                    {
-                                        weightloan.Visible = true;
-                                        txtDetailsGET.Text = ds.Tables[1].Rows[0]["CFOLGM_STOCKDETAILS"].ToString();
-                                    }
-                                    else { weightloan.Visible = false; }
-
-                                    rblRepaire.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_REPAIRERLICAPPLIED"].ToString();
-                                    if (rblRepaire.Text == "Y")
-                                    {
-                                        License.Visible = true;
-                                        txtResults.Text = ds.Tables[1].Rows[0]["CFOLGM_REPAIRERLICDETAILS"].ToString();
-                                    }
-                                }
-                                else { LicManufacture.Visible = false; }
+                                applieddealer.Visible = true;
+                                txtDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_MANFLICDETAILS"].ToString();
                             }
-                            else { Weightmeasuer.Visible = false; }
+                            else { applieddealer.Visible = false; }
+
+                            rblInstitute.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_LOANAVAILED"].ToString();
+                            if (rblInstitute.SelectedValue == "Y")
+                            {
+                                NameBanker.Visible = true;
+                                txtBanker.Text = ds.Tables[1].Rows[0]["CFOLGM_LOANBANKERS"].ToString();
+                            }
+                            else { NameBanker.Visible = false; }
+
+                            if (rblInstitute.SelectedValue == "Y")
+                            {
+                                DetailsGet.Visible = true;
+                                txtGetDetails.Text = ds.Tables[1].Rows[0]["CFOLGM_LOANDETAILS"].ToString();
+                            }
+                            else { DetailsGet.Visible = false; }
+
+                            rblLoan.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADSUFFSTOCK"].ToString();
+                            if (rblLoan.SelectedValue == "Y")
+                            {
+                                weightloan.Visible = true;
+                                txtDetailsGET.Text = ds.Tables[1].Rows[0]["CFOLGM_STOCKDETAILS"].ToString();
+                            }
+                            else { weightloan.Visible = false; }
+
+                            rblRepaire.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_REPAIRERLICAPPLIED"].ToString();
+                            if (rblRepaire.Text == "Y")
+                            {
+                                License.Visible = true;
+                                txtResults.Text = ds.Tables[1].Rows[0]["CFOLGM_REPAIRERLICDETAILS"].ToString();
+                            }
+                            //}
+                            //else { LicManufacture.Visible = false; }
+                            //}
+                            //else { Weightmeasuer.Visible = false; }
 
                         }
                         else { Measuer.Visible = false; }

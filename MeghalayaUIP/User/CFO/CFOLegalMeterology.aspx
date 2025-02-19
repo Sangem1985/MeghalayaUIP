@@ -95,7 +95,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Instrument type *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtinstrment" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtinstrment" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -103,7 +103,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Class  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtClass" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtClass" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,7 +111,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Capacity  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtCapacity" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtCapacity" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -121,7 +121,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Make *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtMake" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtMake" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -129,7 +129,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Model  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtModel" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtModel" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -137,7 +137,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Serial No.  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtSerial" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSerial" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -148,7 +148,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Product</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtProduct" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtProduct" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -156,7 +156,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Quantity  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtQuantity" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtQuantity" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
