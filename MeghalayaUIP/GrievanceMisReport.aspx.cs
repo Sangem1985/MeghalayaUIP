@@ -17,6 +17,7 @@ namespace MeghalayaUIP
         int Pending;
         int Redress;
         int Reject;
+        int DepAvg, DepMax, DepMin, DepMed;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -78,6 +79,32 @@ namespace MeghalayaUIP
                     int Reject1 = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "REJECT"));
                     Reject = Reject1 + Reject;
 
+                    if (DataBinder.Eval(e.Row.DataItem, "AVG_TIME_TO_RESPOND") != DBNull.Value)
+                    {
+                        int AvgTtlTime = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "AVG_TIME_TO_RESPOND"));
+                        DepAvg += AvgTtlTime;
+                    }
+
+                    if (DataBinder.Eval(e.Row.DataItem, "MED_TIME_TO_RESPOND") != DBNull.Value)
+                    {
+                        int MedTtlTime = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "MED_TIME_TO_RESPOND"));
+                        DepMed += MedTtlTime;
+                    }
+
+                    if (DataBinder.Eval(e.Row.DataItem, "MIN_TIME_TO_RESPOND") != DBNull.Value)
+                    {
+                        int MinTtlTime = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "MIN_TIME_TO_RESPOND"));
+                        DepMin += MinTtlTime;
+                    }
+
+                    if (DataBinder.Eval(e.Row.DataItem, "MAX_TIME_TO_RESPOND") != DBNull.Value)
+                    {
+                        int MaxTtlTime = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "MAX_TIME_TO_RESPOND"));
+                        DepMax += MaxTtlTime;
+                    }
+
+
+
                     Label lblDeptid = (Label)e.Row.FindControl("lblDeptid");
                     LinkButton lnkTotal = (LinkButton)e.Row.FindControl("lblTotal");
                     LinkButton lnkPending = (LinkButton)e.Row.FindControl("lblPending");
@@ -125,6 +152,18 @@ namespace MeghalayaUIP
                 e.Row.Cells[4].Text = Pending.ToString();
                 e.Row.Cells[5].Text = Redress.ToString();
                 e.Row.Cells[6].Text = Reject.ToString();
+
+                DepAvg = DepAvg / 17;
+                DepMax = DepMax / 17;
+                DepMed = DepMed / 17;
+                DepMin = DepMin / 17;
+
+                e.Row.Cells[7].Text = DepAvg.ToString();
+                e.Row.Cells[8].Text = DepMed.ToString();
+                e.Row.Cells[9].Text = DepMin.ToString();
+                e.Row.Cells[10].Text = DepMax.ToString();
+
+
             }
         }
     }

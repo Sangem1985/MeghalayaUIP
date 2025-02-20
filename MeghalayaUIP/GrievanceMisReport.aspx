@@ -64,7 +64,7 @@
             width: 96.9% !important;
         }
     </style>
-    
+
     <script type="text/javascript">
 
 
@@ -175,13 +175,46 @@
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Average time taken to respond to Queriess (In Days)">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblavgtime" Text='<%#Eval("AVG_TIME_TO_RESPOND") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Median time taken to respond to Queriess (In Days)">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblmedtime" Text='<%#Eval("MED_TIME_TO_RESPOND") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Minimum time taken to respond to Queriess (In Days)">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblmintime" Text='<%#Eval("MIN_TIME_TO_RESPOND") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Maximum time taken to respond to Queriess (In Days)">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblmaxtime" Text='<%#Eval("MAX_TIME_TO_RESPOND") %>' />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
                                         <%-- <asp:TemplateField HeaderText="Average time taken to respond to Queriess (In Days)">
                                             <ItemTemplate>
                                                 <asp:LinkButton runat="server" ID="lblAverage" Text='<%#Eval("AVG_TIME_TO_RESPOND") %>' />
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:TemplateField>--%>
-                                        <asp:BoundField HeaderText="Average time taken to respond to Queriess (In Days)" DataField="AVG_TIME_TO_RESPOND" ItemStyle-HorizontalAlign="Center" />
+                                        <%--<asp:BoundField HeaderText="Average time taken to respond to Queriess (In Days)" DataField="AVG_TIME_TO_RESPOND" ItemStyle-HorizontalAlign="Center" />
+                                        <asp:BoundField HeaderText="Median time taken to respond to Queriess (In Days)" DataField="MED_TIME_TO_RESPOND" ItemStyle-HorizontalAlign="Center" />
+                                        <asp:BoundField HeaderText="Minimum time taken to respond to Queriess (In Days)" DataField="MIN_TIME_TO_RESPOND" ItemStyle-HorizontalAlign="Center" />
+                                        <asp:BoundField HeaderText="Maximum time taken to respond to Queriess (In Days)" DataField="MAX_TIME_TO_RESPOND" ItemStyle-HorizontalAlign="Center" />--%>
+                                        <asp:TemplateField HeaderText="Time Limit prescribed as per the Public Service Guarantee Act  (In Days)">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lbltxtguranteetime" Text="15" />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
                             </div>
