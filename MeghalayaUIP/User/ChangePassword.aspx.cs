@@ -227,11 +227,20 @@ namespace MeghalayaUIP.User
                     errormsg = errormsg + ". Please Enter Confirm Password...! \\n";
                 }
                 if (txtoldpassword.Text != "")
-                    OldPassword = PasswordDescription(txtoldpassword.Text.Trim());
+                {
+                    // OldPassword = PasswordDescription(txtoldpassword.Text.Trim());
+                    OldPassword = txtoldpassword.Text.Trim();
+                }
                 if (txtnewpassword.Text != "")
-                    NewPassword = PasswordDescription(txtnewpassword.Text.Trim());
+                {
+                    //  NewPassword = PasswordDescription(txtnewpassword.Text.Trim());
+                    NewPassword = txtnewpassword.Text.Trim();
+                }
                 if (txtconfirmpassword.Text != "")
-                    CnfrmPassword = PasswordDescription(txtconfirmpassword.Text.Trim());
+                {
+                    // CnfrmPassword = PasswordDescription(txtconfirmpassword.Text.Trim());
+                    CnfrmPassword = txtconfirmpassword.Text.Trim();
+                }
                 if (Convert.ToString(ViewState["OldPassword"]) != "" && txtoldpassword.Text != "")
                 {
                     if (Convert.ToString(ViewState["OldPassword"]) != OldPassword)

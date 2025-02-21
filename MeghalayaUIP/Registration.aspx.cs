@@ -116,9 +116,10 @@ namespace MeghalayaUIP
                         smsMail.SendEmailSingle(txtEmail.Text.Trim(), "sangem_madhuri@cms.co.in,chinni_sowjanya@cms.co.in", "Welcome to Our Web Portal", EmailText, "", "User Registration",
                                  "", "", valid);
 
+                      
+                        btnClear_Click(sender, e);
                         lblmsg.Text = "Registered Successfully!";
                         success.Visible = true;
-                        btnClear_Click(sender, e);
 
                     }
 
@@ -186,7 +187,9 @@ namespace MeghalayaUIP
                 }
                 if (!string.IsNullOrEmpty(txtPswd.Text) || txtPswd.Text != "")
                 {
-                    Password = PasswordDescription(txtPswd.Text);
+                    //Password = PasswordDescription(txtPswd.Text);
+                    Password = (txtPswd.Text.Trim());
+
 
                     if (Password.Trim() == txtEmail.Text.Trim())
                     {

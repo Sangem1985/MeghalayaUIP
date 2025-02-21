@@ -179,7 +179,8 @@ namespace MeghalayaUIP
             }
             if (!string.IsNullOrEmpty(txtnewpassword.Text) || txtnewpassword.Text != "")
             {
-                string Password = PasswordDescription(txtnewpassword.Text.Trim());
+                //string Password = PasswordDescription(txtnewpassword.Text.Trim());
+                string Password = txtnewpassword.Text.Trim();
                 if (Password.Trim() == lblusername.Text.Trim())
                 {
                     Errormsg = Errormsg + ". User Email and Password should not be same \\n";
