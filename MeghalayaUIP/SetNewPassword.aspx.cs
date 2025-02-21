@@ -118,7 +118,9 @@ namespace MeghalayaUIP
                     dss = objcomBal.GetPswdResetKey(email, SecretKey);
                     if (dss.Tables[0].Rows.Count > 0)
                     {
-                        string Password = PasswordDescription(txtnewpassword.Text.Trim());
+                        //string Password = PasswordDescription(txtnewpassword.Text.Trim());
+                        string Password = txtnewpassword.Text.Trim();
+
                         if (lblusername.Text == Convert.ToString(dss.Tables[0].Rows[0]["EMAILID"]) &&
                            txtSecretKey.Text.Trim() == Convert.ToString(dss.Tables[0].Rows[0]["SECRETKEY"]))
                         {
@@ -208,12 +210,12 @@ namespace MeghalayaUIP
                 Errormsg = "Please Enter Captcha";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "myScript", "AnotherFunction();", true);
                 Failure.Visible = true;
-                FillCapctha();                
+                FillCapctha();
             }
 
 
 
-                return Errormsg;
+            return Errormsg;
 
         }
         public string PasswordDescription(string encrPswd)

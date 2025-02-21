@@ -100,8 +100,8 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">New Password*</label>
-                                                            <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtnewpassword" runat="server" class="form-control" TextMode="Password" onblur="return fnEncryption();"   ></asp:TextBox>
+                                                            <div class="col-lg-6 d-flex"><%--onblur="return fnEncryption();"--%>
+                                                                <asp:TextBox ID="txtnewpassword" runat="server" class="form-control" TextMode="Password"    ></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -110,8 +110,8 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Confirm New Password*</label>
-                                                            <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtconfirmpassword" runat="server" TextMode="Password"  class="form-control" onblur="return fnEncryption1();" ></asp:TextBox>
+                                                            <div class="col-lg-6 d-flex"><%--onblur="return fnEncryption1();"--%>
+                                                                <asp:TextBox ID="txtconfirmpassword" runat="server" TextMode="Password"  class="form-control"  ></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>

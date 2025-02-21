@@ -96,7 +96,8 @@ namespace MeghalayaUIP
                     Userregdtls.CompanyName = txtcompanyname.Text.Trim();
                     Userregdtls.PANno = txtPAN.Text.Trim();
                     Userregdtls.Email = txtEmail.Text.Trim();
-                    Userregdtls.Password = PasswordDescription(txtPswd.Text);
+                    //Userregdtls.Password = PasswordDescription(txtPswd.Text);
+                    Userregdtls.Password = txtPswd.Text.Trim() ;
                     Userregdtls.MobileNo = txtMobileNo.Text.Trim();
                     Userregdtls.State = "STATE";
                     Userregdtls.DateofBirth = "1988-04-10";
@@ -122,7 +123,7 @@ namespace MeghalayaUIP
                     }
 
 
-                    
+
 
                 }
                 else
