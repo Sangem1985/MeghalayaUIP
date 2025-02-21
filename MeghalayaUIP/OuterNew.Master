@@ -503,8 +503,8 @@
                                                         <li><a href="ViewCertifcateDetails.aspx">Third Party Verification</a></li>
                                                         <li><a href="CentralInspectionDashboard.aspx">Central Inspection System</a></li>
                                                         <li><a href="OtherService.aspx">Other Services</a></li>
-                                                        <li><a href="Documents/CommerceIndustries_Timeline_LandAllotmentIncentives.pdf" target="_blank">Commerce&Industries Timeline</a></li>
-
+                                                        <li><a href="#" onclick="window.open('Sectoralinformation.aspx', '_blank'); return false;" target="_blank">Sectoral Information</a></li>
+                                                        <%--  <li><a href="Documents/CommerceIndustries_Timeline_LandAllotmentIncentives.pdf" target="_blank">Commerce&Industries Timeline</a></li>--%>
                                                     </ul>
                                                 </li>
 
@@ -520,6 +520,7 @@
                                                         <li><a href="Deap.aspx" target="_blank">District Export Action Plans</a></li>
                                                         <li><a href="PMGATISHAKTI.aspx" target="_blank">PM Gati Shakti </a></li>
                                                         <li><a href="Documents/Submission of Information.pdf" target="_blank">State Levies/Other Taxes</a></li>
+                                                        <li><a href="Bestpractices.aspx">Best Practices</a></li>
                                                         <li class="dropdown"><a href="#">Meghalaya Startup</a>
                                                             <ul class="ODOP">
                                                                 <li><a href="Documents/Consolidated Startup Information.pdf" target="_blank">Startup Consolidated Information</a></li>
@@ -538,7 +539,6 @@
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPRegisteredBusinessManufacturingLocations%>', '_blank'); return false;">ODOP Manufacturing locations</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=CommonFacilityCentreswithSOPandFees%>', '_blank'); return false;">Common facility centers with SOP & Fees</a></li>
                                                                 <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%=ODOPSchemesandOtherDetailsforBenificiaries%>', '_blank'); return false;">ODOP Schemes and Other Details Beneficial for Entrepreneurs</a></li>
-                                                                <li><a href="#" onclick="window.open('Sectoralinformation.aspx', '_blank'); return false;" target="_blank">ODOP Sectoral Information</a></li>
                                                                 <li><a href="#" onclick="window.open('Sectoralinformation.aspx?Products=P', '_blank'); return false;" target="_blank">ODOP Sectoral Information(Products)</a></li>
 
                                                                 <li><a href="#" onclick="window.open('https://dofpmeghalaya.org/odop/', '_blank'); return false;">ODOP Facilitation Centre</a></li>
@@ -553,7 +553,7 @@
                                                 <li class="dropdown"><a href="#">Dashboard <i class="fi fi-br-chevron-double-down"></i></a>
                                                     <ul>
                                                         <li><a href="SingleWindowPortalDashboard.aspx">Single Window Dashboard</a></li>
-                                                        <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>
+                                                        <%-- <li><a href="Feedback.aspx" target="_blank">Give Feedback</a></li>--%>
                                                         <li><a href="GrievanceMisReport.aspx">Grievance/Query Dashboard</a></li>
                                                         <li><a href="GrievanceQueryHandleEODBDashboard.aspx">Grievance Timelines</a></li>
                                                         <li><a href="Timelines.aspx" target="_blank">Timelines</a></li>
