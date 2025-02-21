@@ -193,6 +193,12 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
                         lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                         lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
+                        if(Convert.ToString(row["DITREPORT_UPLOADFLAG"])=="Y")
+                        {
+                            GVSite.DataSource = ds.Tables[6];
+                            GVSite.DataBind();
+                            SiteIns.Visible = true;
+                        }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
                         {
                             grdRevenueProj.DataSource = ds.Tables[1];
@@ -1105,6 +1111,20 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
             }
             return emptyTextboxes;
+        }
+
+        protected void lnkView_Click(object sender, EventArgs e)
+        {
+            try
+            {               
+                Response.Redirect("~/Dept/PreReg/PreRegDITSitePrintPage.aspx?status=" + Convert.ToString(Request.QueryString["status"]));               
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }
