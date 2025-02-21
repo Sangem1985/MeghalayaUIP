@@ -79,8 +79,8 @@
         }
     </style>
 
-    <div class="page-wrapper" style="" align="center">
-        <div class="content container-fluid" align="center">
+    <div class="page-wrapper">
+        <div class="content container-fluid">
         </div>
         <div id="bodypart" align="center">
             <div class="row">
@@ -341,4 +341,5 @@
             ForeColor="#3366CC">Home</asp:HyperLink>
         <br />
     </div>
+   
 </asp:Content>

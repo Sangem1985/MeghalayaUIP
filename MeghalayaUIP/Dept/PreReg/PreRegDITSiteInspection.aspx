@@ -51,6 +51,8 @@
         }
     </style>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <div class="page-wrapper">
+    <div class="content container-fluid">
     <div>
         <div class="col-md-12 ">
             <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
@@ -268,7 +270,8 @@
             <asp:HiddenField ID="hdnUserID" runat="server" />
 
         </div>
-
+        </div>
+        </div>
 
 
     </div>
