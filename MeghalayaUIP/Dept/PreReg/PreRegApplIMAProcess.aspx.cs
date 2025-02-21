@@ -195,7 +195,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
                         if(Convert.ToString(row["DITREPORT_UPLOADFLAG"])=="Y")
                         {
-                            GVSite.DataSource = ds.Tables[6];
+                            GVSite.DataSource = ds.Tables[0];
                             GVSite.DataBind();
                             SiteIns.Visible = true;
                         }

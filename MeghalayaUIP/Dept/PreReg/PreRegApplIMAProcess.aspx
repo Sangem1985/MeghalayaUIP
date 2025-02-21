@@ -1070,9 +1070,9 @@
                                                             <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
                                                             <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:TemplateField HeaderText="Site Inspection Report" Visible="false">
+                                                            <asp:TemplateField HeaderText="Site Inspection Report">
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ID="lnkView" runat="server" OnClick="lnkView_Click" Visible="false" Text="View"></asp:LinkButton>
+                                                                    <asp:LinkButton ID="lnkView" runat="server" OnClick="lnkView_Click" Visible="true" Text="View"></asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                         </Columns>
