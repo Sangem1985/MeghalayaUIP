@@ -700,18 +700,7 @@ namespace MeghalayaUIP.User.CFO
                 List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
                 List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
                 string errormsg = "";
-
-
-                //if (string.IsNullOrEmpty(txtName.Text.Trim()) || txtName.Text.Trim() == "" || txtName.Text.Trim() == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Name\\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtAddress.Text) || txtAddress.Text == "" || txtAddress.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Address\\n";
-                //    slno = slno + 1;
-                //}
+               
                 if (LicManufacture.Visible == true)
                 {
                     if (Weightmeasuer.Visible == true)

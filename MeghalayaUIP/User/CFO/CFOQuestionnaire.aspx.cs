@@ -572,9 +572,14 @@ namespace MeghalayaUIP.User.CFO
             {
                 string result = "";
                 ErrorMsg = Validations();
+                btnApprvlsReq_Click(sender, e);
+                if (grdApprovals.Rows.Count == 0)
+                {
+                    ErrorMsg = ErrorMsg + "Please Select minimum one approval to apply...!";
+                }
                 if (ErrorMsg == "")
                 {
-                    btnApprvlsReq_Click(sender, e);
+
                     CFOQuestionnaireDet objCFOQsnaire = new CFOQuestionnaireDet();
 
                     if (Convert.ToString(Session["CFOQID"]) == "")
@@ -687,6 +692,8 @@ namespace MeghalayaUIP.User.CFO
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
+
+
             }
             catch (Exception ex)
             {
@@ -1494,7 +1501,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblforesttransit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rblforesttransit.BorderColor = System.Drawing.Color.White;  
+            rblforesttransit.BorderColor = System.Drawing.Color.White;
         }
 
         public string Validations()

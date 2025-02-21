@@ -305,10 +305,14 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
-                                                    <asp:Button ID="btnAdd" OnClick="btnAdd_Click" Text="Add Details" class="btn btn-rounded btn-green btn-sm" runat="server" Width="110px" />
+                                            </div>
+
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <div class="col-md-2 text-center">
+                                                    <asp:Button ID="btnAdd" OnClick="btnAdd_Click" Text="Add Brand Details" class="btn btn-rounded btn-green btn-sm" runat="server" Width="140px" />
                                                 </div>
                                             </div>
+                                            <br />
 
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <asp:GridView ID="gvBrandDetails" OnRowDeleting="gvBrandDetails_RowDeleting" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
@@ -371,18 +375,19 @@
                                                         <asp:BoundField DataField="BulkLiter" HeaderText="Bulk liter (in one case)" />
                                                         <asp:BoundField DataField="LandOnProof" HeaderText="London Proof liter (in one case)" />
                                                         <asp:BoundField DataField="BottlePlant" HeaderText="Name & address of Distillery/ Brewery/Winery/Bottling Plant" />
-                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
                                                     </Columns>
                                                     <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     <AlternatingRowStyle BackColor="White" />
                                                 </asp:GridView>
                                             </div>
+                                            <br />
 
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">The Country of Origin of the Liquor *</label>
-                                                        <div class="col-lg-6 d-flex">
+                                                        <div class="col-lg-4 d-flex">
 
                                                             <asp:DropDownList runat="server" ID="ddlCountry" onchange="validateDropdown(this)" class="form-control">
                                                                 <%--<asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
@@ -414,7 +419,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12 d-flex justify-content-left">
+                                            <div class="col-md-12 d-flex justify-content-center">
 
                                                 <div class="form-group row">
 
@@ -437,8 +442,8 @@
                                                                 <asp:Label ID="lblMRPSSelection" runat="server" Text='<%# Eval("MRPSSelection").ToString() == "Y" ? "Yes" : "No" %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:BoundField DataField="BrandName" HeaderText="Name of Brand" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField DataField="BrandName" HeaderText="Name of Brand" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" ControlStyle-CssClass="btn btn-danger" />
                                                     </Columns>
                                                     <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     <AlternatingRowStyle BackColor="White" />
