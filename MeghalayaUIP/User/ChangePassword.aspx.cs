@@ -126,7 +126,7 @@ namespace MeghalayaUIP.User
                             {
                                 if (OldPassword == Convert.ToString(ds.Tables[0].Rows[0]["Password"]))
                                 {
-                                    result = objcomBal.ChangeUserPassword(hdnUserID.Value, UserID, OldPassword, NewPassword, getclientIP());
+                                    result = objcomBal.ChangeUserPassword(hdnUserID.Value, UserID, NewPassword, NewPassword, getclientIP());
                                     if (result != "")
                                     {
                                         lblmsg.Text = "Password Successfully Changed And Login With New Password..!";
@@ -146,8 +146,6 @@ namespace MeghalayaUIP.User
                                         Failure.Visible = true;
                                         success.Visible = false;
                                         FillCapctha(); txtcaptcha.Text = "";
-
-
                                     }
                                 }
                                 else
