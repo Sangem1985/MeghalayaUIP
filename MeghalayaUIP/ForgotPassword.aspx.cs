@@ -199,6 +199,12 @@ namespace MeghalayaUIP
                                 finally
                                 { }
                             }
+                            else 
+                            {
+                                lblmsg0.Text = "Last email has been sent within 2 hours. Please try after two hours from last email received time....!";
+                                Failure.Visible = true;
+                                success.Visible = false;
+                            }
                         }
                         else
                         {
