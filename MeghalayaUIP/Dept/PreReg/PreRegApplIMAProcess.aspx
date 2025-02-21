@@ -4,13 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type="text/javascript">
-    function handleKeyUp(input) {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        } else {
-            input.style.border = "1px solid #767575b5";
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
         }
-    }
     </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <link href="../../assets/admin/css/accordion.css" rel="stylesheet" />
@@ -1034,6 +1034,70 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="panel panel-default" id="SiteIns" runat="server" visible="false">
+                            <div class="panel-heading" role="tab" id="headingSeveen">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseSeveen" aria-expanded="false"
+                                        aria-controls="collapseSeveen">Site Inception Report
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSeveen" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingFive" aria-expanded="false">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Site Inception Report</h3>
+                                    </div>
+                                    <section id="dashboardSite">
+                                        <div class="container-fluid">
+                                            <div class="row clearfix">
+                                                <div class="col-sm-12">
+                                                    <asp:GridView ID="GVSite" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                                                        GridLines="Both" Width="100%" EnableModelValidation="True">
+                                                        <RowStyle />
+                                                        <AlternatingRowStyle BackColor="LightGray" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle HorizontalAlign="Left" />
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex + 1%>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
+                                                            <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:TemplateField HeaderText="Site Inspection Report" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:LinkButton ID="lnkView" runat="server" OnClick="lnkView_Click" Visible="false" Text="View"></asp:LinkButton>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                    </asp:GridView>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
                         <div class="panel panel-default" id="QueryResondpanel" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingSeven">
                                 <h4 class="panel-title">
