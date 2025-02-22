@@ -24,8 +24,6 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-
-
                 if (Session["UserInfo"] != null)
                 {
                     var ObjUserInfo = new UserInfo();
@@ -37,9 +35,11 @@ namespace MeghalayaUIP.User.CFO
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    //UnitID = Convert.ToString(Session["CFOUNITID"]);
+                  
                     if (Convert.ToString(Session["CFOUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["CFOUNITID"]); }
+                    { 
+                        UnitID = Convert.ToString(Session["CFOUNITID"]); 
+                    }
                     else
                     {
                         string newurl = "~/User/CFO/CFOUserDashboard.aspx";
@@ -259,7 +259,7 @@ namespace MeghalayaUIP.User.CFO
                     {
                         if (intialverification.Visible == true)
                         {
-                            hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLMI_CFOQDID"]);
+                           // hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLMI_CFOQDID"]);
                             ViewState["LegalDepartment"] = ds.Tables[2];
                             GVLegalDept.DataSource = ds.Tables[2];
                             GVLegalDept.DataBind();
@@ -477,7 +477,6 @@ namespace MeghalayaUIP.User.CFO
             try
             {
 
-
                 if (rblDealer.SelectedItem.Text == "Yes")
                 {
                     DealerLic.Visible = true;
@@ -522,8 +521,7 @@ namespace MeghalayaUIP.User.CFO
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-            //String Quesstionriids = "1001";
-            //string UnitId = "1001";
+           
             try
             {
 

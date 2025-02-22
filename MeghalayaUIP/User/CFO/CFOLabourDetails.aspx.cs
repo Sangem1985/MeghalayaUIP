@@ -124,7 +124,7 @@ namespace MeghalayaUIP.User.CFO
         }
         public void Binddata()
         {
-            //hdnUserID.Value = "1001";
+            
             try
             {
                 DataSet ds = new DataSet();
@@ -173,7 +173,7 @@ namespace MeghalayaUIP.User.CFO
                             txtEconomise.Text = ds.Tables[1].Rows[0]["CFOLD_ECONOMISERRATING"].ToString();
                             txtTonnes.Text = ds.Tables[1].Rows[0]["CFOLD_EVAPORATION"].ToString();
                             txtHeaterRating.Text = ds.Tables[1].Rows[0]["CFOLD_REHEATERRATING"].ToString();
-                            ddlWkgSeason.SelectedItem.Text = ds.Tables[1].Rows[0]["CFOLD_SEASON"].ToString();
+                            ddlWkgSeason.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_SEASON"].ToString();
                             txtPressure.Text = ds.Tables[1].Rows[0]["CFOLD_PRESSURE"].ToString();
                             txtOwner.Text = ds.Tables[1].Rows[0]["CFOLD_OWNERNAME"].ToString();
                             ddlTypeBoiler.SelectedValue = ds.Tables[1].Rows[0]["CFOLD_TYPEBOILER"].ToString();
@@ -261,8 +261,7 @@ namespace MeghalayaUIP.User.CFO
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         if (RegShopEst.Visible == true)
-                        {
-                            //  hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOLD_CFOQDID"]);
+                        {                          
                             ViewState["LabourDetails"] = ds.Tables[2];
                             GVCFOLabour.DataSource = ds.Tables[2];
                             GVCFOLabour.DataBind();
@@ -496,7 +495,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOLabourDet.Economiser = txtEconomise.Text;
                     ObjCFOLabourDet.MaximumTonne = txtTonnes.Text;
                     ObjCFOLabourDet.RatingHeaters = txtHeaterRating.Text;
-                    ObjCFOLabourDet.WorkingSeason = ddlWkgSeason.SelectedItem.Text;
+                    ObjCFOLabourDet.WorkingSeason = ddlWkgSeason.SelectedValue;
                     ObjCFOLabourDet.PressurePSI = txtPressure.Text;
                     ObjCFOLabourDet.NameOwner = txtOwner.Text;
                     ObjCFOLabourDet.BoilerType = ddlTypeBoiler.SelectedValue;

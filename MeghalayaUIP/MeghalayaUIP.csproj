@@ -215,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AckSlip.aspx" />
+    <Content Include="Admin\ApplicationsView.aspx" />
     <Content Include="Admin\HelpdeskDrilldown.aspx" />
     <Content Include="Admin\HelpdeskReport.aspx" />
     <Content Include="Admin\SearchUser.aspx" />
@@ -840,6 +841,13 @@
     </Compile>
     <Compile Include="AckSlip.aspx.designer.cs">
       <DependentUpon>AckSlip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ApplicationsView.aspx.cs">
+      <DependentUpon>ApplicationsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ApplicationsView.aspx.designer.cs">
+      <DependentUpon>ApplicationsView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\HelpdeskDrilldown.aspx.cs">
       <DependentUpon>HelpdeskDrilldown.aspx</DependentUpon>

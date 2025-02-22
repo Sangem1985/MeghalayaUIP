@@ -138,5 +138,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GetApplicationDetails(Unitid, Createdby);
         }
+        public DataSet GetApplicationView(string TypeOfApplication, string Invester, string UnitName)
+        {
+            return objCommonDAL.GetApplicationView(TypeOfApplication, Invester, UnitName);
+        }
     }
 }
