@@ -1,4 +1,6 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +17,24 @@ namespace MeghalayaUIP.Admin
         MGCommonBAL objcommon = new MGCommonBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                var ObjUserInfo = new UserInfo();
+                if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                {
+                    ObjUserInfo = (UserInfo)Session["UserInfo"];
+                }
+                if (ObjUserInfo.Userid != "1001" && ObjUserInfo.Userid != "1010")
+                {
+                    Response.Redirect("~/login.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         protected void btnsubmit_Click(object sender, EventArgs e)
@@ -28,7 +47,6 @@ namespace MeghalayaUIP.Admin
 
                 DataSet ds = new DataSet();
                 ds = objcommon.GetApplicationView(TypeOfApplication, Invester, UnitName);
-
 
                 if (ds.Tables.Count > 0 || ds.Tables[0].Rows.Count > 0)
                 {
@@ -68,16 +86,18 @@ namespace MeghalayaUIP.Admin
                         Industry.Visible = false;
                         CFE.Visible = false;
                     }
-
-
                 }
-
-
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+        public void ApplicationView()
+        {
+
         }
     }
 }

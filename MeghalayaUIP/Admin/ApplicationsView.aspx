@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="ApplicationsView.aspx.cs" Inherits="MeghalayaUIP.Admin.ApplicationsView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="ApplicationsView.aspx.cs" Inherits="MeghalayaUIP.Admin.ApplicationsView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
