@@ -116,5 +116,15 @@ namespace MeghalayaUIP.BAL.SVRCBAL
             return SvrcDal.GetSrvcPDCLDetails(userid, UNITID);
         }
 
+
+        public string InsertEWasteDetails(ServiceEWasteDetails serviceEWasteDetails)
+        {
+            return SvrcDal.InsertEWasteDetails(serviceEWasteDetails);
+        }
+
+        public DataSet GetEWasteDetails(string srvcQdId, string unitId)
+        {
+            return SvrcDal.GetEWasteDetails(srvcQdId, unitId);
+        }
     }
 }

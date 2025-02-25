@@ -20,6 +20,11 @@ namespace MeghalayaUIP.Common
         public static string InsertWasteDetails = "USP_INSBMWWASTEDETAILS";
         public static string InsertBMWBIOMEDICALDET = "USP_INSBMWEQUIPMENT";
         public static string GetSrvcBMWDetails = "USP_GETBMWDETAILS";
+        
+        public static string InsertEWasteDetails = "USP_INSEWASTEDETAILS";
+        public static string GetEWasteDetails = "USP_GETEWASTEDETAILS";
+
+
         public static string InsertSVRCAttachments = "USP_INSSRVCATTACHMNETS";
 
         public static string GetSRVCapplications = "USP_GETSRVCUSERDASHBOARD";
@@ -250,6 +255,38 @@ namespace MeghalayaUIP.Common
         public string TransactionNo { get; set; }
         public string TransactionDate { get; set; }
         public string BankName { get; set; }
+
+    }
+
+    public class ServiceEWasteDetails
+    {
+        public string SrvcQdId { get; set; }
+        public string UnitId { get; set; }
+        public string UidNo { get; set; }
+        public string Name { get; set; }
+        public string DoorNo { get; set; }
+        public string Locality { get; set; }
+        public string StateId { get; set; }
+        public string DistrictId { get; set; }
+        public string District { get; set; }
+        public string MandalId { get; set; }
+        public string Mandal { get; set; }
+        public string VillageId { get; set; }
+        public string Village { get; set; }
+        public string Landmark { get; set; }
+        public string Pincode { get; set; }
+        public string Designation { get; set; }
+        public string EmailId { get; set; }
+        public string Mobile { get; set; }
+        public string AltMobile { get; set; }
+        public string Landline { get; set; }
+        public string Authorization { get; set; }
+        public string EWasteGenQuantity { get; set; }
+        public string EWasteRefurbished { get; set; }
+        public string EWasteDisposal { get; set; }
+        public string EWasteRecycle { get; set; }
+        public string CreatedBy { get; set; }
+        public string CreatedByIp { get; set; }
 
     }
 }

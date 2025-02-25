@@ -1114,7 +1114,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
         {
             DataTable dt = new DataTable();
             string valid = "";
-            //  IDno = "";
+            
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
             connection.Open();
@@ -1176,6 +1176,108 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public string InsertEWasteDetails(ServiceEWasteDetails serviceEWasteDetails)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.InsertEWasteDetails; 
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@EWD_SRVCQDID", Convert.ToInt32(serviceEWasteDetails.SrvcQdId));
+                com.Parameters.AddWithValue("@EWD_CREATEDBY", serviceEWasteDetails.CreatedBy);
+                com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
+                com.Parameters.AddWithValue("@EWD_UIDNO",serviceEWasteDetails.UidNo);
+                com.Parameters.AddWithValue("@EWD_CREATEDBYIP", serviceEWasteDetails.CreatedByIp);
+                com.Parameters.AddWithValue("@EWD_NAME", serviceEWasteDetails.Name);
+                com.Parameters.AddWithValue("@EWD_DOORNO", serviceEWasteDetails.DoorNo);
+                com.Parameters.AddWithValue("@EWD_LOCALITY", serviceEWasteDetails.Locality);
+                com.Parameters.AddWithValue("@EWD_STATEID", Convert.ToInt32(serviceEWasteDetails.StateId));
+                com.Parameters.AddWithValue("@EWD_DISTRICTID", Convert.ToInt32(serviceEWasteDetails.DistrictId));
+                com.Parameters.AddWithValue("@EWD_MANDALID", Convert.ToInt32(serviceEWasteDetails.MandalId));
+                com.Parameters.AddWithValue("@EWD_VILLAGEID", Convert.ToInt32(serviceEWasteDetails.VillageId));
+                com.Parameters.AddWithValue("@EWD_DISTRICT", serviceEWasteDetails.District);
+                com.Parameters.AddWithValue("@EWD_MANDAL", serviceEWasteDetails.Mandal);
+                com.Parameters.AddWithValue("@EWD_VILLAGE", serviceEWasteDetails.Village);
+                com.Parameters.AddWithValue("@EWD_PINCODE", serviceEWasteDetails.Pincode);
+                com.Parameters.AddWithValue("@EWD_LANDMARK", serviceEWasteDetails.Landmark);
+                com.Parameters.AddWithValue("@EWD_DESIGNATION", serviceEWasteDetails.Designation);
+                com.Parameters.AddWithValue("@EWD_EMAILID", serviceEWasteDetails.EmailId);
+                com.Parameters.AddWithValue("@EWD_MOBILE", serviceEWasteDetails.Mobile);
+                com.Parameters.AddWithValue("@EWD_ALTMOBILE", serviceEWasteDetails.AltMobile);
+                com.Parameters.AddWithValue("@EWD_LANDLINE", serviceEWasteDetails.Landline);
+                com.Parameters.AddWithValue("@EWD_AUTHORIZATION", serviceEWasteDetails.Authorization);
+                com.Parameters.AddWithValue("@EWD_EWASTEGENQUANTITY", serviceEWasteDetails.EWasteGenQuantity);
+                com.Parameters.AddWithValue("@EWD_EWASTEREFURBISHED", serviceEWasteDetails.EWasteRefurbished);
+                com.Parameters.AddWithValue("@EWD_EWASTERECYCLE", serviceEWasteDetails.EWasteRecycle);
+                com.Parameters.AddWithValue("@EWD_EWASTEDISPOSAL", serviceEWasteDetails.EWasteDisposal);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                    transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+
+        
+        public DataSet GetEWasteDetails(string srvcQdId, string unitId)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.InsertEWasteDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetEWasteDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(srvcQdId));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(unitId));
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

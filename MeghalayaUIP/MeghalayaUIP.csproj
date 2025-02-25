@@ -817,16 +817,26 @@
     <Content Include="User\Renewal\RENSafetySecurityDetails.aspx" />
     <Content Include="User\Renewal\RENShopsEstablishment.aspx" />
     <Content Include="User\Renewal\RENUserDashboard.aspx" />
+    <Content Include="User\Services\BatteryWMCertificate.aspx" />
+    <Content Include="User\Services\BMWCertificate.aspx" />
     <Content Include="User\Services\BMWDetails.aspx" />
+    <Content Include="User\Services\CDWMCertificate.aspx" />
     <Content Include="User\Services\EnterpriseDetails.aspx" />
+    <Content Include="User\Services\EWasteDetails.aspx" />
+    <Content Include="User\Services\EWMManfctrRefCertificate.aspx" />
     <Content Include="User\Services\HazardousDetails.aspx" />
+    <Content Include="User\Services\HAZWMCertificate.aspx" />
+    <Content Include="User\Services\NHAZWMCertificate.aspx" />
     <Content Include="User\Services\OtherServices.aspx" />
     <Content Include="User\Services\PCBFinalCertificate.aspx" />
     <Content Include="User\Services\PDCLDetails.aspx" />
+    <Content Include="User\Services\PlasticWasteDetails.aspx" />
+    <Content Include="User\Services\PWMCertificate.aspx" />
     <Content Include="User\Services\SrvcAckSlip.aspx" />
     <Content Include="User\Services\SRVCApplStatus.aspx" />
     <Content Include="User\Services\SrvcPaymentPage.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
+    <Content Include="User\Services\SWMCertificate.aspx" />
     <Content Include="User\Services\SWMDetails.aspx" />
     <Content Include="User\UserDashboard.aspx" />
     <Content Include="ViewCertifcateDetails.aspx" />
@@ -2452,12 +2462,33 @@
     <Compile Include="User\Renewal\RENUserDashboard.aspx.designer.cs">
       <DependentUpon>RENUserDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Services\BatteryWMCertificate.aspx.cs">
+      <DependentUpon>BatteryWMCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\BatteryWMCertificate.aspx.designer.cs">
+      <DependentUpon>BatteryWMCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\BMWCertificate.aspx.cs">
+      <DependentUpon>BMWCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\BMWCertificate.aspx.designer.cs">
+      <DependentUpon>BMWCertificate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Services\BMWDetails.aspx.cs">
       <DependentUpon>BMWDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Services\BMWDetails.aspx.designer.cs">
       <DependentUpon>BMWDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\CDWMCertificate.aspx.cs">
+      <DependentUpon>CDWMCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\CDWMCertificate.aspx.designer.cs">
+      <DependentUpon>CDWMCertificate.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\EnterpriseDetails.aspx.cs">
       <DependentUpon>EnterpriseDetails.aspx</DependentUpon>
@@ -2466,12 +2497,40 @@
     <Compile Include="User\Services\EnterpriseDetails.aspx.designer.cs">
       <DependentUpon>EnterpriseDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Services\EWasteDetails.aspx.cs">
+      <DependentUpon>EWasteDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\EWasteDetails.aspx.designer.cs">
+      <DependentUpon>EWasteDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\EWMManfctrRefCertificate.aspx.cs">
+      <DependentUpon>EWMManfctrRefCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\EWMManfctrRefCertificate.aspx.designer.cs">
+      <DependentUpon>EWMManfctrRefCertificate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Services\HazardousDetails.aspx.cs">
       <DependentUpon>HazardousDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Services\HazardousDetails.aspx.designer.cs">
       <DependentUpon>HazardousDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\HAZWMCertificate.aspx.cs">
+      <DependentUpon>HAZWMCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\HAZWMCertificate.aspx.designer.cs">
+      <DependentUpon>HAZWMCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\NHAZWMCertificate.aspx.cs">
+      <DependentUpon>NHAZWMCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\NHAZWMCertificate.aspx.designer.cs">
+      <DependentUpon>NHAZWMCertificate.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\OtherServices.aspx.cs">
       <DependentUpon>OtherServices.aspx</DependentUpon>
@@ -2493,6 +2552,20 @@
     </Compile>
     <Compile Include="User\Services\PDCLDetails.aspx.designer.cs">
       <DependentUpon>PDCLDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\PlasticWasteDetails.aspx.cs">
+      <DependentUpon>PlasticWasteDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\PlasticWasteDetails.aspx.designer.cs">
+      <DependentUpon>PlasticWasteDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\PWMCertificate.aspx.cs">
+      <DependentUpon>PWMCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\PWMCertificate.aspx.designer.cs">
+      <DependentUpon>PWMCertificate.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SrvcAckSlip.aspx.cs">
       <DependentUpon>SrvcAckSlip.aspx</DependentUpon>
@@ -2521,6 +2594,13 @@
     </Compile>
     <Compile Include="User\Services\SRVCUserDashboard.aspx.designer.cs">
       <DependentUpon>SRVCUserDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SWMCertificate.aspx.cs">
+      <DependentUpon>SWMCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SWMCertificate.aspx.designer.cs">
+      <DependentUpon>SWMCertificate.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SWMDetails.aspx.cs">
       <DependentUpon>SWMDetails.aspx</DependentUpon>
