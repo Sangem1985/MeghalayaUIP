@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User.CFO
+namespace MeghalayaUIP.Admin
 {
 
 
-    public partial class CFOPaymentPage
+    public partial class ApplicationsView
     {
 
         /// <summary>
@@ -51,15 +51,6 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.Label lblmsg;
 
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
         /// Failure control.
         /// </summary>
         /// <remarks>
@@ -87,58 +78,121 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// hdnQuesID control.
+        /// ddlTypeApplication control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnQuesID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTypeApplication;
 
         /// <summary>
-        /// hdnUIDNo control.
+        /// txtInvester control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnUIDNo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtInvester;
 
         /// <summary>
-        /// grdApprovals control.
+        /// txtUnitName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdApprovals;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUnitName;
 
         /// <summary>
-        /// lblPaymentAmount control.
+        /// btnsubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPaymentAmount;
+        protected global::System.Web.UI.WebControls.Button btnsubmit;
 
         /// <summary>
-        /// btnPrevious control.
+        /// User control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrevious;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl User;
 
         /// <summary>
-        /// btnPay control.
+        /// GVUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPay;
+        protected global::System.Web.UI.WebControls.GridView GVUser;
+
+        /// <summary>
+        /// Industry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Industry;
+
+        /// <summary>
+        /// GVIndustry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVIndustry;
+
+        /// <summary>
+        /// CFE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CFE;
+
+        /// <summary>
+        /// GVCFE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVCFE;
+
+        /// <summary>
+        /// CFO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CFO;
+
+        /// <summary>
+        /// GVCFO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVCFO;
+
+        /// <summary>
+        /// label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label;
 
         /// <summary>
         /// UpdateProgress control.

@@ -48,6 +48,8 @@ namespace MeghalayaUIP.Common
         ////////------------------ApplicationTracker----------------///////
 
         public static string GetApplicationTracker = "USP_GETAPPLICATIONTRACKER";
+
+        public static string GetApplicationDetails = "USP_GETAPPLICATIONVIEW";
         ////////-----------------CHANGE PASSWORD---------------//////
         public static string GetUserChangePWD = "USP_UPDATE_INVESTERPASSWORD";
         public static string GetDeptChangePassword = "USP_UPDATE_MASTERUSERPASSWORD";

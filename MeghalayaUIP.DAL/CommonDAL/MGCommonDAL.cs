@@ -387,7 +387,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.CommandText = CommonConstants.GetGrowthFinancialYear;
 
                 da.SelectCommand.Transaction = transaction;
-                da.SelectCommand.Connection = connection; 
+                da.SelectCommand.Connection = connection;
 
                 da.Fill(ds);
 
@@ -735,7 +735,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                     com.Parameters.Add("@HD_HELPDESKDESCRIPTION", SqlDbType.VarChar).Value = DBNull.Value;
                 else
                     com.Parameters.Add("@HD_HELPDESKDESCRIPTION", SqlDbType.VarChar).Value = Description.Trim();
-                                      
+
 
                 if (File_Path.Trim() == "" || File_Path.Trim() == null)
                     com.Parameters.Add("@HD_FILEPATH", SqlDbType.VarChar).Value = DBNull.Value;
@@ -1009,24 +1009,24 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-               
+
 
                 if (Email.Trim() == "" || Email.Trim() == null)
                     com.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = DBNull.Value;
                 else
-                    com.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = Email.Trim();               
+                    com.Parameters.Add("@EMAILID", SqlDbType.VarChar).Value = Email.Trim();
 
                 if (SecretKey.Trim() == "" || SecretKey.Trim() == null)
                     com.Parameters.Add("@SECRETKEY", SqlDbType.VarChar).Value = DBNull.Value;
                 else
                     com.Parameters.Add("@SECRETKEY", SqlDbType.VarChar).Value = SecretKey.Trim();
-                
+
                 if (IPAddress.Trim() == "" || IPAddress.Trim() == null)
                     com.Parameters.Add("@IPADDRESS", SqlDbType.VarChar).Value = DBNull.Value;
                 else
                     com.Parameters.Add("@IPADDRESS", SqlDbType.VarChar).Value = IPAddress.Trim();
 
-                valid=Convert.ToString(com.ExecuteNonQuery());               
+                valid = Convert.ToString(com.ExecuteNonQuery());
 
                 transaction.Commit();
                 connection.Close();
@@ -1061,8 +1061,8 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@EMIAL", Email);
-                da.SelectCommand.Parameters.AddWithValue("@SECRETKEY", SecretKey);                            
-               
+                da.SelectCommand.Parameters.AddWithValue("@SECRETKEY", SecretKey);
+
                 da.Fill(ds);
 
                 transaction.Commit();
@@ -1096,7 +1096,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-               
+
                 da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
 
                 da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(TDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
@@ -1259,7 +1259,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
         public string InsertFeedback(int trackerId, List<FeedbackData> feedbackList)
         {
-            string result  = null;
+            string result = null;
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
 
@@ -1350,6 +1350,47 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public DataSet GetApplicationView(string TypeOfApplication, string Invester = null, string UnitName = null)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetApplicationDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetApplicationDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@APPTYPE", TypeOfApplication);
+                if (Invester != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Invester);
+                }
+                if (UnitName != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@UNITNAME", UnitName);
+                }
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
-    
+
 }

@@ -247,55 +247,58 @@ namespace MeghalayaUIP.DAL.CFODAL
                     // Add parameters for CFOExciseDetails
                     cmd.Parameters.AddWithValue("@CFOunitid", data.CFOunitid);
                     cmd.Parameters.AddWithValue("@CFOQID", data.CFOQID);
-                    cmd.Parameters.AddWithValue("@Artical5Selection", data.Artical5Selection);
-                    cmd.Parameters.AddWithValue("@ApplicantSelection", data.ApplicantSelection);
-                    cmd.Parameters.AddWithValue("@MemberSelection", data.MemberSelection);
-                    cmd.Parameters.AddWithValue("@TaxSelection", data.TaxSelection);
-                    cmd.Parameters.AddWithValue("@SaleTaxSelection", data.SaleTaxSelection);
-                    cmd.Parameters.AddWithValue("@ProfessionSelection", data.ProfessionSelection);
-                    cmd.Parameters.AddWithValue("@GovernmentSelection", data.GovernmentSelection);
-                    cmd.Parameters.AddWithValue("@GovernmentDetails", data.GovernmentDetails);
-                    cmd.Parameters.AddWithValue("@ViolationSelection", data.ViolationSelection);
-                    cmd.Parameters.AddWithValue("@ViolationDetails", data.ViolationDetails);
-                    cmd.Parameters.AddWithValue("@ConvictedSelection", data.ConvictedSelection);
-                    cmd.Parameters.AddWithValue("@ConvictedDetails", data.ConvictedDetails);
-                    cmd.Parameters.AddWithValue("@RenewBrand", data.RenewBrand);
-                    cmd.Parameters.AddWithValue("@RegFromDate", data.RegFromDate);
-                    cmd.Parameters.AddWithValue("@RegToDate", data.RegToDate);
-                    cmd.Parameters.AddWithValue("@FirmAddress", data.FirmAddress);
-                    cmd.Parameters.AddWithValue("@CreatedBy", data.CreatedBy);
-                    cmd.Parameters.AddWithValue("@CreatedIp", data.CreatedIp);
-                    cmd.Parameters.AddWithValue("@UpdatedBy", data.UpdatedBy);
-                    cmd.Parameters.AddWithValue("@UpdatedDate", data.UpdatedDate);
-                    cmd.Parameters.AddWithValue("@UpdatedIp", data.UpdatedIp);
-                    cmd.Parameters.AddWithValue("@flag", data.Flag);
+                     cmd.Parameters.AddWithValue("@Artical5Selection", string.IsNullOrEmpty(data.Artical5Selection) ? (object)DBNull.Value : data.Artical5Selection);
+            cmd.Parameters.AddWithValue("@ApplicantSelection", string.IsNullOrEmpty(data.ApplicantSelection) ? (object)DBNull.Value : data.ApplicantSelection);
+            cmd.Parameters.AddWithValue("@MemberSelection", string.IsNullOrEmpty(data.MemberSelection) ? (object)DBNull.Value : data.MemberSelection);
+            cmd.Parameters.AddWithValue("@TaxSelection", string.IsNullOrEmpty(data.TaxSelection) ? (object)DBNull.Value : data.TaxSelection);
+            cmd.Parameters.AddWithValue("@SaleTaxSelection", string.IsNullOrEmpty(data.SaleTaxSelection) ? (object)DBNull.Value : data.SaleTaxSelection);
+            cmd.Parameters.AddWithValue("@ProfessionSelection", string.IsNullOrEmpty(data.ProfessionSelection) ? (object)DBNull.Value : data.ProfessionSelection);
+            cmd.Parameters.AddWithValue("@GovernmentSelection", string.IsNullOrEmpty(data.GovernmentSelection) ? (object)DBNull.Value : data.GovernmentSelection);
+            cmd.Parameters.AddWithValue("@GovernmentDetails", string.IsNullOrEmpty(data.GovernmentDetails) ? (object)DBNull.Value : data.GovernmentDetails);
+            cmd.Parameters.AddWithValue("@ViolationSelection", string.IsNullOrEmpty(data.ViolationSelection) ? (object)DBNull.Value : data.ViolationSelection);
+            cmd.Parameters.AddWithValue("@ViolationDetails", string.IsNullOrEmpty(data.ViolationDetails) ? (object)DBNull.Value : data.ViolationDetails);
+            cmd.Parameters.AddWithValue("@ConvictedSelection", string.IsNullOrEmpty(data.ConvictedSelection) ? (object)DBNull.Value : data.ConvictedSelection);
+            cmd.Parameters.AddWithValue("@ConvictedDetails", string.IsNullOrEmpty(data.ConvictedDetails) ? (object)DBNull.Value : data.ConvictedDetails);
+            cmd.Parameters.AddWithValue("@RenewBrand", string.IsNullOrEmpty(data.RenewBrand) ? (object)DBNull.Value : data.RenewBrand);
+            cmd.Parameters.AddWithValue("@RegFromDate", data.RegFromDate == null ? (object)DBNull.Value : data.RegFromDate);
+            cmd.Parameters.AddWithValue("@RegToDate", data.RegToDate == null ? (object)DBNull.Value : data.RegToDate);
+            cmd.Parameters.AddWithValue("@FirmAddress", string.IsNullOrEmpty(data.FirmAddress) ? (object)DBNull.Value : data.FirmAddress);
+            cmd.Parameters.AddWithValue("@CreatedBy", string.IsNullOrEmpty(data.CreatedBy) ? (object)DBNull.Value : data.CreatedBy);
+            cmd.Parameters.AddWithValue("@CreatedIp", string.IsNullOrEmpty(data.CreatedIp) ? (object)DBNull.Value : data.CreatedIp);
+            cmd.Parameters.AddWithValue("@UpdatedBy", string.IsNullOrEmpty(data.UpdatedBy) ? (object)DBNull.Value : data.UpdatedBy);
+            cmd.Parameters.AddWithValue("@UpdatedDate", data.UpdatedDate == null ? (object)DBNull.Value : data.UpdatedDate);
+            cmd.Parameters.AddWithValue("@UpdatedIp", string.IsNullOrEmpty(data.UpdatedIp) ? (object)DBNull.Value : data.UpdatedIp);
+            cmd.Parameters.AddWithValue("@flag", data.Flag ?? (object)DBNull.Value);
 
                     // Convert BrandDetails to XML
                     XDocument brandDetailsXml = null;
-                    if (brandDetails.Count > 0)
+                    if (brandDetails != null)
                     {
-                        brandDetailsXml = new XDocument(
-                            new XElement("BrandDetails",
-                                brandDetails.ConvertAll(brand =>
-                                    new XElement("BrandDetail",
-                                        new XElement("NameOfBrand", brand.NameOfBrand),
-                                        new XElement("Strength", brand.Strength),
-                                        new XElement("Size", brand.Size),
-                                        new XElement("NumberOfBottles", brand.NumberOfBottles),
-                                        new XElement("MRPRs", brand.MRPRs),
-                                        new XElement("BulkLiter", brand.BulkLiter),
-                                        new XElement("LandOnProof", brand.LandOnProof),
-                                        new XElement("BottlePlant", brand.BottlePlant),
-                                        new XElement("CreatedBy", brand.CreatedBy),
-                                        new XElement("CreatedIp", brand.CreatedIp),
-                                        new XElement("UpdatedBy", brand.UpdatedBy),
-                                        new XElement("UpdatedDate", brand.UpdatedDate),
-                                        new XElement("UpdatedIp", brand.UpdatedIp),
-                                        new XElement("flag", brand.Flag)
+                        if (brandDetails.Count > 0)
+                        {
+                            brandDetailsXml = new XDocument(
+                                new XElement("BrandDetails",
+                                    brandDetails.ConvertAll(brand =>
+                                        new XElement("BrandDetail",
+                                            new XElement("NameOfBrand", brand.NameOfBrand),
+                                            new XElement("Strength", brand.Strength),
+                                            new XElement("Size", brand.Size),
+                                            new XElement("NumberOfBottles", brand.NumberOfBottles),
+                                            new XElement("MRPRs", brand.MRPRs),
+                                            new XElement("BulkLiter", brand.BulkLiter),
+                                            new XElement("LandOnProof", brand.LandOnProof),
+                                            new XElement("BottlePlant", brand.BottlePlant),
+                                            new XElement("CreatedBy", brand.CreatedBy),
+                                            new XElement("CreatedIp", brand.CreatedIp),
+                                            new XElement("UpdatedBy", brand.UpdatedBy),
+                                            new XElement("UpdatedDate", brand.UpdatedDate),
+                                            new XElement("UpdatedIp", brand.UpdatedIp),
+                                            new XElement("flag", brand.Flag)
+                                        )
                                     )
                                 )
-                            )
-                        );
+                            );
+                        }
                     }
                     // Convert LiquorDetails to XML
                     XDocument liquorDetailsXml = null;
@@ -320,8 +323,9 @@ namespace MeghalayaUIP.DAL.CFODAL
                             )
                         );
                     }
-                    cmd.Parameters.AddWithValue("@BrandDetailsXml", brandDetailsXml.ToString());
-                    cmd.Parameters.AddWithValue("@LiquorDetailsXml", liquorDetailsXml == null ? "" : liquorDetailsXml.ToString());
+                    
+                    cmd.Parameters.AddWithValue("@BrandDetailsXml", brandDetailsXml==null?"": brandDetailsXml.ToString());
+                    cmd.Parameters.AddWithValue("@LiquorDetailsXml", liquorDetailsXml==null ?"": liquorDetailsXml.ToString());
 
                     conn.Open();
                     int cnt = cmd.ExecuteNonQuery();
@@ -368,14 +372,14 @@ namespace MeghalayaUIP.DAL.CFODAL
                                 ConvictedSelection = reader.GetString(12),
                                 ConvictedDetails = reader.IsDBNull(13) ? null : reader.GetString(13),
                                 RenewBrand = reader.GetString(14),
-                                RegFromDate = reader.IsDBNull(15) ? (DateTime?)null : reader.GetDateTime(15),
-                                RegToDate = reader.IsDBNull(16) ? (DateTime?)null : reader.GetDateTime(16),
+                                RegFromDate = reader.IsDBNull(15) ? null : reader.GetString(15),
+                                RegToDate = reader.IsDBNull(16) ? null : reader.GetString(16),
                                 FirmAddress = reader.IsDBNull(17) ? null : reader.GetString(17),
                                 CreatedBy = reader.GetString(18),
                                 CreatedDate = reader.GetDateTime(19),
                                 CreatedIp = reader.GetString(20),
                                 UpdatedBy = reader.IsDBNull(21) ? null : reader.GetString(21),
-                                UpdatedDate = reader.IsDBNull(22) ? (DateTime?)null : reader.GetDateTime(22),
+                                UpdatedDate = reader.IsDBNull(22) ? null : reader.GetString(22),
                                 UpdatedIp = reader.IsDBNull(23) ? null : reader.GetString(23),
                                 Flag = reader.GetString(24)
                             };

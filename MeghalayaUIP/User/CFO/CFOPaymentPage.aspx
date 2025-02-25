@@ -75,8 +75,25 @@
                                                         <asp:HiddenField ID="HdfDeptid" runat="server" />
                                                     </ItemTemplate>
                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle Width="50px" />
+                                                    <ItemStyle Width="10px" />
                                                 </asp:TemplateField>
+
+                                                <asp:TemplateField
+                                                    ItemStyle-HorizontalAlign="Center"
+                                                    HeaderStyle-Width="70px">
+                                                    <HeaderTemplate>
+                                                        <div style="text-align: center">
+                                                            Select All<br />
+                                                            <asp:CheckBox ID="chkHeader" runat="server"
+                                                                onclick="myheadcheck(this)" />
+                                                        </div>
+                                                    </HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:CheckBox ID="chkSel" AutoPostBack="true" OnCheckedChanged="chkSel_CheckedChanged" runat="server" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+
                                                 <asp:BoundField DataField="ApprovalName" HeaderText="Approval Name ">
                                                     <ItemStyle Width="450px" />
                                                 </asp:BoundField>
@@ -95,6 +112,11 @@
                                                         <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("CFODA_APPROVALID") %>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Fee" Visible="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("CFODA_APPROVALFEE") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
                                                 <asp:TemplateField HeaderText=" Dept ID" Visible="false">
                                                     <ItemTemplate>
                                                         <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("CFODA_DEPTID") %>'></asp:Label>
@@ -111,18 +133,21 @@
                                         <!-- <div class="col-md-12 mt-3 d-flex" id="padding"> -->
 
                                         <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Total Payment Amount</label>
+                                            <div class="col-lg-8 d-flex">
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label" id="lblPaymentAmount" runat="server">
+                                                        0
+                                                    </label>
+                                                </div>
+                                            </div>
+
                                             <label class="col-lg-3 col-form-label">Payment Type</label>
                                             <div class="col-lg-8 d-flex">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_male" value="option1">
-                                                    <label class="form-check-label" for="gender_male">
-                                                        Bill desk
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option2" checked="">
+                                                    <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option1" checked="">
                                                     <label class="form-check-label" for="gender_female">
-                                                        <b>Kotak Payment Gateway</b>
+                                                        <b>HDFC Payment Gateway</b>
                                                     </label>
                                                 </div>
                                             </div>
@@ -157,4 +182,18 @@
             </asp:UpdateProgress>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <script>
+
+        function myheadcheck(btn) {
+
+            var bolChecked = $(btn).is(':checked')
+
+            MyTable = $('#<%= grdApprovals.ClientID %>')
+            MyCheckBoxs = MyTable.find('input:checkbox')
+            MyCheckBoxs.each(function () {
+                $(this).prop('checked', bolChecked)
+            })
+        }
+
+    </script>
 </asp:Content>
