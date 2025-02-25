@@ -22,7 +22,7 @@
                     <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
                     <li class="breadcrumb-item"><a>Services</a></li>
 
-                    <li class="breadcrumb-item active" aria-current="page">Power Distribution Corporation Limited</li>
+                    <li class="breadcrumb-item active" aria-current="page">NOC for increase in load</li>
                 </ol>
             </nav>
             <div class="page-wrapper">
@@ -31,7 +31,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Power Distribution Corporation Limited:</h4>
+                                    <h4 class="card-title">NOC for increase in load:</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="col-md-12 ">

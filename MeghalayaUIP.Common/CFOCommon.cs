@@ -105,14 +105,14 @@ namespace MeghalayaUIP.Common
         public string ConvictedSelection { get; set; }
         public string ConvictedDetails { get; set; }
         public string RenewBrand { get; set; }
-        public DateTime? RegFromDate { get; set; }
-        public DateTime? RegToDate { get; set; }
+        public string RegFromDate { get; set; }
+        public string RegToDate { get; set; }
         public string FirmAddress { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string CreatedIp { get; set; }
         public string UpdatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedDate { get; set; }
         public string UpdatedIp { get; set; }
         public string Flag { get; set; }
         public List<CFOExciseBrandDetails> brandgridlist { get; set; }

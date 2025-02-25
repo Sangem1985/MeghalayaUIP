@@ -114,8 +114,8 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {
-                    e.Row.Cells[2].Text = "Total";
-                    e.Row.Cells[3].Text = TotFee.ToString();
+                    e.Row.Cells[3].Text = "Total";
+                    e.Row.Cells[4].Text = TotFee.ToString();
                 }
             }
             catch (Exception ex)
@@ -130,9 +130,15 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                string Orderno = "Bank" + DateTime.Now.Year + DateTime.Now.Month +
+                decimal TotalAmount = 0;
+                string PaymentAmount = "";
+                string receipt = "MIP_" + DateTime.Now.Year + DateTime.Now.Month +
                     DateTime.Now.Day + DateTime.Now.Minute + DateTime.Now.Year + DateTime.Now.Second + DateTime.Now.Millisecond;
-                string result;
+                Session["OrderNo"] = receipt;
+
+                //string Orderno = "Bank" + DateTime.Now.Year + DateTime.Now.Month +
+                //    DateTime.Now.Day + DateTime.Now.Minute + DateTime.Now.Year + DateTime.Now.Second + DateTime.Now.Millisecond;
+                //string result;
                 int count = 0;
                 CFOPayments objpay = new CFOPayments();
                 foreach (GridViewRow row in grdApprovals.Rows)
@@ -146,27 +152,41 @@ namespace MeghalayaUIP.User.CFO
                     objpay.CFEUID = hdnUIDNo.Value;
                     objpay.DeptID = DeptID.Text;
                     objpay.ApprovalID = ApprovalID.Text;
-                    objpay.OnlineOrderNo = Orderno;
-                    objpay.OnlineOrderAmount = row.Cells[3].Text;
-                    objpay.PaymentFlag = "Y";
-                    objpay.TransactionNo = "234432";
+                    objpay.OnlineOrderNo = receipt;
+                    objpay.OnlineOrderAmount = row.Cells[4].Text;
+                    objpay.PaymentFlag = "";
+                    objpay.TransactionNo = "";
                     objpay.TransactionDate = DateTime.Now.ToString("yyyy-MM-dd");
-                    objpay.BankName = "SBI";
+                    objpay.BankName = "";
                     objpay.CreatedBy = hdnUserID.Value;
                     objpay.IPAddress = getclientIP();
+                    TotalAmount = TotalAmount + Convert.ToDecimal(row.Cells[4].Text);
 
                     string A = objcfobal.InsertPaymentDetails(objpay);
                     if (A != "")
                     { count = count + 1; }
 
                 }
-                if (grdApprovals.Rows.Count == count)
+                if (TotalAmount > 0)
                 {
-                    success.Visible = true;
-                    lblmsg.Text = "Payment Details Submitted Successfully";
-                    string message = "alert('" + lblmsg.Text + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    PaymentAmount = ((int?)TotalAmount).ToString();
+                    Session["PaymentAmount"] = ((int?)TotalAmount).ToString();
+                    Response.Redirect("~/User/Payments/RazorPaymentPage.aspx?receipt=" + receipt + "&Amount=" + PaymentAmount);
                 }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please select atleast one Approval')", true);
+                    return;
+                }
+
+
+                /* if (grdApprovals.Rows.Count == count)
+                 {
+                     success.Visible = true;
+                     lblmsg.Text = "Payment Details Submitted Successfully";
+                     string message = "alert('" + lblmsg.Text + "')";
+                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                 }*/
 
             }
             catch (Exception ex)
@@ -193,6 +213,31 @@ namespace MeghalayaUIP.User.CFO
             }
 
             return result;
+        }
+
+        protected void chkSel_CheckedChanged(object sender, EventArgs e)
+        {
+            int selRowIndex = ((GridViewRow)(((CheckBox)sender).Parent.Parent)).RowIndex;
+            CheckBox cb = (CheckBox)grdApprovals.Rows[selRowIndex].FindControl("chkSel");
+            Label lblAmount = (Label)grdApprovals.Rows[selRowIndex].FindControl("lblAmount");
+            if (ViewState["Amount"] == null)
+            {
+                ViewState["Amount"] = 0;
+            }
+            decimal PrvAmount = Convert.ToDecimal(ViewState["Amount"].ToString());
+            decimal TotalPaymentAmount;
+
+            if (cb.Checked)
+            {
+                TotalPaymentAmount = PrvAmount + Convert.ToDecimal(lblAmount.Text);
+
+            }
+            else
+            {
+                TotalPaymentAmount = PrvAmount - Convert.ToDecimal(lblAmount.Text);
+            }
+            lblPaymentAmount.InnerText = TotalPaymentAmount.ToString();
+            ViewState["Amount"] = TotalPaymentAmount.ToString();
         }
     }
 }
