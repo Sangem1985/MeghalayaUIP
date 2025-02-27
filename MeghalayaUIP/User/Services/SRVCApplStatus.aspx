@@ -1,14 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="SRVCApplStatus.aspx.cs" Inherits="MeghalayaUIP.User.Services.SRVCApplStatus" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                     <li class="breadcrumb-item"><a href="../Services/SRVCUserDashboard.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Services</li>
+                    <li class="breadcrumb-item"><a href="../Services/SRVCUserDashboard.aspx">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Services</li>
                 </ol>
             </nav>
             <div class="page-wrapper">
@@ -42,7 +43,7 @@
                                     <h4>Other Services</h4>
                                 </div>
                                 <div class="col-md-1">
-                                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                                    <asp:LinkButton ID="lbtnBack" runat="server" OnClick="lbtnBack_Click" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                                 </div>
                             </div>
 
@@ -62,10 +63,9 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
-                                    <asp:BoundField HeaderText="Acknowledgement ID" DataField="PREREGUIDNO" ItemStyle-Width="5%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
+                                    <asp:BoundField HeaderText="Acknowledgement ID" DataField="SRVCED_UIDNO" ItemStyle-Width="5%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
                                     <asp:BoundField HeaderText="Invester ID" DataField="SRVCED_CREATEDBY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" Visible="false" />
-                                    <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                    <asp:BoundField HeaderText="PAN No" DataField="COMPANYPANNO" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                    <asp:BoundField HeaderText="Unit Name" DataField="SRVCED_NAMEOFUNIT" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                     <asp:BoundField HeaderText="Unit Address" DataField="APPLICANTADDRESS" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                     <asp:BoundField HeaderText="Service Name" DataField="SERVICENAME" ItemStyle-Width="20%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                     <asp:BoundField HeaderText="Service Applied Date" DataField="CREATEDDATE" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
@@ -98,7 +98,7 @@
                                             <asp:Label ID="lblUnitID" Text='<%#Eval("SRVCED_UNITID")%>' runat="server"></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                     <asp:TemplateField Visible="false">
+                                    <asp:TemplateField Visible="false">
                                         <ItemTemplate>
                                             <asp:Label ID="lblApprovalDoc" Text='<%#Eval("APPROVALDOCUMENT")%>' runat="server"></asp:Label>
                                         </ItemTemplate>

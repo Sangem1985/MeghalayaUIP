@@ -138,7 +138,7 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Status">
+                                <asp:TemplateField HeaderText="Status" Visible="false">
                                     <ItemTemplate>
                                         <asp:HyperLink ID="anchortaglinkStatus" runat="server" Text="Track" Font-Bold="true"
                                             ForeColor="Green" Target="_blank" Visible="false" />
@@ -158,7 +158,7 @@
                     <div align="center" id="trApplyAgainbtn" runat="server">
                         <div align="center" style="padding: 5px; margin: 5px; text-align: left;" valign="middle">
                             &nbsp;
-                           <asp:Button ID="btnApplyAgain" runat="server" CssClass="btn btn-primary" Height="32px"
+                           <asp:Button ID="btnApplyAgain" runat="server" class="btn btn-rounded btn-info btn-lg"
                                TabIndex="10" Text="Apply Again" Width="150px" OnClick="btnApplyAgain_Click" />
                         </div>
                     </div>

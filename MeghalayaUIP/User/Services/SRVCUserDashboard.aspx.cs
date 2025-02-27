@@ -163,9 +163,11 @@ namespace MeghalayaUIP.User.Services
                     if (Applstatus == "3")
                     {
 
-                        string intqnreid = lblSRVCQDID.Text.ToString();
-                        anchortaglinkStatus.NavigateUrl = "EnterpriseDetails.aspx?intqnreid=" + intqnreid.ToString();
-                        anchortaglinkStatus.Visible = true;
+                       // string intqnreid = lblSRVCQDID.Text.ToString();
+                        //anchortaglinkStatus.NavigateUrl = "EnterpriseDetails.aspx?intqnreid=" + intqnreid.ToString();
+                        //anchortaglinkStatus.Visible = true;
+                        btnApplyAgain.Visible = true;
+
                     }
                     else if (Applstatus == "2")
                     {
