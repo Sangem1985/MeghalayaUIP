@@ -5,8 +5,11 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -23,13 +26,35 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (!IsPostBack)
+                if (Session["UserInfo"] != null)
                 {
-                    BindStates();
-                    BindDistricts();
-                    BindData();
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
 
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    {
+                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                    }
+                    else
+                    {
+                        string newurl = "~/User/Services/SRVCUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+
+
+                    if (!IsPostBack)
+                    {
+                        GetAppliedorNot();
+                    }
                 }
+              
             }
             catch (Exception ex)
             {
@@ -38,7 +63,43 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
 
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "92");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "92")
+                    {
+                        BindStates();
+                        BindDistricts();
+                        BindData();
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/Services/.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/Services/PDCLDetails.aspx?Previous=" + "P");
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         private void BindData()
         {
             try
@@ -46,11 +107,11 @@ namespace MeghalayaUIP.User.Services
                 // Fetching session values
                 //string srvcQdId = Convert.ToString(Session["SRVCQID"]);
                 //string unitId = Convert.ToString(Session["SRVCUNITID"]);
-                string srvcQdId = Convert.ToString(116);
-                string unitId = Convert.ToString("1001");
+                //string srvcQdId = Convert.ToString(116);
+                //string unitId = Convert.ToString("1001");
 
                 DataSet ds = new DataSet();
-                ds = objSrvcbal.GetEWasteDetails(srvcQdId, unitId);
+                ds = objSrvcbal.GetEWasteDetails(Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
@@ -328,10 +389,10 @@ namespace MeghalayaUIP.User.Services
                 {
                     ServiceEWasteDetails serviceEWasteDetails = new ServiceEWasteDetails();
 
-                    serviceEWasteDetails.SrvcQdId = "116";//Convert.ToString(Session["SRVCQID"]);
-                    serviceEWasteDetails.CreatedBy = "1001";//hdnUserID.Value;
+                    serviceEWasteDetails.SrvcQdId = Convert.ToString(Session["SRVCQID"]);
+                    serviceEWasteDetails.CreatedBy =hdnUserID.Value;
                     serviceEWasteDetails.UidNo = "SRVC/2025/116";
-                    serviceEWasteDetails.UnitId = "1001";//Convert.ToString(Session["SRVCUNITID"]);
+                    serviceEWasteDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                     serviceEWasteDetails.CreatedByIp = getclientIP();
 
                     serviceEWasteDetails.Name = txtNameLocalBody.Text;
@@ -367,10 +428,7 @@ namespace MeghalayaUIP.User.Services
                     serviceEWasteDetails.EWasteRecycle = txtQtyRecyl.Text;
                     serviceEWasteDetails.EWasteDisposal = txtQtyDisp.Text;
 
-                    // Generating UID
-
-
-                    // Inserting data into the database
+                 
                     result = objSrvcbal.InsertEWasteDetails(serviceEWasteDetails);
 
                     if (result != "")
@@ -440,7 +498,6 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void ddlmand_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -491,7 +548,7 @@ namespace MeghalayaUIP.User.Services
                     slno = slno + 1;
                 }
 
-                if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
+               /* if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Door Number \\n";
                     slno = slno + 1;
@@ -558,7 +615,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     errormsg = errormsg + slno + ". Please Enter Landmark \\n";
                     slno = slno + 1;
-                }
+                } */
 
                 if (string.IsNullOrEmpty(txtDesignation.Text) || txtDesignation.Text == "" || txtDesignation.Text == null)
                 {
@@ -651,6 +708,151 @@ namespace MeghalayaUIP.User.Services
             }
             return emptyTextboxes;
         }
+
+
+        protected void btnSitePlan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupSitePlan.HasFile)
+                {
+                    Error = validations(fupSitePlan);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Site Plan/Plan Layout " + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupSitePlan.PostedFile.SaveAs(serverpath + "\\" + fupSitePlan.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupSitePlan.PostedFile.SaveAs(serverpath + "\\" + fupSitePlan.PostedFile.FileName);
+                            }
+                        }
+
+
+                        SRVCAttachments objSiteSelection = new SRVCAttachments();
+                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); 
+                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]);
+                        objSiteSelection.MasterID = "19";
+                        objSiteSelection.FilePath = serverpath + fupSitePlan.PostedFile.FileName;
+                        objSiteSelection.FileName = fupSitePlan.PostedFile.FileName;
+                        objSiteSelection.FileType = fupSitePlan.PostedFile.ContentType;
+                        objSiteSelection.FileDescription = "Site Plan/Plan Layout ";
+                        objSiteSelection.CreatedBy = hdnUserID.Value;
+                        objSiteSelection.IPAddress = getclientIP();
+                        objSiteSelection.ReferenceNo = txtSitePlan.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objSiteSelection);
+                        if (result != "")
+                        {
+                            hypSitePlan.Text = fupSitePlan.PostedFile.FileName;
+                            hypSitePlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupSitePlan.PostedFile.FileName);
+                            hypSitePlan.Target = "blank";
+                            message = "alert('" + "Site Plan/Plan Layout Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
+                int slno = 1; string Error = "";
+
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                //  }
+                return Error;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
 
 
     }

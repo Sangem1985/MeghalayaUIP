@@ -122,9 +122,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
             return SvrcDal.InsertEWasteDetails(serviceEWasteDetails);
         }
 
-        public DataSet GetEWasteDetails(string srvcQdId, string unitId)
+        public DataSet GetEWasteDetails(string srvcQdId, string Createdby)
         {
-            return SvrcDal.GetEWasteDetails(srvcQdId, unitId);
+            return SvrcDal.GetEWasteDetails(srvcQdId, Createdby);
         }
     }
 }

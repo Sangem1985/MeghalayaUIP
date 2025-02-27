@@ -216,11 +216,13 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
                         {
+                            Query.Visible = true;
                             grdQueries.DataSource = ds.Tables[4];
                             grdQueries.DataBind();
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
                         {
+                            QueryAttachment.Visible = true;
                             grdQryAttachments.DataSource = ds.Tables[5];
                             grdQryAttachments.DataBind();
                         }

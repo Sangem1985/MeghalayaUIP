@@ -1114,7 +1114,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
         {
             DataTable dt = new DataTable();
             string valid = "";
-            
+
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
             connection.Open();
@@ -1205,7 +1205,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 SqlCommand com = new SqlCommand();
                 com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = SvrcConstants.InsertEWasteDetails; 
+                com.CommandText = SvrcConstants.InsertEWasteDetails;
 
                 com.Transaction = transaction;
                 com.Connection = connection;
@@ -1213,25 +1213,74 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@EWD_SRVCQDID", Convert.ToInt32(serviceEWasteDetails.SrvcQdId));
                 com.Parameters.AddWithValue("@EWD_CREATEDBY", serviceEWasteDetails.CreatedBy);
                 com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
-                com.Parameters.AddWithValue("@EWD_UIDNO",serviceEWasteDetails.UidNo);
+                com.Parameters.AddWithValue("@EWD_UIDNO", serviceEWasteDetails.UidNo);
                 com.Parameters.AddWithValue("@EWD_CREATEDBYIP", serviceEWasteDetails.CreatedByIp);
                 com.Parameters.AddWithValue("@EWD_NAME", serviceEWasteDetails.Name);
-                com.Parameters.AddWithValue("@EWD_DOORNO", serviceEWasteDetails.DoorNo);
-                com.Parameters.AddWithValue("@EWD_LOCALITY", serviceEWasteDetails.Locality);
-                com.Parameters.AddWithValue("@EWD_STATEID", Convert.ToInt32(serviceEWasteDetails.StateId));
-                com.Parameters.AddWithValue("@EWD_DISTRICTID", Convert.ToInt32(serviceEWasteDetails.DistrictId));
-                com.Parameters.AddWithValue("@EWD_MANDALID", Convert.ToInt32(serviceEWasteDetails.MandalId));
-                com.Parameters.AddWithValue("@EWD_VILLAGEID", Convert.ToInt32(serviceEWasteDetails.VillageId));
-                com.Parameters.AddWithValue("@EWD_DISTRICT", serviceEWasteDetails.District);
-                com.Parameters.AddWithValue("@EWD_MANDAL", serviceEWasteDetails.Mandal);
-                com.Parameters.AddWithValue("@EWD_VILLAGE", serviceEWasteDetails.Village);
-                com.Parameters.AddWithValue("@EWD_PINCODE", serviceEWasteDetails.Pincode);
-                com.Parameters.AddWithValue("@EWD_LANDMARK", serviceEWasteDetails.Landmark);
-                com.Parameters.AddWithValue("@EWD_DESIGNATION", serviceEWasteDetails.Designation);
-                com.Parameters.AddWithValue("@EWD_EMAILID", serviceEWasteDetails.EmailId);
-                com.Parameters.AddWithValue("@EWD_MOBILE", serviceEWasteDetails.Mobile);
-                com.Parameters.AddWithValue("@EWD_ALTMOBILE", serviceEWasteDetails.AltMobile);
-                com.Parameters.AddWithValue("@EWD_LANDLINE", serviceEWasteDetails.Landline);
+                if (serviceEWasteDetails.DoorNo != "" && serviceEWasteDetails.DoorNo != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_DOORNO", serviceEWasteDetails.DoorNo);
+                }
+                if (serviceEWasteDetails.Locality != "" && serviceEWasteDetails.Locality != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_LOCALITY", serviceEWasteDetails.Locality);
+                }
+                if (serviceEWasteDetails.StateId != "" && serviceEWasteDetails.StateId != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_STATEID", Convert.ToInt32(serviceEWasteDetails.StateId));
+                }
+                if (serviceEWasteDetails.DistrictId != "" && serviceEWasteDetails.DistrictId != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_DISTRICTID", Convert.ToInt32(serviceEWasteDetails.DistrictId));
+                }
+                if (serviceEWasteDetails.MandalId != "" && serviceEWasteDetails.MandalId != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_MANDALID", Convert.ToInt32(serviceEWasteDetails.MandalId));
+                }
+                if (serviceEWasteDetails.VillageId != "" && serviceEWasteDetails.VillageId != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_VILLAGEID", Convert.ToInt32(serviceEWasteDetails.VillageId));
+                }
+                if (serviceEWasteDetails.District != "" && serviceEWasteDetails.District != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_DISTRICT", serviceEWasteDetails.District);
+                }
+                if (serviceEWasteDetails.Mandal != "" && serviceEWasteDetails.Mandal != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_MANDAL", serviceEWasteDetails.Mandal);
+                }
+                if (serviceEWasteDetails.Village != "" && serviceEWasteDetails.Village != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_VILLAGE", serviceEWasteDetails.Village);
+                }
+                if (serviceEWasteDetails.Pincode != "" && serviceEWasteDetails.Pincode != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_PINCODE", serviceEWasteDetails.Pincode);
+                }
+                if (serviceEWasteDetails.Landmark != "" && serviceEWasteDetails.Landmark != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_LANDMARK", serviceEWasteDetails.Landmark);
+                }
+                if (serviceEWasteDetails.Designation != "" && serviceEWasteDetails.Designation != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_DESIGNATION", serviceEWasteDetails.Designation);
+                }
+                if (serviceEWasteDetails.EmailId != "" && serviceEWasteDetails.EmailId != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_EMAILID", serviceEWasteDetails.EmailId);
+                }
+                if (serviceEWasteDetails.Mobile != "" && serviceEWasteDetails.Mobile != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_MOBILE", serviceEWasteDetails.Mobile);
+                }
+                if (serviceEWasteDetails.AltMobile != "" && serviceEWasteDetails.AltMobile != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_ALTMOBILE", serviceEWasteDetails.AltMobile);
+                }
+                if (serviceEWasteDetails.Landline != "" && serviceEWasteDetails.Landline != null)
+                {
+                    com.Parameters.AddWithValue("@EWD_LANDLINE", serviceEWasteDetails.Landline);
+                }
+
                 com.Parameters.AddWithValue("@EWD_AUTHORIZATION", serviceEWasteDetails.Authorization);
                 com.Parameters.AddWithValue("@EWD_EWASTEGENQUANTITY", serviceEWasteDetails.EWasteGenQuantity);
                 com.Parameters.AddWithValue("@EWD_EWASTEREFURBISHED", serviceEWasteDetails.EWasteRefurbished);
@@ -1258,8 +1307,8 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             return result;
         }
 
-        
-        public DataSet GetEWasteDetails(string srvcQdId, string unitId)
+
+        public DataSet GetEWasteDetails(string srvcQdId, string Createdby)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1269,7 +1318,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             try
             {
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(SvrcConstants.InsertEWasteDetails, connection);
+                da = new SqlDataAdapter(SvrcConstants.GetEWasteDetails, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.CommandText = SvrcConstants.GetEWasteDetails;
 
@@ -1277,7 +1326,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(srvcQdId));
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(unitId));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(Createdby));
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
