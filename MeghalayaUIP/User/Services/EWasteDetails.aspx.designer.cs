@@ -366,6 +366,15 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.Label lblSitePlan;
 
         /// <summary>
+        /// txtEstablish control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEstablish;
+
+        /// <summary>
         /// fupEstablish control.
         /// </summary>
         /// <remarks>
@@ -400,6 +409,15 @@ namespace MeghalayaUIP.User.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstablish;
+
+        /// <summary>
+        /// txtLand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLand;
 
         /// <summary>
         /// fupLand control.
@@ -438,6 +456,15 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.Label lblLand;
 
         /// <summary>
+        /// txtProject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtProject;
+
+        /// <summary>
         /// fupProject control.
         /// </summary>
         /// <remarks>
@@ -472,6 +499,15 @@ namespace MeghalayaUIP.User.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProject;
+
+        /// <summary>
+        /// txtFacilities control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFacilities;
 
         /// <summary>
         /// fupFacilities control.
@@ -510,6 +546,15 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.Label lblFacilities;
 
         /// <summary>
+        /// txtEwaste control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEwaste;
+
+        /// <summary>
         /// fupEwaste control.
         /// </summary>
         /// <remarks>
@@ -544,6 +589,15 @@ namespace MeghalayaUIP.User.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEwaste;
+
+        /// <summary>
+        /// txtRecyling control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRecyling;
 
         /// <summary>
         /// fupRecyling control.

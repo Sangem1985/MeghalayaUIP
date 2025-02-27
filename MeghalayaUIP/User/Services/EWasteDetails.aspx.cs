@@ -21,7 +21,7 @@ namespace MeghalayaUIP.User.Services
     {
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, Questionnaire, ErrorMsg = "", result = "", UID = "";
+        string UnitID, ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -54,7 +54,7 @@ namespace MeghalayaUIP.User.Services
                         GetAppliedorNot();
                     }
                 }
-              
+
             }
             catch (Exception ex)
             {
@@ -104,11 +104,6 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                // Fetching session values
-                //string srvcQdId = Convert.ToString(Session["SRVCQID"]);
-                //string unitId = Convert.ToString(Session["SRVCUNITID"]);
-                //string srvcQdId = Convert.ToString(116);
-                //string unitId = Convert.ToString("1001");
 
                 DataSet ds = new DataSet();
                 ds = objSrvcbal.GetEWasteDetails(Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
@@ -123,7 +118,7 @@ namespace MeghalayaUIP.User.Services
                                 txtNameLocalBody.Text = ds.Tables[0].Rows[0]["EWD_NAME"].ToString();
                                 txtDoorNo.Text = ds.Tables[0].Rows[0]["EWD_DOORNO"].ToString();
                                 txtLocal.Text = ds.Tables[0].Rows[0]["EWD_LOCALITY"].ToString();
-                                ddlstate.SelectedValue = ds.Tables[0].Rows[0]["EWD_STATEID"].ToString(); 
+                                ddlstate.SelectedValue = ds.Tables[0].Rows[0]["EWD_STATEID"].ToString();
                                 ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
 
                                 if (ddlstate.SelectedItem.Text == "Meghalaya")
@@ -167,6 +162,61 @@ namespace MeghalayaUIP.User.Services
                                 txtQtyRefbd.Text = ds.Tables[0].Rows[0]["EWD_EWASTEREFURBISHED"].ToString();
                                 txtQtyRecyl.Text = ds.Tables[0].Rows[0]["EWD_EWASTERECYCLE"].ToString();
                                 txtQtyDisp.Text = ds.Tables[0].Rows[0]["EWD_EWASTEDISPOSAL"].ToString();
+                            }
+                            if (ds.Tables[1].Rows.Count > 0)
+                            {
+                                for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                                {
+                                    if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 20)
+                                    {
+                                        hypSitePlan.Visible = true;
+                                        hypSitePlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                        hypSitePlan.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                        txtSitePlan.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                                    }
+                                    if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 21)
+                                    {
+                                        hypEstablish.Visible = true;
+                                        hypEstablish.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                        hypEstablish.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                        txtEstablish.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                                    }
+                                    if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 22)
+                                    {
+                                        hypLand.Visible = true;
+                                        hypLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                        hypLand.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                        txtLand.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                                    }
+                                    if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 23)
+                                    {
+                                        hypProject.Visible = true;
+                                        hypProject.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                        hypProject.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                        txtProject.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                                    }
+                                    if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 24)
+                                    {
+                                        hypFacilities.Visible = true;
+                                        hypFacilities.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                        hypFacilities.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                        txtFacilities.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                                    }
+                                    if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 25)
+                                    {
+                                        hypEwaste.Visible = true;
+                                        hypEwaste.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                        hypEwaste.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                        txtEwaste.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                                    }
+                                    if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 26)
+                                    {
+                                        hypRecyling.Visible = true;
+                                        hypRecyling.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                        hypRecyling.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                        txtRecyling.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                                    }
+                                }
                             }
                         }
 
@@ -227,10 +277,6 @@ namespace MeghalayaUIP.User.Services
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
-                    //ddlDistrict.DataSource = objDistrictModel;
-                    //ddlDistrict.DataValueField = "DistrictId";
-                    //ddlDistrict.DataTextField = "DistrictName";
-                    //ddlDistrict.DataBind();
 
                     ddldist.DataSource = objDistrictModel;
                     ddldist.DataValueField = "DistrictId";
@@ -240,16 +286,11 @@ namespace MeghalayaUIP.User.Services
                 }
                 else
                 {
-                    //ddlDistrict.DataSource = null;
-                    //ddlDistrict.DataBind();
 
                     ddldist.DataSource = null;
                     ddldist.DataBind();
 
                 }
-                //AddSelect(ddlDistrict);
-                //AddSelect(ddlMandal);
-                //AddSelect(ddlVillage);
 
                 AddSelect(ddldist);
                 AddSelect(ddlmand);
@@ -390,8 +431,8 @@ namespace MeghalayaUIP.User.Services
                     ServiceEWasteDetails serviceEWasteDetails = new ServiceEWasteDetails();
 
                     serviceEWasteDetails.SrvcQdId = Convert.ToString(Session["SRVCQID"]);
-                    serviceEWasteDetails.CreatedBy =hdnUserID.Value;
-                    serviceEWasteDetails.UidNo = "SRVC/2025/116";
+                    serviceEWasteDetails.CreatedBy = hdnUserID.Value;
+                    ///serviceEWasteDetails.UidNo = "SRVC/2025/116";
                     serviceEWasteDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                     serviceEWasteDetails.CreatedByIp = getclientIP();
 
@@ -428,7 +469,7 @@ namespace MeghalayaUIP.User.Services
                     serviceEWasteDetails.EWasteRecycle = txtQtyRecyl.Text;
                     serviceEWasteDetails.EWasteDisposal = txtQtyDisp.Text;
 
-                 
+
                     result = objSrvcbal.InsertEWasteDetails(serviceEWasteDetails);
 
                     if (result != "")
@@ -548,74 +589,74 @@ namespace MeghalayaUIP.User.Services
                     slno = slno + 1;
                 }
 
-               /* if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Door Number \\n";
-                    slno = slno + 1;
-                }
+                /* if (string.IsNullOrEmpty(txtDoorNo.Text) || txtDoorNo.Text == "" || txtDoorNo.Text == null)
+                 {
+                     errormsg = errormsg + slno + ". Please Enter Door Number \\n";
+                     slno = slno + 1;
+                 }
 
-                if (string.IsNullOrEmpty(txtLocal.Text) || txtLocal.Text == "" || txtLocal.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Locality \\n";
-                    slno = slno + 1;
-                }
+                 if (string.IsNullOrEmpty(txtLocal.Text) || txtLocal.Text == "" || txtLocal.Text == null)
+                 {
+                     errormsg = errormsg + slno + ". Please Enter Locality \\n";
+                     slno = slno + 1;
+                 }
 
-                if (ddlstate.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Select State \\n";
-                    slno = slno + 1;
-                }
+                 if (ddlstate.SelectedIndex == 0)
+                 {
+                     errormsg = errormsg + slno + ". Please Select State \\n";
+                     slno = slno + 1;
+                 }
 
-                if (ddlstate.SelectedItem.Text == "Meghalaya")
-                {
-                    // If state is Meghalaya, validate dropdown fields
-                    if (ddldist.SelectedIndex == 0)
-                    {
-                        errormsg += slno + ". Please Select District \\n";
-                        slno++;
-                    }
-                    if (ddlmand.SelectedIndex == 0)
-                    {
-                        errormsg += slno + ". Please Select Mandal \\n";
-                        slno++;
-                    }
-                    if (ddlvilla.SelectedIndex == 0)
-                    {
-                        errormsg += slno + ". Please Select Village \\n";
-                        slno++;
-                    }
-                }
-                else
-                {
-                    // For other states, validate textbox fields
-                    if (string.IsNullOrEmpty(txtApplDist.Text))
-                    {
-                        errormsg += slno + ". Please Enter Application District \\n";
-                        slno++;
-                    }
-                    if (string.IsNullOrEmpty(txtApplTaluka.Text))
-                    {
-                        errormsg += slno + ". Please Enter Application Taluka \\n";
-                        slno++;
-                    }
-                    if (string.IsNullOrEmpty(txtApplVillage.Text))
-                    {
-                        errormsg += slno + ". Please Enter Application Village \\n";
-                        slno++;
-                    }
-                }
+                 if (ddlstate.SelectedItem.Text == "Meghalaya")
+                 {
+                     // If state is Meghalaya, validate dropdown fields
+                     if (ddldist.SelectedIndex == 0)
+                     {
+                         errormsg += slno + ". Please Select District \\n";
+                         slno++;
+                     }
+                     if (ddlmand.SelectedIndex == 0)
+                     {
+                         errormsg += slno + ". Please Select Mandal \\n";
+                         slno++;
+                     }
+                     if (ddlvilla.SelectedIndex == 0)
+                     {
+                         errormsg += slno + ". Please Select Village \\n";
+                         slno++;
+                     }
+                 }
+                 else
+                 {
+                     // For other states, validate textbox fields
+                     if (string.IsNullOrEmpty(txtApplDist.Text))
+                     {
+                         errormsg += slno + ". Please Enter Application District \\n";
+                         slno++;
+                     }
+                     if (string.IsNullOrEmpty(txtApplTaluka.Text))
+                     {
+                         errormsg += slno + ". Please Enter Application Taluka \\n";
+                         slno++;
+                     }
+                     if (string.IsNullOrEmpty(txtApplVillage.Text))
+                     {
+                         errormsg += slno + ". Please Enter Application Village \\n";
+                         slno++;
+                     }
+                 }
 
-                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Pincode \\n";
-                    slno = slno + 1;
-                }
+                 if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
+                 {
+                     errormsg = errormsg + slno + ". Please Enter Pincode \\n";
+                     slno = slno + 1;
+                 }
 
-                if (string.IsNullOrEmpty(txtLANDMARK.Text) || txtLANDMARK.Text == "" || txtLANDMARK.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Landmark \\n";
-                    slno = slno + 1;
-                } */
+                 if (string.IsNullOrEmpty(txtLANDMARK.Text) || txtLANDMARK.Text == "" || txtLANDMARK.Text == null)
+                 {
+                     errormsg = errormsg + slno + ". Please Enter Landmark \\n";
+                     slno = slno + 1;
+                 } */
 
                 if (string.IsNullOrEmpty(txtDesignation.Text) || txtDesignation.Text == "" || txtDesignation.Text == null)
                 {
@@ -709,7 +750,10 @@ namespace MeghalayaUIP.User.Services
             return emptyTextboxes;
         }
 
-
+        protected void btnPrev_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Services/PDCLDetails.aspx?Previous=" + "P");
+        }
         protected void btnSitePlan_Click(object sender, EventArgs e)
         {
             try
@@ -722,7 +766,7 @@ namespace MeghalayaUIP.User.Services
                     {
                         string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Site Plan/Plan Layout " + "\\";
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Site Plan/Plan Layout" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -747,13 +791,13 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objSiteSelection = new SRVCAttachments();
-                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); 
-                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]);
-                        objSiteSelection.MasterID = "19";
+                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
+                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
+                        objSiteSelection.MasterID = "20";
                         objSiteSelection.FilePath = serverpath + fupSitePlan.PostedFile.FileName;
                         objSiteSelection.FileName = fupSitePlan.PostedFile.FileName;
                         objSiteSelection.FileType = fupSitePlan.PostedFile.ContentType;
-                        objSiteSelection.FileDescription = "Site Plan/Plan Layout ";
+                        objSiteSelection.FileDescription = "Site Plan/Plan Layout";
                         objSiteSelection.CreatedBy = hdnUserID.Value;
                         objSiteSelection.IPAddress = getclientIP();
                         objSiteSelection.ReferenceNo = txtSitePlan.Text;
@@ -764,6 +808,474 @@ namespace MeghalayaUIP.User.Services
                             hypSitePlan.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupSitePlan.PostedFile.FileName);
                             hypSitePlan.Target = "blank";
                             message = "alert('" + "Site Plan/Plan Layout Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnEstablish_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupEstablish.HasFile)
+                {
+                    Error = validations(fupEstablish);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Consent for Establish/ Operate" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupEstablish.PostedFile.SaveAs(serverpath + "\\" + fupEstablish.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupEstablish.PostedFile.SaveAs(serverpath + "\\" + fupEstablish.PostedFile.FileName);
+                            }
+                        }
+
+
+                        SRVCAttachments objSiteSelection = new SRVCAttachments();
+                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
+                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
+                        objSiteSelection.MasterID = "21";
+                        objSiteSelection.FilePath = serverpath + fupEstablish.PostedFile.FileName;
+                        objSiteSelection.FileName = fupEstablish.PostedFile.FileName;
+                        objSiteSelection.FileType = fupEstablish.PostedFile.ContentType;
+                        objSiteSelection.FileDescription = "Consent for Establish/ Operate";
+                        objSiteSelection.CreatedBy = hdnUserID.Value;
+                        objSiteSelection.IPAddress = getclientIP();
+                        objSiteSelection.ReferenceNo = txtEstablish.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objSiteSelection);
+                        if (result != "")
+                        {
+                            hypEstablish.Text = fupEstablish.PostedFile.FileName;
+                            hypEstablish.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupEstablish.PostedFile.FileName);
+                            hypEstablish.Target = "blank";
+                            message = "alert('" + "Consent for Establish/ Operate Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnLand_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupLand.HasFile)
+                {
+                    Error = validations(fupLand);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Land Documents" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupLand.PostedFile.SaveAs(serverpath + "\\" + fupLand.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupLand.PostedFile.SaveAs(serverpath + "\\" + fupLand.PostedFile.FileName);
+                            }
+                        }
+
+
+                        SRVCAttachments objSiteSelection = new SRVCAttachments();
+                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
+                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
+                        objSiteSelection.MasterID = "22";
+                        objSiteSelection.FilePath = serverpath + fupLand.PostedFile.FileName;
+                        objSiteSelection.FileName = fupLand.PostedFile.FileName;
+                        objSiteSelection.FileType = fupLand.PostedFile.ContentType;
+                        objSiteSelection.FileDescription = "Land Documents";
+                        objSiteSelection.CreatedBy = hdnUserID.Value;
+                        objSiteSelection.IPAddress = getclientIP();
+                        objSiteSelection.ReferenceNo = txtLand.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objSiteSelection);
+                        if (result != "")
+                        {
+                            hypLand.Text = fupLand.PostedFile.FileName;
+                            hypLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupLand.PostedFile.FileName);
+                            hypLand.Target = "blank";
+                            message = "alert('" + "Land Documents Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnProject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupProject.HasFile)
+                {
+                    Error = validations(fupProject);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Detailed Project Report" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupProject.PostedFile.SaveAs(serverpath + "\\" + fupProject.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupProject.PostedFile.SaveAs(serverpath + "\\" + fupProject.PostedFile.FileName);
+                            }
+                        }
+
+
+                        SRVCAttachments objSiteSelection = new SRVCAttachments();
+                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
+                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
+                        objSiteSelection.MasterID = "23";
+                        objSiteSelection.FilePath = serverpath + fupProject.PostedFile.FileName;
+                        objSiteSelection.FileName = fupProject.PostedFile.FileName;
+                        objSiteSelection.FileType = fupProject.PostedFile.ContentType;
+                        objSiteSelection.FileDescription = "Detailed Project Report";
+                        objSiteSelection.CreatedBy = hdnUserID.Value;
+                        objSiteSelection.IPAddress = getclientIP();
+                        objSiteSelection.ReferenceNo = txtProject.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objSiteSelection);
+                        if (result != "")
+                        {
+                            hypProject.Text = fupProject.PostedFile.FileName;
+                            hypProject.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupProject.PostedFile.FileName);
+                            hypProject.Target = "blank";
+                            message = "alert('" + "Detailed Project Report Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnFacilities_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupFacilities.HasFile)
+                {
+                    Error = validations(fupFacilities);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Details of Facilities for storage/handling/treatment/refurbishing" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupFacilities.PostedFile.SaveAs(serverpath + "\\" + fupFacilities.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupFacilities.PostedFile.SaveAs(serverpath + "\\" + fupFacilities.PostedFile.FileName);
+                            }
+                        }
+
+
+                        SRVCAttachments objSiteSelection = new SRVCAttachments();
+                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
+                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
+                        objSiteSelection.MasterID = "24";
+                        objSiteSelection.FilePath = serverpath + fupFacilities.PostedFile.FileName;
+                        objSiteSelection.FileName = fupFacilities.PostedFile.FileName;
+                        objSiteSelection.FileType = fupFacilities.PostedFile.ContentType;
+                        objSiteSelection.FileDescription = "Details of Facilities for storage/handling/treatment/refurbishing";
+                        objSiteSelection.CreatedBy = hdnUserID.Value;
+                        objSiteSelection.IPAddress = getclientIP();
+                        objSiteSelection.ReferenceNo = txtFacilities.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objSiteSelection);
+                        if (result != "")
+                        {
+                            hypFacilities.Text = fupFacilities.PostedFile.FileName;
+                            hypFacilities.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupFacilities.PostedFile.FileName);
+                            hypFacilities.Target = "blank";
+                            message = "alert('" + "Details of Facilities for storage/handling/treatment/refurbishing Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnEwaste_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupEwaste.HasFile)
+                {
+                    Error = validations(fupEwaste);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Authorization letter for collection of E-waste from Dismantler or Recycler" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupEwaste.PostedFile.SaveAs(serverpath + "\\" + fupEwaste.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupEwaste.PostedFile.SaveAs(serverpath + "\\" + fupEwaste.PostedFile.FileName);
+                            }
+                        }
+
+
+                        SRVCAttachments objSiteSelection = new SRVCAttachments();
+                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
+                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
+                        objSiteSelection.MasterID = "25";
+                        objSiteSelection.FilePath = serverpath + fupEwaste.PostedFile.FileName;
+                        objSiteSelection.FileName = fupEwaste.PostedFile.FileName;
+                        objSiteSelection.FileType = fupEwaste.PostedFile.ContentType;
+                        objSiteSelection.FileDescription = "Authorization letter for collection of E-waste from Dismantler or Recycler";
+                        objSiteSelection.CreatedBy = hdnUserID.Value;
+                        objSiteSelection.IPAddress = getclientIP();
+                        objSiteSelection.ReferenceNo = txtEwaste.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objSiteSelection);
+                        if (result != "")
+                        {
+                            hypEwaste.Text = fupEwaste.PostedFile.FileName;
+                            hypEwaste.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupEwaste.PostedFile.FileName);
+                            hypEwaste.Target = "blank";
+                            message = "alert('" + "Authorization letter for collection of E-waste from Dismantler or Recycler (Only applicable to refurbisher) Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnRecyling_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupRecyling.HasFile)
+                {
+                    Error = validations(fupRecyling);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                        + Convert.ToString(Session["SRVCQID"]) + "\\" + "Authorization letter for collection and recycling of E-waste from Recycler" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupRecyling.PostedFile.SaveAs(serverpath + "\\" + fupRecyling.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupRecyling.PostedFile.SaveAs(serverpath + "\\" + fupRecyling.PostedFile.FileName);
+                            }
+                        }
+
+
+                        SRVCAttachments objSiteSelection = new SRVCAttachments();
+                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
+                        objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
+                        objSiteSelection.MasterID = "26";
+                        objSiteSelection.FilePath = serverpath + fupRecyling.PostedFile.FileName;
+                        objSiteSelection.FileName = fupRecyling.PostedFile.FileName;
+                        objSiteSelection.FileType = fupRecyling.PostedFile.ContentType;
+                        objSiteSelection.FileDescription = "Authorization letter for collection and recycling of E-waste from Recycler";
+                        objSiteSelection.CreatedBy = hdnUserID.Value;
+                        objSiteSelection.IPAddress = getclientIP();
+                        objSiteSelection.ReferenceNo = txtRecyling.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objSiteSelection);
+                        if (result != "")
+                        {
+                            hypRecyling.Text = fupRecyling.PostedFile.FileName;
+                            hypRecyling.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupRecyling.PostedFile.FileName);
+                            hypRecyling.Target = "blank";
+                            message = "alert('" + "Authorization letter for collection and recycling of E-waste from Recycler (Only applicable to Dismantler) Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
