@@ -20,9 +20,14 @@ namespace MeghalayaUIP.Common
         public static string InsertWasteDetails = "USP_INSBMWWASTEDETAILS";
         public static string InsertBMWBIOMEDICALDET = "USP_INSBMWEQUIPMENT";
         public static string GetSrvcBMWDetails = "USP_GETBMWDETAILS";
-        
+
         public static string InsertEWasteDetails = "USP_INSEWASTEDETAILS";
         public static string GetEWasteDetails = "USP_GETEWASTEDETAILS";
+
+        public static string InsertProdPlasticsWasteDetails = "USP_INSSRVCPRODPLASTICWASTEDETAILS";
+        public static string InsertBOPlasticsWasteDetails = "USP_INS_SRVCBOPLASTICWASTEDETAILS";
+
+        //public static string GetProdPlasticWasteDetails = "";
 
 
         public static string InsertSVRCAttachments = "USP_INSSRVCATTACHMNETS";
@@ -42,6 +47,8 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCDashBoardVIEW = "USP_SRVCDASHBOARDVIEW";
         public static string InsertPaymentDetails = "USP_INSSRVCPAYMENTDETAILS_BKP";
         public static string GetSRVCApprovalsAmounttoPay = "USP_GETSRVCAPPROVALSAMOUNTTOPAY";
+
+        
     }
 
     public class SvrcApplicationDetails
@@ -235,7 +242,7 @@ namespace MeghalayaUIP.Common
         public string detailsexistingsite { get; set; }
         public string methodologydetails { get; set; }
         public string checkenvironmentpollution { get; set; }
-        public string createdby { get; set; }    
+        public string createdby { get; set; }
         public string createdbyip { get; set; }
 
     }
@@ -288,5 +295,58 @@ namespace MeghalayaUIP.Common
         public string CreatedBy { get; set; }
         public string CreatedByIp { get; set; }
 
+    }
+    public class ServiceProdPlasticsWasteDetails
+    {
+        public string SrvcQdId { get; set; }
+        public string UnitId { get; set; }
+        public string NameOfProduct { get; set; }
+        public string NameOfUnit { get; set; }
+        public string CreatedByIp { get; set; }
+        public string CarryBag { get; set; }
+        public string MultilayeredPlastic { get; set; }
+        public string ManufacturingCapacity { get; set; }
+        public string PreviousRegistration { get; set; }
+        public string RegistrationDate { get; set; }
+        public string TotalCapitalInvestment { get; set; }
+        public string YearOfCommencement { get; set; }
+        public string ListQuantityProduct { get; set; }
+        public string ListQuantityRawMaterial { get; set; }
+        public string TotalQuantityWasteGenerated { get; set; }
+        public string ModeOfStorageWithinPlant { get; set; }
+        public string DisposalProvision { get; set; }
+        public string Compliance { get; set; }
+
+        public string CreatedBy { get; set; }
+
+    }
+
+    public class ServiceBOPlasticsWasteDetails
+    {
+        public string SrvcQdId { get; set; }
+        public string UnitId { get; set; }
+
+        public string CreatedBy { get; set; }
+        public string NameOfBrandOwner { get; set; }
+
+        public string PreviousRegistrationNumber { get; set; }
+
+        public string CreatedByIp { get; set; }
+
+        public string RegistrationDate { get; set; }
+
+        public string TotalCapitalInvestment { get; set; }
+
+        public string YearOfCommencement { get; set; }
+
+        public string ByProdProductList { get; set; }
+
+        public string ByProdRawMaterialList { get; set; }
+
+        public string TotalQuantityWasteGenerated { get; set; }
+
+        public string ModeOfStorageWithinPlant { get; set; }
+
+        public string DisposalProvision { get; set; }
     }
 }
