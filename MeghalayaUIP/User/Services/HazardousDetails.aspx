@@ -182,6 +182,11 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-12 text-right">
+                                        <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                        <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                        <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                    </div>
                                 </div>
 
                             </div>

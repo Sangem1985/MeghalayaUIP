@@ -126,5 +126,15 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetEWasteDetails(srvcQdId, Createdby);
         }
+
+        public string InsertSrvHazardous(SRVCHAZZARDOUSDETAILS objSrvHazardous)
+        {
+            return SvrcDal.InsertSrvHazardous(objSrvHazardous);
+        }
+
+        public DataSet GetSRVCHAZARDOUSDETAILS(string srvcQdId, string Createdby)
+        {
+            return SvrcDal.GetSRVCHAZARDOUSDETAILS(srvcQdId, Createdby);
+        }
     }
 }
