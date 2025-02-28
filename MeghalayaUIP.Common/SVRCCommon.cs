@@ -27,6 +27,10 @@ namespace MeghalayaUIP.Common
         public static string InsertProdPlasticsWasteDetails = "USP_INSSRVCPRODPLASTICWASTEDETAILS";
         public static string InsertBOPlasticsWasteDetails = "USP_INS_SRVCBOPLASTICWASTEDETAILS";
 
+        public static string InsertHzrdsDetails = "USP_INSSRVCHAZZARDOUSDETAILS";
+        public static string GetHzrdsDetails = "USP_GETHAZZARDOUSDETAILS";
+
+
         //public static string GetProdPlasticWasteDetails = "";
 
 
@@ -349,4 +353,26 @@ namespace MeghalayaUIP.Common
 
         public string DisposalProvision { get; set; }
     }
+
+    public class SRVCHAZZARDOUSDETAILS
+    {
+        public string SRVCQDID { get; set; }
+        public string UNITID { get; set; }
+        public string UIDNO { get; set; }
+        public string FIRMNAME { get; set; }
+        public string FIRMLOCATION { get; set; }
+        public string OCCUPIERNAME { get; set; }
+        public string EMAILID { get; set; }
+        public string MOBILENO { get; set; }
+        public string FAX { get; set; }
+        public string ACTIVITIES { get; set; }
+        public decimal WSTNTRQTYANUM { get; set; }
+        public decimal WSTNTRQTYATM { get; set; }
+        public string YEARCMSNG { get; set; }
+        public string SHIFTS { get; set; }
+        public string CREATEDBY { get; set; }
+        public string CREATEDIP { get; set; }
+    }
+
+
 }

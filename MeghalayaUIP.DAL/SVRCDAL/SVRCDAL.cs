@@ -1492,6 +1492,109 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             return result;
         }
 
+        public DataSet GetSRVCHAZARDOUSDETAILS(string srvcQdId, string createdby)
+        {
+
+            DataSet ds = new DataSet();
+            using (SqlConnection connection = new SqlConnection(connstr))
+            {
+                SqlTransaction transaction = null;
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                try
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(SvrcConstants.GetHzrdsDetails, connection);
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.CommandText = SvrcConstants.GetHzrdsDetails;
+                    da.SelectCommand.Transaction = transaction;
+                    da.SelectCommand.Connection = connection;
+
+                    da.SelectCommand.Parameters.AddWithValue("@SRVCHZD_SRVCQDID", Convert.ToInt32(srvcQdId));
+                    da.SelectCommand.Parameters.AddWithValue("@SRVCHZD_CREATEDBY", Convert.ToInt32(createdby));
+
+                    da.Fill(ds);
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return ds;
+        }
+
+        public string InsertSrvHazardous(SRVCHAZZARDOUSDETAILS ObjHazardous)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.InsertHzrdsDetails; ; // Stored Procedure Name
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                // Add parameters
+                com.Parameters.AddWithValue("@SRVCHZD_SRVCQDID", Convert.ToInt32(ObjHazardous.SRVCQDID));
+                com.Parameters.AddWithValue("@SRVCHZD_UNITID", Convert.ToInt32(ObjHazardous.UNITID));
+                com.Parameters.AddWithValue("@SRVCHZD_UIDNO", ObjHazardous.UIDNO);
+                com.Parameters.AddWithValue("@SRVCHZD_FIRMNAME", ObjHazardous.FIRMNAME);
+                com.Parameters.AddWithValue("@SRVCHZD_FIRMLOCATION", ObjHazardous.FIRMLOCATION);
+                com.Parameters.AddWithValue("@SRVCHZD_OCCUPIERNAME", ObjHazardous.OCCUPIERNAME);
+                com.Parameters.AddWithValue("@SRVCHZD_EMAILID", ObjHazardous.EMAILID);
+                com.Parameters.AddWithValue("@SRVCHZD_MOBILENO", ObjHazardous.MOBILENO);
+                com.Parameters.AddWithValue("@SRVCHZD_FAX", ObjHazardous.FAX);
+                com.Parameters.AddWithValue("@SRVCHZD_ACTIVITIES", ObjHazardous.ACTIVITIES);
+                com.Parameters.AddWithValue("@SRVCHZD_WSTNTRQTYANUM", Convert.ToDecimal(ObjHazardous.WSTNTRQTYANUM));
+                com.Parameters.AddWithValue("@SRVCHZD_WSTNTRQTYATM", Convert.ToDecimal(ObjHazardous.WSTNTRQTYATM));
+                com.Parameters.AddWithValue("@SRVCHZD_YEARCMSNG", ObjHazardous.YEARCMSNG);
+                com.Parameters.AddWithValue("@SRVCHZD_SHIFTS", ObjHazardous.SHIFTS);
+                com.Parameters.AddWithValue("@SRVCHZD_CREATEDBY", ObjHazardous.CREATEDBY);
+                com.Parameters.AddWithValue("@SRVCHZD_CREATEDIP", ObjHazardous.CREATEDIP);
+
+                // Output parameter to get the inserted/updated record ID
+                SqlParameter outputParam = new SqlParameter("@RESULT", SqlDbType.Int);
+                outputParam.Direction = ParameterDirection.Output;
+                com.Parameters.Add(outputParam);
+
+                // Execute the query
+                com.ExecuteNonQuery();
+
+                // Get the output result
+                Result = com.Parameters["@RESULT"].Value.ToString();
+
+                // Commit transaction
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                // Rollback transaction on error
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                // Close and dispose the connection
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return Result;
+        }
+
+
 
     }
 }
