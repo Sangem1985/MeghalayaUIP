@@ -27,6 +27,10 @@ namespace MeghalayaUIP.Common
         public static string InsertProdPlasticsWasteDetails = "USP_INSSRVCPRODPLASTICWASTEDETAILS";
         public static string InsertBOPlasticsWasteDetails = "USP_INS_SRVCBOPLASTICWASTEDETAILS";
 
+        public static string InsertHzrdsDetails = "USP_INSSRVCHAZZARDOUSDETAILS";
+        public static string GetHzrdsDetails = "USP_GETHAZZARDOUSDETAILS";
+
+
         //public static string GetProdPlasticWasteDetails = "";
 
 
