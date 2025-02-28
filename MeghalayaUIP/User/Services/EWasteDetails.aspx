@@ -339,69 +339,90 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2.Consent for Establish/ Operate *</label>
+                                                    <label class="col-lg-4 col-form-label">2.Consent for Establish/ Operate *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtEstablish" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupEstablish" runat="server" />
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnEstablish" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnEstablish" OnClick="btnEstablish_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypEstablish" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Label ID="lblEstablish" runat="server" />
-                                                    </div>
+                                                    <asp:Label ID="lblEstablish" runat="server" />
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3.	Land Documents*</label>
+                                                    <label class="col-lg-4 col-form-label">3.	Land Documents*</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtLand" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupLand" runat="server" />
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnLand" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnLand" OnClick="btnLand_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypLand" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Label ID="lblLand" runat="server" />
-                                                    </div>
+                                                    <asp:Label ID="lblLand" runat="server" />
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4.	Detailed Project Report*</label>
+                                                    <label class="col-lg-4 col-form-label">4.	Detailed Project Report*</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtProject" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupProject" runat="server" />
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnProject" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnProject" OnClick="btnProject_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypProject" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Label ID="lblProject" runat="server" />
-                                                    </div>
+                                                    <asp:Label ID="lblProject" runat="server" />
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">5.	Details of Facilities for storage/handling/treatment/refurbishing:*</label>
+                                                    <label class="col-lg-4 col-form-label">5.	Details of Facilities for storage/handling/treatment/refurbishing:*</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtFacilities" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupFacilities" runat="server" />
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnFacilities" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnFacilities" OnClick="btnFacilities_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypFacilities" runat="server" Target="_blank"></asp:HyperLink>
@@ -415,12 +436,18 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">6.	Authorization letter for collection of E-waste from Dismantler or Recycler (Only applicable to refurbisher)*</label>
+                                                    <label class="col-lg-4 col-form-label">6.	Authorization letter for collection of E-waste from Dismantler or Recycler (Only applicable to refurbisher)*</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtEwaste" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupEwaste" runat="server" />
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnEwaste" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnEwaste" OnClick="btnEwaste_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypEwaste" runat="server" Target="_blank"></asp:HyperLink>
@@ -434,12 +461,18 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">7.	Authorization letter for collection and recycling of E-waste from Recycler (Only applicable to Dismantler)*</label>
+                                                    <label class="col-lg-4 col-form-label">7.	Authorization letter for collection and recycling of E-waste from Recycler (Only applicable to Dismantler)*</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtRecyling" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupRecyling" runat="server" />
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnRecyling" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnRecyling" OnClick="btnRecyling_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypRecyling" runat="server" Target="_blank"></asp:HyperLink>
@@ -455,7 +488,7 @@
 
                                         <div class="col-md-12 text-right mt-2 mb-2">
 
-                                            <asp:Button ID="btnPrev" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                            <asp:Button ID="btnPrev" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnPrev_Click" />
                                             <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnsave_Click" />
                                             <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
@@ -468,14 +501,15 @@
                 </div>
             </div>
         </ContentTemplate>
-        <%--<Triggers>
-            <asp:PostBackTrigger ControlID="btnDisposal" />
-            <asp:PostBackTrigger ControlID="btnDetailsSolidWaste" />
-            <asp:PostBackTrigger ControlID="btnDetailSiteSelection" />
-            <asp:PostBackTrigger ControlID="btnSiteClearance" />
-            <asp:PostBackTrigger ControlID="btnEnvironmentalClearance" />
-            <asp:PostBackTrigger ControlID="btnAgreement" />
-        </Triggers>--%>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnSitePlan" />
+            <asp:PostBackTrigger ControlID="btnEstablish" />
+            <asp:PostBackTrigger ControlID="btnLand" />
+            <asp:PostBackTrigger ControlID="btnProject" />
+            <asp:PostBackTrigger ControlID="btnFacilities" />
+            <asp:PostBackTrigger ControlID="btnEwaste" />
+            <asp:PostBackTrigger ControlID="btnRecyling" />
+        </Triggers>
     </asp:UpdatePanel>
 
 </asp:Content>
