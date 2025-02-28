@@ -822,6 +822,7 @@
     <Content Include="User\Services\BMWCertificate.aspx" />
     <Content Include="User\Services\BMWDetails.aspx" />
     <Content Include="User\Services\CDWMCertificate.aspx" />
+    <Content Include="User\Services\CDWMDetails.aspx" />
     <Content Include="User\Services\EnterpriseDetails.aspx" />
     <Content Include="User\Services\EWasteDetails.aspx" />
     <Content Include="User\Services\EWMManfctrRefCertificate.aspx" />
@@ -2497,6 +2498,13 @@
     </Compile>
     <Compile Include="User\Services\CDWMCertificate.aspx.designer.cs">
       <DependentUpon>CDWMCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\CDWMDetails.aspx.cs">
+      <DependentUpon>CDWMDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\CDWMDetails.aspx.designer.cs">
+      <DependentUpon>CDWMDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\EnterpriseDetails.aspx.cs">
       <DependentUpon>EnterpriseDetails.aspx</DependentUpon>
