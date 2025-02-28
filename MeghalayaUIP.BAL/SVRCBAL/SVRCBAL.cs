@@ -122,6 +122,20 @@ namespace MeghalayaUIP.BAL.SVRCBAL
             return SvrcDal.InsertEWasteDetails(serviceEWasteDetails);
         }
 
+
+        public string InsertProdPlasticsWasteDetails(ServiceProdPlasticsWasteDetails serviceProdPlasticsWasteDetails)
+        {
+            return SvrcDal.InsertProdPlasticsWasteDetails(serviceProdPlasticsWasteDetails);
+        }
+
+        public string InsertBOPlasticsWasteDetails(ServiceBOPlasticsWasteDetails serviceBOPlasticsWasteDetails)
+        {
+            return SvrcDal.InsertBOPlasticsWasteDetails(serviceBOPlasticsWasteDetails);
+        }
+
+
+
+
         public DataSet GetEWasteDetails(string srvcQdId, string Createdby)
         {
             return SvrcDal.GetEWasteDetails(srvcQdId, Createdby);

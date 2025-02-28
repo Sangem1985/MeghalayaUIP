@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Globalization;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace MeghalayaUIP.DAL.SVRCDAL
 {
@@ -1213,7 +1214,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@EWD_SRVCQDID", Convert.ToInt32(serviceEWasteDetails.SrvcQdId));
                 com.Parameters.AddWithValue("@EWD_CREATEDBY", serviceEWasteDetails.CreatedBy);
                 com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
-                com.Parameters.AddWithValue("@EWD_UIDNO", serviceEWasteDetails.UidNo);
+               // com.Parameters.AddWithValue("@EWD_UIDNO", serviceEWasteDetails.UidNo);
                 com.Parameters.AddWithValue("@EWD_CREATEDBYIP", serviceEWasteDetails.CreatedByIp);
                 com.Parameters.AddWithValue("@EWD_NAME", serviceEWasteDetails.Name);
                 if (serviceEWasteDetails.DoorNo != "" && serviceEWasteDetails.DoorNo != null)
@@ -1343,9 +1344,44 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
         }
 
-        public string InsertSrvHazardous(SRVCHAZZARDOUSDETAILS ObjHazardous)
+        //public DataSet GetProdPlasticWasteDetails(string srvcQdId, string unitId)
+        //{
+        //    DataSet ds = new DataSet();
+        //    SqlConnection connection = new SqlConnection(connstr);
+        //    SqlTransaction transaction = null;
+        //    connection.Open();
+        //    transaction = connection.BeginTransaction();
+        //    try
+        //    {
+        //        SqlDataAdapter da;
+        //        da = new SqlDataAdapter(SvrcConstants.GetProdPlasticWasteDetails, connection);
+        //        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+        //        da.SelectCommand.CommandText = SvrcConstants.GetProdPlasticWasteDetails;
+
+        //        da.SelectCommand.Transaction = transaction;
+        //        da.SelectCommand.Connection = connection;
+
+        //        da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(srvcQdId));
+        //        da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(unitId));
+        //        da.Fill(ds);
+        //        transaction.Commit();
+        //        return ds;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        transaction.Rollback();
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //        connection.Dispose();
+        //    }
+        //}
+
+        public string InsertProdPlasticsWasteDetails(ServiceProdPlasticsWasteDetails serviceProdPlasticsWasteDetails)
         {
-            string Result = "";
+            string result = "";
             SqlConnection connection = new SqlConnection(connstr);
             SqlTransaction transaction = null;
 
@@ -1354,97 +1390,108 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Open();
                 transaction = connection.BeginTransaction();
 
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = SvrcConstants.InsertHzrdsDetails; ; // Stored Procedure Name
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.InsertProdPlasticsWasteDetails, // Ensure this stored procedure exists in DB
+                    Transaction = transaction,
+                    Connection = connection
+                };
 
-                com.Transaction = transaction;
-                com.Connection = connection;
+                com.Parameters.AddWithValue("@SRVCPWD_SRVCQDID", Convert.ToInt32(serviceProdPlasticsWasteDetails.SrvcQdId));
+                com.Parameters.AddWithValue("@SRVCPWD_UNITID", Convert.ToInt32(serviceProdPlasticsWasteDetails.UnitId));
+                com.Parameters.AddWithValue("@SRVCPWD_NAMEOFPROD", serviceProdPlasticsWasteDetails.NameOfProduct);
+                com.Parameters.AddWithValue("@SRVCPWD_NAMEOFUNIT", serviceProdPlasticsWasteDetails.NameOfUnit);
+                com.Parameters.AddWithValue("@SRVCPWD_CREATEDBY", serviceProdPlasticsWasteDetails.CreatedBy);
+                com.Parameters.AddWithValue("@SRVCPWD_CREATEDBYIP", serviceProdPlasticsWasteDetails.CreatedByIp);
+                com.Parameters.AddWithValue("@SRVCPWD_CARRYBAG", serviceProdPlasticsWasteDetails.CarryBag);
+                com.Parameters.AddWithValue("@SRVCPWD_MULTILAYEREDPLASTIC", serviceProdPlasticsWasteDetails.MultilayeredPlastic);
+                com.Parameters.AddWithValue("@SRVCPWD_MANFCTRNGCAPACITY", serviceProdPlasticsWasteDetails.ManufacturingCapacity);
+                com.Parameters.AddWithValue("@SRVCPWD_PREVREGNO", serviceProdPlasticsWasteDetails.PreviousRegistration);
+                com.Parameters.AddWithValue("@SRVCPWD_REGDATE", DateTime.ParseExact(serviceProdPlasticsWasteDetails.RegistrationDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@SRVCPWD_TOTCAPTLINV", serviceProdPlasticsWasteDetails.TotalCapitalInvestment);
+                com.Parameters.AddWithValue("@SRVCPWD_YEAROFCMNCEMNT", serviceProdPlasticsWasteDetails.YearOfCommencement);
+                com.Parameters.AddWithValue("@SRVCPWD_LISTQNTMPROD", serviceProdPlasticsWasteDetails.ListQuantityProduct);
+                com.Parameters.AddWithValue("@SRVCPWD_LISTQNTMRAWMAT", serviceProdPlasticsWasteDetails.ListQuantityRawMaterial);
+                com.Parameters.AddWithValue("@SRVCPWD_TOTALQNTMWASTEGENERATED", serviceProdPlasticsWasteDetails.TotalQuantityWasteGenerated);
+                com.Parameters.AddWithValue("@SRVCPWD_MODEOFSTORAGEWITHINPLANT", serviceProdPlasticsWasteDetails.ModeOfStorageWithinPlant);
+                com.Parameters.AddWithValue("@SRVCPWD_DISPOSALPROVISION", serviceProdPlasticsWasteDetails.DisposalProvision);
+                com.Parameters.AddWithValue("@SRVCPWD_COMPLIANCE", serviceProdPlasticsWasteDetails.Compliance);
 
-                // Add parameters
-                com.Parameters.AddWithValue("@SRVCHZD_SRVCQDID", Convert.ToInt32(ObjHazardous.SRVCQDID));
-                com.Parameters.AddWithValue("@SRVCHZD_UNITID", Convert.ToInt32(ObjHazardous.UNITID));
-                com.Parameters.AddWithValue("@SRVCHZD_UIDNO", ObjHazardous.UIDNO);
-                com.Parameters.AddWithValue("@SRVCHZD_FIRMNAME", ObjHazardous.FIRMNAME);
-                com.Parameters.AddWithValue("@SRVCHZD_FIRMLOCATION", ObjHazardous.FIRMLOCATION);
-                com.Parameters.AddWithValue("@SRVCHZD_OCCUPIERNAME", ObjHazardous.OCCUPIERNAME);
-                com.Parameters.AddWithValue("@SRVCHZD_EMAILID", ObjHazardous.EMAILID);
-                com.Parameters.AddWithValue("@SRVCHZD_MOBILENO", ObjHazardous.MOBILENO);
-                com.Parameters.AddWithValue("@SRVCHZD_FAX", ObjHazardous.FAX);
-                com.Parameters.AddWithValue("@SRVCHZD_ACTIVITIES", ObjHazardous.ACTIVITIES);
-                com.Parameters.AddWithValue("@SRVCHZD_WSTNTRQTYANUM", Convert.ToDecimal(ObjHazardous.WSTNTRQTYANUM));
-                com.Parameters.AddWithValue("@SRVCHZD_WSTNTRQTYATM", Convert.ToDecimal(ObjHazardous.WSTNTRQTYATM));
-                com.Parameters.AddWithValue("@SRVCHZD_YEARCMSNG", ObjHazardous.YEARCMSNG);
-                com.Parameters.AddWithValue("@SRVCHZD_SHIFTS", ObjHazardous.SHIFTS);
-                com.Parameters.AddWithValue("@SRVCHZD_CREATEDBY", ObjHazardous.CREATEDBY);
-                com.Parameters.AddWithValue("@SRVCHZD_CREATEDIP", ObjHazardous.CREATEDIP);
 
-                // Output parameter to get the inserted/updated record ID
-                SqlParameter outputParam = new SqlParameter("@RESULT", SqlDbType.Int);
-                outputParam.Direction = ParameterDirection.Output;
-                com.Parameters.Add(outputParam);
 
-                // Execute the query
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
 
-                // Get the output result
-                Result = com.Parameters["@RESULT"].Value.ToString();
-
-                // Commit transaction
+                result = com.Parameters["@RESULT"].Value.ToString();
                 transaction.Commit();
             }
             catch (Exception ex)
             {
-                // Rollback transaction on error
-                transaction.Rollback();
+                transaction?.Rollback();
                 throw ex;
             }
             finally
             {
-                // Close and dispose the connection
                 connection.Close();
                 connection.Dispose();
             }
-
-            return Result;
+            return result;
         }
 
-        public DataSet GetSRVCHAZARDOUSDETAILS(string srvcQdId, string createdby)
+        public string InsertBOPlasticsWasteDetails(ServiceBOPlasticsWasteDetails serviceBOPlasticsWasteDetails)
         {
-           
-            DataSet ds = new DataSet();
-            using (SqlConnection connection = new SqlConnection(connstr))
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
             {
-                SqlTransaction transaction = null;
                 connection.Open();
                 transaction = connection.BeginTransaction();
-                try
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(SvrcConstants.GetHzrdsDetails, connection);
-                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    da.SelectCommand.CommandText = SvrcConstants.GetHzrdsDetails;
-                    da.SelectCommand.Transaction = transaction;
-                    da.SelectCommand.Connection = connection;
 
-                    da.SelectCommand.Parameters.AddWithValue("@SRVCHZD_SRVCQDID", Convert.ToInt32(srvcQdId));
-                    da.SelectCommand.Parameters.AddWithValue("@SRVCHZD_CREATEDBY", Convert.ToInt32(createdby));
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.InsertBOPlasticsWasteDetails, 
+                    Transaction = transaction,
+                    Connection = connection
+                };
 
-                    da.Fill(ds);
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    throw;
-                }
-                finally
-                {
-                    connection.Close();
-                }
+                com.Parameters.AddWithValue("@BOPWD_SRVCQDID", Convert.ToInt32(serviceBOPlasticsWasteDetails.SrvcQdId));
+                com.Parameters.AddWithValue("@BOPWD_UNITID", Convert.ToInt32(serviceBOPlasticsWasteDetails.UnitId));
+                com.Parameters.AddWithValue("@BOPWD_NAMEOFBRANDOWNER", serviceBOPlasticsWasteDetails.NameOfBrandOwner);
+                com.Parameters.AddWithValue("@BOPWD_CREATEDBY", serviceBOPlasticsWasteDetails.CreatedBy);
+                com.Parameters.AddWithValue("@BOPWD_CREATEDBYIP", serviceBOPlasticsWasteDetails.CreatedByIp);
+                com.Parameters.AddWithValue("@BOPWD_PREVREGNO", serviceBOPlasticsWasteDetails.PreviousRegistrationNumber);
+                com.Parameters.AddWithValue("@BOPWD_REGDATE", DateTime.ParseExact(serviceBOPlasticsWasteDetails.RegistrationDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@BOPWD_TOTALCAPINV", serviceBOPlasticsWasteDetails.TotalCapitalInvestment);
+                com.Parameters.AddWithValue("@BOPWD_INVYEAROFCOMNCMNT", serviceBOPlasticsWasteDetails.YearOfCommencement);
+                com.Parameters.AddWithValue("@BOPWD_BYPRODPRODLIST", serviceBOPlasticsWasteDetails.ByProdProductList);
+                com.Parameters.AddWithValue("@BOPWD_BYPRODRAWMATLIST", serviceBOPlasticsWasteDetails.ByProdRawMaterialList);
+                com.Parameters.AddWithValue("@BOPWD_SWTOTALQNTMWASTEGEN", serviceBOPlasticsWasteDetails.TotalQuantityWasteGenerated);
+                com.Parameters.AddWithValue("@BOPWD_SWMODEOFSTORAGE", serviceBOPlasticsWasteDetails.ModeOfStorageWithinPlant);
+                com.Parameters.AddWithValue("@BOPWD_SWDISPOSALPROV", serviceBOPlasticsWasteDetails.DisposalProvision);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
             }
-            return ds;
-            
-
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
         }
+
+
     }
 }
