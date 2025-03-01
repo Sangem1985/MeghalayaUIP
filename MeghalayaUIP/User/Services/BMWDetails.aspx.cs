@@ -801,17 +801,23 @@ namespace MeghalayaUIP.User.Services
                 if (ErrorMsg == "")
                 {
                     SvrcBMWDet ObjBMWDetails = new SvrcBMWDet();
-                    int count = 0;
+                    int count = 0;                  
+
                     for (int i = 0; i < GVWaste.Rows.Count; i++)
                     {
+                        Label lblCategory = GVWaste.Rows[i].FindControl("lblCategory") as Label;
+                        Label lblWaste = GVWaste.Rows[i].FindControl("lblItemName") as Label;
+                        Label lblQuantity = GVWaste.Rows[i].FindControl("lblQuantity") as Label;
+                        Label lblDisposal = GVWaste.Rows[i].FindControl("lblDisposal") as Label;
+
                         ObjBMWDetails.Createdby = hdnUserID.Value;
                         ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                         ObjBMWDetails.Questionnariid = Convert.ToString(Session["SRVCQID"]);
                         ObjBMWDetails.IPAddress = getclientIP();
-                        ObjBMWDetails.Category = ddlcategory.SelectedValue;
-                        ObjBMWDetails.Waste = ddlwaste.SelectedValue;
-                        ObjBMWDetails.QuantityGenerated = txtQuantity.Text;
-                        ObjBMWDetails.MethodDisposal = txtMethod.Text;
+                        ObjBMWDetails.Category = lblCategory.Text;
+                        ObjBMWDetails.Waste = lblWaste.Text;
+                        ObjBMWDetails.QuantityGenerated = lblQuantity.Text;
+                        ObjBMWDetails.MethodDisposal = lblDisposal.Text;
 
                         string A = objSrvcbal.SRVCBMWWASTEDET(ObjBMWDetails);
                         if (A != "")

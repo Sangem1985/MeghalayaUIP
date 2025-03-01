@@ -1138,7 +1138,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@DEPTID", objSrvc.deptid);
                 }
-                da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", objSrvc.ViewStatus);
+              //  da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", objSrvc.ViewStatus);
 
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)

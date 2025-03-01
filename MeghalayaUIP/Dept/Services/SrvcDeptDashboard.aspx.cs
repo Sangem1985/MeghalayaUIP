@@ -50,7 +50,7 @@ namespace MeghalayaUIP.Dept.Services
                         }
                     }
                     objSrvc.UserID = ObjUserInfo.UserID;
-                    objSrvc.UserName = ObjUserInfo.UserName;
+                   // objSrvc.UserName = ObjUserInfo.UserName;
                     objSrvc.Role = Convert.ToInt32(ObjUserInfo.Roleid);
                     objSrvc.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                     dt = SrvcBAL.GetSrvcDashBoard(objSrvc);
@@ -115,7 +115,7 @@ namespace MeghalayaUIP.Dept.Services
         {
             try
             {
-                Response.Redirect("~/Dept/Services/SrvcDeptDashboard.aspx");
+                Response.Redirect("~/Dept/Dashboard/DeptDashBoard.aspx");
             }
             catch (Exception ex)
             {

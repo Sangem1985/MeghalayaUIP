@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=ScrutinyCompleted" style="text-decoration: none;" id="anchrScrtnyCmpld" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=PRESCRUTINYCOMPLETED" style="text-decoration: none;" id="anchrScrtnyCmpld" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=ScrutinyRejected" style="text-decoration: none;" id="anchrScrtnyRjctd" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=PRESCRUTINYREJECTED" style="text-decoration: none;" id="anchrScrtnyRjctd" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-vote-nay"></i>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=ScrutinyPending" style="text-decoration: none;" id="anchrScrtnyPndng" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=PRESCRUTINYPENDING" style="text-decoration: none;" id="anchrScrtnyPndng" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
@@ -130,7 +130,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=AddlPaymentRaised" style="text-decoration: none;" title="Pre-Scrutiny Completed With Additional Payment" id="anchrAddlPaymnt" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=ADDITIONALPAYMENTRAISED" style="text-decoration: none;" title="Pre-Scrutiny Completed With Additional Payment" id="anchrAddlPaymnt" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-wait shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-pending"></i>
@@ -150,7 +150,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=QueryRaised" style="text-decoration: none;" id="anchrQryRaised" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=QUERYPENDING" style="text-decoration: none;" id="anchrQryRaised" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
@@ -186,7 +186,7 @@
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalIssued" style="text-decoration: none;" id="anchrApproved" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=TOTALAPPROVALISSUED" style="text-decoration: none;" id="anchrApproved" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -209,7 +209,7 @@
 
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalPending" style="text-decoration: none;" id="anchrAprvlPndng" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=APPROVALPENDING" style="text-decoration: none;" id="anchrAprvlPndng" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
@@ -231,7 +231,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalRejected" style="text-decoration: none;" id="anchrAprvlRjctd" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=REJECTED" style="text-decoration: none;" id="anchrAprvlRjctd" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-vote-nay"></i>
@@ -260,12 +260,12 @@
                 <div class="card-header">
                     <h3>Offline Approvals</h3>
                 </div>
-                <section id="dashboardcount2" class="dashboardcount2">
+                <section id="dashboardcount3" class="dashboardcount3">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="SrvcApplDeptView.aspx?Status=TOTALOFFLINEAPPLICATIONS" style="text-decoration: none;" id="anchrOffilineTotal" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=TOTALOFFILINEAPPLICATIONS" style="text-decoration: none;" id="anchrOffilineTotal" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -287,7 +287,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=OfflineApproved" style="text-decoration: none;" id="anchrOfflineApproved" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=OFFLINEAPPROVED" style="text-decoration: none;" id="anchrOfflineApproved" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
@@ -309,7 +309,7 @@
                             </div>
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=OfflinePending" style="text-decoration: none;" id="anchrOfflinePending" runat="server">
+                                    <a href="SrvcApplDeptView.aspx?Status=OFFLINEPENDING" style="text-decoration: none;" id="anchrOfflinePending" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-search-alt"></i>
