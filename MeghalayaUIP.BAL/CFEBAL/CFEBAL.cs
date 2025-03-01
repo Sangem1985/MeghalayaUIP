@@ -288,5 +288,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetPreRegPaymentReceipt(UnitId, Createdby, TransactionNo, Uid);
         }
+        public string InsertCFEQueryResponse(CFEQueryDet CFEQuery)
+        {
+            return objCFEDAL.InsertCFEQueryResponse(CFEQuery);
+        }
+
     }
 }

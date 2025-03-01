@@ -3426,5 +3426,56 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
+        public string InsertCFEQueryResponse(CFEQueryDet CFEQuery)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFEQueryResponse;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(CFEQuery.Unitid));
+                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(CFEQuery.Investerid));
+                com.Parameters.AddWithValue("@CFEQDID", Convert.ToInt32(CFEQuery.Questionarieid));
+                com.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(CFEQuery.QueryID));
+                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(CFEQuery.Deptid));
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(CFEQuery.Approvalid));
+                com.Parameters.AddWithValue("@RESPONSE", CFEQuery.QueryResponse);
+                com.Parameters.AddWithValue("@IPADDRESS", CFEQuery.IPAddress);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

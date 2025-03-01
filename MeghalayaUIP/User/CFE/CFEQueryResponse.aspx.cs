@@ -228,6 +228,9 @@ namespace MeghalayaUIP.User.CFE
                 CFEQuery.Investerid = hdnUserID.Value;
                 CFEQuery.IPAddress = getclientIP();
                 CFEQuery.QueryResponse = txtQueryResponse.Text;
+                CFEQuery.Questionarieid = lblQuesID.Text;
+
+                result = objcfebal.InsertCFEQueryResponse(CFEQuery);
 
                 btnSubmit.Enabled = false;
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Replied Successfully!');  window.location.href='CFEQueryDashboard.aspx'", true);

@@ -85,6 +85,7 @@ namespace MeghalayaUIP.Common
         public static string InsertPaymentRequest = "USP_INS_PAYMENT_REQUEST";
         public static string UpdatePaymentResponse = "USP_UPD_PAYMENT_RESPONSE";
         public static string UpdatePaymentErrorResponse = "USP_UPD_PAYMENT_ERROR_RESPONSE";
+        public static string InsertCFEQueryResponse = "USP_UPDATECFEAPPLQUERYRESPONSE";
 
         /// <summary>
         /// DEPARTMENT STARTED
@@ -957,8 +958,9 @@ namespace MeghalayaUIP.Common
         public string Approvalid { get; set; }
         public string QueryID { get; set; }
         public string IPAddress { get; set; }      
-        public string QueryResponse { get; set; }     
-        
+        public string QueryResponse { get; set; }
+        public string Questionarieid { get; set; }
+
     }
 
 }
