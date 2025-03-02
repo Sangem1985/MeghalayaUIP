@@ -804,6 +804,12 @@ namespace MeghalayaUIP.Dept.CFE
                         grdApplStatus.DataSource = ds.Tables[21];
                         grdApplStatus.DataBind();
                     }
+                    if (ds.Tables[22].Rows.Count > 0)
+                    {
+                        Query.Visible = true;
+                        grdQueries.DataSource = ds.Tables[22];
+                        grdQueries.DataBind();
+                    }
 
                 }
 
