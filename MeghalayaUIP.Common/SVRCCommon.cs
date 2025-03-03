@@ -392,5 +392,16 @@ namespace MeghalayaUIP.Common
         public string CREATEDIP { get; set; }
     }
 
+    public class CDWMDetails
+    {
+        public string NameLocalAuthority { get; set; }
+        public string NameOfNodalOfficer { get; set; }
+        public string DesignationOfNodalOfficer { get; set; }
+        public string AuthorizationRequiredFor { get; set; }
+        public string AvgQuantityHandledPerDay { get; set; }
+        public string QuantityWasteProcessedPerDay { get; set; }
+        public bool SiteClearanceFromAuthority { get; set; }
+    }
+
 
 }

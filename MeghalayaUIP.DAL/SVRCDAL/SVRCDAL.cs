@@ -1594,7 +1594,47 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             return Result;
         }
 
+        public string InsertCDWMDetails(SRVCCDWMdetails objCDWMDet)
+        {
+            return "1";
+            //using (SqlConnection connection = new SqlConnection(connstr))
+            //{
+            //    SqlTransaction transaction = null;
+            //    connection.Open();
+            //    transaction = connection.BeginTransaction();
 
+            //    try
+            //    {
+            //        using (SqlCommand cmd = new SqlCommand(SvrcConstants.CDWMDetails, connection, transaction))
+            //        {
+            //            cmd.CommandType = CommandType.StoredProcedure;
+
+            //            //cmd.Parameters.AddWithValue("@CDWM_CDWMQDID", objCDWMDet.CDWM_CDWMQDID);
+            //            //cmd.Parameters.AddWithValue("@CDWM_UNITID", objCDWMDet.CDWM_UNITID);
+            //            cmd.Parameters.AddWithValue("@CDWM_AUTHNAME", objCDWMDet.NameLocalAuthority);
+            //            cmd.Parameters.AddWithValue("@CDWM_NAME_OF_NODAL_OFFICER", objCDWMDet.NameOfNodalOfficer);
+            //            cmd.Parameters.AddWithValue("@CDWM_DESIGNATION_OF_NODAL_OFFICER", objCDWMDet.DesignationOfNodalOfficer);
+            //            cmd.Parameters.AddWithValue("@CDWM_AUTHORIZATION", objCDWMDet.AuthorizationRequiredFor);
+            //            cmd.Parameters.AddWithValue("@CDWM_AVG_QUANT_CDWM", objCDWMDet.AuthorizationRequiredFor);
+            //            cmd.Parameters.AddWithValue("@CDWM_QUAT_CDWM_PROCESSED", objCDWMDet.QuantityWasteProcessedPerDay);
+            //            cmd.Parameters.AddWithValue("@CDWM_SITE_CLEARANCE", objCDWMDet.SiteClearanceFromAuthority);
+
+            //            cmd.ExecuteNonQuery();
+            //            transaction.Commit();
+            //        }
+            //        return "Data inserted successfully";
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        transaction.Rollback();
+            //        return "Error: " + ex.Message;
+            //    }
+            //    finally
+            //    {
+            //        connection.Close();
+            //    }
+            //}
+        }
 
     }
 }

@@ -166,7 +166,9 @@ namespace MeghalayaUIP.User.Services
                     ObjCDWMDet.QuantityWasteProcessedPerDay = txtQuanWasteProc.Text.Trim();
                     ObjCDWMDet.SiteClearanceFromAuthority = rblSiteClearance.SelectedValue == "1";
 
-                    //result = ObjCDWMDet.InsertSVRCAttachments(ObjCDWMDet);
+                    result = objSrvcbal.InsertCDWMDetails(ObjCDWMDet);
+
+                    ;
                     if (result != "")
                     {
                         string message = "alert('" + "SWMD Details Saved Successfully" + "')";
