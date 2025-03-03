@@ -23,13 +23,37 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (!IsPostBack)
-                {
-                    divProducer.Visible = false;
-                    divBrandOwner.Visible = false;
 
-                    GetAppliedorNot();
-                    //BindData();
+                if (Session["UserInfo"] != null)
+                {
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    {
+                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                    }
+                    else
+                    {
+                        string newurl = "~/User/Services/SRVCUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+
+                    if (!IsPostBack)
+                    {
+                        divProducer.Visible = false;
+                        divBrandOwner.Visible = false;
+
+                        GetAppliedorNot();
+                        //BindData();
+                    }
                 }
             }
             catch (Exception ex)
@@ -46,7 +70,7 @@ namespace MeghalayaUIP.User.Services
             {
                 DataSet ds = new DataSet();
 
-                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "94");
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "105");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -832,8 +856,8 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                btnsave_Click(sender, e);
-                if (ErrorMsg == "")
+                //btnsave_Click(sender, e);
+                //if (ErrorMsg == "")
                     Response.Redirect("~/User/Services/CDWMDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
