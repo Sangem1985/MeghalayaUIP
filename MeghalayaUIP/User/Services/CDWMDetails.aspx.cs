@@ -24,9 +24,80 @@ namespace MeghalayaUIP.User.Services
         string UnitID, ErrorMsg = "", result;
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (Session["UserInfo"] != null)
+                {
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
 
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    {
+                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                    }
+                    else
+                    {
+                        string newurl = "~/User/Services/SRVCUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+
+
+                    if (!IsPostBack)
+                    {
+                        GetAppliedorNot();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
 
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "106");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "106")
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/Services/.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Previous=" + "P");
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         public string stepValidations()
         {
             try
@@ -189,6 +260,11 @@ namespace MeghalayaUIP.User.Services
             {
                 throw ex;
             }
+        }
+
+        protected void btnPrev_Click(object sender, EventArgs e)
+        {
+
         }
 
         public static string getclientIP()
