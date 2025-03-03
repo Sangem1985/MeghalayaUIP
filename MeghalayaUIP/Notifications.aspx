@@ -18,10 +18,10 @@
                     <h3>Archive</h3>
 
                     <ul>
-
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/IOE.pdf">Drawing Plan Approval and Electricity Installation</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Power Department.pdf">Temporary Electricity Connection & Electricity Safety NOC for increase in load.</a></li>
 
-                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Notification for Districts as Export Hubs.pdf">Districts as Export Hubs</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Notification for Districts as Export Hubs.pdf">Districts as Export Hubs</a></li>
 
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/FOR622020Pt315_250214_170406.pdf">Forest Notification [No.FOR.62/2020/Pt/315]</a></li>
 

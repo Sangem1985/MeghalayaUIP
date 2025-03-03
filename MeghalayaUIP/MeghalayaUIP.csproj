@@ -839,6 +839,7 @@
     <Content Include="User\Services\SrvcPaymentPage.aspx" />
     <Content Include="User\Services\SRVCUploadEnclosures.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
+    <Content Include="User\Services\SVRCPaymentPage.aspx" />
     <Content Include="User\Services\SWMCertificate.aspx" />
     <Content Include="User\Services\SWMDetails.aspx" />
     <Content Include="User\UserDashboard.aspx" />
@@ -2618,6 +2619,13 @@
     </Compile>
     <Compile Include="User\Services\SRVCUserDashboard.aspx.designer.cs">
       <DependentUpon>SRVCUserDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SVRCPaymentPage.aspx.cs">
+      <DependentUpon>SVRCPaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SVRCPaymentPage.aspx.designer.cs">
+      <DependentUpon>SVRCPaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SWMCertificate.aspx.cs">
       <DependentUpon>SWMCertificate.aspx</DependentUpon>

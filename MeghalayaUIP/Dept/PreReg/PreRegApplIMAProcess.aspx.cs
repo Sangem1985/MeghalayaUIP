@@ -87,7 +87,8 @@ namespace MeghalayaUIP.Dept.PreReg
                     ds = PreBAL.GetPreRegNodelOfficer(prd);
                     if (ds.Tables.Count > 0)
                     {
-                        DataRow row = ds.Tables[0].Rows[0];
+                        DataRow row = ds.Tables[0].Rows[0];                       
+
                         lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
                         lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                         lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
@@ -192,6 +193,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);
                         lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
                         lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
+                        ViewDetails.Text = " Unit Name : " + lblCompanyName.Text + ",  Application No :  " + lblApplNo.Text;
                         lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
                         if(Convert.ToString(row["DITREPORT_UPLOADFLAG"])=="Y")
                         {
