@@ -1138,7 +1138,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@DEPTID", objSrvc.deptid);
                 }
-              //  da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", objSrvc.ViewStatus);
+                //  da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", objSrvc.ViewStatus);
 
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
@@ -1214,7 +1214,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@EWD_SRVCQDID", Convert.ToInt32(serviceEWasteDetails.SrvcQdId));
                 com.Parameters.AddWithValue("@EWD_CREATEDBY", serviceEWasteDetails.CreatedBy);
                 com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
-               // com.Parameters.AddWithValue("@EWD_UIDNO", serviceEWasteDetails.UidNo);
+                // com.Parameters.AddWithValue("@EWD_UIDNO", serviceEWasteDetails.UidNo);
                 com.Parameters.AddWithValue("@EWD_CREATEDBYIP", serviceEWasteDetails.CreatedByIp);
                 com.Parameters.AddWithValue("@EWD_NAME", serviceEWasteDetails.Name);
                 if (serviceEWasteDetails.DoorNo != "" && serviceEWasteDetails.DoorNo != null)
@@ -1453,7 +1453,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 SqlCommand com = new SqlCommand
                 {
                     CommandType = CommandType.StoredProcedure,
-                    CommandText = SvrcConstants.InsertBOPlasticsWasteDetails, 
+                    CommandText = SvrcConstants.InsertBOPlasticsWasteDetails,
                     Transaction = transaction,
                     Connection = connection
                 };
@@ -1596,45 +1596,56 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
         public string InsertCDWMDetails(SRVCCDWMdetails objCDWMDet)
         {
-            return "1";
-            //using (SqlConnection connection = new SqlConnection(connstr))
-            //{
-            //    SqlTransaction transaction = null;
-            //    connection.Open();
-            //    transaction = connection.BeginTransaction();
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
 
-            //    try
-            //    {
-            //        using (SqlCommand cmd = new SqlCommand(SvrcConstants.CDWMDetails, connection, transaction))
-            //        {
-            //            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
 
-            //            //cmd.Parameters.AddWithValue("@CDWM_CDWMQDID", objCDWMDet.CDWM_CDWMQDID);
-            //            //cmd.Parameters.AddWithValue("@CDWM_UNITID", objCDWMDet.CDWM_UNITID);
-            //            cmd.Parameters.AddWithValue("@CDWM_AUTHNAME", objCDWMDet.NameLocalAuthority);
-            //            cmd.Parameters.AddWithValue("@CDWM_NAME_OF_NODAL_OFFICER", objCDWMDet.NameOfNodalOfficer);
-            //            cmd.Parameters.AddWithValue("@CDWM_DESIGNATION_OF_NODAL_OFFICER", objCDWMDet.DesignationOfNodalOfficer);
-            //            cmd.Parameters.AddWithValue("@CDWM_AUTHORIZATION", objCDWMDet.AuthorizationRequiredFor);
-            //            cmd.Parameters.AddWithValue("@CDWM_AVG_QUANT_CDWM", objCDWMDet.AuthorizationRequiredFor);
-            //            cmd.Parameters.AddWithValue("@CDWM_QUAT_CDWM_PROCESSED", objCDWMDet.QuantityWasteProcessedPerDay);
-            //            cmd.Parameters.AddWithValue("@CDWM_SITE_CLEARANCE", objCDWMDet.SiteClearanceFromAuthority);
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.InsertCDWMDetails,
+                    Transaction = transaction,
+                    Connection = connection
+                };
 
-            //            cmd.ExecuteNonQuery();
-            //            transaction.Commit();
-            //        }
-            //        return "Data inserted successfully";
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        transaction.Rollback();
-            //        return "Error: " + ex.Message;
-            //    }
-            //    finally
-            //    {
-            //        connection.Close();
-            //    }
-            //}
+                com.Parameters.AddWithValue("@CDWM_CDWMQDID", Convert.ToInt32(objCDWMDet.SRVCQDID));
+                com.Parameters.AddWithValue("@CDWM_UNITID", Convert.ToInt32(objCDWMDet.unitid));
+                com.Parameters.AddWithValue("@CDWM_AUTHNAME", objCDWMDet.NameLocalAuthority);
+                com.Parameters.AddWithValue("@CDWM_NAME_OF_NODAL_OFFICER", objCDWMDet.NameOfNodalOfficer);
+                com.Parameters.AddWithValue("@CDWM_DESIGNATION_OF_NODAL_OFFICER", objCDWMDet.DesignationOfNodalOfficer);
+                com.Parameters.AddWithValue("@CDWM_AUTHORIZATION", objCDWMDet.AuthorizationRequiredFor);
+                com.Parameters.AddWithValue("@CDWM_AVG_QUANT_CDWM", objCDWMDet.AuthorizationRequiredFor);
+                com.Parameters.AddWithValue("@CDWM_QUAT_CDWM_PROCESSED", objCDWMDet.QuantityWasteProcessedPerDay);
+                com.Parameters.AddWithValue("@CDWM_SITE_CLEARANCE", objCDWMDet.SiteClearanceFromAuthority);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
         }
-
     }
 }

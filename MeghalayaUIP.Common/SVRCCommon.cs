@@ -30,6 +30,8 @@ namespace MeghalayaUIP.Common
         public static string InsertHzrdsDetails = "USP_INSSRVCHAZZARDOUSDETAILS";
         public static string GetHzrdsDetails = "USP_GETHAZZARDOUSDETAILS";
 
+        public static string InsertCDWMDetails = "USP_INSSRVCCDWMWASTEDETAILS";
+
 
         //public static string GetProdPlasticWasteDetails = "";
 
@@ -254,6 +256,8 @@ namespace MeghalayaUIP.Common
     public class SRVCCDWMdetails
     {
         public string unitid { get; set; }
+
+        public string SRVCQDID { get; set; }
         public string Questionnareid { get; set; }
         public string NameLocalAuthority { get; set; }
         public string NameOfNodalOfficer { get; set; }
