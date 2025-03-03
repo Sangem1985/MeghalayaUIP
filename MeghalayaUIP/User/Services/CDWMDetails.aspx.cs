@@ -83,7 +83,7 @@ namespace MeghalayaUIP.User.Services
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Services/.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Services/SVRCPaymentPage.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
                             Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Previous=" + "P");
                     }
@@ -101,10 +101,33 @@ namespace MeghalayaUIP.User.Services
 
         public void BindData()
         {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objSrvcbal.GetCDWMDetails( Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
 
-            DataSet ds = new DataSet();
-            ds = objSrvcbal.GetCDWMDetails(Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
+                if (ds != null && ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        txtNameLocalAuth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_NAME_OF_LOCAL_AUTHORITY"]);
+                        txtNodalOff.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_NAME_OF_NODAL_OFFICER"]);
+                        txtNodalDesgn.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_DESIGNATION_OF_NODAL_OFFICER"]);
+                        ddlAuthorization.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_AUTHORIZATION"]);
+                        txtAvgQuan.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_AVG_QUANT_CDWM"]);
+                        txtQuanWasteProc.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_QUAT_CDWM_PROCESSED"]);
+                        rblSiteClearance.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_SITE_CLEARANCE"]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
+
         public string stepValidations()
         {
             try
@@ -271,8 +294,9 @@ namespace MeghalayaUIP.User.Services
 
         protected void btnPrev_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Previous=" + "P");
         }
+
 
         public static string getclientIP()
         {
