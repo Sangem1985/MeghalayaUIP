@@ -219,7 +219,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">1. Detailed Project Report of construction and demolition waste processing or recycling facility*</label>
+                                                    <label class="col-lg-4 col-form-label">1. Detailed Project Report of construction and demolition waste processing or recycling facility to include the following*</label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
@@ -243,7 +243,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">
+                                                    <label class="col-lg-9 col-form-label">
                                                         <p>a) Location of site approved and allotted by the Competent Authority.</p>
                                                         <p>b) Average quantity (in tons per day) and composition of construction and demolition waste to be handled at the specific site.</p>
                                                         <p>c) Details of construction and demolition waste processing or recycling technology to be used.</p>

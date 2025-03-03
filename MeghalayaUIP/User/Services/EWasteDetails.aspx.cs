@@ -1337,8 +1337,8 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                btnsave_Click(sender, e);
-                if (ErrorMsg == "")
+                //btnsave_Click(sender, e);
+                //if (ErrorMsg == "")
                     Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)

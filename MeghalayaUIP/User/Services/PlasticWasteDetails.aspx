@@ -83,7 +83,7 @@
                                         </div>
 
                                         <%-- ------------------------------------------Producer-------------------------------------------- --%>
-                                        <div id="divProducer" runat="server" visible="false">
+                                        <div id="divProducer" runat="server" visible="true">
                                             <div class="col-md-12 d-flex">
                                                 <h4 class="card-title ml-3">1. Particulars Of the application </h4>
                                             </div>
