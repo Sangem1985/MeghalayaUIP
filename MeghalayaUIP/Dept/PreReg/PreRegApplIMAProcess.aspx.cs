@@ -44,7 +44,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     ViewState["DEPTID"] = ObjUserInfo.Deptid;
                     if (!IsPostBack)
                     {
-                        BindaApplicatinDetails();
+                        BindaApplicatinDetails(); 
                         BindDepartments();
                     }
 
