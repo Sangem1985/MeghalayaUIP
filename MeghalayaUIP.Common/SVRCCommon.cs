@@ -251,6 +251,24 @@ namespace MeghalayaUIP.Common
 
     }
 
+    public class SRVCCDWMdetails
+    {
+        public string unitid { get; set; }
+        public string Questionnareid { get; set; }
+        public string NameLocalAuthority { get; set; }
+        public string NameOfNodalOfficer { get; set; }
+        public string DesignationOfNodalOfficer { get; set; }
+        public string AuthorizationRequiredFor { get; set; }
+        public string AvgQuantityHandledPerDay { get; set; }
+        public string QuantityWasteProcessedPerDay { get; set; }
+        public bool SiteClearanceFromAuthority { get; set; }
+
+        public string createdby { get; set;}
+        public string createdbyip { get; set;}
+
+        
+    }
+
     public class SRVCPayments
     {
         public string Questionnareid { get; set; }

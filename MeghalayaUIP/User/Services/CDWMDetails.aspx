@@ -140,11 +140,11 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
                                                         3. Site clearance from Prescribed Authority*
-                                                    </label>
+                                                    </lab
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:RadioButtonList ID="rblSiteClearance" runat="server" RepeatDirection="Horizontal" RepeatColumns="2" Style="padding: 20px">
-                                                            <asp:ListItem Text="(i) Yes " Value="1" class="pr-4"></asp:ListItem>
-                                                            <asp:ListItem Text="(ii) No" Value="2" class="pr-4"></asp:ListItem>
+                                                            <asp:ListItem Text="Yes " Value="1" class="pr-4"></asp:ListItem>
+                                                            <asp:ListItem Text="No" Value="2" class="pr-4"></asp:ListItem>
                                                         </asp:RadioButtonList>
                                                     </div>
                                                 </div>
@@ -165,7 +165,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+
+                                        <%--<div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">1. Land Documents *</label>
@@ -213,12 +214,12 @@
                                                     <asp:Label ID="lblSitePlan" runat="server" />
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>--%>
 
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">3. Detailed Project Report of construction and demolition waste processing or recycling facility*</label>
+                                                    <label class="col-lg-4 col-form-label">1. Detailed Project Report of construction and demolition waste processing or recycling facility*</label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
@@ -239,23 +240,41 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        <p>a) Location of site approved and allotted by the Competent Authority.</p>
+                                                        <p>b) Average quantity (in tons per day) and composition of construction and demolition waste to be handled at the specific site.</p>
+                                                        <p>c) Details of construction and demolition waste processing or recycling technology to be used.</p>
+                                                        <p>d) Quantity of construction and demolition waste to be processed per day.</p>
+                                                        <p>e) Site clearance from Prescribed Authority.</p>
+                                                        <p>f) Salient points of agreement between competent authority or local authority and operating agency (attach relevant document).</p>
+                                                        <p>g) Plan for utilization of recycled product.</p>
+                                                        <p>h) Expected amount of process rejects and plan for its disposal (e.g., sanitary landfill for solid waste).</p>
+                                                        <p>i) Measures to be taken for prevention and control of environmental pollution.</p>
+                                                        <p>j) Investment on project and expected returns.</p>
+                                                        <p>k) Measures to be taken for safety of workers working in the processing or recycling plant.</p>
+                                                        <p>l) Any preventive plan for accident during the collection, transportation, and treatment including processing and recycling should be informed to the Competent Authority (Local Authority) or Prescribed Authority.</p>
+                                                    </label>
+                                                </div>
+                                            </div>
 
+                                            </div>
+                                            <div class="col-md-12 text-right mt-2 mb-2">
+                                                <asp:Button ID="btnPrev" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                                <asp:Button ID="btnsave" runat="server"  Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnsave_Click" />
+                                                <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
-
-
-                                        <div class="col-md-12 text-right mt-2 mb-2">
-                                            <asp:Button ID="btnPrev" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-                                            <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                            <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-
-                                        </div>
+                                            </div>
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </label>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
