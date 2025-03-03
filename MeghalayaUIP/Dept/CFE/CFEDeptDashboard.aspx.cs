@@ -60,7 +60,7 @@ namespace MeghalayaUIP.Dept.CFE
                     lblADDITIONALPAYMENTRAISED.Text = dt.Rows[0]["ADDITIONALPAYMENTRAISED"].ToString();
                     lblQUERYPENDING.Text = dt.Rows[0]["QUERYPENDING"].ToString();
 
-
+                    lblTOTALAPPROVAL.Text = dt.Rows[0]["TOTALAPPL_APPROVALS"].ToString();
                     lblTOTALAPPROVALISSUED.Text = dt.Rows[0]["TOTALAPPROVALISSUED"].ToString();
                     lblAPPROVALPENDING.Text = dt.Rows[0]["APPROVALPENDING"].ToString();
                     lblREJECTED.Text = dt.Rows[0]["REJECTED"].ToString();
@@ -82,6 +82,8 @@ namespace MeghalayaUIP.Dept.CFE
                         anchrAddlPaymnt.HRef = "#";
                     if (lblQUERYPENDING.Text == "0")
                         anchrQryRaised.HRef = "#";
+                    if(lblTOTALAPPROVAL.Text=="0")
+                        ancrTotalApp.HRef = "#";
                     if (lblTOTALAPPROVALISSUED.Text == "0")
                         anchrApproved.HRef = "#";
                     if (lblAPPROVALPENDING.Text == "0")

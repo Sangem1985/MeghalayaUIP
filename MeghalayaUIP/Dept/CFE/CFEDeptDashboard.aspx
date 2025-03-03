@@ -187,15 +187,15 @@
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                 <div class="card">
-                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalIssued" style="text-decoration: none;" id="anchrApproved" runat="server">
+                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalIssued" style="text-decoration: none;" id="ancrTotalApp" runat="server">
                                         <div class="card-header p-3 pt-2">
                                             <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                 <i class="fi fi-rr-memo-circle-check"></i>
                                             </div>
                                             <div class="text-end pt-1">
                                                 <h4 class="mb-0">
-                                                    <asp:Label ID="lblTOTALAPPROVALISSUED" runat="server"></asp:Label></h4>
-                                                <p class="text-sm mb-0 text-capitalize">Approval Issued</p>
+                                                    <asp:Label ID="lblTOTALAPPROVAL" runat="server"></asp:Label></h4>
+                                                <p class="text-sm mb-0 text-capitalize">Total Applications</p>
                                             </div>
                                         </div>
                                         <hr class="dark horizontal my-0">
@@ -230,6 +230,50 @@
                                     </a>
                                 </div>
                             </div>
+                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalIssued" style="text-decoration: none;" id="anchrApproved" runat="server">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-memo-circle-check"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="lblTOTALAPPROVALISSUED" runat="server">0</asp:Label></h4>
+                                                <p class="text-sm mb-0 text-capitalize">Approvals Issued</p>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">
+                                                Applications Issued  
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                             <%-- <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                <div class="card">
+                                    <a href="CFEApplDeptdrill.aspx?Status=ApprovalIssued" style="text-decoration: none;" id="a1" runat="server">
+                                        <div class="card-header p-3 pt-2">
+                                            <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                <i class="fi fi-rr-memo-circle-check"></i>
+                                            </div>
+                                            <div class="text-end pt-1">
+                                                <h4 class="mb-0">
+                                                    <asp:Label ID="Label1" runat="server"></asp:Label></h4>
+                                                <p class="text-sm mb-0 text-capitalize">Approval Issued</p>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer p-3">
+                                            <p class="mb-0">
+                                                Approval Issued 
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>--%>
                             <div class="col-xl-2 col-sm-6">
                                 <div class="card">
                                     <a href="CFEApplDeptdrill.aspx?Status=ApprovalRejected" style="text-decoration: none;" id="anchrAprvlRjctd" runat="server">
@@ -261,7 +305,7 @@
                 <div class="card-header">
                     <h3>Offline Approvals</h3>
                 </div>
-                <section id="dashboardcount2" class="dashboardcount2">
+                <section id="dashboardcount3" class="dashboardcount2">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">

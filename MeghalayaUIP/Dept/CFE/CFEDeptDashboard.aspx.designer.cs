@@ -195,22 +195,22 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divApproval;
 
         /// <summary>
-        /// anchrApproved control.
+        /// ancrTotalApp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrApproved;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor ancrTotalApp;
 
         /// <summary>
-        /// lblTOTALAPPROVALISSUED control.
+        /// lblTOTALAPPROVAL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTOTALAPPROVALISSUED;
+        protected global::System.Web.UI.WebControls.Label lblTOTALAPPROVAL;
 
         /// <summary>
         /// anchrAprvlPndng control.
@@ -229,6 +229,24 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAPPROVALPENDING;
+
+        /// <summary>
+        /// anchrApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor anchrApproved;
+
+        /// <summary>
+        /// lblTOTALAPPROVALISSUED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTOTALAPPROVALISSUED;
 
         /// <summary>
         /// anchrAprvlRjctd control.
