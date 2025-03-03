@@ -54,7 +54,9 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCDashBoardVIEW = "USP_SRVCDASHBOARDVIEW";
         public static string InsertPaymentDetails = "USP_INSSRVCPAYMENTDETAILS_BKP";
         public static string GetSRVCApprovalsAmounttoPay = "USP_GETSRVCAPPROVALSAMOUNTTOPAY";
-        
+        public static string SRVCInsertPaymentDetails = "USP_INSSRVCPAYMENTDETAILS";
+
+
     }
 
     public class SvrcApplicationDetails
@@ -267,29 +269,25 @@ namespace MeghalayaUIP.Common
         public string QuantityWasteProcessedPerDay { get; set; }
         public bool SiteClearanceFromAuthority { get; set; }
 
-        public string createdby { get; set;}
-        public string createdbyip { get; set;}
+        public string createdby { get; set; }
+        public string createdbyip { get; set; }
 
-        
+
     }
 
-    public class SRVCPayments
+
+    public class SRVCApprovaled
     {
-        public string Questionnareid { get; set; }
+        public string RENQDID { get; set; }
+        public string UnitId { get; set; }
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
-        public string UNITID { get; set; }
-        public string CFEUID { get; set; }
-        public string DeptID { get; set; }
-        public string ApprovalID { get; set; }
-        public string OnlineOrderNo { get; set; }
-        public string OnlineOrderAmount { get; set; }
-        public string PaymentFlag { get; set; }
-        public string TransactionNo { get; set; }
-        public string TransactionDate { get; set; }
-        public string BankName { get; set; }
-
+        public string ApprovalId { get; set; }
+        public string DeptId { get; set; }
+        public string ApprovalFee { get; set; }
+        public string UidNo { get; set; }
     }
+
 
     public class ServiceEWasteDetails
     {
@@ -406,6 +404,24 @@ namespace MeghalayaUIP.Common
         public string QuantityWasteProcessedPerDay { get; set; }
         public bool SiteClearanceFromAuthority { get; set; }
     }
+    public class SRVCPayments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string SRVCUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string OnlineOrderNo { get; set; }
+        public string OnlineOrderAmount { get; set; }
+        public string PaymentFlag { get; set; }
+        public string TransactionNo { get; set; }
+        public string TransactionDate { get; set; }
+        public string BankName { get; set; }
 
-
+    }
 }
+
+
+

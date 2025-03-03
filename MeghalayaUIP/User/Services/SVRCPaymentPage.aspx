@@ -5,7 +5,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Pre Establishment</a></li>
+            <li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Othere Services</a></li>
             <li class="breadcrumb-item active" aria-current="page">Payments Details</li>
         </ol>
     </nav>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-md-11">
                             <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                CssClass="GRD" ForeColor="#333333" Width="100%" ShowFooter="true">
+                                CssClass="GRD" ForeColor="#333333" Width="100%" ShowFooter="true" OnRowDataBound="grdApprovals_RowDataBound">
                                 <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                 <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Center" VerticalAlign="Middle" />
                                 <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
@@ -83,7 +83,7 @@
                                             </div>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="chkSel" AutoPostBack="true" runat="server" />
+                                            <asp:CheckBox ID="chkSel" AutoPostBack="true" OnCheckedChanged="chkSel_CheckedChanged" runat="server" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:BoundField DataField="ApprovalName" HeaderText="Approval Name ">
@@ -92,7 +92,7 @@
                                     <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
                                         <ItemStyle Width="180px" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="CFEDA_APPROVALFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
+                                    <asp:BoundField DataField="SRVCDA_APPROVALFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
                                         <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                         <HeaderStyle HorizontalAlign="Right" />
                                         <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Center" />
@@ -101,17 +101,17 @@
 
                                     <asp:TemplateField HeaderText="Approval ID" Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("CFEDA_APPROVALID") %>'></asp:Label>
+                                            <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("SRVCDA_APPROVALID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Fee" Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("CFEDA_APPROVALFEE") %>'></asp:Label>
+                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("SRVCDA_APPROVALFEE") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText=" Dept ID" Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("CFEDA_DEPTID") %>'></asp:Label>
+                                            <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("SRVCDA_DEPTID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -121,7 +121,6 @@
                             &nbsp;
                         </div>
                         <div class="col-md-6 mt-3">
-                            <!-- <div class="col-md-12 mt-3 d-flex" id="padding"> -->
 
 
                             <div class="form-group row">
@@ -149,9 +148,9 @@
                             </div>
                         </div>
                         <div class="col-md-12 text-right">
-                            <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                            <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
-                            <asp:Button ID="btnPay" runat="server" Text="Pay" OnClick="btnPay_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+                            <asp:Button ID="btnPay" runat="server" Text="Pay" class="btn btn-rounded btn-submit btn-lg" Width="150px" OnClick="btnPay_Click" />
 
 
 

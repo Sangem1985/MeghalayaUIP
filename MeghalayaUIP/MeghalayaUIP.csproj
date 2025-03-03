@@ -836,7 +836,6 @@
     <Content Include="User\Services\PWMCertificate.aspx" />
     <Content Include="User\Services\SrvcAckSlip.aspx" />
     <Content Include="User\Services\SRVCApplStatus.aspx" />
-    <Content Include="User\Services\SrvcPaymentPage.aspx" />
     <Content Include="User\Services\SRVCUploadEnclosures.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
     <Content Include="User\Services\SVRCPaymentPage.aspx" />
@@ -2598,13 +2597,6 @@
     </Compile>
     <Compile Include="User\Services\SRVCApplStatus.aspx.designer.cs">
       <DependentUpon>SRVCApplStatus.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\Services\SrvcPaymentPage.aspx.cs">
-      <DependentUpon>SrvcPaymentPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\Services\SrvcPaymentPage.aspx.designer.cs">
-      <DependentUpon>SrvcPaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCUploadEnclosures.aspx.cs">
       <DependentUpon>SRVCUploadEnclosures.aspx</DependentUpon>

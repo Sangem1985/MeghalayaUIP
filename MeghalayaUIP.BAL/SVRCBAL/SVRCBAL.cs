@@ -165,5 +165,13 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCCDWMDETAILS(srvcQdId, Createdby);
         }
+        public DataSet GetSRVCPaymentAmounttoPay(string userid, string Quid)
+        {
+            return SvrcDal.GetSRVCPaymentAmounttoPay(userid, Quid);
+        }
+        public string SRVCInsertPaymentDet(SRVCPayments SRVCPayment)
+        {
+            return SvrcDal.SRVCInsertPaymentDet(SRVCPayment);
+        }
     }
 }
