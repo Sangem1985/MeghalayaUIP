@@ -28,8 +28,7 @@ namespace MeghalayaUIP.User.Services
                     divProducer.Visible = false;
                     divBrandOwner.Visible = false;
 
-                    BindStates();
-                    BindDistricts();
+                    GetAppliedorNot();
                     //BindData();
                 }
             }
@@ -40,6 +39,43 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
+        }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "94");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "105")
+                    {
+                        BindStates();
+                        BindDistricts();
+                       // BindData();
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/Services/CDWMDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/Services/EWasteDetails.aspx?Previous=" + "P");
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
 
@@ -90,7 +126,7 @@ namespace MeghalayaUIP.User.Services
         //        }
         //        else if (rblRole.SelectedValue == "BrandOwner") 
         //        {
-                    
+
         //        }
         //    }
         //    catch (Exception ex)
@@ -790,6 +826,27 @@ namespace MeghalayaUIP.User.Services
             {
                 throw ex;
             }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Services/CDWMDetails.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPrev_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Services/EWasteDetails.aspx?Previous=" + "P");
         }
 
         public void AddSelect(DropDownList ddl)

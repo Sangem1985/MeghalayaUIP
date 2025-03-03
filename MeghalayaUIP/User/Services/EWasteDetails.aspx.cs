@@ -85,7 +85,7 @@ namespace MeghalayaUIP.User.Services
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Services/.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
                             Response.Redirect("~/User/Services/PDCLDetails.aspx?Previous=" + "P");
                     }
@@ -1332,6 +1332,23 @@ namespace MeghalayaUIP.User.Services
             catch (Exception ex)
             { throw ex; }
         }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         public static bool ValidateFileName(string fileName)
         {
             try
