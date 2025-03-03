@@ -158,5 +158,10 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.InsertCDWMDetails(objCDWMDet);
         }
+
+        public DataSet GetCDWMDetails(string srvcQdId, string Createdby)
+        {
+            return SvrcDal.GetSRVCCDWMDETAILS(srvcQdId, Createdby);
+        }
     }
 }

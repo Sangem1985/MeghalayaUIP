@@ -1615,6 +1615,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@CDWM_CDWMQDID", Convert.ToInt32(objCDWMDet.SRVCQDID));
                 com.Parameters.AddWithValue("@CDWM_UNITID", Convert.ToInt32(objCDWMDet.unitid));
+                com.Parameters.AddWithValue("@CDWM_CREATEDBY", objCDWMDet.createdby);
                 com.Parameters.AddWithValue("@CDWM_AUTHNAME", objCDWMDet.NameLocalAuthority);
                 com.Parameters.AddWithValue("@CDWM_NAME_OF_NODAL_OFFICER", objCDWMDet.NameOfNodalOfficer);
                 com.Parameters.AddWithValue("@CDWM_DESIGNATION_OF_NODAL_OFFICER", objCDWMDet.DesignationOfNodalOfficer);
@@ -1622,6 +1623,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@CDWM_AVG_QUANT_CDWM", objCDWMDet.AuthorizationRequiredFor);
                 com.Parameters.AddWithValue("@CDWM_QUAT_CDWM_PROCESSED", objCDWMDet.QuantityWasteProcessedPerDay);
                 com.Parameters.AddWithValue("@CDWM_SITE_CLEARANCE", objCDWMDet.SiteClearanceFromAuthority);
+                com.Parameters.AddWithValue("@CDWM_CREATEDBYIP", objCDWMDet.createdbyip);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -1629,11 +1631,6 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 result = com.Parameters["@RESULT"].Value.ToString();
                 transaction.Commit();
 
-                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
-                com.ExecuteNonQuery();
-
-                result = com.Parameters["@RESULT"].Value.ToString();
-                transaction.Commit();
             }
             catch (Exception ex)
             {
@@ -1647,5 +1644,42 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return result;
         }
+
+        public DataSet GetSRVCCDWMDETAILS(string srvcQdId, string createdby)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(SvrcConstants.GetSRVCCDWMDETAILS, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCCDWMDETAILS;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(srvcQdId));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(createdby));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
     }
 }

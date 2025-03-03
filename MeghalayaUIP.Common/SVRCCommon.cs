@@ -31,6 +31,7 @@ namespace MeghalayaUIP.Common
         public static string GetHzrdsDetails = "USP_GETHAZZARDOUSDETAILS";
 
         public static string InsertCDWMDetails = "USP_INSSRVCCDWMWASTEDETAILS";
+        public static string GetSRVCCDWMDETAILS = "USP_GETSRVCCDWMDETAILS";
 
 
         //public static string GetProdPlasticWasteDetails = "";
@@ -53,7 +54,6 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCDashBoardVIEW = "USP_SRVCDASHBOARDVIEW";
         public static string InsertPaymentDetails = "USP_INSSRVCPAYMENTDETAILS_BKP";
         public static string GetSRVCApprovalsAmounttoPay = "USP_GETSRVCAPPROVALSAMOUNTTOPAY";
-
         
     }
 

@@ -75,7 +75,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "106")
                     {
-                        
+                        BindData();
                     }
                 }
                 else
@@ -97,6 +97,13 @@ namespace MeghalayaUIP.User.Services
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        public void BindData()
+        {
+
+            DataSet ds = new DataSet();
+            ds = objSrvcbal.GetCDWMDetails(Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
         }
         public string stepValidations()
         {
@@ -225,8 +232,8 @@ namespace MeghalayaUIP.User.Services
                 {
                     SRVCCDWMdetails ObjCDWMDet = new SRVCCDWMdetails();
 
-                    ObjCDWMDet.unitid = "116";// Convert.ToString(Session["SRVCUNITID"]);
-                    ObjCDWMDet.Questionnareid = "1001"; //Convert.ToString(Session["SRVCQID"]);
+                    ObjCDWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
+                    ObjCDWMDet.SRVCQDID = Convert.ToString(Session["SRVCQID"]);
                     ObjCDWMDet.createdby = hdnUserID.Value;
                     ObjCDWMDet.createdbyip = getclientIP();
                     ObjCDWMDet.NameLocalAuthority = txtNameLocalAuth.Text;
