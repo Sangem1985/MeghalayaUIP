@@ -933,16 +933,16 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please Enter renewal previous authorisation Date...! \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtPCB.Text) || txtPCB.Text == "" || txtPCB.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Prevention and Control of Pollution) Act, 1974...! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtPCB1981.Text) || txtPCB1981.Text == "" || txtPCB1981.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Prevention and Control of Pollution) Act, 1981...! \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtPCB.Text) || txtPCB.Text == "" || txtPCB.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Prevention and Control of Pollution) Act, 1974...! \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtPCB1981.Text) || txtPCB1981.Text == "" || txtPCB1981.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Prevention and Control of Pollution) Act, 1981...! \\n";
+                //    slno = slno + 1;
+                //}
                 if (rblHealth.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Address health care facility (HCF)/(CBWTF)...! \\n";

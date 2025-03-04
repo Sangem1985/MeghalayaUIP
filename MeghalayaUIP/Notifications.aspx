@@ -18,6 +18,7 @@
                     <h3>Archive</h3>
 
                     <ul>
+                          <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/MeECL_MePDCL.pdf">Obtaining Electricity Connection.</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/IOE.pdf">Drawing Plan Approval and Electricity Installation</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Power Department.pdf">Temporary Electricity Connection & Electricity Safety NOC for increase in load.</a></li>
 

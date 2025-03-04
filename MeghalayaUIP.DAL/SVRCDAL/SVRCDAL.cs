@@ -173,7 +173,11 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCED_SECTORENTERPRISE", ObjApplicationDetails.INDUSTRY);
                 com.Parameters.AddWithValue("@SRVCED_CATEGORYREG", ObjApplicationDetails.CATEGORYREG);
                 com.Parameters.AddWithValue("@SRVCED_REGNUMBER", Convert.ToInt32(ObjApplicationDetails.RegNumber));
-                com.Parameters.AddWithValue("@SRVCED_REGDATE", ObjApplicationDetails.RegDate);
+                if(ObjApplicationDetails.RegDate !=null && ObjApplicationDetails.RegDate != "")
+                {
+                    com.Parameters.AddWithValue("@SRVCED_REGDATE", ObjApplicationDetails.RegDate);
+                }
+                
                 //com.Parameters.AddWithValue("@RENID_SECTORENTERPRISE", ObjApplicationDetails.SectorEntrprise);
                 com.Parameters.AddWithValue("@SRVCED_SECTOR", ObjApplicationDetails.Sector);
                 com.Parameters.AddWithValue("@SRVCED_LINEOFACTIVITY", ObjApplicationDetails.LineofActivity);
@@ -318,8 +322,15 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_RENAUTHORIZATIONNO", ObjBMWDetails.authorisationnumber);
                 // com.Parameters.AddWithValue("", Convert.ToDecimal(ObjBMWDetails.authorisation_Date));//
                 com.Parameters.AddWithValue("@BMW_RENAUTHORIZATIONDATE", DateTime.ParseExact(ObjBMWDetails.authorisation_Date, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@BMW_PCB1974", ObjBMWDetails.Pollution1974);
-                com.Parameters.AddWithValue("@BMW_PCB1981", ObjBMWDetails.ControlPollution1981);
+                if(ObjBMWDetails.Pollution1974 !=null && ObjBMWDetails.Pollution1974 != "")
+                {
+                    com.Parameters.AddWithValue("@BMW_PCB1974", ObjBMWDetails.Pollution1974);
+                }
+                if(ObjBMWDetails.ControlPollution1981 != null && ObjBMWDetails.ControlPollution1981 != "")
+                {
+                    com.Parameters.AddWithValue("@BMW_PCB1981", ObjBMWDetails.ControlPollution1981);
+                }
+               
                 com.Parameters.AddWithValue("@BMW_BIOHCF_CBWTF ", ObjBMWDetails.AddressHealthHCFCBWFT);
                 com.Parameters.AddWithValue("@BMW_GPSCOORDINATE", ObjBMWDetails.GPSCOORDINATES);
                 com.Parameters.AddWithValue("@BMW_NOBEDHCF", ObjBMWDetails.NumberBED);
