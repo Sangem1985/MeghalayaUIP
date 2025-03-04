@@ -47,7 +47,7 @@ namespace MeghalayaUIP.User.Services
                         string newurl = "~/User/Services/SRVCUserDashboard.aspx";
                         Response.Redirect(newurl);
                     }
-
+                    Page.MaintainScrollPositionOnPostBack = true;
 
                     if (!IsPostBack)
                     {
@@ -83,9 +83,9 @@ namespace MeghalayaUIP.User.Services
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Services/SVRCPaymentPage.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/Services/EWasteDetails.aspx?Previous=" + "P");
                     }
                 }
 
@@ -120,6 +120,19 @@ namespace MeghalayaUIP.User.Services
                         string value= Convert.ToString(ds.Tables[0].Rows[0]["CDWM_SITE_CLEARANCE"]);
                         //rblSiteClearance.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_SITE_CLEARANCE"]);
                         rblSiteClearance.SelectedValue = value;
+                    }
+                    if (ds.Tables[1].Rows.Count > 0) 
+                    {
+                        for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 6) //Detailed Project Report
+                            {
+                                hypDPR.Visible = true;
+                                hypDPR.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypDPR.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtDPR.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                        }
                     }
                 }
             }
@@ -265,17 +278,17 @@ namespace MeghalayaUIP.User.Services
                     ObjCDWMDet.NameLocalAuthority = txtNameLocalAuth.Text;
                     ObjCDWMDet.NameOfNodalOfficer = txtNodalOff.Text.Trim();
                     ObjCDWMDet.DesignationOfNodalOfficer = txtNodalDesgn.Text.Trim();
-                    ObjCDWMDet.AuthorizationRequiredFor = ddlAuthorization.SelectedItem.Text;
+                    ObjCDWMDet.AuthorizationRequiredFor = ddlAuthorization.SelectedValue;
                     ObjCDWMDet.AvgQuantityHandledPerDay = txtAvgQuan.Text.Trim();
                     ObjCDWMDet.QuantityWasteProcessedPerDay = txtQuanWasteProc.Text.Trim();
-                    ObjCDWMDet.SiteClearanceFromAuthority = rblSiteClearance.SelectedItem.Text;
+                    ObjCDWMDet.SiteClearanceFromAuthority = rblSiteClearance.SelectedValue;
 
                     result = objSrvcbal.InsertCDWMDetails(ObjCDWMDet);
 
                     ;
                     if (result != "")
                     {
-                        string message = "alert('" + "SWMD Details Saved Successfully" + "')";
+                        string message = "alert('" + "DPR Details Saved Successfully" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
@@ -297,9 +310,100 @@ namespace MeghalayaUIP.User.Services
 
         protected void btnPrev_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Previous=" + "P");
+            Response.Redirect("~/User/Services/EWasteDetails.aspx?Previous=" + "P");
         }
 
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnDPR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupDPR.HasFile)
+                {
+                    Error = validations(fupDPR);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Directions or notices or legal actions authorisation" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupDPR.PostedFile.SaveAs(serverpath + "\\" + fupDPR.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupDPR.PostedFile.SaveAs(serverpath + "\\" + fupDPR.PostedFile.FileName);
+                            }
+                        }
+
+                        SRVCAttachments objDPR = new SRVCAttachments();
+                        objDPR.UNITID = Convert.ToString(Session["SRVCUNITID"]);
+                        objDPR.Questionnareid = Convert.ToString(Session["SRVCQID"]);
+                        objDPR.MasterID = "6";
+                        objDPR.FilePath = serverpath + fupDPR.PostedFile.FileName;
+                        objDPR.FileName = fupDPR.PostedFile.FileName;
+                        objDPR.FileType = fupDPR.PostedFile.ContentType;
+                        objDPR.FileDescription = "Directions or notices or legal actions authorisation";
+                        objDPR.CreatedBy = hdnUserID.Value;
+                        objDPR.IPAddress = getclientIP();
+                        objDPR.ReferenceNo = txtDPR.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objDPR);
+                        if (result != "")
+                        {
+                            hypDPR.Text = fupDPR.PostedFile.FileName;
+                            hypDPR.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupDPR.PostedFile.FileName);
+                            hypDPR.Target = "blank";
+                            message = "alert('" + "Details of directions or notices or legal actions authorisation Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        
 
         public static string getclientIP()
         {

@@ -159,49 +159,49 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.RadioButtonList rblSiteClearance;
 
         /// <summary>
-        /// txtReport control.
+        /// txtDPR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReport;
+        protected global::System.Web.UI.WebControls.TextBox txtDPR;
 
         /// <summary>
-        /// fupReport control.
+        /// fupDPR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupReport;
+        protected global::System.Web.UI.WebControls.FileUpload fupDPR;
 
         /// <summary>
-        /// Button2 control.
+        /// btnDPR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnDPR;
 
         /// <summary>
-        /// hypReport control.
+        /// hypDPR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hypReport;
+        protected global::System.Web.UI.WebControls.HyperLink hypDPR;
 
         /// <summary>
-        /// lblReport control.
+        /// lblDPR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReport;
+        protected global::System.Web.UI.WebControls.Label lblDPR;
 
         /// <summary>
         /// btnPrev control.

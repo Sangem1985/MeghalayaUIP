@@ -106,7 +106,7 @@
                                                         3. Authorization required for*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlAuthorization" runat="server" class="form-control" AutoPostBack="true">
-                                                            <asp:ListItem Text="-- Select --" Value="" Selected="True" Disabled="True"></asp:ListItem>
+                                                            <asp:ListItem Text="-- Select --" Value="0" Selected="True" Disabled="True"></asp:ListItem>
                                                             <asp:ListItem Text="Setting up of processing *" Value="1"></asp:ListItem>
                                                             <asp:ListItem Text="Recycling facility of construction and demolition waste" Value="2"></asp:ListItem>
                                                             <asp:ListItem Text="Both" Value="3"></asp:ListItem>
@@ -228,24 +228,24 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">1. Detailed Project Report of construction and demolition waste processing or recycling facility to include the following*</label>
+                                                    <label class="col-lg-4 col-form-label">1. Detailed Project Report of construction and demolition waste processing or recycling facility include the following*</label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:TextBox ID="txtReport" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDPR" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fupReport" runat="server" />
+                                                        <asp:FileUpload ID="fupDPR" runat="server" />
 
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="Button2" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnDPR" class="btn btn-rounded btn-dark mb-4" Width="150px" OnClick="btnDPR_Click" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:HyperLink ID="hypReport" runat="server" Target="_blank"></asp:HyperLink>
+                                                        <asp:HyperLink ID="hypDPR" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
-                                                    <asp:Label ID="lblReport" runat="server" />
+                                                    <asp:Label ID="lblDPR" runat="server" />
                                                 </div>
                                             </div>
                                         </div>
@@ -275,7 +275,7 @@
                                         <div class="col-md-12 text-right mt-2 mb-2">
                                             <asp:Button ID="btnPrev" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnPrev_Click" />
                                             <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnsave_Click" />
-                                            <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" Enabled="false" />
+                                            <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnNext_Click"  />
 
                                         </div>
 
@@ -287,5 +287,8 @@
                 </div>
             </label>
         </ContentTemplate>
+        <Triggers>
+             <asp:PostBackTrigger ControlID="btnDPR" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

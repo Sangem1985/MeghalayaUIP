@@ -55,6 +55,7 @@ namespace MeghalayaUIP.Common
         public static string InsertPaymentDetails = "USP_INSSRVCPAYMENTDETAILS_BKP";
         public static string GetSRVCApprovalsAmounttoPay = "USP_GETSRVCAPPROVALSAMOUNTTOPAY";
         public static string SRVCInsertPaymentDetails = "USP_INSSRVCPAYMENTDETAILS";
+        public static string GetSRVCUploadEnclosures = "USP_GETUPLOADENCLOSURES";
 
 
     }
