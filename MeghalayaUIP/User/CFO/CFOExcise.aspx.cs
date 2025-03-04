@@ -121,67 +121,68 @@ namespace MeghalayaUIP.User.CFO
 
 
                 CFOExciseDetails cFOExciseDetails = bal.GetCFOExciseData(UnitID, hdnUserID.Value);
-              
-                // Bind values to RadioButtonList controls
-                if (div_45_AplicntDtls.Visible == true)
+                if (cFOExciseDetails != null)
                 {
-
-                    rblArtical5.SelectedValue = cFOExciseDetails.Artical5Selection;
-                    rblapplicant.SelectedValue = cFOExciseDetails.ApplicantSelection;
-                    rblMember.SelectedValue = cFOExciseDetails.MemberSelection;
-                    rblTax.SelectedValue = cFOExciseDetails.TaxSelection;
-                    rblsaletax.SelectedValue = cFOExciseDetails.SaleTaxSelection;
-                    rblprofession.SelectedValue = cFOExciseDetails.ProfessionSelection;
-                    rblgoverment.SelectedValue = cFOExciseDetails.GovernmentSelection;
-                    if (cFOExciseDetails.GovernmentSelection == "Y") { Excisedept.Visible = true; txttradeLic.Text = cFOExciseDetails.GovernmentDetails; }
-                    rblviolation.SelectedValue = cFOExciseDetails.ViolationSelection;
-                    if (cFOExciseDetails.ViolationSelection == "Y") { txtlaw.Visible = true; txtexciselaw.Text = cFOExciseDetails.ViolationDetails; }
-                    rblConvicted.SelectedValue = cFOExciseDetails.ConvictedSelection;
-                    if (cFOExciseDetails.ConvictedSelection == "Y") { convictedlaw.Visible = true; txtDetails.Text = cFOExciseDetails.ConvictedDetails; }
-                }
-                else { div_45_AplicntDtls.Visible = false; }
-
-                if (div_47_BLR.Visible == true)
-                {
-
-
-                    List<CFOExciseBrandDetails> brandDetailsList = cFOExciseDetails.brandgridlist;
-                    List<CFOExciseLiquorDetails> liquorDetailsList = cFOExciseDetails.liquorgridlist;
-                    // List<CFOAttachments> objAadharlist = cFOExciseDetails.CFOAttachment;             
-
-                    ViewState["BrandDetails"] = brandDetailsList;
-                    ViewState["LiquorDetails"] = liquorDetailsList;
-                    // Bind brand details list to gvBrandDetails
-                    gvBrandDetails.DataSource = brandDetailsList;
-                    gvBrandDetails.DataBind();
-
-                    // Bind liquor details list to GvLiquor
-                    GvLiquor.DataSource = liquorDetailsList;
-                    GvLiquor.DataBind();
-
-                    rblBrand.SelectedValue = cFOExciseDetails.RenewBrand;
-                    if (rblBrand.SelectedValue == "Y")
+                    // Bind values to RadioButtonList controls
+                    if (div_45_AplicntDtls.Visible == true)
                     {
-                        TodateReg.Visible = true; Brands.Visible = true;
-                        txtFromDate.Text = Convert.ToDateTime(cFOExciseDetails.RegToDate).ToString("yyyy-MM-dd");// Convert.ToDateTime( cFOExciseDetails.RegFromDate).ToString("dd-MM-yyyy");
-                        txtTodate.Text = Convert.ToDateTime(cFOExciseDetails.RegToDate).ToString("yyyy-MM-dd");
-                        txtAddress.Text = cFOExciseDetails.FirmAddress;
+
+                        rblArtical5.SelectedValue = cFOExciseDetails.Artical5Selection;
+                        rblapplicant.SelectedValue = cFOExciseDetails.ApplicantSelection;
+                        rblMember.SelectedValue = cFOExciseDetails.MemberSelection;
+                        rblTax.SelectedValue = cFOExciseDetails.TaxSelection;
+                        rblsaletax.SelectedValue = cFOExciseDetails.SaleTaxSelection;
+                        rblprofession.SelectedValue = cFOExciseDetails.ProfessionSelection;
+                        rblgoverment.SelectedValue = cFOExciseDetails.GovernmentSelection;
+                        if (cFOExciseDetails.GovernmentSelection == "Y") { Excisedept.Visible = true; txttradeLic.Text = cFOExciseDetails.GovernmentDetails; }
+                        rblviolation.SelectedValue = cFOExciseDetails.ViolationSelection;
+                        if (cFOExciseDetails.ViolationSelection == "Y") { txtlaw.Visible = true; txtexciselaw.Text = cFOExciseDetails.ViolationDetails; }
+                        rblConvicted.SelectedValue = cFOExciseDetails.ConvictedSelection;
+                        if (cFOExciseDetails.ConvictedSelection == "Y") { convictedlaw.Visible = true; txtDetails.Text = cFOExciseDetails.ConvictedDetails; }
                     }
-                    if (brandDetailsList.Count > 0)
+                    else { div_45_AplicntDtls.Visible = false; }
+
+                    if (div_47_BLR.Visible == true)
                     {
-                        gvBrandDetails.Visible = true;
+
+
+                        List<CFOExciseBrandDetails> brandDetailsList = cFOExciseDetails.brandgridlist;
+                        List<CFOExciseLiquorDetails> liquorDetailsList = cFOExciseDetails.liquorgridlist;
+                        // List<CFOAttachments> objAadharlist = cFOExciseDetails.CFOAttachment;             
+
+                        ViewState["BrandDetails"] = brandDetailsList;
+                        ViewState["LiquorDetails"] = liquorDetailsList;
+                        // Bind brand details list to gvBrandDetails
                         gvBrandDetails.DataSource = brandDetailsList;
                         gvBrandDetails.DataBind();
-                    }
-                    if (liquorDetailsList.Count > 0)
-                    {
-                        GvLiquor.Visible = true;
+
+                        // Bind liquor details list to GvLiquor
                         GvLiquor.DataSource = liquorDetailsList;
                         GvLiquor.DataBind();
-                    }
-                }
-                else { div_47_BLR.Visible = false; }
 
+                        rblBrand.SelectedValue = cFOExciseDetails.RenewBrand;
+                        if (rblBrand.SelectedValue == "Y")
+                        {
+                            TodateReg.Visible = true; Brands.Visible = true;
+                            txtFromDate.Text = Convert.ToDateTime(cFOExciseDetails.RegToDate).ToString("yyyy-MM-dd");// Convert.ToDateTime( cFOExciseDetails.RegFromDate).ToString("dd-MM-yyyy");
+                            txtTodate.Text = Convert.ToDateTime(cFOExciseDetails.RegToDate).ToString("yyyy-MM-dd");
+                            txtAddress.Text = cFOExciseDetails.FirmAddress;
+                        }
+                        if (brandDetailsList.Count > 0)
+                        {
+                            gvBrandDetails.Visible = true;
+                            gvBrandDetails.DataSource = brandDetailsList;
+                            gvBrandDetails.DataBind();
+                        }
+                        if (liquorDetailsList.Count > 0)
+                        {
+                            GvLiquor.Visible = true;
+                            GvLiquor.DataSource = liquorDetailsList;
+                            GvLiquor.DataBind();
+                        }
+                    }
+                    else { div_47_BLR.Visible = false; }
+                }
             }
             catch (Exception ex)
             {

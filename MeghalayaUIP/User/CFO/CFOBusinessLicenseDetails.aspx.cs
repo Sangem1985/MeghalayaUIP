@@ -343,11 +343,11 @@ namespace MeghalayaUIP.User.CFO
                         slno = slno + 1;
                     }
 
-                    if (ddlDistric.SelectedIndex == 0)
-                    {
-                        errormsg = errormsg + slno + ". Please Select Market Name \\n";
-                        slno = slno + 1;
-                    }
+                    //if (ddlDistric.SelectedIndex == 0)
+                    //{
+                    //    errormsg = errormsg + slno + ". Please Select Market Name \\n";
+                    //    slno = slno + 1;
+                    //}
 
                 }
                 else
