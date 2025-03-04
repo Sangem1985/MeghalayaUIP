@@ -1620,7 +1620,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@CDWM_NAME_OF_NODAL_OFFICER", objCDWMDet.NameOfNodalOfficer);
                 com.Parameters.AddWithValue("@CDWM_DESIGNATION_OF_NODAL_OFFICER", objCDWMDet.DesignationOfNodalOfficer);
                 com.Parameters.AddWithValue("@CDWM_AUTHORIZATION", objCDWMDet.AuthorizationRequiredFor);
-                com.Parameters.AddWithValue("@CDWM_AVG_QUANT_CDWM", objCDWMDet.AuthorizationRequiredFor);
+                com.Parameters.AddWithValue("@CDWM_AVG_QUANT_CDWM", objCDWMDet.AvgQuantityHandledPerDay);
                 com.Parameters.AddWithValue("@CDWM_QUAT_CDWM_PROCESSED", objCDWMDet.QuantityWasteProcessedPerDay);
                 com.Parameters.AddWithValue("@CDWM_SITE_CLEARANCE", objCDWMDet.SiteClearanceFromAuthority);
                 com.Parameters.AddWithValue("@CDWM_CREATEDBYIP", objCDWMDet.createdbyip);

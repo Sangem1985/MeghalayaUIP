@@ -265,7 +265,7 @@ namespace MeghalayaUIP.Common
         public string AuthorizationRequiredFor { get; set; }
         public string AvgQuantityHandledPerDay { get; set; }
         public string QuantityWasteProcessedPerDay { get; set; }
-        public bool SiteClearanceFromAuthority { get; set; }
+        public string SiteClearanceFromAuthority { get; set; }
 
         public string createdby { get; set;}
         public string createdbyip { get; set;}

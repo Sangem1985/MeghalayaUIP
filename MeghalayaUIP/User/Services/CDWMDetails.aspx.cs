@@ -110,13 +110,16 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+
                         txtNameLocalAuth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_NAME_OF_LOCAL_AUTHORITY"]);
                         txtNodalOff.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_NAME_OF_NODAL_OFFICER"]);
                         txtNodalDesgn.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_DESIGNATION_OF_NODAL_OFFICER"]);
                         ddlAuthorization.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_AUTHORIZATION"]);
                         txtAvgQuan.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_AVG_QUANT_CDWM"]);
                         txtQuanWasteProc.Text = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_QUAT_CDWM_PROCESSED"]);
-                        rblSiteClearance.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_SITE_CLEARANCE"]);
+                        string value= Convert.ToString(ds.Tables[0].Rows[0]["CDWM_SITE_CLEARANCE"]);
+                        //rblSiteClearance.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CDWM_SITE_CLEARANCE"]);
+                        rblSiteClearance.SelectedValue = value;
                     }
                 }
             }
@@ -265,7 +268,7 @@ namespace MeghalayaUIP.User.Services
                     ObjCDWMDet.AuthorizationRequiredFor = ddlAuthorization.SelectedItem.Text;
                     ObjCDWMDet.AvgQuantityHandledPerDay = txtAvgQuan.Text.Trim();
                     ObjCDWMDet.QuantityWasteProcessedPerDay = txtQuanWasteProc.Text.Trim();
-                    ObjCDWMDet.SiteClearanceFromAuthority = rblSiteClearance.SelectedValue == "1";
+                    ObjCDWMDet.SiteClearanceFromAuthority = rblSiteClearance.SelectedItem.Text;
 
                     result = objSrvcbal.InsertCDWMDetails(ObjCDWMDet);
 

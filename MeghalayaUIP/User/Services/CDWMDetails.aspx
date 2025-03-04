@@ -72,7 +72,7 @@
                                             <div class="col-md-8">
                                                 <div class="form-group row">
                                                     <label class="col-lg-9 col-form-label">
-                                                        Name of the local authority/Name of the agency appointed by the municipal authority :
+                                                        Name of the local authority/Name of the agency appointed by the municipal authority
                                                     </label>
                                                     <div class="col-lg-3">
                                                         <asp:TextBox ID="txtNameLocalAuth" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
@@ -81,7 +81,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex mt-2">
-                                            <h4 class="card-title ml-3">2. Details of the competent authority or agency responsible for operation of processing or recycling or disposal facility): </h4>
+                                            <h4 class="card-title ml-3">2. Details of the competent authority or agency responsible for operation of processing or recycling or disposal facility: </h4>
                                         </div>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
@@ -94,7 +94,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. Designation of Nodal Officer *</label>
+                                                    <label class="col-lg-6 col-form-label">2. Nodal Officer Designation *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtNodalDesgn" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -119,36 +119,45 @@
                                         <div class="col-md-12 d-flex mt-2">
                                             <h4 class="card-title ml-3">3. Detailed proposal of construction and demolition waste processing or recycling facility to include the following: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
+                                            <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Average quantity (in tons per day) and composition of construction and demolition waste to be handled at the specific site*</label>
-                                                    <div class="col-lg-6 d-flex">
+                                                    <label class="col-lg-9 col-form-label">
+                                                        1. Average quantity (in tons per day) and composition of construction and demolition waste to be handled at the specific site*
+                                                    </label>
+                                                    <div class="col-lg-3">
                                                         <asp:TextBox ID="txtAvgQuan" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            </div>
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
+                                            <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. Quantity of construction and demolition waste to be processed per day *</label>
-                                                    <div class="col-lg-6 d-flex">
+                                                    <label class="col-lg-9 col-form-label">
+                                                        2. Quantity of construction and demolition waste to be processed per day *
+                                                    </label>
+                                                    <div class="col-lg-3">
                                                         <asp:TextBox ID="txtQuanWasteProc" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-12 d-flex" style="margin-top: -10px;">
+                                            <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">
+                                                    <label class="col-lg-9 col-form-label">
                                                         3. Site clearance from Prescribed Authority*
-                                                    </lab
-                                                    <div class="col-lg-6 d-flex">
+                                                    </label>
+                                                    <div class="col-lg-3">
                                                         <asp:RadioButtonList ID="rblSiteClearance" runat="server" RepeatDirection="Horizontal" RepeatColumns="2" Style="padding: 20px">
-                                                            <asp:ListItem Text="Yes " Value="1" class="pr-4"></asp:ListItem>
-                                                            <asp:ListItem Text="No" Value="2" class="pr-4"></asp:ListItem>
+                                                            <asp:ListItem Text="Yes " Value="Yes" class="pr-4"></asp:ListItem>
+                                                            <asp:ListItem Text="No" Value="No" class="pr-4"></asp:ListItem>
                                                         </asp:RadioButtonList>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                         <div class="col-md-12 d-flex mt-4">
                                             <h4 class="card-title ml-3">4. Attachments: </h4>
