@@ -223,6 +223,16 @@ namespace MeghalayaUIP.User.Services
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }      
+        protected void chkHeader_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chkHeaderCheck = (CheckBox)sender;
+
+            foreach (GridViewRow gRow in grdApprovals.Rows)
+            {
+                CheckBox ckRowSel = (CheckBox)gRow.FindControl("chkSel");
+                ckRowSel.Checked = chkHeaderCheck.Checked;
+            }
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="SVRCPaymentPage.aspx.cs" Inherits="MeghalayaUIP.User.Services.SVRCPaymentPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="LAPaymentPage.aspx.cs" Inherits="MeghalayaUIP.User.LA.LAPaymentPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Othere Services</a></li>
+            <li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Land Allotment</a></li>
             <li class="breadcrumb-item active" aria-current="page">Payments Details</li>
         </ol>
     </nav>
@@ -78,12 +78,12 @@
                                         <HeaderTemplate>
                                             <div style="text-align: center">
                                                 Select All<br />
-                                                <asp:CheckBox ID="chkHeader" runat="server" OnCheckedChanged="chkHeader_CheckedChanged" AutoPostBack="true"
+                                                <asp:CheckBox ID="chkHeader" runat="server" AutoPostBack="true"
                                                     onclick="myheadcheck(this)" />
                                             </div>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="chkSel" AutoPostBack="true" OnCheckedChanged="chkSel_CheckedChanged" runat="server" />
+                                            <asp:CheckBox ID="chkSel" AutoPostBack="true" runat="server" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:BoundField DataField="ApprovalName" HeaderText="Approval Name ">
@@ -150,7 +150,7 @@
                         <div class="col-md-12 text-right">
                             <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
-                            <asp:Button ID="btnPay" runat="server" Text="Pay" class="btn btn-rounded btn-submit btn-lg" Width="150px" OnClick="btnPay_Click" />
+                            <asp:Button ID="btnPay" runat="server" Text="Pay" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
 
 
 

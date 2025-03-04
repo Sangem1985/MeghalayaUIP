@@ -785,6 +785,7 @@
     <Content Include="User\INCENTIVE\INCSubsidyOnPCM.aspx" />
     <Content Include="User\INCENTIVE\INCWomenandPHCIS.aspx" />
     <Content Include="User\LA\LAApplDetails.aspx" />
+    <Content Include="User\LA\LAPaymentPage.aspx" />
     <Content Include="User\LA\LAQuestionnaire.aspx" />
     <Content Include="User\LA\LAUserDashBoard.aspx" />
     <Content Include="User\MainDashboard.aspx" />
@@ -2240,6 +2241,13 @@
     </Compile>
     <Compile Include="User\LA\LAApplDetails.aspx.designer.cs">
       <DependentUpon>LAApplDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\LA\LAPaymentPage.aspx.cs">
+      <DependentUpon>LAPaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\LA\LAPaymentPage.aspx.designer.cs">
+      <DependentUpon>LAPaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\LA\LAQuestionnaire.aspx.cs">
       <DependentUpon>LAQuestionnaire.aspx</DependentUpon>

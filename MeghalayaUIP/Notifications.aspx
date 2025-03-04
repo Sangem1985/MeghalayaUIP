@@ -32,7 +32,7 @@
 
 
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/LabourDeptNoLESD62202497.pdf">CIBF Risk Categorization - Notification from Labour Dept  [No.LE&SD.62/2024/97 dated 14th Feb, 2025]</a></li>
-                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PA Reforms Cell- No.PER(ARC)3-2012-Pt.I-847.I-847.pdf">P & A Reforms Cell- No.PER(ARC)3-2012-Pt.I-847</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PA Reforms Cell- No.PER(ARC)3-2012-Pt.I-847.pdf">P & A Reforms Cell- No.PER(ARC)3-2012-Pt.I-847</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Labour Notification Manufacturer 10 years.pdf">Labour Notification Manufacturer 10 years- Notification from Labour Dept(CIBF) [No: LE&SD.62/2024/83:-dated 16th Jan, 2025]</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Labour Meghalaya 10 year amendment.pdf">Labour Meghalaya 10 year amendment - Notification from Labour Dept(CIBF) [No: LE&SD.62/2024/85:dated 16th Jan, 2025]</a></li>
                         <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/Amendemnt Women OSH Latest.pdf">Amendment Women OSH Latest - Notification from Labour Dept(CIBF) [No.LE&SD.62/2024/84 dated 16th Jan, 2025]</a></li>
