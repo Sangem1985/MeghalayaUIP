@@ -180,7 +180,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div id="Status" runat="server" visible="false">
                                         <label class="col-lg-12 col-form-label">iii) Status of Consents</label>
                                         <div class="col-md-12 d-flex">
                                             
@@ -204,7 +204,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                            </div>
                                         <div class="col-md-12 d-flex mt-3">
                                             <h4 class="card-title ml-3">4. (HCF/CBWTF) </h4>
                                         </div>
@@ -479,7 +479,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">7. Contingency plan of common bio-medical waste treatment facility (CBWTF)  *</label>
+                                                    <label class="col-lg-4 col-form-label">7. Contingency plan of common bio-medical waste treatment facility (CBWTF)  </label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
@@ -503,7 +503,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">8. Details of directions or notices or legal actions if any during the period of earlier authorisation:  *</label>
+                                                    <label class="col-lg-4 col-form-label">8. Details of directions or notices or legal actions if any during the period of earlier authorisation:  </label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>

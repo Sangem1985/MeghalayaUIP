@@ -368,22 +368,34 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 ddlRegType.Items.Clear();
+               // AddOthers(ddlRegType);
                 List<MasterRegistrationType> objRegistrationTypeModel = new List<MasterRegistrationType>();
-                objRegistrationTypeModel = mstrBAL.GetRegistrationType();
-                if (objRegistrationTypeModel != null)
-                {
 
+                objRegistrationTypeModel = mstrBAL.GetRegistrationType();
+               
+                objRegistrationTypeModel.Add(new MasterRegistrationType
+                {
+                    REGISTRATIONTYPEID = "100", 
+                    REGISTRATIONTYPENAME = "Others" 
+                });
+
+
+                if (objRegistrationTypeModel != null)
+                {                    
+                    
                     ddlRegType.DataSource = objRegistrationTypeModel;
                     ddlRegType.DataValueField = "REGISTRATIONTYPEID";
                     ddlRegType.DataTextField = "REGISTRATIONTYPENAME";
+
                     ddlRegType.DataBind();
                 }
                 else
                 {
                     ddlRegType.DataSource = null;
                     ddlRegType.DataBind();
-                }
+                }               
                 AddSelect(ddlRegType);
+               
             }
             catch (Exception ex)
             {
@@ -530,6 +542,22 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        public void AddOthers(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "Others";
+                li.Value = "100";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
 
         protected void ddlRegType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -539,6 +567,13 @@ namespace MeghalayaUIP.User.Services
                 {
                     txtRegNo.Enabled = true;
                     lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No *";
+                   // txtRegNo.Text = ""; txtRegDate.Text = "";
+                    if (ddlRegType.SelectedItem.Text.Trim() == "Others")
+                    {
+                        txtRegNo.Enabled = true;
+                        lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " Reference No *";
+                        
+                    }
                 }
 
             }
@@ -908,17 +943,17 @@ namespace MeghalayaUIP.User.Services
                     slno = slno + 1;
 
                 }
-                if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Registration Date \\n";
-                    slno = slno + 1;
+                /* if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
+                 {
+                     errormsg = errormsg + slno + ". Please Enter Registration Date \\n";
+                     slno = slno + 1;
 
-                }
-                /*if (ddlsector.SelectedIndex == 0)
-                {
-                    errormsg = errormsg + slno + ". Please Select sector \\n";
-                    slno = slno + 1;
-                }*/
+                 }
+                 if (ddlsector.SelectedIndex == 0)
+                 {
+                     errormsg = errormsg + slno + ". Please Select sector \\n";
+                     slno = slno + 1;
+                 }*/
                 if (ddlLineActivity.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Select Line Of Activity \\n";

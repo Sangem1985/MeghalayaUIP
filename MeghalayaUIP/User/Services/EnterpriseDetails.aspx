@@ -111,6 +111,7 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlRegType" runat="server" class="form-control" OnSelectedIndexChanged="ddlRegType_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Select Category" Value="0" />
+
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -216,7 +217,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">14. Mandal</label>
+                                                    <label class="col-lg-6 col-form-label">14. Taluka </label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
                                                             <asp:ListItem Text="Select Mandal" Value="0" />

@@ -279,7 +279,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Methodology for disposal  *</label>
+                                                    <label class="col-lg-4 col-form-label">Methodology for disposal  </label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
@@ -303,7 +303,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Details on solid waste processing/recycling/treatment/disposal facility *</label>
+                                                    <label class="col-lg-4 col-form-label">Details on solid waste processing/recycling/treatment/disposal facility </label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
@@ -327,7 +327,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Details of methodology or criteria followed for site selection *</label>
+                                                    <label class="col-lg-4 col-form-label">Details of methodology or criteria followed for site selection </label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
@@ -350,7 +350,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Site Clearance *</label>
+                                                    <label class="col-lg-4 col-form-label">Site Clearance </label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
@@ -373,7 +373,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Environmental Clearance Consent for eshtablishment *</label>
+                                                    <label class="col-lg-4 col-form-label">Environmental Clearance Consent for eshtablishment </label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
@@ -396,7 +396,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Agreement Between municipal authority and opearting agency *</label>
+                                                    <label class="col-lg-4 col-form-label">Agreement Between municipal authority and opearting agency </label>
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
