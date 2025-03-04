@@ -253,7 +253,7 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                ErrorMsg = stepValidations();
+              //  ErrorMsg = stepValidations();
                 if (ErrorMsg == "")
                 {
                     SRVCCDWMdetails ObjCDWMDet = new SRVCCDWMdetails();

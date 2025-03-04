@@ -949,7 +949,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@SRVCPD_UNITID", Convert.ToInt32(objpay.UNITID));
                 com.Parameters.AddWithValue("@SRVCPD_SRVCQDID", Convert.ToInt32(objpay.Questionnareid));
-                com.Parameters.AddWithValue("@SRVCPD_UIDNO", objpay.CFEUID);
+                com.Parameters.AddWithValue("@SRVCPD_UIDNO", objpay.SRVCUID);
                 com.Parameters.AddWithValue("@SRVCPD_DEPTID", objpay.DeptID);
                 com.Parameters.AddWithValue("@SRVCPD_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
                 com.Parameters.AddWithValue("@SRVCPD_ONLINEORDERNO", objpay.OnlineOrderNo);
@@ -1679,6 +1679,91 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Close();
                 connection.Dispose();
             }
+        }
+        public DataSet GetSRVCPaymentAmounttoPay(string userid, string Quid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCApprovalsAmounttoPay, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCApprovalsAmounttoPay;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@QUID", Convert.ToInt32(Quid));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string SRVCInsertPaymentDet(SRVCPayments SRVCPayment)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.SRVCInsertPaymentDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@SRVCPD_UNITID", Convert.ToInt32(SRVCPayment.UNITID));
+                com.Parameters.AddWithValue("@SRVCPD_SRVCQDID", Convert.ToInt32(SRVCPayment.Questionnareid));
+                com.Parameters.AddWithValue("@SRVCPD_UIDNO", SRVCPayment.SRVCUID);
+                com.Parameters.AddWithValue("@SRVCPD_DEPTID", SRVCPayment.DeptID);
+                com.Parameters.AddWithValue("@SRVCPD_APPROVALID", Convert.ToInt32(SRVCPayment.ApprovalID));
+                com.Parameters.AddWithValue("@SRVCPD_ONLINEORDERNO", SRVCPayment.OnlineOrderNo);
+                com.Parameters.AddWithValue("@SRVCPD_ONLINEAMOUNT", SRVCPayment.OnlineOrderAmount);
+                com.Parameters.AddWithValue("@SRVCPD_PAYMENTFLAG", SRVCPayment.PaymentFlag);
+                com.Parameters.AddWithValue("@SRVCPD_TRANSACTIONNO", SRVCPayment.TransactionNo);
+                com.Parameters.AddWithValue("@SRVCPD_BANKNAME", SRVCPayment.BankName);
+                com.Parameters.AddWithValue("@SRVCPD_TRANSACTIONDATE", SRVCPayment.TransactionDate);
+                com.Parameters.AddWithValue("@SRVCPD_CRETAEDBY", Convert.ToInt32(SRVCPayment.CreatedBy));
+                com.Parameters.AddWithValue("@SRVCPD_CRETAEDBYIP", SRVCPayment.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
 
     }
