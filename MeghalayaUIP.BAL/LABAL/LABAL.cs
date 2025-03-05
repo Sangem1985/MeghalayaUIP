@@ -53,7 +53,10 @@ namespace MeghalayaUIP.BAL.LABAL
         {
             return objLANDDAL.SubmitLandApplication(Objindustry);
         }
-
+        public DataSet GetLANDPaymentAmounttoPay(string userid, string UNITID)
+        {
+            return objLANDDAL.GetLANDPaymentAmounttoPay(userid, UNITID);
+        }
         //////////////////////////---------------------------------------------------------------/////////////////////////
 
         public DataTable GetLADeptDashBoard(LADeptDtls objDtls)
@@ -64,5 +67,6 @@ namespace MeghalayaUIP.BAL.LABAL
         {
             return objLANDDAL.GetLandAllottmentDashBoardView(objDtls);
         }
+
     }
 }

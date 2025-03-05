@@ -1058,11 +1058,11 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Date of certificate of registration \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(hypContractors.Text) || hypContractors.Text == "" || hypContractors.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Contractor's Photo \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(hypContractors.Text) || hypContractors.Text == "" || hypContractors.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Contractor's Photo \\n";
+                //    slno = slno + 1;
+                //}
 
                 return errormsg;
 

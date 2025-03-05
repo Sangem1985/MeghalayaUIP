@@ -19,6 +19,7 @@ namespace MeghalayaUIP.Common
         public static string GetIndustrialShedDetails = "USP_GETLAINDUSTRIALSHEDDETAILS";
         public static string GetLandApplicationDet = "USP_GETLANDUSERDASHBOARDDETAILS";
         public static string SubmitLandApplication ="USP_SUBMITLANDAPPLICATION";
+        public static string GetLANDApprovalsAmounttoPay = "USP_GETLANDAPPROVALSAMOUNTTOPAY";
 
         ////////////////////////////////////----------------------------------/////////////////////////////////
         ///
@@ -32,6 +33,7 @@ namespace MeghalayaUIP.Common
     {
         public string Questionnariid { get; set; }
         public string UnitId { get; set; }
+        public string UIDNO { get; set; }
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
         public string UNITID { get; set; }

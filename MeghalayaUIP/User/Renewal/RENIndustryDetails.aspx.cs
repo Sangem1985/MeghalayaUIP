@@ -381,7 +381,7 @@ namespace MeghalayaUIP.User.Renewal
                         ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
                         txtRegNo.Text = ds.Tables[0].Rows[0]["RENID_REGNUMBER"].ToString();
                         txtRegDate.Text = ds.Tables[0].Rows[0]["RENID_REGDATE"].ToString();
-                        ddlsector.SelectedItem.Text = ds.Tables[0].Rows[0]["RENID_SECTOR"].ToString();
+                        ddlsector.SelectedValue = ds.Tables[0].Rows[0]["RENID_SECTOR"].ToString();
                         ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlLineActivity.SelectedValue = ds.Tables[0].Rows[0]["RENID_LINEOFACTIVITY"].ToString();
                         ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);
@@ -464,7 +464,7 @@ namespace MeghalayaUIP.User.Renewal
                         ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
                         txtRegNo.Text = ds.Tables[1].Rows[0]["COMPANYREGNO"].ToString();
                         txtRegDate.Text = ds.Tables[1].Rows[0]["REGISTRATIONDATE"].ToString();
-                        ddlsector.SelectedItem.Text = ds.Tables[1].Rows[0]["PROJECT_SECTORNAME"].ToString();
+                        ddlsector.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_SECTORNAME"].ToString();
                         ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlLineActivity.SelectedValue = ds.Tables[1].Rows[0]["PROJECT_LOAID"].ToString();
                         ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);

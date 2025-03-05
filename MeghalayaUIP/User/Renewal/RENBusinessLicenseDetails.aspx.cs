@@ -272,11 +272,11 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Select Type of Establishment \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(hypPhoto.Text) || hypPhoto.Text == "" || hypPhoto.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please upload Passport Size Photograph of Individual \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(hypPhoto.Text) || hypPhoto.Text == "" || hypPhoto.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please upload Passport Size Photograph of Individual \\n";
+                //    slno = slno + 1;
+                //}
 
                 return errormsg;
             }

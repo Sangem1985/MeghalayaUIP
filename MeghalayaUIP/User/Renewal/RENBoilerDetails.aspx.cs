@@ -714,7 +714,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-                Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails.aspx?Previous=" + "P");
+                Response.Redirect("~/User/Renewal/RENSafetySecurityDetails.aspx?Previous=" + "P");
             }
             catch (Exception ex)
             {

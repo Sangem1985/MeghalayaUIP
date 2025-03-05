@@ -487,11 +487,11 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Pincode \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(hypDirector.Text) || hypDirector.Text == "" || hypDirector.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Photograph of the Proprietor/ Managing Partner...! \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(hypDirector.Text) || hypDirector.Text == "" || hypDirector.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Photograph of the Proprietor/ Managing Partner...! \\n";
+                //    slno = slno + 1;
+                //}
                 return errormsg;
             }
             catch (Exception ex)

@@ -17,7 +17,7 @@ namespace MeghalayaUIP.User.LA
     {
         MasterBAL mstrBAL = new MasterBAL();
         LABAL Objland = new LABAL();
-        string UnitID;
+        string UnitID, ErrorMsg, result;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -49,7 +49,7 @@ namespace MeghalayaUIP.User.LA
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -73,9 +73,9 @@ namespace MeghalayaUIP.User.LA
                         ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["ISD_MANDAL"].ToString();
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["ISD_VILLAGE"].ToString();
-                        ddlname.SelectedValue= ds.Tables[0].Rows[0]["ISD_NAMEOFINUSTRIALPARK"].ToString();
-                        txtQuantum.Text= ds.Tables[0].Rows[0]["ISD_LANDREQ"].ToString();
-                        txtSheds.Text= ds.Tables[0].Rows[0]["ISD_SHEDSNO"].ToString();
+                        ddlname.SelectedValue = ds.Tables[0].Rows[0]["ISD_NAMEOFINUSTRIALPARK"].ToString();
+                        txtQuantum.Text = ds.Tables[0].Rows[0]["ISD_LANDREQ"].ToString();
+                        txtSheds.Text = ds.Tables[0].Rows[0]["ISD_SHEDSNO"].ToString();
                         txtEquity.Text = ds.Tables[0].Rows[0]["ISD_EQUITY"].ToString();
                         txtTermLoan.Text = ds.Tables[0].Rows[0]["ISD_LOANBANK"].ToString();
                         txtUnsecured.Text = ds.Tables[0].Rows[0]["ISD_UNSECUREDLOAN"].ToString();
@@ -695,22 +695,22 @@ namespace MeghalayaUIP.User.LA
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            string Quesstionriids = Convert.ToString(Session["LANDQDID"]);
+           // string Quesstionriids = 
             try
             {
-                string ErrorMsg = "", result = "";
+                
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
                     LANDQUESTIONNAIRE Objindustry = new LANDQUESTIONNAIRE();
 
-                    int count = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
-                    Objindustry.Questionnariid = Quesstionriids;
+                    int count1 = 0, count2 = 0, count3 = 0, count4 = 0;
+                    Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]);
                     Objindustry.CreatedBy = hdnUserID.Value;
                     Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                     Objindustry.IPAddress = getclientIP();
                     Objindustry.NAMEINDUSTRYPARK = ddlname.SelectedValue;
-                    Objindustry.QUANTUMLAND=txtQuantum.Text;
+                    Objindustry.QUANTUMLAND = txtQuantum.Text;
                     Objindustry.SHEDSNO = txtSheds.Text;
                     Objindustry.COMPANYNAME = txtUnitName.Text;
                     Objindustry.DISTRIC = ddlDistrict.SelectedValue;
@@ -726,16 +726,20 @@ namespace MeghalayaUIP.User.LA
                     Objindustry.PMLAKH = txtPMLakh.Text;
                     Objindustry.TOTALPROJECTCOST = txtprojectCost.Text;
                     Objindustry.WASTEGENERATOR = txtGenerated.Text;
+                    Objindustry.UIDNO = "LA" + "/" + DateTime.Now.Year.ToString() + "/" + Objindustry.UnitId;
 
                     result = Objland.InsertIndustrialShedDetails(Objindustry);
-                    Session["LANDQDID"] = result;
-                    Quesstionriids = Convert.ToString(Session["LANDQDID"]);
+                    // Session["LANDQDID"] = result;
+                    // Quesstionriids = Convert.ToString(Session["LANDQDID"]);
 
                     if (result != "")
                     {
+                        //Session["LANDUNITID"] = result;
+                        result = "LA" + "/" + DateTime.Now.Year.ToString() + "/" + Objindustry.UnitId;
+
                         for (int i = 0; i < GVManu.Rows.Count; i++)
                         {
-                            Objindustry.Questionnariid = Quesstionriids;
+                            Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]); 
                             Objindustry.CreatedBy = hdnUserID.Value;
                             Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                             Objindustry.IPAddress = getclientIP();
@@ -748,7 +752,7 @@ namespace MeghalayaUIP.User.LA
                         }
                         for (int i = 0; i < GVRawMaterial.Rows.Count; i++)
                         {
-                            Objindustry.Questionnariid = Quesstionriids;
+                            Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]);
                             Objindustry.CreatedBy = hdnUserID.Value;
                             Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                             Objindustry.IPAddress = getclientIP();
@@ -762,7 +766,7 @@ namespace MeghalayaUIP.User.LA
                         }
                         for (int i = 0; i < GVPOWER.Rows.Count; i++)
                         {
-                            Objindustry.Questionnariid = Quesstionriids;
+                            Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]);
                             Objindustry.CreatedBy = hdnUserID.Value;
                             Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                             Objindustry.IPAddress = getclientIP();
@@ -775,7 +779,7 @@ namespace MeghalayaUIP.User.LA
                         }
                         for (int i = 0; i < GVWATER.Rows.Count; i++)
                         {
-                            Objindustry.Questionnariid = Quesstionriids;
+                            Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]);
                             Objindustry.CreatedBy = hdnUserID.Value;
                             Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                             Objindustry.IPAddress = getclientIP();
@@ -792,8 +796,8 @@ namespace MeghalayaUIP.User.LA
                         {
                             Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                             Objindustry.CreatedBy = hdnUserID.Value;
-                            Objindustry.Questionnariid = result;
-                            Objindustry.IPAddress= getclientIP();
+                            Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]);
+                            Objindustry.IPAddress = getclientIP();
                             string Finalresult = Objland.SubmitLandApplication(Objindustry);
                             success.Visible = true;
                             lblmsg.Text = "Industrial shed Details Submitted Successfully";
@@ -909,7 +913,7 @@ namespace MeghalayaUIP.User.LA
                     errormsg = errormsg + slno + ". Please Enter Details of waste/effluent to be generated\\n";
                     slno = slno + 1;
                 }
-                if(GVManu.Rows.Count==0)
+                if (GVManu.Rows.Count == 0)
                 {
                     errormsg = errormsg + slno + ". Please Enter Details of Proposed items for manufacturing and click on Add\\n";
                     slno = slno + 1;
@@ -1000,6 +1004,22 @@ namespace MeghalayaUIP.User.LA
             }
 
             return emptyDropdowns;
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnSave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/LA/LAPaymentPage.aspx");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }
