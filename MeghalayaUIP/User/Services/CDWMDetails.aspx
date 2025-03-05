@@ -240,7 +240,7 @@
 
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnDPR" class="btn btn-rounded btn-dark mb-4" Width="150px" OnClick="btnDPR_Click" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnDPR" class="btn btn-rounded btn-dark mb-4" Width="150px" Height="30px" OnClick="btnDPR_Click" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypDPR" runat="server" Target="_blank"></asp:HyperLink>

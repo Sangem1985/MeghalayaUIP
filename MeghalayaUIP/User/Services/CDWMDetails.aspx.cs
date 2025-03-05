@@ -70,6 +70,7 @@ namespace MeghalayaUIP.User.Services
                 DataSet ds = new DataSet();
 
                 ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "106");
+                
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -104,7 +105,7 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet ds = new DataSet();
-                ds = objSrvcbal.GetCDWMDetails( Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
+                ds = objSrvcbal.GetSRVCCDWMDETAILS( Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
 
                 if (ds != null && ds.Tables.Count > 0)
                 {

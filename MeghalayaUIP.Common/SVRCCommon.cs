@@ -58,6 +58,7 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCUploadEnclosures = "USP_GETUPLOADENCLOSURES";
 
 
+
     }
 
     public class SvrcApplicationDetails
