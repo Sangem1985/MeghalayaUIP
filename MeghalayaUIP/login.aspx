@@ -129,10 +129,10 @@
                                                 <!-- Form -->
                                                 <%-- <form action="admin/IndustryRegistration.aspx">--%>
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" ID="txtUsername" class="form-control" placeholder="Email" AutoCompleteType="Disabled" AutoComplete="Off" OnKeyUp="ResetBorderColor()" OnInput="ResetBorderColor()"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtUsername" class="form-control" placeholder="Email" MaxLength="100" AutoCompleteType="Disabled" AutoComplete="Off" OnKeyUp="ResetBorderColor()" OnInput="ResetBorderColor()"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
-                                                    <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" onblur="return Generate();" class="form-control" placeholder="Password" AutoCompleteType="Disabled" AutoComplete="Off" OnKeyUp="BorderColor()" OnInput="BorderColor()"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtPswrd" TextMode="Password" onblur="return Generate();" class="form-control" placeholder="Password" MaxLength="20" AutoCompleteType="Disabled" AutoComplete="Off" OnKeyUp="BorderColor()" OnInput="BorderColor()"></asp:TextBox>
                                                 </div>
                                                 <div class="row" style="padding-left: 10px">
                                                     <div class="col-md-12" style="display: flex;">
