@@ -47,7 +47,7 @@ namespace MeghalayaUIP.Common
         public static string InsertSRVCSWDdetails = "USP_INSSRVCSOLIDWASTEDETAILS";//"USP_INS_SRVCDPETAPPROVALS";
         public static string GetSrvcSWMDetails = "USP_GETSRVCSOLIDWASTEDET";
         public static string GetSrvcAppliedApprovalIDs = "USP_GETSRVCAPPROVALIDS";
-        public static string GetSRVCApplUserDashboard = "USP_GETSRVCAPPLUSERDASHBOARD";
+        public static string GetSRVCApplUserDashboard = "USP_GETUSERSRVCAPPLTRACKER"; //USP_GETSRVCAPPLUSERDASHBOARD
         public static string GetSRVCApplicationDet = "USP_GETSRVCAPPLICATIONDET";
         public static string InsertPDCLDetails = "USP_INSSRVCPDCLDETAILS";
         public static string GetSrvcPDCLDetails = "USP_GETSRVCPDCLDETAILS";
@@ -57,7 +57,7 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCApprovalsAmounttoPay = "USP_GETSRVCAPPROVALSAMOUNTTOPAY";
         public static string SRVCInsertPaymentDetails = "USP_INSSRVCPAYMENTDETAILS";
         public static string GetSRVCUploadEnclosures = "USP_GETUPLOADENCLOSURES";
-
+        public static string GetSRVCApplStatus = "USP_GETSRVCAPPLSTATUS";
 
 
     }
