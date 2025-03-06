@@ -311,11 +311,20 @@ namespace MeghalayaUIP.User.Services
 
         protected void btnPrev_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/Services/EWasteDetails.aspx?Previous=" + "P");
+            try
+            {
+                Response.Redirect("~/User/Services/EWasteDetails.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
-        {
+        { 
             try
             {
                 Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
