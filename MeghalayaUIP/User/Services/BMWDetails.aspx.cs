@@ -845,14 +845,16 @@ namespace MeghalayaUIP.User.Services
 
         private void CalculateFees()
         {
-            if (ddlAuthBeds.SelectedValue != "0" && ddlAuthYears.SelectedValue != "0")
+            try
             {
-                int bedsCategory = Convert.ToInt32(ddlAuthBeds.SelectedValue);
-                int years = Convert.ToInt32(ddlAuthYears.SelectedValue);
-                int fee = 0;
+                if (ddlAuthBeds.SelectedValue != "0" && ddlAuthYears.SelectedValue != "0")
+                {
+                    int bedsCategory = Convert.ToInt32(ddlAuthBeds.SelectedValue);
+                    int years = Convert.ToInt32(ddlAuthYears.SelectedValue);
+                    int fee = 0;
 
-                // Fee structure
-                Dictionary<int, (int yearlyFee, int fiveYearFee)> feeMapping = new Dictionary<int, (int, int)>
+                    // Fee structure
+                    Dictionary<int, (int yearlyFee, int fiveYearFee)> feeMapping = new Dictionary<int, (int, int)>
                 {
                 {1, (5000, 25000)},  // Up to 25 Beds
                 {2, (10000, 50000)}, // Up to 50 Beds
@@ -867,16 +869,23 @@ namespace MeghalayaUIP.User.Services
                 {11,(0, 0) } //Govt. District Health Centre (Irrespective of number of beds)
         };
 
-                if (feeMapping.ContainsKey(bedsCategory))
-                {
-                    fee = (years == 1) ? feeMapping[bedsCategory].yearlyFee : feeMapping[bedsCategory].fiveYearFee;
-                }
+                    if (feeMapping.ContainsKey(bedsCategory))
+                    {
+                        fee = (years == 1) ? feeMapping[bedsCategory].yearlyFee : feeMapping[bedsCategory].fiveYearFee;
+                    }
 
-                txtBedFee.Text = fee.ToString();
+                    txtBedFee.Text = fee.ToString();
+                }
+                else
+                {
+                    txtBedFee.Text = "";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtBedFee.Text = "";
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
