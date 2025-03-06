@@ -255,10 +255,10 @@
                                         <div class="col-md-12 d-flex mt-2">
                                             <h4 class="card-title ml-3">3. Authorization: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
+                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-8 col-form-label">For required authorization (Please tick mark appropriate activities*)</label>
+                                                    <label class="col-lg-8 col-form-label">1. For required authorization (Please tick mark appropriate activities*)</label>
                                                     <div class="col-lg-12 d-flex">
                                                         <asp:CheckBoxList ID="CHKAuthorization" runat="server" RepeatDirection="Vertical" RepeatColumns="4" Style="padding: 20px">
                                                             <asp:ListItem Text="(i) Generation during manufacturing or refurbishing*" Value="1" class="pr-4"></asp:ListItem>
@@ -266,6 +266,31 @@
                                                             <asp:ListItem Text="(iii) Collection, Transportation, Storage"></asp:ListItem>
                                                             <asp:ListItem Text="(iv) Refurbishing"></asp:ListItem>
                                                         </asp:CheckBoxList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
+                                            <div class="col-md-8">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-9 col-form-label">
+                                                        2. For required authorization, Please select number of years*
+                                                    </label>
+                                                    <div class="col-lg-3 ">
+                                                        <asp:DropDownList ID="ddlAuthYears" AutoPostBack="true" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlAuthYears_SelectedIndexChanged">
+                                                            <asp:ListItem Text="--Select--" Value="0" Readonly="True" Disabled="True"></asp:ListItem>
+                                                            <asp:ListItem Text="1 Year" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="5 Years" Value="5"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Total Fees*</label>
+                                                    <div class="col-lg-6">
+                                                        <asp:TextBox ID="txtAuthFee" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" AutoPostBack="true" TabIndex="1" ReadOnly="true" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

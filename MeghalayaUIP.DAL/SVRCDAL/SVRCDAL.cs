@@ -341,6 +341,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_AREADISTANCECBMWTF", ObjBMWDetails.DISTANCECBMWTF);
                 com.Parameters.AddWithValue("@BMW_BIOMEDICALDISPOSED", ObjBMWDetails.BMWTREATED);
                 com.Parameters.AddWithValue("@BMW_MODETRANSPORTATION", ObjBMWDetails.MODETRANSACTION);
+                com.Parameters.AddWithValue("@BMW_BEDFEE", Convert.ToDecimal(ObjBMWDetails.BedFee));
 
 
 
@@ -774,6 +775,8 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCSWD_DETAILSEXISTINGSITE", ObjSWMDet.detailsexistingsite);
                 com.Parameters.AddWithValue("@SRVCSWD_METHODOLOGYDETAILS", ObjSWMDet.methodologydetails);
                 com.Parameters.AddWithValue("@SRVCSWD_CHECKENVIRONMENTPOLLUTION", ObjSWMDet.checkenvironmentpollution);
+                com.Parameters.AddWithValue("@SRVCSWD_AUTHFEE", Convert.ToDecimal(ObjSWMDet.authfee));
+                
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -1298,6 +1301,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@EWD_EWASTEREFURBISHED", serviceEWasteDetails.EWasteRefurbished);
                 com.Parameters.AddWithValue("@EWD_EWASTERECYCLE", serviceEWasteDetails.EWasteRecycle);
                 com.Parameters.AddWithValue("@EWD_EWASTEDISPOSAL", serviceEWasteDetails.EWasteDisposal);
+                com.Parameters.AddWithValue("@EWD_AUTHFEE", Convert.ToDecimal(serviceEWasteDetails.EWasteAuthFee));
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();

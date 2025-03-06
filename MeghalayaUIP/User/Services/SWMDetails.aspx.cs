@@ -67,6 +67,7 @@ namespace MeghalayaUIP.User.Services
                     if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "82")
                     {
                         BindData();
+                        BindAuthYearsDropdown();
                     }
                 }
                 else
@@ -81,6 +82,43 @@ namespace MeghalayaUIP.User.Services
                 }
 
 
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        private void BindAuthYearsDropdown()
+        {
+            try
+            {
+                ddlAuthYears.Items.Clear();
+
+                AddSelect(ddlAuthYears);
+
+                ddlAuthYears.Items.Add(new ListItem("1 Year", "1"));
+                ddlAuthYears.Items.Add(new ListItem("5 Years", "5"));
+
+                ddlAuthYears.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
             }
             catch (Exception ex)
             {
@@ -128,6 +166,7 @@ namespace MeghalayaUIP.User.Services
                         txtExistingSiteUnderOperation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_DETAILSEXISTINGSITE"]);
                         txtLandfillingDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_METHODOLOGYDETAILS"]);
                         txtMeasureToChkEnvPoltn.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_CHECKENVIRONMENTPOLLUTION"]);
+                        txtAuthFee.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHFEE"]);
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
@@ -224,6 +263,7 @@ namespace MeghalayaUIP.User.Services
                     ObjSWMDet.detailsexistingsite = txtExistingSiteUnderOperation.Text;
                     ObjSWMDet.methodologydetails = txtLandfillingDetails.Text;
                     ObjSWMDet.checkenvironmentpollution = txtMeasureToChkEnvPoltn.Text;
+                    ObjSWMDet.authfee = txtAuthFee.Text;
                     //authorizationopeartion = string.Join(",", CHKAuthorization.Items.Cast<ListItem>()
                     //               .Where(item => item.Selected)
                     //               .Select(item => item.Value)),
@@ -387,6 +427,11 @@ namespace MeghalayaUIP.User.Services
                 //    errormsg += slno + ". Please upload the investment on Project and Expected Return \\n";
                 //    slno++;
                 //}
+                if (string.IsNullOrEmpty(txtAuthFee.Text) || txtAuthFee.Text == "" || txtAuthFee.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Select number of years for all kind of Solid Waste Management Authorization  \\n";
+                    slno = slno + 1;
+                }
 
                 return errormsg;
             }
@@ -911,6 +956,20 @@ namespace MeghalayaUIP.User.Services
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void ddlAuthYears_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlAuthYears.SelectedValue == "1")
+            {
+                txtAuthFee.Text = "5000";
+            }
+            else if (ddlAuthYears.SelectedValue == "5")
+            {
+                txtAuthFee.Text = "25000";
+                txtAuthFee.Text = "25000";
+
             }
         }
 

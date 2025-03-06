@@ -17,6 +17,7 @@ namespace MeghalayaUIP.Common
 
         public static string GetBMWEquipment = "USP_GETBMW_WASTETYPE";
         public static string InsertBMWDetails = "USP_INSBMWDETAILS";
+
         public static string InsertWasteDetails = "USP_INSBMWWASTEDETAILS";
         public static string InsertBMWBIOMEDICALDET = "USP_INSBMWEQUIPMENT";
         public static string GetSrvcBMWDetails = "USP_GETBMWDETAILS";
@@ -181,6 +182,8 @@ namespace MeghalayaUIP.Common
         public string Bmwname { get; set; }
         public string NoUnit { get; set; }
         public string Capacity { get; set; }
+
+        public string BedFee { get; set; }
     }
     public class PDCLD
     {
@@ -255,6 +258,8 @@ namespace MeghalayaUIP.Common
         public string createdby { get; set; }
         public string createdbyip { get; set; }
 
+        public string authfee { get; set; }
+
     }
 
     public class SRVCCDWMdetails
@@ -314,6 +319,8 @@ namespace MeghalayaUIP.Common
         public string AltMobile { get; set; }
         public string Landline { get; set; }
         public string Authorization { get; set; }
+
+        public string EWasteAuthFee { get; set; }
         public string EWasteGenQuantity { get; set; }
         public string EWasteRefurbished { get; set; }
         public string EWasteDisposal { get; set; }

@@ -77,7 +77,9 @@ namespace MeghalayaUIP.User.Services
                     {
                         BindStates();
                         BindDistricts();
+                        BindAuthYearsDropdown();
                         BindData();
+                        
                     }
                 }
                 else
@@ -147,6 +149,7 @@ namespace MeghalayaUIP.User.Services
                                 txtMobileNo.Text = ds.Tables[0].Rows[0]["EWD_MOBILE"].ToString();
                                 txtAltMobile.Text = ds.Tables[0].Rows[0]["EWD_ALTMOBILE"].ToString();
                                 txtLandlineno.Text = ds.Tables[0].Rows[0]["EWD_LANDLINE"].ToString();
+                                txtAuthFee.Text = ds.Tables[0].Rows[0]["EWD_AUTHFEE"].ToString();
 
                                 string[] selectedAuthValues = ds.Tables[0].Rows[0]["EWD_AUTHORIZATION"].ToString().Split('/');
 
@@ -367,6 +370,28 @@ namespace MeghalayaUIP.User.Services
             }
         }
 
+        private void BindAuthYearsDropdown()
+        {
+            try
+            {
+                ddlAuthYears.Items.Clear();
+
+                AddSelect(ddlAuthYears);
+
+                ddlAuthYears.Items.Add(new ListItem("1 Year", "1"));
+                ddlAuthYears.Items.Add(new ListItem("5 Years", "5"));
+
+                ddlAuthYears.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -464,6 +489,7 @@ namespace MeghalayaUIP.User.Services
                     }
                     serviceEWasteDetails.Authorization = string.Join("/", selectedAuthItems);
 
+                    serviceEWasteDetails.EWasteAuthFee = txtAuthFee.Text;
                     serviceEWasteDetails.EWasteGenQuantity = txtEwasteValue.Text;
                     serviceEWasteDetails.EWasteRefurbished = txtQtyRefbd.Text;
                     serviceEWasteDetails.EWasteRecycle = txtQtyRecyl.Text;
@@ -519,6 +545,7 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        
 
         protected void ddldist_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -693,6 +720,13 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please Check Authorization \\n";
                     slno = slno + 1;
                 }
+
+                if (ddlAuthYears.SelectedValue == "0" || string.IsNullOrEmpty(ddlAuthYears.SelectedValue))
+                {
+                    errormsg = errormsg + slno + ". Please select the number of years for authorization \\n";
+                    slno = slno + 1;
+                }
+
 
                 if (string.IsNullOrEmpty(txtEwasteValue.Text) || txtEwasteValue.Text == "" || txtEwasteValue.Text == null)
                 {
@@ -1347,6 +1381,25 @@ namespace MeghalayaUIP.User.Services
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void ddlAuthYears_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+            if (ddlAuthYears.SelectedValue == "1")
+            {
+                txtAuthFee.Text = "5000";
+            }
+            else if (ddlAuthYears.SelectedValue == "5")
+            {
+                txtAuthFee.Text = "25000";
+
+            }
+            //else if(ddlAuthYears.SelectedItem.Text == "--Select--")
+            //{
+            //    txtAuthFee.Text = ""; //SELECT CHOSEN
+            //}
         }
 
         public static bool ValidateFileName(string fileName)

@@ -70,6 +70,8 @@ namespace MeghalayaUIP.User.Services
                     {
                         BindBMW();
                         BindWasteDetails();
+                        BindBedDetails();
+                        BindAuthYearsDropdown();
                         BindData();
                     }
                 }
@@ -93,6 +95,60 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        private void BindAuthYearsDropdown()
+        {
+            try
+            {
+                ddlAuthYears.Items.Clear();
+
+                AddSelect(ddlAuthYears);
+
+                ddlAuthYears.Items.Add(new ListItem("1 Year", "1"));
+                ddlAuthYears.Items.Add(new ListItem("5 Years", "5"));
+
+                ddlAuthYears.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        public void BindBedDetails()
+        {
+            try
+            {
+                ddlAuthBeds.Items.Clear();
+
+                // Add default "Select" option
+                AddSelect(ddlAuthBeds);
+
+                // Adding Bed Categories
+                ddlAuthBeds.Items.Add(new ListItem("Upto 25 Beds", "1"));
+                ddlAuthBeds.Items.Add(new ListItem("Upto 50 Beds", "2"));
+                ddlAuthBeds.Items.Add(new ListItem("Upto 75 Beds", "3"));
+                ddlAuthBeds.Items.Add(new ListItem("Upto 100 Beds", "4"));
+                ddlAuthBeds.Items.Add(new ListItem("Above 100 Beds", "5"));
+                ddlAuthBeds.Items.Add(new ListItem("HCF (Non-bedded, Private, Investment up to 10 Lacs)", "6"));
+                ddlAuthBeds.Items.Add(new ListItem("HCF (Non-bedded, Private, Investment above 10 Lacs)", "7"));
+                ddlAuthBeds.Items.Add(new ListItem("HCF (Non-bedded, Non-Profit Making)", "8"));
+                ddlAuthBeds.Items.Add(new ListItem("Research & Educational Institutions/Veterinary Institutions/Animal Houses", "9"));
+                ddlAuthBeds.Items.Add(new ListItem("Common Bio-Medical Waste Treatment Facility", "10"));
+                ddlAuthBeds.Items.Add(new ListItem("Govt. District Health Centre (Irrespective of number of beds)", "11"));
+
+                // Set default selection
+                ddlAuthBeds.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         public void BindData()
         {
             try
@@ -152,6 +208,7 @@ namespace MeghalayaUIP.User.Services
                         txtdistance.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_AREADISTANCECBMWTF"]);
                         txtwastetreat.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_BIOMEDICALDISPOSED"]);
                         txtBiowaste.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_MODETRANSPORTATION"]);
+                        txtBedFee.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_BEDFEE"]);
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
@@ -316,8 +373,7 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (ddlcategory.SelectedIndex == -1 || ddlwaste.SelectedIndex == -1 ||
-    string.IsNullOrWhiteSpace(txtQuantity.Text) || string.IsNullOrWhiteSpace(txtMethod.Text))
+                if (ddlcategory.SelectedIndex == -1 || ddlwaste.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtQuantity.Text) || string.IsNullOrWhiteSpace(txtMethod.Text))
                 {
                     lblmsg0.Text = "Please Enter All Details of BMW WASTE";
                     Failure.Visible = true;
@@ -777,6 +833,53 @@ namespace MeghalayaUIP.User.Services
             }
         }
 
+        protected void ddlAuthYears_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateFees();
+        }
+
+        protected void ddlAuthBeds_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateFees();
+        }
+
+        private void CalculateFees()
+        {
+            if (ddlAuthBeds.SelectedValue != "0" && ddlAuthYears.SelectedValue != "0")
+            {
+                int bedsCategory = Convert.ToInt32(ddlAuthBeds.SelectedValue);
+                int years = Convert.ToInt32(ddlAuthYears.SelectedValue);
+                int fee = 0;
+
+                // Fee structure
+                Dictionary<int, (int yearlyFee, int fiveYearFee)> feeMapping = new Dictionary<int, (int, int)>
+                {
+                {1, (5000, 25000)},  // Up to 25 Beds
+                {2, (10000, 50000)}, // Up to 50 Beds
+                {3, (15000, 75000)}, // Up to 75 Beds
+                {4, (20000, 100000)}, // Up to 100 Beds
+                {5, (30000, 150000)}, // Above 100 Beds
+                {6, (5000, 5000)}, // Non-bedded, Private, Investment up to 10 Lacs
+                {7, (10000, 10000)}, // Non-bedded, Private, Investment above 10 Lacs
+                {8, (5000, 5000)}, // Non-bedded, Non-Profit Making
+                {9, (5000, 5000)}, // Research & Educational Institutions/Veterinary
+                {10,(15000, 75000)}, // Common Bio-Medical Waste Treatment Facility
+                {11,(0, 0) } //Govt. District Health Centre (Irrespective of number of beds)
+        };
+
+                if (feeMapping.ContainsKey(bedsCategory))
+                {
+                    fee = (years == 1) ? feeMapping[bedsCategory].yearlyFee : feeMapping[bedsCategory].fiveYearFee;
+                }
+
+                txtBedFee.Text = fee.ToString();
+            }
+            else
+            {
+                txtBedFee.Text = "";
+            }
+        }
+
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try
@@ -801,7 +904,7 @@ namespace MeghalayaUIP.User.Services
                 if (ErrorMsg == "")
                 {
                     SvrcBMWDet ObjBMWDetails = new SvrcBMWDet();
-                    int count = 0;                  
+                    int count = 0;
 
                     for (int i = 0; i < GVWaste.Rows.Count; i++)
                     {
@@ -864,6 +967,7 @@ namespace MeghalayaUIP.User.Services
                     ObjBMWDetails.DISTANCECBMWTF = txtdistance.Text;
                     ObjBMWDetails.BMWTREATED = txtwastetreat.Text;
                     ObjBMWDetails.MODETRANSACTION = txtBiowaste.Text;
+                    ObjBMWDetails.BedFee = txtBedFee.Text;
 
 
                     result = objSrvcbal.SRVCBMWDetails(ObjBMWDetails);
@@ -1003,6 +1107,12 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please Enter BMW Waste Type...! \\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(txtBedFee.Text) || txtBedFee.Text == "" || txtBedFee.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Number of years and bed type for authorization of bio-medical waste...! \\n";
+                    slno = slno + 1;
+                }
+
 
 
                 return errormsg;

@@ -5,10 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         input[type=checkbox], input[type=radio] {
-    box-sizing: border-box;
-    padding: 6px 0px !important;
-    margin: 0px 6px !important;
-}
+            box-sizing: border-box;
+            padding: 6px 0px !important;
+            margin: 0px 6px !important;
+        }
     </style>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -63,7 +63,7 @@
                                         <div class="col-md-12 d-flex">
                                             <h4 class="card-title ml-3">1. Particulars of Application: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-8">
                                                 <div class="form-group row">
                                                     <label class="col-lg-9 col-form-label">
@@ -78,7 +78,7 @@
                                         <div class="col-md-12 d-flex mt-2">
                                             <h4 class="card-title ml-3">2. Nodal Officer & Designation: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-8">
                                                 <div class="form-group row">
                                                     <label class="col-lg-9 col-form-label">
@@ -94,10 +94,10 @@
                                         <div class="col-md-12 d-flex mt-2">
                                             <h4 class="card-title ml-3">3. Authorization Requirements: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-8 col-form-label">For setting up and opeartion of the facility: (Please tick mark)*</label>
+                                                    <label class="col-lg-8 col-form-label">1. For setting up and opeartion of the facility: (Please tick mark)*</label>
                                                     <div class="col-lg-12 d-flex">
                                                         <asp:CheckBoxList ID="CHKAuthorization" runat="server" RepeatDirection="Vertical" RepeatColumns="4" Style="padding: 20px">
                                                             <asp:ListItem Text="Waste Processing" Value="1" class="pr-4"></asp:ListItem>
@@ -109,10 +109,37 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
+                                            <div class="col-md-8">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-9 col-form-label">
+                                                        2. For all kind of Solid Waste Management Facility authorization, Please select number of years*
+                                                    </label>
+                                                    <div class="col-lg-3 ">
+                                                        <asp:DropDownList ID="ddlAuthYears" AutoPostBack="true" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlAuthYears_SelectedIndexChanged">
+                                                            <asp:ListItem Text="--Select--" Value="0" Readonly="True" Disabled="True"></asp:ListItem>
+                                                            <asp:ListItem Text="1 Year" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="5 Years" Value="5"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Total Fees*</label>
+                                                    <div class="col-lg-6">
+                                                        <asp:TextBox ID="txtAuthFee" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" AutoPostBack="true" TabIndex="1" ReadOnly="true" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="col-md-12 d-flex mt-2">
                                             <h4 class="card-title ml-3">4. Processing / Recycling / Treatment of solid waste</h4>
                                         </div>
-                                        <div class="col-md-12 d-flex flex-wrap" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex flex-wrap" style="margin-top: -10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
@@ -264,7 +291,7 @@
                                         <div class="col-md-12 d-flex mt-4">
                                             <h4 class="card-title ml-3">6. Attachments: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex" style="margin-top:-25px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -25px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label"></label>

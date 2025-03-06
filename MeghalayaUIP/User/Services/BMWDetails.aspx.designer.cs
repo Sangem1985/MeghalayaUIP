@@ -150,6 +150,33 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.CheckBoxList CHKAuthorized;
 
         /// <summary>
+        /// ddlAuthBeds control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAuthBeds;
+
+        /// <summary>
+        /// ddlAuthYears control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAuthYears;
+
+        /// <summary>
+        /// txtBedFee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBedFee;
+
+        /// <summary>
         /// rblauthorisation control.
         /// </summary>
         /// <remarks>

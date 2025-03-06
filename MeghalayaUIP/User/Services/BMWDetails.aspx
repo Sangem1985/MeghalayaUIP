@@ -7,11 +7,27 @@
         .tableBMW {
             width: 70%;
         }
-                input[type=checkbox], input[type=radio] {
-    box-sizing: border-box;
-    padding: 6px 0px !important;
-    margin: 0px 3px !important;
-}
+
+        input[type=checkbox], input[type=radio] {
+            box-sizing: border-box;
+            padding: 6px 0px !important;
+            margin: 0px 3px !important;
+        }
+        .auto-style1 {
+            display: block;
+            width: 100%;
+            height: 35px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #333;
+            background-clip: padding-box;
+            border-radius: .25rem;
+            transition: none;
+            box-shadow: none;
+            border: 1px solid #ced4da;
+            background-color: #fff;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -58,7 +74,7 @@
                                         <div class="col-md-12 d-flex">
                                             <h4 class="card-title ml-3">1. Particulars of Application: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
@@ -115,10 +131,10 @@
                                         <div class="col-md-12 d-flex mt-3">
                                             <h4 class="card-title ml-3">2. Activity for which authorisation is sought: </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-8 col-form-label">Authorization required for (Please tick appropriate activity or activities *</label>
+                                                    <label class="col-lg-8 col-form-label">1. Authorization required for (Please tick appropriate activity or activities *</label>
                                                     <div class="col-lg-12 d-flex">
                                                         <asp:CheckBoxList ID="CHKAuthorized" runat="server" RepeatDirection="Vertical" RepeatColumns="7" Style="padding: 20px">
                                                             <asp:ListItem Text="Generation" Value="1" style="padding-right: 20px"></asp:ListItem>
@@ -140,18 +156,67 @@
                                             </div>
                                         </div>
 
+
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">
+                                                        2. Select number of beds for authorization*
+                                                    </label>
+                                                    <div class="col-lg-6 ">
+                                                        <asp:DropDownList ID="ddlAuthBeds" AutoPostBack="true" runat="server" class="form-control" OnSelectedIndexChanged="ddlAuthBeds_SelectedIndexChanged">
+                                                            <asp:ListItem Text="--Select--" Value="0" Selected="false"></asp:ListItem>
+                                                            <asp:ListItem Text="Upto 25 Beds" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="Upto 50 Beds" Value="2"></asp:ListItem>
+                                                            <asp:ListItem Text="Upto 75 Beds" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="Upto 100 Beds" Value="4"></asp:ListItem>
+                                                            <asp:ListItem Text="Above 100 Beds" Value="5"></asp:ListItem>
+                                                            <asp:ListItem Text="HCF (Non-bedded, Private, Investment up to 10 Lacs)" Value="6"></asp:ListItem>
+                                                            <asp:ListItem Text="HCF (Non-bedded, Private, Investment above 10 Lacs)" Value="7"></asp:ListItem>
+                                                            <asp:ListItem Text="HCF (Non-bedded, Non-Profit Making)" Value="8"></asp:ListItem>
+                                                            <asp:ListItem Text="Research & Educational Institutions/Veterinary Institutions/Animal Houses" Value="9"></asp:ListItem>
+                                                            <asp:ListItem Text="Common Bio-Medical Waste Treatment Facility" Value="10"></asp:ListItem>
+                                                            <asp:ListItem Text="Govt. District Health Centre (Irrespective of number of beds)" Value="11"></asp:ListItem>
+                                                            
+
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">3. Please select number of years*</label>
+                                                    <div class="col-lg-6">
+                                                        <asp:DropDownList ID="ddlAuthYears" AutoPostBack="true" runat="server" CssClass="auto-style1" OnSelectedIndexChanged="ddlAuthYears_SelectedIndexChanged">
+                                                            <asp:ListItem Text="--Select--" Value="0" Selected="false"></asp:ListItem>
+                                                            <asp:ListItem Text="1 Year" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="5 Years" Value="5"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">4. Total Fees*</label>
+                                                    <div class="col-lg-6">
+                                                        <asp:TextBox ID="txtBedFee" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" AutoPostBack="true" TabIndex="1" ReadOnly="true" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-12 d-flex mt-3">
                                             <h4 class="card-title ml-3">3. Application for fresh or renewal of authorisation (please tick whatever is applicable): </h4>
                                         </div>
 
-                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
                                                         i) Applied for CTO/CTE</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:RadioButtonList ID="rblauthorisation" runat="server" RepeatDirection="Horizontal">
-                                                            <asp:ListItem Text="Yes" Value="Y"  style="margin-right:20px;"/>
+                                                            <asp:ListItem Text="Yes" Value="Y" style="margin-right: 20px;" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
                                                     </div>
@@ -181,34 +246,34 @@
                                             </div>
                                         </div>
                                         <div id="Status" runat="server" visible="false">
-                                        <label class="col-lg-12 col-form-label">iii) Status of Consents</label>
-                                        <div class="col-md-12 d-flex">
-                                            
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                  
-                                                    <label class="col-lg-6 col-form-label">a) Under the Water (Prevention and Control of Pollution) Act, 1974*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtPCB" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
+                                            <label class="col-lg-12 col-form-label">iii) Status of Consents</label>
+                                            <div class="col-md-12 d-flex">
 
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+
+                                                        <label class="col-lg-6 col-form-label">a) Under the Water (Prevention and Control of Pollution) Act, 1974*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtPCB" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
+
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">b) Under the Air (Prevention and Control of Pollution) Act, 1981: *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtPCB1981" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">b) Under the Air (Prevention and Control of Pollution) Act, 1981: *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtPCB1981" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                            </div>
                                         <div class="col-md-12 d-flex mt-3">
                                             <h4 class="card-title ml-3">4. (HCF/CBWTF) </h4>
                                         </div>
-                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
@@ -239,7 +304,7 @@
                                         </div>
 
 
-                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">i) Number of beds of HCF:</label>
@@ -367,7 +432,7 @@
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Center" />
                                                         <ItemStyle Width="70px" />
-                                                    </asp:TemplateField>                                                  
+                                                    </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="60%" HeaderStyle-HorizontalAlign="left">
                                                         <ItemTemplate>
                                                             <itemstyle horizontalalign="Center" />
@@ -404,7 +469,7 @@
                                             <h4 class="card-title ml-3">6. Brief description of arrangements for handling of biomedical waste (attach details): </h4>
                                         </div>
 
-                                        <div class="col-md-12 d-flex" style="margin-top:-10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">i) Mode of transportation (if any) of bio-medical waste:</label>
@@ -464,7 +529,7 @@
 
 
                                         <h4 class="card-title ml-3 mt-5">Upload Document:</h4>
-                                        <div class="col-md-12 d-flex" style="margin-top:-35px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -35px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 col-form-label"></label>
