@@ -42,8 +42,10 @@ namespace MeghalayaUIP.Common
         public static string GetRetriveFireDetails = "USP_GETRETRIVEFIRE";
         public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS"; 
         
-        public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";           
-        public static string GetForestRetriveDet = "USP_GETRETRIVEFOREST";
+        public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";
+        public static string InsertCFETreesLopped = "USP_INSCFETREELOPPNGDETAILS";
+        public static string InsertCFETreesFelled = "USP_INSCFETREEFELLINFDETAILS";
+        public static string GetForestRetriveDet = "USP_GETCFEFORESTDETAILS";
 
         public static string INSERTCFEWaterDet = "USP_INSCFEWATERDETAILS";
         public static string GetCFEWaterDetails = "USP_GETCFEWATERDETAILS";
@@ -615,7 +617,8 @@ namespace MeghalayaUIP.Common
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
         public string UNITID { get; set; }
-        public string Address { get; set; }
+        public string ForestDivision { get; set; }
+        public string LandType { get; set; }
         public string Lattitude { get; set; }
         public string LatDegrees { get; set; }
         public string LatMinutes { get; set; }
@@ -625,28 +628,19 @@ namespace MeghalayaUIP.Common
         public string LongMinutes { get; set; }
         public string LongSeconds { get; set; }
         public string GPSCoodinates { get; set; }
-        public string Purpose { get; set; }
-        public string ForestDivision { get; set; }
-        public string information { get; set; }
-        public string Species { get; set; }
-        public string EstTimberLength { get; set; }
-        public string EstTimberVolume { get; set; }
-        public string Girth { get; set; }
-        public string Est_Firewood { get; set; }
-        public string No_Poles { get; set; }
-        public string North { get; set; }
-        public string East { get; set; }
-        public string West { get; set; }
-        public string South { get; set; }
-        public string Area_Land { get; set; }
-        public string Non_Forest_land_cert { get; set; }
-        public string Loc_Address_Land { get; set; }
-        public string State { get; set; }
-        public string District { get; set; }
-        public string Village { get; set; }
-        public string Pincode { get; set; }
-        public string Geographic_Land { get; set; }
-        public string ordinates_desc { get; set; }      
+        public string DistncLtrPurpose { get; set; }
+      
+        public string Information { get; set; }
+        public string LandArea { get; set; }
+        public string NFLPurpose { get; set; }
+        public string LoppPermType { get; set; }
+        public string FellPermType { get; set; }
+        public string LoppPermPurpose { get; set; }
+        public string FellPermPurpose { get; set; }
+        public string LocalName { get; set; }
+        public string ScfcName { get; set; }
+        public string NoofTrees { get; set; }
+
 
     }
     public class CFEPayments

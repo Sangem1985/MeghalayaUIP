@@ -90,6 +90,11 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFEForestDet(objCFEQForest);
         }
+        public string InsertCFETreesLopped(Forest_Details objCFEQForest)
+        { return objCFEDAL.InsertCFETreesLopped(objCFEQForest); }
+
+        public string InsertCFETreesFelled(Forest_Details objCFEQForest)
+        { return objCFEDAL.InsertCFETreesFelled(objCFEQForest); }
         public string InsertCFEWaterDetails(Water_Details ObjCFEWater)
         {
             return objCFEDAL.InsertCFEWaterDetails(ObjCFEWater);
@@ -134,9 +139,9 @@ namespace MeghalayaUIP.BAL.CFEBLL
         public DataSet GetCFEAttachmentsData(string userid, string UNITID)
         { return objCFEDAL.GetCFEAttachmentsData(userid, UNITID); }
         public DataSet GetUserCFEApplStatus(string Userid, string UNITID)
-        { return objCFEDAL.GetUserCFEApplStatus( Userid,  UNITID); }
-        public DataSet GetUserCFEApplStatusView(string Userid, string UNITID,string Status)
-        { return objCFEDAL.GetUserCFEApplStatusView(Userid, UNITID,Status); }
+        { return objCFEDAL.GetUserCFEApplStatus(Userid, UNITID); }
+        public DataSet GetUserCFEApplStatusView(string Userid, string UNITID, string Status)
+        { return objCFEDAL.GetUserCFEApplStatusView(Userid, UNITID, Status); }
 
         public DataSet GetRetriveCFELabourDet(string userid, string UNITID)
         {
@@ -240,7 +245,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         }
         public DataSet GetCFEQueryDashBoard(string Unitid, string Queryid)
         {
-            return objCFEDAL.GetCFEQueryDashBoard(Unitid,  Queryid);
+            return objCFEDAL.GetCFEQueryDashBoard(Unitid, Queryid);
         }
 
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
@@ -266,9 +271,9 @@ namespace MeghalayaUIP.BAL.CFEBLL
             return objCFEDAL.GetUnitDetailsforPayment(UnitID, InvesterID);
         }
         public string InsertPaymentRequest(string UnitID, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
-            string Contact, string Notes,string IpAddress)
+            string Contact, string Notes, string IpAddress)
         {
-            return objCFEDAL.InsertPaymentRequest(UnitID, InvestorId,Receiptorder,OrderId,PayAmount,Name,Desc,Mail,Contact,Notes, IpAddress);
+            return objCFEDAL.InsertPaymentRequest(UnitID, InvestorId, Receiptorder, OrderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
         }
         public string UpdatePaymentResponse(string paymentId, string OrderId, string Signature, string IpAddress)
         {
@@ -277,7 +282,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         public string UpdatePaymentErrorResponse(string paymentId, string OrderId, string Signature, string IpAddress, string code, string description,
             string source, string step, string reason)
         {
-            return objCFEDAL.UpdatePaymentErrorResponse(paymentId, OrderId, Signature, IpAddress,code,description,source,step,reason);
+            return objCFEDAL.UpdatePaymentErrorResponse(paymentId, OrderId, Signature, IpAddress, code, description, source, step, reason);
         }
         public DataSet GetPaymentOrderNo(string OrderId)
         {
