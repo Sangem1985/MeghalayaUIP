@@ -957,12 +957,12 @@
                                                                     <asp:TextBox ID="txtAfterExpansion" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Total" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
+                                                          <%--  <asp:TemplateField HeaderText="Total" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                 <ItemTemplate>
                                                                     <itemstyle horizontalalign="Center" />
                                                                     <asp:Label ID="lblTotal" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                            </asp:TemplateField>--%>
                                                         </Columns>
                                                     </asp:GridView>
                                                 </div>
@@ -1002,12 +1002,12 @@
                                                                     <asp:TextBox ID="txtYear1" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Total" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
+                                                           <%-- <asp:TemplateField HeaderText="Total" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                 <ItemTemplate>
                                                                     <itemstyle horizontalalign="Center" />
                                                                     <asp:Label ID="lblTotal" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                            </asp:TemplateField>--%>
                                                         </Columns>
                                                     </asp:GridView>
                                                 </div>
@@ -1595,12 +1595,12 @@
                                                                                 <asp:Label ID="lblMRPID" runat="server" Text='<%# Eval("MRPID") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>--%>
-                                                            <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
+                                                           <%-- <asp:TemplateField HeaderText="Category" Visible="true" ItemStyle-Width="45%" HeaderStyle-HorizontalAlign="left">
                                                                 <ItemTemplate>
                                                                     <itemstyle horizontalalign="Center" />
                                                                     <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("MRP_DESECRIPTION") %>'></asp:Label>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                            </asp:TemplateField>--%>
                                                             <asp:TemplateField HeaderText="Few new unit" ItemStyle-Width="150px">
                                                                 <ItemTemplate>
                                                                     <asp:TextBox ID="txtFewunit47" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumbersOnly(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>

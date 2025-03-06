@@ -7,15 +7,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <script type="text/javascript">
-    //let originalValue = "";
-    function handleKeyUp(input)
-    {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        }
-        else {
-            input.style.border = "1px solid #767575b5";
-        }
+        //let originalValue = "";
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            }
+            else {
+                input.style.border = "1px solid #767575b5";
+            }
         }
         function validateDropdown(dropdown) {
 
@@ -97,19 +96,33 @@
                                     <div class="row">
                                         <div class="drug" id="drug">
                                             <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Renewal of license</span></label>
+                                                <%--Renewal of license--%>
+                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Application Details</span></label>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-10">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-4 col-form-label">Please specify the purpose of application  *</label>
+                                                        <div class="col-lg-8">
+                                                            <asp:RadioButtonList ID="rblLicense" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                                <asp:ListItem Text=" New registration for Grant of license" Value="N" />
+                                                                <asp:ListItem Text="Renewal of license" Value="R" />
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="col-md-12 d-flex">
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">License Number *</label>
-                                                        <div class="col-lg-8">
+                                                        <label class="col-lg-6 col-form-label">License Number *</label>
+                                                        <div class="col-lg-6">
                                                             <asp:TextBox ID="txtLicNo" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Expiry date of license *</label>
                                                         <div class="col-lg-6">
@@ -153,7 +166,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Name of the Drug *</label>
-                                                        <div class="col-lg-8 d-flex">
+                                                        <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txttradeLic" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return Names(this)" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                         </div>
@@ -168,13 +181,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex justify-content-left ml-3">
+                                            <div class="col-md-12 d-flex justify-content-center ml-3">
                                                 <asp:GridView ID="GVDrugName" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                    GridLines="None"  Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVDrugName_RowDeleting">
+                                                    GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVDrugName_RowDeleting">
                                                     <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                     <Columns>
-                                                        <asp:CommandField HeaderText="Status" ShowDeleteButton="True" HeaderStyle-Width="330px" ItemStyle-Height="28px" ItemStyle-VerticalAlign="Middle" ItemStyle-Width="70px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-CssClass="btn btn-danger bg-danger btn-sm skin-colors" />
+                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                         <asp:BoundField HeaderText="Name of Drug " DataField="REND_DRUGNAME" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
                                                     </Columns>
@@ -223,7 +236,7 @@
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                     GridLines="None"
                                                     Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVTEST_RowDeleting">
-                                                    <RowStyle BackColor="#ffffff"  BorderWidth="1px"  />
+                                                    <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                     <Columns>
                                                         <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                         <asp:BoundField HeaderText="Name" DataField="RENST_NAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
@@ -320,7 +333,7 @@
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                 GridLines="None"
                                                 Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVMANU_RowDeleting">
-                                                <RowStyle BackColor="#ffffff"  BorderWidth="1px"  />
+                                                <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                 <Columns>
                                                     <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                     <asp:BoundField HeaderText="Name" DataField="RENDM_NAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
@@ -365,9 +378,9 @@
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                     GridLines="None"
                                                     Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVADDED_RowDeleting">
-                                                    <RowStyle BackColor="#ffffff"  BorderWidth="1px"  />
+                                                    <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                     <Columns>
-                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-Width="330px"  />
+                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-Width="330px" />
                                                         <asp:BoundField HeaderText="Specify additional item " DataField="RENDA_ADDITIONALITEM" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
                                                     </Columns>
@@ -440,7 +453,7 @@
                                                             <%--  <asp:TextBox ID="txtInspection" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                             <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                            <asp:TextBox runat="server" ID="txtInspection" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" onkeyup="handleKeyUp(this)"/>
+                                                            <asp:TextBox runat="server" ID="txtInspection" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" onkeyup="handleKeyUp(this)" />
                                                             <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtInspection"></cc1:CalendarExtender>
                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                         </div>

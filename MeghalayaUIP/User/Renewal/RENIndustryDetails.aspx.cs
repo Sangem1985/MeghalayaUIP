@@ -22,7 +22,7 @@ namespace MeghalayaUIP.User.Renewal
         decimal sum;
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "", result = "";
+        string UnitID, Questionnaire, ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -44,11 +44,15 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         UnitID = Convert.ToString(Session["RENUNITID"]);
                     }
-                    else
+                    if (Convert.ToString(Session["RENQID"]) != "" && Convert.ToString(Session["RENQID"]) == null)
                     {
-                        string newurl = "~/User/Renewal/RENUserDashboard.aspx";
-                        Response.Redirect(newurl);
+                        Questionnaire = Convert.ToString(Session["RENQID"]);
                     }
+                    //else
+                    //{
+                    //    string newurl = "~/User/Renewal/RENUserDashboard.aspx";
+                    //    Response.Redirect(newurl);
+                    //}
 
                     Page.MaintainScrollPositionOnPostBack = true;
 
@@ -768,8 +772,13 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     RenApplicationDetails ObjApplicationDetails = new RenApplicationDetails();
 
+                    if (Convert.ToString(Session["RENQID"]) == "")
+                        ObjApplicationDetails.Questionnariid = "";
+                    else
+                        ObjApplicationDetails.Questionnariid = Convert.ToString(Session["RENQID"]);
 
-                    //  ObjApplicationDetails.Questionnariid = Quesstionriids;
+
+                   // ObjApplicationDetails.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjApplicationDetails.CreatedBy = hdnUserID.Value;
                     ObjApplicationDetails.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjApplicationDetails.IPAddress = getclientIP();
@@ -827,7 +836,7 @@ namespace MeghalayaUIP.User.Renewal
                     ObjApplicationDetails.TotalProjectCost = lblTotProjCost.Text;
                     ObjApplicationDetails.AnnualTurnOver = txtAnnualTurnOver.Text;
                     ObjApplicationDetails.EnterpriseCategory = lblEntCategory.Text;
-
+                    ObjApplicationDetails.UIDNO= "REN" + "/" + DateTime.Now.Year.ToString() + "/" + ObjApplicationDetails.Questionnariid;
 
 
                     result = objRenbal.InsertRenApplicationDetails(ObjApplicationDetails);
@@ -835,6 +844,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (result != "")
                     {
                         Session["RENQID"] = result;
+                        result = "SRVC" + "/" + DateTime.Now.Year.ToString() + "/" + result;
                         success.Visible = true;
                         lblmsg.Text = "Renewal Application Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";

@@ -62,7 +62,7 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     if (Request.QueryString.Count > 0)
                     {
-                        UnitID = Request.QueryString[0];
+                        UnitID = "%";
                     }
                 }
                 else 
@@ -73,6 +73,7 @@ namespace MeghalayaUIP.User.Renewal
                     lblHdng.Text = " Status of Application for All Units";
                 else lblHdng.Text = "";
 
+                UnitID = "%";
                 dsApproved = objrenbal.GetRENapplications(hdnUserID.Value, UnitID);
                 if (dsApproved.Tables.Count > 0)
                 {
@@ -85,6 +86,9 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         gvRenewals.DataSource = null;
                         gvRenewals.DataBind();
+                        Response.Redirect("RENIndustryDetails.aspx");
+                       
+
                     }
                 }
             }
@@ -105,9 +109,9 @@ namespace MeghalayaUIP.User.Renewal
            
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
-                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblUNITID = (Label)row.FindControl("lblUNITID");
                 Label lblRENQDID = (Label)row.FindControl("lblRENQDID");
-                Session["RENUNITID"] = lblunitId.Text;
+                Session["RENUNITID"] = lblUNITID.Text;
                 Session["RENQID"] = lblRENQDID.Text;
                 string newurl = "RENIndustryDetails.aspx";
                 Response.Redirect(newurl);

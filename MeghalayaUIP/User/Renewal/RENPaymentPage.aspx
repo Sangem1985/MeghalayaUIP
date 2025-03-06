@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="RENPaymentPage.aspx.cs" Inherits="MeghalayaUIP.User.Renewal.RENPaymentPage" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="CFEUserDashboard.aspx">Renewal</a></li>
@@ -72,6 +73,21 @@
                                         <HeaderStyle HorizontalAlign="Center" />
                                         <ItemStyle Width="10%" />
                                     </asp:TemplateField>
+                                    <asp:TemplateField
+                                        ItemStyle-HorizontalAlign="Center"
+                                        HeaderStyle-Width="70px">
+                                        <HeaderTemplate>
+                                            <div style="text-align: center">
+                                                Select All<br />
+                                                <asp:CheckBox ID="chkHeader" runat="server" AutoPostBack="true" OnCheckedChanged="chkHeader_CheckedChanged"
+                                                    onclick="myheadcheck(this)" />
+                                            </div>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chkSel" AutoPostBack="true" OnCheckedChanged="chkSel_CheckedChanged" runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
                                     <asp:BoundField DataField="ApprovalName" HeaderText="Approval Name ">
                                         <ItemStyle Width="450px" />
                                     </asp:BoundField>
@@ -90,6 +106,11 @@
                                             <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("RENDA_APPROVALID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
+                                       <asp:TemplateField HeaderText="Fee" Visible="false">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("RENDA_APPROVALFEE") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText=" Dept ID" Visible="false">
                                         <ItemTemplate>
                                             <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("RENDA_DEPTID") %>'></asp:Label>
@@ -102,21 +123,24 @@
                             &nbsp;
                         </div>
                         <div class="col-md-6 mt-3">
-                            <!-- <div class="col-md-12 mt-3 d-flex" id="padding"> -->
+
 
                             <div class="form-group row">
+                                <label class="col-lg-3 col-form-label">Total Payment Amount</label>
+                                <div class="col-lg-8 d-flex">
+                                    <div class="form-check form-check-inline">
+
+                                        <label class="form-check-label" id="lblPaymentAmount" runat="server">
+                                            0
+                                        </label>
+                                    </div>
+                                </div>
                                 <label class="col-lg-3 col-form-label">Payment Type</label>
                                 <div class="col-lg-8 d-flex">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender_male" value="option1">
-                                        <label class="form-check-label" for="gender_male">
-                                            Bill desk
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option2" checked="">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option1" checked="">
                                         <label class="form-check-label" for="gender_female">
-                                            <b>Kotak Payment Gateway</b>
+                                            <b>HDFC Payment Gateway</b>
                                         </label>
                                     </div>
                                 </div>

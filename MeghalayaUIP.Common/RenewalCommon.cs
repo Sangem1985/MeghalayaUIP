@@ -374,6 +374,7 @@ namespace MeghalayaUIP.Common
     {
         public string Questionnariid { get; set; }
         public string UnitId { get; set; }
+        public string UIDNO { get; set; }
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
         public string UNITID { get; set; }
