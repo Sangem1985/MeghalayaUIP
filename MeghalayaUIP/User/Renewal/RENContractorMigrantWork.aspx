@@ -806,7 +806,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtName" runat="server" onkeyup="handleKeyUp(this)" class="form-control" Type="text" onkeypress="return NumberOnly()"></asp:TextBox>
+                                                        <asp:TextBox ID="txtName" runat="server" onkeyup="handleKeyUp(this)" class="form-control" Type="text" onkeypress="return Names(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

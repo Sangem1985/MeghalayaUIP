@@ -1173,7 +1173,7 @@
                                             <td style="width: 200px">Enter Response
                                             </td>
                                             <td colspan="2">
-                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 600px; margin-top: 10px;" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 600px; margin-top: 10px;" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </td>
                                             <td style="width: 180px">Upload File if any: 
                                                 <br />
@@ -1190,7 +1190,7 @@
                                             <td style="width: 200px; padding-top: 20px; align-items: center; text-align: center;">Enter Additional Query
                                             </td>
                                             <td colspan="4" style="padding-left: 20px; padding-top: 20px; align-items: left; text-align: left">
-                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="600px" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                <asp:TextBox TextMode="MultiLine" runat="server" ID="txtComQrytoAppl" Height="50px" Width="600px" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1255,10 +1255,10 @@
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdRemarksTxtbx" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdApplQueryTxtbx" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtApplQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    <asp:TextBox ID="txtApplQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </td>
 
                                                 <td>
@@ -1281,7 +1281,7 @@
                                                             <td>Enter Remarks
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txtDeptQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return validateNameInput(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                <asp:TextBox ID="txtDeptQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                             </td>
                                                         </tr>

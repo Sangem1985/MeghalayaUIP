@@ -698,11 +698,11 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Nature Of Work ....!\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(hypContractor.Text) || hypContractor.Text == "" || hypContractor.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Contractor's ....!\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(hypContractor.Text) || hypContractor.Text == "" || hypContractor.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Contractor's ....!\\n";
+                //    slno = slno + 1;
+                //}
                 return errormsg;
             }
             catch (Exception ex)
@@ -980,7 +980,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-                Response.Redirect("~/User/Renewal/RENContractLabourDeatils.aspx?Previous=" + "P");
+                Response.Redirect("~/User/Renewal/RENFactoriesLicense.aspx?Previous=" + "P");
             }
             catch (Exception ex)
             {

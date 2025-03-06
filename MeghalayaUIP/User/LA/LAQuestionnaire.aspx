@@ -438,7 +438,7 @@
                             <div class="col-md-12 text-right mb-3">
                                 <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
                                 <asp:Button ID="btnSave" runat="server" Text="Submit" OnClick="btnSave_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
-                                <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="false" />
+                                <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" Visible="true" OnClick="btnNext_Click" />
 
                             </div>
                         </div>

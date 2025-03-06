@@ -1541,7 +1541,7 @@ namespace MeghalayaUIP.User.CFE
                 DataTable dtExplosivs = new DataTable(); DataTable dtPtrlsale = new DataTable(); DataTable dtElectric = new DataTable();
                 DataTable dtRdctng = new DataTable(); DataTable dtNonEncCert = new DataTable();
 
-                DataTable dtCommTax = new DataTable(); DataTable dtfrstDist = new DataTable(); DataTable dtNonFrstLand = new DataTable();
+                DataTable dtCommTax = new DataTable(); DataTable dtfrstDist = new DataTable(); DataTable dtNonFrstLand = new DataTable(); DataTable dtTreeFelling= new DataTable();
                 DataTable dtHitens = new DataTable(); DataTable dttreefellng = new DataTable(); DataTable dtWtrbody = new DataTable();
 
                 DataTable dtAct1970 = new DataTable(); DataTable dtAct1979 = new DataTable(); DataTable dtAct1996 = new DataTable();
@@ -1646,6 +1646,12 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQ.ApprovalID = "16";
                     dtNonFrstLand = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtNonFrstLand);
+                }
+                if (rblFelltrees.SelectedValue == "Y") 
+                {
+                    objCFEQ.ApprovalID = "107";
+                    dtTreeFelling = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtTreeFelling);
                 }
                 if (rblwaterbody.SelectedValue == "Y")
                 {

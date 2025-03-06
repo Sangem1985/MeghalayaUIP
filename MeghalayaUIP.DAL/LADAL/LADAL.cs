@@ -305,7 +305,8 @@ namespace MeghalayaUIP.DAL.LADAL
                 com.Parameters.AddWithValue("@ISD_WASTEGENERATED", Objindustry.WASTEGENERATOR);
                 com.Parameters.AddWithValue("@ISD_NAMEOFINUSTRIALPARK", Objindustry.NAMEINDUSTRYPARK);
                 com.Parameters.AddWithValue("@ISD_LANDREQ", Objindustry.QUANTUMLAND);
-                   com.Parameters.AddWithValue("@ISD_SHEDSNO", Objindustry.SHEDSNO);
+                com.Parameters.AddWithValue("@ISD_SHEDSNO", Objindustry.SHEDSNO);
+                com.Parameters.AddWithValue("@ISD_LAUIDNO", Objindustry.UIDNO);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -371,6 +372,40 @@ namespace MeghalayaUIP.DAL.LADAL
                 connection.Dispose();
             }
             return Result;
+        }
+        public DataSet GetLANDPaymentAmounttoPay(string userid, string UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(LANDConstants.GetLANDApprovalsAmounttoPay, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = LANDConstants.GetLANDApprovalsAmounttoPay;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
         }
         public DataSet GETIndustrialShedDetails(string userid, string UnitID)
         {

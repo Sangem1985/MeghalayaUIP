@@ -41,7 +41,23 @@
                                             <h4 class="card-title">View Certificate Details</h4>
                                         </div>
                                         <div class="card-body">
-
+                                            <div class="col-md-12 ">
+                                                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                                                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">×</span></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 ">
+                                                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                                                    <strong>Warning!</strong>
+                                                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
@@ -125,6 +141,11 @@
                                                                     <asp:Label ID="lblApptype" runat="server" Text='<%# Eval("APPTYPE")%>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
+                                                            <%-- <asp:TemplateField HeaderText="Date" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DATEOFAPPROVAL")%>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>--%>
                                                         </Columns>
                                                     </asp:GridView>
                                                 </div>
@@ -170,7 +191,7 @@
                                                                     <asp:HyperLink Text="View" Target="_blank" CssClass="btn btn-sm btn-info" runat="server" ID="hypView" />
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                             <asp:TemplateField HeaderText="Unit Id" Visible="false">
+                                                            <asp:TemplateField HeaderText="Unit Id" Visible="false">
                                                                 <ItemTemplate>
                                                                     <asp:Label ID="lblUnitId" runat="server" Text='<%# Eval("UIDNO")%>'></asp:Label>
                                                                 </ItemTemplate>
@@ -180,7 +201,7 @@
                                                                     <asp:Label ID="lblApptype" runat="server" Text='<%# Eval("NAMEOFPERSON")%>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                             <asp:TemplateField HeaderText="Date" Visible="false">
+                                                            <asp:TemplateField HeaderText="Date" Visible="false">
                                                                 <ItemTemplate>
                                                                     <asp:Label ID="lblDate" runat="server" Text='<%# Eval("DATEOFAPPROVAL")%>'></asp:Label>
                                                                 </ItemTemplate>

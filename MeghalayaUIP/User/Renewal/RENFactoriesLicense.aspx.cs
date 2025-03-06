@@ -84,7 +84,7 @@ namespace MeghalayaUIP.User.Renewal
                         if (Convert.ToString(Request.QueryString[0]) == "N")
                             Response.Redirect("~/User/Renewal/RENContractLabourDeatils.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/Renewal/ContractorMigrantWork.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/Renewal/RENContractorMigrantWork.aspx?Previous=" + "P");
                     }
                 }
             }
@@ -734,7 +734,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-                Response.Redirect("~/User/Renewal/ContractorMigrantWork.aspx?Previous=" + "P");
+                Response.Redirect("~/User/Renewal/RENContractorMigrantWork.aspx?Previous=" + "P");
             }
             catch (Exception ex)
             {

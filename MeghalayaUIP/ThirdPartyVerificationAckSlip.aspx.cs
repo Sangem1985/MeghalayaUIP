@@ -18,7 +18,7 @@ namespace MeghalayaUIP
                 lblPrime.InnerText = Convert.ToString(Request.QueryString[0]);
                 lblUIDNo.InnerText = Convert.ToString(Request.QueryString[0]);
                 lblDear.InnerText = Convert.ToString(Request.QueryString[1]);
-                lblDate.InnerText = Convert.ToString(Request.QueryString[2]);
+                //lblDate.InnerText = Convert.ToString(Request.QueryString[2]);
                 //DateTime dateTime = DateTime.UtcNow.Date;
                 //lblDate.InnerHtml = dateTime.ToString("dd/MM/yyyy");
                

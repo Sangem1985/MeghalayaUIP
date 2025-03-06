@@ -79,22 +79,29 @@
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <div class="row">
+                                        <div>
 
-                                        <h4 class="card-title ml-3">GPS Coordinates Details</h4>
+                                        
+                                        <h4 class="card-title ml-3">Application Form For Letter For Distance From Forest- GPS Coordinates Details</h4>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Establishment Location Address (For which application is being Done)*</label>
-                                                    <div class="col-lg-6 d-flex">
+                                                    <label class="col-lg-8 col-form-label">
+                                                        1. Establishment Location Address
+                                                        
+                                                        (For which application is being Done)*</label>
+                                                    <div class="col-lg-4 d-flex">
                                                         <asp:TextBox ID="txtAddress" runat="server" class="form-control" onkeypress="return validateNameAndNumbersandspace(event)" MaxLength="300" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <%--<h5 class="col-lg-4 col-form-label">2 GPS Coordinates</h5>--%>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. GPS Coordinates Latitude*</label>
-                                                    <div class="col-lg-6 d-flex">
+                                                    <label class="col-lg-7 col-form-label">2. GPS Coordinates Latitude*</label>
+                                                    <div class="col-lg-5 d-flex">
                                                         <asp:RadioButtonList ID="RblLatitude" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(radioGroupContainer)">
                                                             <asp:ListItem Text="N" Value="N" />
                                                             <asp:ListItem Text="S" Value="S" />
@@ -102,12 +109,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">a. Degrees(L)*</label>
+                                                    <label class="col-lg-6 col-form-label">2a. Degrees(L)*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtLatDegrees" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -115,7 +121,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">b. Minutes(L) *</label>
+                                                    <label class="col-lg-6 col-form-label">2b. Minutes(L) *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtLatMinutes" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -123,19 +129,18 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">c. Seconds(L)*</label>
+                                                    <label class="col-lg-6 col-form-label">2c. Seconds(L)*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtLatSeconds" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">d. Longitude*</label>
-                                                    <div class="col-lg-6 d-flex">
+                                                    <label class="col-lg-7 col-form-label">3. GPS Coordinates Longitude*</label>
+                                                    <div class="col-lg-5 d-flex">
                                                         <asp:RadioButtonList ID="rblLongitude" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(radioGroupContainer)">
                                                             <asp:ListItem Text="E" Value="E" />
                                                             <asp:ListItem Text="W" Value="W" />
@@ -143,9 +148,11 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">e. Degrees*</label>
+                                                    <label class="col-lg-6 col-form-label">3a. Degrees*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtLongDegrees" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -153,26 +160,25 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">f. Minutes*</label>
+                                                    <label class="col-lg-6 col-form-label">3b. Minutes*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtLongMinutes" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                        </div>
-                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">g. Seconds*</label>
+                                                    <label class="col-lg-6 col-form-label">3c. Seconds*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtLongSeconds" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3. GPS Coordinates (Description) *</label>
+                                                    <label class="col-lg-6 col-form-label">4. GPS Coordinates (Description) *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtGPSCordinates" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -180,17 +186,15 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4. Purpose of Application  *</label>
+                                                    <label class="col-lg-6 col-form-label">5. Purpose of Application  *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtPurpose" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">5. Forest Division</label>
+                                                    <label class="col-lg-6 col-form-label">6. Forest Division</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlForest" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
@@ -198,158 +202,157 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">6. Any other information *</label>
+                                                    <label class="col-lg-6 col-form-label">7. Any other information *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtInformation" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                            </div>
+                                        <div id="divforest" runat="server" visible="false">
+                                            <div class="col-md-12 d-flex">
+                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">A) Forest</span></label>
 
-                                        <div class="col-md-12 d-flex">
-                                            <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">A) Forest</span></label>
-
-                                        </div>
-
-                                        <%--  <h5 class="card-title ml-4">A) Forest</h5>--%>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Species*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtspecies" runat="server" class="form-control" onkeypress="return Names()" MaxLength="300" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">1. Species*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtspecies" runat="server" class="form-control" onkeypress="return Names()" MaxLength="300" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">2. Estimated Length Of Timber (in Meters)*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtTimberlength" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">3. Estimated Volume Of Timber (in Meters)*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtTimberVolume" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. Estimated Length Of Timber (in Meters)*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtTimberlength" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">4. Girth (in Meters)*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtGirth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">5. Estimated Firewood/Rootwood/Faggot*	</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtEstimated" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">6. No. of Pole's*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtpole" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="8" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3. Estimated Volume Of Timber (in Meters)*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtTimberVolume" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
+                                                        CssClass="GRD" ForeColor="#333333" Width="90%" ShowFooter="true">
+                                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                                        <AlternatingRowStyle BackColor="White" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex + 1%>
+                                                                </ItemTemplate>
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle Width="50px" />
+                                                            </asp:TemplateField>
+                                                            <asp:BoundField DataField="Dept_Name" HeaderText="Species">
+                                                                <ItemStyle Width="180px" />
+                                                            </asp:BoundField>
+                                                            <asp:BoundField DataField="Dept_Name" HeaderText="Timber Length">
+                                                                <ItemStyle Width="180px" />
+                                                            </asp:BoundField>
+                                                            <asp:BoundField DataField="Dept_Name" HeaderText="Timber Volume">
+                                                                <ItemStyle Width="180px" />
+                                                            </asp:BoundField>
+                                                            <asp:BoundField DataField="Dept_Name" HeaderText="Timber Girth">
+                                                                <ItemStyle Width="180px" />
+                                                            </asp:BoundField>
+                                                            <asp:BoundField DataField="Dept_Name" HeaderText="Estimated Firewood">
+                                                                <ItemStyle Width="180px" />
+                                                            </asp:BoundField>
+                                                            <asp:BoundField DataField="Dept_Name" HeaderText="pole">
+                                                                <ItemStyle Width="180px" />
+                                                            </asp:BoundField>
+                                                            <asp:BoundField DataField="ApprovalName" HeaderText="Actions ">
+                                                                <ItemStyle Width="450px" />
+                                                            </asp:BoundField>
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">B) Boundary Description</span></label>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">1. North*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtNorth" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">2. East*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4. Girth (in Meters)*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtGirth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">3. West*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtWest" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">5. Estimated Firewood/Rootwood/Faggot*	</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEstimated" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">6. No. of Pole's*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtpole" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="8" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="table-responsive">
-                                                <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                                    CssClass="GRD" ForeColor="#333333" Width="90%" ShowFooter="true">
-                                                    <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
-                                                    <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
-                                                    <AlternatingRowStyle BackColor="White" />
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                            <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
-                                                            </ItemTemplate>
-                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                            <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>
-                                                        <asp:BoundField DataField="Dept_Name" HeaderText="Species">
-                                                            <ItemStyle Width="180px" />
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="Dept_Name" HeaderText="Timber Length">
-                                                            <ItemStyle Width="180px" />
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="Dept_Name" HeaderText="Timber Volume">
-                                                            <ItemStyle Width="180px" />
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="Dept_Name" HeaderText="Timber Girth">
-                                                            <ItemStyle Width="180px" />
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="Dept_Name" HeaderText="Estimated Firewood">
-                                                            <ItemStyle Width="180px" />
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="Dept_Name" HeaderText="pole">
-                                                            <ItemStyle Width="180px" />
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="ApprovalName" HeaderText="Actions ">
-                                                            <ItemStyle Width="450px" />
-                                                        </asp:BoundField>
-                                                    </Columns>
-                                                </asp:GridView>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-12 d-flex">
-                                            <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">B) Boundary Description</span></label>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. North*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtNorth" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. East*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3. West*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtWest" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4. South*</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtSouth" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">4. South*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtSouth" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <h4 class="card-title ml-3">Upload Documents</h4>
                                         <%--    <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
