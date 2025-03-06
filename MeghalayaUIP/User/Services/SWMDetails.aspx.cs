@@ -961,15 +961,24 @@ namespace MeghalayaUIP.User.Services
 
         protected void ddlAuthYears_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlAuthYears.SelectedValue == "1")
+            try
             {
-                txtAuthFee.Text = "5000";
-            }
-            else if (ddlAuthYears.SelectedValue == "5")
-            {
-                txtAuthFee.Text = "25000";
-                txtAuthFee.Text = "25000";
+                if (ddlAuthYears.SelectedValue == "1")
+                {
+                    txtAuthFee.Text = "5000";
+                }
+                else if (ddlAuthYears.SelectedValue == "5")
+                {
+                    txtAuthFee.Text = "25000";
+                    txtAuthFee.Text = "25000";
 
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 
