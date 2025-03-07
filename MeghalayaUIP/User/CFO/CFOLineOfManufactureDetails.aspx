@@ -5,15 +5,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <script type="text/javascript">
-    //let originalValue = "";
-    function handleKeyUp(input)
-    {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        }
-        else {
-            input.style.border = "1px solid #767575b5";
-        }
+        //let originalValue = "";
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            }
+            else {
+                input.style.border = "1px solid #767575b5";
+            }
         }
         function validateDropdown(dropdown) {
 
@@ -50,7 +49,7 @@
         <ContentTemplate>
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="row" >
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
@@ -77,7 +76,7 @@
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <asp:HiddenField ID="hdnQuesID" runat="server" />
-                                    <div class="row" id="divText" runat="server"  >
+                                    <div class="row" id="divText" runat="server">
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
@@ -92,7 +91,7 @@
                                         <div id="divManf" runat="server" visible="true">
                                             <h4 class="card-title ml-3">Details Of Manufacture Items: </h4>
 
-                                            <div class="col-md-12 d-flex" >
+                                            <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Name of Product *</label>
@@ -189,21 +188,24 @@
                                         </div>
                                         <br />
                                         <div class="col-md-12 d-flex justify-content-center ml-3 mb-3">
-                                            <asp:GridView ID="gvRwaMaterial" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                GridLines="Both" OnRowDeleting="gvRwaMaterial_RowDeleting"
-                                                Width="100%" EnableModelValidation="True" Visible="false">
-                                                <RowStyle BackColor="#ffffff" />
-                                                <Columns>
-                                                    <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField HeaderText="Name of major raw material" DataField="CFORM_ITEMNAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Annual manufacturing capacity (in tonne)" DataField="CFORM_ITEMANNUALCAPACITY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Appox. value (₹ in lakh)" DataField="CFORM_ITEMVALUE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Source(s) of supply" DataField="CFORM_SOURCEOFSUPPLY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                </Columns>
-                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                <AlternatingRowStyle BackColor="White" />
-                                            </asp:GridView>
+                                            <div class="col-md-8">
+                                                <asp:GridView ID="gvRwaMaterial" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                    GridLines="Both" OnRowDeleting="gvRwaMaterial_RowDeleting"
+                                                    Width="100%" EnableModelValidation="True" Visible="false">
+                                                    <RowStyle BackColor="#ffffff" />
+                                                    <Columns>
+                                                        <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                                        <asp:BoundField HeaderText="Name of major raw material" DataField="CFORM_ITEMNAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Annual manufacturing capacity (in tonne)" DataField="CFORM_ITEMANNUALCAPACITY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Appox. value (₹ in lakh)" DataField="CFORM_ITEMVALUE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Source(s) of supply" DataField="CFORM_SOURCEOFSUPPLY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    </Columns>
+                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                    <AlternatingRowStyle BackColor="White" />
+                                                </asp:GridView>
+                                            </div>
+                                             <div class="col-md-4"></div>
                                         </div>
 
 
