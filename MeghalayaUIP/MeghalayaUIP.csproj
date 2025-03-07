@@ -748,6 +748,7 @@
     <Content Include="User\CFO\CFOLineOfManufactureDetails.aspx" />
     <Content Include="User\CFO\CFOPaymentPage.aspx" />
     <Content Include="User\CFO\CFOPaymentReceipt.aspx" />
+    <Content Include="User\CFO\CFOPcbFinalCertificate.aspx" />
     <Content Include="User\CFO\CFOProffessionalTax.aspx" />
     <Content Include="User\CFO\CFOQueryDashBoard.aspx" />
     <Content Include="User\CFO\CFOQueryResponse.aspx" />
@@ -1983,6 +1984,13 @@
     </Compile>
     <Compile Include="User\CFO\CFOPaymentReceipt.aspx.designer.cs">
       <DependentUpon>CFOPaymentReceipt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOPcbFinalCertificate.aspx.cs">
+      <DependentUpon>CFOPcbFinalCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOPcbFinalCertificate.aspx.designer.cs">
+      <DependentUpon>CFOPcbFinalCertificate.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOProffessionalTax.aspx.cs">
       <DependentUpon>CFOProffessionalTax.aspx</DependentUpon>

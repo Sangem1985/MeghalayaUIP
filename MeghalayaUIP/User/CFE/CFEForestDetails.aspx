@@ -296,7 +296,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex">
+                                            <div class="col-md-12 d-flex justify-content-center">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label"></label>
@@ -306,10 +306,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="table-responsive">
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <div class="table-responsive mx-auto">
                                                     <asp:GridView ID="grdLopped" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                                        CssClass="GRD" ForeColor="#333333" Width="90%" ShowFooter="true">
+                                                        CssClass="GRD mx-auto" ForeColor="#333333" Width="90%" ShowFooter="true">
                                                         <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
                                                         <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
@@ -379,7 +379,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex">
+                                            <div class="col-md-12 d-flex justify-content-center">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label"></label>
@@ -390,9 +390,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="table-responsive">
+                                                <div class="table-responsive mx-auto">
                                                     <asp:GridView ID="grdFelled" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                                        CssClass="GRD" ForeColor="#333333" Width="90%" ShowFooter="true">
+                                                        CssClass="GRD mx-auto" ForeColor="#333333" Width="90%" ShowFooter="true">
                                                         <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
                                                         <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
