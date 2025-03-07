@@ -66,8 +66,9 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "82")
                     {
-                        BindData();
                         BindAuthYearsDropdown();
+                        BindData();
+                        
                     }
                 }
                 else
