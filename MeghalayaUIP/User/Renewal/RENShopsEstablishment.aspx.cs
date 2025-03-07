@@ -1105,11 +1105,11 @@ namespace MeghalayaUIP.User.Renewal
                         }
                         else { NumberEmp.Visible = false; }
                        
-                        ddlDistrict.SelectedItem.Text = ds.Tables[0].Rows[0]["RENSE_DISTRIC"].ToString();
+                        ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["RENSE_DISTRIC"].ToString();
                         ddldist_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandal.SelectedItem.Text = ds.Tables[0].Rows[0]["RENSE_MANDAL"].ToString();
+                        ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["RENSE_MANDAL"].ToString();
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedItem.Text = ds.Tables[0].Rows[0]["RENSE_VILLAGE"].ToString();
+                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["RENSE_VILLAGE"].ToString();
                         txtlocate.Text = ds.Tables[0].Rows[0]["RENSE_LOCALITY"].ToString();
                         txtpin.Text = ds.Tables[0].Rows[0]["RENSE_PINCODE"].ToString();
                         txtLandmark.Text = ds.Tables[0].Rows[0]["RENSE_LANDMARK"].ToString();

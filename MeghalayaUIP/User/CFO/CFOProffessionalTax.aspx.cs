@@ -151,7 +151,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOPS_CFOQDID"]);
+                       // hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["CFOPS_CFOQDID"]);
                         ViewState["PROFESSIONALTAX"] = ds.Tables[2];
                         GVState.DataSource = ds.Tables[2];
                         GVState.DataBind();
@@ -159,7 +159,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (ds.Tables[3].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["CFOPC_CFOQDID"]);
+                      //  hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["CFOPC_CFOQDID"]);
                         ViewState["PROFESSIONALTAXCOUNTRY"] = ds.Tables[3];
                         GVCOUNTRY.DataSource = ds.Tables[3];
                         GVCOUNTRY.DataBind();
@@ -167,7 +167,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     if (ds.Tables[4].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["CFOPF_CFOQDID"]);
+                      //  hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["CFOPF_CFOQDID"]);
                         ViewState["PROFESSIONALTAXFOREIGN"] = ds.Tables[4];
                         GVFOREIGN.DataSource = ds.Tables[4];
                         GVFOREIGN.DataBind();
@@ -697,7 +697,7 @@ namespace MeghalayaUIP.User.CFO
 
                     DataRow dr = dt.NewRow();
 
-                    dr["CFOPS_CFOUNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["CFOPS_CFOUNITID"] = UnitID; //Convert.ToString(ViewState["UnitID"]);
                     dr["CFOPS_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOPS_CREATEDBYIP"] = getclientIP();
                     dr["CFOPS_PLACEBUSINESS"] = txtplacebusiness.Text.Trim();
@@ -763,7 +763,7 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["CFOPC_CFOUNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["CFOPC_CFOUNITID"] = UnitID;//Convert.ToString(ViewState["UnitID"]);
                     dr["CFOPC_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOPC_CREATEDBYIP"] = getclientIP();
                     dr["CFOPC_PLACEBUSINESS"] = txtBusinessplace.Text.Trim();
@@ -820,7 +820,7 @@ namespace MeghalayaUIP.User.CFO
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["CFOPF_CFOUNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["CFOPF_CFOUNITID"] = UnitID; //Convert.ToString(ViewState["UnitID"]);
                     dr["CFOPF_CREATEDBY"] = hdnUserID.Value;
                     dr["CFOPF_CREATEDBYIP"] = getclientIP();
                     dr["CFOPF_PRINCIPLEWORK"] = txtPrinciple.Text.Trim();
