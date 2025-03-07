@@ -1649,7 +1649,7 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (rblFelltrees.SelectedValue == "Y") 
                 {
-                    objCFEQ.ApprovalID = "107";
+                    objCFEQ.ApprovalID = "24";
                     dtTreeFelling = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtTreeFelling);
                 }

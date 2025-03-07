@@ -247,7 +247,7 @@ namespace MeghalayaUIP.User.Services
                 Label lblSRVCQDID = (Label)row.FindControl("lblSRVCQDID");
                 Session["SRVCUNITID"] = lblunitId.Text;
                 Session["SRVCQID"] = lblSRVCQDID.Text;
-                string newurl = "SRVCApplStatus.aspx";
+                string newurl = "SRVCDashBoardStatus.aspx";
                 Response.Redirect(newurl);
             }
             catch (Exception ex)

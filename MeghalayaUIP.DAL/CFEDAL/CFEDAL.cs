@@ -1224,38 +1224,131 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
+                com.Parameters.AddWithValue("@CFEFD_CFEQDID", Convert.ToInt32(objCFEQForest.Questionnariid));
+                com.Parameters.AddWithValue("@CFEFD_UNITID", Convert.ToInt32(objCFEQForest.UnitId));
+                com.Parameters.AddWithValue("@CFEFD_FORESTDIVID", objCFEQForest.ForestDivision);
+                com.Parameters.AddWithValue("@CFEFD_LANDTYPE", objCFEQForest.LandType);
+                com.Parameters.AddWithValue("@CFEFD_LATTITUDE", objCFEQForest.Lattitude);
+                com.Parameters.AddWithValue("@CFEFD_LATDEGREES", objCFEQForest.LatDegrees);
+                com.Parameters.AddWithValue("@CFEFD_LATMINUTES", objCFEQForest.LatMinutes);
+                com.Parameters.AddWithValue("@CFEFD_LATSECONDS", objCFEQForest.LatSeconds);
+                com.Parameters.AddWithValue("@CFEFD_LONGITUDE", objCFEQForest.Longitude);
+                com.Parameters.AddWithValue("@CFEFD_LONGDEGREES", objCFEQForest.LongDegrees);
+                com.Parameters.AddWithValue("@CFEFD_LONGMINUTES", objCFEQForest.LongMinutes);
+                com.Parameters.AddWithValue("@CFEFD_LONGSECONDS", objCFEQForest.LongSeconds);
+                com.Parameters.AddWithValue("@CFEFD_GPSCOORDINATESDESC", objCFEQForest.GPSCoodinates);
+                com.Parameters.AddWithValue("@CFEFD_DISTANCELTRPURPOSE", objCFEQForest.DistncLtrPurpose);
+                com.Parameters.AddWithValue("@CFEFD_INFORMATION", objCFEQForest.Information);
 
+                com.Parameters.AddWithValue("@CFEFD_LANDAREA", objCFEQForest.LandArea);
+                com.Parameters.AddWithValue("@CFEFD_NFLPURPOSE", objCFEQForest.NFLPurpose);
+
+                com.Parameters.AddWithValue("@CFEFD_LOPPINGPERMSN", objCFEQForest.LoppPermType);
+                com.Parameters.AddWithValue("@CFEFD_LOPPINGPURPOSE", objCFEQForest.LoppPermPurpose);
+                com.Parameters.AddWithValue("@CFEFD_FELLINGPERMSN", objCFEQForest.FellPermType);
+                com.Parameters.AddWithValue("@CFEFD_FELLINPURPOSE", objCFEQForest.FellPermPurpose);
 
                 com.Parameters.AddWithValue("@CFEFD_CREATEDBY", Convert.ToInt32(objCFEQForest.CreatedBy));
                 com.Parameters.AddWithValue("@CFEFD_CREATEDBYIP", objCFEQForest.IPAddress);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
 
-                com.Parameters.AddWithValue("@CFEFD_CFEQDID", Convert.ToInt32(objCFEQForest.Questionnariid));
-                com.Parameters.AddWithValue("@CFEFD_UNITID", Convert.ToInt32(objCFEQForest.UnitId));
-                com.Parameters.AddWithValue("@CFEFD_ADDRESS", objCFEQForest.Address);
-                com.Parameters.AddWithValue("@CFEFD_LATTITUDE", objCFEQForest.Lattitude);
-                com.Parameters.AddWithValue("@CFEFD_DEGREES", objCFEQForest.LatDegrees);
-                com.Parameters.AddWithValue("@CFEFD_MINUTES", objCFEQForest.LatMinutes);
-                com.Parameters.AddWithValue("@CFEFD_SECONDS", objCFEQForest.LatSeconds);
-                com.Parameters.AddWithValue("@CFEFD_LONGITUDE", objCFEQForest.Longitude);
-                com.Parameters.AddWithValue("@CFEFD_DEGREE", objCFEQForest.LongDegrees);
-                com.Parameters.AddWithValue("@CFEFD_MINUTE", objCFEQForest.LongMinutes);
-                com.Parameters.AddWithValue("@CFEFD_SECOND", objCFEQForest.LongSeconds);
-                com.Parameters.AddWithValue("@CFEFD_GPSCOORDINATES", objCFEQForest.GPSCoodinates);
-                com.Parameters.AddWithValue("@CFEFD_PURPOSEAPPLICATION", objCFEQForest.Purpose);
-                com.Parameters.AddWithValue("@CFEFD_FORESTDIVISION", objCFEQForest.ForestDivision);
-                com.Parameters.AddWithValue("@CFEFD_INFORMATION", objCFEQForest.information);
-                com.Parameters.AddWithValue("@CFEFD_SPECIES", objCFEQForest.Species);
-                com.Parameters.AddWithValue("@CFEFD_TIMBERLENGTH", objCFEQForest.EstTimberLength);
-                com.Parameters.AddWithValue("@CFEFD_TIMBERVOLUME", objCFEQForest.EstTimberVolume);
-                com.Parameters.AddWithValue("@CFEFD_GIRTH", objCFEQForest.Girth);
-                com.Parameters.AddWithValue("@CFEFD_ESTIMATED", objCFEQForest.Est_Firewood);
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
 
-                com.Parameters.AddWithValue("@CFEFD_POLES", Convert.ToInt32(objCFEQForest.No_Poles));
-                com.Parameters.AddWithValue("@CFEFD_NORTH", objCFEQForest.North);
-                com.Parameters.AddWithValue("@CFEFD_EAST", objCFEQForest.East);
-                com.Parameters.AddWithValue("@CFEFD_WEST", objCFEQForest.West);
-                com.Parameters.AddWithValue("@CFEFD_SOUTH", objCFEQForest.South);
 
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
+       public string InsertCFETreesLopped(Forest_Details objCFEQForest)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFETreesLopped;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFELP_CFEQDID", Convert.ToInt32(objCFEQForest.Questionnariid));
+                com.Parameters.AddWithValue("@CFELP_UNITID", Convert.ToInt32(objCFEQForest.UnitId));
+                com.Parameters.AddWithValue("@CFELP_LOCALNAME", objCFEQForest.LocalName);
+                com.Parameters.AddWithValue("@CFELP_SCIENTIFICNAME", objCFEQForest.ScfcName);
+                com.Parameters.AddWithValue("@CFELP_NOOFTREES", objCFEQForest.NoofTrees);
+              
+
+                com.Parameters.AddWithValue("@CFELP_CREATEDBY", Convert.ToInt32(objCFEQForest.CreatedBy));
+                com.Parameters.AddWithValue("@CFELP_CREATEDBYIP", objCFEQForest.IPAddress);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertCFETreesFelled(Forest_Details objCFEQForest)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFETreesFelled;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFEFL_CFEQDID", Convert.ToInt32(objCFEQForest.Questionnariid));
+                com.Parameters.AddWithValue("@CFEFL_UNITID", Convert.ToInt32(objCFEQForest.UnitId));
+                com.Parameters.AddWithValue("@CFEFL_LOCALNAME", objCFEQForest.LocalName);
+                com.Parameters.AddWithValue("@CFEFL_SCIENTIFICNAME", objCFEQForest.ScfcName);
+                com.Parameters.AddWithValue("@CFEFL_NOOFTREES", objCFEQForest.NoofTrees);
+
+
+                com.Parameters.AddWithValue("@CFEFL_CREATEDBY", Convert.ToInt32(objCFEQForest.CreatedBy));
+                com.Parameters.AddWithValue("@CFEFL_CREATEDBYIP", objCFEQForest.IPAddress);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -1909,11 +2002,11 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 {
                     com.Parameters.AddWithValue("@CFELD_INDUSTRYMANUOCCUPATIONEST", ObjCFELabourDet.ManuooCupation);
                 }
-                if (ObjCFELabourDet.ContarctorName !=null && ObjCFELabourDet.ContarctorName !="")
+                if (ObjCFELabourDet.ContarctorName != null && ObjCFELabourDet.ContarctorName != "")
                 {
                     com.Parameters.AddWithValue("@CFELD_CONTRACTORNAMECONTRACTOR", ObjCFELabourDet.ContarctorName);
                 }
-                if (ObjCFELabourDet.ContarctorFather !=null && ObjCFELabourDet.ContarctorFather !="")
+                if (ObjCFELabourDet.ContarctorFather != null && ObjCFELabourDet.ContarctorFather != "")
                 {
                     com.Parameters.AddWithValue("@CFELD_CONTRACTORFATHER", ObjCFELabourDet.ContarctorFather);
                 }
@@ -3391,7 +3484,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
         }
 
-        public DataSet GetPreRegPaymentReceipt(string UnitId,string Createdby,string TransactionNo,string Uid)
+        public DataSet GetPreRegPaymentReceipt(string UnitId, string Createdby, string TransactionNo, string Uid)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);

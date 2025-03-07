@@ -177,5 +177,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCUploadEnclosures(Quid, userid);
         }
+        public DataSet GetUserSRVCApplStatus(string Userid, string UnitID)
+        {
+            return SvrcDal.GetUserSRVCApplStatus(Userid, UnitID);
+        }
     }
 }

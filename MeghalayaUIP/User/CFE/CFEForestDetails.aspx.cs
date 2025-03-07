@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static AjaxControlToolkit.AsyncFileUpload.Constants;
 
 namespace MeghalayaUIP.User.CFE
 {
@@ -78,13 +79,16 @@ namespace MeghalayaUIP.User.CFE
                     {
                         if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "15")
                         {
-
+                            divDistanceLetter.Visible = true;
                         }
                         if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "16")
                         {
-
+                            divNonForestLand.Visible = true;
                         }
-
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "24")
+                        {
+                            divTreeFelling.Visible = true;
+                        }
                     }
                 }
                 else
@@ -97,188 +101,6 @@ namespace MeghalayaUIP.User.CFE
                             Response.Redirect("~/User/CFE/CFEPowerCEIGDetails.aspx?Previous=" + "P");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        public string Validations()
-        {
-            try
-            {
-                int slno = 1;
-                string errormsg = "";
-                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
-                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
-                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
-
-
-                if (string.IsNullOrEmpty(txtspecies.Text.Trim()) || txtspecies.Text.Trim() == "" || txtspecies.Text.Trim() == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Species \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtTimberlength.Text) || txtTimberlength.Text == "" || txtTimberlength.Text == null || txtTimberlength.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtTimberlength.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Length Of Timber (in Meters) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtTimberVolume.Text) || txtTimberVolume.Text == "" || txtTimberVolume.Text == null || txtTimberVolume.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtTimberVolume.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter  Volume Of Timber (in Meters) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtGirth.Text) || txtGirth.Text == "" || txtGirth.Text == null || txtGirth.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtGirth.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Girth (in Meters) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEstimated.Text) || txtEstimated.Text == "" || txtEstimated.Text == null || txtEstimated.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEstimated.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Firewood/Rootwood/Faggot \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtpole.Text) || txtpole.Text == "" || txtpole.Text == null || txtpole.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtpole.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter No of Pole \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtNorth.Text) || txtNorth.Text == "" || txtNorth.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter North \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEast.Text) || txtEast.Text == "" || txtEast.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter East \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtWest.Text) || txtWest.Text == "" || txtWest.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter West \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtSouth.Text) || txtSouth.Text == "" || txtSouth.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter South \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypownership.Text) || hypownership.Text == "" || hypownership.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please upload Proof of ownership of land \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypland.Text) || hypland.Text == "" || hypland.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please upload Rough map of the concerned land \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypNOCLand.Text) || hypNOCLand.Text == "" || hypNOCLand.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please upload NoC from the concerned Autonomous District Council for land \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypforestdfo.Text) || hypforestdfo.Text == "" || hypforestdfo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please upload Distance from Forest Certificate from DFO \\n";
-                    slno = slno + 1;
-                }
-
-
-                return errormsg;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public static string getclientIP()
-        {
-            string result = string.Empty;
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (!string.IsNullOrEmpty(ip))
-            {
-                string[] ipRange = ip.Split(',');
-                int le = ipRange.Length - 1;
-                result = ipRange[0];
-            }
-            else
-            {
-                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            }
-
-            return result;
-        }
-        public void Binddata()
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                ds = objcfebal.GetForestRetrive(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
-
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    //ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_UNITID"]);
-                    txtAddress.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_ADDRESS"]);
-                    RblLatitude.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_LATTITUDE"].ToString();
-                    txtLatDegrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DEGREES"]);
-                    txtLatMinutes.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MINUTES"]);
-                    txtLatSeconds.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SECONDS"]);
-                    rblLongitude.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_LONGITUDE"].ToString();
-                    txtLongDegrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DEGREE"]);
-                    txtLongMinutes.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_MINUTE"]);
-                    txtLongSeconds.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SECOND"]);
-                    txtGPSCordinates.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_GPSCOORDINATES"]);
-                    txtPurpose.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_PURPOSEAPPLICATION"]);
-                    ddlForest.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_FORESTDIVISION"].ToString();
-                    txtInformation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_INFORMATION"]);
-
-                    txtspecies.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SPECIES"]);
-                    txtTimberlength.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_TIMBERLENGTH"]);
-                    txtTimberVolume.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_TIMBERVOLUME"]);
-                    txtGirth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_GIRTH"]);
-                    txtEstimated.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_ESTIMATED"]);
-                    txtpole.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_POLES"]);
-
-                    txtNorth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_NORTH"]);
-                    txtEast.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_EAST"]);
-                    txtWest.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_WEST"]);
-                    txtSouth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_SOUTH"]);
-                }
-                if (ds.Tables[2].Rows.Count > 0)
-                {
-                    for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
-                    {
-                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 33)
-                        {
-                            hypownership.Visible = true;
-                            hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
-                            hypownership.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
-                        }
-                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 34)
-                        {
-                            hypland.Visible = true;
-                            hypland.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
-                            hypland.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
-                        }
-                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 35)
-                        {
-                            hypNOCLand.Visible = true;
-                            hypNOCLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
-                            hypNOCLand.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
-                        }
-                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 36)
-                        {
-                            hypforestdfo.Visible = true;
-                            hypforestdfo.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
-                            hypforestdfo.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
-                        }
-                    }
-                }
-
             }
             catch (Exception ex)
             {
@@ -333,60 +155,234 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void btnSave_Click(object sender, EventArgs e)
+        public void Binddata()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetForestRetrive(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ddlForest.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_FORESTDIVID"].ToString();
+                    ddlLandType.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_LANDTYPE"].ToString();
+                    RblLatitude.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_LATTITUDE"].ToString();
+                    txtLatDegrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_LATDEGREES"]);
+                    txtLatMinutes.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_LATMINUTES"]);
+                    txtLatSeconds.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_LATSECONDS"]);
+                    rblLongitude.SelectedValue = ds.Tables[0].Rows[0]["CFEFD_LONGITUDE"].ToString();
+                    txtLongDegrees.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_LONGDEGREES"]);
+                    txtLongMinutes.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_LONGMINUTES"]);
+                    txtLongSeconds.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_LONGSECONDS"]);
+                    txtGPSCordinates.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_GPSCOORDINATESDESC"]);
+                    txtDistncLtrPurpose.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_DISTANCELTRPURPOSE"]);
+                    txtInformation.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_INFORMATION"]);
+
+                    txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_INFORMATION"]);
+                    txtNFLPurpose.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_INFORMATION"]);
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_LOPPINGPERMSN"]) != "")
+                    {
+                        chkPermType.Items[0].Selected = true;
+                        txtLoppingPurpose.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_LOPPINGPURPOSE"]);
+                        if (ds.Tables[3].Rows.Count > 0)
+                        {
+                            grdLopped.DataSource = ds.Tables[3];
+                            grdLopped.DataBind();
+                            ViewState["LopTrees"] = ds.Tables[3];
+                        }
+                        chkPermType_SelectedIndexChanged(null, EventArgs.Empty);
+                    }
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FELLINGPERMSN"]) != "")
+                    {
+                        chkPermType.Items[1].Selected = true;
+                        txtFellingPurpose.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEFD_FELLINPURPOSE"]);
+                        if (ds.Tables[4].Rows.Count > 0)
+                        {
+                            grdFelled.DataSource = ds.Tables[4];
+                            grdFelled.DataBind();
+                            ViewState["FellTrees"] = ds.Tables[4];
+                        }
+                        chkPermType_SelectedIndexChanged(null, EventArgs.Empty);
+                    }
+
+
+                }
+                if (ds.Tables[2].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
+                    {
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 33)
+                        {
+                            hypownership.Visible = true;
+                            hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                            hypownership.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 34)
+                        {
+                            hypland.Visible = true;
+                            hypland.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                            hypland.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 35)
+                        {
+                            hypNOCLand.Visible = true;
+                            hypNOCLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                            hypNOCLand.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[2].Rows[i]["CFEA_MASTERAID"]) == 36)
+                        {
+                            hypforestdfo.Visible = true;
+                            hypforestdfo.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[2].Rows[i]["FILELOCATION"]));
+                            hypforestdfo.Text = Convert.ToString(ds.Tables[2].Rows[i]["CFEA_FILENAME"]);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+
+        protected void chkPermType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (chkPermType.Items[0].Selected == true)
+                divLopped.Visible = true;
+            else divLopped.Visible = false;
+            if (chkPermType.Items[1].Selected == true)
+                divFelled.Visible = true;
+            else divFelled.Visible = false;
+        }
+        protected void btnAddLopp_Click(object sender, EventArgs e)
         {
             try
             {
 
-                ErrorMsg = Validations();
+                string ErrorMsg = ""; int slno = 0;
+                if (string.IsNullOrEmpty(txtLopLocName.Text.Trim()) || txtLopLocName.Text.Trim() == "" || txtLopLocName.Text.Trim() == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter Local Name of the Tree \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLopScfName.Text.Trim()) || txtLopScfName.Text.Trim() == "" || txtLopScfName.Text.Trim() == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter Scientific Name of the Tree \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLopTreeCount.Text.Trim()) || txtLopTreeCount.Text.Trim() == "" || txtLopTreeCount.Text.Trim() == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter No.of Trees \\n";
+                    slno = slno + 1;
+                }
+
                 if (ErrorMsg == "")
                 {
-                    Forest_Details objCFEQForest = new Forest_Details();
 
-                    objCFEQForest.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                    objCFEQForest.CreatedBy = hdnUserID.Value;
-                    objCFEQForest.IPAddress = getclientIP();
-                    objCFEQForest.Questionnariid = Convert.ToString(Session["CFEQID"]);
-                    objCFEQForest.UnitId = Convert.ToString(Session["CFEUNITID"]);
-                    objCFEQForest.Address = txtAddress.Text.Trim();
-                    objCFEQForest.Lattitude = RblLatitude.SelectedValue;
-                    objCFEQForest.LatDegrees = txtLatDegrees.Text;
-                    objCFEQForest.LatMinutes = txtLatMinutes.Text;
-                    objCFEQForest.LatSeconds = txtLatSeconds.Text;
-                    objCFEQForest.Longitude = rblLongitude.SelectedValue;
-                    objCFEQForest.LongDegrees = txtLongDegrees.Text;
-                    objCFEQForest.LongMinutes = txtLongMinutes.Text;
-                    objCFEQForest.LongSeconds = txtLongSeconds.Text;
-                    objCFEQForest.GPSCoodinates = txtGPSCordinates.Text;
-                    objCFEQForest.Purpose = txtPurpose.Text;
-                    objCFEQForest.ForestDivision = ddlForest.SelectedValue;
-                    objCFEQForest.information = txtInformation.Text;
-                    objCFEQForest.Species = txtspecies.Text.Trim();
-                    objCFEQForest.EstTimberLength = txtTimberlength.Text;
-                    objCFEQForest.EstTimberVolume = txtTimberVolume.Text;
-                    objCFEQForest.Girth = txtGirth.Text;
-                    objCFEQForest.Est_Firewood = txtEstimated.Text;
-                    objCFEQForest.No_Poles = txtpole.Text;
-                    objCFEQForest.North = txtNorth.Text;
-                    objCFEQForest.East = txtEast.Text;
-                    objCFEQForest.West = txtWest.Text;
-                    objCFEQForest.South = txtSouth.Text;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("CFELP_LOCALNAME", typeof(string));
+                    dt.Columns.Add("CFELP_SCIENTIFICNAME", typeof(string));
+                    dt.Columns.Add("CFELP_NOOFTREES", typeof(string));
 
-                    result = objcfebal.InsertCFEForestDet(objCFEQForest);
 
-                    if (result != "")
+                    if (ViewState["LopTrees"] != null)
                     {
-                        success.Visible = true;
-                        lblmsg.Text = "Forest Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        dt = (DataTable)ViewState["LopTrees"];
                     }
+                    DataRow dr = dt.NewRow();
+
+                    dr["CFELP_LOCALNAME"] = txtLopLocName.Text.Trim();
+                    dr["CFELP_SCIENTIFICNAME"] = txtLopScfName.Text.Trim();
+                    dr["CFELP_NOOFTREES"] = txtLopTreeCount.Text.Trim();
+
+
+                    dt.Rows.Add(dr);
+                    grdLopped.Visible = true;
+                    grdLopped.DataSource = dt;
+                    grdLopped.DataBind();
+                    ViewState["LopTrees"] = dt;
+
+                    txtLopLocName.Text = "";
+                    txtLopScfName.Text = "";
+                    txtLopTreeCount.Text = "";
+
+                }
+                else
+                {
+
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void btnAddFell_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string ErrorMsg = ""; int slno = 0;
+                if (string.IsNullOrEmpty(txtFellLocName.Text.Trim()) || txtFellLocName.Text.Trim() == "" || txtFellLocName.Text.Trim() == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter Local Name of the Tree \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtFellScfName.Text.Trim()) || txtFellScfName.Text.Trim() == "" || txtFellScfName.Text.Trim() == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter Scientific Name of the Tree \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtFellTreeCount.Text.Trim()) || txtFellTreeCount.Text.Trim() == "" || txtFellTreeCount.Text.Trim() == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter No.of Trees \\n";
+                    slno = slno + 1;
+                }
+
+                if (ErrorMsg == "")
+                {
+
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("CFEFL_LOCALNAME", typeof(string));
+                    dt.Columns.Add("CFEFL_SCIENTIFICNAME", typeof(string));
+                    dt.Columns.Add("CFEFL_NOOFTREES", typeof(string));
+
+
+                    if (ViewState["FellTrees"] != null)
+                    {
+                        dt = (DataTable)ViewState["FellTrees"];
+                    }
+                    DataRow dr = dt.NewRow();
+
+                    dr["CFEFL_LOCALNAME"] = txtFellLocName.Text.Trim();
+                    dr["CFEFL_SCIENTIFICNAME"] = txtFellScfName.Text.Trim();
+                    dr["CFEFL_NOOFTREES"] = txtFellTreeCount.Text.Trim();
+
+                    dt.Rows.Add(dr);
+                    grdFelled.Visible = true;
+                    grdFelled.DataSource = dt;
+                    grdFelled.DataBind();
+                    ViewState["LopTrees"] = dt;
+
+                    txtFellLocName.Text = "";
+                    txtFellScfName.Text = "";
+                    txtFellTreeCount.Text = "";
+
                 }
                 else
                 {
                     string message = "alert('" + ErrorMsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
+
             }
             catch (Exception ex)
             {
@@ -394,78 +390,9 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }
-        protected void btnPrevious_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect("~/User/CFE/CFEPowerCEIGDetails.aspx?Previous=" + "P");
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
+
         }
 
-        //protected void btnGPS_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        string Error = ""; string message = "";
-        //        if (fupGPS.HasFile)
-        //        {
-        //            Error = validations(fupGPS);
-        //            if (Error == "")
-        //            {
-        //                string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-        //                 + Convert.ToString(Session["CFEQID"]) + "\\" + "GPS Coordinates" + "\\");
-        //                if (!Directory.Exists(serverpath))
-        //                {
-        //                    Directory.CreateDirectory(serverpath);
-
-        //                }
-        //                fupGPS.PostedFile.SaveAs(serverpath + "\\" + fupGPS.PostedFile.FileName);
-
-        //                CFEAttachments objManufacture = new CFEAttachments();
-        //                objManufacture.UNITID = Convert.ToString(Session["CFEUNITID"]);
-        //                objManufacture.Questionnareid = Convert.ToString(Session["CFEQID"]);
-        //                objManufacture.MasterID = "33";
-        //                objManufacture.FilePath = serverpath + fupGPS.PostedFile.FileName;
-        //                objManufacture.FileName = fupGPS.PostedFile.FileName;
-        //                objManufacture.FileType = fupGPS.PostedFile.ContentType;
-        //                objManufacture.FileDescription = "GPS Coordinates";
-        //                objManufacture.CreatedBy = hdnUserID.Value;
-        //                objManufacture.IPAddress = getclientIP();
-        //                result = objcfebal.InsertCFEAttachments(objManufacture);
-        //                if (result != "")
-        //                {
-        //                    hypGPS.Text = fupGPS.PostedFile.FileName;
-        //                    hypGPS.NavigateUrl = serverpath;
-        //                    hypGPS.Target = "blank";
-        //                    message = "alert('" + "GPS Coordinates Uploaded successfully" + "')";
-        //                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-        //                }
-        //            }
-        //            else
-        //            {
-        //                message = "alert('" + Error + "')";
-        //                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            message = "alert('" + "Please Upload Document" + "')";
-        //            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        lblmsg0.Text = ex.Message; Failure.Visible = true;
-        //        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-        //    }
-        //}
 
         protected void btnownership_Click(object sender, EventArgs e)
         {
@@ -784,7 +711,300 @@ namespace MeghalayaUIP.User.CFE
                 }
             }
         }
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ErrorMsg = Validations();
+                if (ErrorMsg == "")
+                {
+                    Forest_Details objCFEQForest = new Forest_Details();
 
+                    objCFEQForest.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                    objCFEQForest.CreatedBy = hdnUserID.Value;
+                    objCFEQForest.IPAddress = getclientIP();
+                    objCFEQForest.Questionnariid = Convert.ToString(Session["CFEQID"]);
+                    objCFEQForest.UnitId = Convert.ToString(Session["CFEUNITID"]);
+
+
+                    objCFEQForest.ForestDivision = ddlForest.SelectedValue;
+                    objCFEQForest.LandType = ddlLandType.SelectedValue;
+                    objCFEQForest.Lattitude = RblLatitude.SelectedValue;
+                    objCFEQForest.LatDegrees = txtLatDegrees.Text;
+                    objCFEQForest.LatMinutes = txtLatMinutes.Text;
+                    objCFEQForest.LatSeconds = txtLatSeconds.Text;
+                    objCFEQForest.Longitude = rblLongitude.SelectedValue;
+                    objCFEQForest.LongDegrees = txtLongDegrees.Text;
+                    objCFEQForest.LongMinutes = txtLongMinutes.Text;
+                    objCFEQForest.LongSeconds = txtLongSeconds.Text;
+                    objCFEQForest.GPSCoodinates = txtGPSCordinates.Text;
+                    objCFEQForest.DistncLtrPurpose = txtDistncLtrPurpose.Text;
+                    objCFEQForest.Information = txtInformation.Text;
+
+                    objCFEQForest.NFLPurpose = txtNFLPurpose.Text;
+                    objCFEQForest.LandArea = txtLandArea.Text;
+                    if (chkPermType.Items[0].Selected == true)
+                        objCFEQForest.LoppPermType = "Tree Lopping Permission Required";
+                    if (chkPermType.Items[1].Selected == true)
+                        objCFEQForest.FellPermType = "Tree Felling Permission Required";
+
+                    objCFEQForest.FellPermPurpose = txtFellingPurpose.Text;
+                    objCFEQForest.LoppPermPurpose = txtLoppingPurpose.Text;
+
+                    result = objcfebal.InsertCFEForestDet(objCFEQForest);
+
+                    if (result != "")
+                    {
+                        int count1 = 0, count2 = 0;
+                        if (grdLopped.Rows.Count > 0)
+                        {
+                            for (int i = 0; i < grdLopped.Rows.Count; i++)
+                            {
+
+                                objCFEQForest.Questionnariid = Convert.ToString(Session["CFEQID"]);
+
+                                objCFEQForest.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                                objCFEQForest.LocalName = grdLopped.Rows[i].Cells[1].Text.Trim();
+                                objCFEQForest.ScfcName = grdLopped.Rows[i].Cells[2].Text;
+                                objCFEQForest.NoofTrees = grdLopped.Rows[i].Cells[3].Text;
+                                objCFEQForest.CreatedBy = hdnUserID.Value;
+                                objCFEQForest.IPAddress = getclientIP();
+
+                                string A = objcfebal.InsertCFETreesLopped(objCFEQForest);
+                                if (A != "")
+                                { count1 = count1 + 1; }
+                            }
+                        }
+                        if (grdFelled.Rows.Count > 0)
+                        {
+                            for (int i = 0; i < grdFelled.Rows.Count; i++)
+                            {
+
+                                objCFEQForest.Questionnariid = Convert.ToString(Session["CFEQID"]);
+
+                                objCFEQForest.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                                objCFEQForest.LocalName = grdFelled.Rows[i].Cells[1].Text.Trim();
+                                objCFEQForest.ScfcName = grdFelled.Rows[i].Cells[2].Text;
+                                objCFEQForest.NoofTrees = grdFelled.Rows[i].Cells[3].Text;
+                                objCFEQForest.CreatedBy = hdnUserID.Value;
+                                objCFEQForest.IPAddress = getclientIP();
+
+                                string A = objcfebal.InsertCFETreesFelled(objCFEQForest);
+                                if (A != "")
+                                { count2 = count2 + 1; }
+                            }
+                        }
+                        if (grdLopped.Rows.Count == count1 && grdFelled.Rows.Count == count2)
+                        {
+                            success.Visible = true;
+                            lblmsg.Text = "Forest Details Submitted Successfully";
+                            string message = "alert('" + lblmsg.Text + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public string Validations()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
+
+                if (ddlForest.SelectedValue == "0" || ddlForest.SelectedValue == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Forest Division \\n";
+                    slno = slno + 1;
+                }
+                if (ddlLandType.SelectedValue == "0" || ddlLandType.SelectedValue == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select Land Type \\n";
+                    slno = slno + 1;
+                }
+                if (divDistanceLetter.Visible == true)
+                {
+                    if (RblLatitude.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select GPS Coordinates Latitude \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtLatDegrees.Text.Trim()) || txtLatDegrees.Text.Trim() == "" || txtLatDegrees.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Latitude Degrees \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtLatMinutes.Text.Trim()) || txtLatMinutes.Text.Trim() == "" || txtLatMinutes.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Latitude Minutes \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtLatSeconds.Text.Trim()) || txtLatSeconds.Text.Trim() == "" || txtLatSeconds.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Latitude Seconds \\n";
+                        slno = slno + 1;
+                    }
+
+                    if (rblLongitude.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select GPS Coordinates Longitude \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtLongDegrees.Text.Trim()) || txtLongDegrees.Text.Trim() == "" || txtLongDegrees.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Longitude Degrees \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtLongMinutes.Text.Trim()) || txtLongMinutes.Text.Trim() == "" || txtLongMinutes.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Longitude Minutes \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtLongSeconds.Text.Trim()) || txtLongSeconds.Text.Trim() == "" || txtLongSeconds.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Longitude Seconds \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtGPSCordinates.Text.Trim()) || txtGPSCordinates.Text.Trim() == "" || txtGPSCordinates.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter GPS Cordinates Description \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtDistncLtrPurpose.Text.Trim()) || txtDistncLtrPurpose.Text.Trim() == "" || txtDistncLtrPurpose.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Purpose of Application \\n";
+                        slno = slno + 1;
+                    }
+
+                    if (string.IsNullOrEmpty(txtInformation.Text.Trim()) || txtInformation.Text.Trim() == "" || txtInformation.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Information \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (divNonForestLand.Visible == true)
+                {
+                    if (string.IsNullOrEmpty(txtLandArea.Text.Trim()) || txtLandArea.Text.Trim() == "" || txtLandArea.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Information \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtNFLPurpose.Text.Trim()) || txtNFLPurpose.Text.Trim() == "" || txtNFLPurpose.Text.Trim() == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Information \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (divTreeFelling.Visible == true)
+                {
+                    if (chkPermType.Items[0].Selected == false && chkPermType.Items[1].Selected == false)
+                    {
+                        errormsg = errormsg + slno + ". Please select type of permssion required \\n";
+                        slno = slno + 1;
+
+                    }
+                    if (chkPermType.Items[0].Selected == true)
+                    {
+
+                        if (string.IsNullOrEmpty(txtFellingPurpose.Text.Trim()) || txtFellingPurpose.Text.Trim() == "" || txtFellingPurpose.Text.Trim() == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Purpose of tree Felling \\n";
+                            slno = slno + 1;
+                        }
+                        if (grdFelled.Rows.Count == 0)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter the Details Of Trees to be felled \\n";
+                            slno = slno + 1;
+                        }
+                    }
+                    if (chkPermType.Items[1].Selected == true)
+                    {
+                        if (string.IsNullOrEmpty(txtLoppingPurpose.Text.Trim()) || txtLoppingPurpose.Text.Trim() == "" || txtLoppingPurpose.Text.Trim() == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter Purpose of tree Branches Lopping/Cutting \\n";
+                            slno = slno + 1;
+                        }
+                        if (grdLopped.Rows.Count == 0)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter the Details of trees whose branches are to be Lopped \\n";
+                            slno = slno + 1;
+                        }
+                    }
+
+                }
+                if (string.IsNullOrEmpty(hypownership.Text) || hypownership.Text == "" || hypownership.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Proof of ownership of land \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypland.Text) || hypland.Text == "" || hypland.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Rough map of the concerned land \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypNOCLand.Text) || hypNOCLand.Text == "" || hypNOCLand.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NoC from the concerned Autonomous District Council for land \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypforestdfo.Text) || hypforestdfo.Text == "" || hypforestdfo.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Distance from Forest Certificate from DFO \\n";
+                    slno = slno + 1;
+                }
+
+
+                return errormsg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
+        }
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/CFE/CFEPowerCEIGDetails.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try
@@ -804,7 +1024,6 @@ namespace MeghalayaUIP.User.CFE
                 }
             }
         }
-
         protected List<TextBox> FindEmptyTextboxes(Control container)
         {
 

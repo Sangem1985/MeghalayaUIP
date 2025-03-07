@@ -96,13 +96,31 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// txtAddress control.
+        /// ddlForest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.DropDownList ddlForest;
+
+        /// <summary>
+        /// ddlLandType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlLandType;
+
+        /// <summary>
+        /// divDistanceLetter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDistanceLetter;
 
         /// <summary>
         /// RblLatitude control.
@@ -186,22 +204,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtGPSCordinates;
 
         /// <summary>
-        /// txtPurpose control.
+        /// txtDistncLtrPurpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPurpose;
-
-        /// <summary>
-        /// ddlForest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlForest;
+        protected global::System.Web.UI.WebControls.TextBox txtDistncLtrPurpose;
 
         /// <summary>
         /// txtInformation control.
@@ -213,112 +222,175 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtInformation;
 
         /// <summary>
-        /// divforest control.
+        /// divNonForestLand control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divforest;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNonForestLand;
 
         /// <summary>
-        /// txtspecies control.
+        /// txtLandArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtspecies;
+        protected global::System.Web.UI.WebControls.TextBox txtLandArea;
 
         /// <summary>
-        /// txtTimberlength control.
+        /// txtNFLPurpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTimberlength;
+        protected global::System.Web.UI.WebControls.TextBox txtNFLPurpose;
 
         /// <summary>
-        /// txtTimberVolume control.
+        /// divTreeFelling control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTimberVolume;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTreeFelling;
 
         /// <summary>
-        /// txtGirth control.
+        /// chkPermType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGirth;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkPermType;
 
         /// <summary>
-        /// txtEstimated control.
+        /// divLopped control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstimated;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLopped;
 
         /// <summary>
-        /// txtpole control.
+        /// txtLoppingPurpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtpole;
+        protected global::System.Web.UI.WebControls.TextBox txtLoppingPurpose;
 
         /// <summary>
-        /// grdApprovals control.
+        /// txtLopLocName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdApprovals;
+        protected global::System.Web.UI.WebControls.TextBox txtLopLocName;
 
         /// <summary>
-        /// txtNorth control.
+        /// txtLopScfName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNorth;
+        protected global::System.Web.UI.WebControls.TextBox txtLopScfName;
 
         /// <summary>
-        /// txtEast control.
+        /// txtLopTreeCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEast;
+        protected global::System.Web.UI.WebControls.TextBox txtLopTreeCount;
 
         /// <summary>
-        /// txtWest control.
+        /// btnAddLopp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWest;
+        protected global::System.Web.UI.WebControls.Button btnAddLopp;
 
         /// <summary>
-        /// txtSouth control.
+        /// grdLopped control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSouth;
+        protected global::System.Web.UI.WebControls.GridView grdLopped;
+
+        /// <summary>
+        /// divFelled control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFelled;
+
+        /// <summary>
+        /// txtFellingPurpose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFellingPurpose;
+
+        /// <summary>
+        /// txtFellLocName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFellLocName;
+
+        /// <summary>
+        /// txtFellScfName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFellScfName;
+
+        /// <summary>
+        /// txtFellTreeCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFellTreeCount;
+
+        /// <summary>
+        /// btnAddFell control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddFell;
+
+        /// <summary>
+        /// grdFelled control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdFelled;
 
         /// <summary>
         /// fupOwnership control.
