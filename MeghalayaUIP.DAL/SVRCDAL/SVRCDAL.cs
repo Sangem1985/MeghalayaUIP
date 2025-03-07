@@ -776,7 +776,8 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCSWD_METHODOLOGYDETAILS", ObjSWMDet.methodologydetails);
                 com.Parameters.AddWithValue("@SRVCSWD_CHECKENVIRONMENTPOLLUTION", ObjSWMDet.checkenvironmentpollution);
                 com.Parameters.AddWithValue("@SRVCSWD_AUTHFEE", Convert.ToDecimal(ObjSWMDet.authfee));
-                
+                com.Parameters.AddWithValue("@SRVCSOLIDWASTENO", ObjSWMDet.Totalsolid);
+
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

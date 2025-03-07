@@ -259,7 +259,7 @@ namespace MeghalayaUIP.Common
         public string createdbyip { get; set; }
 
         public string authfee { get; set; }
-
+        public string Totalsolid { get; set; }
     }
 
     public class SRVCCDWMdetails

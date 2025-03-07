@@ -21,7 +21,7 @@ namespace MeghalayaUIP.User.Services
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
 
-        string UnitID, ErrorMsg = "", result;
+        string UnitID, ErrorMsg = "", result, Questionnaire;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -40,11 +40,15 @@ namespace MeghalayaUIP.User.Services
                 {
                     UnitID = Convert.ToString(Session["SRVCUNITID"]);
                 }
-                else
+                if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
                 {
-                    string newurl = "~/User/Services/SRVCUserDashboard.aspx";
-                    Response.Redirect(newurl);
+                    Questionnaire = Convert.ToString(Session["SRVCQID"]);
                 }
+                //else
+                //{
+                //    string newurl = "~/User/Services/SRVCUserDashboard.aspx";
+                //    Response.Redirect(newurl);
+                //}
 
 
                 if (!IsPostBack)
@@ -150,8 +154,8 @@ namespace MeghalayaUIP.User.Services
 
                         txtNameLocalBody.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NAMELOCALOPERATOR"]);
                         txtDesignation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NODALAUTHORISEDAGENCY"]);
-                       // CHKAuthorization.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
-
+                        // CHKAuthorization.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
+                        ddlAuthYears.SelectedValue= Convert.ToString(ds.Tables[0].Rows[0]["SRVCSOLIDWASTENO"]);
 
                         txtWasteProduced.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TOTALQUANTITYWASTE"]);
                         txtWasteRecycled.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TOTALQUANTITYWASTE"]);
@@ -265,6 +269,7 @@ namespace MeghalayaUIP.User.Services
                     ObjSWMDet.methodologydetails = txtLandfillingDetails.Text;
                     ObjSWMDet.checkenvironmentpollution = txtMeasureToChkEnvPoltn.Text;
                     ObjSWMDet.authfee = txtAuthFee.Text;
+                    ObjSWMDet.Totalsolid = ddlAuthYears.SelectedValue;
                     //authorizationopeartion = string.Join(",", CHKAuthorization.Items.Cast<ListItem>()
                     //               .Where(item => item.Selected)
                     //               .Select(item => item.Value)),
