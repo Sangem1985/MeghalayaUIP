@@ -47,9 +47,12 @@ namespace MeghalayaUIP.User.Renewal
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
                     success.Visible = false;
+
                     if (!IsPostBack)
                     {
+                        
                         GetAppliedorNot();
+                        //pnlLicenseDetails.Visible = false;
                     }
                 }
             }
@@ -309,7 +312,7 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-           // string Quesstionriids = "1001";
+           /// string Quesstionriids = "1001";
             try
             {
                 string  result = "";
@@ -425,6 +428,7 @@ namespace MeghalayaUIP.User.Renewal
                     ObjRenDrugLic.Licnumber = txtLicNo.Text;
                     ObjRenDrugLic.ExpiryDate = txtExpiryDate.Text;
                     ObjRenDrugLic.CancelledLic = rblCancelledLic.SelectedValue;
+                    ObjRenDrugLic.ApplicationPurpose = rblLicense.SelectedValue;
                     ObjRenDrugLic.SpecifyLicno = txtSpecifyLicNo.Text;
                     ObjRenDrugLic.PremiseInspection = rblInspection.SelectedValue;
                     ObjRenDrugLic.DateInspection = txtDateInsp.Text;
@@ -623,10 +627,27 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENDL_UNITID"]);
-                        txtLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNO"].ToString();
-                        txtExpiryDate.Text = ds.Tables[0].Rows[0]["RENDL_EXPIRYDATE"].ToString();
-                        rblCancelledLic.SelectedValue = ds.Tables[0].Rows[0]["RENDL_LICCANCEL"].ToString();
-                        txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNOSPECIFY"].ToString();
+                        rblLicense.SelectedValue= ds.Tables[0].Rows[0]["RENDL_APPLICATIONPURPOSE"].ToString();
+
+                        if (rblLicense.SelectedValue == "R")
+                        {
+                            pnlLicenseDetails.Visible = true;
+                            txtLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNO"].ToString();
+                            txtExpiryDate.Text = ds.Tables[0].Rows[0]["RENDL_EXPIRYDATE"].ToString();
+                            rblCancelledLic.SelectedValue = ds.Tables[0].Rows[0]["RENDL_LICCANCEL"].ToString().Trim();
+
+                            if (rblCancelledLic.SelectedValue == "Y")
+                            {
+                                txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNOSPECIFY"].ToString();
+                            }
+
+                        }
+                        else
+                        {
+                            pnlLicenseDetails.Visible = false;
+                        }
+                        
+                        
                         rblInspection.SelectedValue = ds.Tables[0].Rows[0]["RENDL_PREMISEINSPECTION"].ToString();
                         if (rblInspection.SelectedValue == "Y")
                         {
@@ -644,7 +665,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (ds.Tables[1].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["REND_CFOQDID"]);
+                        //hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["REND_CFOQDID"]);
                         ViewState["NameDrug"]= ds.Tables[1];
                         GVDrugName.DataSource = ds.Tables[1];
                         GVDrugName.DataBind();
@@ -652,7 +673,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["RENSTCFOQDID"]);
+                        //hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["RENSTCFOQDID"]);
                         ViewState["TESTING"]= ds.Tables[2];
                         GVTEST.DataSource = ds.Tables[2];
                         GVTEST.DataBind();
@@ -660,7 +681,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (ds.Tables[3].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["RENDMCFOQDID"]);
+                       // hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["RENDMCFOQDID"]);
                         ViewState["MANUFACTURE"]= ds.Tables[3];
                         GVMANU.DataSource = ds.Tables[3];
                         GVMANU.DataBind();
@@ -668,7 +689,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (ds.Tables[4].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["RENDA_CFOQDID"]);
+                       // hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["RENDA_CFOQDID"]);
                         ViewState["ADDEDITEM"]= ds.Tables[4];
                         GVADDED.DataSource = ds.Tables[4];
                         GVADDED.DataBind();
@@ -795,13 +816,24 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void rblCancelledLic_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rblCancelledLic.SelectedValue == "Y")
+            try
             {
-                LicNos.Visible = true;
+                if (rblCancelledLic.SelectedValue == "Y")
+                {
+                    LicNos.Visible = true;
+                }
+                else { LicNos.Visible = false; }
+                rblCancelledLic.BorderColor = System.Drawing.Color.White;
             }
-            else { LicNos.Visible = false; }
-            rblCancelledLic.BorderColor = System.Drawing.Color.White;
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
+
+
 
         protected void rblInspection_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -839,6 +871,30 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+
+        protected void rblLicense_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(rblLicense.SelectedValue == "R")
+                {
+                    pnlLicenseDetails.Visible = true;
+                }
+                else
+                {
+                    pnlLicenseDetails.Visible=false;
+                }
+                //pnlLicenseDetails.Visible = (rblLicense.SelectedValue == "R");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        
 
         protected void btnPreviuos_Click(object sender, EventArgs e)
         {

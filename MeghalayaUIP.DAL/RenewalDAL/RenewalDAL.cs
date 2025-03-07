@@ -38,7 +38,6 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENWC_CREATEDBYIP", ObjRenPublicWork.IPAddress);
                 com.Parameters.AddWithValue("@RENWC_CFOQDID", Convert.ToInt32(ObjRenPublicWork.Questionnariid));
                 com.Parameters.AddWithValue("@RENWC_UNITID", Convert.ToInt32(ObjRenPublicWork.UnitId));
-
                 com.Parameters.AddWithValue("@RENWC_APPLTYPE", ObjRenPublicWork.ApplicantType);
                 com.Parameters.AddWithValue("@RENWC_APPLPURPOSE", ObjRenPublicWork.PurposeApplicant);
                 com.Parameters.AddWithValue("@RENWC_CONTRREGCLASS", ObjRenPublicWork.ContractorReg);
@@ -146,13 +145,29 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENDL_CREATEDBYIP", ObjRenDrugLic.IPAddress);
                 com.Parameters.AddWithValue("@RENDL_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
                 com.Parameters.AddWithValue("@RENDL_UNITID", Convert.ToInt32(ObjRenDrugLic.UnitId));
+                if (ObjRenDrugLic.ApplicationPurpose != null && ObjRenDrugLic.ApplicationPurpose != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_APPLICATIONPURPOSE", ObjRenDrugLic.ApplicationPurpose);
+                }
+                if (ObjRenDrugLic.Licnumber != null && ObjRenDrugLic.Licnumber != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_LICNO", ObjRenDrugLic.Licnumber);
+                }
 
-                com.Parameters.AddWithValue("@RENDL_LICNO", ObjRenDrugLic.Licnumber);
                 //com.Parameters.AddWithValue("@", ObjRenDrugLic.ExpiryDate);
-                com.Parameters.AddWithValue("@RENDL_EXPIRYDATE", DateTime.ParseExact(ObjRenDrugLic.ExpiryDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ObjRenDrugLic.ExpiryDate != null && ObjRenDrugLic.ExpiryDate != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_EXPIRYDATE", DateTime.ParseExact(ObjRenDrugLic.ExpiryDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjRenDrugLic.CancelledLic != null && ObjRenDrugLic.CancelledLic != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_LICCANCEL", ObjRenDrugLic.CancelledLic);
+                }
+                if (ObjRenDrugLic.SpecifyLicno != null && ObjRenDrugLic.SpecifyLicno != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_LICNOSPECIFY", ObjRenDrugLic.SpecifyLicno);
+                }
 
-                com.Parameters.AddWithValue("@RENDL_LICCANCEL", ObjRenDrugLic.CancelledLic);
-                com.Parameters.AddWithValue("@RENDL_LICNOSPECIFY", ObjRenDrugLic.SpecifyLicno);
                 com.Parameters.AddWithValue("@RENDL_PREMISEINSPECTION", ObjRenDrugLic.PremiseInspection);
                 //com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", ObjRenDrugLic.DateInspection);
                 com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", DateTime.ParseExact(ObjRenDrugLic.DateInspection, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
@@ -1406,10 +1421,10 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 {
                     com.Parameters.AddWithValue("@RENID_RENQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
                 }
-                if(ObjApplicationDetails.UnitId != null && ObjApplicationDetails.UnitId != "")
+                if (ObjApplicationDetails.UnitId != null && ObjApplicationDetails.UnitId != "")
                 {
                     com.Parameters.AddWithValue("@RENID_UNITID", Convert.ToInt32(ObjApplicationDetails.UnitId));
-                }                
+                }
 
                 com.Parameters.AddWithValue("@RENID_NAMEOFUNIT", ObjApplicationDetails.Nameofunit);
                 com.Parameters.AddWithValue("@RENID_COMPANYTYPE", ObjApplicationDetails.companyType);

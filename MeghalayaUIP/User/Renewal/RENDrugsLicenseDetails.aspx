@@ -104,7 +104,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Please specify the purpose of application  *</label>
                                                         <div class="col-lg-8">
-                                                            <asp:RadioButtonList ID="rblLicense" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                            <asp:RadioButtonList ID="rblLicense" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicense_SelectedIndexChanged">
                                                                 <asp:ListItem Text=" New registration for Grant of license" Value="N" />
                                                                 <asp:ListItem Text="Renewal of license" Value="R" />
                                                             </asp:RadioButtonList>
@@ -112,7 +112,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex">
+                                            <asp:Panel ID="pnlLicenseDetails" runat="server" Visible="false">
+                                            <div class="col-md-12 d-flex" >
 
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
@@ -136,6 +137,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                                
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
@@ -158,7 +160,7 @@
                                                 </div>
                                             </div>
 
-
+                                            </asp:Panel>
                                             <div class="col-md-12 d-flex">
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Drug Details</span></label>
                                             </div>

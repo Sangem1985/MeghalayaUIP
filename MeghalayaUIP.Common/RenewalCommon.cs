@@ -112,7 +112,7 @@ namespace MeghalayaUIP.Common
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
         public string UNITID { get; set; }
-
+        public string ApplicationPurpose { get; set; }
         public string Licnumber { get; set; }
         public string ExpiryDate { get; set; }
         public string CancelledLic { get; set; }
