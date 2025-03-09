@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.Services
 
             lblFileNo.Text = "MPCB/BMW-414/2020/2022-2023/82";
             lblDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
-            lblPollutionBoard.Text = "Bataw Primary Health Centre, East Jaintia Hills District ";
+            lblPollutionBoard.Text = "Atharva Primary Health Centre, East Jaintia Hills District ";
             lblBMW.Text = " 10 (Thirty) beds";
             lblwaste.Text = " 31 January, 2026";
 

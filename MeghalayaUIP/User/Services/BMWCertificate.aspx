@@ -126,7 +126,7 @@
                             <div style="text-align: justify;">
 
                                 <p style="text-align: center;">
-                                    <span style="font-weight: bold; text-decoration: underline;">RENEWAL OF AUTHORISATION UNDER THE BIO-MEDICAL MANAGEMENT RULES, 2016
+                                    <span style="font-weight: bold; text-decoration: underline;">AUTHORISATION UNDER THE BIO-MEDICAL MANAGEMENT RULES, 2016
                                     </span>
                                 </p>
 
@@ -161,7 +161,8 @@ under the Environment (Protection) Act, 1986.
 
                                 <p>
                                     1. The Authorised person/institution shall comply with the provision of the Environment
-(Protection) Act, 1986 and the relevant Rules made there under.
+(Protection) Act, 1986 and the relevant Rules made there under.
+
                                 </p>
 
                                 <p>
@@ -180,7 +181,8 @@ application by the Authorised person / institution shall constitute a breach of 
                                 <p>
                                     4. It is the duty of the authorised person to take prior permission of the prescribed authority to close
 down the facility and such other terms and conditions may be stipulated by the prescribed
-authority.
+authority.
+
 
                                 </p>
                                 <p>
@@ -208,7 +210,8 @@ till their collection and transport for final treatment.
                                 <p>
                                     10. Bio-medical waste shall be treated and disposed off in accordance with Schedule I and in
 compliance with the Standards prescribed in Schedule II.
-
+
+
                                 </p>
 
                                 <p>

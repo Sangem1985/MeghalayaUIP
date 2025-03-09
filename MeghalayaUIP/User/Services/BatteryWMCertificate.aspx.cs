@@ -65,7 +65,7 @@ namespace MeghalayaUIP.User.Services
                     lblNo.Text = "2025/102/0903202583";
                     lblIssuePlace.Text = "Shilong";
                     lblIssueDate.Text = DateTime.Now.ToString("dd MMMM yyyy");
-                    lblCompanyName.Text = "SHREE LALIT AUTOMOBILES";
+                    lblCompanyName.Text = "Atharva Automobiles";
                     lblLocation.Text = "DEMTHRING, SHILLONG";
                     lblGSTNo.Text = "17BAOPS4205A1ZW";
                     lblStartDate.Text = DateTime.Now.ToString("dd MMMM yyyy");
