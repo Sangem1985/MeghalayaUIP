@@ -64,7 +64,7 @@ namespace MeghalayaUIP.Dept.Services
                 //if (Session["UNITID"] != null && Session["INVESTERID"] != null)
                 //{
                 DataSet ds = new DataSet();
-                ds = objSrvcbal.GetSRVCApplicationDetails(Session["UNITID"].ToString(), Session["INVESTERID"].ToString());
+                ds = objSrvcbal.GetSRVCApplicationDetails(Session["UNITID"].ToString(), Session["INVESTERID"].ToString(), "");
                 //ds = objSrvcbal.GetSRVCApplicationDetails("1001", "1001");
 
 

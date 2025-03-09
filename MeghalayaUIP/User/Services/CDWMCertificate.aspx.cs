@@ -11,6 +11,14 @@ namespace MeghalayaUIP.User.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString.Count > 0)
+            {
+                BindData();
+            }
+
+        }
+        public void BindData()
+        {
             lblApplicationNumber.Text = "123456";
             lblApplicationDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblStatePolutnBoard.Text = "State";

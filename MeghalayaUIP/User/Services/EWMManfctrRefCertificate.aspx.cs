@@ -1,5 +1,9 @@
-﻿using System;
+﻿using MeghalayaUIP.BAL.SVRCBAL;
+using MeghalayaUIP.Common;
+using MeghalayaUIP.CommonClass;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,26 +13,83 @@ namespace MeghalayaUIP.User.Services
 {
     public partial class EWMManfctrRefCertificate : System.Web.UI.Page
     {
+        SVRCBAL objSrvcbal = new SVRCBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblAuthorizationNo.Text = "Authorization number"; 
-            lblIssueDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
+            try
+            {
 
-            lblCompanyName.Text = "Comapany Name";
-            lblCompanyLocation.Text = "Company Location";
-            lblPremisesAddress.Text = "Premise address";
+                if (Session["UserInfo"] != null)
+                {
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
 
-            lblEwasteQuantity.Text = "n kg per month";
-            lblEwasteNature.Text = "E waste nature";
+                    Page.MaintainScrollPositionOnPostBack = true;
 
-            lblValidFrom.Text = "01-01-2024";
-            lblValidTo.Text = "31-12-2026";
+                    success.Visible = false;
+                    if (!IsPostBack)
+                    {
+                        if (Request.QueryString.Count > 0)
+                        {
+                            BindData();
+                        }
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+           
+        }
+        public void BindData()
+        {
+            DataSet ds = new DataSet();
+            ds = objSrvcbal.GetSRVCApplicationDetails(Request.QueryString[0].ToString(), hdnUserID.Value, "82");
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {                   
 
-            lblDisposalLocation.Text = "Disposal Address";
 
-            lblSingature.Text = "Signature";
-            lblDesignation.Text = "Desingation";
-            lblSignatureDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
+                    lblAuthorizationNo.Text = "2025/102/0903202583";
+                    lblIssueDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+                    lblCompanyName.Text = ds.Tables[0].Rows[0]["SRVCED_NAMEOFUNIT"].ToString();
+
+
+                    lblPremisesAddress.Text = ds.Tables[0].Rows[0]["REP_DOORNO"].ToString() + ", " +
+                        ds.Tables[0].Rows[0]["REP_LOCALITY"].ToString() + ", " +
+                        ds.Tables[0].Rows[0]["REP_VILLAGE"].ToString() + ", " +
+                        ds.Tables[0].Rows[0]["REP_MANDAL"].ToString() + ", " +
+                        ds.Tables[0].Rows[0]["REP_DIST"].ToString();
+
+                    lblCompanyLocation.Text = ds.Tables[0].Rows[0]["SRVCED_SURVEYDOOR"].ToString() + ", " +
+                        ds.Tables[0].Rows[0]["SRVCED_LOCALITY"].ToString() + ", " +
+                         ds.Tables[0].Rows[0]["SRVCED_LANDMARK"].ToString() + ", " +
+                        ds.Tables[0].Rows[0]["VillageName"].ToString() + ", " +
+                        ds.Tables[0].Rows[0]["Mandalname"].ToString() + ", " +
+                        ds.Tables[0].Rows[0]["DistrictName"].ToString();
+
+
+
+                    lblValidFrom.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                    lblValidTo.Text = DateTime.Now.AddYears(1).AddDays(-1).ToString("dd-MM-yyyy");
+
+                }
+            }
         }
     }
+
 }

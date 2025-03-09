@@ -168,33 +168,6 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.Label lblGMInfo;
 
         /// <summary>
-        /// lblDirector control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDirector;
-
-        /// <summary>
-        /// lblFrstPrsn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFrstPrsn;
-
-        /// <summary>
-        /// lblScndPrsn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScndPrsn;
-
-        /// <summary>
         /// btndownload control.
         /// </summary>
         /// <remarks>

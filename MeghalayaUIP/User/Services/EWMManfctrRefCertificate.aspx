@@ -111,11 +111,10 @@
 
                         <div class="row">
                                 <p>
-                                    1. (a) Authorisation No.: 
+                                    1.  Authorisation No.: 
                                     <asp:Label ID="lblAuthorizationNo" runat="server" Style="font-weight: bold; text-decoration: underline;"></asp:Label>
-                                </p> and
-                                <p>
-                                    (b) Date of Issue: 
+                               and                                
+                                     Date of Issue: 
                                     <asp:Label ID="lblIssueDate" runat="server" Style="font-weight: bold;"></asp:Label>
                                 </p>
                             

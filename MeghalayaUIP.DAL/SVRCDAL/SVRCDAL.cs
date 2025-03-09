@@ -173,11 +173,11 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCED_SECTORENTERPRISE", ObjApplicationDetails.INDUSTRY);
                 com.Parameters.AddWithValue("@SRVCED_CATEGORYREG", ObjApplicationDetails.CATEGORYREG);
                 com.Parameters.AddWithValue("@SRVCED_REGNUMBER", Convert.ToInt32(ObjApplicationDetails.RegNumber));
-                if(ObjApplicationDetails.RegDate !=null && ObjApplicationDetails.RegDate != "")
+                if (ObjApplicationDetails.RegDate != null && ObjApplicationDetails.RegDate != "")
                 {
                     com.Parameters.AddWithValue("@SRVCED_REGDATE", ObjApplicationDetails.RegDate);
                 }
-                
+
                 //com.Parameters.AddWithValue("@RENID_SECTORENTERPRISE", ObjApplicationDetails.SectorEntrprise);
                 com.Parameters.AddWithValue("@SRVCED_SECTOR", ObjApplicationDetails.Sector);
                 com.Parameters.AddWithValue("@SRVCED_LINEOFACTIVITY", ObjApplicationDetails.LineofActivity);
@@ -322,15 +322,15 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_RENAUTHORIZATIONNO", ObjBMWDetails.authorisationnumber);
                 // com.Parameters.AddWithValue("", Convert.ToDecimal(ObjBMWDetails.authorisation_Date));//
                 com.Parameters.AddWithValue("@BMW_RENAUTHORIZATIONDATE", DateTime.ParseExact(ObjBMWDetails.authorisation_Date, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                if(ObjBMWDetails.Pollution1974 !=null && ObjBMWDetails.Pollution1974 != "")
+                if (ObjBMWDetails.Pollution1974 != null && ObjBMWDetails.Pollution1974 != "")
                 {
                     com.Parameters.AddWithValue("@BMW_PCB1974", ObjBMWDetails.Pollution1974);
                 }
-                if(ObjBMWDetails.ControlPollution1981 != null && ObjBMWDetails.ControlPollution1981 != "")
+                if (ObjBMWDetails.ControlPollution1981 != null && ObjBMWDetails.ControlPollution1981 != "")
                 {
                     com.Parameters.AddWithValue("@BMW_PCB1981", ObjBMWDetails.ControlPollution1981);
                 }
-               
+
                 com.Parameters.AddWithValue("@BMW_BIOHCF_CBWTF ", ObjBMWDetails.AddressHealthHCFCBWFT);
                 com.Parameters.AddWithValue("@BMW_GPSCOORDINATE", ObjBMWDetails.GPSCOORDINATES);
                 com.Parameters.AddWithValue("@BMW_NOBEDHCF", ObjBMWDetails.NumberBED);
@@ -911,7 +911,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetSRVCApplicationDetails(string UnitID, string InvesterID)
+        public DataSet GetSRVCApplicationDetails(string QusestionnaireID, string InvesterID, string ApprovalID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -927,8 +927,12 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(QusestionnaireID));
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                if (ApprovalID != "")
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", ApprovalID);
+                else
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", null);
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

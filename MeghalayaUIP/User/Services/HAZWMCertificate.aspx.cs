@@ -12,18 +12,18 @@ namespace MeghalayaUIP.User.Services
         protected void Page_Load(object sender, EventArgs e)
         {
             lblDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
-            lblRecipientName.Text = "Recipient Name";
-            lblRecipientAddress.Text = "Recipient Address";
-            lblCompanyName.Text = "Company Name";
-            lblApplicationNumber.Text = "Application Number";
+            lblRecipientName.Text = "Atharva";
+            lblRecipientAddress.Text = "Door.No:1-34-29, Danal Dasilk,Songsak, EastGaroHills";
+            lblCompanyName.Text = "Digalpara, Rerapara, South west Garo Hills";
+            lblApplicationNumber.Text = "IMA1001273197320241001";
             lblApplicationDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
-            lblValidityYears.Text = "n";
+            lblValidityYears.Text = "1";
             lblStartDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
-            lblEndDate.Text = DateTime.Now.AddYears(5).ToString("dd-MM-yyyy");
-            lblGMInfo.Text = "GM infor";
-            lblDirector.Text = "Director desgn";
-            lblFrstPrsn.Text = "First Person";
-            lblScndPrsn.Text = "Second Person";
+            lblEndDate.Text = DateTime.Now.AddYears(1).AddDays(-1).ToString("dd-MM-yyyy");
+            lblGMInfo.Text = "South west Garo Hills";
+            //lblDirector.Text = "Director desgn";
+            //lblFrstPrsn.Text = "First Person";
+            //lblScndPrsn.Text = "Second Person";
         }
     }
 }

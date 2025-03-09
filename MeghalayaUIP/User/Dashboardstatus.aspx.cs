@@ -32,8 +32,8 @@ namespace MeghalayaUIP.User
                     hdnUserID.Value = ObjUserInfo.Userid;
 
                 }
-              
-                if (Request.QueryString.Count >0)
+
+                if (Request.QueryString.Count > 0)
                 {
                     UnitID = Convert.ToString(Request.QueryString[0]);
                     lblType.Text = Request.QueryString[1].ToString();
@@ -77,7 +77,7 @@ namespace MeghalayaUIP.User
                     {
                         lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFEQD_UNITID"]);
                         lblUnitNmae.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFEQD_COMPANYNAME"]);
-                      
+
                     }
                 }
             }
@@ -91,6 +91,32 @@ namespace MeghalayaUIP.User
 
         protected void grdTrackerDetails_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            try
+            {
+
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    Label lblUnitID = (Label)e.Row.FindControl("lblUnitID");
+                    Label lblQuesnrId = (Label)e.Row.FindControl("lblQuesnrId");
+                    Label lblDeptId = (Label)e.Row.FindControl("lblDeptId");
+                    Label lblApprovalId = (Label)e.Row.FindControl("lblApprovalId");
+                    Label lblStageId = (Label)e.Row.FindControl("lblStageId");
+                  
+
+
+                    HyperLink hplApprvd = (HyperLink)e.Row.FindControl("lblStatus");
+
+                    if (lblApprovalId.Text=="2" && (lblStageId.Text == "13" || lblStageId.Text == "15") )
+                        hplApprvd.NavigateUrl = "~/User/Services/HAZWMCertificate.aspx";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
 
         }
 
@@ -110,7 +136,7 @@ namespace MeghalayaUIP.User
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "";
                     HeaderCell.Font.Bold = true;
-                    HeaderGridRow.Cells.Add(HeaderCell);                   
+                    HeaderGridRow.Cells.Add(HeaderCell);
 
 
                     HeaderCell = new TableCell();

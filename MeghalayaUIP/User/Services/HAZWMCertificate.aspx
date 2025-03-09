@@ -95,7 +95,7 @@
                             <br />
                             <div style="display: flex; justify-content: space-between;">
                                 <p>
-                                    Certificate No. MPCB/ ATH-27/2007/2021-2022/
+                                    Certificate No. MPCB/ ATH-27/2025/2024-2025/1001
                                 </p>
                                 <p>
                                     Dated. Shillong,
@@ -123,7 +123,7 @@
                         <div class="row">
                             <div style="text-align: justify;">
                                 <p>
-                                    <asp:Label ID="lblRecipientName" runat="server" Style="font-weight: bold;"></asp:Label>of, 
+                                    <asp:Label ID="lblRecipientName" runat="server" Style="font-weight: bold;"></asp:Label> of, 
                                     <asp:Label ID="lblRecipientAddress" runat="server" Style="font-weight: bold;"></asp:Label>   
                                     ,Meghalaya is hereby granted / renewal of the Authorization to operate a facility for collection, storage and disposal of hazardous waste on its premises situated at 
                                     <asp:Label ID="lblCompanyName" runat="server" Style="font-weight: bold;"></asp:Label>
@@ -213,12 +213,12 @@
                             <li>The General Manager, District Commerce & Industries Centre,
                                  <asp:Label ID="lblGMInfo" runat="server" Style="font-weight: bold;"></asp:Label> for information.
                             </li>
-                            <li>
+                            <%--<li>
                                  <asp:Label ID="lblDirector" runat="server" Style="font-weight: bold;"></asp:Label>, C/o, The Director, 
                                  <asp:Label ID="lblFrstPrsn" runat="server" Style="font-weight: bold;"></asp:Label>,
                                  <asp:Label ID="lblScndPrsn" runat="server" Style="font-weight: bold;"></asp:Label>
                                 for information and necessary action.
-                            </li>
+                            </li>--%>
                         </ol>
 
 

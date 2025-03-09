@@ -173,7 +173,7 @@
                             <br />
                             <div style="display: flex; justify-content: space-between;">
                                 <p>Memo No. MPCB/TB-784(Pt-I)/2020-2021/24</p>
-                                <p>Dated. Shillong, the 4th June 2020</p>
+                               <%-- <p>Dated. Shillong, the 4th June 2020</p>--%>
                             </div>
 
 
@@ -181,13 +181,13 @@
                             <ol style="text-align: justify;">
                                 <li>The Director, Urban Affairs Department, Meghalaya, Shillong for information.</li>
                                 <li>The Director, Industries, Meghalaya.</li>
-                                <li>The Deputy Commissioner, 
+                                <li>The Deputy Commissioner, Meghalaya 
                                     <asp:Label ID="lblDeputyCommissionerDistrict" runat="server" Style="font-weight: bold;"></asp:Label>.
                                 </li>
                                 <li>The Under Secretary to the Govt. of Meghalaya, Forests & Environment Department.</li>
-                                <li>Gen- 
-                                    <asp:Label ID="lblGeneralInfo" runat="server" Style="font-weight: bold;"></asp:Label>.
-                                </li>
+                               
+                                    <asp:Label ID="lblGeneralInfo" Visible="false" runat="server" Style="font-weight: bold;"></asp:Label>.
+                                
                             </ol>
                             <br />
                             <div style="text-align: right;">

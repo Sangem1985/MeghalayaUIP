@@ -108,6 +108,30 @@ namespace MeghalayaUIP.User.Dashboard
 
         protected void grdTrackerDetails_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            try
+            {
+
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    Label lblUnitID = (Label)e.Row.FindControl("lblUnitID");
+                    Label lblQuesnrId = (Label)e.Row.FindControl("lblQuesnrId");
+                    Label lblDeptId = (Label)e.Row.FindControl("lblDeptId");
+                    Label lblApprovalId = (Label)e.Row.FindControl("lblApprovalId");
+                    Label lblStageId = (Label)e.Row.FindControl("lblStageId");
+
+                    HyperLink hplApprvd = (HyperLink)e.Row.FindControl("lblStatus");
+
+                    if (lblApprovalId.Text == "2" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
+                        hplApprvd.NavigateUrl = "~/User/Services/HAZWMCertificate.aspx";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
 
         }
 

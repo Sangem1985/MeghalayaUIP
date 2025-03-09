@@ -137,6 +137,46 @@ namespace MeghalayaUIP.User.Services
             }
         }
 
+        protected void grdTrackerDetails_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    Label lblQuesnrId = (Label)e.Row.FindControl("lblQuesnrId");
+                    Label lblDeptId = (Label)e.Row.FindControl("lblDeptId");
+                    Label lblApprovalId = (Label)e.Row.FindControl("lblApprovalId");
+                    Label lblStageId = (Label)e.Row.FindControl("lblStageId");
+
+                    HyperLink hplApprvd = (HyperLink)e.Row.FindControl("lblStatus");
+                    if (lblApprovalId.Text == "82" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
+                        hplApprvd.NavigateUrl = "~/User/Services/SWMCertificate.aspx?QDID="+ lblQuesnrId.Text;
+                    else if (lblApprovalId.Text == "83" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
+                        hplApprvd.NavigateUrl = "~/User/Services/BMWCertificate.aspx?QDID=" + lblQuesnrId.Text;
+                    else if (lblApprovalId.Text == "92" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
+                        hplApprvd.NavigateUrl = "~/User/Services/EWMManfctrRefCertificate.aspx?QDID=" + lblQuesnrId.Text;
+                    else if (lblApprovalId.Text == "93" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
+                        hplApprvd.NavigateUrl = "~/User/Services/BatteryWMCertificate.aspx?QDID=" + lblQuesnrId.Text;
+                    else if (lblApprovalId.Text == "105" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
+                        hplApprvd.NavigateUrl = "~/User/Services/PWMCertificate.aspx?QDID=" + lblQuesnrId.Text;
+                    else if(lblApprovalId.Text == "106" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
+                        hplApprvd.NavigateUrl = "~/User/Services/CDWMCertificate.aspx"+ lblQuesnrId.Text;
+
+
+
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+
         /*  public void BindData(string userid)
  {
      try

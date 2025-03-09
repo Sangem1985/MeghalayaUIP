@@ -270,7 +270,6 @@
                                                 <div class="text-end pt-1">
                                                     <h4 class="mb-0">
                                                         <asp:Label ID="lblQueryYettoRespond" runat="server">0</asp:Label></h4>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                                 </div>
                                             </div>
                                             <hr class="dark horizontal my-0">
@@ -290,7 +289,6 @@
                                                 <div class="text-end pt-1">
                                                     <h4 class="mb-0">
                                                         <asp:Label ID="lblScrtnyRejected" runat="server">0</asp:Label></h4>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                                 </div>
                                             </div>
                                             <hr class="dark horizontal my-0">
@@ -311,7 +309,6 @@
                                                 <div class="text-end pt-1">
                                                     <h4 class="mb-0">
                                                         <asp:Label ID="lblScrtnyCmpltd" runat="server">0</asp:Label></h4>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                                 </div>
                                             </div>
                                             <hr class="dark horizontal my-0">
@@ -331,7 +328,6 @@
                                                 <div class="text-end pt-1">
                                                     <h4 class="mb-0">
                                                         <asp:Label ID="lblScrtnyPendng" runat="server">0</asp:Label></h4>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                                 </div>
                                             </div>
                                             <hr class="dark horizontal my-0">

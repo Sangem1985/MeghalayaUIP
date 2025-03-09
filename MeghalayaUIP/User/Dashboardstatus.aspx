@@ -116,14 +116,19 @@
                                                     <asp:BoundField DataField="DATEOFCOMPLETION" HeaderText="Date of Completion" ItemStyle-HorizontalAlign="Center" />
                                                     <asp:TemplateField HeaderText="Status">
                                                         <ItemTemplate>
-                                                            <%--<asp:HyperLink ID="HyperLinkSubsidy" Text='<%#Eval("Status of Approval Approved Rejected")%>'
-                                                        NavigateUrl='<%#Eval("ApprovalDocNEW")%>' Target="_blank" runat="server" />--%>
-                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' NavigateUrl='<%#Eval("ApprovalDoc")%>' Target="_blank" runat="server" Visible="true"></asp:HyperLink>
+                                                            <asp:Label runat="server" ID="lblUnitID" Text='<%#Eval("CFEDA_UNITID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblQuesnrId" Text='<%#Eval("CFEDA_CFEQDID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblDeptId" Text='<%#Eval("CFEDA_DEPTID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblApprovalId" Text='<%#Eval("CFEDA_APPROVALID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblStageId" Text='<%#Eval("CFDA_STAGEID")%>' Visible="false"></asp:Label>
+                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>'  Target="_blank" runat="server" Visible="true"></asp:HyperLink>
+
                                                         </ItemTemplate>
                                                         <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
+                                            
 
                                         </div>
                                     </div>
