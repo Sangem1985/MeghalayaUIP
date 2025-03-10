@@ -3570,5 +3570,52 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
+        public string CFEPDCLDetails(CFEPDCLD Power)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertCFEPDCLDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@SRVCPDC_CREATEDBY", Convert.ToInt32(Power.Createdby));
+                com.Parameters.AddWithValue("@SRVCPDC_CREATEDBYIP", Power.IPAddress);
+                com.Parameters.AddWithValue("@SRVCPDC_UNITID", Convert.ToInt32(Power.UnitId));
+                com.Parameters.AddWithValue("@SRVCPDC_SERVICESQDID", Convert.ToInt32(Power.Questionnariid));
+                com.Parameters.AddWithValue("@SRVCPDC_STATUSRELATION", Power.StatusRelation);
+                com.Parameters.AddWithValue("@SRVCPDC_POLICESATION", Power.PoliceStation);
+                com.Parameters.AddWithValue("@SRVCPDC_LTSUPPLY", Power.LTSupply);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

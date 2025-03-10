@@ -297,6 +297,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertCFEQueryResponse(CFEQuery);
         }
+        public string CFEPDCLDetails(CFEPDCLD Power)
+        {
+            return objCFEDAL.CFEPDCLDetails(Power);
+        }
 
     }
 }

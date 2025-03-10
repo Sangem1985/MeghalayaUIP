@@ -1956,6 +1956,11 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
+                if(objCFOQsnaire.CFEQDID !=null && objCFOQsnaire.CFEQDID != "")
+                {
+                    com.Parameters.AddWithValue("@CFOQDID", objCFOQsnaire.CFEQDID);
+                }
+                
                 com.Parameters.AddWithValue("@CFOQD_UNITID", Convert.ToInt32(objCFOQsnaire.UNITID));
                 com.Parameters.AddWithValue("@CFOQD_PREREGUIDNO", objCFOQsnaire.PREREGUIDNO);
                 com.Parameters.AddWithValue("@CFOQD_APPLSTATUS", 2);

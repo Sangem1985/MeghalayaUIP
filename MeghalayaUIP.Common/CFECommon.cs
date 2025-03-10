@@ -88,6 +88,7 @@ namespace MeghalayaUIP.Common
         public static string UpdatePaymentResponse = "USP_UPD_PAYMENT_RESPONSE";
         public static string UpdatePaymentErrorResponse = "USP_UPD_PAYMENT_ERROR_RESPONSE";
         public static string InsertCFEQueryResponse = "USP_UPDATECFEAPPLQUERYRESPONSE";
+        public static string InsertCFEPDCLDetails = "";
 
         /// <summary>
         /// DEPARTMENT STARTED
@@ -203,6 +204,16 @@ namespace MeghalayaUIP.Common
         public string NonMuncipalAreaUrban { get; set; }
         public string Investment { get; set; }
         public string MunicipalArea { get; set; }
+    }
+    public class CFEPDCLD
+    {
+        public string UnitId { get; set; }
+        public string Questionnariid { get; set; }
+        public string StatusRelation { get; set; }
+        public string PoliceStation { get; set; }
+        public string LTSupply { get; set; }
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
     }
     public class CFECommonDet
     {

@@ -712,6 +712,7 @@
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEDGSetDetails.aspx" />
+    <Content Include="User\CFE\CFEDrawingPlanDetails.aspx" />
     <Content Include="User\CFE\CFEExplosivesNOC.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
@@ -1734,6 +1735,13 @@
     </Compile>
     <Compile Include="User\CFE\CFEDGSetDetails.aspx.designer.cs">
       <DependentUpon>CFEDGSetDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEDrawingPlanDetails.aspx.cs">
+      <DependentUpon>CFEDrawingPlanDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEDrawingPlanDetails.aspx.designer.cs">
+      <DependentUpon>CFEDrawingPlanDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEExplosivesNOC.aspx.cs">
       <DependentUpon>CFEExplosivesNOC.aspx</DependentUpon>
