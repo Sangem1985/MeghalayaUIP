@@ -78,7 +78,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        i) Name of the Applicant:</label>
+                                                        a) Name of the Applicant:</label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtNameApplicant" runat="server" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -86,9 +86,9 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">
-                                                        ii) Name of the health care facility (HCF)/common bio-medical waste treatment facility(CBWTF):</label>
-                                                    <div class="col-lg-6 d-flex">
+                                                    <label class="col-lg-9 col-form-label">
+                                                        b) Name of the health care facility (HCF)/common bio-medical waste treatment facility(CBWTF):</label>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:RadioButtonList ID="rblMedical" runat="server" RepeatDirection="Horizontal">
                                                             <asp:ListItem Text="HCF" Value="Y" />
                                                             <asp:ListItem Text="CBWTF" Value="N" />
@@ -100,7 +100,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">E-Mail ID*</label>
+                                                    <label class="col-lg-6 col-form-label">c) E-Mail ID*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtEmailId" runat="server" class="form-control" onblur="validateEmail(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
@@ -109,7 +109,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Mobile Number *</label>
+                                                    <label class="col-lg-6 col-form-label">d) Mobile Number *</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtMobileNo" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -117,7 +117,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Website Address:</label>
+                                                    <label class="col-lg-6 col-form-label">e) Website Address:</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtweb" runat="server" class="form-control" Type="text"></asp:TextBox>
 
@@ -134,7 +134,7 @@
                                         <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-8 col-form-label">1. Authorization required for (Please tick appropriate activity or activities *</label>
+                                                    <label class="col-lg-8 col-form-label">a) Authorization required for (Please tick appropriate activity or activities *</label>
                                                     <div class="col-lg-12 d-flex">
                                                         <asp:CheckBoxList ID="CHKAuthorized" runat="server" RepeatDirection="Vertical" RepeatColumns="7" Style="padding: 20px">
                                                             <asp:ListItem Text="Generation" Value="1" style="padding-right: 20px"></asp:ListItem>
@@ -143,13 +143,14 @@
                                                             <asp:ListItem Text="Storage" Value="4" style="padding-right: 20px"></asp:ListItem>
                                                             <asp:ListItem Text="Packing" Value="5" style="padding-right: 20px"></asp:ListItem>
                                                             <asp:ListItem Text="Reception" Value="6" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text="Transportation" Value="7" style="padding-right: 20px"></asp:ListItem>
-                                                            <asp:ListItem Text="Treatment or processing or conversation" Value="8" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Transportation" Value="7" style="padding-right: 20px"></asp:ListItem>                                                            
                                                             <asp:ListItem Text="Recycling" Value="9" style="padding-right: 20px"></asp:ListItem>
                                                             <asp:ListItem Text="Disposal or destruction" Value="10" style="padding-right: 20px"></asp:ListItem>
                                                             <asp:ListItem Text="Disposal or destruction" Value="11" style="padding-right: 20px"></asp:ListItem>
                                                             <asp:ListItem Text="transfer" Value="12" style="padding-right: 20px"></asp:ListItem>
                                                             <asp:ListItem Text="Any other form of handling" Value="13" style="padding-right: 20px"></asp:ListItem>
+                                                            <asp:ListItem Text="Treatment or processing or conversation" Value="8" style="padding-right: 20px"></asp:ListItem>
+                                                            
                                                         </asp:CheckBoxList>
                                                     </div>
                                                 </div>
@@ -161,7 +162,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        2. Select number of beds for authorization*
+                                                        b) Select number of beds for authorization*
                                                     </label>
                                                     <div class="col-lg-6 ">
                                                         <asp:DropDownList ID="ddlAuthBeds" AutoPostBack="true" runat="server" class="form-control" OnSelectedIndexChanged="ddlAuthBeds_SelectedIndexChanged">
@@ -185,7 +186,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3. Please select number of years*</label>
+                                                    <label class="col-lg-6 col-form-label">c) Please select number of years*</label>
                                                     <div class="col-lg-6">
                                                         <asp:DropDownList ID="ddlAuthYears" AutoPostBack="true" runat="server" CssClass="auto-style1" OnSelectedIndexChanged="ddlAuthYears_SelectedIndexChanged">
                                                             <asp:ListItem Text="--Select--" Value="0" Selected="false"></asp:ListItem>
@@ -197,7 +198,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4. Total Fees*</label>
+                                                    <label class="col-lg-6 col-form-label">d) Total Fees*</label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtBedFee" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" AutoPostBack="true" TabIndex="1" ReadOnly="true" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -213,7 +214,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        i) Applied for CTO/CTE</label>
+                                                        a) Applied for CTO/CTE</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:RadioButtonList ID="rblauthorisation" runat="server" RepeatDirection="Horizontal">
                                                             <asp:ListItem Text="Yes" Value="Y" style="margin-right: 20px;" />
@@ -225,7 +226,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        ii) In case of renewal previous authorisation number</label>
+                                                        b) In case of renewal previous authorisation number</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtRenno" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
@@ -234,7 +235,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        In case of renewal previous authorisation Date:
+                                                        c) In case of renewal previous authorisation Date:
                                                
                                                     </label>
                                                     <div class="col-lg-6 d-flex">
