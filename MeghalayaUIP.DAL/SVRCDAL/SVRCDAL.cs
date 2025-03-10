@@ -165,7 +165,11 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 {
                     com.Parameters.AddWithValue("@SRVCED_SRVCQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
                 }
-                com.Parameters.AddWithValue("@SRVCED_UNITID", Convert.ToInt32(ObjApplicationDetails.UnitId));
+
+                if(ObjApplicationDetails.UnitId !=null && ObjApplicationDetails.UnitId != "")
+                {
+                    com.Parameters.AddWithValue("@SRVCED_UNITID", Convert.ToInt32(ObjApplicationDetails.UnitId));
+                }
 
                 //com.Parameters.AddWithValue("@SRVCED_UIDNO", ObjApplicationDetails.UidNo);
                 com.Parameters.AddWithValue("@SRVCED_NAMEOFUNIT", ObjApplicationDetails.Nameofunit);

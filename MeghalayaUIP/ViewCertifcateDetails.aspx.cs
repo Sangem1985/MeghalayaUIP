@@ -86,11 +86,13 @@ namespace MeghalayaUIP
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     HyperLink hyperLink = (e.Row.FindControl("hypView") as HyperLink);
-                    Label lblUnitId = (e.Row.FindControl("lblUnitId") as Label);
-                    Label lblApptype = (e.Row.FindControl("lblApptype") as Label);
+                    //Label lblUnitId = (e.Row.FindControl("lblUnitId") as Label);
+                    //Label lblApptype = (e.Row.FindControl("lblApptype") as Label);
+                    Label lblUID = (e.Row.FindControl("lblUID") as Label);
+                    Label lblUnitName = (e.Row.FindControl("lblUnitName") as Label);
                     //Label lblDate = (e.Row.FindControl("lblDate") as Label);
                     //hyperLink.NavigateUrl = "~/ThirdPartyVerificationAckSlip.aspx?UnitId=" + lblUnitId.Text.Trim() + "&AppType=" + lblApptype.Text.Trim() + "&Date=" + lblDate.Text.Trim();
-                    hyperLink.NavigateUrl = "~/ThirdPartyVerificationAckSlip.aspx?UnitId=" + lblUnitId.Text.Trim() + "&AppType=" + lblApptype.Text.Trim() ;
+                    hyperLink.NavigateUrl = "~/ThirdPartyVerificationAckSlip.aspx?UnitId=" + lblUID.Text.Trim() + "&AppType=" + lblUnitName.Text.Trim() ;
 
                 }
             }

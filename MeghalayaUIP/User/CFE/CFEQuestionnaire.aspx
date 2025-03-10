@@ -519,7 +519,7 @@
 																		requirement in KW<span
                                                                             class="text-danger">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:DropDownList ID="ddlPowerReq" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlPowerReq" runat="server" class="form-control" TabIndex="1">
                                                                                     <asp:ListItem Text="--Select--" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>

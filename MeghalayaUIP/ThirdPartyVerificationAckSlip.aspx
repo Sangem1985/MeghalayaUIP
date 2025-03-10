@@ -46,35 +46,38 @@
                             <div class="col-sm-12 m-b-20">
                                 <ul class="list-unstyled mb-0 list-item">
                                     <li>Date :
-                                        <label runat="server" id="lblDate" style="font-weight:bold"></label>
-                                        <br />
-                                        <br />
+                                        <label runat="server" id="lblDate" style="font-weight: bold"></label>
+                                        <br />                                       
                                     </li>
-                                   <%-- <li>
+                                      <li>Application Reference Number is : <b>
+                                        <label runat="server" id="lblUIDNo"></label>
+                                    </b>                                        
+                                    </li>
+                                    <%-- <li>
                                         <label runat="server" id="lblEnterPrise"></label>
                                     </li>--%>
-                                    <li>Dear <label runat="server" id="lblDear" style="font-weight:bold"></label>,<br />
+                                    <li>Unit Name :
+                                        <label runat="server" id="lblDear" style="font-weight: bold"></label>
+                                        ,<br />
                                         <br />
-                                        Your Application for 
+                                        In view of the above, the unit is hereby accorded the Permissions/Approval applied for under the Meghalaya Industrial Facilitation Act.
+                                        A total of 
                                         <label runat="server" id="lblPrime" style="font-weight: bold; font-size: 18px;"></label>
-                                        has been successfully submitted and you are a registered PRIME Entrepreneur.</li>
+                                        approvals were applied for, and the same have been granted under the applicable provisions of the Meghalaya State Government’s industrial facilitation framework.
+                                       
+                                    </li>
 
                                 </ul>
-                                <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
+                             <%--   <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
                                     <div class="invoice-details text-center d-flex" style="text-align: center;">
                                         <h3 class="text-uppercase" style="margin-bottom: 0;"><u>Application Summary</u></h3>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <ul class="list-unstyled mb-0 list-item">
-                                    <li>Application Reference Number is : <b>
-                                        <label runat="server" id="lblUIDNo"></label>
-                                    </b>
-                                        <br />
-                                        <br />
-                                    </li>
-                                    <li>Your application was received by Online mode.
+                                  
+                                   <%-- <li>Your application was received by Online mode.
                                         <label runat="server" id="lblDate1"></label>
-                                        </li>
+                                    </li>--%>
                                 </ul>
                             </div>
 

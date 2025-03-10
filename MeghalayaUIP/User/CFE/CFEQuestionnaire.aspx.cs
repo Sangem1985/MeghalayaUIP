@@ -1996,9 +1996,9 @@ namespace MeghalayaUIP.User.CFE
                     {
                         emptyRadioButtonLists.Add(radioButtonList);
 
-                        radioButtonList.BorderColor = System.Drawing.Color.Red;
-                        radioButtonList.BorderWidth = Unit.Pixel(2);
-                        radioButtonList.BorderStyle = BorderStyle.Solid;
+                        //radioButtonList.BorderColor = System.Drawing.Color.Red;
+                        //radioButtonList.BorderWidth = Unit.Pixel(2);
+                        //radioButtonList.BorderStyle = BorderStyle.Solid;
                     }
                     else
                     {
