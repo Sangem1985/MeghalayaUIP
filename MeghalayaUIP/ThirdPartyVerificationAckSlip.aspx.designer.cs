@@ -33,6 +33,15 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDate;
 
         /// <summary>
+        /// lblUIDNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUIDNo;
+
+        /// <summary>
         /// lblDear control.
         /// </summary>
         /// <remarks>
@@ -49,23 +58,5 @@ namespace MeghalayaUIP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPrime;
-
-        /// <summary>
-        /// lblUIDNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUIDNo;
-
-        /// <summary>
-        /// lblDate1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDate1;
     }
 }

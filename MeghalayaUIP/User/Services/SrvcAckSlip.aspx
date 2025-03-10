@@ -53,9 +53,9 @@
                 line-height: 14px;
             }
     </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 
-<script>
+    <script>
         function downloadPDF() {
             var content = document.getElementById('ackcontent'); // Get the content to be converted
 
@@ -74,15 +74,15 @@
                 y: 10
             });
         }
-</script>
+    </script>
 
 
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="col-md-1 pb-2 pt-2">
+        <%--   <div class="col-md-1 pb-2 pt-2">
             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back </asp:LinkButton>
-        </div>
+        </div>--%>
 
         <div id="ackcontent" runat="server">
             <div class="page-wrapper" style="min-height: 293px;">
@@ -128,10 +128,10 @@
                                         <asp:Label runat="server" ID="lblApplDate"></asp:Label>,
                                     </li>
                                     <li>
-                                        <label runat="server" id="lblEnterPrise"></label>
+                                        <label runat="server" id="lblEnterPrise" visible="false"></label>
                                     </li>
-                                    <li>Dear Applicant,<br />
-                                        Your Request for Registration under MIIPP 2024 has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
+                                    <li>Dear : <label runat="server" id="lblApplicant"></label>,<br />
+                                        Your Request for Other Sevices has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
                                 </ul>
                                 <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
                                     <div class="invoice-details text-center d-flex" style="text-align: center;">
@@ -146,11 +146,16 @@
                                     <li>Your Application reference number is :
                                         <b>
                                             <asp:Label runat="server" ID="lblUIDNo"></asp:Label></b></li>
+                                    <li>Approval Name :                                     
+                                        <b>
+                                             <asp:Label runat="server" ID="lblApproval"></asp:Label></b></li>
+                                       
+                                   
                                     <li>Your application was recevied by Online mode on
                                         <asp:Label runat="server" ID="lblApplDate1"></asp:Label></li>
 
                                 </ul>
-                                <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
+                                <%-- <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
                                     <div class="invoice-details text-center d-flex" style="text-align: center;">
                                         <h3 class="text-uppercase" style="margin-bottom: 0;"><u>List of Enclosures with Applications</u></h3>
 
@@ -168,14 +173,15 @@
                                     <li>Proof of CIN.</li>
                                     <li>Detailed Project Report.</li>
                                 </ol>
-
+                                --%>
 
 
                                 <div class="fotter">
                                     <p>
                                         <br />
                                         <br />
-                                        Regards</p>
+                                        Regards
+                                    </p>
                                     <p><b>Invest Meghalaya Authority</b></p>
                                     <p><b>Government of Meghalaya</b></p>
                                     <p>Email : investmeghalayaauthority@gmail.com</p>
@@ -185,7 +191,7 @@
 
                         <div class="col-md-12 d-flex" style="display: flex; width: 100%; flex-direction: row; flex-wrap: nowrap; justify-content: center;">
                             <div class="col-md-6" style="width: 10%;">
-                                <asp:button id="btndownload" runat="server" Text="Download"  class="btn btn-sm btn-info" OnClick="btndownload_Click"></asp:button>
+                                <asp:Button ID="btndownload" runat="server" Text="Download" class="btn btn-sm btn-info" OnClick="btndownload_Click"></asp:Button>
                             </div>
                             <div class="col-md-6">
                                 <button id="btnprint" onclick="window.print()" class="btn btn-sm btn-info">Print</button>

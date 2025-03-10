@@ -68,6 +68,7 @@
                                                                 <asp:ListItem Value="1">CFE</asp:ListItem>
                                                                 <asp:ListItem Value="2">CFO</asp:ListItem>
                                                                 <asp:ListItem Value="3">Renewals</asp:ListItem>
+                                                                <asp:ListItem Value="5">Services</asp:ListItem>
                                                                 <asp:ListItem Value="4">Startups</asp:ListItem>
                                                             </asp:DropDownList>
                                                         </div>
@@ -134,6 +135,16 @@
                                                             <asp:TemplateField HeaderText="Unit Id" Visible="false">
                                                                 <ItemTemplate>
                                                                     <asp:Label ID="lblUnitId" runat="server" Text='<%# Eval("UNITID")%>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                               <asp:TemplateField HeaderText="Uid No" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblUID" runat="server" Text='<%# Eval("UIDNO")%>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Unit Name" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblUnitName" runat="server" Text='<%# Eval("NAMEOFUNIT")%>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="Application Type" Visible="false">

@@ -20,7 +20,12 @@ namespace MeghalayaUIP.User.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblApplDate.Text = "07-03-2025";
+            lblUIDNo.Text = "SRVC/2025/102";
+            lblApproval.Text = "Authorization under the Hazardous and Other Waste (Management and Transboundary Movement) Rules 2016";
+            lblApplDate1.Text = "09-03-2025";//DateTime.Now.ToString("dd-MM-yyyy");
+            lblApplicant.InnerText = "TEST";
+            lblEnterPrise.InnerText = "Manufacturing";
         }
         protected void btndownload_Click(object sender, EventArgs e)
         {
