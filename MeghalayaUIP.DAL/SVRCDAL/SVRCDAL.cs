@@ -156,9 +156,6 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-
-
-
                 com.Parameters.AddWithValue("@SRVCED_CREATEDBY", Convert.ToInt32(ObjApplicationDetails.CreatedBy));
                 com.Parameters.AddWithValue("@SRVCED_CREATEDBYIP", ObjApplicationDetails.IPAddress);
                 if (ObjApplicationDetails.Questionnariid != null && ObjApplicationDetails.Questionnariid != "")
