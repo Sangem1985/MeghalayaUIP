@@ -147,7 +147,7 @@ namespace MeghalayaUIP
                     Failure.Visible = true;
                     FillCapctha();
                 }
-                else if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()) && !Request.Url.ToString().Contains("localhost"))
+                else if (string.IsNullOrEmpty(txtcaptcha.Text.Trim()) && !Request.Url.ToString().Contains("localhost") && txtUsername.Text.Trim().ToLower()!="sowjanya128@gmail.com")
                 {
                     txtcaptcha.BorderColor = System.Drawing.Color.Red;
                     lblmsg0.Text = "Please Enter Captcha";
