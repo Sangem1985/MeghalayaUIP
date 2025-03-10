@@ -161,9 +161,7 @@ namespace MeghalayaUIP.User.Services
                     else if (lblApprovalId.Text == "105" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
                         hplApprvd.NavigateUrl = "~/User/Services/PWMCertificate.aspx?QDID=" + lblQuesnrId.Text;
                     else if(lblApprovalId.Text == "106" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
-                        hplApprvd.NavigateUrl = "~/User/Services/CDWMCertificate.aspx"+ lblQuesnrId.Text;
-
-
+                        hplApprvd.NavigateUrl = "~/User/Services/CDWMCertificate.aspx?QDID=" + lblQuesnrId.Text;
 
                 }
                 
