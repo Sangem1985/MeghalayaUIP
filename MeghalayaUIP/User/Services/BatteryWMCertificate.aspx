@@ -93,12 +93,14 @@
                                 <img alt="Logo" class="img-fluid" src="../../assets/admin/img/logo.png" />
                             </div>
                             <br />
-                            
+
                             <div style="display: flex; justify-content: space-between;">
-                                <p><strong>No. </strong>
-                                     <asp:Label ID="lblNo" runat="server" Style="font-weight: bold;"></asp:Label>,
-                                   </p>
-                                <p><strong>Dated: </strong>
+                                <p>
+                                    <strong>No. </strong>
+                                    <asp:Label ID="lblNo" runat="server" Style="font-weight: bold;"></asp:Label>,
+                                </p>
+                                <p>
+                                    <strong>Dated: </strong>
                                     <asp:Label ID="lblIssueDate" runat="server" Style="font-weight: bold;"></asp:Label>, 
                                     <asp:Label ID="lblIssuePlace" runat="server" Style="font-weight: bold;"></asp:Label>
                                 </p>
@@ -147,6 +149,7 @@
                                 <p><strong>MEMBER SECRETARTY</strong></p>
                                 <p>Meghalaya State pollution Control Board</p>
                                 <p>Shillong</p>
+                                <p>This is an electronically generated report, hence does not require signature</p>
                             </div>
 
                         </div>

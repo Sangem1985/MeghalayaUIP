@@ -202,7 +202,9 @@
                             <div style="text-align: right;">
                                 <p style="text-transform: uppercase; font-weight: bold;">Member Secretary</p>
                                 <p>Meghalaya State Pollution Control Board, Shillong</p>
+                                 <p>This is an electronically generated report, hence does not require signature</p>
                             </div>
+
                         </div>
                         <br />
                         <p>

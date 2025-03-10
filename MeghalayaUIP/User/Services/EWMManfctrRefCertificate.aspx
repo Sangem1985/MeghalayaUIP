@@ -158,6 +158,7 @@
                             <p style="text-align: left;">Signature:
                                 <asp:Label ID="lblSingature" runat="server" Style="font-weight: bold;"></asp:Label>
                             </p>
+                             <p>This is an electronically generated report, hence does not require signature</p>
                             <div style="display: flex; justify-content: space-between;">
                                <%-- <p>
                                     Designation: 

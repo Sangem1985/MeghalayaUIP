@@ -285,6 +285,7 @@ prescribed standards as per Scheduled II.
                             <div style="text-align: right; font-weight: bold;">
                                 <p>MEMBER SECRETARY</p>
                                 <p>Meghalaya State Pollution Control Board, Shillong</p>
+                                 <p>This is an electronically generated report, hence does not require signature</p>
                             </div>
 
 

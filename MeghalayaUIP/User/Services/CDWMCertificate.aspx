@@ -154,6 +154,7 @@
                             <div style="text-align: right;">
                                 <p>(<strong>Member Secretary</strong>)</p>
                                 <p>State Pollution Control Board / Pollution Control Committee</p>
+                                 <p>This is an electronically generated report, hence does not require signature</p>
                             </div>
                         </div>
 

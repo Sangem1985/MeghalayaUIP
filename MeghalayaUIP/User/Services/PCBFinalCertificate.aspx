@@ -108,6 +108,7 @@
                                         <p style="text-align: right;">
                                             State Pollution Control Board/ Pollution Control Committee of the UT
                                         </p>
+                                         <p>This is an electronically generated report, hence does not require signature</p>
                                     </div>
                                 </div>
                             </div>

@@ -158,6 +158,7 @@
                             <p>(Member Secretary)</p>
                             <p>State Pollution Control Board/Pollution Control Committee of the UT</p>
                             <p>(Signature and designation)</p>
+ <p>This is an electronically generated report, hence does not require signature</p>
                            </div>
                             <p>
                                 Date: 
