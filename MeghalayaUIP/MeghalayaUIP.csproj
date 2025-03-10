@@ -731,6 +731,7 @@
     <Content Include="User\CFE\CFEQueryResponse.aspx" />
     <Content Include="User\CFE\CFEQuestionnaire.aspx" />
     <Content Include="User\CFE\CFETFLCertificate.aspx" />
+    <Content Include="User\CFE\CFETreeFelling.aspx" />
     <Content Include="User\CFE\CFEUploadEnclosures.aspx" />
     <Content Include="User\CFE\CFEUserApplStatus.aspx" />
     <Content Include="User\CFE\CFEUserApplStatusView.aspx" />
@@ -1868,6 +1869,13 @@
     </Compile>
     <Compile Include="User\CFE\CFETFLCertificate.aspx.designer.cs">
       <DependentUpon>CFETFLCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFETreeFelling.aspx.cs">
+      <DependentUpon>CFETreeFelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFETreeFelling.aspx.designer.cs">
+      <DependentUpon>CFETreeFelling.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEUploadEnclosures.aspx.cs">
       <DependentUpon>CFEUploadEnclosures.aspx</DependentUpon>
