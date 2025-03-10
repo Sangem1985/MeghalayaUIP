@@ -154,6 +154,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                     else { MunicipalArea.Visible = false; }
                     rblGrantwater.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERCONNONMUNICIPALURBAN"]);
+                    rblDrawing.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_DRAWINGPLANAPPROVAL"]);
 
 
                     //CFEQD_BOREWELLREQ CFEQD_BOREWELLKLD   CFEQD_RIVERSnCANALS CFEQD_RIVERSnCANALSKLD
@@ -1047,6 +1048,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.MuncipalAreawater = rblMunicipal.SelectedValue;
                     objCFEQsnaire.NonMuncipalAreaUrban = rblGrantwater.SelectedValue;
                     objCFEQsnaire.MunicipalArea = ddlMunicipal.SelectedValue;
+                    objCFEQsnaire.DrawingPlan= rblDrawing.SelectedValue;
 
 
 
@@ -1410,6 +1412,11 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Required Grant of Water Connection to Non Municipal urban or not \\n";
                     slno = slno + 1;
                 }
+                if (rblDrawing.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Required Grant of Drawing Plan Approval or not \\n";
+                    slno = slno + 1;
+                }
                 if (rblLbrAct1970.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Contract Labour(Regulation and Abolition)Act, 1970? \\n";
@@ -1724,6 +1731,12 @@ namespace MeghalayaUIP.User.CFE
                 if (rblGrantwater.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "23";
+                    NonMunicipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(NonMunicipal);
+                }
+                if (rblDrawing.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "107";
                     NonMunicipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(NonMunicipal);
                 }

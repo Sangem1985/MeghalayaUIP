@@ -708,6 +708,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddlMunicipal;
 
         /// <summary>
+        /// rblDrawing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblDrawing;
+
+        /// <summary>
         /// rblLbrAct1970 control.
         /// </summary>
         /// <remarks>

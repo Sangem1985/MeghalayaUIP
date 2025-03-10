@@ -734,7 +734,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 13. Do you require Permission to Fell Isolated Trees/Lopping of Branches 
                                                                                 <br />
-                                                                                 From Homesteads, Farms, etc
+                                                                                From Homesteads, Farms, etc
                                                                                 <span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
                                                                                 <asp:RadioButtonList ID="rblFelltrees" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblFelltrees_SelectedIndexChanged">
@@ -882,6 +882,24 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="col-md-12 d-flex">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">
+                                                                                21. Do You Required Drawing Plan Approval<span class="text-danger">*</span></label>
+                                                                            <div class="col-lg-6 d-flex">
+                                                                                <asp:RadioButtonList ID="rblDrawing" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                                                    <asp:ListItem Text="No" Value="N" />
+                                                                                </asp:RadioButtonList>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+
                                                                 <div class="table labertype mb-3">
                                                                     <table class="table">
                                                                         <thead>

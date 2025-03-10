@@ -88,7 +88,7 @@ namespace MeghalayaUIP.Common
         public static string UpdatePaymentResponse = "USP_UPD_PAYMENT_RESPONSE";
         public static string UpdatePaymentErrorResponse = "USP_UPD_PAYMENT_ERROR_RESPONSE";
         public static string InsertCFEQueryResponse = "USP_UPDATECFEAPPLQUERYRESPONSE";
-        public static string InsertCFEPDCLDetails = "";
+        public static string InsertCFEPDCLDetails = "USP_INSCFEDRAWINGAPPDETAILS";
 
         /// <summary>
         /// DEPARTMENT STARTED
@@ -101,6 +101,7 @@ namespace MeghalayaUIP.Common
         public static string GetUnitDetailsforPayment = "USP_GET_UNIT_DTLS_PAYMENTPAGE";
         public static string GetPaymentOrderNo = "USP_GET_ORDERNO_BY_ORDERID";
         public static string GetPreRegPaymentReceipt = "GET_CFEPAYMENTRECEIPT";
+        public static string GetCFEPDCLDetails = "USP_GETCFEDRAWINGAPPDETAILS";
 
         ///END///
 
@@ -204,6 +205,7 @@ namespace MeghalayaUIP.Common
         public string NonMuncipalAreaUrban { get; set; }
         public string Investment { get; set; }
         public string MunicipalArea { get; set; }
+        public string DrawingPlan { get; set; }
     }
     public class CFEPDCLD
     {

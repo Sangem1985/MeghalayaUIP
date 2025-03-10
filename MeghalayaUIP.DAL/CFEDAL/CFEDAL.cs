@@ -292,6 +292,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEQD_MUNICIPALAREAWATERCON", objCFEQsnaire.MuncipalAreawater);
                 com.Parameters.AddWithValue("@CFEQD_WATERCONNONMUNICIPALURBAN", objCFEQsnaire.NonMuncipalAreaUrban);
                 com.Parameters.AddWithValue("@CFEQD_WATERMUNICIPALAREA", objCFEQsnaire.MunicipalArea);
+                com.Parameters.AddWithValue("@CFEQD_DRAWINGPLANAPPROVAL", objCFEQsnaire.DrawingPlan);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -3588,13 +3589,13 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-                com.Parameters.AddWithValue("@SRVCPDC_CREATEDBY", Convert.ToInt32(Power.Createdby));
-                com.Parameters.AddWithValue("@SRVCPDC_CREATEDBYIP", Power.IPAddress);
-                com.Parameters.AddWithValue("@SRVCPDC_UNITID", Convert.ToInt32(Power.UnitId));
-                com.Parameters.AddWithValue("@SRVCPDC_SERVICESQDID", Convert.ToInt32(Power.Questionnariid));
-                com.Parameters.AddWithValue("@SRVCPDC_STATUSRELATION", Power.StatusRelation);
-                com.Parameters.AddWithValue("@SRVCPDC_POLICESATION", Power.PoliceStation);
-                com.Parameters.AddWithValue("@SRVCPDC_LTSUPPLY", Power.LTSupply);
+                com.Parameters.AddWithValue("@CFEDAD_CREATEDBY", Convert.ToInt32(Power.Createdby));
+                com.Parameters.AddWithValue("@CFEDAD_CREATEDBYIP", Power.IPAddress);
+                com.Parameters.AddWithValue("@CFEDAD_UNITID", Convert.ToInt32(Power.UnitId));
+                com.Parameters.AddWithValue("@CFEDAD_CFEQDID", Convert.ToInt32(Power.Questionnariid));
+                com.Parameters.AddWithValue("@CFEDAD_STATUSRELATION", Power.StatusRelation);
+                com.Parameters.AddWithValue("@CFEDAD_POLICESATION", Power.PoliceStation);
+                com.Parameters.AddWithValue("@CFEDAD_LTSUPPLY", Power.LTSupply);
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -3616,6 +3617,40 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
             return Result;
+        }
+        public DataSet GetCFEPDCLDetails(string userid, String UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetCFEPDCLDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetCFEPDCLDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
         }
     }
 }
