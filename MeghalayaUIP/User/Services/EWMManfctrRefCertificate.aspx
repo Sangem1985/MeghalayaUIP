@@ -159,10 +159,10 @@
                                 <asp:Label ID="lblSingature" runat="server" Style="font-weight: bold;"></asp:Label>
                             </p>
                             <div style="display: flex; justify-content: space-between;">
-                                <p>
+                               <%-- <p>
                                     Designation: 
                                     <asp:Label ID="lblDesignation" runat="server" Style="font-weight: bold;"></asp:Label>
-                                </p>
+                                </p>--%>
                                 <p>
                                     Date: 
                                     <asp:Label ID="lblSignatureDate" runat="server" Style="font-weight: bold;"></asp:Label>

@@ -107,8 +107,8 @@
 
                         <div class="row">
                             <p>
-                                <strong>Ref :</strong> Your application number  
-                                <asp:Label ID="lblApplicationNumber" runat="server" Style="font-weight: bold;"></asp:Label>   
+                                <strong>Ref :</strong> Your application number :  
+                                <asp:Label ID="lblApplicationNumber" runat="server" Style="font-weight: bold;"></asp:Label>   <br />
                                 <strong>Dated:</strong>
                                 <asp:Label ID="lblApplicationDate" runat="server" Style="font-weight: bold;"></asp:Label>
                             </p>

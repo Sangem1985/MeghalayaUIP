@@ -56,18 +56,15 @@ namespace MeghalayaUIP.User.Services
         public void BindData()
         {
             DataSet ds = new DataSet();
-            ds = objSrvcbal.GetSRVCApplicationDetails(Request.QueryString[0].ToString(), hdnUserID.Value, "82");
+            ds = objSrvcbal.GetSRVCApplicationDetails(Request.QueryString[0].ToString(), hdnUserID.Value, "92");
             if (ds != null && ds.Tables.Count > 0)
             {
                 if (ds.Tables[0].Rows.Count > 0)
-                {                   
-
-
-                    lblAuthorizationNo.Text = "2025/102/0903202583";
+                {
+                    lblAuthorizationNo.Text = "SRVC/2025/102";
                     lblIssueDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
                     lblCompanyName.Text = ds.Tables[0].Rows[0]["SRVCED_NAMEOFUNIT"].ToString();
-
 
                     lblPremisesAddress.Text = ds.Tables[0].Rows[0]["REP_DOORNO"].ToString() + ", " +
                         ds.Tables[0].Rows[0]["REP_LOCALITY"].ToString() + ", " +
@@ -82,10 +79,18 @@ namespace MeghalayaUIP.User.Services
                         ds.Tables[0].Rows[0]["Mandalname"].ToString() + ", " +
                         ds.Tables[0].Rows[0]["DistrictName"].ToString();
 
-
-
+                }
+                if(ds.Tables.Count >= 10 && ds.Tables[10].Rows.Count > 0)
+                { 
+                    lblEwasteQuantity.Text = ds.Tables[10].Rows[0]["EWD_EWASTEGENQUANTITY"].ToString();
+                    lblEwasteNature.Text = ds.Tables[10].Rows[0]["EWD_EWASTEREFURBISHED"].ToString();
                     lblValidFrom.Text = DateTime.Now.ToString("dd/MM/yyyy");
                     lblValidTo.Text = DateTime.Now.AddYears(1).AddDays(-1).ToString("dd-MM-yyyy");
+                    lblDisposalLocation.Text = ds.Tables[10].Rows[0]["EWD_EWASTEDISPOSAL"].ToString();
+
+                    lblSingature.Text = "This is an electronically generated report, hence does not require signature";
+                    //lblDesignation.Text = "";
+                    lblSignatureDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
                 }
             }

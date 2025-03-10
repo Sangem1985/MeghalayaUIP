@@ -238,7 +238,7 @@ handling bio-medical waste.
                                     16.<asp:Label ID="lblrenewal" runat="server" Style="font-weight: bold;"></asp:Label>
                                 </p>
                                 <p>
-                                    17.<asp:Label ID="lblPCB" runat="server" Style="font-weight: bold;"></asp:Label>
+                                    17.The unit shall have to apply for Consent to Establish and Consent to Operate from the prescribed authority i.e., Meghalaya State Pollution Control Board.
                                 </p>
                                 <p>
                                     18. Appropriate Effluent Treatment Plant should be installed to ensure the effluent is within the

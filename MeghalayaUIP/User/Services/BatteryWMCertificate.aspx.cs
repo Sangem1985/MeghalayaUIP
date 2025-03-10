@@ -57,7 +57,7 @@ namespace MeghalayaUIP.User.Services
         public void BindData()
         {
             DataSet ds = new DataSet();
-            ds = objSrvcbal.GetSRVCApplicationDetails(Request.QueryString[0].ToString(), hdnUserID.Value, "82");
+            ds = objSrvcbal.GetSRVCApplicationDetails(Request.QueryString[0].ToString(), hdnUserID.Value, "92");
             if (ds != null && ds.Tables.Count > 0)
             {
                 if (ds.Tables[0].Rows.Count > 0)
@@ -70,21 +70,6 @@ namespace MeghalayaUIP.User.Services
                     lblGSTNo.Text = "17BAOPS4205A1ZW";
                     lblStartDate.Text = DateTime.Now.ToString("dd MMMM yyyy");
                     lblEndDate.Text = DateTime.Now.AddYears(5).AddDays(-1).ToString("dd MMMM yyyy");
-
-
-                    //lblRecipientName.Text = ds.Tables[0].Rows[0]["REP_DOORNO"].ToString();
-                    //lblRecipientAddress1.Text = ds.Tables[0].Rows[0]["REP_LOCALITY"].ToString();
-                    //lblRecipientAddress2.Text = ds.Tables[0].Rows[0]["REP_VILLAGE"].ToString();
-                    //lblRecipientAddress3.Text = ds.Tables[0].Rows[0]["REP_MANDAL"].ToString() + ", " +
-                    //    ds.Tables[0].Rows[0]["REP_DIST"].ToString();
-
-                    //lblReference.Text = ds.Tables[0].Rows[0]["REP_DIST"].ToString();
-                    //lblCompanyAddress.Text = ds.Tables[0].Rows[0]["SRVCED_SURVEYDOOR"].ToString() + ", " +
-                    //    ds.Tables[0].Rows[0]["SRVCED_LOCALITY"].ToString() + ", " +
-                    //     ds.Tables[0].Rows[0]["SRVCED_LANDMARK"].ToString() + ", " +
-                    //    ds.Tables[0].Rows[0]["VillageName"].ToString() + ", " +
-                    //    ds.Tables[0].Rows[0]["Mandalname"].ToString() + ", " +
-                    //    ds.Tables[0].Rows[0]["DistrictName"].ToString();
 
                 }
             }

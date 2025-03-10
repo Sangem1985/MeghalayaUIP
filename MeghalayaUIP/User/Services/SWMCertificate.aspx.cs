@@ -90,9 +90,11 @@ namespace MeghalayaUIP.User.Services
                         ds.Tables[0].Rows[0]["DistrictName"].ToString() ;
 
                   
-
-                    lblIssueDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
                     
+                    lblIssueDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                    lblIssuePlace.Text = "Meghalaya";
+
+
                 }
             }
         }

@@ -57,42 +57,49 @@ namespace MeghalayaUIP.User.Services
 
         public void BindData()
         {
-            DataSet ds = new DataSet();
-            ds = objSrvcbal.GetSRVCApplicationDetails(Request.QueryString[0].ToString(), hdnUserID.Value, "82");
-            if (ds != null && ds.Tables.Count > 0)
+            try
             {
-                if (ds.Tables[0].Rows.Count > 0)
+                DataSet ds = new DataSet();
+                ds = objSrvcbal.GetSRVCApplicationDetails(Request.QueryString[0].ToString(), hdnUserID.Value, "82");
+                if (ds != null && ds.Tables.Count > 0)
                 {
-                    lblCertificateNo.Text = "2025/102/0903202583";
-                    lblDate.Text = DateTime.Now.ToString("dd MMMM yyyy");
-                    lblRecipientName.Text = ds.Tables[0].Rows[0]["REP_DOORNO"].ToString();
-                    lblRecipientAddress1.Text = ds.Tables[0].Rows[0]["REP_LOCALITY"].ToString();
-                    lblRecipientAddress2.Text = ds.Tables[0].Rows[0]["REP_VILLAGE"].ToString();
-                    lblRecipientAddress3.Text = ds.Tables[0].Rows[0]["REP_MANDAL"].ToString()+", " +
-                        ds.Tables[0].Rows[0]["REP_DIST"].ToString();
-                    
-                    lblReference.Text = ds.Tables[0].Rows[0]["REP_DIST"].ToString();
-                    lblCompanyName.Text = ds.Tables[0].Rows[0]["SRVCED_NAMEOFUNIT"].ToString();
-                    lblCompanyAddress.Text= ds.Tables[0].Rows[0]["SRVCED_SURVEYDOOR"].ToString() + ", " +
-                        ds.Tables[0].Rows[0]["SRVCED_LOCALITY"].ToString() + ", " +
-                         ds.Tables[0].Rows[0]["SRVCED_LANDMARK"].ToString() + ", " +
-                        ds.Tables[0].Rows[0]["VillageName"].ToString() + ", " +
-                        ds.Tables[0].Rows[0]["Mandalname"].ToString() + ", " +
-                        ds.Tables[0].Rows[0]["DistrictName"].ToString();
-                    
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        lblCertificateNo.Text = "2025/102/0903202583";
+                        lblDate.Text = DateTime.Now.ToString("dd MMMM yyyy");
+                        lblRecipientName.Text = ds.Tables[0].Rows[0]["REP_DOORNO"].ToString();
+                        lblRecipientAddress1.Text = ds.Tables[0].Rows[0]["REP_LOCALITY"].ToString();
+                        lblRecipientAddress2.Text = ds.Tables[0].Rows[0]["REP_VILLAGE"].ToString();
+                        lblRecipientAddress3.Text = ds.Tables[0].Rows[0]["REP_MANDAL"].ToString() + ", " +
+                            ds.Tables[0].Rows[0]["REP_DIST"].ToString();
 
-                    lblManufacturedProduct.Text = ds.Tables[0].Rows[0]["SRVCPWD_NAMEOFPROD"].ToString();
-                    lblValidityYears.Text = "5 ";
-                    //lblDeputyCommissionerDistrict.Text = "Deputy Commissoner District";
-                    //lblGeneralInfo.Text = "General Information";
+                        lblReference.Text = ds.Tables[0].Rows[0]["REP_DIST"].ToString();
+                        lblCompanyName.Text = ds.Tables[0].Rows[0]["SRVCED_NAMEOFUNIT"].ToString();
+                        lblCompanyAddress.Text = ds.Tables[0].Rows[0]["SRVCED_SURVEYDOOR"].ToString() + ", " +
+                            ds.Tables[0].Rows[0]["SRVCED_LOCALITY"].ToString() + ", " +
+                             ds.Tables[0].Rows[0]["SRVCED_LANDMARK"].ToString() + ", " +
+                            ds.Tables[0].Rows[0]["VillageName"].ToString() + ", " +
+                            ds.Tables[0].Rows[0]["Mandalname"].ToString() + ", " +
+                            ds.Tables[0].Rows[0]["DistrictName"].ToString();
 
 
-                  
+                        lblManufacturedProduct.Text = ds.Tables[0].Rows[0]["SRVCPWD_NAMEOFPROD"].ToString();
+                        lblValidityYears.Text = "5 ";
+                        //lblDeputyCommissionerDistrict.Text = "Deputy Commissoner District";
+                        //lblGeneralInfo.Text = "General Information";
 
 
 
-                    
+
+
+
+
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }
