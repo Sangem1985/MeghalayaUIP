@@ -68,7 +68,7 @@ namespace MeghalayaUIP.User.Services
                 DataSet dsnew = new DataSet();
                // string UserId = "1";
                // string UnitId = Session["SRVCUNITID"].ToString();
-                dsnew = objSrvcbal.GetSRVCApprovals(hdnUserID.Value, UnitID);
+                dsnew = objSrvcbal.GetSRVCApprovals(hdnUserID.Value, Convert.ToString(Session["SRVCQID"]));
                 if (dsnew != null && dsnew.Tables.Count > 0)
                 {
                     if (dsnew.Tables[0].Rows.Count > 0)

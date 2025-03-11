@@ -59,25 +59,25 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCapplications(USERID, UnitID);
         }
-        public DataSet GetSRVCApprovals(string userid, string UnitId)
+        public DataSet GetSRVCApprovals(string userid, string SRVCQDID)
         {
-            return SvrcDal.GetSRVCApprovals(userid, UnitId);
+            return SvrcDal.GetSRVCApprovals(userid, SRVCQDID);
         }
         public string InsertSRVCDeptApprovals(SRVCOtherServices ObjApplicationDetails)
         {
             return SvrcDal.InsertSRVCDeptApprovals(ObjApplicationDetails);
         }
-        public DataSet GetSrvcBMWDet(string userid, string UNITID)
+        public DataSet GetSrvcBMWDet(string userid, string SRVCQID)
         {
-            return SvrcDal.GetSrvcBMWDet(userid, UNITID);
+            return SvrcDal.GetSrvcBMWDet(userid, SRVCQID);
         }
         public string INSSRVCSOLIDDDetails(SWMdetails ObjSWMDet)
         {
             return SvrcDal.INSSRVCSOLIDDDetails(ObjSWMDet);
         }
-        public DataSet GetSrvcSWMDetails(string userid, string UNITID)
+        public DataSet GetSrvcSWMDetails(string userid, string SRVCQDID)
         {
-            return SvrcDal.GetSrvcSWMDetails(userid, UNITID);
+            return SvrcDal.GetSrvcSWMDetails(userid, SRVCQDID);
         }
         public DataSet GetsrvcapprovalID(string userid, string QusestionnaireID, string DeptID, string ApprovalID)
         {

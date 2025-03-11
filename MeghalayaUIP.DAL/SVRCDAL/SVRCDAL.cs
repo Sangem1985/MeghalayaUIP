@@ -576,7 +576,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetSRVCApprovals(string userid, string UnitId)
+        public DataSet GetSRVCApprovals(string userid, string SRVCQDID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -594,9 +594,9 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
-                if(UnitId !=null && UnitId != "")
+                if(SRVCQDID != null && SRVCQDID != "")
                 {
-                    da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitId));
+                    da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQDID));
                 }
                 da.Fill(ds);
                 transaction.Commit();
@@ -653,7 +653,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return Result;
         }
-        public DataSet GetSrvcBMWDet(string userid, String UNITID)
+        public DataSet GetSrvcBMWDet(string userid, String SRVCQID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -670,7 +670,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
@@ -806,7 +806,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return Result;
         }
-        public DataSet GetSrvcSWMDetails(string userid, String UNITID)
+        public DataSet GetSrvcSWMDetails(string userid, String SRVCQDID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -823,7 +823,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQDID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
