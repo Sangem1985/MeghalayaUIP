@@ -867,7 +867,7 @@ namespace MeghalayaUIP.User.Services
                     ObjApplicationDetails.PlantMachinary = txtPMCost.Text;
                     ObjApplicationDetails.TotalProjectCost = lblTotProjCost.Text;
                     ObjApplicationDetails.AnnualTurnOver = txtAnnualTurnOver.Text;
-                    ObjApplicationDetails.EnterpriseCategory = lblEntCategory.Text;
+                    ObjApplicationDetails.EnterpriseCategory = lblEntCategory.Text; 
                     ObjApplicationDetails.UidNo = "SRVC" + "/" + DateTime.Now.Year.ToString() + "/" + ObjApplicationDetails.Questionnariid;
 
 
