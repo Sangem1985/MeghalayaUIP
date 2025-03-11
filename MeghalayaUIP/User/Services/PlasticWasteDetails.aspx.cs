@@ -18,7 +18,7 @@ namespace MeghalayaUIP.User.Services
     {
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, Questionnaire, ErrorMsg = "", result = "", UID = "";
+        string Questionnaire, ErrorMsg = "", result = "", UID = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -36,9 +36,20 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    //if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    //{
+                    //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                    //}
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                        Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                        if (!IsPostBack)
+                        {
+                            divProducer.Visible = false;
+                            divBrandOwner.Visible = false;
+
+                            GetAppliedorNot();                           
+                        }
                     }
                     else
                     {
@@ -46,14 +57,7 @@ namespace MeghalayaUIP.User.Services
                         Response.Redirect(newurl);
                     }
 
-                    if (!IsPostBack)
-                    {
-                        divProducer.Visible = false;
-                        divBrandOwner.Visible = false;
-
-                        GetAppliedorNot();
-                        //BindData();
-                    }
+                   
                 }
             }
             catch (Exception ex)
@@ -77,8 +81,7 @@ namespace MeghalayaUIP.User.Services
                     if (Convert.ToString(ds.Tables[0].Rows[0]["SRVCDA_APPROVALID"]) == "105")
                     {
                         BindStates();
-                        BindDistricts();
-                       // BindData();
+                        BindDistricts();                       
                     }
                 }
                 else
@@ -591,7 +594,6 @@ namespace MeghalayaUIP.User.Services
                         // Assigning session values
                         serviceProdPlasticsWasteDetails.SrvcQdId = "116";//Convert.ToString(Session["SRVCQID"]);
                         serviceProdPlasticsWasteDetails.CreatedBy = "1001";// hdnUserID.Value;
-                        serviceProdPlasticsWasteDetails.UnitId = "1001";// Convert.ToString(Session["SRVCUNITID"]);
                         serviceProdPlasticsWasteDetails.CreatedByIp = getclientIP();
 
                         // Assigning values from producer form controls
@@ -638,7 +640,6 @@ namespace MeghalayaUIP.User.Services
                         // Assigning session values
                         serviceBOPlasticsWasteDetails.SrvcQdId = "116";//Convert.ToString(Session["SRVCQID"]);
                         serviceBOPlasticsWasteDetails.CreatedBy = "1001"; //hdnUserID.Value;
-                        serviceBOPlasticsWasteDetails.UnitId = "1001";// Convert.ToString(Session["SRVCUNITID"]);
                         serviceBOPlasticsWasteDetails.CreatedByIp = getclientIP();
 
                         // Assigning values from brand owner form controls
