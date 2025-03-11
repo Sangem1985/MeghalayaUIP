@@ -419,7 +419,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return Result;
         }
-        public string InsertBMWWASTEDET(DataTable dtBMWDetails, string Unitid, string Questionnaire, string Createdby, string IPAddress)
+        public string InsertBMWWASTEDET(DataTable dtBMWDetails, string Questionnaire, string Createdby, string IPAddress)
         {
             string result = "";
             SqlConnection connection = new SqlConnection(connstr);
@@ -437,7 +437,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Transaction = transaction;
 
-                        cmd.Parameters.AddWithValue("@BMW_UNITID", Unitid);
+                        //cmd.Parameters.AddWithValue("@BMW_UNITID", Unitid);
                         cmd.Parameters.AddWithValue("@BMW_CREATEDBY", Createdby);
                         cmd.Parameters.AddWithValue("@BMW_CREATEDBYIP", IPAddress);
                         cmd.Parameters.AddWithValue("@BMW_SERVICEQDID", Questionnaire);

@@ -47,9 +47,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.SRVCBMWWASTEDET(ObjBMWDetails);
         }
-        public string InsertBMWWASTEDET(DataTable dtBMWDetails, string Unitid, string Questionnaire, string Createdby, string IPAddress)
+        public string InsertBMWWASTEDET(DataTable dtBMWDetails,string Questionnaire, string Createdby, string IPAddress)
         {
-            return SvrcDal.InsertBMWWASTEDET(dtBMWDetails, Unitid, Questionnaire, Createdby, IPAddress);
+            return SvrcDal.InsertBMWWASTEDET(dtBMWDetails, Questionnaire, Createdby, IPAddress);
         }
         public string InsertSRVCAttachments(SRVCAttachments objAttach)
         {
