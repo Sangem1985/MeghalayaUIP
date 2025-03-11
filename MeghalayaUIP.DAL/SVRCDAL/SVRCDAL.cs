@@ -880,7 +880,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetApplicationStatus(string userid, string UnitID, string Status)
+        public DataSet GetApplicationStatus(string userid, string SRVCQID, string Status)
         {
 
             DataSet ds = new DataSet();
@@ -899,7 +899,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@USERID", userid);
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitID);
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQID", SRVCQID);
                 da.SelectCommand.Parameters.AddWithValue("@TYPE", Status);
                 da.Fill(ds);
                 transaction.Commit();
