@@ -91,11 +91,15 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (e.Row.RowType == DataControlRowType.DataRow)
+                if(e.Row.RowType == DataControlRowType.Header)
                 {
                     CheckBox chkHeader = (CheckBox)e.Row.FindControl("chkHeader");
-                    CheckBox chkSel = (CheckBox)e.Row.FindControl("chkSel");
                     chkHeader.Checked = true; chkHeader.Enabled = false;
+
+                }
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkSel = (CheckBox)e.Row.FindControl("chkSel");
                     chkSel.Checked = true; chkSel.Enabled = false;
                     decimal Approvalfee = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "SRVCDA_APPROVALFEE"));
                     TotFee = TotFee + Approvalfee;
@@ -139,7 +143,6 @@ namespace MeghalayaUIP.User.Services
                         Label ApprovalID = (Label)row.FindControl("lblApprID");
                         Label DeptID = (Label)row.FindControl("lblDeptID");
 
-                        SRVCPayment.UNITID = Convert.ToString(Session["SRVCUNITID"]);
                         SRVCPayment.Questionnareid = Convert.ToString(Session["SRVCQID"]);
                         SRVCPayment.SRVCUID = hdnUIDNo.Value;
                         SRVCPayment.DeptID = DeptID.Text;

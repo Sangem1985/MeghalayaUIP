@@ -35,30 +35,26 @@ namespace MeghalayaUIP.User.Services
                     if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
                         SRVCQID = Convert.ToString(Session["SRVCQID"]);
-                    }
-
-                    if (Request.QueryString.Count > 0)
-                    {
-                        SRVCQID = Convert.ToString(Request.QueryString[0]);
-                        lblType.Text = " " + Request.QueryString[1].ToString() + ":";
-                        if (Request.QueryString[1].ToString() == "UnderProcess")
-                        { lblType.Text = " Under Process:"; }
-                        if (Request.QueryString[1].ToString() == "ScrutinyCompleted")
-                        { lblType.Text = " Scrutiny Completed:"; }
-                        if (Request.QueryString[1].ToString() == "ScrutinyPending")
-                        { lblType.Text = " Scrutiny Pending:"; }
-
-                    }
+                        if (Request.QueryString.Count > 0)
+                        {                            
+                            lblType.Text = " " + Request.QueryString[1].ToString() + ":";
+                            if (Request.QueryString[1].ToString() == "UnderProcess")
+                            { lblType.Text = " Under Process:"; }
+                            if (Request.QueryString[1].ToString() == "ScrutinyCompleted")
+                            { lblType.Text = " Scrutiny Completed:"; }
+                            if (Request.QueryString[1].ToString() == "ScrutinyPending")
+                            { lblType.Text = " Scrutiny Pending:"; }
+                            if (!IsPostBack)
+                            {
+                                BindApplStatus();
+                            }
+                        }
+                    }                    
                     else
                     {
-                        string newurl = "~/User/MainDashboard.aspx";
+                        string newurl = "~/User/Services/SRVCUserDashboard.aspx";
                         Response.Redirect(newurl);
-                    }
-
-                    if (!IsPostBack)
-                    {
-                        BindApplStatus();
-                    }
+                    }                   
                 }
                 else
                 {
@@ -218,7 +214,7 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet dsApprovals = new DataSet();
-                SRVCQID = Convert.ToString(Request.QueryString[0]);
+                SRVCQID = Convert.ToString(Convert.ToString(Session["SRVCQID"]));
 
                 dsApprovals = objSrvcbal.GetApplicationStatus(hdnUserID.Value, SRVCQID, Request.QueryString[1].ToString());
                 if (dsApprovals.Tables.Count > 0)

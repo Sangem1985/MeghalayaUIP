@@ -91,11 +91,13 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (dsApproved != null && dsApproved.Tables[0].Rows.Count > 0)
                     {
+                        btnApplyAgain.Visible = true;
                         GvServices.DataSource = dsApproved.Tables[0];
                         GvServices.DataBind();
                     }
                     else
                     {
+                        btnApplyAgain.Visible = false;
                         GvServices.DataSource = null;
                         GvServices.DataBind();
                     }
@@ -147,16 +149,16 @@ namespace MeghalayaUIP.User.Services
                     string Applstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "SRVCAPPLSTATUS"));
 
                     if (Applstatus == "3")
-                    {                       
-                        btnApplyAgain.Visible = true;
+                    { 
                         btnApplySRVC.Enabled = false;
                         btnCombndAppl.Enabled = true;
                         btnApplStatus.Enabled = true;
                     }
-                    else if (Applstatus == "2")
+                    if (Applstatus == "2")
                     {
+                        btnApplyAgain.Visible = false;
                         btnApplySRVC.Text = "Incomplete";
-                        Session["SRVCQID"] = lblSRVCQDID.Text.ToString();
+                        //Session["SRVCQID"] = lblSRVCQDID.Text.ToString();
                         anchortaglinkStatus.NavigateUrl = "EnterpriseDetails.aspx";
                         anchortaglinkStatus.Text = "Incomplete Application";
                         btnApplyAgain.Visible = false;
