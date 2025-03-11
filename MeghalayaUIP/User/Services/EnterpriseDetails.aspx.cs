@@ -855,7 +855,7 @@ namespace MeghalayaUIP.User.Services
                     ObjApplicationDetails.Designation = txtDesignation.Text;
                     ObjApplicationDetails.WOMEN = rblWomen.SelectedValue;
                     ObjApplicationDetails.ABLED = rblAbled.SelectedValue;
-                    ObjApplicationDetails.DIRECTFEMALE = txtMale.Text;
+                    ObjApplicationDetails.DIRECTMALE = txtMale.Text;
                     ObjApplicationDetails.DIRECTFEMALE = txtFemale.Text;
                     ObjApplicationDetails.DIRECTEMP = txtDirectOthers.Text;
                     ObjApplicationDetails.INDIRECTMALE = txtIndirectMale.Text;

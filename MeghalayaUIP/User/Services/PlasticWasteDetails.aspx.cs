@@ -70,7 +70,7 @@ namespace MeghalayaUIP.User.Services
             {
                 DataSet ds = new DataSet();
 
-                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "105");
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCQID"]), "12", "105");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {

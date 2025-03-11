@@ -200,7 +200,10 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCED_EMAIL", ObjApplicationDetails.Email);
                 com.Parameters.AddWithValue("@SRVCED_MOBILENUMBER", Convert.ToInt64(ObjApplicationDetails.MobileNumber));
                 com.Parameters.AddWithValue("@SRVCED_ALTERNUMBER", Convert.ToInt64(ObjApplicationDetails.ALTERNATIVAENO));
-                com.Parameters.AddWithValue("@SRVCED_LANDLINENUMBER", Convert.ToInt64(ObjApplicationDetails.LANDLINENO));
+                if (ObjApplicationDetails.LANDLINENO !=null && ObjApplicationDetails.LANDLINENO !="")
+                {
+                    com.Parameters.AddWithValue("@SRVCED_LANDLINENUMBER", Convert.ToInt64(ObjApplicationDetails.LANDLINENO));
+                }
                 com.Parameters.AddWithValue("@SRVCED_DOOR", ObjApplicationDetails.DoorNo);
                 com.Parameters.AddWithValue("@SRVCED_LOCALITYADD", ObjApplicationDetails.Local);
                 com.Parameters.AddWithValue("@SRVCED_STATE", ObjApplicationDetails.State);
@@ -215,7 +218,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCED_DESIGNATION", ObjApplicationDetails.Designation);
                 com.Parameters.AddWithValue("@SRVCED_WOMENENTREPRENEUR", ObjApplicationDetails.WOMEN);
                 com.Parameters.AddWithValue("@SRVCED_ABLED", ObjApplicationDetails.ABLED);
-                com.Parameters.AddWithValue("@SRVCED_DIRECTMALE", Convert.ToInt32(ObjApplicationDetails.DIRECTFEMALE));
+                com.Parameters.AddWithValue("@SRVCED_DIRECTMALE", Convert.ToInt32(ObjApplicationDetails.DIRECTMALE));
                 com.Parameters.AddWithValue("@SRVCED_DIRECTFEMALE", Convert.ToInt32(ObjApplicationDetails.DIRECTFEMALE));
                 com.Parameters.AddWithValue("@SRVCED_DIRECTEMP", ObjApplicationDetails.DIRECTEMP);
                 com.Parameters.AddWithValue("@SRVCED_INDIRECTMALE", Convert.ToInt32(ObjApplicationDetails.INDIRECTFEMALE));
@@ -591,7 +594,10 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitId));
+                if(UnitId !=null && UnitId != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitId));
+                }
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -625,7 +631,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Connection = connection;
                 com.Parameters.AddWithValue("@SRVCAPPROVALSXML", ObjApplicationDetails.SRVCApprovalsXml);
                 com.Parameters.AddWithValue("@APPROVALS", ObjApplicationDetails.ApprovalID);
-                com.Parameters.AddWithValue("@UNITID", ObjApplicationDetails.UnitId);
+                //com.Parameters.AddWithValue("@UNITID", ObjApplicationDetails.UnitId);
                 com.Parameters.AddWithValue("@SRVCQDID", ObjApplicationDetails.Questionnariid);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -756,7 +762,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-                com.Parameters.AddWithValue("@SRVCSWD_UNITID", Convert.ToInt32(ObjSWMDet.unitid));
+               // com.Parameters.AddWithValue("@SRVCSWD_UNITID", Convert.ToInt32(ObjSWMDet.unitid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBY", Convert.ToInt32(ObjSWMDet.createdby));
                 com.Parameters.AddWithValue("@SRVCSWD_SRVCQDID", Convert.ToInt32(ObjSWMDet.Questionnariid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBYIP", ObjSWMDet.createdbyip);
@@ -834,7 +840,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetsrvcapprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
+        public DataSet GetsrvcapprovalID(string userid, string QusestionnaireID, string DeptID, string ApprovalID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -852,7 +858,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
+                //da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
                 da.SelectCommand.Parameters.AddWithValue("@USERID", userid);
                 da.SelectCommand.Parameters.AddWithValue("@SRVCQID", QusestionnaireID);
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);

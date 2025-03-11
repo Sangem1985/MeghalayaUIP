@@ -161,6 +161,7 @@ namespace MeghalayaUIP.User.Services
                         anchortaglinkStatus.Text = "Incomplete Application";
                         btnApplyAgain.Visible = false;
                         anchortaglinkStatus.Visible = true;
+                        btnApplStatus.Enabled = false;
                     }
                    
 

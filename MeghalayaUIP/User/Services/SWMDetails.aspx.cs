@@ -21,7 +21,7 @@ namespace MeghalayaUIP.User.Services
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
 
-        string UnitID, ErrorMsg = "", result, Questionnaire;
+        string  ErrorMsg = "", result, Questionnaire;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -36,10 +36,10 @@ namespace MeghalayaUIP.User.Services
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                {
-                    UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                }
+                //if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                //{
+                //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                //}
                 if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
                 {
                     Questionnaire = Convert.ToString(Session["SRVCQID"]);
@@ -64,7 +64,7 @@ namespace MeghalayaUIP.User.Services
             {
                 DataSet ds = new DataSet();
 
-                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "82");
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCQID"]), "12", "82");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -137,7 +137,7 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet ds = new DataSet();
-                ds = objSrvcbal.GetSrvcSWMDetails(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]));
+                ds = objSrvcbal.GetSrvcSWMDetails(hdnUserID.Value, Convert.ToString(Session["SRVCQID"]));
 
                 if (ds != null && ds.Tables.Count > 0)
                 {
@@ -248,7 +248,7 @@ namespace MeghalayaUIP.User.Services
 
                     string selectedActivities = string.Join(", ", selectedItems);
 
-                    ObjSWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
+                   // ObjSWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
                     ObjSWMDet.Questionnariid = Convert.ToString(Session["SRVCQID"]);
                     ObjSWMDet.createdby = hdnUserID.Value;
                     ObjSWMDet.createdbyip = getclientIP();
