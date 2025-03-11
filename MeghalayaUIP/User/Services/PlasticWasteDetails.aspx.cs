@@ -18,7 +18,7 @@ namespace MeghalayaUIP.User.Services
     {
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, Questionnaire, ErrorMsg = "", result = "", UID = "";
+        string Questionnaire, ErrorMsg = "", result = "", UID = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try

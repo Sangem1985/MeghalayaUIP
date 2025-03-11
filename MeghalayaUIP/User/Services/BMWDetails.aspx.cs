@@ -484,7 +484,7 @@ namespace MeghalayaUIP.User.Services
             // Define columns for the DataTable
             dt.Columns.Add("BMW_ID", typeof(string));
             dt.Columns.Add("BMW_SERVICEQDID", typeof(string));
-            dt.Columns.Add("BMW_UNITID", typeof(string));
+           // dt.Columns.Add("BMW_UNITID", typeof(string));
             dt.Columns.Add("BMW_CREATEDBY", typeof(string));
             dt.Columns.Add("BMW_EQUIPMENT", typeof(string));
             dt.Columns.Add("BMW_NO_UNIT", typeof(string));
@@ -523,7 +523,7 @@ namespace MeghalayaUIP.User.Services
                 if (dt.Rows.Count > 0)
                 {
                     // SvrcBMWDet objSrvcbal = new SvrcBMWDet(); // Ensure this is initialized
-                    result = objSrvcbal.InsertBMWWASTEDET(dt, UnitID, Questionnaire, hdnUserID.Value, getclientIP());
+                    result = objSrvcbal.InsertBMWWASTEDET(dt, Questionnaire, hdnUserID.Value, getclientIP());
                 }
                 else
                 {
