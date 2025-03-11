@@ -113,9 +113,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSrvcDashBoard(objSrvc);
         }
-        public DataSet GetSrvcPDCLDetails(string userid, string UNITID)
+        public DataSet GetSrvcPDCLDetails(string userid, string SRVCQID)
         {
-            return SvrcDal.GetSrvcPDCLDetails(userid, UNITID);
+            return SvrcDal.GetSrvcPDCLDetails(userid, SRVCQID);
         }
 
 
