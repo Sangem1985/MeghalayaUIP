@@ -21,7 +21,7 @@ namespace MeghalayaUIP.User.Services
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
 
-        string UnitID, ErrorMsg = "", result;
+        string SRVCQID, ErrorMsg = "", result;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -38,9 +38,9 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                        SRVCQID = Convert.ToString(Session["SRVCQID"]);
                     }
                     else
                     {
@@ -69,7 +69,7 @@ namespace MeghalayaUIP.User.Services
             {
                 DataSet ds = new DataSet();
 
-                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCQID"]), "12", "106");
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value,  Convert.ToString(Session["SRVCQID"]), "12", "106");
                 
 
                 if (ds.Tables[0].Rows.Count > 0)

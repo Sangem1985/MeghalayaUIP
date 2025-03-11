@@ -22,7 +22,7 @@ namespace MeghalayaUIP.User.Services
         SVRCBAL objSrvcbal = new SVRCBAL();
 
         
-        string UnitID, result, errormsg = "";
+        string SRVCQID, result, errormsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -40,9 +40,9 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                        SRVCQID = Convert.ToString(Session["SRVCQID"]);
                     }
                     else
                     {

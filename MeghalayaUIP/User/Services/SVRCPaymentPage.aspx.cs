@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -92,8 +93,14 @@ namespace MeghalayaUIP.User.Services
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
+                    CheckBox chkHeader = (CheckBox)e.Row.FindControl("chkHeader");
+                    CheckBox chkSel = (CheckBox)e.Row.FindControl("chkSel");
+                    chkHeader.Checked = true; chkHeader.Enabled = false;
+                    chkSel.Checked = true; chkSel.Enabled = false;
                     decimal Approvalfee = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "SRVCDA_APPROVALFEE"));
                     TotFee = TotFee + Approvalfee;
+                    lblPaymentAmount.InnerText = TotFee.ToString();
+                    ViewState["Amount"] = TotFee.ToString();
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {
