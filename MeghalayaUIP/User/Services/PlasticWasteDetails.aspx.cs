@@ -30,16 +30,15 @@ namespace MeghalayaUIP.User.Services
                     if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
                     {
                         ObjUserInfo = (UserInfo)Session["UserInfo"];
-
                     }
                     if (hdnUserID.Value == "")
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                    {
-                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                    }
+                    //if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    //{
+                    //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                    //}
                     else
                     {
                         string newurl = "~/User/Services/SRVCUserDashboard.aspx";
@@ -48,11 +47,12 @@ namespace MeghalayaUIP.User.Services
 
                     if (!IsPostBack)
                     {
+                        Questionnaire = Convert.ToString(Session["SRVCQID"]);
                         divProducer.Visible = false;
                         divBrandOwner.Visible = false;
 
                         GetAppliedorNot();
-                        //BindData();
+                        BindData();
                     }
                 }
             }
@@ -78,7 +78,6 @@ namespace MeghalayaUIP.User.Services
                     {
                         BindStates();
                         BindDistricts();
-                       // BindData();
                     }
                 }
                 else
@@ -103,64 +102,64 @@ namespace MeghalayaUIP.User.Services
         }
 
 
-        //private void BindData()
-        //{
-        //    try
-        //    {
-        //        // Fetching session values
-        //        string srvcQdId = Convert.ToString(116);
-        //        string unitId = Convert.ToString("1001");
+        private void BindData()
+        {
+            try
+            {
+                // Fetching session values
+                string srvcQdId = Convert.ToString(116);
+                string unitId = Convert.ToString("1001");
 
-        //        if (rblRole.SelectedValue == "Producer")
-        //        {
+                if (rblRole.SelectedValue == "Producer")
+                {
 
-        //            DataSet ds = new DataSet();
-        //            ds = objSrvcbal.GetProdPlasticWasteDetails(srvcQdId, unitId);
+                    DataSet ds = new DataSet();
+                    ds = objSrvcbal.GetProdPlasticWasteDetails(srvcQdId, unitId);
 
-        //            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-        //            {
-        //                DataRow row = ds.Tables[0].Rows[0];
+                    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        DataRow row = ds.Tables[0].Rows[0];
 
-        //                txtProdName.Text = row["SRVCPWD_NAMEOFPROD"].ToString();
-        //                txtUnitName.Text = row["SRVCPWD_NAMEOFUNIT"].ToString();
+                        txtProdName.Text = row["SRVCPWD_NAMEOFPROD"].ToString();
+                        txtUnitName.Text = row["SRVCPWD_NAMEOFUNIT"].ToString();
 
-        //                string[] selectedCarryBag = ds.Tables[0].Rows[0]["SRVCPWD_CARRYBAG"].ToString().Split('/');
+                        string[] selectedCarryBag = ds.Tables[0].Rows[0]["SRVCPWD_CARRYBAG"].ToString().Split('/');
 
-        //                foreach (ListItem item in chkCarryBags.Items)
-        //                {
-        //                    if (selectedCarryBag.Contains(item.Text.Trim()))
-        //                    {
-        //                        item.Selected = true;
-        //                    }
-        //                }
-        //                chkMultilayeredPlastics.Text = row["SRVCPWD_MULTILAYEREDPLASTIC"].ToString();
+                        foreach (ListItem item in chkCarryBags.Items)
+                        {
+                            if (selectedCarryBag.Contains(item.Text.Trim()))
+                            {
+                                item.Selected = true;
+                            }
+                        }
+                        chkMultilayeredPlastics.Text = row["SRVCPWD_MULTILAYEREDPLASTIC"].ToString();
 
-        //                txtManufacturingCapacity.Text = row["SRVCPWD_MANFCTRNGCAPACITY"].ToString();
-        //                txtPreviousRegistration.Text = row["SRVCPWD_PREVREGNO"].ToString();
-        //                txtDate.Text = Convert.ToDateTime(row["SRVCPWD_REGDATE"]).ToString();
-        //                txtCapitalInvestment.Text = row["SRVCPWD_TOTCAPTLINV"].ToString();
-        //                txtCommencementYear.Text = row["SRVCPWD_YEAROFCMNCEMNT"].ToString();
-        //                txtProductsList.Text = row["SRVCPWD_LISTQNTMPROD"].ToString();
-        //                txtRawMaterials.Text = row["SRVCPWD_LISTQNTMRAWMAT"].ToString();
-        //                txtTotalWaste.Text = row["SRVCPWD_TOTALQNTMWASTEGENERATED"].ToString();
-        //                txtStorageMode.Text = row["SRVCPWD_MODEOFSTORAGEWITHINPLANT"].ToString();
-        //                txtDisposal.Text = row["SRVCPWD_DISPOSALPROVISION"].ToString();
-        //                rblCmplnc.Text = row["SRVCPWD_COMPLIANCE"].ToString();
-        //            }
-        //        }
-        //        else if (rblRole.SelectedValue == "BrandOwner") 
-        //        {
+                        txtManufacturingCapacity.Text = row["SRVCPWD_MANFCTRNGCAPACITY"].ToString();
+                        txtPreviousRegistration.Text = row["SRVCPWD_PREVREGNO"].ToString();
+                        txtDate.Text = Convert.ToDateTime(row["SRVCPWD_REGDATE"]).ToString();
+                        txtCapitalInvestment.Text = row["SRVCPWD_TOTCAPTLINV"].ToString();
+                        txtCommencementYear.Text = row["SRVCPWD_YEAROFCMNCEMNT"].ToString();
+                        txtProductsList.Text = row["SRVCPWD_LISTQNTMPROD"].ToString();
+                        txtRawMaterials.Text = row["SRVCPWD_LISTQNTMRAWMAT"].ToString();
+                        txtTotalWaste.Text = row["SRVCPWD_TOTALQNTMWASTEGENERATED"].ToString();
+                        txtStorageMode.Text = row["SRVCPWD_MODEOFSTORAGEWITHINPLANT"].ToString();
+                        txtDisposal.Text = row["SRVCPWD_DISPOSALPROVISION"].ToString();
+                        rblCmplnc.Text = row["SRVCPWD_COMPLIANCE"].ToString();
+                    }
+                }
+                else if (rblRole.SelectedValue == "BrandOwner")
+                {
 
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        lblmsg0.Text = ex.Message;
-        //        Failure.Visible = true;
-        //        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-        //    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
 
-        //}
+        }
 
         protected void BindStates()
         {
@@ -589,9 +588,10 @@ namespace MeghalayaUIP.User.Services
                         ServiceProdPlasticsWasteDetails serviceProdPlasticsWasteDetails = new ServiceProdPlasticsWasteDetails();
 
                         // Assigning session values
-                        serviceProdPlasticsWasteDetails.SrvcQdId = "116";//Convert.ToString(Session["SRVCQID"]);
-                        serviceProdPlasticsWasteDetails.CreatedBy = "1001";// hdnUserID.Value;
-                        serviceProdPlasticsWasteDetails.UnitId = "1001";// Convert.ToString(Session["SRVCUNITID"]);
+                        //serviceProdPlasticsWasteDetails.UnitId = "1001";// Convert.ToString(Session["SRVCUNITID"]);
+
+                        serviceProdPlasticsWasteDetails.SrvcQdId = Convert.ToString(Session["SRVCQID"]);
+                        serviceProdPlasticsWasteDetails.CreatedBy = hdnUserID.Value;
                         serviceProdPlasticsWasteDetails.CreatedByIp = getclientIP();
 
                         // Assigning values from producer form controls
@@ -636,9 +636,9 @@ namespace MeghalayaUIP.User.Services
                         ServiceBOPlasticsWasteDetails serviceBOPlasticsWasteDetails = new ServiceBOPlasticsWasteDetails();
 
                         // Assigning session values
-                        serviceBOPlasticsWasteDetails.SrvcQdId = "116";//Convert.ToString(Session["SRVCQID"]);
-                        serviceBOPlasticsWasteDetails.CreatedBy = "1001"; //hdnUserID.Value;
-                        serviceBOPlasticsWasteDetails.UnitId = "1001";// Convert.ToString(Session["SRVCUNITID"]);
+                        serviceBOPlasticsWasteDetails.SrvcQdId = Convert.ToString(Session["SRVCQID"]);
+                        serviceBOPlasticsWasteDetails.CreatedBy = hdnUserID.Value;
+                        //serviceBOPlasticsWasteDetails.UnitId = "1001";// Convert.ToString(Session["SRVCUNITID"]);
                         serviceBOPlasticsWasteDetails.CreatedByIp = getclientIP();
 
                         // Assigning values from brand owner form controls
