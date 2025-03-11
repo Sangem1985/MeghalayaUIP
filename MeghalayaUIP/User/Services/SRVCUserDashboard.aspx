@@ -98,7 +98,7 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apply For Services">
+                                <asp:TemplateField HeaderText="Apply For Services" Visible="false">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnApplySRVC" OnClick="btnApplySRVC_Click" Text="Apply" CssClass="btn btn-info btn-rounded btn-sm" />
                                     </ItemTemplate>
@@ -110,10 +110,9 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-
                                 <asp:TemplateField HeaderText="View Application Status " ItemStyle-Width="12%">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="Application Status" CssClass="btn btn-info btn-rounded" />
+                                        <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="View" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>

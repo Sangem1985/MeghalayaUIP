@@ -267,7 +267,7 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-              //  ErrorMsg = stepValidations();
+              ErrorMsg = stepValidations();
                 if (ErrorMsg == "")
                 {
                     SRVCCDWMdetails ObjCDWMDet = new SRVCCDWMdetails();
@@ -373,7 +373,6 @@ namespace MeghalayaUIP.User.Services
                         }
 
                         SRVCAttachments objDPR = new SRVCAttachments();
-                        objDPR.UNITID = Convert.ToString(Session["SRVCUNITID"]);
                         objDPR.Questionnareid = Convert.ToString(Session["SRVCQID"]);
                         objDPR.MasterID = "6";
                         objDPR.FilePath = serverpath + fupDPR.PostedFile.FileName;

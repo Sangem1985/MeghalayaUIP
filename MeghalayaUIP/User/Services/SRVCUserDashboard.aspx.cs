@@ -161,7 +161,7 @@ namespace MeghalayaUIP.User.Services
                         anchortaglinkStatus.Text = "Incomplete Application";
                         btnApplyAgain.Visible = false;
                         anchortaglinkStatus.Visible = true;
-                        btnApplStatus.Enabled = false;
+                        btnApplStatus.Text = "Incomplete";
                     }
                    
 
@@ -207,10 +207,14 @@ namespace MeghalayaUIP.User.Services
             {
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
-
+                Label lblSRVCAPPLSTATUS = (Label)row.FindControl("lblSRVCAPPLSTATUS");
                 Label lblSRVCQDID = (Label)row.FindControl("lblSRVCQDID");
                 Session["SRVCQID"] = lblSRVCQDID.Text;
-                string newurl = "SRVCDashBoardStatus.aspx";
+                string newurl = "";
+                if(lblSRVCAPPLSTATUS.Text=="3")
+                    newurl="SRVCDashBoardStatus.aspx";
+                else if (lblSRVCAPPLSTATUS.Text == "2")
+                    newurl = "EnterpriseDetails.aspx";
                 Response.Redirect(newurl);
             }
             catch (Exception ex)

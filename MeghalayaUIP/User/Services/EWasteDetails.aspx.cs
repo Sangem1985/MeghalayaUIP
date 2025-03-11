@@ -21,7 +21,7 @@ namespace MeghalayaUIP.User.Services
     {
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, ErrorMsg = "", result = "", Questionnaire;
+        string SRVCQID, ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -38,13 +38,9 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    //if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                    //{
-                    //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                    //}
                     if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
-                        Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                        SRVCQID = Convert.ToString(Session["SRVCQID"]);
                         if (!IsPostBack)
                         {
                             GetAppliedorNot();
@@ -57,7 +53,7 @@ namespace MeghalayaUIP.User.Services
                     }
 
 
-                   
+                    
                 }
 
             }
@@ -463,7 +459,6 @@ namespace MeghalayaUIP.User.Services
                     serviceEWasteDetails.SrvcQdId = Convert.ToString(Session["SRVCQID"]);
                     serviceEWasteDetails.CreatedBy = hdnUserID.Value;
                     ///serviceEWasteDetails.UidNo = "SRVC/2025/116";
-                  //  serviceEWasteDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                     serviceEWasteDetails.CreatedByIp = getclientIP();
 
                     serviceEWasteDetails.Name = txtNameLocalBody.Text;
