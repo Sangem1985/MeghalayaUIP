@@ -114,15 +114,6 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.Label lblUnitID;
 
         /// <summary>
-        /// lblDOA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDOA;
-
-        /// <summary>
         /// lblUnitNmae control.
         /// </summary>
         /// <remarks>
@@ -130,15 +121,6 @@ namespace MeghalayaUIP.User.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUnitNmae;
-
-        /// <summary>
-        /// lblProjCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProjCategory;
 
         /// <summary>
         /// grdTrackerDetails control.

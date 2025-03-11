@@ -223,11 +223,11 @@ namespace MeghalayaUIP.User.Services
                     {
                         grdTrackerDetails.DataSource = dsApprovals.Tables[0];
                         grdTrackerDetails.DataBind();
-                        lblDOA.Text = Convert.ToString(dsApprovals.Tables[0].Rows[0]["DATEOFAPPLICATION"]);
+                       // lblDOA.Text = Convert.ToString(dsApprovals.Tables[0].Rows[0]["DATEOFAPPLICATION"]);
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {
-                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["SRVCED_UNITID"]);
+                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["SRVCED_UIDNO"]);
                         lblUnitNmae.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["SRVCED_NAMEOFUNIT"]);
 
                     }
