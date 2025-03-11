@@ -41,6 +41,10 @@ namespace MeghalayaUIP.User.Services
                     if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
                         SRVCQID = Convert.ToString(Session["SRVCQID"]);
+                        if (!IsPostBack)
+                        {
+                            GetAppliedorNot();
+                        }
                     }
                     else
                     {
@@ -48,11 +52,7 @@ namespace MeghalayaUIP.User.Services
                         Response.Redirect(newurl);
                     }
                     Page.MaintainScrollPositionOnPostBack = true;
-
-                    if (!IsPostBack)
-                    {
-                        GetAppliedorNot();
-                    }
+                    
                 }
 
             }

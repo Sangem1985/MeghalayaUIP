@@ -48,7 +48,7 @@ namespace MeghalayaUIP.User.Services
                     {
                         UnitID = Convert.ToString(Session["SRVCUNITID"]);
                     }
-                    if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
+                    if (Convert.ToString(Session["SRVCQID"]) != "" )
                     {
                         Questionnaire = Convert.ToString(Session["SRVCQID"]);
                     }

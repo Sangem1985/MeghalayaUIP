@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.Services
     public partial class SRVCDashBoardStatus : System.Web.UI.Page
     {
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, newurl = "";
+        string SRVCQID, newurl = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -32,9 +32,9 @@ namespace MeghalayaUIP.User.Services
                         hdnUserID.Value = ObjUserInfo.Userid;
 
                     }
-                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                        SRVCQID = Convert.ToString(Session["SRVCQID"]);
                     }
 
                     if (!IsPostBack)
@@ -59,7 +59,7 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet ds = new DataSet();
-                ds = objSrvcbal.GetUserSRVCApplStatus(hdnUserID.Value, UnitID);
+                ds = objSrvcbal.GetUserSRVCApplStatus(hdnUserID.Value, SRVCQID);
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)

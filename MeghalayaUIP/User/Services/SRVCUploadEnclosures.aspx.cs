@@ -43,6 +43,10 @@ namespace MeghalayaUIP.User.Services
                     if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
                         SRVCQID = Convert.ToString(Session["SRVCQID"]);
+                        if (!IsPostBack)
+                        {
+                            BindData();
+                        }
                     }
                     else
                     {
@@ -53,12 +57,7 @@ namespace MeghalayaUIP.User.Services
                     Page.MaintainScrollPositionOnPostBack = true;
 
                     Failure.Visible = false;
-                    success.Visible = false;
-                    if (!IsPostBack)
-                    {
-
-                        BindData();
-                    }
+                    success.Visible = false;                    
                 }
 
             }
@@ -216,7 +215,6 @@ namespace MeghalayaUIP.User.Services
                         }
 
                         SRVCAttachments objLandDoc = new SRVCAttachments();
-                        objLandDoc.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
                         objLandDoc.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
                         objLandDoc.MasterID = "14";
                         objLandDoc.FilePath = serverpath + fupLandDoc.PostedFile.FileName;
@@ -269,7 +267,7 @@ namespace MeghalayaUIP.User.Services
                     {
                         string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Site Plan / Plan Layout" + "\\";
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Site Plan" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);

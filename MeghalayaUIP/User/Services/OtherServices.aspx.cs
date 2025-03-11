@@ -33,21 +33,22 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    //if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                    //{
-                    //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                    //}
-                    if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
+                   
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
                         Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                        if (!IsPostBack)
+                        {
+                            Binddata();
+                        }
                     }
-
-                    Page.MaintainScrollPositionOnPostBack = true;
-
-                    if (!IsPostBack)
+                    else
                     {
-                       Binddata();
+                        string newurl = "~/User/Services/SRVCUserDashboard.aspx";
+                        Response.Redirect(newurl);
                     }
+
+                    Page.MaintainScrollPositionOnPostBack = true;                    
                 }
                 else
                 {
@@ -66,8 +67,7 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet dsnew = new DataSet();
-               // string UserId = "1";
-               // string UnitId = Session["SRVCUNITID"].ToString();
+              
                 dsnew = objSrvcbal.GetSRVCApprovals(hdnUserID.Value, Convert.ToString(Session["SRVCQID"]));
                 if (dsnew != null && dsnew.Tables.Count > 0)
                 {
@@ -107,9 +107,6 @@ namespace MeghalayaUIP.User.Services
                         Label lblApprovalFee = (Label)row.FindControl("lblApprovalFee");
                         ApprovalIds = ApprovalIds + "," + lblApprovalId.Text.ToString();
                         ApprovalIds = ApprovalIds.Trim().TrimStart(',');
-
-
-
                     }
                 }
                 if (ApprovalIds == "")
@@ -134,7 +131,6 @@ namespace MeghalayaUIP.User.Services
                             lstsrvcApprovals.Add(new SRVCApprovals
                             {
                                 SRVCQDID = Session["SRVCQID"].ToString(),
-                               // UnitId = Session["SRVCUNITID"].ToString(),
                                 ApprovalId = lblApprovalId.Text.ToString(),
                                 DeptId = lblDeptId.Text.ToString(),
                                 ApprovalFee = lblApprovalFee.Text.ToString(),

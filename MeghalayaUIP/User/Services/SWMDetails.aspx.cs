@@ -21,7 +21,7 @@ namespace MeghalayaUIP.User.Services
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
 
-        string  ErrorMsg = "", result, Questionnaire;
+        string ErrorMsg = "", result, Questionnaire;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserInfo"] != null)
@@ -36,25 +36,21 @@ namespace MeghalayaUIP.User.Services
                 {
                     hdnUserID.Value = ObjUserInfo.Userid;
                 }
-                //if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                //{
-                //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                //}
-                if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
+
+                if (Convert.ToString(Session["SRVCQID"]) != "" )
                 {
                     Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                    if (!IsPostBack)
+                    {
+                        GetAppliedorNot();
+                    }
                 }
-                //else
-                //{
-                //    string newurl = "~/User/Services/SRVCUserDashboard.aspx";
-                //    Response.Redirect(newurl);
-                //}
-
-
-                if (!IsPostBack)
+                else
                 {
-                    GetAppliedorNot();
+                    string newurl = "~/User/Services/SRVCUserDashboard.aspx";
+                    Response.Redirect(newurl);
                 }
+                
             }
 
         }
@@ -72,7 +68,6 @@ namespace MeghalayaUIP.User.Services
                     {
                         BindAuthYearsDropdown();
                         BindData();
-                        
                     }
                 }
                 else
@@ -85,8 +80,6 @@ namespace MeghalayaUIP.User.Services
                             Response.Redirect("~/User/Services/OtherServices.aspx?Previous=" + "P");
                     }
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -155,7 +148,7 @@ namespace MeghalayaUIP.User.Services
                         txtNameLocalBody.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NAMELOCALOPERATOR"]);
                         txtDesignation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_NODALAUTHORISEDAGENCY"]);
                         // CHKAuthorization.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_AUTHORIZATIONOPEARTION"]);
-                        ddlAuthYears.SelectedValue= Convert.ToString(ds.Tables[0].Rows[0]["SRVCSOLIDWASTENO"]);
+                        ddlAuthYears.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSOLIDWASTENO"]);
 
                         txtWasteProduced.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TOTALQUANTITYWASTE"]);
                         txtWasteRecycled.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCSWD_TOTALQUANTITYWASTE"]);
@@ -248,7 +241,7 @@ namespace MeghalayaUIP.User.Services
 
                     string selectedActivities = string.Join(", ", selectedItems);
 
-                   // ObjSWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
+                    // ObjSWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
                     ObjSWMDet.Questionnariid = Convert.ToString(Session["SRVCQID"]);
                     ObjSWMDet.createdby = hdnUserID.Value;
                     ObjSWMDet.createdbyip = getclientIP();
@@ -632,7 +625,6 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objSiteSelection = new SRVCAttachments();
-                        objSiteSelection.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
                         objSiteSelection.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objSiteSelection.MasterID = "8";
                         objSiteSelection.FilePath = serverpath + fupDetailSiteSelection.PostedFile.FileName;
@@ -711,7 +703,6 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objSiteClr = new SRVCAttachments();
-                        objSiteClr.UNITID = Convert.ToString(Session["SRVCUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
                         objSiteClr.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objSiteClr.MasterID = "7";
                         objSiteClr.FilePath = serverpath + fupSiteClearance.PostedFile.FileName;
@@ -790,7 +781,6 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objEnvClr = new SRVCAttachments();
-                        objEnvClr.UNITID = Convert.ToString(Session["SRVCUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
                         objEnvClr.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objEnvClr.MasterID = "6";
                         objEnvClr.FilePath = serverpath + fupEnvironmentalClearance.PostedFile.FileName;
@@ -869,7 +859,6 @@ namespace MeghalayaUIP.User.Services
 
 
                         SRVCAttachments objAgreement = new SRVCAttachments();
-                        objAgreement.UNITID = Convert.ToString(Session["SRVCUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
                         objAgreement.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
                         objAgreement.MasterID = "5";
                         objAgreement.FilePath = serverpath + fupAgreement.PostedFile.FileName;

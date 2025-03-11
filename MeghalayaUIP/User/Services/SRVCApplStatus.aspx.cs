@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.Services
     public partial class SRVCApplStatus : System.Web.UI.Page
     {       
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, Status;
+        string SRVCQID, Status;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -32,14 +32,14 @@ namespace MeghalayaUIP.User.Services
                         hdnUserID.Value = ObjUserInfo.Userid;
 
                     }
-                    //if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                    //{
-                    //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                    //}
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
+                    {
+                        SRVCQID = Convert.ToString(Session["SRVCQID"]);
+                    }
 
                     if (Request.QueryString.Count > 0)
                     {
-                        UnitID = Convert.ToString(Request.QueryString[0]);
+                        SRVCQID = Convert.ToString(Request.QueryString[0]);
                         lblType.Text = " " + Request.QueryString[1].ToString() + ":";
                         if (Request.QueryString[1].ToString() == "UnderProcess")
                         { lblType.Text = " Under Process:"; }
@@ -218,9 +218,9 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet dsApprovals = new DataSet();
-                UnitID = Convert.ToString(Request.QueryString[0]);
+                SRVCQID = Convert.ToString(Request.QueryString[0]);
 
-                dsApprovals = objSrvcbal.GetApplicationStatus(hdnUserID.Value, UnitID, Request.QueryString[1].ToString());
+                dsApprovals = objSrvcbal.GetApplicationStatus(hdnUserID.Value, SRVCQID, Request.QueryString[1].ToString());
                 if (dsApprovals.Tables.Count > 0)
                 {
                     if (dsApprovals.Tables[0].Rows.Count > 0)
