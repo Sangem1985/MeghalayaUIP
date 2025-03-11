@@ -143,27 +143,27 @@ namespace MeghalayaUIP.User.Services
                                 hypduly.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypduly.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtduly.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
-                            }
+                            }                        
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 14)
-                            {
-                                hypownership.Visible = true;
-                                hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
-                                hypownership.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
-                                txtownership.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
-                            }
-                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 15)
                             {
                                 hyppole.Visible = true;
                                 hyppole.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hyppole.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtpole.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 16)
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 15)
                             {
                                 hypowner.Visible = true;
                                 hypowner.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypowner.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtowner.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 16)
+                            {
+                                hypownership.Visible = true;
+                                hypownership.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypownership.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtownership.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
                             if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 17)
                             {
@@ -594,7 +594,7 @@ namespace MeghalayaUIP.User.Services
                         SRVCAttachments objSWPRTD = new SRVCAttachments();
                       //  objSWPRTD.UNITID = Convert.ToString(Session["SRVCUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
                         objSWPRTD.Questionnareid = Convert.ToString(Session["SRVCQID"]); //Convert.ToString(Session["CFEQID"]);
-                        objSWPRTD.MasterID = "15";
+                        objSWPRTD.MasterID = "14";
                         objSWPRTD.FilePath = serverpath + fuppole.PostedFile.FileName;
                         objSWPRTD.FileName = fuppole.PostedFile.FileName;
                         objSWPRTD.FileType = fuppole.PostedFile.ContentType;
