@@ -47,9 +47,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.SRVCBMWWASTEDET(ObjBMWDetails);
         }
-        public string InsertBMWWASTEDET(DataTable dtBMWDetails,string Questionnaire, string Createdby, string IPAddress)
+        public string InsertBMWWASTEDET(DataTable dtBMWDetails, string Unitid, string Questionnaire, string Createdby, string IPAddress)
         {
-            return SvrcDal.InsertBMWWASTEDET(dtBMWDetails, Questionnaire, Createdby, IPAddress);
+            return SvrcDal.InsertBMWWASTEDET(dtBMWDetails, Unitid, Questionnaire, Createdby, IPAddress);
         }
         public string InsertSRVCAttachments(SRVCAttachments objAttach)
         {
@@ -113,9 +113,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSrvcDashBoard(objSrvc);
         }
-        public DataSet GetSrvcPDCLDetails(string userid, string SRVCQID)
+        public DataSet GetSrvcPDCLDetails(string userid, string UNITID)
         {
-            return SvrcDal.GetSrvcPDCLDetails(userid, SRVCQID);
+            return SvrcDal.GetSrvcPDCLDetails(userid, UNITID);
         }
 
 
@@ -170,6 +170,11 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         public DataSet GetUserSRVCApplStatus(string Userid, string SRVCQID)
         {
             return SvrcDal.GetUserSRVCApplStatus(Userid, SRVCQID);
+        }
+
+        public DataSet GetProdPlasticWasteDetails(string hdnUserID, string srvcQdId)
+        {
+            return SvrcDal.GetProdPlasticWasteDetails(hdnUserID, srvcQdId);
         }
     }
 }

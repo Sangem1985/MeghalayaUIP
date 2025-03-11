@@ -52,7 +52,7 @@ namespace MeghalayaUIP.User.Services
                         divBrandOwner.Visible = false;
 
                         GetAppliedorNot();
-                        BindData();
+                        
                     }
                 }
             }
@@ -78,6 +78,7 @@ namespace MeghalayaUIP.User.Services
                     {
                         BindStates();
                         BindDistricts();
+                        BindData();
                     }
                 }
                 else
@@ -107,15 +108,16 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 // Fetching session values
-                string srvcQdId = Convert.ToString(116);
-                string unitId = Convert.ToString("1001");
+                string srvcQdId = Convert.ToString(Session["SRVCQID"]);
+                //string unitId = Convert.ToString("1001");
 
                 if (rblRole.SelectedValue == "Producer")
                 {
 
                     DataSet ds = new DataSet();
-                    ds = objSrvcbal.GetProdPlasticWasteDetails(srvcQdId, unitId);
-
+                    ds = objSrvcbal.GetProdPlasticWasteDetails(hdnUserID.Value, srvcQdId);
+                    ds = objSrvcbal.GetPaymentAmounttoPay(hdnUserID.Value, srvcQdId);
+                   
                     if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
                         DataRow row = ds.Tables[0].Rows[0];
@@ -149,7 +151,8 @@ namespace MeghalayaUIP.User.Services
                 }
                 else if (rblRole.SelectedValue == "BrandOwner")
                 {
-
+                    DataSet ds = new DataSet();
+                    //ds = objSrvcbal.GetBOPlasticWasteDetails(hdnUserID.Value, srvcQdId);
                 }
             }
             catch (Exception ex)
