@@ -35,7 +35,6 @@ namespace MeghalayaUIP.User.Services
                     if (Convert.ToString(Session["SRVCUNITID"]) != "")
                     {
                         UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                       // lbluidno.Text = UnitID;
                     }
 
                     if (!IsPostBack)
