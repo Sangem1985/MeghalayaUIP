@@ -162,6 +162,8 @@ namespace MeghalayaUIP.User.Services
                         btnApplyAgain.Visible = false;
                         anchortaglinkStatus.Visible = true;
                         btnApplStatus.Text = "Incomplete";
+                        btnApplStatus.BackColor = System.Drawing.Color.AliceBlue;
+                        btnApplStatus.ForeColor= System.Drawing.Color.Black;
                     }
                    
 
