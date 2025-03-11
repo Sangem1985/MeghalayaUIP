@@ -86,7 +86,7 @@ namespace MeghalayaUIP.User.Services
             {
                 DataSet dsApproved = new DataSet();
                
-                dsApproved = objSrvcbal.GetSRVCapplications(hdnUserID.Value, UnitID);
+                dsApproved = objSrvcbal.GetSRVCapplications(hdnUserID.Value, "%");
                 if (dsApproved.Tables.Count > 0)
                 {
                     if (dsApproved != null && dsApproved.Tables[0].Rows.Count > 0)
