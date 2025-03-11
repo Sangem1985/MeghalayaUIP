@@ -1237,7 +1237,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@EWD_SRVCQDID", Convert.ToInt32(serviceEWasteDetails.SrvcQdId));
                 com.Parameters.AddWithValue("@EWD_CREATEDBY", serviceEWasteDetails.CreatedBy);
-                com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
+               // com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
                 // com.Parameters.AddWithValue("@EWD_UIDNO", serviceEWasteDetails.UidNo);
                 com.Parameters.AddWithValue("@EWD_CREATEDBYIP", serviceEWasteDetails.CreatedByIp);
                 com.Parameters.AddWithValue("@EWD_NAME", serviceEWasteDetails.Name);
@@ -1639,7 +1639,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 };
 
                 com.Parameters.AddWithValue("@CDWM_CDWMQDID", Convert.ToInt32(objCDWMDet.SRVCQDID));
-                com.Parameters.AddWithValue("@CDWM_UNITID", Convert.ToInt32(objCDWMDet.unitid));
+                //com.Parameters.AddWithValue("@CDWM_UNITID", Convert.ToInt32(objCDWMDet.unitid));
                 com.Parameters.AddWithValue("@CDWM_CREATEDBY", objCDWMDet.createdby);
                 com.Parameters.AddWithValue("@CDWM_AUTHNAME", objCDWMDet.NameLocalAuthority);
                 com.Parameters.AddWithValue("@CDWM_NAME_OF_NODAL_OFFICER", objCDWMDet.NameOfNodalOfficer);

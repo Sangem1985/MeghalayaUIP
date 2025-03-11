@@ -272,7 +272,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     SRVCCDWMdetails ObjCDWMDet = new SRVCCDWMdetails();
 
-                    ObjCDWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
+                  //  ObjCDWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
                     ObjCDWMDet.SRVCQDID = Convert.ToString(Session["SRVCQID"]);
                     ObjCDWMDet.createdby = hdnUserID.Value;
                     ObjCDWMDet.createdbyip = getclientIP();
@@ -285,8 +285,7 @@ namespace MeghalayaUIP.User.Services
                     ObjCDWMDet.SiteClearanceFromAuthority = rblSiteClearance.SelectedValue;
 
                     result = objSrvcbal.InsertCDWMDetails(ObjCDWMDet);
-
-                    ;
+                    
                     if (result != "")
                     {
                         string message = "alert('" + "DPR Details Saved Successfully" + "')";
