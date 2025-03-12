@@ -723,7 +723,9 @@
     <Content Include="User\CFE\CFELineOfManufactureDetails.aspx" />
     <Content Include="User\CFE\CFEPaymentPage.aspx" />
     <Content Include="User\CFE\CFEPaymentReceipt.aspx" />
+    <Content Include="User\CFE\CFEPCBAEDetails.aspx" />
     <Content Include="User\CFE\CFEPcbCertificate.aspx" />
+    <Content Include="User\CFE\CFEPCBWCEDetails.aspx" />
     <Content Include="User\CFE\CFEPowerCEIGDetails.aspx" />
     <Content Include="User\CFE\CFEPowerDetails.aspx" />
     <Content Include="User\CFE\CFEProffessionalTax.aspx" />
@@ -1816,12 +1818,26 @@
     <Compile Include="User\CFE\CFEPaymentReceipt.aspx.designer.cs">
       <DependentUpon>CFEPaymentReceipt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFEPCBAEDetails.aspx.cs">
+      <DependentUpon>CFEPCBAEDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEPCBAEDetails.aspx.designer.cs">
+      <DependentUpon>CFEPCBAEDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFEPcbCertificate.aspx.cs">
       <DependentUpon>CFEPcbCertificate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\CFE\CFEPcbCertificate.aspx.designer.cs">
       <DependentUpon>CFEPcbCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEPCBWCEDetails.aspx.cs">
+      <DependentUpon>CFEPCBWCEDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEPCBWCEDetails.aspx.designer.cs">
+      <DependentUpon>CFEPCBWCEDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEPowerCEIGDetails.aspx.cs">
       <DependentUpon>CFEPowerCEIGDetails.aspx</DependentUpon>
