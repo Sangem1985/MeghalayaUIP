@@ -111,7 +111,6 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlRegType" runat="server" class="form-control" OnSelectedIndexChanged="ddlRegType_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Select Category" Value="0" />
-
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -120,7 +119,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">5.Registration number *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRegNo" runat="server" class="form-control" Type="text" Enabled="false" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRegNo" runat="server" class="form-control" Type="text" Enabled="false"  onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

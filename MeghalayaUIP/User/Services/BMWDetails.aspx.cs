@@ -36,13 +36,17 @@ namespace MeghalayaUIP.User.Services
                     hdnUserID.Value = ObjUserInfo.Userid;
 
                 }
-                if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                {
-                    UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                }
+                //if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                //{
+                //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                //}
                 if (Convert.ToString(Session["SRVCQID"]) != "")
                 {
                     Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                    if (!IsPostBack)
+                    {
+                        GetAppliedorNot();
+                    }
                 }
                 else
                 {
@@ -50,10 +54,7 @@ namespace MeghalayaUIP.User.Services
                     Response.Redirect(newurl);
                 }
 
-                if (!IsPostBack)
-                {
-                    GetAppliedorNot();
-                }
+               
             }
         }
         protected void GetAppliedorNot()
@@ -62,7 +63,7 @@ namespace MeghalayaUIP.User.Services
             {
                 DataSet ds = new DataSet();
 
-                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "83");
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value,  Convert.ToString(Session["SRVCQID"]), "12", "83");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -154,7 +155,7 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet ds = new DataSet();
-                ds = objSrvcbal.GetSrvcBMWDet(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]));
+                ds = objSrvcbal.GetSrvcBMWDet(hdnUserID.Value, Convert.ToString(Session["SRVCQID"]));
 
                 if (ds != null && ds.Tables.Count > 0)
                 {
@@ -483,7 +484,7 @@ namespace MeghalayaUIP.User.Services
             // Define columns for the DataTable
             dt.Columns.Add("BMW_ID", typeof(string));
             dt.Columns.Add("BMW_SERVICEQDID", typeof(string));
-            dt.Columns.Add("BMW_UNITID", typeof(string));
+           // dt.Columns.Add("BMW_UNITID", typeof(string));
             dt.Columns.Add("BMW_CREATEDBY", typeof(string));
             dt.Columns.Add("BMW_EQUIPMENT", typeof(string));
             dt.Columns.Add("BMW_NO_UNIT", typeof(string));
@@ -522,7 +523,7 @@ namespace MeghalayaUIP.User.Services
                 if (dt.Rows.Count > 0)
                 {
                     // SvrcBMWDet objSrvcbal = new SvrcBMWDet(); // Ensure this is initialized
-                    result = objSrvcbal.InsertBMWWASTEDET(dt, UnitID, Questionnaire, hdnUserID.Value, getclientIP());
+                    result = objSrvcbal.InsertBMWWASTEDET(dt, Questionnaire, hdnUserID.Value, getclientIP());
                 }
                 else
                 {
@@ -575,7 +576,7 @@ namespace MeghalayaUIP.User.Services
                         }
 
                         SRVCAttachments objAadhar = new SRVCAttachments();
-                        objAadhar.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
+                       // objAadhar.UNITID = Convert.ToString(Session["SRVCUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
                         objAadhar.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
                         objAadhar.MasterID = "10";
                         objAadhar.FilePath = serverpath + fupBiomedicalwaste.PostedFile.FileName;
@@ -654,7 +655,7 @@ namespace MeghalayaUIP.User.Services
                         }
 
                         SRVCAttachments objSitePlan = new SRVCAttachments();
-                        objSitePlan.UNITID = Convert.ToString(Session["SRVCUNITID"]);
+                      //  objSitePlan.UNITID = Convert.ToString(Session["SRVCUNITID"]);
                         objSitePlan.Questionnareid = Convert.ToString(Session["SRVCQID"]);
                         objSitePlan.MasterID = "11";
                         objSitePlan.FilePath = serverpath + fuplegalnotice.PostedFile.FileName;
@@ -923,7 +924,7 @@ namespace MeghalayaUIP.User.Services
                         Label lblDisposal = GVWaste.Rows[i].FindControl("lblDisposal") as Label;
 
                         ObjBMWDetails.Createdby = hdnUserID.Value;
-                        ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
+                      //  ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                         ObjBMWDetails.Questionnariid = Convert.ToString(Session["SRVCQID"]);
                         ObjBMWDetails.IPAddress = getclientIP();
                         ObjBMWDetails.Category = lblCategory.Text;
@@ -951,7 +952,7 @@ namespace MeghalayaUIP.User.Services
                     string selectedActivities = string.Join(", ", selectedItems);
 
 
-                    ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
+                 //   ObjBMWDetails.UnitId = Convert.ToString(Session["SRVCUNITID"]);
                     ObjBMWDetails.Questionnariid = Convert.ToString(Session["SRVCQID"]);
                     ObjBMWDetails.Createdby = hdnUserID.Value;
                     ObjBMWDetails.IPAddress = getclientIP();

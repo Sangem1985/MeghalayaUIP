@@ -85,32 +85,19 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet dsApproved = new DataSet();
-                if (Request.QueryString != null)
-                {
-                    if (Request.QueryString.Count > 0)
-                    {
-                        UnitID = "%";
-                    }
-                }
-                else
-                {
-                    UnitID = "%";
-                }
-                if (UnitID == "%")
-                    lblHdng.Text = " Status of Application for All Units";
-                else lblHdng.Text = "";
-
-                UnitID = "%";
-                dsApproved = objSrvcbal.GetSRVCapplications(hdnUserID.Value, UnitID);
+               
+                dsApproved = objSrvcbal.GetSRVCapplications(hdnUserID.Value, "%");
                 if (dsApproved.Tables.Count > 0)
                 {
                     if (dsApproved != null && dsApproved.Tables[0].Rows.Count > 0)
                     {
+                        btnApplyAgain.Visible = true;
                         GvServices.DataSource = dsApproved.Tables[0];
                         GvServices.DataBind();
                     }
                     else
                     {
+                        btnApplyAgain.Visible = false;
                         GvServices.DataSource = null;
                         GvServices.DataBind();
                     }
@@ -130,13 +117,14 @@ namespace MeghalayaUIP.User.Services
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
-                    Button btnApply;
-                    Button btnApprvlsReq;
-                    Button btnApplstatus;
+                   
                     Label lblSRVCQuesnrID = (Label)e.Row.FindControl("lblSRVCQDID");
                     Label lblunitId = (Label)e.Row.FindControl("lblUNITID");
                     Label APPLSTATUS = (Label)e.Row.FindControl("lblSRVCAPPLSTATUS");
                     Label lblSRVCQDID = (e.Row.FindControl("lblSRVCQDID") as Label);
+                    Button btnApplySRVC = (Button)e.Row.FindControl("btnApplySRVC");
+                    Button btnCombndAppl = (Button)e.Row.FindControl("btnCombndAppl");
+                    Button btnApplStatus = (Button)e.Row.FindControl("btnApplStatus");
                     HyperLink hplAppld = (HyperLink)e.Row.FindControl("hplApplied");
                     HyperLink hplApprvd = (HyperLink)e.Row.FindControl("hplApproved");
                     HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
@@ -161,42 +149,25 @@ namespace MeghalayaUIP.User.Services
                     string Applstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "SRVCAPPLSTATUS"));
 
                     if (Applstatus == "3")
-                    {
-
-                       // string intqnreid = lblSRVCQDID.Text.ToString();
-                        //anchortaglinkStatus.NavigateUrl = "EnterpriseDetails.aspx?intqnreid=" + intqnreid.ToString();
-                        //anchortaglinkStatus.Visible = true;
-                        btnApplyAgain.Visible = true;
-
+                    { 
+                        btnApplySRVC.Enabled = false;
+                        btnCombndAppl.Enabled = true;
+                        btnApplStatus.Enabled = true;
                     }
-                    else if (Applstatus == "2")
+                    if (Applstatus == "2")
                     {
-                        string intqnreid = lblSRVCQDID.Text.ToString();
-                        anchortaglinkStatus.NavigateUrl = "EnterpriseDetails.aspx?intqnreid" + intqnreid.ToString();
+                        btnApplyAgain.Visible = false;
+                        btnApplySRVC.Text = "Incomplete";
+                        //Session["SRVCQID"] = lblSRVCQDID.Text.ToString();
+                        anchortaglinkStatus.NavigateUrl = "EnterpriseDetails.aspx";
                         anchortaglinkStatus.Text = "Incomplete Application";
                         btnApplyAgain.Visible = false;
                         anchortaglinkStatus.Visible = true;
+                        btnApplStatus.Text = "Incomplete";
+                        btnApplStatus.BackColor = System.Drawing.Color.AliceBlue;
+                        btnApplStatus.ForeColor= System.Drawing.Color.Black;
                     }
-
-                    if (Applstatus == "" || Applstatus == null || Applstatus == "2")
-                    {
-                        btnApply = (Button)e.Row.FindControl("btnApplySRVC");
-                        btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
-                        btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
-                        btnApply.Enabled = true;
-                        btnApprvlsReq.Enabled = false;
-                        btnApplstatus.Enabled = false;
-                        btnApplstatus.Style.Add("border", "none");
-                        btnApplstatus.Style.Add("color", "black");
-                    }
-                    else
-                    {
-                        btnApply = (Button)e.Row.FindControl("btnApplySRVC");
-                        btnApply.Enabled = false;
-                        btnApply.BackColor = System.Drawing.Color.LightGray;
-                        btnApply.Style.Add("border", "none");
-                        btnApply.Style.Add("color", "black");
-                    }
+                   
 
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
@@ -222,9 +193,7 @@ namespace MeghalayaUIP.User.Services
             {
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
-                Label lblunitId = (Label)row.FindControl("lblUNITID");
                 Label lblSRVCQDID = (Label)row.FindControl("lblSRVCQDID");
-                Session["SRVCUNITID"] = lblunitId.Text;
                 Session["SRVCQID"] = lblSRVCQDID.Text;
                 string newurl = "EnterpriseDetails.aspx";
                 Response.Redirect(newurl);
@@ -242,12 +211,14 @@ namespace MeghalayaUIP.User.Services
             {
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
-
-                Label lblunitId = (Label)row.FindControl("lblUNITID");
+                Label lblSRVCAPPLSTATUS = (Label)row.FindControl("lblSRVCAPPLSTATUS");
                 Label lblSRVCQDID = (Label)row.FindControl("lblSRVCQDID");
-                Session["SRVCUNITID"] = lblunitId.Text;
                 Session["SRVCQID"] = lblSRVCQDID.Text;
-                string newurl = "SRVCDashBoardStatus.aspx";
+                string newurl = "";
+                if(lblSRVCAPPLSTATUS.Text=="3")
+                    newurl="SRVCDashBoardStatus.aspx";
+                else if (lblSRVCAPPLSTATUS.Text == "2")
+                    newurl = "EnterpriseDetails.aspx";
                 Response.Redirect(newurl);
             }
             catch (Exception ex)

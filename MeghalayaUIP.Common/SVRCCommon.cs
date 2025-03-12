@@ -35,7 +35,7 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCCDWMDETAILS = "USP_GETSRVCCDWMDETAILS";
 
 
-        //public static string GetProdPlasticWasteDetails = "";
+        public static string GetProdPlasticWasteDetails = "";
 
 
         public static string InsertSVRCAttachments = "USP_INSSRVCATTACHMNETS";

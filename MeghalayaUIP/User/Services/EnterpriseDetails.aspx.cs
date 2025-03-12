@@ -48,15 +48,11 @@ namespace MeghalayaUIP.User.Services
                     {
                         UnitID = Convert.ToString(Session["SRVCUNITID"]);
                     }
-                    if (Convert.ToString(Session["SRVCQID"]) != "" && Convert.ToString(Session["SRVCQID"]) == null)
+                    if (Convert.ToString(Session["SRVCQID"]) != "" )
                     {
                         Questionnaire = Convert.ToString(Session["SRVCQID"]);
                     }
-                    //else
-                    //{
-                    //    string newurl = "~/User/Services/SRVCUserDashboard.aspx";
-                    //    Response.Redirect(newurl);
-                    //}
+                   
 
                     Page.MaintainScrollPositionOnPostBack = true;
 
@@ -94,8 +90,7 @@ namespace MeghalayaUIP.User.Services
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_UNITID"]);
+                    {                       
                         txtUnitName.Text = ds.Tables[0].Rows[0]["SRVCED_NAMEOFUNIT"].ToString();
                         ddlCompanyType.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_COMPANYTYPE"].ToString();
                         ddlSectorEnter.SelectedValue = ds.Tables[0].Rows[0]["SRVCED_SECTORENTERPRISE"].ToString();
@@ -226,14 +221,9 @@ namespace MeghalayaUIP.User.Services
 
                         txtLandValue.Text = ds.Tables[1].Rows[0]["PROJECT_LANDVALUE"].ToString();
                         txtBuildingValue.Text = ds.Tables[1].Rows[0]["PROJECT_BUILDINGVALUE"].ToString();
-                        txtPMCost.Text = ds.Tables[1].Rows[0]["PROJECT_PMCOST"].ToString();
-                        //lblTotProjCost.Text = ds.Tables[0].Rows[0]["RENID_PROJECTCOST"].ToString();
-                        //txtAnnualTurnOver.Text = ds.Tables[0].Rows[0]["RENID_ANNUALTURNOVER"].ToString();
-                        //lblEntCategory.Text = ds.Tables[0].Rows[0]["RENID_ENTERPRISECATEG"].ToString();
+                        txtPMCost.Text = ds.Tables[1].Rows[0]["PROJECT_PMCOST"].ToString();                      
 
                     }
-
-
                 }
             }
             catch (Exception ex)
@@ -865,7 +855,7 @@ namespace MeghalayaUIP.User.Services
                     ObjApplicationDetails.Designation = txtDesignation.Text;
                     ObjApplicationDetails.WOMEN = rblWomen.SelectedValue;
                     ObjApplicationDetails.ABLED = rblAbled.SelectedValue;
-                    ObjApplicationDetails.DIRECTFEMALE = txtMale.Text;
+                    ObjApplicationDetails.DIRECTMALE = txtMale.Text;
                     ObjApplicationDetails.DIRECTFEMALE = txtFemale.Text;
                     ObjApplicationDetails.DIRECTEMP = txtDirectOthers.Text;
                     ObjApplicationDetails.INDIRECTMALE = txtIndirectMale.Text;
@@ -877,7 +867,7 @@ namespace MeghalayaUIP.User.Services
                     ObjApplicationDetails.PlantMachinary = txtPMCost.Text;
                     ObjApplicationDetails.TotalProjectCost = lblTotProjCost.Text;
                     ObjApplicationDetails.AnnualTurnOver = txtAnnualTurnOver.Text;
-                    ObjApplicationDetails.EnterpriseCategory = lblEntCategory.Text;
+                    ObjApplicationDetails.EnterpriseCategory = lblEntCategory.Text; 
                     ObjApplicationDetails.UidNo = "SRVC" + "/" + DateTime.Now.Year.ToString() + "/" + ObjApplicationDetails.Questionnariid;
 
 
@@ -885,7 +875,7 @@ namespace MeghalayaUIP.User.Services
 
                     if (result != "")
                     {
-                        Session["RENQID"] = result;
+                        Session["SRVCQID"] = result;
                         result = "SRVC" + "/" + DateTime.Now.Year.ToString() + "/" + result;
                         success.Visible = true;
                         lblmsg.Text = "Enterprise Details Submitted Successfully";

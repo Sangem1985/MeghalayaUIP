@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -37,7 +38,7 @@ namespace MeghalayaUIP.User.Services
                     }
                     else
                     {
-                        string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                        string newurl = "~/User/CFE/SRVCUserDashboard.aspx";
                         Response.Redirect(newurl);
                     }
 
@@ -68,7 +69,7 @@ namespace MeghalayaUIP.User.Services
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         if (ds.Tables[0].Rows.Count > 0)
-                        {                         
+                        {
                             hdnQuesID.Value = Convert.ToString(Session["SRVCQID"]);
                             hdnUIDNo.Value = Convert.ToString(ds.Tables[0].Rows[0]["UIDNO"]);
                             grdApprovals.DataSource = ds.Tables[0];
@@ -90,10 +91,20 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
+                if(e.Row.RowType == DataControlRowType.Header)
+                {
+                    CheckBox chkHeader = (CheckBox)e.Row.FindControl("chkHeader");
+                    chkHeader.Checked = true; chkHeader.Enabled = false;
+
+                }
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
+                    CheckBox chkSel = (CheckBox)e.Row.FindControl("chkSel");
+                    chkSel.Checked = true; chkSel.Enabled = false;
                     decimal Approvalfee = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "SRVCDA_APPROVALFEE"));
                     TotFee = TotFee + Approvalfee;
+                    lblPaymentAmount.InnerText = TotFee.ToString();
+                    ViewState["Amount"] = TotFee.ToString();
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {
@@ -101,7 +112,7 @@ namespace MeghalayaUIP.User.Services
                     e.Row.Cells[4].Text = TotFee.ToString();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -112,8 +123,8 @@ namespace MeghalayaUIP.User.Services
         protected void btnPay_Click(object sender, EventArgs e)
         {
             try
-            {               
-              
+            {
+
 
                 decimal TotalAmount = 0;
                 string PaymentAmount = "";
@@ -132,7 +143,6 @@ namespace MeghalayaUIP.User.Services
                         Label ApprovalID = (Label)row.FindControl("lblApprID");
                         Label DeptID = (Label)row.FindControl("lblDeptID");
 
-                        SRVCPayment.UNITID = Convert.ToString(Session["SRVCUNITID"]);
                         SRVCPayment.Questionnareid = Convert.ToString(Session["SRVCQID"]);
                         SRVCPayment.SRVCUID = hdnUIDNo.Value;
                         SRVCPayment.DeptID = DeptID.Text;
@@ -166,7 +176,7 @@ namespace MeghalayaUIP.User.Services
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -217,13 +227,13 @@ namespace MeghalayaUIP.User.Services
                 lblPaymentAmount.InnerText = TotalPaymentAmount.ToString();
                 ViewState["Amount"] = TotalPaymentAmount.ToString();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-        }      
+        }
         protected void chkHeader_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox chkHeaderCheck = (CheckBox)sender;
@@ -233,6 +243,13 @@ namespace MeghalayaUIP.User.Services
                 CheckBox ckRowSel = (CheckBox)gRow.FindControl("chkSel");
                 ckRowSel.Checked = chkHeaderCheck.Checked;
             }
+        }
+
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("~/User/Services/CDWMDetails.aspx?Previous=" + "P");
+
         }
     }
 }

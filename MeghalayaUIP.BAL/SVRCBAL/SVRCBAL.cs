@@ -47,9 +47,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.SRVCBMWWASTEDET(ObjBMWDetails);
         }
-        public string InsertBMWWASTEDET(DataTable dtBMWDetails, string Unitid, string Questionnaire, string Createdby, string IPAddress)
+        public string InsertBMWWASTEDET(DataTable dtBMWDetails, string Questionnaire, string Createdby, string IPAddress)
         {
-            return SvrcDal.InsertBMWWASTEDET(dtBMWDetails, Unitid, Questionnaire, Createdby, IPAddress);
+            return SvrcDal.InsertBMWWASTEDET(dtBMWDetails, Questionnaire, Createdby, IPAddress);
         }
         public string InsertSRVCAttachments(SRVCAttachments objAttach)
         {
@@ -59,33 +59,33 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCapplications(USERID, UnitID);
         }
-        public DataSet GetSRVCApprovals(string userid, string UnitId)
+        public DataSet GetSRVCApprovals(string userid, string SRVCQDID)
         {
-            return SvrcDal.GetSRVCApprovals(userid, UnitId);
+            return SvrcDal.GetSRVCApprovals(userid, SRVCQDID);
         }
         public string InsertSRVCDeptApprovals(SRVCOtherServices ObjApplicationDetails)
         {
             return SvrcDal.InsertSRVCDeptApprovals(ObjApplicationDetails);
         }
-        public DataSet GetSrvcBMWDet(string userid, string UNITID)
+        public DataSet GetSrvcBMWDet(string userid, string SRVCQID)
         {
-            return SvrcDal.GetSrvcBMWDet(userid, UNITID);
+            return SvrcDal.GetSrvcBMWDet(userid, SRVCQID);
         }
         public string INSSRVCSOLIDDDetails(SWMdetails ObjSWMDet)
         {
             return SvrcDal.INSSRVCSOLIDDDetails(ObjSWMDet);
         }
-        public DataSet GetSrvcSWMDetails(string userid, string UNITID)
+        public DataSet GetSrvcSWMDetails(string userid, string SRVCQDID)
         {
-            return SvrcDal.GetSrvcSWMDetails(userid, UNITID);
+            return SvrcDal.GetSrvcSWMDetails(userid, SRVCQDID);
         }
-        public DataSet GetsrvcapprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
+        public DataSet GetsrvcapprovalID(string userid, string QusestionnaireID, string DeptID, string ApprovalID)
         {
-            return SvrcDal.GetsrvcapprovalID(userid, UNITID, QusestionnaireID, DeptID, ApprovalID);
+            return SvrcDal.GetsrvcapprovalID(userid, QusestionnaireID, DeptID, ApprovalID);
         }
-        public DataSet GetApplicationStatus(string userid, string UnitID, string Status)
+        public DataSet GetApplicationStatus(string userid, string SRVCQID, string Status)
         {
-            return SvrcDal.GetApplicationStatus(userid, UnitID, Status);
+            return SvrcDal.GetApplicationStatus(userid, SRVCQID, Status);
         }
         public DataSet GetSRVCApplicationDetails(string QusestionnaireID, string InvesterID, string ApprovalID)
         {
@@ -122,25 +122,15 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         public string InsertEWasteDetails(ServiceEWasteDetails serviceEWasteDetails)
         {
             return SvrcDal.InsertEWasteDetails(serviceEWasteDetails);
-        }
-
-        
-        
-
-
+        }   
         public string InsertProdPlasticsWasteDetails(ServiceProdPlasticsWasteDetails serviceProdPlasticsWasteDetails)
         {
             return SvrcDal.InsertProdPlasticsWasteDetails(serviceProdPlasticsWasteDetails);
         }
-
         public string InsertBOPlasticsWasteDetails(ServiceBOPlasticsWasteDetails serviceBOPlasticsWasteDetails)
         {
             return SvrcDal.InsertBOPlasticsWasteDetails(serviceBOPlasticsWasteDetails);
         }
-
-
-
-
         public DataSet GetEWasteDetails(string srvcQdId, string Createdby)
         {
             return SvrcDal.GetEWasteDetails(srvcQdId, Createdby);
@@ -177,9 +167,14 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCUploadEnclosures(Quid, userid);
         }
-        public DataSet GetUserSRVCApplStatus(string Userid, string UnitID)
+        public DataSet GetUserSRVCApplStatus(string Userid, string SRVCQID)
         {
-            return SvrcDal.GetUserSRVCApplStatus(Userid, UnitID);
+            return SvrcDal.GetUserSRVCApplStatus(Userid, SRVCQID);
+        }
+
+        public DataSet GetProdPlasticWasteDetails(string hdnUserID, string srvcQdId)
+        {
+            return SvrcDal.GetProdPlasticWasteDetails(hdnUserID, srvcQdId);
         }
     }
 }

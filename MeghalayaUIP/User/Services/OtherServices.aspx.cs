@@ -15,7 +15,7 @@ namespace MeghalayaUIP.User.Services
     public partial class OtherServices : System.Web.UI.Page
     {
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID;
+        string UnitID, Questionnaire;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -33,16 +33,22 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                   
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                        Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                        if (!IsPostBack)
+                        {
+                            Binddata();
+                        }
                     }
-                    Page.MaintainScrollPositionOnPostBack = true;
+                    else
+                    {
+                        string newurl = "~/User/Services/SRVCUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
 
-                    if (!IsPostBack)
-                    {
-                       Binddata();
-                    }
+                    Page.MaintainScrollPositionOnPostBack = true;                    
                 }
                 else
                 {
@@ -61,9 +67,8 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet dsnew = new DataSet();
-                string UserId = "1";
-                string UnitId = Session["SRVCUNITID"].ToString();
-                dsnew = objSrvcbal.GetSRVCApprovals(UserId, UnitId);
+              
+                dsnew = objSrvcbal.GetSRVCApprovals(hdnUserID.Value, Convert.ToString(Session["SRVCQID"]));
                 if (dsnew != null && dsnew.Tables.Count > 0)
                 {
                     if (dsnew.Tables[0].Rows.Count > 0)
@@ -102,9 +107,6 @@ namespace MeghalayaUIP.User.Services
                         Label lblApprovalFee = (Label)row.FindControl("lblApprovalFee");
                         ApprovalIds = ApprovalIds + "," + lblApprovalId.Text.ToString();
                         ApprovalIds = ApprovalIds.Trim().TrimStart(',');
-
-
-
                     }
                 }
                 if (ApprovalIds == "")
@@ -129,7 +131,6 @@ namespace MeghalayaUIP.User.Services
                             lstsrvcApprovals.Add(new SRVCApprovals
                             {
                                 SRVCQDID = Session["SRVCQID"].ToString(),
-                                UnitId = Session["SRVCUNITID"].ToString(),
                                 ApprovalId = lblApprovalId.Text.ToString(),
                                 DeptId = lblDeptId.Text.ToString(),
                                 ApprovalFee = lblApprovalFee.Text.ToString(),
@@ -143,7 +144,7 @@ namespace MeghalayaUIP.User.Services
                         from Approval in lstsrvcApprovals
                         select new XElement("SRVCApprovalTable",
                         new XElement("SRVCQDID", Approval.SRVCQDID),
-                        new XElement("UnitId", Approval.UnitId),
+                      //  new XElement("UnitId", Approval.UnitId),
                         new XElement("ApprovalId", Approval.ApprovalId),
                         new XElement("DeptId", Approval.DeptId),
                         new XElement("ApprovalFee", Approval.ApprovalFee),
@@ -153,7 +154,7 @@ namespace MeghalayaUIP.User.Services
                         ));
                     ObjApplicationDetails.SRVCApprovalsXml = xmlSRVCApproval.ToString();
                     ObjApplicationDetails.ApprovalID = ApprovalIds;
-                    ObjApplicationDetails.UnitId = Session["SRVCUNITID"].ToString();
+                  //  ObjApplicationDetails.UnitId = Session["SRVCUNITID"].ToString();
                     ObjApplicationDetails.Questionnariid = Session["SRVCQID"].ToString();
                    int result = Convert.ToInt32(objSrvcbal.InsertSRVCDeptApprovals(ObjApplicationDetails));
                     if (result > 0)

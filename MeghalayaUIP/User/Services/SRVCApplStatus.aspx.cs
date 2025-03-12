@@ -14,7 +14,7 @@ namespace MeghalayaUIP.User.Services
     public partial class SRVCApplStatus : System.Web.UI.Page
     {       
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, Status;
+        string SRVCQID, Status;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -32,33 +32,29 @@ namespace MeghalayaUIP.User.Services
                         hdnUserID.Value = ObjUserInfo.Userid;
 
                     }
-                    //if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                    //{
-                    //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                    //}
-
-                    if (Request.QueryString.Count > 0)
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
-                        UnitID = Convert.ToString(Request.QueryString[0]);
-                        lblType.Text = " " + Request.QueryString[1].ToString() + ":";
-                        if (Request.QueryString[1].ToString() == "UnderProcess")
-                        { lblType.Text = " Under Process:"; }
-                        if (Request.QueryString[1].ToString() == "ScrutinyCompleted")
-                        { lblType.Text = " Scrutiny Completed:"; }
-                        if (Request.QueryString[1].ToString() == "ScrutinyPending")
-                        { lblType.Text = " Scrutiny Pending:"; }
-
-                    }
+                        SRVCQID = Convert.ToString(Session["SRVCQID"]);
+                        if (Request.QueryString.Count > 0)
+                        {                            
+                            lblType.Text = " " + Request.QueryString[1].ToString() + ":";
+                            if (Request.QueryString[1].ToString() == "UnderProcess")
+                            { lblType.Text = " Under Process:"; }
+                            if (Request.QueryString[1].ToString() == "ScrutinyCompleted")
+                            { lblType.Text = " Scrutiny Completed:"; }
+                            if (Request.QueryString[1].ToString() == "ScrutinyPending")
+                            { lblType.Text = " Scrutiny Pending:"; }
+                            if (!IsPostBack)
+                            {
+                                BindApplStatus();
+                            }
+                        }
+                    }                    
                     else
                     {
-                        string newurl = "~/User/MainDashboard.aspx";
+                        string newurl = "~/User/Services/SRVCUserDashboard.aspx";
                         Response.Redirect(newurl);
-                    }
-
-                    if (!IsPostBack)
-                    {
-                        BindApplStatus();
-                    }
+                    }                   
                 }
                 else
                 {
@@ -218,20 +214,20 @@ namespace MeghalayaUIP.User.Services
             try
             {
                 DataSet dsApprovals = new DataSet();
-                UnitID = Convert.ToString(Request.QueryString[0]);
+                SRVCQID = Convert.ToString(Convert.ToString(Session["SRVCQID"]));
 
-                dsApprovals = objSrvcbal.GetApplicationStatus(hdnUserID.Value, UnitID, Request.QueryString[1].ToString());
+                dsApprovals = objSrvcbal.GetApplicationStatus(hdnUserID.Value, SRVCQID, Request.QueryString[1].ToString());
                 if (dsApprovals.Tables.Count > 0)
                 {
                     if (dsApprovals.Tables[0].Rows.Count > 0)
                     {
                         grdTrackerDetails.DataSource = dsApprovals.Tables[0];
                         grdTrackerDetails.DataBind();
-                        lblDOA.Text = Convert.ToString(dsApprovals.Tables[0].Rows[0]["DATEOFAPPLICATION"]);
+                       // lblDOA.Text = Convert.ToString(dsApprovals.Tables[0].Rows[0]["DATEOFAPPLICATION"]);
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {
-                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["SRVCED_UNITID"]);
+                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["SRVCED_UIDNO"]);
                         lblUnitNmae.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["SRVCED_NAMEOFUNIT"]);
 
                     }

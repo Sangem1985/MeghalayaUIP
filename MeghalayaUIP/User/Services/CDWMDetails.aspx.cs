@@ -21,7 +21,7 @@ namespace MeghalayaUIP.User.Services
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
 
-        string UnitID, ErrorMsg = "", result;
+        string SRVCQID, ErrorMsg = "", result;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -38,9 +38,13 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["SRVCUNITID"]) != "")
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["SRVCUNITID"]);
+                        SRVCQID = Convert.ToString(Session["SRVCQID"]);
+                        if (!IsPostBack)
+                        {
+                            GetAppliedorNot();
+                        }
                     }
                     else
                     {
@@ -48,11 +52,7 @@ namespace MeghalayaUIP.User.Services
                         Response.Redirect(newurl);
                     }
                     Page.MaintainScrollPositionOnPostBack = true;
-
-                    if (!IsPostBack)
-                    {
-                        GetAppliedorNot();
-                    }
+                    
                 }
 
             }
@@ -69,7 +69,7 @@ namespace MeghalayaUIP.User.Services
             {
                 DataSet ds = new DataSet();
 
-                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value, Convert.ToString(Session["SRVCUNITID"]), Convert.ToString(Session["SRVCQID"]), "12", "106");
+                ds = objSrvcbal.GetsrvcapprovalID(hdnUserID.Value,  Convert.ToString(Session["SRVCQID"]), "12", "106");
                 
 
                 if (ds.Tables[0].Rows.Count > 0)
@@ -267,12 +267,12 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-              //  ErrorMsg = stepValidations();
+              ErrorMsg = stepValidations();
                 if (ErrorMsg == "")
                 {
                     SRVCCDWMdetails ObjCDWMDet = new SRVCCDWMdetails();
 
-                    ObjCDWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
+                  //  ObjCDWMDet.unitid = Convert.ToString(Session["SRVCUNITID"]);
                     ObjCDWMDet.SRVCQDID = Convert.ToString(Session["SRVCQID"]);
                     ObjCDWMDet.createdby = hdnUserID.Value;
                     ObjCDWMDet.createdbyip = getclientIP();
@@ -285,8 +285,7 @@ namespace MeghalayaUIP.User.Services
                     ObjCDWMDet.SiteClearanceFromAuthority = rblSiteClearance.SelectedValue;
 
                     result = objSrvcbal.InsertCDWMDetails(ObjCDWMDet);
-
-                    ;
+                    
                     if (result != "")
                     {
                         string message = "alert('" + "DPR Details Saved Successfully" + "')";
@@ -374,7 +373,6 @@ namespace MeghalayaUIP.User.Services
                         }
 
                         SRVCAttachments objDPR = new SRVCAttachments();
-                        objDPR.UNITID = Convert.ToString(Session["SRVCUNITID"]);
                         objDPR.Questionnareid = Convert.ToString(Session["SRVCQID"]);
                         objDPR.MasterID = "6";
                         objDPR.FilePath = serverpath + fupDPR.PostedFile.FileName;

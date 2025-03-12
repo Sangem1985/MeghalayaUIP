@@ -148,7 +148,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 text-right">
-                            <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                            <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" OnClick="btnPrevious_Click" />
 
                             <asp:Button ID="btnPay" runat="server" Text="Pay" class="btn btn-rounded btn-submit btn-lg" Width="150px" OnClick="btnPay_Click" />
 
