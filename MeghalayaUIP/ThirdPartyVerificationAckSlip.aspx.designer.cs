@@ -42,13 +42,13 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUIDNo;
 
         /// <summary>
-        /// lblDear control.
+        /// lblUnitName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDear;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUnitName;
 
         /// <summary>
         /// lblPrime control.
@@ -58,5 +58,14 @@ namespace MeghalayaUIP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPrime;
+
+        /// <summary>
+        /// grdApprovals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdApprovals;
     }
 }
