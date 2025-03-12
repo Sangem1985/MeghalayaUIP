@@ -841,7 +841,9 @@
     <Content Include="User\Services\PlasticWasteDetails.aspx" />
     <Content Include="User\Services\PWMCertificate.aspx" />
     <Content Include="User\Services\SrvcAckSlip.aspx" />
+    <Content Include="User\Services\SRVCAnnualReturns.aspx" />
     <Content Include="User\Services\SRVCApplStatus.aspx" />
+    <Content Include="User\Services\SRVCARFactoryAct.aspx" />
     <Content Include="User\Services\SRVCDashBoardStatus.aspx" />
     <Content Include="User\Services\SRVCUploadEnclosures.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
@@ -2640,12 +2642,26 @@
     <Compile Include="User\Services\SrvcAckSlip.aspx.designer.cs">
       <DependentUpon>SrvcAckSlip.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Services\SRVCAnnualReturns.aspx.cs">
+      <DependentUpon>SRVCAnnualReturns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCAnnualReturns.aspx.designer.cs">
+      <DependentUpon>SRVCAnnualReturns.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Services\SRVCApplStatus.aspx.cs">
       <DependentUpon>SRVCApplStatus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Services\SRVCApplStatus.aspx.designer.cs">
       <DependentUpon>SRVCApplStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCARFactoryAct.aspx.cs">
+      <DependentUpon>SRVCARFactoryAct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCARFactoryAct.aspx.designer.cs">
+      <DependentUpon>SRVCARFactoryAct.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCDashBoardStatus.aspx.cs">
       <DependentUpon>SRVCDashBoardStatus.aspx</DependentUpon>
