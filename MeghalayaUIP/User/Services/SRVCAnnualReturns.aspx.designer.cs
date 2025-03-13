@@ -11,133 +11,142 @@ namespace MeghalayaUIP.User.Services
 {
 
 
-    public partial class SRVCApplStatus
+    public partial class SRVCAnnualReturns
     {
 
         /// <summary>
-        /// ScriptManager1 control.
+        /// ddlOptions1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlOptions1;
 
         /// <summary>
-        /// UpdatePanel1 control.
+        /// DropDownList2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
-        /// lblType control.
+        /// rbCSharp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblType;
+        protected global::System.Web.UI.WebControls.RadioButton rbCSharp;
 
         /// <summary>
-        /// unitname control.
+        /// RadioButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl unitname;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
 
         /// <summary>
-        /// success control.
+        /// RadioButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
+        protected global::System.Web.UI.WebControls.CheckBox RadioButton1;
 
         /// <summary>
-        /// lblmsg control.
+        /// Checkbox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg;
+        protected global::System.Web.UI.WebControls.CheckBox Checkbox2;
 
         /// <summary>
-        /// Label1 control.
+        /// Checkbox3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.CheckBox Checkbox3;
 
         /// <summary>
-        /// Failure control.
+        /// Checkbox4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Failure;
+        protected global::System.Web.UI.WebControls.CheckBox Checkbox4;
 
         /// <summary>
-        /// lblmsg0 control.
+        /// Checkbox5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg0;
+        protected global::System.Web.UI.WebControls.CheckBox Checkbox5;
 
         /// <summary>
-        /// hdnUserID control.
+        /// Checkbox6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
+        protected global::System.Web.UI.WebControls.CheckBox Checkbox6;
 
         /// <summary>
-        /// lblUnitID control.
+        /// Checkbox7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUnitID;
+        protected global::System.Web.UI.WebControls.CheckBox Checkbox7;
 
         /// <summary>
-        /// lblUnitNmae control.
+        /// Checkbox8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUnitNmae;
+        protected global::System.Web.UI.WebControls.CheckBox Checkbox8;
 
         /// <summary>
-        /// grdTrackerDetails control.
+        /// Checkbox9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdTrackerDetails;
+        protected global::System.Web.UI.WebControls.CheckBox Checkbox9;
 
         /// <summary>
-        /// UpdateProgress control.
+        /// Checkbox10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdateProgress UpdateProgress;
+        protected global::System.Web.UI.WebControls.CheckBox Checkbox10;
+
+        /// <summary>
+        /// divgrd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divgrd;
     }
 }

@@ -134,7 +134,7 @@
                                                 <label>1. Unit </label>
                                             </div>
                                             
-                                            <div class="col-md-4 fw-bold text-info">
+                                            <div class="col-md-8 fw-bold text-info">
                                                 <span class="dots">:</span> <asp:Label ID="unitNamelbl" runat="server" CssClass="ml-5"></asp:Label>
                                             </div>
                                         </div>

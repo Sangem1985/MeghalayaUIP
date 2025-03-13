@@ -249,5 +249,10 @@ namespace MeghalayaUIP.User
         {
             Response.Redirect("~/User/ComplainDashboard.aspx");
         }
+
+        protected void SRVCAnnualReturns_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Services/SRVCAnnualReturns.aspx");
+        }
     }
 }
