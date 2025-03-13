@@ -377,7 +377,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. Manufacturing Capacity:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtManufacturingCapacity" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtManufacturingCapacity" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNames(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -385,7 +385,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">3. Previous Registration No</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtPreviousRegistration" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtPreviousRegistration" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

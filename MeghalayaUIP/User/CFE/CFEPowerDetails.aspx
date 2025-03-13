@@ -181,7 +181,7 @@
                                         </div>
 
 
-                                        <div class="mePDCL">
+                                        <div class="mePDCL" visible="false">
                                             <h4 class="card-title ml-3">Power Feasibility</h4>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
