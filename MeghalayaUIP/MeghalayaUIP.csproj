@@ -723,7 +723,9 @@
     <Content Include="User\CFE\CFELineOfManufactureDetails.aspx" />
     <Content Include="User\CFE\CFEPaymentPage.aspx" />
     <Content Include="User\CFE\CFEPaymentReceipt.aspx" />
+    <Content Include="User\CFE\CFEPCBAEDetails.aspx" />
     <Content Include="User\CFE\CFEPcbCertificate.aspx" />
+    <Content Include="User\CFE\CFEPCBWCEDetails.aspx" />
     <Content Include="User\CFE\CFEPowerCEIGDetails.aspx" />
     <Content Include="User\CFE\CFEPowerDetails.aspx" />
     <Content Include="User\CFE\CFEProffessionalTax.aspx" />
@@ -752,7 +754,9 @@
     <Content Include="User\CFO\CFOLineOfManufactureDetails.aspx" />
     <Content Include="User\CFO\CFOPaymentPage.aspx" />
     <Content Include="User\CFO\CFOPaymentReceipt.aspx" />
+    <Content Include="User\CFO\CFOPCBAEDetails.aspx" />
     <Content Include="User\CFO\CFOPcbFinalCertificate.aspx" />
+    <Content Include="User\CFO\CFOPCBWCEDetails.aspx" />
     <Content Include="User\CFO\CFOProffessionalTax.aspx" />
     <Content Include="User\CFO\CFOQueryDashBoard.aspx" />
     <Content Include="User\CFO\CFOQueryResponse.aspx" />
@@ -843,7 +847,11 @@
     <Content Include="User\Services\SrvcAckSlip.aspx" />
     <Content Include="User\Services\SRVCAnnualReturns.aspx" />
     <Content Include="User\Services\SRVCApplStatus.aspx" />
+    <Content Include="User\Services\SRVCARBonusPaymentAct.aspx" />
     <Content Include="User\Services\SRVCARFactoryAct.aspx" />
+    <Content Include="User\Services\SRVCARMBAct.aspx" />
+    <Content Include="User\Services\SRVCARMinWagesAct.aspx" />
+    <Content Include="User\Services\SRVCARPECLAct.aspx" />
     <Content Include="User\Services\SRVCDashBoardStatus.aspx" />
     <Content Include="User\Services\SRVCUploadEnclosures.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
@@ -1816,12 +1824,26 @@
     <Compile Include="User\CFE\CFEPaymentReceipt.aspx.designer.cs">
       <DependentUpon>CFEPaymentReceipt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFEPCBAEDetails.aspx.cs">
+      <DependentUpon>CFEPCBAEDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEPCBAEDetails.aspx.designer.cs">
+      <DependentUpon>CFEPCBAEDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFEPcbCertificate.aspx.cs">
       <DependentUpon>CFEPcbCertificate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\CFE\CFEPcbCertificate.aspx.designer.cs">
       <DependentUpon>CFEPcbCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEPCBWCEDetails.aspx.cs">
+      <DependentUpon>CFEPCBWCEDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEPCBWCEDetails.aspx.designer.cs">
+      <DependentUpon>CFEPCBWCEDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEPowerCEIGDetails.aspx.cs">
       <DependentUpon>CFEPowerCEIGDetails.aspx</DependentUpon>
@@ -2019,12 +2041,26 @@
     <Compile Include="User\CFO\CFOPaymentReceipt.aspx.designer.cs">
       <DependentUpon>CFOPaymentReceipt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFO\CFOPCBAEDetails.aspx.cs">
+      <DependentUpon>CFOPCBAEDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOPCBAEDetails.aspx.designer.cs">
+      <DependentUpon>CFOPCBAEDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFO\CFOPcbFinalCertificate.aspx.cs">
       <DependentUpon>CFOPcbFinalCertificate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\CFO\CFOPcbFinalCertificate.aspx.designer.cs">
       <DependentUpon>CFOPcbFinalCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOPCBWCEDetails.aspx.cs">
+      <DependentUpon>CFOPCBWCEDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOPCBWCEDetails.aspx.designer.cs">
+      <DependentUpon>CFOPCBWCEDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOProffessionalTax.aspx.cs">
       <DependentUpon>CFOProffessionalTax.aspx</DependentUpon>
@@ -2656,12 +2692,40 @@
     <Compile Include="User\Services\SRVCApplStatus.aspx.designer.cs">
       <DependentUpon>SRVCApplStatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Services\SRVCARBonusPaymentAct.aspx.cs">
+      <DependentUpon>SRVCARBonusPaymentAct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCARBonusPaymentAct.aspx.designer.cs">
+      <DependentUpon>SRVCARBonusPaymentAct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Services\SRVCARFactoryAct.aspx.cs">
       <DependentUpon>SRVCARFactoryAct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Services\SRVCARFactoryAct.aspx.designer.cs">
       <DependentUpon>SRVCARFactoryAct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCARMBAct.aspx.cs">
+      <DependentUpon>SRVCARMBAct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCARMBAct.aspx.designer.cs">
+      <DependentUpon>SRVCARMBAct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCARMinWagesAct.aspx.cs">
+      <DependentUpon>SRVCARMinWagesAct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCARMinWagesAct.aspx.designer.cs">
+      <DependentUpon>SRVCARMinWagesAct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCARPECLAct.aspx.cs">
+      <DependentUpon>SRVCARPECLAct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCARPECLAct.aspx.designer.cs">
+      <DependentUpon>SRVCARPECLAct.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCDashBoardStatus.aspx.cs">
       <DependentUpon>SRVCDashBoardStatus.aspx</DependentUpon>

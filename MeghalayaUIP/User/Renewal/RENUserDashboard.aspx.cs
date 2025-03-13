@@ -58,36 +58,36 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet dsApproved = new DataSet();
-                if (Request.QueryString != null)
-                {
-                    if (Request.QueryString.Count > 0)
-                    {
-                        UnitID = "%";
-                    }
-                }
-                else 
-                {
-                    UnitID = "%";
-                }
-                if (UnitID == "%")
-                    lblHdng.Text = " Status of Application for All Units";
-                else lblHdng.Text = "";
+                //if (Request.QueryString != null)
+                //{
+                //    if (Request.QueryString.Count > 0)
+                //    {
+                //        UnitID = "%";
+                //    }
+                //}
+                //else 
+                //{
+                //    UnitID = "%";
+                //}
+                //if (UnitID == "%")
+                //    lblHdng.Text = " Status of Application for All Units";
+                //else lblHdng.Text = "";
 
-                UnitID = "%";
-                dsApproved = objrenbal.GetRENapplications(hdnUserID.Value, UnitID);
+                //UnitID = "%";
+                dsApproved = objrenbal.GetRENapplications(hdnUserID.Value, "%");
                 if (dsApproved.Tables.Count > 0)
                 {
                     if (dsApproved.Tables[0].Rows.Count > 0)
                     {
+                        btnApplyAgain.Visible = true;
                         gvRenewals.DataSource = dsApproved.Tables[0];
                         gvRenewals.DataBind();
                     }
                     else
                     {
+                        btnApplyAgain.Visible = false;
                         gvRenewals.DataSource = null;
-                        gvRenewals.DataBind();
-                        Response.Redirect("RENIndustryDetails.aspx");
-                       
+                        gvRenewals.DataBind();                       
 
                     }
                 }
@@ -107,25 +107,54 @@ namespace MeghalayaUIP.User.Renewal
         protected void btnApplyRenewal_Click(object sender, EventArgs e)
         {
            
+                //Button btn = (Button)sender;
+                //GridViewRow row = (GridViewRow)btn.NamingContainer;
+                //Label lblUNITID = (Label)row.FindControl("lblUNITID");
+                //Label lblRENQDID = (Label)row.FindControl("lblRENQDID");
+                //Session["RENUNITID"] = lblUNITID.Text;
+                //Session["RENQID"] = lblRENQDID.Text;
+                //string newurl = "RENIndustryDetails.aspx";
+                //Response.Redirect(newurl);
+
+            try
+            {
                 Button btn = (Button)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
-                Label lblUNITID = (Label)row.FindControl("lblUNITID");
                 Label lblRENQDID = (Label)row.FindControl("lblRENQDID");
-                Session["RENUNITID"] = lblUNITID.Text;
                 Session["RENQID"] = lblRENQDID.Text;
                 string newurl = "RENIndustryDetails.aspx";
                 Response.Redirect(newurl);
-            
-        }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
 
-        protected void btnCombndAppl_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        }     
         protected void btnApplStatus_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Button btn = (Button)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                Label lblRENAPPLSTATUS = (Label)row.FindControl("lblRENAPPLSTATUS");
+                Label lblRENQDID = (Label)row.FindControl("lblRENQDID");
+                Session["RENQID"] = lblRENQDID.Text;
+                string newurl = "";
+                if (lblRENAPPLSTATUS.Text == "3")
+                    newurl = ".aspx";
+                else if (lblRENAPPLSTATUS.Text == "2")
+                    newurl = "RENIndustryDetails.aspx";
+                Response.Redirect(newurl);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         protected void gvRenewals_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -133,20 +162,31 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
-                {
-                    int gvrcnt = gvRenewals.Rows.Count;
-                    Button btnApply;
-                    Button btnApprvlsReq;
-                    Button btnApplstatus;
+                {                 
+
                     Label lblRENQuesnrID = (Label)e.Row.FindControl("lblRENQDID");
                     Label lblunitId = (Label)e.Row.FindControl("lblUNITID");
                     Label APPLSTATUS = (Label)e.Row.FindControl("lblRENAPPLSTATUS");
+                    Label lblRENQDID = (e.Row.FindControl("lblRENQDID") as Label);
+
+                    Button btnApplyRenewal = (Button)e.Row.FindControl("btnApplyRenewal"); 
+                    Button btnCombndAppl = (Button)e.Row.FindControl("btnCombndAppl");
+
+                    Button btnApplStatus = (Button)e.Row.FindControl("btnApplStatus");
                     HyperLink hplAppld = (HyperLink)e.Row.FindControl("hplApplied");
                     HyperLink hplApprvd = (HyperLink)e.Row.FindControl("hplApproved");
                     HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
                     HyperLink hplRejctd = (HyperLink)e.Row.FindControl("hplRejected");
                     HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");
-                    /*if (hplAppld.Text != "0")
+                    HyperLink anchortaglinkStatus = (e.Row.FindControl("anchortaglinkStatus") as HyperLink);
+
+
+                    /* HyperLink hplAppld = (HyperLink)e.Row.FindControl("hplApplied");
+                    HyperLink hplApprvd = (HyperLink)e.Row.FindControl("hplApproved");
+                    HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
+                    HyperLink hplRejctd = (HyperLink)e.Row.FindControl("hplRejected");
+                    HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");
+                   if (hplAppld.Text != "0")
                         hplAppld.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Applied";
                     if (hplApprvd.Text != "0")
                         hplApprvd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
@@ -173,25 +213,48 @@ namespace MeghalayaUIP.User.Renewal
                     TotQueryRaised = TotQueryRaised + TotalQuery;
                     string Applstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "RENAPPLSTATUS"));
 
-                    if (Applstatus == "" || Applstatus == null || Applstatus == "2")
+
+                    if (Applstatus == "3")
                     {
-                        btnApply = (Button)e.Row.FindControl("btnApplyRenewal");
-                        btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
-                        btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
-                        btnApply.Enabled = true;
-                        btnApprvlsReq.Enabled = false; 
-                        btnApplstatus.Enabled = false; 
-                        btnApplstatus.Style.Add("border", "none");
-                        btnApplstatus.Style.Add("color", "black");
+                        btnApplyRenewal.Enabled = false;
+                        btnCombndAppl.Enabled = true;
+                        btnApplStatus.Enabled = true;
                     }
-                    else
+                    if (Applstatus == "2")
                     {
-                        btnApply = (Button)e.Row.FindControl("btnApplyRenewal");
-                        btnApply.Enabled = false;
-                        btnApply.BackColor = System.Drawing.Color.LightGray;
-                        btnApply.Style.Add("border", "none");
-                        btnApply.Style.Add("color", "black");
+                        btnApplyAgain.Visible = false;
+                        btnApplyRenewal.Text = "Incomplete";
+                        //Session["SRVCQID"] = lblSRVCQDID.Text.ToString();
+                        anchortaglinkStatus.NavigateUrl = "EnterpriseDetails.aspx";
+                        anchortaglinkStatus.Text = "Incomplete Application";
+                        btnApplyAgain.Visible = false;
+                        anchortaglinkStatus.Visible = true;
+                        btnApplStatus.Text = "Incomplete";
+                        btnApplStatus.BackColor = System.Drawing.Color.AliceBlue;
+                        btnApplStatus.ForeColor = System.Drawing.Color.Black;
                     }
+
+
+
+                    /*   if (Applstatus == "" || Applstatus == null || Applstatus == "2")
+                       {
+                           btnApply = (Button)e.Row.FindControl("btnApplyRenewal");
+                           btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
+                           btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
+                           btnApply.Enabled = true;
+                           btnApprvlsReq.Enabled = false; 
+                           btnApplstatus.Enabled = false; 
+                           btnApplstatus.Style.Add("border", "none");
+                           btnApplstatus.Style.Add("color", "black");
+                       }
+                       else
+                       {
+                           btnApply = (Button)e.Row.FindControl("btnApplyRenewal");
+                           btnApply.Enabled = false;
+                           btnApply.BackColor = System.Drawing.Color.LightGray;
+                           btnApply.Style.Add("border", "none");
+                           btnApply.Style.Add("color", "black");
+                       } */
 
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
@@ -211,5 +274,17 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void btnApplyAgain_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("RENIndustryDetails.aspx");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

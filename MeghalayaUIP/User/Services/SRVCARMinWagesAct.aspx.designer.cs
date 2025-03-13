@@ -7,110 +7,128 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User.Renewal
+namespace MeghalayaUIP.User.Services
 {
 
 
-    public partial class RENUserDashboard
+    public partial class SRVCARMinWagesAct
     {
 
         /// <summary>
-        /// success control.
+        /// txtnofdayswrkddurngyear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
+        protected global::System.Web.UI.WebControls.TextBox txtnofdayswrkddurngyear;
 
         /// <summary>
-        /// lblmsg control.
+        /// txtnofmandayswrkddurngyear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg;
+        protected global::System.Web.UI.WebControls.TextBox txtnofmandayswrkddurngyear;
 
         /// <summary>
-        /// Label1 control.
+        /// txtnofadults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtnofadults;
 
         /// <summary>
-        /// Failure control.
+        /// txtnofchldrn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Failure;
+        protected global::System.Web.UI.WebControls.TextBox txtnofchldrn;
 
         /// <summary>
-        /// lblmsg0 control.
+        /// txtttlwgspaid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg0;
+        protected global::System.Web.UI.WebControls.TextBox txtttlwgspaid;
 
         /// <summary>
-        /// hdnUserID control.
+        /// txtcashwagespaid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
+        protected global::System.Web.UI.WebControls.TextBox txtcashwagespaid;
 
         /// <summary>
-        /// lblHdng control.
+        /// txtdedctnsmadeaccof control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHdng;
+        protected global::System.Web.UI.WebControls.TextBox txtdedctnsmadeaccof;
 
         /// <summary>
-        /// lbtnBack control.
+        /// txtblncfinebgnngyear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
+        protected global::System.Web.UI.WebControls.TextBox txtblncfinebgnngyear;
 
         /// <summary>
-        /// gvRenewals control.
+        /// txtdisbursmntfrmfine control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRenewals;
+        protected global::System.Web.UI.WebControls.TextBox txtdisbursmntfrmfine;
 
         /// <summary>
-        /// trApplyAgainbtn control.
+        /// txtblncfinendngyear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trApplyAgainbtn;
+        protected global::System.Web.UI.WebControls.TextBox txtblncfinendngyear;
 
         /// <summary>
-        /// btnApplyAgain control.
+        /// btnPreviuos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApplyAgain;
+        protected global::System.Web.UI.WebControls.Button btnPreviuos;
+
+        /// <summary>
+        /// btnsave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsave;
+
+        /// <summary>
+        /// btnNext control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNext;
     }
 }

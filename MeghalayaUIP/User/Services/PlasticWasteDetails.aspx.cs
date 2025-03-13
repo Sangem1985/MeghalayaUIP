@@ -1,16 +1,19 @@
-﻿using MeghalayaUIP.BAL.CommonBAL;
-using MeghalayaUIP.BAL.RenewalBAL;
+﻿using System;
+using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.SVRCBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
-using System;
+using System.Configuration;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Xml.Linq;
+using static AjaxControlToolkit.AsyncFileUpload.Constants;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.Data;
+using System.Linq.Expressions;
 
 namespace MeghalayaUIP.User.Services
 {
@@ -18,12 +21,11 @@ namespace MeghalayaUIP.User.Services
     {
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string Questionnaire, ErrorMsg = "", result = "", UID = "";
+        string Questionnaire, ErrorMsg = "", result = "", SRVCQID = ""; //UID = "",
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-
                 if (Session["UserInfo"] != null)
                 {
                     var ObjUserInfo = new UserInfo();
@@ -35,25 +37,25 @@ namespace MeghalayaUIP.User.Services
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    //if (Convert.ToString(Session["SRVCUNITID"]) != "")
-                    //{
-                    //    UnitID = Convert.ToString(Session["SRVCUNITID"]);
-                    //}
+                    if (Convert.ToString(Session["SRVCQID"]) != "")
+                    {
+                        SRVCQID = Convert.ToString(Session["SRVCQID"]);
+                        if (!IsPostBack)
+                        {
+                            Questionnaire = Convert.ToString(Session["SRVCQID"]);
+                            divProducer.Visible = false;
+                            divBrandOwner.Visible = false;
+                            GetAppliedorNot();
+
+                        }
+                    }
                     else
                     {
                         string newurl = "~/User/Services/SRVCUserDashboard.aspx";
                         Response.Redirect(newurl);
                     }
+                    Page.MaintainScrollPositionOnPostBack = true;
 
-                    if (!IsPostBack)
-                    {
-                        Questionnaire = Convert.ToString(Session["SRVCQID"]);
-                        divProducer.Visible = false;
-                        divBrandOwner.Visible = false;
-
-                        GetAppliedorNot();
-                        
-                    }
                 }
             }
             catch (Exception ex)
@@ -79,6 +81,7 @@ namespace MeghalayaUIP.User.Services
                         BindStates();
                         BindDistricts();
                         BindData();
+
                     }
                 }
                 else
@@ -86,9 +89,9 @@ namespace MeghalayaUIP.User.Services
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Services/CDWMDetails.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/Services/EWasteDetails.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/Services/CDWMDetails.aspx?Previous=" + "P");
                     }
                 }
 
@@ -110,22 +113,25 @@ namespace MeghalayaUIP.User.Services
                 // Fetching session values
                 string srvcQdId = Convert.ToString(Session["SRVCQID"]);
                 //string unitId = Convert.ToString("1001");
+                DataSet ds1 = new DataSet();
+                DataSet ds2 = new DataSet();
 
-                if (rblRole.SelectedValue == "Producer")
+                ds1 = objSrvcbal.GetProdPlasticWasteDetails(hdnUserID.Value, srvcQdId);
+                ds2 = objSrvcbal.GetBOPlasticWasteDetails(hdnUserID.Value, srvcQdId);
+                //ds1 = objSrvcbal.GetPaymentAmounttoPay(hdnUserID.Value, srvcQdId);
+
+                //ds2 = objSrvcbal.GetPaymentAmounttoPay(hdnUserID.Value, srvcQdId);
+
+                if (ds1.Tables.Count > 0)
                 {
-
-                    DataSet ds = new DataSet();
-                    ds = objSrvcbal.GetProdPlasticWasteDetails(hdnUserID.Value, srvcQdId);
-                    ds = objSrvcbal.GetPaymentAmounttoPay(hdnUserID.Value, srvcQdId);
-                   
-                    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    if (ds1.Tables[0].Rows.Count > 0)
                     {
-                        DataRow row = ds.Tables[0].Rows[0];
+                        DataRow row = ds1.Tables[0].Rows[0];
 
                         txtProdName.Text = row["SRVCPWD_NAMEOFPROD"].ToString();
                         txtUnitName.Text = row["SRVCPWD_NAMEOFUNIT"].ToString();
 
-                        string[] selectedCarryBag = ds.Tables[0].Rows[0]["SRVCPWD_CARRYBAG"].ToString().Split('/');
+                        string[] selectedCarryBag = ds1.Tables[0].Rows[0]["SRVCPWD_CARRYBAG"].ToString().Split('/');
 
                         foreach (ListItem item in chkCarryBags.Items)
                         {
@@ -135,10 +141,18 @@ namespace MeghalayaUIP.User.Services
                             }
                         }
                         chkMultilayeredPlastics.Text = row["SRVCPWD_MULTILAYEREDPLASTIC"].ToString();
-
                         txtManufacturingCapacity.Text = row["SRVCPWD_MANFCTRNGCAPACITY"].ToString();
                         txtPreviousRegistration.Text = row["SRVCPWD_PREVREGNO"].ToString();
-                        txtDate.Text = Convert.ToDateTime(row["SRVCPWD_REGDATE"]).ToString();
+                        if (row["SRVCPWD_REGDATE"] != DBNull.Value)
+                        {
+                            DateTime boDate = Convert.ToDateTime(row["SRVCPWD_REGDATE"]);
+                            txtDate.Text = boDate.ToString("dd-MM-yyyy"); // Format to dd-MM-yyyy
+                        }
+                        else
+                        {
+                            txtDate.Text = ""; // Handle null values
+                        }
+
                         txtCapitalInvestment.Text = row["SRVCPWD_TOTCAPTLINV"].ToString();
                         txtCommencementYear.Text = row["SRVCPWD_YEAROFCMNCEMNT"].ToString();
                         txtProductsList.Text = row["SRVCPWD_LISTQNTMPROD"].ToString();
@@ -147,13 +161,203 @@ namespace MeghalayaUIP.User.Services
                         txtStorageMode.Text = row["SRVCPWD_MODEOFSTORAGEWITHINPLANT"].ToString();
                         txtDisposal.Text = row["SRVCPWD_DISPOSALPROVISION"].ToString();
                         rblCmplnc.Text = row["SRVCPWD_COMPLIANCE"].ToString();
+                        rblRole.SelectedValue = row["SRVCPWD_ROLE"].ToString();
+                        rblAirCont.SelectedValue = row["SRVCPWD_AIRPOL"].ToString();
+                        rblSgUt.SelectedValue = row["SRVCPWD_SGUT"].ToString();
+                        rblWater.SelectedValue = row["SRVCPWD_WATERACT"].ToString();
+                    }
+                    if (ds1.Tables[1].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds1.Tables[1].Rows.Count; i++)
+                        {
+
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 173) // list of personnel or brand Owners to whom the products will be supplied
+                            {
+                                hypPrsnlBOList.Visible = true;
+                                hypPrsnlBOList.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypPrsnlBOList.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                hypPrsnlBOList.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 174) //Water (Prevention and control of Pollution) Act
+                            {
+                                hypBOWaterActConsent.Visible = true;
+                                hypBOWaterActConsent.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypBOWaterActConsent.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtBOWaterActConsent.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 176) //Air (Prevention and Control of Pollution) Act
+                            {
+                                hypAirPoltn.Visible = true;
+                                hypAirPoltn.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypAirPoltn.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtBOAirPoltn.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 175) //unit registered with the District Industries Centre	of	the	State	Government	or	Union territory
+                            {
+                                hypBOStUT.Visible = true;
+                                hypBOStUT.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypBOStUT.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtBOStUT.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 166) // Consent to Establish/ Operate
+                            {
+                                hypEstbOpr.Visible = true;
+                                hypEstbOpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypEstbOpr.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtEstbOpr.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 170) // list of people supplying plastic material
+                            {
+                                hypPMList.Visible = true;
+                                hypPMList.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypPMList.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtPMList.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 171) //Action plan on collecting back the plastic wastes
+                            {
+                                hypActnPln.Visible = true;
+                                hypActnPln.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypActnPln.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtActnPln.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 172) // flow diagram of manufacturing process
+                            {
+                                hypFlowDgrm.Visible = true;
+                                hypFlowDgrm.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypFlowDgrm.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtFlowDgrm.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                        }
                     }
                 }
-                else if (rblRole.SelectedValue == "BrandOwner")
+
+                if (ds2.Tables.Count > 0 )
                 {
-                    DataSet ds = new DataSet();
-                    //ds = objSrvcbal.GetBOPlasticWasteDetails(hdnUserID.Value, srvcQdId);
+                    if (ds2.Tables[0].Rows.Count > 0)
+                    {
+                        DataRow row = ds2.Tables[0].Rows[0];
+
+                        txtBrandOwnrName.Text = row["BOPWD_NAMEOFBRANDOWNER"].ToString();
+                        txtBORegNo.Text = row["BOPWD_PREVREGNO"].ToString();
+                        if (row["BOPWD_REGDATE"] != DBNull.Value)
+                        {
+                            DateTime boDate = Convert.ToDateTime(row["BOPWD_REGDATE"]);
+                            txtBODate.Text = boDate.ToString("dd-MM-yyyy"); // Format to dd-MM-yyyy
+                        }
+                        else
+                        {
+                            txtBODate.Text = ""; // Handle null values
+                        }
+                        txtBOTotalCapInv.Text = row["BOPWD_TOTALCAPINV"].ToString();
+                        txtBOYearOfComncmnt.Text = row["BOPWD_INVYEAROFCOMNCMNT"].ToString();
+                        txtBOProdQuan.Text = row["BOPWD_BYPRODPRODLIST"].ToString();
+                        txtBORawMatQuan.Text = row["BOPWD_BYPRODRAWMATLIST"].ToString();
+                        txtBOQntmWasteGenertd.Text = row["BOPWD_SWTOTALQNTMWASTEGEN"].ToString();
+                        txtBOModeStrge.Text = row["BOPWD_SWMODEOFSTORAGE"].ToString();
+                        txtBODispProv.Text = row["BOPWD_SWDISPOSALPROV"].ToString();
+                        rblRole.SelectedValue = row["BOPWD_ROLE"].ToString();
+                        rblAirCont.SelectedValue = row["BOPWD_AIRPOL"].ToString();
+                        rblSgUt.SelectedValue = row["BOPWD_SGUT"].ToString();
+                        rblWater.SelectedValue = row["BOPWD_WATERACT"].ToString();
+
+                    }
+                    if (ds2.Tables[1].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds2.Tables[1].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 174) //Water (Prevention and control of Pollution) Act
+                            {
+                                hypBOWaterActConsent.Visible = true;
+                                hypBOWaterActConsent.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypBOWaterActConsent.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtBOWaterActConsent.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 176) //Air (Prevention and Control of Pollution) Act
+                            {
+                                hypAirPoltn.Visible = true;
+                                hypAirPoltn.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypAirPoltn.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtBOAirPoltn.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 175) //unit registered with the District Industries Centre	of	the	State	Government	or	Union territory
+                            {
+                                hypBOStUT.Visible = true;
+                                hypBOStUT.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypBOStUT.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtBOStUT.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 166) // Consent to Establish/ Operate
+                            {
+                                hypEstbOpr.Visible = true;
+                                hypEstbOpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypEstbOpr.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtEstbOpr.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 170) // list of people supplying plastic material
+                            {
+                                hypPMList.Visible = true;
+                                hypPMList.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypPMList.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtPMList.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 171) //Action plan on collecting back the plastic wastes
+                            {
+                                hypActnPln.Visible = true;
+                                hypActnPln.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypActnPln.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtActnPln.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 172) // flow diagram of manufacturing process
+                            {
+                                hypFlowDgrm.Visible = true;
+                                hypFlowDgrm.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                                hypFlowDgrm.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
+                                txtFlowDgrm.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            }
+
+                        }
+                    }
+
                 }
+                
+                if (rblRole.SelectedValue == "BrandOwner")
+                {
+                    divBrandOwner.Visible = true;
+                    divProducer.Visible = false;
+                    if(rblWater.SelectedValue == "Yes")
+                    {
+                        divWater.Visible = true;
+                    }
+                    if(rblSgUt.SelectedValue == "Yes")
+                    {
+                        divSgUt.Visible = true;
+                    }
+                    if(rblAirCont.SelectedValue == "Yes")
+                    {
+                        divAirCont.Visible = true;
+                    }
+                    ClearProducerFields();
+                }
+                else if (rblRole.SelectedValue == "Producer")
+                {
+                    divProducer.Visible = true;
+                    divBrandOwner.Visible = false;
+                    if (rblWater.SelectedValue == "Yes")
+                    {
+                        divWater.Visible = true;
+                    }
+                    if (rblSgUt.SelectedValue == "Yes")
+                    {
+                        divSgUt.Visible = true;
+                    }
+                    if (rblAirCont.SelectedValue == "Yes")
+                    {
+                        divAirCont.Visible = true;
+                    }
+                    ClearBrandOwnerFields();
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -163,7 +367,65 @@ namespace MeghalayaUIP.User.Services
             }
 
         }
+        private void ClearProducerFields()
+        {
+            try
+            {
+                txtProdName.Text = "";
+                txtUnitName.Text = "";
+                // Clear checkbox selections
+                foreach (ListItem item in chkCarryBags.Items)
+                {
+                    item.Selected = false;
+                }
+                chkMultilayeredPlastics.Text = "";
+                txtManufacturingCapacity.Text = "";
+                txtPreviousRegistration.Text = "";
+                txtDate.Text = "";
+                txtCapitalInvestment.Text = "";
+                txtCommencementYear.Text = "";
+                txtProductsList.Text = "";
+                txtRawMaterials.Text = "";
+                txtTotalWaste.Text = "";
+                txtStorageMode.Text = "";
+                txtDisposal.Text = "";
+                rblCmplnc.ClearSelection();
+                //rblAirCont.ClearSelection();
+                //rblSgUt.ClearSelection();
+                //rblWater.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
 
+        }
+        private void ClearBrandOwnerFields()
+        {
+            try
+            {
+                txtBOTotalCapInv.Text = "";
+                txtBOYearOfComncmnt.Text = "";
+                txtBOProdQuan.Text = "";
+                txtBORawMatQuan.Text = "";
+                txtBOQntmWasteGenertd.Text = "";
+                txtBOModeStrge.Text = "";
+                txtBODispProv.Text = "";
+
+                //rblAirCont.ClearSelection();
+                //rblSgUt.ClearSelection();
+                //rblWater.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
         protected void BindStates()
         {
             try
@@ -188,7 +450,7 @@ namespace MeghalayaUIP.User.Services
                     ddlBOState.DataSource = objStatesModel;
                     ddlBOState.DataValueField = "StateId";
                     ddlBOState.DataTextField = "StateName";
-                    ddlBOState.DataBind() ;
+                    ddlBOState.DataBind();
 
                 }
                 else
@@ -229,7 +491,7 @@ namespace MeghalayaUIP.User.Services
                 ddlBODis.Items.Clear();
                 ddlBOVill.Items.Clear();
                 ddlBOMan.Items.Clear();
-                
+
 
 
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
@@ -369,7 +631,7 @@ namespace MeghalayaUIP.User.Services
                     ddlmndl.DataSource = null;
                     ddlmndl.DataBind();
 
-                    ddlUnitMand.DataSource= null;
+                    ddlUnitMand.DataSource = null;
                     ddlUnitMand.DataBind();
 
                     ddlBOMan.DataSource = null;
@@ -584,7 +846,7 @@ namespace MeghalayaUIP.User.Services
 
                 if (rblRole.SelectedValue == "Producer")
                 {
-                    ErrorMsg = ValidateProducerForm(); 
+                    ErrorMsg = ValidateProducerForm();
 
                     if (string.IsNullOrEmpty(ErrorMsg))
                     {
@@ -614,7 +876,7 @@ namespace MeghalayaUIP.User.Services
                         serviceProdPlasticsWasteDetails.MultilayeredPlastic = chkMultilayeredPlastics.Checked ? "1" : "0";
                         serviceProdPlasticsWasteDetails.ManufacturingCapacity = txtManufacturingCapacity.Text;
                         serviceProdPlasticsWasteDetails.PreviousRegistration = txtPreviousRegistration.Text;
-                        serviceProdPlasticsWasteDetails.RegistrationDate = txtDate.Text.Trim();
+                        serviceProdPlasticsWasteDetails.RegistrationDate = txtDate.Text;
                         serviceProdPlasticsWasteDetails.TotalCapitalInvestment = txtCapitalInvestment.Text;
                         serviceProdPlasticsWasteDetails.YearOfCommencement = txtCommencementYear.Text;
                         serviceProdPlasticsWasteDetails.ListQuantityProduct = txtProductsList.Text;
@@ -623,8 +885,10 @@ namespace MeghalayaUIP.User.Services
                         serviceProdPlasticsWasteDetails.ModeOfStorageWithinPlant = txtStorageMode.Text;
                         serviceProdPlasticsWasteDetails.DisposalProvision = txtDisposal.Text;
                         serviceProdPlasticsWasteDetails.Compliance = rblCmplnc.Text;
-
-
+                        serviceProdPlasticsWasteDetails.Role = "Producer";
+                        serviceProdPlasticsWasteDetails.WaterAct = rblWater.SelectedItem.Text;
+                        serviceProdPlasticsWasteDetails.SgUt = rblSgUt.SelectedItem.Text;
+                        serviceProdPlasticsWasteDetails.AirCont = rblAirCont.SelectedItem.Text;
 
                         // Insert into Producer Database Table
                         result = objSrvcbal.InsertProdPlasticsWasteDetails(serviceProdPlasticsWasteDetails);
@@ -632,7 +896,7 @@ namespace MeghalayaUIP.User.Services
                 }
                 else if (rblRole.SelectedValue == "BrandOwner")
                 {
-                    ErrorMsg = ValidateBrandOwnerForm(); 
+                    ErrorMsg = ValidateBrandOwnerForm();
 
                     if (string.IsNullOrEmpty(ErrorMsg))
                     {
@@ -647,7 +911,7 @@ namespace MeghalayaUIP.User.Services
                         // Assigning values from brand owner form controls
                         serviceBOPlasticsWasteDetails.NameOfBrandOwner = txtBrandOwnrName.Text;
                         serviceBOPlasticsWasteDetails.PreviousRegistrationNumber = txtBORegNo.Text;
-                        serviceBOPlasticsWasteDetails.RegistrationDate = txtBODate.Text.Trim();
+                        serviceBOPlasticsWasteDetails.RegistrationDate = txtBODate.Text;
                         serviceBOPlasticsWasteDetails.TotalCapitalInvestment = txtBOTotalCapInv.Text;
                         serviceBOPlasticsWasteDetails.YearOfCommencement = txtBOYearOfComncmnt.Text;
                         serviceBOPlasticsWasteDetails.ByProdProductList = txtBOProdQuan.Text;
@@ -655,6 +919,10 @@ namespace MeghalayaUIP.User.Services
                         serviceBOPlasticsWasteDetails.TotalQuantityWasteGenerated = txtBORawMatQuan.Text;
                         serviceBOPlasticsWasteDetails.ModeOfStorageWithinPlant = txtBOModeStrge.Text;
                         serviceBOPlasticsWasteDetails.DisposalProvision = txtBODispProv.Text;
+                        serviceBOPlasticsWasteDetails.Role = "BrandOwner";
+                        serviceBOPlasticsWasteDetails.WaterAct = rblWater.SelectedItem.Text;
+                        serviceBOPlasticsWasteDetails.SgUt = rblSgUt.SelectedItem.Text;
+                        serviceBOPlasticsWasteDetails.AirCont = rblAirCont.SelectedItem.Text;
 
                         // Insert into Brand Owner Database Table
                         result = objSrvcbal.InsertBOPlasticsWasteDetails(serviceBOPlasticsWasteDetails);
@@ -859,9 +1127,9 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                //btnsave_Click(sender, e);
-                //if (ErrorMsg == "")
-                    Response.Redirect("~/User/Services/CDWMDetails.aspx?Next=" + "N");
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {
@@ -873,7 +1141,16 @@ namespace MeghalayaUIP.User.Services
 
         protected void btnPrev_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/Services/EWasteDetails.aspx?Previous=" + "P");
+            try
+            {
+                Response.Redirect("~/User/Services/CDWMDetails.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         public void AddSelect(DropDownList ddl)
@@ -895,10 +1172,19 @@ namespace MeghalayaUIP.User.Services
 
         protected void rblRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            divProducer.Visible = rblRole.SelectedValue == "Producer";
-            divBrandOwner.Visible = rblRole.SelectedValue == "BrandOwner";
-        }
+            try
+            {
+                divProducer.Visible = rblRole.SelectedValue == "Producer";
+                divBrandOwner.Visible = rblRole.SelectedValue == "BrandOwner";
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
 
+        }
         public static string getclientIP()
         {
             string result = string.Empty;
@@ -916,7 +1202,6 @@ namespace MeghalayaUIP.User.Services
 
             return result;
         }
-
         protected List<TextBox> FindEmptyTextboxes(Control container)
         {
 
@@ -940,7 +1225,726 @@ namespace MeghalayaUIP.User.Services
             }
             return emptyTextboxes;
         }
+        protected void btnBOWater_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupBOWaterActConsent.HasFile)
+                {
+                    Error = validations(fupBOWaterActConsent);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Land Document" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupBOWaterActConsent.PostedFile.SaveAs(serverpath + "\\" + fupBOWaterActConsent.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
 
-        
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupBOWaterActConsent.PostedFile.SaveAs(serverpath + "\\" + fupBOWaterActConsent.PostedFile.FileName);
+                            }
+                        }
+
+                        SRVCAttachments objWaterActConsent = new SRVCAttachments();
+                        objWaterActConsent.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
+                        objWaterActConsent.MasterID = "174";
+                        objWaterActConsent.FilePath = serverpath + fupBOWaterActConsent.PostedFile.FileName;
+                        objWaterActConsent.FileName = fupBOWaterActConsent.PostedFile.FileName;
+                        objWaterActConsent.FileType = fupBOWaterActConsent.PostedFile.ContentType;
+                        objWaterActConsent.FileDescription = "Valid consent under the Water (Prevention and control of Pollution) Act";
+                        objWaterActConsent.CreatedBy = hdnUserID.Value;
+                        objWaterActConsent.IPAddress = getclientIP();
+                        objWaterActConsent.ReferenceNo = txtBOWaterActConsent.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objWaterActConsent);
+                        if (result != "")
+                        {
+                            hypBOWaterActConsent.Text = fupBOWaterActConsent.PostedFile.FileName;
+                            hypBOWaterActConsent.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupBOWaterActConsent.PostedFile.FileName);
+                            hypBOWaterActConsent.Target = "blank";
+                            message = "alert('" + "Valid consent under the Water (Prevention and control of Pollution) Act Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void btnBOAir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupAIrPoltn.HasFile)
+                {
+                    Error = validations(fupAIrPoltn);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Air (Prevention and Control of Pollution) Act" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupAIrPoltn.PostedFile.SaveAs(serverpath + "\\" + fupAIrPoltn.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupAIrPoltn.PostedFile.SaveAs(serverpath + "\\" + fupAIrPoltn.PostedFile.FileName);
+                            }
+                        }
+
+                        SRVCAttachments objBOAirPol = new SRVCAttachments();
+                        objBOAirPol.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
+                        objBOAirPol.MasterID = "176";
+                        objBOAirPol.FilePath = serverpath + fupAIrPoltn.PostedFile.FileName;
+                        objBOAirPol.FileName = fupAIrPoltn.PostedFile.FileName;
+                        objBOAirPol.FileType = fupAIrPoltn.PostedFile.ContentType;
+                        objBOAirPol.FileDescription = "Valid consent under the Air (Prevention and Control of Pollution) Act Document";
+                        objBOAirPol.CreatedBy = hdnUserID.Value;
+                        objBOAirPol.IPAddress = getclientIP();
+                        objBOAirPol.ReferenceNo = txtBOAirPoltn.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objBOAirPol);
+                        if (result != "")
+                        {
+                            hypAirPoltn.Text = fupAIrPoltn.PostedFile.FileName;
+                            hypAirPoltn.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupAIrPoltn.PostedFile.FileName);
+                            hypAirPoltn.Target = "blank";
+                            message = "alert('" + "Valid consent under the Air (Prevention and Control of Pollution) Act Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnFlowDgrm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupFlowDgrm.HasFile)
+                {
+                    Error = validations(fupFlowDgrm);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Flow diagram for captive power generation and water" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupFlowDgrm.PostedFile.SaveAs(serverpath + "\\" + fupFlowDgrm.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupFlowDgrm.PostedFile.SaveAs(serverpath + "\\" + fupFlowDgrm.PostedFile.FileName);
+                            }
+                        }
+
+                        SRVCAttachments objFlowDgrn = new SRVCAttachments();
+                        objFlowDgrn.Questionnareid = Convert.ToString(Session["SRVCQID"]);
+                        objFlowDgrn.MasterID = "172";
+                        objFlowDgrn.FilePath = serverpath + fupFlowDgrm.PostedFile.FileName;
+                        objFlowDgrn.FileName = fupFlowDgrm.PostedFile.FileName;
+                        objFlowDgrn.FileType = fupFlowDgrm.PostedFile.ContentType;
+                        objFlowDgrn.FileDescription = "Flow diagram of manufacturing process showing input and output in terms of products and waste generated including for captive power generation and water";
+                        objFlowDgrn.CreatedBy = hdnUserID.Value;
+                        objFlowDgrn.IPAddress = getclientIP();
+                        objFlowDgrn.ReferenceNo = txtFlowDgrm.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objFlowDgrn);
+                        if (result != "")
+                        {
+                            hypFlowDgrm.Text = fupFlowDgrm.PostedFile.FileName;
+                            hypFlowDgrm.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupFlowDgrm.PostedFile.FileName);
+                            hypFlowDgrm.Target = "blank";
+                            message = "alert('" + "Flow diagram for captive power generation and water Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPMList_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupPMList.HasFile)
+                {
+                    Error = validations(fupPMList);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "List of people supplying plastic material" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupPMList.PostedFile.SaveAs(serverpath + "\\" + fupPMList.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupPMList.PostedFile.SaveAs(serverpath + "\\" + fupPMList.PostedFile.FileName);
+                            }
+                        }
+
+                        SRVCAttachments objPMList = new SRVCAttachments();
+                        objPMList.Questionnareid = Convert.ToString(Session["SRVCQID"]);
+                        objPMList.MasterID = "170";
+                        objPMList.FilePath = serverpath + fupPMList.PostedFile.FileName;
+                        objPMList.FileName = fupPMList.PostedFile.FileName;
+                        objPMList.FileType = fupPMList.PostedFile.ContentType;
+                        objPMList.FileDescription = "List of people supplying plastic material";
+                        objPMList.CreatedBy = hdnUserID.Value;
+                        objPMList.IPAddress = getclientIP();
+                        objPMList.ReferenceNo = txtPMList.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objPMList);
+                        if (result != "")
+                        {
+                            hypPMList.Text = fupPMList.PostedFile.FileName;
+                            hypPMList.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupPMList.PostedFile.FileName);
+                            hypPMList.Target = "blank";
+                            message = "alert('" + "List of people supplying plastic material Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnActnPln_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupActnPln.HasFile)
+                {
+                    Error = validations(fupActnPln);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Action plan on collecting back the plastic wastes" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupActnPln.PostedFile.SaveAs(serverpath + "\\" + fupActnPln.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupActnPln.PostedFile.SaveAs(serverpath + "\\" + fupActnPln.PostedFile.FileName);
+                            }
+                        }
+
+                        SRVCAttachments objActnPln = new SRVCAttachments();
+                        objActnPln.Questionnareid = Convert.ToString(Session["SRVCQID"]);
+                        objActnPln.MasterID = "171";
+                        objActnPln.FilePath = serverpath + fupActnPln.PostedFile.FileName;
+                        objActnPln.FileName = fupActnPln.PostedFile.FileName;
+                        objActnPln.FileType = fupActnPln.PostedFile.ContentType;
+                        objActnPln.FileDescription = "Action plan on collecting back the plastic wastes ";
+                        objActnPln.CreatedBy = hdnUserID.Value;
+                        objActnPln.IPAddress = getclientIP();
+                        objActnPln.ReferenceNo = txtActnPln.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objActnPln);
+                        if (result != "")
+                        {
+                            hypActnPln.Text = fupActnPln.PostedFile.FileName;
+                            hypActnPln.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupActnPln.PostedFile.FileName);
+                            hypActnPln.Target = "blank";
+                            message = "alert('" + "Action plan on collecting back the plastic wastes Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnEstbOpr_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupEstbOpr.HasFile)
+                {
+                    Error = validations(fupEstbOpr);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Consent to Establish or Operate" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupEstbOpr.PostedFile.SaveAs(serverpath + "\\" + fupEstbOpr.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupEstbOpr.PostedFile.SaveAs(serverpath + "\\" + fupEstbOpr.PostedFile.FileName);
+                            }
+                        }
+
+                        SRVCAttachments objEstbOpr = new SRVCAttachments();
+                        objEstbOpr.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
+                        objEstbOpr.MasterID = "166";
+                        objEstbOpr.FilePath = serverpath + fupEstbOpr.PostedFile.FileName;
+                        objEstbOpr.FileName = fupEstbOpr.PostedFile.FileName;
+                        objEstbOpr.FileType = fupEstbOpr.PostedFile.ContentType;
+                        objEstbOpr.FileDescription = "Consent to Establish or Operate";
+                        objEstbOpr.CreatedBy = hdnUserID.Value;
+                        objEstbOpr.IPAddress = getclientIP();
+                        objEstbOpr.ReferenceNo = txtEstbOpr.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objEstbOpr);
+                        if (result != "")
+                        {
+                            hypEstbOpr.Text = fupEstbOpr.PostedFile.FileName;
+                            hypEstbOpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupEstbOpr.PostedFile.FileName);
+                            hypEstbOpr.Target = "blank";
+                            message = "alert('" + "Consent to Establish or Operate Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPrsnlBOList_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupPrsnlBOList.HasFile)
+                {
+                    Error = validations(fupPrsnlBOList);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "List of personnel or brand Owners to whom the products will be supplied" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupPrsnlBOList.PostedFile.SaveAs(serverpath + "\\" + fupPrsnlBOList.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupPrsnlBOList.PostedFile.SaveAs(serverpath + "\\" + fupPrsnlBOList.PostedFile.FileName);
+                            }
+                        }
+
+                        SRVCAttachments objDPR = new SRVCAttachments();
+                        objDPR.Questionnareid = Convert.ToString(Session["SRVCQID"]);
+                        objDPR.MasterID = "173";
+                        objDPR.FilePath = serverpath + fupPrsnlBOList.PostedFile.FileName;
+                        objDPR.FileName = fupPrsnlBOList.PostedFile.FileName;
+                        objDPR.FileType = fupPrsnlBOList.PostedFile.ContentType;
+                        objDPR.FileDescription = "list of personnel or brand Owners to whom the products will be supplied";
+                        objDPR.CreatedBy = hdnUserID.Value;
+                        objDPR.IPAddress = getclientIP();
+                        objDPR.ReferenceNo = txtPrsnlBOList.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objDPR);
+                        if (result != "")
+                        {
+                            hypPrsnlBOList.Text = fupPrsnlBOList.PostedFile.FileName;
+                            hypPrsnlBOList.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupPrsnlBOList.PostedFile.FileName);
+                            hypPrsnlBOList.Target = "blank";
+                            message = "alert('" + "List of personnel or brand Owners to whom the products will be supplied Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void rblWater_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblWater.SelectedValue == "Yes")
+                    divWater.Visible = true;
+                else
+                    divWater.Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void rblSgUt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblSgUt.SelectedValue == "Yes")
+                    divSgUt.Visible = true;
+                else
+                    divSgUt.Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void rblAirCont_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblAirCont.SelectedValue == "Yes")
+                    divAirCont.Visible = true;
+                else
+                    divAirCont.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnDisCentre_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupBOStUT.HasFile)
+                {
+                    Error = validations(fupBOStUT);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["SRVCAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["SRVCQID"]) + "\\" + "Unit registered with the District Industries Centre of the State Government or Union territory Document" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupBOStUT.PostedFile.SaveAs(serverpath + "\\" + fupBOStUT.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupBOStUT.PostedFile.SaveAs(serverpath + "\\" + fupBOStUT.PostedFile.FileName);
+                            }
+                        }
+
+                        SRVCAttachments objSTDT = new SRVCAttachments();
+                        objSTDT.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
+                        objSTDT.MasterID = "175";
+                        objSTDT.FilePath = serverpath + fupBOStUT.PostedFile.FileName;
+                        objSTDT.FileName = fupBOStUT.PostedFile.FileName;
+                        objSTDT.FileType = fupBOStUT.PostedFile.ContentType;
+                        objSTDT.FileDescription = "Unit registered with the District Industries Centre of the State Government or Union territory Document";
+                        objSTDT.CreatedBy = hdnUserID.Value;
+                        objSTDT.IPAddress = getclientIP();
+                        objSTDT.ReferenceNo = txtBOStUT.Text;
+                        result = objSrvcbal.InsertSRVCAttachments(objSTDT);
+                        if (result != "")
+                        {
+                            hypBOStUT.Text = fupBOStUT.PostedFile.FileName;
+                            hypBOStUT.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupBOStUT.PostedFile.FileName);
+                            hypBOStUT.Target = "blank";
+                            message = "alert('" + "Unit registered with the District Industries Centre of the State Government or Union territory Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
+                int slno = 1; string Error = "";
+
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                //  }
+                return Error;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+
     }
 }

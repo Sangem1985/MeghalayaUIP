@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,7 +36,8 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCCDWMDETAILS = "USP_GETSRVCCDWMDETAILS";
 
 
-        public static string GetProdPlasticWasteDetails = "";
+        public static string GetProdPlasticWasteDetails = "USP_GETPRODPLASTICWASTEDET";
+        public static string GetBOPlasticWasteDetails = "USP_GETBOPLASTICWASTEDET";
 
 
         public static string InsertSVRCAttachments = "USP_INSSRVCATTACHMNETS";
@@ -349,8 +351,14 @@ namespace MeghalayaUIP.Common
         public string ModeOfStorageWithinPlant { get; set; }
         public string DisposalProvision { get; set; }
         public string Compliance { get; set; }
-
         public string CreatedBy { get; set; }
+        public string Role { get; set; }
+
+        public string WaterAct {  get; set; }
+
+        public string SgUt {  get; set; }
+
+        public string AirCont {  get; set; }
 
     }
 
@@ -358,22 +366,14 @@ namespace MeghalayaUIP.Common
     {
         public string SrvcQdId { get; set; }
         public string UnitId { get; set; }
-
         public string CreatedBy { get; set; }
         public string NameOfBrandOwner { get; set; }
-
         public string PreviousRegistrationNumber { get; set; }
-
         public string CreatedByIp { get; set; }
-
         public string RegistrationDate { get; set; }
-
         public string TotalCapitalInvestment { get; set; }
-
         public string YearOfCommencement { get; set; }
-
         public string ByProdProductList { get; set; }
-
         public string ByProdRawMaterialList { get; set; }
 
         public string TotalQuantityWasteGenerated { get; set; }
@@ -381,6 +381,14 @@ namespace MeghalayaUIP.Common
         public string ModeOfStorageWithinPlant { get; set; }
 
         public string DisposalProvision { get; set; }
+
+        public string Role { get; set; }
+
+        public string WaterAct { get; set; }
+
+        public string SgUt { get; set; }
+
+        public string AirCont { get; set; }
     }
 
     public class SRVCHAZZARDOUSDETAILS

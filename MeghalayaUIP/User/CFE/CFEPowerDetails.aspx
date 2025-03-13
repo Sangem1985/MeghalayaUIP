@@ -154,7 +154,7 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <%-- <asp:TextBox ID="txtPowersupply" runat="server" class="date form-control"></asp:TextBox>
                                                 <i class="fi fi-rr-calendar-lines"></i>--%>
-                                                        <asp:TextBox runat="server" ID="txtPowersupply" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)"/>
+                                                        <asp:TextBox runat="server" ID="txtPowersupply" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)" />
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtPowersupply"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -172,7 +172,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">6. Proposed source of energy/load*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlloadenergy" runat="server" class="form-control"  onchange="validateDropdown(this)">
+                                                        <asp:DropDownList ID="ddlloadenergy" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -180,14 +180,51 @@
                                             </div>
                                         </div>
 
-                                          
+
+                                        <div class="mePDCL" visible="false">
+                                            <h4 class="card-title ml-3">Power Feasibility</h4>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">7. Purpose(s) for which electricity will be principally used*</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtEtrPrpse" runat="server" class="form-control" onkeypress="return validateNameAndNumbers()" MaxLength="2" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">8. Contracted load / demand required*</label>
+                                                        <div class="auto-style1">
+                                                            <asp:RadioButtonList ID="rblCmplnc" runat="server" RepeatDirection="Horizontal">
+                                                                <asp:ListItem Text="Contracted" Value="Contracted" />
+                                                                <asp:ListItem Text="Demanded" Value="Demanded" />
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Character of supply required (tick in the blank box):</label>
+                                                        <div class="col-lg-6">
+                                                            <asp:CheckBoxList ID="chkCharacterSupply" runat="server">
+                                                                <asp:ListItem Text="400V 3Phase 4Wire" Value="400V"></asp:ListItem>
+                                                                <asp:ListItem Text="11kV" Value="11kV"></asp:ListItem>
+                                                                <asp:ListItem Text="33kV" Value="33kV"></asp:ListItem>
+                                                                <asp:ListItem Text="132kV" Value="132kV"></asp:ListItem>
+                                                            </asp:CheckBoxList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div class="col-md-12 text-right mb-3">
-
                                             <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                             <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
                                             <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-
                                         </div>
                                     </div>
                                 </div>
@@ -204,6 +241,6 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
-         
+
     </asp:UpdatePanel>
 </asp:Content>

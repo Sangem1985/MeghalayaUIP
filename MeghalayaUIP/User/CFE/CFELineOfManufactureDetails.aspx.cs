@@ -434,7 +434,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 btnSave_Click(sender, e);
                 if (ErrorMsg == "")
-                    Response.Redirect("~/User/CFE/CFEHazWasteDetails.aspx?Next=" + "N");
+                    Response.Redirect("~/User/CFE/CFEPCBWCEDetails.aspx?Next=" + "N");
 
             }
             catch (Exception ex)

@@ -545,7 +545,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 btnSave_Click(sender, e);
                 if (ErrorMsg == "")
-                    Response.Redirect("~/User/CFO/CFOLabourDetails.aspx?Next=" + "N");
+                    Response.Redirect("~/User/CFO/CFOPCBWCEDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

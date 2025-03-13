@@ -17,6 +17,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
+        string Questionnaire;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -35,11 +36,22 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     Page.MaintainScrollPositionOnPostBack = true;
-                    
-                    if (!IsPostBack)
+
+                    if (Convert.ToString(Session["RENQID"]) != "")
                     {
-                        Binddata();
+                        Questionnaire = Convert.ToString(Session["RENQID"]);
+                        if (!IsPostBack)
+                        {
+                            Binddata();
+                        }
                     }
+                    else
+                    {
+                        string newurl = "~/User/Services/RENUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+
+                   
                 }
                 else
                 {
@@ -58,9 +70,9 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet dsnew = new DataSet();
-                string UserId = "1";
-                string UnitId = Session["RENUNITID"].ToString();
-                dsnew = objRenbal.GetRenApprovals(UserId,UnitId);
+                //string UserId = 
+                //string UnitId = Session["RENUNITID"].ToString();
+                dsnew = objRenbal.GetRenApprovals(hdnUserID.Value,Convert.ToString(Session["RENQID"]));
                 if (dsnew !=null && dsnew.Tables.Count > 0)
                 {
                     if (dsnew.Tables[0].Rows.Count > 0)
@@ -127,8 +139,7 @@ namespace MeghalayaUIP.User.Renewal
 
                             lstRenApprovals.Add(new RenApprovals
                             {
-                                RENQDID = Session["RENQID"].ToString(),
-                                UnitId = Session["RENUNITID"].ToString(),
+                                RENQDID = Session["RENQID"].ToString(),                              
                                 ApprovalId = lblApprovalId.Text.ToString(),
                                 DeptId = lblDeptId.Text.ToString(),
                                 ApprovalFee = lblApprovalFee.Text.ToString(),
@@ -141,8 +152,7 @@ namespace MeghalayaUIP.User.Renewal
                     XElement xmlRenApproval = new XElement("xmlRenApproval_xml",
                           from Approval in lstRenApprovals
                           select new XElement("RenApprovalTable",
-                          new XElement("RENQDID", Approval.RENQDID),
-                          new XElement("UnitId", Approval.UnitId),
+                          new XElement("RENQDID", Approval.RENQDID),                       
                           new XElement("ApprovalId", Approval.ApprovalId),
                           new XElement("DeptId", Approval.DeptId),
                           new XElement("ApprovalFee", Approval.ApprovalFee),
@@ -151,8 +161,7 @@ namespace MeghalayaUIP.User.Renewal
                           new XElement("IPAddress", Approval.IPAddress)
                           ));
                     ObjApplicationDetails.RenApprovalsXml = xmlRenApproval.ToString();
-                    ObjApplicationDetails.ApprovalID = ApprovalIds;
-                    ObjApplicationDetails.UnitId = Session["RENUNITID"].ToString();
+                    ObjApplicationDetails.ApprovalID = ApprovalIds;                   
                     ObjApplicationDetails.Questionnariid = Session["RENQID"].ToString();
                     int result = Convert.ToInt32(objRenbal.InsertRenDeptApprovals(ObjApplicationDetails));
                     if (result > 0)

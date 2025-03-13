@@ -7,255 +7,291 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User.CFE
+namespace MeghalayaUIP.User.Services
 {
 
 
-    public partial class CFEPowerDetails
+    public partial class SRVCARPECLAct
     {
 
         /// <summary>
-        /// ScriptManager1 control.
+        /// txtnameprncplemplyr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.TextBox txtnameprncplemplyr;
 
         /// <summary>
-        /// UpdatePanel1 control.
+        /// txtfathersname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.TextBox txtfathersname;
 
         /// <summary>
-        /// divText control.
+        /// txtmblno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divText;
+        protected global::System.Web.UI.WebControls.TextBox txtmblno;
 
         /// <summary>
-        /// success control.
+        /// txtemailid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
+        protected global::System.Web.UI.WebControls.TextBox txtemailid;
 
         /// <summary>
-        /// lblmsg control.
+        /// txtpeaddrss control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg;
+        protected global::System.Web.UI.WebControls.TextBox txtpeaddrss;
 
         /// <summary>
-        /// Label1 control.
+        /// txtnameofestblsmnt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtnameofestblsmnt;
 
         /// <summary>
-        /// Failure control.
+        /// txtlocestblshmnt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Failure;
+        protected global::System.Web.UI.WebControls.TextBox txtlocestblshmnt;
 
         /// <summary>
-        /// lblmsg0 control.
+        /// pstladdrsestblsmnt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmsg0;
+        protected global::System.Web.UI.WebControls.TextBox pstladdrsestblsmnt;
 
         /// <summary>
-        /// hdnUserID control.
+        /// txtmngrname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
+        protected global::System.Web.UI.WebControls.TextBox txtmngrname;
 
         /// <summary>
-        /// txtHP control.
+        /// txtmgnrmbno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHP;
+        protected global::System.Web.UI.WebControls.TextBox txtmgnrmbno;
 
         /// <summary>
-        /// txtMaxDemand control.
+        /// txtmngremailid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMaxDemand;
+        protected global::System.Web.UI.WebControls.TextBox txtmngremailid;
 
         /// <summary>
-        /// ddlvtglevel control.
+        /// txtmngraddrs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlvtglevel;
+        protected global::System.Web.UI.WebControls.TextBox txtmngraddrs;
 
         /// <summary>
-        /// EXISTING control.
+        /// txtntrwrkcrdestblmnt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EXISTING;
+        protected global::System.Web.UI.WebControls.TextBox txtntrwrkcrdestblmnt;
 
         /// <summary>
-        /// ddlPermise control.
+        /// txtcntrswrkdinestblshmnt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPermise;
+        protected global::System.Web.UI.WebControls.TextBox txtcntrswrkdinestblshmnt;
 
         /// <summary>
-        /// txtMaxhours control.
+        /// txttldysyrcontactemplyd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMaxhours;
+        protected global::System.Web.UI.WebControls.TextBox txttldysyrcontactemplyd;
 
         /// <summary>
-        /// txtMonth control.
+        /// txttlmandysyrcntrtlbremplyd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMonth;
+        protected global::System.Web.UI.WebControls.TextBox txttlmandysyrcntrtlbremplyd;
 
         /// <summary>
-        /// txttrailProduct control.
+        /// txtmxmnofwrkmn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttrailProduct;
+        protected global::System.Web.UI.WebControls.TextBox txtmxmnofwrkmn;
 
         /// <summary>
-        /// CalendarExtender2 control.
+        /// txtnofdysdrctemplyed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
+        protected global::System.Web.UI.WebControls.TextBox txtnofdysdrctemplyed;
 
         /// <summary>
-        /// txtPowersupply control.
+        /// txttlmandysyrbydrtemplyd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPowersupply;
+        protected global::System.Web.UI.WebControls.TextBox txttlmandysyrbydrtemplyd;
 
         /// <summary>
-        /// CalendarExtender1 control.
+        /// txtnameofcntrtr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
+        protected global::System.Web.UI.WebControls.TextBox txtnameofcntrtr;
 
         /// <summary>
-        /// txtenergy control.
+        /// txtaddrsscntrtr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtenergy;
+        protected global::System.Web.UI.WebControls.TextBox txtaddrsscntrtr;
 
         /// <summary>
-        /// ddlloadenergy control.
+        /// txtcntrtprdfrm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlloadenergy;
+        protected global::System.Web.UI.WebControls.TextBox txtcntrtprdfrm;
 
         /// <summary>
-        /// txtEtrPrpse control.
+        /// txtcntrtprdto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEtrPrpse;
+        protected global::System.Web.UI.WebControls.TextBox txtcntrtprdto;
 
         /// <summary>
-        /// rblCmplnc control.
+        /// txtntrofwrk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblCmplnc;
+        protected global::System.Web.UI.WebControls.TextBox txtntrofwrk;
 
         /// <summary>
-        /// chkCharacterSupply control.
+        /// txtmxmwrkrsemplydbyechctnrtr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkCharacterSupply;
+        protected global::System.Web.UI.WebControls.TextBox txtmxmwrkrsemplydbyechctnrtr;
 
         /// <summary>
-        /// btnPrevious control.
+        /// txtnofdyswrkd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrevious;
+        protected global::System.Web.UI.WebControls.TextBox txtnofdyswrkd;
 
         /// <summary>
-        /// btnSave control.
+        /// txtnofmandyswrkd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.TextBox txtnofmandyswrkd;
+
+        /// <summary>
+        /// btnaddlog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnaddlog;
+
+        /// <summary>
+        /// gvContractorLogs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvContractorLogs;
+
+        /// <summary>
+        /// btnPreviuos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPreviuos;
+
+        /// <summary>
+        /// btnsave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsave;
 
         /// <summary>
         /// btnNext control.
@@ -265,14 +301,5 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNext;
-
-        /// <summary>
-        /// UpdateProgress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress UpdateProgress;
     }
 }

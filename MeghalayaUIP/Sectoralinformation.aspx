@@ -158,7 +158,12 @@
                                                                     <asp:BoundField HeaderText="Name of Sector" DataField="Sector" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                                                     <asp:BoundField HeaderText="Product" DataField="PRODUCTS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
                                                                     <asp:BoundField HeaderText="Stage" DataField="STAGES" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-
+                                                                    <asp:TemplateField HeaderText="Apply Online" ItemStyle-Width="10%">
+                                                                        <ItemTemplate>
+                                                                            <asp:Button ID="btnOnline" runat="server" Text='Apply Online' CommandName="Apply" CssClass="btn btn-info" OnClick="btnOnline_Click" />
+                                                                        </ItemTemplate>
+                                                                        <ItemStyle HorizontalAlign="Center" />
+                                                                    </asp:TemplateField>
                                                                 </Columns>
                                                                 <EmptyDataTemplate>
                                                                     <div align="center" style="text-align: center; padding: 20px;">

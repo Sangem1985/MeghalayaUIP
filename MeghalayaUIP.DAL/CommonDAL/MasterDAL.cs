@@ -265,8 +265,8 @@ namespace MeghalayaUIP.DAL.CommonDAL
                     {
                         var sectors = new MasterSector()
                         {
-                            SectorId = Convert.ToString(drOptions["SectorName"]),
-                            SectorName = Convert.ToString(drOptions["SectorName"])
+                            SectorId = Convert.ToString(drOptions["SECTORID"]),
+                            SectorName = Convert.ToString(drOptions["SECTORNAME"])
                         };
                         lstSectorMstr.Add(sectors);
                     }
@@ -1447,7 +1447,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetAcknowlegementDetails(string UnitId, string AppType)
+        public DataSet GetAcknowlegementDetails(string UIDno, string AppType)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1464,7 +1464,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@APPTYPE", AppType);
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", UnitId);
+                da.SelectCommand.Parameters.AddWithValue("@UIDNO", UIDno);
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

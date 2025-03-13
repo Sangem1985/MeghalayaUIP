@@ -111,7 +111,7 @@ namespace MeghalayaUIP.User.CFO
                     }
                     else
                     {
-                        Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
+                        Response.Redirect("~/User/CFO/CFOPCBAEDetails.aspx?Previous=P");
                     }
                 }
             }
@@ -1121,7 +1121,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
+                Response.Redirect("~/User/CFO/CFOPCBAEDetails.aspx?Previous=P");
             }
             catch (Exception ex)
             {
