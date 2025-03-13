@@ -1369,40 +1369,6 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
         }
 
-        //public DataSet GetProdPlasticWasteDetails(string srvcQdId, string unitId)
-        //{
-        //    DataSet ds = new DataSet();
-        //    SqlConnection connection = new SqlConnection(connstr);
-        //    SqlTransaction transaction = null;
-        //    connection.Open();
-        //    transaction = connection.BeginTransaction();
-        //    try
-        //    {
-        //        SqlDataAdapter da;
-        //        da = new SqlDataAdapter(SvrcConstants.GetProdPlasticWasteDetails, connection);
-        //        da.SelectCommand.CommandType = CommandType.StoredProcedure;
-        //        da.SelectCommand.CommandText = SvrcConstants.GetProdPlasticWasteDetails;
-
-        //        da.SelectCommand.Transaction = transaction;
-        //        da.SelectCommand.Connection = connection;
-
-        //        da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(srvcQdId));
-        //        da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(unitId));
-        //        da.Fill(ds);
-        //        transaction.Commit();
-        //        return ds;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        transaction.Rollback();
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //        connection.Dispose();
-        //    }
-        //}
 
         public string InsertProdPlasticsWasteDetails(ServiceProdPlasticsWasteDetails serviceProdPlasticsWasteDetails)
         {
@@ -1442,6 +1408,12 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCPWD_MODEOFSTORAGEWITHINPLANT", serviceProdPlasticsWasteDetails.ModeOfStorageWithinPlant);
                 com.Parameters.AddWithValue("@SRVCPWD_DISPOSALPROVISION", serviceProdPlasticsWasteDetails.DisposalProvision);
                 com.Parameters.AddWithValue("@SRVCPWD_COMPLIANCE", serviceProdPlasticsWasteDetails.Compliance);
+                com.Parameters.AddWithValue("@SRVCPWD_ROLE", serviceProdPlasticsWasteDetails.Role);
+                com.Parameters.AddWithValue("@SRVCPWD_WATERACT", serviceProdPlasticsWasteDetails.WaterAct);
+                com.Parameters.AddWithValue("@SRVCPWD_SGUT", serviceProdPlasticsWasteDetails.SgUt);
+                com.Parameters.AddWithValue("@SRVCPWD_AIRPOL", serviceProdPlasticsWasteDetails.AirCont);
+
+
 
 
 
@@ -1497,6 +1469,10 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BOPWD_SWTOTALQNTMWASTEGEN", serviceBOPlasticsWasteDetails.TotalQuantityWasteGenerated);
                 com.Parameters.AddWithValue("@BOPWD_SWMODEOFSTORAGE", serviceBOPlasticsWasteDetails.ModeOfStorageWithinPlant);
                 com.Parameters.AddWithValue("@BOPWD_SWDISPOSALPROV", serviceBOPlasticsWasteDetails.DisposalProvision);
+                com.Parameters.AddWithValue("@BOPWD_ROLE", serviceBOPlasticsWasteDetails.Role);
+                com.Parameters.AddWithValue("@BOPWD_WATERACT", serviceBOPlasticsWasteDetails.WaterAct);
+                com.Parameters.AddWithValue("@BOPWD_SGUT", serviceBOPlasticsWasteDetails.SgUt);
+                com.Parameters.AddWithValue("@BOPWD_AIRPOL", serviceBOPlasticsWasteDetails.AirCont);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -1869,9 +1845,44 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             try
             {
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(SvrcConstants.GetSrvcSWMDetails, connection);
+                da = new SqlDataAdapter(SvrcConstants.GetProdPlasticWasteDetails, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = SvrcConstants.GetSrvcSWMDetails;
+                da.SelectCommand.CommandText = SvrcConstants.GetProdPlasticWasteDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(srvcQdId));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(hdnUserID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public DataSet GetBOPlasticWasteDetails(string hdnUserID, string srvcQdId)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetBOPlasticWasteDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetBOPlasticWasteDetails;
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;

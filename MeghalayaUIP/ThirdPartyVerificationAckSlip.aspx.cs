@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.CommonBAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,17 +16,24 @@ namespace MeghalayaUIP
         {
             if (Request.QueryString.Count > 0)
             {
-                lblPrime.InnerText = "6"; //Convert.ToString(Request.QueryString[0]);
-                lblUIDNo.InnerText = "SRVC/2025/102"; //Convert.ToString(Request.QueryString[0]);
-                lblDear.InnerText = "TEST";//Convert.ToString(Request.QueryString[1]);
-                lblDate.InnerText = "07/03/2025";
-                //lblDate.InnerText = Convert.ToString(Request.QueryString[2]);
-                //DateTime dateTime = DateTime.UtcNow.Date;
-                //lblDate.InnerHtml = dateTime.ToString("dd/MM/yyyy");
-
-
-
+                string UIDNo = Request.QueryString[0].ToString();
+                string TypeOfApplication = Request.QueryString[1].ToString();
+                DataSet dsnew = new DataSet();
+                dsnew = masterBAL.GetAcknowlegementDetails(UIDNo, TypeOfApplication);
+                if (dsnew != null && dsnew.Tables.Count > 0 && dsnew.Tables[0].Rows.Count > 0)
+                {
+                    lblPrime.InnerText = Convert.ToString(dsnew.Tables[0].Rows[0]["APPROVALCOUNT"]);
+                    lblUIDNo.InnerText = Convert.ToString(dsnew.Tables[0].Rows[0]["UIDNO"]);
+                    lblUnitName.InnerText = Convert.ToString(dsnew.Tables[0].Rows[0]["NAMEOFUNIT"]);
+                    lblDate.InnerText = Convert.ToString(dsnew.Tables[0].Rows[0]["APPLIEDDATE"]);
+                }
+                if (dsnew != null && dsnew.Tables.Count > 0 && dsnew.Tables[1].Rows.Count > 0)
+                {
+                    grdApprovals.DataSource = dsnew.Tables[1];
+                    grdApprovals.DataBind();
+                }
             }
+            else Response.Redirect("~/ViewCertifcateDetails.aspx");
         }
     }
 }

@@ -66,7 +66,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "14", "");
+                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "14", "107");
 
 
                 if (ds.Tables[0].Rows.Count > 0)

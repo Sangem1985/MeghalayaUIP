@@ -159,9 +159,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetCertifcateDetails(TypeOfApplication, UIDNo, UnitName);
         }
-        public DataSet GetAcknowlegementDetails(string UnitId, string AppType)
+        public DataSet GetAcknowlegementDetails(string UIDno, string AppType)
         {
-            return objMasterDAL.GetAcknowlegementDetails(UnitId, AppType);
+            return objMasterDAL.GetAcknowlegementDetails(UIDno, AppType);
         }
         public DataSet GetSingleWindowDepts(string fdate, string tdate, string DeptId)
         {

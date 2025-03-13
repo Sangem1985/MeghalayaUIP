@@ -38,7 +38,9 @@
 
                             <div class="col-sm-6 m-b-20 text-center" style="display: flex; justify-content: center;">
                                 <div class="invoice-details text-center d-flex" style="text-align: center;">
-                                    <h3 class="text-uppercase" style="margin-bottom: 0;"><u>Application Acknowledgement</u></h3>
+                                    <h3 class="text-uppercase" style="margin-bottom: 0; width:250px"><u>Invest Meghalaya Authority,
+Secretariat Main Building, M.G Road,
+Shillong - 793 001, East Khasi Hills District, Meghalaya.</u></h3>
                                 </div>
                             </div>
                         </div>
@@ -47,35 +49,56 @@
                                 <ul class="list-unstyled mb-0 list-item">
                                     <li>Date :
                                         <label runat="server" id="lblDate" style="font-weight: bold"></label>
-                                        <br />                                       
+                                        <br />
                                     </li>
-                                      <li>Application Reference Number is : <b>
+                                    <li>Application Reference Number is : <b>
                                         <label runat="server" id="lblUIDNo"></label>
-                                    </b>                                        
+                                    </b>
                                     </li>
                                     <%-- <li>
                                         <label runat="server" id="lblEnterPrise"></label>
                                     </li>--%>
                                     <li>Unit Name :
-                                        <label runat="server" id="lblDear" style="font-weight: bold"></label>
+                                        <label runat="server" id="lblUnitName" style="font-weight: bold"></label>
                                         ,<br />
                                         <br />
                                         In view of the above, the unit is hereby accorded the Permissions/Approval applied for under the Meghalaya Industrial Facilitation Act.
-                                        A total of 
+                                         A total of 
                                         <label runat="server" id="lblPrime" style="font-weight: bold; font-size: 18px;"></label>
-                                        approvals were applied for, and the same have been granted under the applicable provisions of the Meghalaya State Government’s industrial facilitation framework.
-                                       
+                                        approvals were applied and the same have been granted under the applicable provisions of the Meghalaya State Government’s industrial facilitation framework.
+                                    </li>
+                                    <li>
+                                        <asp:GridView ID="grdApprovals" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                                            BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
+                                            GridLines="None" Width="100%" EnableModelValidation="True" ShowFooter="false" >
+                                            <RowStyle HorizontalAlign="Center" />
+                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                            <FooterStyle BackColor="#013161" CssClass="no-hover" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                            <AlternatingRowStyle HorizontalAlign="Center" />
+                                            <Columns>
+                                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                    <ItemTemplate>
+                                                        <%# Container.DataItemIndex + 1%>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:BoundField  HeaderText="Name of the Approvals/Services" DataField="ApprovalName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
+                                            </Columns>
+                                        </asp:GridView>
+
+
                                     </li>
 
                                 </ul>
-                             <%--   <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
+                                <%--   <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
                                     <div class="invoice-details text-center d-flex" style="text-align: center;">
                                         <h3 class="text-uppercase" style="margin-bottom: 0;"><u>Application Summary</u></h3>
                                     </div>
                                 </div>--%>
                                 <ul class="list-unstyled mb-0 list-item">
-                                  
-                                   <%-- <li>Your application was received by Online mode.
+
+                                    <%-- <li>Your application was received by Online mode.
                                         <label runat="server" id="lblDate1"></label>
                                     </li>--%>
                                 </ul>
