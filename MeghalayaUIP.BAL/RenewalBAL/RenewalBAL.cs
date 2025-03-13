@@ -152,9 +152,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetRenFactoriesLic(userid, UnitID);
         }
-        public DataSet GetRenApprovals(string userid,string UnitId)
+        public DataSet GetRenApprovals(string userid,string RENQDID)
         {
-            return objRENDAL.GetRenApprovals(userid, UnitId);
+            return objRENDAL.GetRenApprovals(userid, RENQDID);
         }
         public DataSet GetRENapplications(string USERID, string UnitID)
         {

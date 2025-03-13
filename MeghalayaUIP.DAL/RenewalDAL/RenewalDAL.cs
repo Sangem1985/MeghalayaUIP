@@ -2016,7 +2016,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetRenApprovals(string userid, string UnitId)
+        public DataSet GetRenApprovals(string userid, string RENQDID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2034,7 +2034,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitId));
+                da.SelectCommand.Parameters.AddWithValue("@RENQDID", Convert.ToInt32(RENQDID));
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -2102,8 +2102,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
                 com.Parameters.AddWithValue("@RENAPPROVALSXML", ObjApplicationDetails.RenApprovalsXml);
-                com.Parameters.AddWithValue("@APPROVALS", ObjApplicationDetails.ApprovalID);
-                com.Parameters.AddWithValue("@UNITID", ObjApplicationDetails.UnitId);
+                com.Parameters.AddWithValue("@APPROVALS", ObjApplicationDetails.ApprovalID);               
                 com.Parameters.AddWithValue("@RENQDID", ObjApplicationDetails.Questionnariid);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
