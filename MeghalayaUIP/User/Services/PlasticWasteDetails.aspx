@@ -356,7 +356,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">(i) Carry Bags:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:CheckBoxList ID="chkCarryBags" runat="server">
+                                                            <asp:CheckBoxList ID="chkCarryBags" runat="server" RepeatDirection="Horizontal">
                                                                 <asp:ListItem Text="(a) Petro-based" Value="1"></asp:ListItem>
                                                                 <asp:ListItem Text="(b) Compostable" Value="2"></asp:ListItem>
                                                             </asp:CheckBoxList>

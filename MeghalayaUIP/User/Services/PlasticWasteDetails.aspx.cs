@@ -178,49 +178,49 @@ namespace MeghalayaUIP.User.Services
                                 hypPrsnlBOList.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 hypPrsnlBOList.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 170) //Water (Prevention and control of Pollution) Act
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 174) //Water (Prevention and control of Pollution) Act
                             {
                                 hypBOWaterActConsent.Visible = true;
                                 hypBOWaterActConsent.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypBOWaterActConsent.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtBOWaterActConsent.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 171) //Air (Prevention and Control of Pollution) Act
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 176) //Air (Prevention and Control of Pollution) Act
                             {
                                 hypAirPoltn.Visible = true;
                                 hypAirPoltn.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypAirPoltn.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtBOAirPoltn.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 172) //unit registered with the District Industries Centre	of	the	State	Government	or	Union territory
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 175) //unit registered with the District Industries Centre	of	the	State	Government	or	Union territory
                             {
                                 hypBOStUT.Visible = true;
                                 hypBOStUT.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypBOStUT.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtBOStUT.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 174) // Consent to Establish/ Operate
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 166) // Consent to Establish/ Operate
                             {
                                 hypEstbOpr.Visible = true;
                                 hypEstbOpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypEstbOpr.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtEstbOpr.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 175) // list of people supplying plastic material
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 170) // list of people supplying plastic material
                             {
                                 hypPMList.Visible = true;
                                 hypPMList.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypPMList.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtPMList.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 176) //Action plan on collecting back the plastic wastes
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 171) //Action plan on collecting back the plastic wastes
                             {
                                 hypActnPln.Visible = true;
                                 hypActnPln.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypActnPln.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtActnPln.Text = Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 177) // flow diagram of manufacturing process
+                            if (Convert.ToInt32(ds1.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 172) // flow diagram of manufacturing process
                             {
                                 hypFlowDgrm.Visible = true;
                                 hypFlowDgrm.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds1.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
@@ -265,49 +265,49 @@ namespace MeghalayaUIP.User.Services
                     {
                         for (int i = 0; i < ds2.Tables[1].Rows.Count; i++)
                         {
-                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 170) //Water (Prevention and control of Pollution) Act
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 174) //Water (Prevention and control of Pollution) Act
                             {
                                 hypBOWaterActConsent.Visible = true;
                                 hypBOWaterActConsent.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypBOWaterActConsent.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtBOWaterActConsent.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 171) //Air (Prevention and Control of Pollution) Act
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 176) //Air (Prevention and Control of Pollution) Act
                             {
                                 hypAirPoltn.Visible = true;
                                 hypAirPoltn.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypAirPoltn.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtBOAirPoltn.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 172) //unit registered with the District Industries Centre	of	the	State	Government	or	Union territory
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 175) //unit registered with the District Industries Centre	of	the	State	Government	or	Union territory
                             {
                                 hypBOStUT.Visible = true;
                                 hypBOStUT.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypBOStUT.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtBOStUT.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 174) // Consent to Establish/ Operate
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 166) // Consent to Establish/ Operate
                             {
                                 hypEstbOpr.Visible = true;
                                 hypEstbOpr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypEstbOpr.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtEstbOpr.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 175) // list of people supplying plastic material
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 170) // list of people supplying plastic material
                             {
                                 hypPMList.Visible = true;
                                 hypPMList.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypPMList.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtPMList.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 176) //Action plan on collecting back the plastic wastes
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 171) //Action plan on collecting back the plastic wastes
                             {
                                 hypActnPln.Visible = true;
                                 hypActnPln.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
                                 hypActnPln.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILENAME"]);
                                 txtActnPln.Text = Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                             }
-                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 177) // flow diagram of manufacturing process
+                            if (Convert.ToInt32(ds2.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 172) // flow diagram of manufacturing process
                             {
                                 hypFlowDgrm.Visible = true;
                                 hypFlowDgrm.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds2.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
@@ -1260,7 +1260,7 @@ namespace MeghalayaUIP.User.Services
 
                         SRVCAttachments objWaterActConsent = new SRVCAttachments();
                         objWaterActConsent.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
-                        objWaterActConsent.MasterID = "170";
+                        objWaterActConsent.MasterID = "174";
                         objWaterActConsent.FilePath = serverpath + fupBOWaterActConsent.PostedFile.FileName;
                         objWaterActConsent.FileName = fupBOWaterActConsent.PostedFile.FileName;
                         objWaterActConsent.FileType = fupBOWaterActConsent.PostedFile.ContentType;
@@ -1335,7 +1335,7 @@ namespace MeghalayaUIP.User.Services
 
                         SRVCAttachments objBOAirPol = new SRVCAttachments();
                         objBOAirPol.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
-                        objBOAirPol.MasterID = "171";
+                        objBOAirPol.MasterID = "176";
                         objBOAirPol.FilePath = serverpath + fupAIrPoltn.PostedFile.FileName;
                         objBOAirPol.FileName = fupAIrPoltn.PostedFile.FileName;
                         objBOAirPol.FileType = fupAIrPoltn.PostedFile.ContentType;
@@ -1412,7 +1412,7 @@ namespace MeghalayaUIP.User.Services
 
                         SRVCAttachments objFlowDgrn = new SRVCAttachments();
                         objFlowDgrn.Questionnareid = Convert.ToString(Session["SRVCQID"]);
-                        objFlowDgrn.MasterID = "6";
+                        objFlowDgrn.MasterID = "172";
                         objFlowDgrn.FilePath = serverpath + fupFlowDgrm.PostedFile.FileName;
                         objFlowDgrn.FileName = fupFlowDgrm.PostedFile.FileName;
                         objFlowDgrn.FileType = fupFlowDgrm.PostedFile.ContentType;
@@ -1487,7 +1487,7 @@ namespace MeghalayaUIP.User.Services
 
                         SRVCAttachments objPMList = new SRVCAttachments();
                         objPMList.Questionnareid = Convert.ToString(Session["SRVCQID"]);
-                        objPMList.MasterID = "6";
+                        objPMList.MasterID = "170";
                         objPMList.FilePath = serverpath + fupPMList.PostedFile.FileName;
                         objPMList.FileName = fupPMList.PostedFile.FileName;
                         objPMList.FileType = fupPMList.PostedFile.ContentType;
@@ -1562,7 +1562,7 @@ namespace MeghalayaUIP.User.Services
 
                         SRVCAttachments objActnPln = new SRVCAttachments();
                         objActnPln.Questionnareid = Convert.ToString(Session["SRVCQID"]);
-                        objActnPln.MasterID = "6";
+                        objActnPln.MasterID = "171";
                         objActnPln.FilePath = serverpath + fupActnPln.PostedFile.FileName;
                         objActnPln.FileName = fupActnPln.PostedFile.FileName;
                         objActnPln.FileType = fupActnPln.PostedFile.ContentType;
@@ -1636,7 +1636,7 @@ namespace MeghalayaUIP.User.Services
 
                         SRVCAttachments objEstbOpr = new SRVCAttachments();
                         objEstbOpr.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
-                        objEstbOpr.MasterID = "14";
+                        objEstbOpr.MasterID = "166";
                         objEstbOpr.FilePath = serverpath + fupEstbOpr.PostedFile.FileName;
                         objEstbOpr.FileName = fupEstbOpr.PostedFile.FileName;
                         objEstbOpr.FileType = fupEstbOpr.PostedFile.ContentType;
@@ -1837,7 +1837,7 @@ namespace MeghalayaUIP.User.Services
 
                         SRVCAttachments objSTDT = new SRVCAttachments();
                         objSTDT.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
-                        objSTDT.MasterID = "172";
+                        objSTDT.MasterID = "175";
                         objSTDT.FilePath = serverpath + fupBOStUT.PostedFile.FileName;
                         objSTDT.FileName = fupBOStUT.PostedFile.FileName;
                         objSTDT.FileType = fupBOStUT.PostedFile.ContentType;
@@ -1942,8 +1942,6 @@ namespace MeghalayaUIP.User.Services
             catch (Exception ex)
             { throw ex; }
         }
-
-
 
 
     }
