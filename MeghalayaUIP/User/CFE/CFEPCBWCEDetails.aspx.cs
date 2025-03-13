@@ -45,7 +45,7 @@ namespace MeghalayaUIP.User.CFE
                     success.Visible = false;
                     if (!IsPostBack)
                     {
-                        //  GetAppliedorNot();
+                          GetAppliedorNot();
                     }
                 }
             }
@@ -96,7 +96,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx");
+                Response.Redirect("~/User/CFE/CFELineOfManufactureDetails.aspx?Previous=" + "P");
             }
             catch (Exception ex)
             {
@@ -110,7 +110,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEPCBAEDetails.aspx");
+                Response.Redirect("~/User/CFE/CFEPCBAEDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {
