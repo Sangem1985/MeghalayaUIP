@@ -1,4 +1,4 @@
-﻿using MeghalayaUIP.BAL.CFEBLL;
+﻿using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
@@ -8,17 +8,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
-namespace MeghalayaUIP.User.CFE
+namespace MeghalayaUIP.User.CFO
 {
-    public partial class CFEPCBAEDetails : System.Web.UI.Page
+    public partial class CFOPCBWCEDetails : System.Web.UI.Page
     {
-        CFEBAL objcfebal = new CFEBAL();
+        CFOBAL objcfobal = new CFOBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+
                 if (Session["UserInfo"] != null)
                 {
                     var ObjUserInfo = new UserInfo();
@@ -30,19 +30,18 @@ namespace MeghalayaUIP.User.CFE
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["CFEUNITID"]) != "")
+
+
+                    if (Convert.ToString(Session["CFOUNITID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["CFEUNITID"]);
+                        UnitID = Convert.ToString(Session["CFOUNITID"]);
                     }
                     else
                     {
-                        string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                        string newurl = "~/User/CFO/CFOUserDashboard.aspx";
                         Response.Redirect(newurl);
                     }
-
                     Page.MaintainScrollPositionOnPostBack = true;
-                    Failure.Visible = false;
-                    success.Visible = false;
                     if (!IsPostBack)
                     {
                         GetAppliedorNot();
@@ -55,32 +54,30 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+
         }
         protected void GetAppliedorNot()
         {
             try
             {
-                DataSet ds = new DataSet();
-                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "12", "1");
-
-                if (ds.Tables[0].Rows.Count > 0)
+                DataSet dsnew = new DataSet();
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "12", "54");
+                if (dsnew.Tables[0].Rows.Count > 0)
                 {
-                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
                     {
-                        if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "2")
-                        {
-                            // BindData();
-                        }
+
                     }
                 }
                 else
                 {
-                    if (Request.QueryString.Count > 0)
+                    if (Request.QueryString[0].ToString() == "N")
                     {
-                        if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/CFE/CFEHazWasteDetails.aspx?Next=" + "N");
-                        else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/CFE/CFEPCBWCEDetails.aspx");
+                        Response.Redirect("~/User/CFO/CFOPCBAEDetails.aspx?next=N");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
                     }
                 }
             }
@@ -91,12 +88,11 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEPCBWCEDetails.aspx?Previous=" + "P");
+                Response.Redirect("~/User/CFO/CFOLineOfManufactureDetails.aspx?Previous=P");
             }
             catch (Exception ex)
             {
@@ -104,14 +100,13 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try
             {
-                Response.Redirect("~/User/CFE/CFEHazWasteDetails.aspx?Next=" + "N");
+                Response.Redirect("~/User/CFO/CFOPCBAEDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {
@@ -119,7 +114,6 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-
         }
     }
 }
