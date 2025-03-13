@@ -1127,7 +1127,9 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

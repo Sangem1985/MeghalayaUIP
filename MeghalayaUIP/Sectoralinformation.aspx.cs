@@ -255,5 +255,23 @@ namespace MeghalayaUIP
                 throw ex;
             }
         }
+
+        protected void btnOnline_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               // Button btn = (Button)sender;
+               // GridViewRow row = (GridViewRow)btn.NamingContainer;
+               // Label lblApprovalID = row.FindControl("lblApprovalid") as Label;
+              // ?status = " + lblApprovalID.Text
+
+                Response.Redirect("login.aspx");
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
