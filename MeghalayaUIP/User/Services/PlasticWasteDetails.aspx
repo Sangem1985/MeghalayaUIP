@@ -94,7 +94,7 @@
                                                             1. Name Of Producer :
                                                         </label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtProdName" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtProdName" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateName(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -185,7 +185,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">4.District *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox runat="server" ID="txtOtherlDist" class="form-control" onkeypress="return Names(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtOtherlDist" class="form-control" onkeypress="return Names(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -193,7 +193,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">5.Mandal *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox runat="server" ID="txtOtherlTaluka" class="form-control" onkeypress="return Names(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtOtherlTaluka" class="form-control" onkeypress="return Names(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -201,7 +201,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">6.Village *</label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox runat="server" ID="txtOtherVillage" class="form-control" onkeypress="return Names(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="txtOtherVillage" class="form-control" onkeypress="return Names(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -372,13 +372,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. Manufacturing Capacity:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtManufacturingCapacity" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtManufacturingCapacity" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -386,7 +385,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">3. Previous Registration No</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtPreviousRegistration" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtPreviousRegistration" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -411,7 +410,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Total Capital Invested (INR Lakhs):</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtCapitalInvestment" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtCapitalInvestment" Type="text" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -419,7 +418,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. Year of Commencement:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtCommencementYear" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtCommencementYear" Type="text" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -432,7 +431,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. List & Quantum of Products:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtProductsList" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtProductsList" Type="text" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -440,7 +439,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. List & Quantum of Raw Materials:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtRawMaterials" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtRawMaterials" Type="text" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -463,60 +462,6 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 d-flex mt-2">
-                                                <h4 class="card-title ml-3">7. Liquid Effluent and Gaseous Emissions:</h4>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-12">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">
-                                                            1. Does the unit have a valid consent under the Water (Prevention and control of Pollution) Act, 1974 (6 of 1974)?
-                                                        If yes, attach a copy *
-                                                        </label>
-                                                        <div class="col-lg-1 d-flex">
-                                                            :
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:TextBox ID="txtWaterActComp" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupWaterActComp" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="btnBiomedicalwaste" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:HyperLink ID="hypWaterActComp" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                        <asp:Label ID="lblWaterActComp" runat="server" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-12">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">
-                                                            2. Does the unit have a valid consent under the Air (Prevention and Control of Pollution) Act, 1981 (14 of 1981)?
-                                                            If yes, attach a copy *</label>
-                                                        <div class="col-lg-1 d-flex">
-                                                            :
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:TextBox ID="txtAirPol" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupAirPol" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="btnAirPol" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:HyperLink ID="hypAirPol" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                        <asp:Label ID="lblAirPol" runat="server" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 d-flex mt-2">
                                                 <h4 class="card-title ml-3">8. Solid Wastes Or Rejects:</h4>
                                             </div>
                                             <div class="col-md-12 d-flex">
@@ -524,7 +469,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Total quantum of waste generated:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtTotalWaste" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtTotalWaste" Type="text" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -532,7 +477,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. Mode of storage within the plant:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtStorageMode" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtStorageMode" Type="text" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -540,11 +485,42 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">3. Disposal Provisions:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtDisposal" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtDisposal" Type="text" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TabIndex="1" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+
+                                            <div class="col-md-12 d-flex mt-2">
+                                                <h4 class="card-title ml-3">7. Liquid Effluent and Gaseous Emissions:</h4>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-4 col-form-label">
+                                                            Attach or provide list of personnel or brand Owners to whom the products will be supplied *
+                                                        </label>
+                                                        <div class="col-lg-1 d-flex">
+                                                            :
+                                                        </div>
+                                                        <div class="col-lg-2 d-flex">
+                                                            <asp:TextBox ID="txtPrsnlBOList" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
+                                                        </div>
+                                                        <div class="col-lg-2 d-flex">
+                                                            <asp:FileUpload ID="fupPrsnlBOList" runat="server" />
+                                                        </div>
+                                                        <div class="col-lg-1 d-flex">
+                                                            <asp:Button Text="Upload" runat="server" ID="btnPrsnlBOList" class="btn btn-rounded btn-dark mb-4" Width="150px" OnClick="btnPrsnlBOList_Click" />
+                                                        </div>
+                                                        <div class="col-lg-2 d-flex">
+                                                            <asp:HyperLink ID="hypPrsnlBOList" runat="server" Target="_blank"></asp:HyperLink>
+                                                        </div>
+                                                        <asp:Label ID="lblPrsnlBOList" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                         <%-- ----------------------------------------------Brand Owners------------------------------------ --%>
@@ -692,7 +668,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Previous Registration No</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtBORegNo" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBORegNo" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -716,7 +692,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Total Capital Invested (INR Lakhs):</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtBOTotalCapInv" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBOTotalCapInv" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -724,7 +700,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. Year of Commencement:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtBOYearOfComncmnt" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBOYearOfComncmnt" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -736,9 +712,9 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1. List and quantum of products and by-products (Ton/Annum)</label>
+                                                        <label class="col-lg-6 col-form-label">1. List and quantum of products and by-products (Ton/Annum) "</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtBOProdQuan" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBOProdQuan" runat="server" Type="text" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -746,7 +722,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. List and quantum of raw materials used (Ton/Annum)</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtBORawMatQuan" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBORawMatQuan" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -763,7 +739,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Total quantum of waste generated:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtBOQntmWasteGenertd" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBOQntmWasteGenertd" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -771,7 +747,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. Mode of storage within the plant:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtBOModeStrge" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBOModeStrge" runat="server" Type="text" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -779,7 +755,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">3. Disposal Provisions:</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtBODispProv" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBODispProv" runat="server" Type="text" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -788,82 +764,244 @@
                                             <div class="col-md-12 d-flex mt-2">
                                                 <h4 class="card-title ml-3">6. Pretaining to liquid effluent and gaseous emissions:</h4>
                                             </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-12">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">
-                                                            1. Is the unit registered with the District Industries Centre	of	the	State	Government	or	Union territory? If yes, attach a copy. *</label>
-                                                        <div class="col-lg-1 d-flex">
-                                                            :
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:TextBox ID="txtBOStUT" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupBOStUT" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="Button4" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:HyperLink ID="hypBOStUT" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                        <asp:Label ID="lblBOStUT" runat="server" />
+
+                                        </div>
+                                        <%-- Enclosures --%>
+
+
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Consent to Establish/ Operate  *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
                                                     </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtEstbOpr" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupEstbOpr" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnEstbOpr" class="btn btn-rounded btn-dark mb-4" Width="150px" OnClick="btnEstbOpr_Click" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypEstbOpr" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblEstbOpr" runat="server" />
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-12">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">
-                                                            2. Does the unit have a valid consent under the Water (Prevention and control of Pollution) Act, 1974 (6 of 1974)?
-If yes, attach a copy *
-                                                        </label>
-                                                        <div class="col-lg-1 d-flex">
-                                                            :
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:TextBox ID="txtBOWaterActConsent" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupBOWaterActConsent" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="Button2" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:HyperLink ID="hypBOWaterActConsent" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                        <asp:Label ID="lblBOWaterActonsent" runat="server" />
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Attach or Provide list of people supplying plastic material
+                                                    </label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
                                                     </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtPMList" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupPMList" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnPMList" class="btn btn-rounded btn-dark mb-4" Width="150px" OnClick="btnPMList_Click" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypPMList" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblPMList" runat="server" />
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-12">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">
-                                                            3. Does the unit have a valid consent under the Air (Prevention and Control of Pollution) Act, 1981 (14 of 1981)?
-    If yes, attach a copy *</label>
-                                                        <div class="col-lg-1 d-flex">
-                                                            :
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:TextBox ID="txtBOAirPoltn" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:FileUpload ID="fupAIrPoltn" runat="server" />
-                                                        </div>
-                                                        <div class="col-lg-1 d-flex">
-                                                            <asp:Button Text="Upload" runat="server" ID="Button3" class="btn btn-rounded btn-dark mb-4" Width="150px" />
-                                                        </div>
-                                                        <div class="col-lg-2 d-flex">
-                                                            <asp:HyperLink ID="hypAirPoltn" runat="server" Target="_blank"></asp:HyperLink>
-                                                        </div>
-                                                        <asp:Label ID="lblAirPoltn" runat="server" />
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Action plan on collecting back the plastic wastes
+                                                    </label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtActnPln" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupActnPln" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnActnPln" class="btn btn-rounded btn-dark mb-4" Width="150px" Height="30px" OnClick="btnActnPln_Click" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypActnPln" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblActnPln" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Furnish a flow diagram of manufacturing process showing input and output in terms of products and waste generated including for captive power generation and water  *</label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtFlowDgrm" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupFlowDgrm" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnFlowDgrm" class="btn btn-rounded btn-dark mb-4" Width="150px" Height="30px" OnClick="btnFlowDgrm_Click" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypFlowDgrm" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblFlowDgrm" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <%-- questionaire type rbl --%>
+
+
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Does the unit have a valid consent under the Water (Prevention and control of Pollution) Act, 1974 (6 of 1974)? If yes, attach a copy *
+                                                    </label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:RadioButtonList ID="rblWater" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblWater_SelectedIndexChanged">
+                                                            <asp:ListItem Text="Yes" Value="Yes" />
+                                                            <asp:ListItem Text="No" Value="No" />
+                                                        </asp:RadioButtonList>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-12 d-flex" id="divWater" runat="server" visible="false">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Please Upload the document *
+                                                    </label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtBOWaterActConsent" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupBOWaterActConsent" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnBOWater" class="btn btn-rounded btn-dark mb-4" Width="150px" Height="30px" OnClick="btnBOWater_Click" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypBOWaterActConsent" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblBOWaterActonsent" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Is the unit registered with the District Industries Centre	of	the	State	Government	or	Union territory? If yes, attach a copy. * 
+                                                    </label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:RadioButtonList ID="rblSgUt" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblSgUt_SelectedIndexChanged">
+                                                            <asp:ListItem Text="Yes" Value="Yes" />
+                                                            <asp:ListItem Text="No" Value="No" />
+                                                        </asp:RadioButtonList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex" id="divSgUt" runat="server" visible="false">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Please upload the document
+                                                    </label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtBOStUT" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupBOStUT" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnDisCentre" class="btn btn-rounded btn-dark mb-4" Width="150px" Height="30px" OnClick="btnDisCentre_Click" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypBOStUT" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblBOStUT" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Does the unit have a valid consent under the Air (Prevention and Control of Pollution) Act, 1981 (14 of 1981)? If yes, attach a copy * 
+                                                    </label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:RadioButtonList ID="rblAirCont" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAirCont_SelectedIndexChanged">
+                                                            <asp:ListItem Text="Yes" Value="Yes" />
+                                                            <asp:ListItem Text="No" Value="No" />
+                                                        </asp:RadioButtonList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex" id="divAirCont" runat="server" visible="false">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label">
+                                                        Please upload the document
+                                                    </label>
+                                                    <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:TextBox ID="txtBOAirPoltn" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:FileUpload ID="fupAIrPoltn" runat="server" />
+                                                    </div>
+                                                    <div class="col-lg-1 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnBOAir" class="btn btn-rounded btn-dark mb-4" Width="150px" Height="30px" OnClick="btnBOAir_Click" />
+                                                    </div>
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:HyperLink ID="hypAirPoltn" runat="server" Target="_blank"></asp:HyperLink>
+                                                    </div>
+                                                    <asp:Label ID="lblAirPoltn" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+
 
 
                                         <%-- buttons --%>
@@ -883,14 +1021,16 @@ If yes, attach a copy *
                 </div>
             </div>
         </ContentTemplate>
-        <%--<Triggers>
-            <asp:PostBackTrigger ControlID="btnDisposal" />
-            <asp:PostBackTrigger ControlID="btnDetailsSolidWaste" />
-            <asp:PostBackTrigger ControlID="btnDetailSiteSelection" />
-            <asp:PostBackTrigger ControlID="btnSiteClearance" />
-            <asp:PostBackTrigger ControlID="btnEnvironmentalClearance" />
-            <asp:PostBackTrigger ControlID="btnAgreement" />
-        </Triggers>--%>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnPrsnlBOList" />
+            <asp:PostBackTrigger ControlID="btnBOWater" />
+            <asp:PostBackTrigger ControlID="btnBOAir" />
+            <asp:PostBackTrigger ControlID="btnFlowDgrm" />
+            <asp:PostBackTrigger ControlID="btnPMList" />
+            <asp:PostBackTrigger ControlID="btnActnPln" />
+            <asp:PostBackTrigger ControlID="btnEstbOpr" />
+            <asp:PostBackTrigger ControlID="btnDisCentre" />
+        </Triggers>
     </asp:UpdatePanel>
 
 </asp:Content>

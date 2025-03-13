@@ -84,7 +84,7 @@ namespace MeghalayaUIP.User.Services
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
                             Response.Redirect("~/User/Services/EWasteDetails.aspx?Previous=" + "P");
                     }
@@ -326,7 +326,7 @@ namespace MeghalayaUIP.User.Services
         { 
             try
             {
-                Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
+                Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

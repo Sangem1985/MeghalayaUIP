@@ -176,5 +176,10 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetProdPlasticWasteDetails(hdnUserID, srvcQdId);
         }
+
+        public DataSet GetBOPlasticWasteDetails(string hdnUserID, string srvcQdId)
+        {
+            return SvrcDal.GetBOPlasticWasteDetails(hdnUserID, srvcQdId);
+        }
     }
 }
