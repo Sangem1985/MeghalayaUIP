@@ -51,94 +51,22 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
 
         /// <summary>
-        /// RadioButton1 control.
+        /// chkActs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox RadioButton1;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkActs;
 
         /// <summary>
-        /// Checkbox2 control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Checkbox2;
-
-        /// <summary>
-        /// Checkbox3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Checkbox3;
-
-        /// <summary>
-        /// Checkbox4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Checkbox4;
-
-        /// <summary>
-        /// Checkbox5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Checkbox5;
-
-        /// <summary>
-        /// Checkbox6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Checkbox6;
-
-        /// <summary>
-        /// Checkbox7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Checkbox7;
-
-        /// <summary>
-        /// Checkbox8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Checkbox8;
-
-        /// <summary>
-        /// Checkbox9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Checkbox9;
-
-        /// <summary>
-        /// Checkbox10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Checkbox10;
+        protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
         /// divgrd control.

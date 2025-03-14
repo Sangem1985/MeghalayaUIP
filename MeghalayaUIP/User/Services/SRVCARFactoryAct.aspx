@@ -896,39 +896,35 @@
                                                     <input name="ctl00$ContentPlaceHolder1$txtSoWoDo" type="text" value="" maxlength="50" id="ContentPlaceHolder1_txtSoWoDo" tabindex="1" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)" autocomplete="off">
                                                 </td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>(ii). Accidents (persond injured) occuring in the previous year in which workers return to work during the year to which this return relates
-                                           </td>
+                                                </td>
                                                 <td>
-    <input name="ctl00$ContentPlaceHolder1$txtSoWoDo" type="text" value="" maxlength="50" id="ContentPlaceHolder1_txtSoWoDo" tabindex="1" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)" autocomplete="off">
-</td>
-<td>
-    <input name="ctl00$ContentPlaceHolder1$txtSoWoDo" type="text" value="" maxlength="50" id="ContentPlaceHolder1_txtSoWoDo" tabindex="1" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)" autocomplete="off">
-</td>
+                                                    <input name="ctl00$ContentPlaceHolder1$txtSoWoDo" type="text" value="" maxlength="50" id="ContentPlaceHolder1_txtSoWoDo" tabindex="1" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)" autocomplete="off">
+                                                </td>
+                                                <td>
+                                                    <input name="ctl00$ContentPlaceHolder1$txtSoWoDo" type="text" value="" maxlength="50" id="ContentPlaceHolder1_txtSoWoDo" tabindex="1" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)" autocomplete="off">
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>(iii). Accidents in which workers did not return to work during the year</td>
                                                 <td>
-    <input name="ctl00$ContentPlaceHolder1$txtSoWoDo" type="text" value="" maxlength="50" id="ContentPlaceHolder1_txtSoWoDo" tabindex="1" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)" autocomplete="off">
-</td>
-<td>
-    <input name="ctl00$ContentPlaceHolder1$txtSoWoDo" type="text" value="" maxlength="50" id="ContentPlaceHolder1_txtSoWoDo" tabindex="1" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)" autocomplete="off">
-</td>
+                                                    <input name="ctl00$ContentPlaceHolder1$txtSoWoDo" type="text" value="" maxlength="50" id="ContentPlaceHolder1_txtSoWoDo" tabindex="1" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)" autocomplete="off">
+                                                </td>
+                                                <td>
+                                                    <input name="ctl00$ContentPlaceHolder1$txtSoWoDo" type="text" value="" maxlength="50" id="ContentPlaceHolder1_txtSoWoDo" tabindex="1" class="form-control" onkeypress="return validateNames(event)" onkeyup="handleKeyUp(this)" autocomplete="off">
+                                                </td>
                                             </tr>
                                         </table>
-
                                     </div>
-
-
-
+                                    <div class="col-md-12 text-right mb-3">
+                                        <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                        <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                        <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                    </div>
                                 </div>
                             </div>
-
-
-
                         </div>
-                    </div>
-                    <div class="col-md-12" id="divgrd" runat="server" visible="false">
                     </div>
                 </div>
 

@@ -132,22 +132,22 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.TextBox txtminmumcshprzawrded;
 
         /// <summary>
-        /// btnPreviuos control.
+        /// btnPrevious control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPreviuos;
+        protected global::System.Web.UI.WebControls.Button btnPrevious;
 
         /// <summary>
-        /// btnsave control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsave;
+        protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
         /// btnNext control.
