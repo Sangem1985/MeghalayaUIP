@@ -780,6 +780,7 @@
     <Content Include="User\Grievance\GrievanceUserView.aspx" />
     <Content Include="User\HelpDesk\HelpDeskUserView.aspx" />
     <Content Include="User\HelpDesk\RegisterHelpDesk.aspx" />
+    <Content Include="User\INCENTIVE\INCApplStatus.aspx" />
     <Content Include="User\INCENTIVE\INCBorderAreaSubsidy.aspx" />
     <Content Include="User\INCENTIVE\INCCentralSalesTax.aspx" />
     <Content Include="User\INCENTIVE\INCDevelopmentSubsidy.aspx" />
@@ -2226,6 +2227,13 @@
     </Compile>
     <Compile Include="User\HelpDesk\RegisterHelpDesk.aspx.designer.cs">
       <DependentUpon>RegisterHelpDesk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCApplStatus.aspx.cs">
+      <DependentUpon>INCApplStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\INCENTIVE\INCApplStatus.aspx.designer.cs">
+      <DependentUpon>INCApplStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\INCENTIVE\INCBorderAreaSubsidy.aspx.cs">
       <DependentUpon>INCBorderAreaSubsidy.aspx</DependentUpon>
