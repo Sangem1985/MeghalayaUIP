@@ -112,11 +112,11 @@
                             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                                 <p>
                                     Number: 
-        <asp:Label ID="lblFileNo" runat="server" Style="font-weight: bold;"></asp:Label>
+        <asp:Label ID="lblFileNo" runat="server" Text="299" Style="font-weight: bold;"></asp:Label>
                                 </p>
                                 <p>
                                     Date: 
-        <asp:Label ID="lblDate" runat="server" Style="font-weight: bold;"></asp:Label>
+        <asp:Label ID="lblDate" runat="server" Text="9.12.2011" Style="font-weight: bold;"></asp:Label>
                                 </p>
                             </div>
                             <p style="text-align: center; font-weight: bold; text-decoration: underline;">
@@ -133,16 +133,16 @@
                                 <p>
                                     A Certificate Containing the following particulars is hereby granted under clause (a) of sub-section (2) of Section 4 of the
                                     Inter-State Migrant Workmen(Regulation  of Employment Condition of Service). Act. 1979 and the rules made thereunder to
-                                      <asp:Label ID="lblstatemigrant" runat="server" Style="font-weight: bold;"></asp:Label>
+                                      <asp:Label ID="lblstatemigrant" Text="M/S R.N.B" runat="server" Style="font-weight: bold;"></asp:Label>
                                 </p>
 
                                 <p>
-                                    1.Nature of Work Carried on in the establishment :<asp:Label ID="lblNature" runat="server" Style="font-weight: bold;"></asp:Label>
+                                    1.Nature of Work Carried on in the establishment :<asp:Label ID="lblNature" Text="Manufactureing" runat="server" Style="font-weight: bold;"></asp:Label>
                                 </p>
 
                                 <p>
                                     2.Name and addresses of the contractors:  
-                                    <asp:Label runat="server" ID="lblName" Style="font-weight: bold;"></asp:Label>
+                                    <asp:Label runat="server" ID="lblName" Text="Mr.Abdul Rahim" Style="font-weight: bold;"></asp:Label>
                                 </p>
 
                                 <p>
@@ -152,7 +152,7 @@
 
                                 <p>
                                     4.Maximum number of migrant workmen to be employed on any day through each contractor:
-                                    <asp:Label runat="server" ID="lblContractor" Style="font-weight: bold;"></asp:Label>
+                                    <asp:Label runat="server" ID="lblContractor" Text="25 (twenty five) Nos" Style="font-weight: bold;"></asp:Label>
                                 </p>
 
 

@@ -11,15 +11,15 @@ namespace MeghalayaUIP.User.CFE
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblFileNo.Text = "299";
-            lblDate.Text = "9.12.2011";
+           // lblFileNo.Text = "";
+            //lblDate.Text = "";
 
-            lblstatemigrant.Text = "M/S R.N.B";
-            lblNature.Text = "Manufactureing ";
-            lblName.Text = "Mr.Abdul Rahim";
-            lblMigrantwork.Text = "";
-            lblContractor.Text = "25 (twenty five) Nos";
-            lblrelevantemp.Text = "";
+            //lblstatemigrant.Text = "M/S R.N.B";
+            //lblNature.Text = "Manufactureing ";
+            //lblName.Text = "Mr.Abdul Rahim";
+            //lblMigrantwork.Text = "";
+            //lblContractor.Text = "25 (twenty five) Nos";
+            //lblrelevantemp.Text = "";
         }
     }
 }
