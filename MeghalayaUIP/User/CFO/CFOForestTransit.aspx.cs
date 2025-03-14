@@ -182,8 +182,8 @@ namespace MeghalayaUIP.User.CFO
             // Add new row
             DataRow dr = dt.NewRow();
             dr["SlNo"] = dt.Rows.Count + 1; // Auto-increment SlNo
-            dr["State"] = txtState.Text.Trim();
-            dr["Barriers"] = txtBarriers.Text.Trim();
+            dr["CFOFT_STATE"] = txtState.Text.Trim();
+            dr["CFOFT_BARRIERS"] = txtBarriers.Text.Trim();
             dt.Rows.Add(dr);
 
             dtBarriers = dt; // Save back to ViewState
@@ -222,11 +222,11 @@ namespace MeghalayaUIP.User.CFO
             {
                 dt = new DataTable();
                 dt.Columns.Add("SlNo", typeof(int));
-                dt.Columns.Add("SpeciesName", typeof(string));
-                dt.Columns.Add("LogNumber", typeof(string));
-                dt.Columns.Add("Girth", typeof(string));
-                dt.Columns.Add("Length", typeof(string));
-                dt.Columns.Add("VolumeOrWeight", typeof(string));
+                dt.Columns.Add("CFOFT_SPECIESNAME", typeof(string));
+                dt.Columns.Add("CFOFT_LOGNUMBER", typeof(string));
+                dt.Columns.Add("CFOFT_GIRTH", typeof(string));
+                dt.Columns.Add("CFOFT_LENGTH", typeof(string));
+                dt.Columns.Add("CFOFT_VOLUMEORWEIGHT", typeof(string));
             }
 
             // Auto-increment serial number
@@ -235,11 +235,11 @@ namespace MeghalayaUIP.User.CFO
             // Add new row
             DataRow dr = dt.NewRow();
             dr["SlNo"] = slNo;
-            dr["SpeciesName"] = ddlSpeciesName.SelectedItem.Text;
-            dr["LogNumber"] = txtLogNumber.Text;
-            dr["Girth"] = txtGirth.Text;
-            dr["Length"] = txtLength.Text;
-            dr["VolumeOrWeight"] = txtVolumeWeight.Text;
+            dr["CFOFT_SPECIESNAME"] = ddlSpeciesName.SelectedItem.Text;
+            dr["CFOFT_LOGNUMBER"] = txtLogNumber.Text;
+            dr["CFOFT_GIRTH"] = txtGirth.Text;
+            dr["CFOFT_LENGTH"] = txtLength.Text;
+            dr["CFOFT_VOLUMEORWEIGHT"] = txtVolumeWeight.Text;
 
             dt.Rows.Add(dr);
 

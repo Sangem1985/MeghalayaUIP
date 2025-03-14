@@ -732,6 +732,7 @@
     <Content Include="User\CFE\CFEQueryDashBoard.aspx" />
     <Content Include="User\CFE\CFEQueryResponse.aspx" />
     <Content Include="User\CFE\CFEQuestionnaire.aspx" />
+    <Content Include="User\CFE\CFEStateMigrantCertificate.aspx" />
     <Content Include="User\CFE\CFETFLCertificate.aspx" />
     <Content Include="User\CFE\CFETreeFelling.aspx" />
     <Content Include="User\CFE\CFEUploadEnclosures.aspx" />
@@ -1886,6 +1887,13 @@
     </Compile>
     <Compile Include="User\CFE\CFEQuestionnaire.aspx.designer.cs">
       <DependentUpon>CFEQuestionnaire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEStateMigrantCertificate.aspx.cs">
+      <DependentUpon>CFEStateMigrantCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEStateMigrantCertificate.aspx.designer.cs">
+      <DependentUpon>CFEStateMigrantCertificate.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFETFLCertificate.aspx.cs">
       <DependentUpon>CFETFLCertificate.aspx</DependentUpon>
