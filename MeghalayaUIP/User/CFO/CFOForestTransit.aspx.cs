@@ -103,11 +103,11 @@ namespace MeghalayaUIP.User.CFO
             {
                 DataTable dt = new DataTable();
                 dt.Columns.Add("SlNo", typeof(int));
-                dt.Columns.Add("SpeciesName", typeof(string));
-                dt.Columns.Add("LogNumber", typeof(string));
-                dt.Columns.Add("Girth", typeof(string));
-                dt.Columns.Add("Length", typeof(string));
-                dt.Columns.Add("VolumeOrWeight", typeof(string));
+                dt.Columns.Add("CFOFT_SPECIESNAME", typeof(string));
+                dt.Columns.Add("CFOFT_LOGNUMBER", typeof(string));
+                dt.Columns.Add("CFOFT_GIRTH", typeof(string));
+                dt.Columns.Add("CFOFT_LENGTH", typeof(string));
+                dt.Columns.Add("CFOFT_VOLUMEORWEIGHT", typeof(string));
                 ViewState["LogData"] = dt;
             }
             return (DataTable)ViewState["LogData"];
@@ -164,8 +164,8 @@ namespace MeghalayaUIP.User.CFO
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("SlNo", typeof(int));
-            dt.Columns.Add("State", typeof(string));
-            dt.Columns.Add("Barriers", typeof(string));
+            dt.Columns.Add("CFOFT_STATE", typeof(string));
+            dt.Columns.Add("CFOFT_BARRIERS", typeof(string));
             return dt;
         }
 
