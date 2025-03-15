@@ -586,7 +586,9 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                Response.Redirect("~/User/CFO/CFOIndustryDetails.aspx?next=N");
+                btnSubmit_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/CFO/CFOIndustryDetails.aspx?next=N");
             }
             catch (Exception ex)
             {

@@ -1,5 +1,4 @@
-﻿using Org.BouncyCastle.Asn1.Ocsp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,31 +7,29 @@ using System.Web.UI.WebControls;
 
 namespace MeghalayaUIP.User.Services
 {
-    public partial class SRVCARFactoryAct : System.Web.UI.Page
+    public partial class SRVCARMBAct : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Convert.ToString(Session["ActsSelected"]) != "")
             {
-                if (Convert.ToString(Session["ActsSelected"]).Contains("1"))
+                if (Convert.ToString(Session["ActsSelected"]).Contains("3"))
                 {
 
                 }
                 else
                 {
                     if (Convert.ToString(Request.QueryString[0]) == "N")
-                        Response.Redirect("~/User/Services/SRVCARMBAct.aspx?Next=N");
+                        Response.Redirect("~/User/Services/SRVCARMinWagesAct.aspx?Next=N");
                     else
-                        Response.Redirect("~/User/Services/SRVCAnnualReturns.aspx?Previous=P");
+                        Response.Redirect("~/User/Services/SRVCARMBAct.aspx?Previous=P");
                 }
 
             }
-
         }
-
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/Services/SRVCAnnualReturns.aspx?Previous=P");           
+            Response.Redirect("~/User/Services/SRVCARMBAct.aspx?Previous=P");
 
         }
 
@@ -43,7 +40,7 @@ namespace MeghalayaUIP.User.Services
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/User/Services/SRVCARMBAct.aspx?Next=N");
+            Response.Redirect("~/User/Services/SRVCARMinWagesAct.aspx?Next=N");
         }
     }
 }

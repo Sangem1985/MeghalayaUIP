@@ -146,31 +146,31 @@
                     <td>1</td>
                     <td>Name of the Unit</td>
                     <td>
-                        <asp:TextBox ID="txtUnitName" runat="server" Placeholder="Enter Name Of the unit" Width="400px" onkeypress="return Names(this)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox ID="txtUnitName" CssClass="form-control" runat="server" Placeholder="Enter Name Of the unit" Width="400px" onkeypress="return Names(this)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Location of the Unit</td>
                     <td>
-                        <asp:TextBox ID="txtUnitLocation" runat="server" Placeholder="Enter the Address of the Unit" Width="400px" onkeypress="return Address(event)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox ID="txtUnitLocation" CssClass="form-control" runat="server" Placeholder="Enter the Address of the Unit" Width="400px" onkeypress="return Address(event)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>Coordinates of the Site</td>
                     <td>
-                        <asp:TextBox ID="txtCoordinates" runat="server" Width="400px" Placeholder="40.7128° N, 74.0060° W" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox ID="txtCoordinates" CssClass="form-control" runat="server" Width="400px" Placeholder="40.7128° N, 74.0060° W" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>4</td>
                     <td>Total area of Site</td>
                     <td>
-                        <asp:TextBox ID="txtArea" runat="server" Width="200px" Placeholder="In sq.ft/ acres" TabIndex="1" MaxLength="6" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox ID="txtArea" CssClass="form-control" runat="server" Width="200px" Placeholder="In sq.ft/ acres" TabIndex="1" MaxLength="6" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>5</td>
                     <td>Ownership Status</td>
                     <td>
-                        <asp:DropDownList ID="ddlOwnershipStatus" runat="server">
+                        <asp:DropDownList CssClass="form-control" ID="ddlOwnershipStatus" runat="server">
                             <asp:ListItem Text="--Select--"></asp:ListItem>
                             <asp:ListItem Text="Owned" Value="Owned"></asp:ListItem>
                             <asp:ListItem Text="Leased" Value="Leased"></asp:ListItem>
@@ -192,13 +192,13 @@
                     <td>7</td>
                     <td>Distance from the Main Road</td>
                     <td>
-                        <asp:TextBox ID="txtDistanceMainRoad" runat="server" Width="200px" Placeholder="Write distance in KM" onkeypress="return validateNumbersOnly(event)" TabIndex="1" MaxLength="5" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox CssClass="form-control" ID="txtDistanceMainRoad" runat="server" Width="200px" Placeholder="Write distance in KM" onkeypress="return validateNumbersOnly(event)" TabIndex="1" MaxLength="5" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>8</td>
                     <td>Type of Road</td>
                     <td>
-                        <asp:TextBox ID="txtTypeOfRoad" runat="server" Width="400px" Placeholder="Width/ condition/ specify" TabIndex="1" onkeypress="return Names(this)" MaxLength="150" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox CssClass="form-control" ID="txtTypeOfRoad" runat="server" Width="400px" Placeholder="Width/ condition/ specify" TabIndex="1" onkeypress="return Names(this)" MaxLength="150" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>9</td>
@@ -208,14 +208,14 @@
                             <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
                             <asp:ListItem Text="No" Value="No"></asp:ListItem>
                         </asp:RadioButtonList>
-                        <asp:TextBox ID="txtConstructionRemarks" runat="server" Width="300px" Placeholder="Remarks (if any)"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtConstructionRemarks" runat="server" Width="300px" Placeholder="Remarks (if any)"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>10</td>
                     <td>Any Natural Bodies</td>
                     <td>
-                        <asp:TextBox ID="txtNaturalBodies" runat="server" Width="400px" Placeholder="Specify type of natural body" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox CssClass="form-control" ID="txtNaturalBodies" runat="server" Width="400px" Placeholder="Specify type of natural body" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>11</td>
@@ -225,7 +225,7 @@
                             <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
                             <asp:ListItem Text="No" Value="No"></asp:ListItem>
                         </asp:RadioButtonList>
-                        <asp:TextBox ID="txtEnvVulnerableRemarks" runat="server" Width="300px" Placeholder="If Yes, specify" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtEnvVulnerableRemarks" runat="server" Width="300px" Placeholder="If Yes, specify" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -236,32 +236,32 @@
                             <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
                             <asp:ListItem Text="No" Value="No"></asp:ListItem>
                         </asp:RadioButtonList>
-                        <asp:TextBox ID="txtPowerDrawPoint" runat="server" Width="300px" Placeholder="If No, specify nearest drawl point" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" ID="txtPowerDrawPoint" runat="server" Width="300px" Placeholder="If No, specify nearest drawl point" onkeyup="handleKeyUp(this)"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>13</td>
                     <td>Availability of Water</td>
                     <td>
-                        <asp:TextBox ID="txtWaterSource" runat="server" Width="400px" Placeholder="Specify source" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox CssClass="form-control" ID="txtWaterSource" runat="server" Width="400px" Placeholder="Specify source" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>14</td>
                     <td>Other observations</td>
                     <td>
-                        <asp:TextBox ID="txtOtherObservations" runat="server" Width="400px" Placeholder="Specify, if applicable" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                        <asp:TextBox CssClass="form-control" ID="txtOtherObservations" runat="server" Width="400px" Placeholder="Specify, if applicable" TabIndex="1" onkeypress="return Names(this)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                 </tr>
             </table>
         </div>
         <br />
-        <div style="display: flex; justify-content: center;">
+        <div style="justify-content: center;margin-left:138px;">
             <h4>Comments/ Remarks of Field visit team (if any):</h4>
-            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Width="600px" onkeyup="handleKeyUp(this)"></asp:TextBox>
+            <asp:TextBox  CssClass="form-control" ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Width="600px" onkeyup="handleKeyUp(this)"></asp:TextBox>
         </div>
 
         <div align="center">
             <br />
-            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
+            <asp:Button ID="btnSubmit" class="btn btn-rounded btn-save btn-lg" Width="150px" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
             <br />
             <br />
             <asp:Label ID="savelbl" runat="server" Visible="False"></asp:Label>

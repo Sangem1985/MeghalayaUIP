@@ -27,7 +27,10 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-
+                if (Request.QueryString.Count > 0)
+                {
+                    Questionnaire = Convert.ToString(Request.QueryString[0]);
+                }
 
                 if (Session["UserInfo"] != null)
                 {
@@ -44,16 +47,11 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         UnitID = Convert.ToString(Session["RENUNITID"]);
                     }
-                    if (Convert.ToString(Session["RENQID"]) != "" && Convert.ToString(Session["RENQID"]) == null)
+                    if (Convert.ToString(Session["RENQID"]) != "")
                     {
                         Questionnaire = Convert.ToString(Session["RENQID"]);
                     }
-                    //else
-                    //{
-                    //    string newurl = "~/User/Renewal/RENUserDashboard.aspx";
-                    //    Response.Redirect(newurl);
-                    //}
-
+                  
                     Page.MaintainScrollPositionOnPostBack = true;
 
                     Page.MaintainScrollPositionOnPostBack = true;
@@ -1260,7 +1258,7 @@ namespace MeghalayaUIP.User.Renewal
                         ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
                         txtRegNo.Text = ds.Tables[0].Rows[0]["RENID_REGNUMBER"].ToString();
                         txtRegDate.Text = ds.Tables[0].Rows[0]["RENID_REGDATE"].ToString();
-                        ddlsector.SelectedItem.Text = ds.Tables[0].Rows[0]["RENID_SECTOR"].ToString();
+                        ddlsector.SelectedValue = ds.Tables[0].Rows[0]["RENID_SECTOR"].ToString();
                         ddlsector_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlLineActivity.SelectedValue = ds.Tables[0].Rows[0]["RENID_LINEOFACTIVITY"].ToString();
                         ddlLineActivity_SelectedIndexChanged(null, EventArgs.Empty);

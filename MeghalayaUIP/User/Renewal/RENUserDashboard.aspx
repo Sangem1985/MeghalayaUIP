@@ -66,8 +66,8 @@
                                 </asp:TemplateField>
                                 <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
                                 <asp:BoundField HeaderText="Registration ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
-<%--                                <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />--%>
-<%--                                <asp:BoundField HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />--%>
+                                <%--                                <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />--%>
+                                <%--                                <asp:BoundField HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />--%>
                                 <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
@@ -102,15 +102,15 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apply For Renewal Approvals">
+                                <asp:TemplateField HeaderText="Apply For Renewal" Visible="false">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnApplyRenewal" OnClick="btnApplyRenewal_Click" Text="Apply" CssClass="btn btn-info btn-rounded btn-sm" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="View Application Details" ItemStyle-Width="20%" Visible="true">
+                                <asp:TemplateField HeaderText="View Application Details" ItemStyle-Width="20%" Visible="false">
                                     <ItemTemplate>
-                                        <asp:Button runat="server" ID="btnCombndAppl" OnClick="btnCombndAppl_Click" Text="View" CssClass="btn btn-info btn-rounded" />
+                                        <asp:Button runat="server" ID="btnCombndAppl" Text="View" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -139,8 +139,14 @@
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Status" Visible="false">
+                                    <ItemTemplate>
+                                        <asp:HyperLink ID="anchortaglinkStatus" runat="server" Text="Track" Font-Bold="true"
+                                            ForeColor="Green" Target="_blank" Visible="false" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
-                         <%--   <EmptyDataTemplate>
+                            <%--   <EmptyDataTemplate>
                                 <div style="text-align: center; padding: 20px;">
                                     <div align="center" style="text-align: center; padding: 20px;">
                                         <b>There are no Registered Units Under MIIPP, Please  <a href="../PreReg/IndustryRegistration.aspx" style="font-size: 20px; font-family: 'Bookman Old Style'">Click Here </a>to start Industry Registration.</b>
@@ -150,7 +156,13 @@
                         </asp:GridView>
 
                     </div>
-
+                    <div align="center" id="trApplyAgainbtn" runat="server">
+                        <div align="center" style="padding: 5px; margin: 5px; text-align: left;" valign="middle">
+                            &nbsp;
+                           <asp:Button ID="btnApplyAgain" runat="server" class="btn btn-rounded btn-info btn-lg"
+                               TabIndex="10" Text="Apply Again" Width="150px" OnClick="btnApplyAgain_Click" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
