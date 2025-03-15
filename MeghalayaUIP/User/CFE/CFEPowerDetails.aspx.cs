@@ -233,47 +233,47 @@ namespace MeghalayaUIP.User.CFE
                 {
                     for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
                     {
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 20)
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 20)
                         {
                             hypCosmrEnty.Visible = true;
                             hypCosmrEnty.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
-                            hypCosmrEnty.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
-                            txtCosmrEnty.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            hypCosmrEnty.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            //txtCosmrEnty.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 21)
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 21)
                         {
                             hypCsmrBody.Visible = true;
                             hypCsmrBody.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
-                            hypCsmrBody.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
-                            txtCsmrBody.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            hypCsmrBody.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            //txtCsmrBody.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 22)
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 22)
                         {
                             hypPCB.Visible = true;
                             hypPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
-                            hypPCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
-                            hypPCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            hypPCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            //txtPCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 23)
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 23)
                         {
                             hypMCB.Visible = true;
                             hypMCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
-                            hypMCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
-                            txtMCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            hypMCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            //txtMCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 24)
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 24)
                         {
                             hypEnvClr.Visible = true;
                             hypEnvClr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
-                            hypEnvClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
-                            txtEnvClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            hypEnvClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            //txtEnvClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["SRVCA_MASTERID"]) == 25)
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 25)
                         {
                             hypSglWdw.Visible = true;
                             hypSglWdw.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
-                            hypSglWdw.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILENAME"]);
-                            txtSglWdw.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
+                            hypSglWdw.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            //txtSglWdw.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
                     }
                 }
@@ -577,7 +577,7 @@ namespace MeghalayaUIP.User.CFE
                         objCosmrEnty.FileDescription = "Entity of the consumer body";
                         objCosmrEnty.CreatedBy = hdnUserID.Value;
                         objCosmrEnty.IPAddress = getclientIP();
-                        objCosmrEnty.ReferenceNo = txtCosmrEnty.Text;
+                        //objCosmrEnty.ReferenceNo = txtCosmrEnty.Text;
                         result = objcfebal.InsertCFEAttachments(objCosmrEnty);
                         if (result != "")
                         {
@@ -654,7 +654,7 @@ namespace MeghalayaUIP.User.CFE
                         objCsmrBody.FileDescription = "Proprietorship of the consumer body";
                         objCsmrBody.CreatedBy = hdnUserID.Value;
                         objCsmrBody.IPAddress = getclientIP();
-                        objCsmrBody.ReferenceNo = txtCsmrBody.Text;
+                        //objCsmrBody.ReferenceNo = txtCsmrBody.Text;
                         result = objcfebal.InsertCFEAttachments(objCsmrBody);
                         if (result != "")
                         {hypCsmrBody
@@ -731,7 +731,7 @@ namespace MeghalayaUIP.User.CFE
                         objPCB.FileDescription = "Clearances from the Pollution Control Board Document";
                         objPCB.CreatedBy = hdnUserID.Value;
                         objPCB.IPAddress = getclientIP();
-                        objPCB.ReferenceNo = txtPCB.Text;
+                        //objPCB.ReferenceNo = txtPCB.Text;
                         result = objcfebal.InsertCFEAttachments(objPCB);
                         if (result != "")
                         {
@@ -808,7 +808,7 @@ namespace MeghalayaUIP.User.CFE
                         objMCB.FileDescription = "Clearances from Municipal or Cantonment Board and Urban Affairs authorities";
                         objMCB.CreatedBy = hdnUserID.Value;
                         objMCB.IPAddress = getclientIP();
-                        objMCB.ReferenceNo = txtMCB.Text;
+                        //objMCB.ReferenceNo = txtMCB.Text;
                         result = objcfebal.InsertCFEAttachments(objMCB);
                         if (result != "")
                         {
@@ -885,7 +885,7 @@ namespace MeghalayaUIP.User.CFE
                         objEnvClr.FileDescription = "Environmental clearance from the concerned authorities Document";
                         objEnvClr.CreatedBy = hdnUserID.Value;
                         objEnvClr.IPAddress = getclientIP();
-                        objEnvClr.ReferenceNo = txtEnvClr.Text;
+                        //objEnvClr.ReferenceNo = txtEnvClr.Text;
                         result = objcfebal.InsertCFEAttachments(objEnvClr);
                         if (result != "")
                         {
@@ -962,7 +962,7 @@ namespace MeghalayaUIP.User.CFE
                         objSglWdw.FileDescription = "Approval of the Single Window Agency of the Industries Departments Document";
                         objSglWdw.CreatedBy = hdnUserID.Value;
                         objSglWdw.IPAddress = getclientIP();
-                        objSglWdw.ReferenceNo = txtSglWdw.Text;
+                        //objSglWdw.ReferenceNo = txtSglWdw.Text;
                         result = objcfebal.InsertCFEAttachments(objSglWdw);
                         if (result != "")
                         {
