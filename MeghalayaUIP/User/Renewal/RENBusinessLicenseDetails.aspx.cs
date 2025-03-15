@@ -69,7 +69,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet ds = new DataSet();
 
-                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "2", "");
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "2", "");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {

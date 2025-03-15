@@ -56,12 +56,12 @@ namespace MeghalayaUIP.User.CFO
             try
             {
                 DataSet dsnew = new DataSet();
-                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "12", "");
+                dsnew = objcfobal.GetApprovalDataByDeptId(hdnUserID.Value, Convert.ToString(Session["CFOUNITID"]), Convert.ToString(Session["CFOQID"]), "12", "59");
                 if (dsnew.Tables[0].Rows.Count > 0)
                 {
                     for (int i = 0; i < dsnew.Tables[0].Rows.Count; i++)
                     {
-                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "54")
+                        if (Convert.ToString(dsnew.Tables[0].Rows[i]["CFODA_APPROVALID"]) == "59")
                         {
                             BindDistricEST();
                             BindMARKET();

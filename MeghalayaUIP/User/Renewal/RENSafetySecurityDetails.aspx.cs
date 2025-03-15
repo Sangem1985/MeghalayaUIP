@@ -18,7 +18,7 @@ namespace MeghalayaUIP.User.Renewal
 
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "";
+        string Questionnaire, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -36,8 +36,16 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["RENUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    //if (Convert.ToString(Session["RENUNITID"]) != "")
+                    //{ UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    if (Convert.ToString(Session["RENQID"]) != "")
+                    {
+                        Questionnaire = Convert.ToString(Session["RENQID"]);
+                        if (!IsPostBack)
+                        {
+                            GetAppliedorNot();
+                        }
+                    }
                     else
                     {
                         string newurl = "~/User/Renewal/RENUserDashboard.aspx";
@@ -49,10 +57,7 @@ namespace MeghalayaUIP.User.Renewal
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
                     success.Visible = false;
-                    if (!IsPostBack)
-                    {
-                        GetAppliedorNot();
-                    }
+                   
                 }
             }
             catch(Exception ex)
@@ -68,7 +73,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet ds = new DataSet();
 
-                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "10", "68");
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "10", "68");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -110,7 +115,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     ObjRenSafteySecurity.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenSafteySecurity.CreatedBy = hdnUserID.Value;
-                    ObjRenSafteySecurity.UnitId = Convert.ToString(Session["RENUNITID"]);
+                  //  ObjRenSafteySecurity.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenSafteySecurity.IPAddress = getclientIP();
                     ObjRenSafteySecurity.MIGRANTREGNO = txtMigrantRegNo.Text;
                     ObjRenSafteySecurity.DISTRICREGISSUED = ddlRegIssued.SelectedValue;
@@ -499,10 +504,10 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet ds = new DataSet();
-                ds = objRenbal.GetRenSafteySecurity(hdnUserID.Value, UnitID);
+                ds = objRenbal.GetRenSafteySecurity(hdnUserID.Value, Questionnaire);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENSD_UNITID"]);
+                  //  ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENSD_UNITID"]);
                     txtMigrantRegNo.Text = ds.Tables[0].Rows[0]["RENSD_MIGRANTREGNO"].ToString();
                     ddlRegIssued.SelectedValue = ds.Tables[0].Rows[0]["RENSD_DISTRICREGISSUED"].ToString();
                     txtName.Text = ds.Tables[0].Rows[0]["RENSD_NAMEKIN"].ToString();

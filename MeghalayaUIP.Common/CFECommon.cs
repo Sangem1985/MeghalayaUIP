@@ -532,7 +532,16 @@ namespace MeghalayaUIP.Common
         public string Probable_Date_Power { get; set; }
         public string LoadReq { get; set; }
         public string EnergySource { get; set; }
-
+        public string Purpose { get; set; }
+        public string LoadType { get; set; }
+        public string LoadCharacter { get; set; }
+        public string ConnectedLoadReq { get; set; }
+        public string Year1 { get; set; }
+        public string Year2 { get; set; }
+        public string Year3 { get; set; }
+        public string Year4 { get; set; }
+        public string Year5 { get; set; }
+        public string ElectricityCharge { get; set; }
     }
     public class CFEForest
     {

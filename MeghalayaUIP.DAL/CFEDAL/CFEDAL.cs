@@ -839,6 +839,16 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("CFEPD_CREATEDBY", Convert.ToInt32(objCFEPower.CreatedBy));
                 com.Parameters.AddWithValue("CFEPD_CREATEDBYIP", objCFEPower.IPAddress);
 
+                com.Parameters.AddWithValue("@CFEPD_PURPOSE", objCFEPower.Purpose);
+                com.Parameters.AddWithValue("@CFEPD_LOADTYPE", objCFEPower.LoadType);
+                com.Parameters.AddWithValue("@CFEPD_CHARLOADTYPE", objCFEPower.LoadCharacter);
+                com.Parameters.AddWithValue("@CFEPD_CONCTDLOAD", objCFEPower.ConnectedLoadReq);
+                com.Parameters.AddWithValue("@CFEPD_YEAR1", objCFEPower.Year1);
+                com.Parameters.AddWithValue("@CFEPD_YEAR2", objCFEPower.Year2);
+                com.Parameters.AddWithValue("@CFEPD_YEAR3", objCFEPower.Year3);
+                com.Parameters.AddWithValue("@CFEPD_YEAR4", objCFEPower.Year4);
+                com.Parameters.AddWithValue("@CFEPD_YEAR5", objCFEPower.Year5);
+                com.Parameters.AddWithValue("@CFEPD_ELECHARGE", objCFEPower.ElectricityCharge);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();

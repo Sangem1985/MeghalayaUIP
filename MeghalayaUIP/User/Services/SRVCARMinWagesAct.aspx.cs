@@ -11,7 +11,37 @@ namespace MeghalayaUIP.User.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Convert.ToString(Session["ActsSelected"]) != "")
+            {
+                if (Convert.ToString(Session["ActsSelected"]).Contains("5"))
+                {
 
+                }
+                else
+                {
+                    if (Convert.ToString(Request.QueryString[0]) == "N")
+                        Response.Redirect("~/User/Services/SRVCARBonusPaymentAct.aspx?Next=N");
+                    else
+                        Response.Redirect("~/User/Services/SRVCARMBAct.aspx?Previous=P");
+                }
+
+            }
+
+        }
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Services/SRVCARMBAct.aspx?Previous=P");
+
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Services/SRVCARBonusPaymentAct.aspx?Next=N");
         }
     }
 }
