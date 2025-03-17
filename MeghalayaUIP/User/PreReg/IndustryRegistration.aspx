@@ -150,7 +150,7 @@
                 <div class="modal-content">
 
                     <div class="card-header" style="background: #c7dbff; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: space-between; align-items: flex-end;">
-                        <h4 class="card-title"><b>Welcome to the Industry Registration with Meghalaya Investment Promotion Agency (MIPA)/MIIPP 2024</b></h4>
+                        <h4 class="card-title"><b>Welcome to the Industry Registration with Meghalaya Investment Promotion Authority (MIPA)/MIIPP 2024</b></h4>
                         <h4><span class="close">&times;</span></h4>
                     </div>
                     <p>
@@ -180,7 +180,7 @@
                             <div class="card">
                                 <div class="card-header">
 
-                                    <h4 class="card-title"><b>Industry Registration with Meghalaya Investment Promotion Agency (MIPA)/MIIPP 2024</b></h4>
+                                    <h4 class="card-title"><b>Industry Registration with Meghalaya Investment Promotion Authority (MIPA)/MIIPP 2024</b></h4>
 
                                 </div>
                                 <div class="card-body">

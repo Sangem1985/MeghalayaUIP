@@ -38,7 +38,7 @@
 
                             <div class="col-sm-6 m-b-20 text-center" style="display: flex; justify-content: center;">
                                 <div class="invoice-details text-center d-flex" style="text-align: center;">
-                                    <h3 class="text-uppercase" style="margin-bottom: 0; width:250px"><u>Meghalaya Investment Promotion Agency (MIPA),
+                                    <h3 class="text-uppercase" style="margin-bottom: 0; width:250px"><u>Meghalaya Investment Promotion Authority (MIPA),
 Secretariat Main Building, M.G Road,
 Shillong - 793 001, East Khasi Hills District, Meghalaya.</u></h3>
                                 </div>
