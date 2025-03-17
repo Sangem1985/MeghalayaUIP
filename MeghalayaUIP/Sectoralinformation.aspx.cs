@@ -65,7 +65,7 @@ namespace MeghalayaUIP
 
                 List<MasterSector> objSectorModel = new List<MasterSector>();
 
-                objSectorModel = mstrBAL.GetSectors();
+                objSectorModel = mstrBAL.GetSectoralMaster();
                 if (objSectorModel != null)
                 {
                     ddlSector.DataSource = objSectorModel;

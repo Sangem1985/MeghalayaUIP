@@ -40,9 +40,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRenDrugItemDet(ObjRenDrugLic);
         }
-        public DataSet GetRenDrugLicDetails(string userid, string UnitID)
+        public DataSet GetRenDrugLicDetails(string userid, string RENQID)
         {
-            return objRENDAL.GetRenDrugLicDetails(userid, UnitID);
+            return objRENDAL.GetRenDrugLicDetails(userid, RENQID);
         }
         public string InsertRENBusinessLicDet(RenBusinessLicDetails ObjRenBusinessLic)
         {
@@ -76,9 +76,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRENBoilerDetails(ObjRenBoilerDetails);
         }
-        public DataSet GetRenBoilerDetails(string userid, string UnitID)
+        public DataSet GetRenBoilerDetails(string userid, string RENQID)
         {
-            return objRENDAL.GetRenBoilerDetails(userid, UnitID);
+            return objRENDAL.GetRenBoilerDetails(userid, RENQID);
         }
         public string InsertRenShopEstablishmentDetails(RenShopsEstablishment ObjRenShopEst)
         {
@@ -96,9 +96,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertAttachmentsRenewal(objRenAttachments);
         }
-        public DataSet GetRenShposEstablishmentLabourDetails(string userid, string UnitID)
+        public DataSet GetRenShposEstablishmentLabourDetails(string userid, string RENQDID)
         {
-            return objRENDAL.GetRenShposEstablishmentLabourDetails(userid, UnitID);
+            return objRENDAL.GetRenShposEstablishmentLabourDetails(userid, RENQDID);
         }
         public string InsertRenPropertiesDetails(RenShopsEstablishment ObjRenShopEst)
         {
@@ -128,9 +128,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRENSafteySecurityDetails(ObjRenSafteySecurity);
         }
-        public DataSet GetRenSafteySecurity(string userid, string UnitID)
+        public DataSet GetRenSafteySecurity(string userid, string RENQID)
         {
-            return objRENDAL.GetRenSafteySecurity(userid, UnitID);
+            return objRENDAL.GetRenSafteySecurity(userid, RENQID);
         }
         public string InsertMigrantWorkDetails(RenMigrantwork ObjRenMigrant)
         {
@@ -140,9 +140,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRENMigrantContractorDetails(ObjRenMigrant);
         }
-        public DataSet GetRenMigrantWorker(string userid, string UnitID)
+        public DataSet GetRenMigrantWorker(string userid, string RENQDID)
         {
-            return objRENDAL.GetRenMigrantWorker(userid, UnitID);
+            return objRENDAL.GetRenMigrantWorker(userid, RENQDID);
         }
         public string InsertRENFactoryLicDetails(RenFactoryLicense ObjRenFactoryLic)
         {
@@ -185,8 +185,8 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetRENDashBoardView(ObjREN);
         }
-        public DataSet GetRenAppliedApprovalID(string userid, string UNITID, string QusestionnaireID, string DeptID, string ApprovalID)
-        { return objRENDAL.GetRenAppliedApprovalID(userid, UNITID, QusestionnaireID, DeptID, ApprovalID); }
+        public DataSet GetRenAppliedApprovalID(string userid, string QusestionnaireID, string DeptID, string ApprovalID)
+        { return objRENDAL.GetRenAppliedApprovalID(userid, QusestionnaireID, DeptID, ApprovalID); }
         public string InsertRENLegalMetrologyDetails(RenLegalMetrology objRenLegal)
         {
             return objRENDAL.InsertRENLegalMetrologyDetails(objRenLegal);

@@ -221,10 +221,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 text-right mt-2 mb-2">
-                                        <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px"  />
-                                        <asp:Button ID="btnsave" runat="server" Text="Save"  class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                        <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px"  />
+                                    <div class="col-md-12 text-right mb-3">
+                                        <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
+                                        <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                        <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                     </div>
 
 

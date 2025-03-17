@@ -12,7 +12,21 @@ namespace MeghalayaUIP.User.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Convert.ToString(Session["ActsSelected"]) != "")
+            {
+                if (Convert.ToString(Session["ActsSelected"]).Contains("7"))
+                {
 
+                }
+                else
+                {
+                    if (Convert.ToString(Request.QueryString[0]) == "N")
+                        Response.Redirect("~/User/Services/SRVCARPECLAct.aspx?Next=N");
+                    else
+                        Response.Redirect("~/User/Services/SRVCARMinWagesAct.aspx?Previous=P");
+                }
+
+            }
         }
 
         protected void btnaddlog_Click(object sender, EventArgs e)
@@ -85,6 +99,21 @@ namespace MeghalayaUIP.User.Services
                 gvLogs.DataSource = dt;
                 gvLogs.DataBind();
             }
+        }
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Services/SRVCARMBAct.aspx?Previous=P");
+
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/Services/SRVCARPECLAct.aspx?Next=N");
         }
 
     }

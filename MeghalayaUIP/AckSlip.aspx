@@ -46,7 +46,7 @@
                             <div class="col-sm-12 m-b-20">
                                 <ul class="list-unstyled mb-0 list-item">
                                     <li>Date :
-                                        <label runat="server" id="lblDate"></label>
+                                        <label runat="server"   id="lblDate">10/03/2025</label>
                                         <br />
                                         <br />
                                     </li>
@@ -65,13 +65,13 @@
                                 </div>
                                 <ul class="list-unstyled mb-0 list-item">
                                     <li>Application Reference Number is : <b>
-                                        <label runat="server" id="lblUIDNo"></label>
+                                        <label runat="server" id="lblUIDNo">CTE/2025/1001/101	</label>
                                     </b>
                                         <br />
                                         <br />
                                     </li>
                                     <li>Your application was received by Online mode on
-                                        <label runat="server" id="lblDate1"></label>
+                                        <label runat="server" id="lblDate1">10/03/2025</label>
                                         .</li>
                                 </ul>
                             </div>

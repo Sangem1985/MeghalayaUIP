@@ -99,115 +99,26 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="col-md-12 d-flex">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="RadioButton1" runat="server" Text="" />
-                                            </div>
-
                                             <div class="col-md-10">
-                                                The Meghalaya Factones Act, 1948
+                                                <asp:CheckBoxList CssClass="" ID="chkActs" runat="server">
+                                                    <asp:ListItem Value="1" Text="The Meghalaya Factories Act, 1948"></asp:ListItem> <%--done--%>
+                                                    <asp:ListItem Value="2" Text="The Meghalaya Shop & Commercial Establishment Act, 1950"></asp:ListItem>
+                                                    <asp:ListItem Value="3" Text="The Maternity Benifit Act, 1961"></asp:ListItem>  <%--done--%>
+                                                    <asp:ListItem Value="4" Text="The Workmen's Compensation Act, 1923"></asp:ListItem>
+                                                    <asp:ListItem Value="5" Text="The Minimum wages Act 1948"></asp:ListItem>  <%--done--%>
+                                                    <asp:ListItem Value="6" Text="The Payment of Wages Act 1936"></asp:ListItem>
+                                                    <asp:ListItem Value="7" Text="The Payment of Bonus Act, 1965"></asp:ListItem>  <%--done--%>
+                                                    <asp:ListItem Value="8" Text="Principal Employer under The Contract Labour Act, 1970"></asp:ListItem>  <%--done--%>
+                                                    <asp:ListItem Value="9" Text="Principal Employer under The Inter-State Migrant Worlimen Act, 1979"></asp:ListItem>
+                                                    <asp:ListItem Value="10" Text="The Motor Transport Worker's Act, 1961"></asp:ListItem>
+                                                </asp:CheckBoxList>
                                             </div>
+
+
+
+
                                         </div>
 
-                                      
-
-                                        <div class="col-md-12 d-flex mt-1">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="Checkbox2" runat="server" Text="" />
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                The Meghalaya Shop & Commercial Establishment Act, 1950
-                                            </div>
-                                        </div>
-
-                                     <div class="col-md-12 d-flex mt-1">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="Checkbox3" runat="server" Text="" />
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                The Maternity Benifit Act, 1961
-                                            </div>
-                                        </div>
-
-                                      <div class="col-md-12 d-flex mt-1">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="Checkbox4" runat="server" Text="" />
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                The Workmen's Compensation Act, 1923
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12 d-flex mt-1">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="Checkbox5" runat="server" Text="" />
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                The Minimum Vilages Act 1948
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex mt-1">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="Checkbox6" runat="server" Text="" />
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                The Payment of Wlages Act 1936
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12 d-flex mt-1">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="Checkbox7" runat="server" Text="" />
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                The Payment of Bonus Act, 1965
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12 d-flex mt-1">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="Checkbox8" runat="server" Text="" />
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                Principal Employer under The Contract Labour Act, 1970
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12 d-flex mt-1">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="Checkbox9" runat="server" Text="" />
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                Principal Employer under The Inter-State Migrant Worlimen Act, 1979
-                                            </div>
-                                        </div>
-
-                                  <div class="col-md-12 d-flex mt-1">
-
-                                            <div class="col-md-2">
-                                                <asp:CheckBox CssClass="" ID="Checkbox10" runat="server" Text="" />
-                                            </div>
-
-                                            <div class="col-md-10">
-                                                The Motor Transport Worker's Act, 1961
-                                            </div>
-                                        </div>
 
 
 
@@ -216,9 +127,12 @@
                             </div>
 
                             <div class="text-center mb-3">
-                                <input type="submit" name="ctl00$ContentPlaceHolder1$btnsave1" value="Back" id="ContentPlaceHolder1_btnsave11" class="btn btn-rounded btn-info btn-lg" style="width: 150px;">
-                               
-                                <a href="SRVCARFactoryAct.aspx"><input type="button" class="btn btn-rounded btn-success btn-lg" style="width: 250px;" value="Start Filling Annual Return" /></a>
+
+                                <%--<input type="submit" name="ctl00$ContentPlaceHolder1$btnsave1" value="Back" id="ContentPlaceHolder1_btnsave11" class="btn btn-rounded btn-info btn-lg" style="width: 150px;">
+                                    <a href="SRVCARFactoryAct.aspx">
+                                <input type="button" class="btn btn-rounded btn-success btn-lg" style="width: 250px;" value="Start Filling Annual Return" /></a>--%>
+                                <asp:Button ID="btnSave" runat="server" Text="Start Filling Annual Return" class="btn btn-rounded btn-success btn-lg" Style="width: 250px;" OnClick="btnSave_Click" />
+
                             </div>
                         </div>
                     </div>

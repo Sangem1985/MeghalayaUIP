@@ -7,164 +7,155 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User.Services
+namespace MeghalayaUIP.User.CFE
 {
 
 
-    public partial class SRVCARMBAct
+    public partial class CFEStateMigrantCertificate
     {
 
         /// <summary>
-        /// txtnofwmenclmdbnfts control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnofwmenclmdbnfts;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txttlnofclaimspaid control.
+        /// swmcontent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttlnofclaimspaid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl swmcontent;
 
         /// <summary>
-        /// txtfrmcrntyr control.
+        /// hdnUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtfrmcrntyr;
+        protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// txtmdclamntbnftpaid control.
+        /// success control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmdclamntbnftpaid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
 
         /// <summary>
-        /// txtamntofmdclbnonuspaid control.
+        /// lblmsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtamntofmdclbnonuspaid;
+        protected global::System.Web.UI.WebControls.Label lblmsg;
 
         /// <summary>
-        /// TextBox1 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// TextBox2 control.
+        /// lblFileNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.Label lblFileNo;
 
         /// <summary>
-        /// rblMedical control.
+        /// lblDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblMedical;
+        protected global::System.Web.UI.WebControls.Label lblDate;
 
         /// <summary>
-        /// txtrcvddurngyear control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtrcvddurngyear;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// txtacptdintheyear control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtacptdintheyear;
+        protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// txtttlamntwrded control.
+        /// lblstatemigrant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtttlamntwrded;
+        protected global::System.Web.UI.WebControls.Label lblstatemigrant;
 
         /// <summary>
-        /// txtmxmcshprzawrded control.
+        /// lblNature control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmxmcshprzawrded;
+        protected global::System.Web.UI.WebControls.Label lblNature;
 
         /// <summary>
-        /// txtminmumcshprzawrded control.
+        /// lblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtminmumcshprzawrded;
+        protected global::System.Web.UI.WebControls.Label lblName;
 
         /// <summary>
-        /// btnPrevious control.
+        /// lblMigrantwork control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrevious;
+        protected global::System.Web.UI.WebControls.Label lblMigrantwork;
 
         /// <summary>
-        /// btnSave control.
+        /// lblContractor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Label lblContractor;
 
         /// <summary>
-        /// btnNext control.
+        /// lblrelevantemp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext;
-
-        /// <summary>
-        /// divgrd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divgrd;
+        protected global::System.Web.UI.WebControls.Label lblrelevantemp;
     }
 }

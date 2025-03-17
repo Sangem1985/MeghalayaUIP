@@ -583,10 +583,10 @@ namespace MeghalayaUIP.User.CFO
                     CFOQuestionnaireDet objCFOQsnaire = new CFOQuestionnaireDet();
 
                     if (Convert.ToString(Session["CFOQID"]) == "")
-                        objCFOQsnaire.CFEQDID = "";
+                        objCFOQsnaire.CFOQDID = "";
                     else
-                        objCFOQsnaire.CFEQDID = Convert.ToString(Session["CFOQID"]);
-                    objCFOQsnaire.CFOQDID = "";
+                        objCFOQsnaire.CFOQDID = Convert.ToString(Session["CFOQID"]);
+                   
                     objCFOQsnaire.UNITID = Convert.ToString(Session["CFOUNITID"]);
                     objCFOQsnaire.PREREGUIDNO = hdnPreRegUID.Value;
                     objCFOQsnaire.IPAddress = getclientIP();

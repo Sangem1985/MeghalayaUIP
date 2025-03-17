@@ -247,28 +247,28 @@ namespace MeghalayaUIP.DAL.CFODAL
                     // Add parameters for CFOExciseDetails
                     cmd.Parameters.AddWithValue("@CFOunitid", data.CFOunitid);
                     cmd.Parameters.AddWithValue("@CFOQID", data.CFOQID);
-                     cmd.Parameters.AddWithValue("@Artical5Selection", string.IsNullOrEmpty(data.Artical5Selection) ? (object)DBNull.Value : data.Artical5Selection);
-            cmd.Parameters.AddWithValue("@ApplicantSelection", string.IsNullOrEmpty(data.ApplicantSelection) ? (object)DBNull.Value : data.ApplicantSelection);
-            cmd.Parameters.AddWithValue("@MemberSelection", string.IsNullOrEmpty(data.MemberSelection) ? (object)DBNull.Value : data.MemberSelection);
-            cmd.Parameters.AddWithValue("@TaxSelection", string.IsNullOrEmpty(data.TaxSelection) ? (object)DBNull.Value : data.TaxSelection);
-            cmd.Parameters.AddWithValue("@SaleTaxSelection", string.IsNullOrEmpty(data.SaleTaxSelection) ? (object)DBNull.Value : data.SaleTaxSelection);
-            cmd.Parameters.AddWithValue("@ProfessionSelection", string.IsNullOrEmpty(data.ProfessionSelection) ? (object)DBNull.Value : data.ProfessionSelection);
-            cmd.Parameters.AddWithValue("@GovernmentSelection", string.IsNullOrEmpty(data.GovernmentSelection) ? (object)DBNull.Value : data.GovernmentSelection);
-            cmd.Parameters.AddWithValue("@GovernmentDetails", string.IsNullOrEmpty(data.GovernmentDetails) ? (object)DBNull.Value : data.GovernmentDetails);
-            cmd.Parameters.AddWithValue("@ViolationSelection", string.IsNullOrEmpty(data.ViolationSelection) ? (object)DBNull.Value : data.ViolationSelection);
-            cmd.Parameters.AddWithValue("@ViolationDetails", string.IsNullOrEmpty(data.ViolationDetails) ? (object)DBNull.Value : data.ViolationDetails);
-            cmd.Parameters.AddWithValue("@ConvictedSelection", string.IsNullOrEmpty(data.ConvictedSelection) ? (object)DBNull.Value : data.ConvictedSelection);
-            cmd.Parameters.AddWithValue("@ConvictedDetails", string.IsNullOrEmpty(data.ConvictedDetails) ? (object)DBNull.Value : data.ConvictedDetails);
-            cmd.Parameters.AddWithValue("@RenewBrand", string.IsNullOrEmpty(data.RenewBrand) ? (object)DBNull.Value : data.RenewBrand);
-            cmd.Parameters.AddWithValue("@RegFromDate", data.RegFromDate == null ? (object)DBNull.Value : data.RegFromDate);
-            cmd.Parameters.AddWithValue("@RegToDate", data.RegToDate == null ? (object)DBNull.Value : data.RegToDate);
-            cmd.Parameters.AddWithValue("@FirmAddress", string.IsNullOrEmpty(data.FirmAddress) ? (object)DBNull.Value : data.FirmAddress);
-            cmd.Parameters.AddWithValue("@CreatedBy", string.IsNullOrEmpty(data.CreatedBy) ? (object)DBNull.Value : data.CreatedBy);
-            cmd.Parameters.AddWithValue("@CreatedIp", string.IsNullOrEmpty(data.CreatedIp) ? (object)DBNull.Value : data.CreatedIp);
-            cmd.Parameters.AddWithValue("@UpdatedBy", string.IsNullOrEmpty(data.UpdatedBy) ? (object)DBNull.Value : data.UpdatedBy);
-            cmd.Parameters.AddWithValue("@UpdatedDate", data.UpdatedDate == null ? (object)DBNull.Value : data.UpdatedDate);
-            cmd.Parameters.AddWithValue("@UpdatedIp", string.IsNullOrEmpty(data.UpdatedIp) ? (object)DBNull.Value : data.UpdatedIp);
-            cmd.Parameters.AddWithValue("@flag", data.Flag ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Artical5Selection", string.IsNullOrEmpty(data.Artical5Selection) ? (object)DBNull.Value : data.Artical5Selection);
+                    cmd.Parameters.AddWithValue("@ApplicantSelection", string.IsNullOrEmpty(data.ApplicantSelection) ? (object)DBNull.Value : data.ApplicantSelection);
+                    cmd.Parameters.AddWithValue("@MemberSelection", string.IsNullOrEmpty(data.MemberSelection) ? (object)DBNull.Value : data.MemberSelection);
+                    cmd.Parameters.AddWithValue("@TaxSelection", string.IsNullOrEmpty(data.TaxSelection) ? (object)DBNull.Value : data.TaxSelection);
+                    cmd.Parameters.AddWithValue("@SaleTaxSelection", string.IsNullOrEmpty(data.SaleTaxSelection) ? (object)DBNull.Value : data.SaleTaxSelection);
+                    cmd.Parameters.AddWithValue("@ProfessionSelection", string.IsNullOrEmpty(data.ProfessionSelection) ? (object)DBNull.Value : data.ProfessionSelection);
+                    cmd.Parameters.AddWithValue("@GovernmentSelection", string.IsNullOrEmpty(data.GovernmentSelection) ? (object)DBNull.Value : data.GovernmentSelection);
+                    cmd.Parameters.AddWithValue("@GovernmentDetails", string.IsNullOrEmpty(data.GovernmentDetails) ? (object)DBNull.Value : data.GovernmentDetails);
+                    cmd.Parameters.AddWithValue("@ViolationSelection", string.IsNullOrEmpty(data.ViolationSelection) ? (object)DBNull.Value : data.ViolationSelection);
+                    cmd.Parameters.AddWithValue("@ViolationDetails", string.IsNullOrEmpty(data.ViolationDetails) ? (object)DBNull.Value : data.ViolationDetails);
+                    cmd.Parameters.AddWithValue("@ConvictedSelection", string.IsNullOrEmpty(data.ConvictedSelection) ? (object)DBNull.Value : data.ConvictedSelection);
+                    cmd.Parameters.AddWithValue("@ConvictedDetails", string.IsNullOrEmpty(data.ConvictedDetails) ? (object)DBNull.Value : data.ConvictedDetails);
+                    cmd.Parameters.AddWithValue("@RenewBrand", string.IsNullOrEmpty(data.RenewBrand) ? (object)DBNull.Value : data.RenewBrand);
+                    cmd.Parameters.AddWithValue("@RegFromDate", data.RegFromDate == null ? (object)DBNull.Value : data.RegFromDate);
+                    cmd.Parameters.AddWithValue("@RegToDate", data.RegToDate == null ? (object)DBNull.Value : data.RegToDate);
+                    cmd.Parameters.AddWithValue("@FirmAddress", string.IsNullOrEmpty(data.FirmAddress) ? (object)DBNull.Value : data.FirmAddress);
+                    cmd.Parameters.AddWithValue("@CreatedBy", string.IsNullOrEmpty(data.CreatedBy) ? (object)DBNull.Value : data.CreatedBy);
+                    cmd.Parameters.AddWithValue("@CreatedIp", string.IsNullOrEmpty(data.CreatedIp) ? (object)DBNull.Value : data.CreatedIp);
+                    cmd.Parameters.AddWithValue("@UpdatedBy", string.IsNullOrEmpty(data.UpdatedBy) ? (object)DBNull.Value : data.UpdatedBy);
+                    cmd.Parameters.AddWithValue("@UpdatedDate", data.UpdatedDate == null ? (object)DBNull.Value : data.UpdatedDate);
+                    cmd.Parameters.AddWithValue("@UpdatedIp", string.IsNullOrEmpty(data.UpdatedIp) ? (object)DBNull.Value : data.UpdatedIp);
+                    cmd.Parameters.AddWithValue("@flag", data.Flag ?? (object)DBNull.Value);
 
                     // Convert BrandDetails to XML
                     XDocument brandDetailsXml = null;
@@ -323,9 +323,9 @@ namespace MeghalayaUIP.DAL.CFODAL
                             )
                         );
                     }
-                    
-                    cmd.Parameters.AddWithValue("@BrandDetailsXml", brandDetailsXml==null?"": brandDetailsXml.ToString());
-                    cmd.Parameters.AddWithValue("@LiquorDetailsXml", liquorDetailsXml==null ?"": liquorDetailsXml.ToString());
+
+                    cmd.Parameters.AddWithValue("@BrandDetailsXml", brandDetailsXml == null ? "" : brandDetailsXml.ToString());
+                    cmd.Parameters.AddWithValue("@LiquorDetailsXml", liquorDetailsXml == null ? "" : liquorDetailsXml.ToString());
 
                     conn.Open();
                     int cnt = cmd.ExecuteNonQuery();
@@ -1795,7 +1795,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 if (ObjCFOHealthyWelfare.inceptionDate != null && ObjCFOHealthyWelfare.inceptionDate != "")
                 {
                     com.Parameters.AddWithValue("@CFODL_DATEOFINSP", DateTime.ParseExact(ObjCFOHealthyWelfare.inceptionDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                }                  
+                }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -1956,11 +1956,10 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-                if(objCFOQsnaire.CFEQDID !=null && objCFOQsnaire.CFEQDID != "")
-                {
-                    com.Parameters.AddWithValue("@CFOQDID", objCFOQsnaire.CFEQDID);
-                }
-                
+
+                com.Parameters.AddWithValue("@CFOQDID", objCFOQsnaire.CFOQDID);
+
+
                 com.Parameters.AddWithValue("@CFOQD_UNITID", Convert.ToInt32(objCFOQsnaire.UNITID));
                 com.Parameters.AddWithValue("@CFOQD_PREREGUIDNO", objCFOQsnaire.PREREGUIDNO);
                 com.Parameters.AddWithValue("@CFOQD_APPLSTATUS", 2);

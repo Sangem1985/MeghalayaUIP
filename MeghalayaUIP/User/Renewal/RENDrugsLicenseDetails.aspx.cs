@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "";
+        string ErrorMsg = "", Questionnaire;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -34,8 +34,17 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["RENUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    //if (Convert.ToString(Session["RENUNITID"]) != "")
+                    //{ UnitID = Convert.ToString(Session["RENUNITID"]); }
+
+                    if (Convert.ToString(Session["RENQID"]) != "")
+                    {
+                        Questionnaire = Convert.ToString(Session["RENQID"]);
+                        if (!IsPostBack)
+                        {
+                            GetAppliedorNot();
+                        }
+                    }
                     else
                     {
                         string newurl = "~/User/Renewal/RENUserDashboard.aspx";
@@ -47,13 +56,7 @@ namespace MeghalayaUIP.User.Renewal
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
                     success.Visible = false;
-
-                    if (!IsPostBack)
-                    {
-                        
-                        GetAppliedorNot();
-                        //pnlLicenseDetails.Visible = false;
-                    }
+                  
                 }
             }
             catch(Exception ex)
@@ -69,7 +72,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet ds = new DataSet();
 
-                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENUNITID"]), Convert.ToString(Session["RENQID"]), "8", "62");
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "8", "62");
 
                 if(ds.Tables[0].Rows.Count > 0)
                 {
@@ -109,7 +112,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("REND_UNITID", typeof(string));
+                    dt.Columns.Add("RENQID", typeof(string));
                     dt.Columns.Add("REND_CREATEDBY", typeof(string));
                     dt.Columns.Add("REND_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("REND_DRUGNAME", typeof(string));
@@ -123,7 +126,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["REND_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["RENQID"] = Convert.ToString(ViewState["RENQID"]);
                     dr["REND_CREATEDBY"] = hdnUserID.Value;
                     dr["REND_CREATEDBYIP"] = getclientIP();
                     dr["REND_DRUGNAME"] = txttradeLic.Text;
@@ -174,7 +177,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("RENST_UNITID", typeof(string));
+                    dt.Columns.Add("RENQID", typeof(string));
                     dt.Columns.Add("RENST_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENST_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENST_NAME", typeof(string));
@@ -189,7 +192,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["RENST_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["RENQID"] = Convert.ToString(ViewState["RENQID"]);
                     dr["RENST_CREATEDBY"] = hdnUserID.Value;
                     dr["RENST_CREATEDBYIP"] = getclientIP();
                     dr["RENST_NAME"] = txtnames.Text;
@@ -224,7 +227,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("RENDM_UNITID", typeof(string));
+                    dt.Columns.Add("RENQID", typeof(string));
                     dt.Columns.Add("RENDM_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENDM_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENDM_NAME", typeof(string));
@@ -239,7 +242,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["RENDM_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["RENQID"] = Convert.ToString(ViewState["RENQID"]);
                     dr["RENDM_CREATEDBY"] = hdnUserID.Value;
                     dr["RENDM_CREATEDBYIP"] = getclientIP();
                     dr["RENDM_NAME"] = txtNAME.Text;
@@ -274,7 +277,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("RENDA_UNITID", typeof(string));
+                    dt.Columns.Add("RENQID", typeof(string));
                     dt.Columns.Add("RENDA_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENDA_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENDA_ADDITIONALITEM", typeof(string));
@@ -288,7 +291,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["RENDA_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["RENQID"] = Convert.ToString(ViewState["RENQID"]);
                     dr["RENDA_CREATEDBY"] = hdnUserID.Value;
                     dr["RENDA_CREATEDBYIP"] = getclientIP();
                     dr["RENDA_ADDITIONALITEM"] = txtitem.Text;
@@ -326,7 +329,7 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]); 
                         ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                        ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
+                       // ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
                         ObjRenDrugLic.IPAddress = getclientIP();
                         ObjRenDrugLic.NameDrug = GVDrugName.Rows[i].Cells[1].Text;
 
@@ -349,7 +352,7 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]); 
                         ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                        ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
+                       // ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
                         ObjRenDrugLic.IPAddress = getclientIP();
                         ObjRenDrugLic.Name = GVTEST.Rows[i].Cells[1].Text;
                         ObjRenDrugLic.Qualification = GVTEST.Rows[i].Cells[2].Text;
@@ -374,7 +377,7 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]); 
                         ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                        ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
+                        //ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
                         ObjRenDrugLic.IPAddress = getclientIP();
                         ObjRenDrugLic.NameManu = GVMANU.Rows[i].Cells[1].Text;
                         ObjRenDrugLic.QualificationManu = GVMANU.Rows[i].Cells[2].Text;
@@ -398,7 +401,7 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]); 
                         ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                        ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
+                       // ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
                         ObjRenDrugLic.IPAddress = getclientIP();
                         ObjRenDrugLic.AdditionalItem = GVADDED.Rows[i].Cells[1].Text;
 
@@ -422,7 +425,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                    ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
+                  //  ObjRenDrugLic.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenDrugLic.IPAddress = getclientIP();
 
                     ObjRenDrugLic.Licnumber = txtLicNo.Text;
@@ -621,12 +624,12 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet ds = new DataSet();
-                ds = objRenbal.GetRenDrugLicDetails(hdnUserID.Value, UnitID);
+                ds = objRenbal.GetRenDrugLicDetails(hdnUserID.Value, Questionnaire);
                 if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0 || ds.Tables[3].Rows.Count > 0 || ds.Tables[4].Rows.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENDL_UNITID"]);
+                      //  ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENDL_UNITID"]);
                         rblLicense.SelectedValue= ds.Tables[0].Rows[0]["RENDL_APPLICATIONPURPOSE"].ToString();
 
                         if (rblLicense.SelectedValue == "R")
