@@ -55,7 +55,7 @@
                                     </li>
                                     <li>Dear Applicant,<br />
                                         <br />
-                                        Your Intent to Invest in Meghalaya has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
+                                        Your Intent to Invest in Meghalaya has been successfully submitted to Meghalaya Investment Promotion Agency (MIPA), Government of Meghalaya.</li>
 
                                 </ul>
                                 <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">

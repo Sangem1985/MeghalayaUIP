@@ -39,7 +39,7 @@
 
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-11">
-                                    <h4>Industries Registered with Invest Meghalaya Authority/MIIPP 2024</h4>
+                                    <h4>Industries Registered with Meghalaya Investment Promotion Agency (MIPA)/MIIPP 2024</h4>
                                 </div>
                                 <div class="col-md-1">
                                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>

@@ -747,7 +747,7 @@
                     <h6 class="modal-title" id="exampleModalLabel">
                         <ul>
                             <li><span>Email:</span>
-                                <b>investmeghalayaauthority[at]gmail[dot]com</b></li>
+                                <b>meghalayainvestmentpromotionagency[at]gmail[dot]com</b></li>
                             <li><span>Call Us:</span>
                                 <b>+91 7085741695</b>
 
@@ -841,7 +841,7 @@
     </div>
     <div class="servicedesk">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <i class="fi fi-tr-admin-alt"></i>Investor Desk
+            <i class="fi fi-tr-admin-alt"></i> Investor Desk
         </button>
     </div>
 

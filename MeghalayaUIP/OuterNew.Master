@@ -6,7 +6,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <head runat="server">
-    <title>Invest Meghalaya</title>
+    <title>MIPA</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -391,7 +391,7 @@
                             <div class="left-content pull-left">
                                 <figure class="logo-box">
                                     <a href="Home.aspx">
-                                        <img src="assets/assetsnew/images/Logo_dark.png" alt="" style="width: 70%; margin-top: 16px;"></a>
+                                        <img src="assets/assetsnew/images/Logo_dark.png" title="Meghalaya Investment Promotion Agency (MIPA)" alt="" style="width: 26%; margin-top: 0px;"></a>
                                 </figure>
                             </div>
                             <div class="right-content pull-right">
@@ -638,29 +638,29 @@
                     <div class="footer-top">
                         <div class="widget-section">
                             <div class="row">
-                                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                                <div class="col-lg-6 col-md-6 col-sm-12 footer-column">
                                     <div class="logo-widget footer-widget">
                                         <figure class="footer-logo">
                                             <a href="Home.aspx">
-                                                <img src="assets/assetsnew/images/logo.png" alt="" style="width: 80%;"></a>
+                                                <img src="assets/assetsnew/images/logo.png" alt="" style="width: 52%;"></a>
                                         </figure>
                                         <ul>
-                                            <li>Invest Meghalaya Authority,<br>
+                                            <li>Meghalaya Investment Promotion Agency (MIPA),<br>
                                                 Secretariat Main Building, M.G Road,<br>
                                                 Shillong - 793 001, East Khasi Hills District, Meghalaya.<br />
                                             </li>
 
-                                            <li><i class="fi fi-br-envelope"></i><span>Email:</span>
-                                                <%--<a href="mailto:investmeghalayaauthority@gmail.com">investmeghalayaauthority[at]gmail[dot]com</a></li>--%>
-                                            <li>investmeghalayaauthority[at]gmail[dot]com</li>
-                                            <li><i class="fi fi-br-phone-call"></i><span>Call Us:</span>
+                                            <li><i class="fi fi-br-envelope"></i><span> Email: meghalayainvestmentpromotionagency[at]gmail[dot]com</span>
+                                                <%--<a href="mailto:meghalayainvestmentpromotionagency@gmail.com">investmeghalayaauthority[at]gmail[dot]com</a></li>--%>
+                                            <!--<li>meghalayainvestmentpromotionagency[at]gmail[dot]com</li>-->
+                                            <li><i class="fi fi-br-phone-call"></i><span> Call Us: +91 7085741695</span>
                                                 <%--<a href="tel:+91 7085741695">+91 7085741695</a></li>--%>
-                                            <li>+91 7085741695</li>
+                                            <!--<li>+91 7085741695</li>-->
 
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                                <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                                     <div class="links-widget company-widget footer-widget">
                                         <h4 class="widget-title">Quick Links</h4>
                                         <div class="widget-content">
@@ -676,7 +676,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                                <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                                     <div class="links-widget footer-widget">
                                         <h4 class="widget-title">For Investors</h4>
                                         <div class="widget-content">
@@ -710,7 +710,7 @@
                     <%--#145180;--%>
                     <div class="footer-bottom clearfix">
                         <div class="copyright pull-left">
-                            <a href="#" style="color: #192d66; font-weight: 600;">© 2024 Copyright Invest Meghalaya Authority, All Rights Reserved.</a>
+                            <a href="#" style="color: #192d66; font-weight: 600;">© 2024 Copyright Meghalaya Investment Promotion Agency (MIPA), All Rights Reserved.</a>
                         </div>
                         <ul class="footer-social pull-right">
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>

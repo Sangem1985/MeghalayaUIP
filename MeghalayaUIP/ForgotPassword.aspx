@@ -65,7 +65,7 @@
                                 <div class="login-left">
                                     <h2>Welcome Back!</h2>
                                     <p>To keep connected with</p>
-                                    <h5>Invest Meghalaya Authority</h5>
+                                    <h5>Meghalaya Investment Promotion Agency (MIPA)</h5>
                                     <p>with your personal info</p>
                                 </div>
                                 <div class="login-right">
