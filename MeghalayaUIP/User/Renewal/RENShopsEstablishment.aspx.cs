@@ -58,10 +58,10 @@ namespace MeghalayaUIP.User.Renewal
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
                     success.Visible = false;
-                    if (!IsPostBack)
-                    {
-                        GetAppliedorNot();
-                    }
+                    //if (!IsPostBack)
+                    //{
+                    //    GetAppliedorNot();
+                    //}
                 }
             }
             catch(Exception ex)
@@ -890,7 +890,7 @@ namespace MeghalayaUIP.User.Renewal
 
 
                         RenAttachments objRenAttachments = new RenAttachments();
-                        objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
+                       // objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
                         objRenAttachments.Questionnareid = Convert.ToString(Session["RENQID"]);
                         objRenAttachments.MasterID = "135";
                         objRenAttachments.FilePath = serverpath + fupEmployeelist.PostedFile.FileName;
@@ -982,7 +982,7 @@ namespace MeghalayaUIP.User.Renewal
 
 
                         RenAttachments objRenAttachments = new RenAttachments();
-                        objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
+                      //  objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
                         objRenAttachments.Questionnareid = Convert.ToString(Session["RENQID"]);
                         objRenAttachments.MasterID = "134";
                         objRenAttachments.FilePath = serverpath + fupEmployer.PostedFile.FileName;
@@ -1085,7 +1085,7 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENSE_UNITID"]);
+                      //  ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENSE_UNITID"]);
                         txtLicNo.Text = ds.Tables[0].Rows[0]["RENSE_LICNO"].ToString();
                         txtLicIssueDate.Text = ds.Tables[0].Rows[0]["RENSE_LICISSUEDATE"].ToString();
                         txtLicValidDate.Text = ds.Tables[0].Rows[0]["RENSE_LICVALIDUP"].ToString();
@@ -1147,7 +1147,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["RENED_RENQDID"]);
+                      //  hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["RENED_RENQDID"]);
                         ViewState["EMPLOYEES"]= ds.Tables[2];
                         GVTEST.DataSource = ds.Tables[2];
                         GVTEST.DataBind();
@@ -1155,7 +1155,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (ds.Tables[3].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["RENP_RENQDID"]);
+                       // hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["RENP_RENQDID"]);
                         ViewState["PROPERTIE"]= ds.Tables[3];
                         GVPROPERTIE.DataSource = ds.Tables[3];
                         GVPROPERTIE.DataBind();
@@ -1163,7 +1163,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (ds.Tables[4].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["RENPS_RENQDID"]);
+                       // hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["RENPS_RENQDID"]);
                         ViewState["PATNER"]= ds.Tables[4];
                         GVPATNER.DataSource = ds.Tables[4];
                         GVPATNER.DataBind();
@@ -1171,7 +1171,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (ds.Tables[5].Rows.Count > 0)
                     {
-                        hdnUserID.Value = Convert.ToString(ds.Tables[5].Rows[0]["RENLC_RENQDID"]);
+                      //  hdnUserID.Value = Convert.ToString(ds.Tables[5].Rows[0]["RENLC_RENQDID"]);
                         ViewState["LIMITED"]= ds.Tables[5];
                         GVLIMITED.DataSource = ds.Tables[5];
                         GVLIMITED.DataBind();
@@ -1308,7 +1308,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("RENP_UNITID", typeof(string));
+                  //  dt.Columns.Add("RENP_UNITID", typeof(string));
                     dt.Columns.Add("RENP_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENP_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENP_NAMEPROPERTIE", typeof(string));
@@ -1325,7 +1325,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["RENP_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                   // dr["RENP_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["RENP_CREATEDBY"] = hdnUserID.Value;
                     dr["RENP_CREATEDBYIP"] = getclientIP();
                     dr["RENP_NAMEPROPERTIE"] = txtProprtie.Text;
@@ -1364,7 +1364,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("RENPS_UNITID", typeof(string));
+                   // dt.Columns.Add("RENPS_UNITID", typeof(string));
                     dt.Columns.Add("RENPS_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENPS_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENPS_NAMEPATNER", typeof(string));
@@ -1378,7 +1378,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["RENPS_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                   // dr["RENPS_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["RENPS_CREATEDBY"] = hdnUserID.Value;
                     dr["RENPS_CREATEDBYIP"] = getclientIP();
                     dr["RENPS_NAMEPATNER"] = txtPartner.Text;
@@ -1413,7 +1413,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("RENLC_UNITID", typeof(string));
+                  //  dt.Columns.Add("RENLC_UNITID", typeof(string));
                     dt.Columns.Add("RENLC_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENLC_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENLC_NAMEOFDIRECTOR", typeof(string));
@@ -1427,7 +1427,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["RENLC_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                   // dr["RENLC_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["RENLC_CREATEDBY"] = hdnUserID.Value;
                     dr["RENLC_CREATEDBYIP"] = getclientIP();
                     dr["RENLC_NAMEOFDIRECTOR"] = txtNameDirect.Text;

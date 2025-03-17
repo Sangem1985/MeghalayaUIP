@@ -96,9 +96,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertAttachmentsRenewal(objRenAttachments);
         }
-        public DataSet GetRenShposEstablishmentLabourDetails(string userid, string UnitID)
+        public DataSet GetRenShposEstablishmentLabourDetails(string userid, string RENQDID)
         {
-            return objRENDAL.GetRenShposEstablishmentLabourDetails(userid, UnitID);
+            return objRENDAL.GetRenShposEstablishmentLabourDetails(userid, RENQDID);
         }
         public string InsertRenPropertiesDetails(RenShopsEstablishment ObjRenShopEst)
         {
@@ -140,9 +140,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRENMigrantContractorDetails(ObjRenMigrant);
         }
-        public DataSet GetRenMigrantWorker(string userid, string UnitID)
+        public DataSet GetRenMigrantWorker(string userid, string RENQDID)
         {
-            return objRENDAL.GetRenMigrantWorker(userid, UnitID);
+            return objRENDAL.GetRenMigrantWorker(userid, RENQDID);
         }
         public string InsertRENFactoryLicDetails(RenFactoryLicense ObjRenFactoryLic)
         {
