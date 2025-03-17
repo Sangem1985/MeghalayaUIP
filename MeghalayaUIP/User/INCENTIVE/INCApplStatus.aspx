@@ -44,49 +44,54 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-4">
+                            <%--   <div class="row mt-4">
                                 <div class="col-md-6"><strong>1. UID NO:</strong> <span id="lblUnitID" class="fw-bold text-info">INC/2025/102</span></div>
                                 <div class="col-md-6"><strong>2. Unit Name:</strong> <span id="lblUnitNmae" class="fw-bold text-info">TEST</span></div>
-                            </div>
+                            </div>--%>
 
                             <br>
 
-                           
+
                             <div class="table-responsive">
                                 <table class="table table-bordered text-center">
                                     <thead class="table-dark">
                                         <tr>
                                             <th>S.No</th>
-                                            <th>Name of Approval</th>
-                                            <th>Date of Application</th>
-                                            <th>Date of Payment</th>
-                                            <th>Query Raised Date</th>
-                                            <th>Response to Query Date</th>
-                                            <th>Date of Scrutiny Completion</th>
-                                            <th>Date of Additional Payment</th>
-                                            <th>Date of Receival for Approval</th>
-                                            <th>Date of Completion</th>
+                                            <%--  <th>Name of Approval</th>--%>
+                                            <th>Application No</th>
+                                            <th>Unit Name</th>
+                                            <th>Applied Date</th>
+                                            <th>View Application</th>
+                                            <th>View Acknowledgement</th>
+                                            <th>Pending Queries</th>
+                                            <th>Respond to query</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      
+
                                         <tr>
                                             <td>1</td>
-                                            <td>Online single window system-Incentives</td>
-                                            <td>14-01-2024</td>
-                                            <td><a href="#" target="_blank"></a></td>
-                                            <td><a href="#" target="_blank"></a></td>
-                                            <td><a href="#" target="_blank"></a></td>
-                                            <td><a href="#" target="_blank" style="color: black; text-decoration: none;">14-03-2025</a></td>
-                                            <td><a href="#" target="_blank"></a></td>
-                                            <td></td>
+                                            <%-- <td>Online single window system-Incentives</td>--%>
+                                            <td>INC/2025/102</td>
+                                            <td>TEST</td>
                                             <td>14-03-2025</td>
-                                            <td><a href="#" target="_blank">Approved</a></td>
+                                            <td><a href="#" target="_blank" style="color: blue; text-decoration: none;">View</a></td>
+                                            <td><a href="#" target="_blank" style="color: blue; text-decoration: none;">Acknowledgement</a></td>
+                                            <td><a href="#" target="_blank">0</a></td>
+                                            <td><a href="#" target="_blank"></a></td>
+                                            <td><a href="#" target="_blank" style="color: black; text-decoration: none;">Application Submitted</a></td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
+                                  <div align="center" id="trApplyAgainbtn" runat="server">
+                        <div align="center" style="padding: 5px; margin: 5px; text-align: left;" valign="middle">
+                            &nbsp;
+                           <asp:Button ID="btnApplyAgain" runat="server" class="btn btn-rounded btn-info btn-lg"
+                               TabIndex="10" Text="Apply Again" Width="150px" />
+                        </div>
+                    </div>
                             </div>
                         </div>
                     </section>
