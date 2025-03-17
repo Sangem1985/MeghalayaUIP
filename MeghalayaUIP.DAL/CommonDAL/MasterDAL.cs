@@ -278,6 +278,32 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstSectorMstr;
         }
+        public List<MasterSector> GetSectoralMaster()
+        {
+            List<MasterSector> lstSectorMstr = new List<MasterSector>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetSectoralmaster);
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var sectors = new MasterSector()
+                        {
+                            SectorId = Convert.ToString(drOptions["SECTORID"]),
+                            SectorName = Convert.ToString(drOptions["SECTORNAME"])
+                        };
+                        lstSectorMstr.Add(sectors);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lstSectorMstr;
+        }
         public List<MasterAPPROVALS> GetApprovals()
         {
             List<MasterAPPROVALS> lstApprovalsMstr = new List<MasterAPPROVALS>();

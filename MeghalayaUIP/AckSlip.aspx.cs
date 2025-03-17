@@ -19,7 +19,7 @@ namespace MeghalayaUIP
             {
                 lblUIDNo.InnerText = Convert.ToString(Request.QueryString["UID"]);
                 DateTime dateTime = DateTime.UtcNow.Date;
-                lblDate.InnerHtml = dateTime.ToString("dd/MM/yyyy");
+                lblDate.InnerHtml = DateTime.Now.ToString("dd/MM/yyyy");
                 //string UnitId = Request.QueryString["UnitId"].ToString();
                 //string AppType = Request.QueryString["AppType"].ToString();
                 //DataSet dsnew = new DataSet();

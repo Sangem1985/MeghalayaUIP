@@ -14,7 +14,9 @@ namespace MeghalayaUIP.Common
         public static string GetMandalsmaster = "USP_GET_MANDALS";
         public static string GetVillagesmaster = "USP_GET_VILLAGE";
         public static string GetDeptmaster = "USP_GET_MASTER_DEPT_LIST";
-        public static string GetSectormaster = "USP_GETSECTORAL_INFORMATION";  //USP_GET_Sector
+        public static string GetSectormaster = "USP_GET_Sector";  //USP_GET_Sector
+
+        public static string GetSectoralmaster = "USP_GETSECTORAL_INFORMATION";  //
         public static string GetLineOfActivitymaster = "USP_GET_LineofActivity";
         public static string GetPCBCategory = "USP_GET_PCBCategory";
         public static string GetConstitutionType = "USP_GETCONSTITUTIONTYPEMASTER";

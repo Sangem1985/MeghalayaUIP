@@ -109,7 +109,8 @@ namespace MeghalayaUIP.User.PreReg
                             txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPANNO"]);
                             ddlcompanytype.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
                             ddlproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
-                            txtCompnyRegDt.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]).ToString("dd-MM-yyyy");
+                            if (Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]) != "")
+                                txtCompnyRegDt.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]).ToString("dd-MM-yyyy");
                             txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNNO"]);
                             ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYREGTYPE"]);
                             ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
@@ -709,7 +710,7 @@ namespace MeghalayaUIP.User.PreReg
                     txtUdyamorIEMNo.Enabled = true;
                     lblregntype.InnerText = ddlRegType.SelectedItem.Text.Trim() + " No ";
                     txtUdyamorIEMNo.Text = "";
-                   // ddlRegType.BorderColor = System.Drawing.Color.Black;
+                    // ddlRegType.BorderColor = System.Drawing.Color.Black;
 
                 }
                 else
@@ -717,7 +718,7 @@ namespace MeghalayaUIP.User.PreReg
                     txtUdyamorIEMNo.Enabled = false;
                     lblregntype.InnerText = " Registration No *";
                     txtUdyamorIEMNo.Text = "";
-                   // ddlRegType.BorderColor = System.Drawing.Color.Red;
+                    // ddlRegType.BorderColor = System.Drawing.Color.Red;
                 }
 
             }

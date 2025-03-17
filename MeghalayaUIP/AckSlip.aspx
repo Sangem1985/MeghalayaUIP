@@ -46,7 +46,7 @@
                             <div class="col-sm-12 m-b-20">
                                 <ul class="list-unstyled mb-0 list-item">
                                     <li>Date :
-                                        <label runat="server" id="lblDate"></label>
+                                        <label runat="server"   id="lblDate">10/03/2025</label>
                                         <br />
                                         <br />
                                     </li>
@@ -55,8 +55,11 @@
                                     </li>
                                     <li>Dear Applicant,<br />
                                         <br />
-                                        Your Intent to Invest in Meghalaya has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
-
+                                        Your Application for the following services has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
+                                    <br />
+                                    1. NoC for Ground Water Abstraction for Commercial Connection. <br />
+                                    2.Certificate for non-availability of water supply from water supply agency. <br />
+                                    3.Permission to Draw Water from River/Public Tanks.
                                 </ul>
                                 <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
                                     <div class="invoice-details text-center d-flex" style="text-align: center;">
@@ -65,13 +68,13 @@
                                 </div>
                                 <ul class="list-unstyled mb-0 list-item">
                                     <li>Application Reference Number is : <b>
-                                        <label runat="server" id="lblUIDNo"></label>
+                                        <label runat="server" id="lblUIDNo">CTE/2025/1001/101	</label>
                                     </b>
                                         <br />
                                         <br />
                                     </li>
                                     <li>Your application was received by Online mode on
-                                        <label runat="server" id="lblDate1"></label>
+                                        <label runat="server" id="lblDate1">10/03/2025</label>
                                         .</li>
                                 </ul>
                             </div>
