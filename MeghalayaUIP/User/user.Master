@@ -117,8 +117,8 @@
             }
 
         a.logo input#imgLogo {
-            width: 98%;
-            margin-top: 15px;
+            width: 60%;
+            margin-top: 1px;
         }
 
         ul.navbar-nav i.fi {
