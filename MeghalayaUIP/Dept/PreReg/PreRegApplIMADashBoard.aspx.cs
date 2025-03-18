@@ -79,7 +79,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
                 lblIMATOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
                 lblIMAPPROVED.Text = dt.Rows[0]["APPROVED"].ToString();
-                lblQueryRaised.Text= dt.Rows[0]["IMAQUERYRAISED"].ToString();
+                lblQueryRaised.Text = dt.Rows[0]["IMAQUERYRAISED"].ToString();
                 lblQueryResponded.Text = dt.Rows[0]["IMAQUERYREPLIED"].ToString();
                 lblIMATOAPPLICANTTQUERY.Text = dt.Rows[0]["IMAQUERYTOAPPLCNT"].ToString();
                 lblIMAQUERYREPLIEDBYAPPLICANT.Text = dt.Rows[0]["APPLCNTREPLIEDTOIMA"].ToString();
@@ -94,6 +94,10 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblComquryrepliedbyapplcnt.Text = dt.Rows[0]["APPLCNTREPLIEDTOCOMMQRY"].ToString();
                 lblComquryfwdtoDept.Text = dt.Rows[0]["IMAFWDCOMMQRYTODEPT"].ToString();
                 lblDeptrepliedtoCommittee.Text = dt.Rows[0]["DEPTREPLIEDTOCOMMQRY"].ToString();
+
+                lblCOMMtobeProc.Text = dt.Rows[0]["COMM_TOBEPROCESSED"].ToString();
+                lblCOMMApproved.Text = dt.Rows[0]["COMM_APPROVED"].ToString();
+                lblCOMMRejected.Text = dt.Rows[0]["COMM_REJECTED"].ToString();
             }
             catch (Exception ex)
             {
@@ -325,6 +329,57 @@ namespace MeghalayaUIP.Dept.PreReg
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void linkCOMMtobeProc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                if (lblCOMMtobeProc.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=COMM_TOBEPROCESSED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
+
+        protected void linkCOMMApproved_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblCOMMApproved.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=COMM_APPROVED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+
+        }
+
+        protected void linkCOMMRejected_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblCOMMRejected.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=COMM_REJECTED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+
         }
     }
 

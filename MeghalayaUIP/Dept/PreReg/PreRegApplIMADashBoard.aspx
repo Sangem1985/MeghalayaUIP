@@ -161,7 +161,6 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERY" style="color: white"></a>--%>
                                                     Queries Raised<br />
                                                     to Department
                                                 </div>
@@ -259,18 +258,17 @@
                             <div class="row clearfix">
 
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="LinkButton2" OnClick="linktobeProc_Click" ForeColor="White">
+                                    <asp:LinkButton runat="server" ID="linkCOMMtobeProc" OnClick="linkCOMMtobeProc_Click" ForeColor="White">
                                         <div class="info-box bg-yellow hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
-                                                    <asp:Label ID="Label3" runat="server"></asp:Label>
+                                                    <asp:Label ID="lblCOMMtobeProc" runat="server"></asp:Label>
                                                 </h4>
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMATOBEPROCESSED" style="color: white"></a>--%>
-                                     Applications to<br />
-                                                    be Processed
+                                                    Applications to<br />
+                                                    be Processed by Committee
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -279,17 +277,16 @@
                                     </asp:LinkButton>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="LinkButton3" OnClick="linkApproved_Click" ForeColor="White">
+                                    <asp:LinkButton runat="server" ID="linkCOMMApproved" OnClick="linkCOMMApproved_Click" ForeColor="White">
                                         <div class="info-box bg-green hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
-                                                    <asp:Label ID="Label4" runat="server"></asp:Label>
+                                                    <asp:Label ID="lblCOMMApproved" runat="server"></asp:Label>
                                                 </h4>
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMAPPROVED" style="color: white"></a>--%>
-                                 Approved 
+                                                    Committee Approved 
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-memo-circle-check"></i>
@@ -298,17 +295,16 @@
                                     </asp:LinkButton>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="LinkButton1" ForeColor="White" Enabled="false">
-                                        <div class="info-box bg-yellow hover-expand-effect">
+                                    <asp:LinkButton runat="server" ID="linkCOMMRejected" OnClick="linkCOMMRejected_Click" ForeColor="White">
+                                        <div class="info-box bg-red hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
-                                                    <asp:Label ID="Label2" runat="server"></asp:Label>
+                                                    <asp:Label ID="lblCOMMRejected" runat="server"></asp:Label>
                                                 </h4>
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMATOBEPROCESSED" style="color: white"></a>--%>
-                        Rejected<br />
+                                                    Committee Rejected<br />
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -317,7 +313,7 @@
                                     </asp:LinkButton>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkCommQrytoIMA" OnClick="linkCommQrytoIMA_Click" ForeColor="White" Width="220px">
+                                    <asp:LinkButton runat="server" ID="linkCommQrytoIMA" OnClick="linkCommQrytoIMA_Click" ForeColor="White">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -326,8 +322,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=CommitteeQuery" style="color: white"></a>--%>
-                    Committee Query<br />
+                                                    Committee Query<br />
                                                     Raised 
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
@@ -342,9 +337,8 @@
                     <section id="dashboardcount">
                         <div class="container-fluid">
                             <div class="row clearfix">
-
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkIMAReplyToComm" OnClick="linkIMAReplyToComm_Click" ForeColor="White" Width="220px">
+                                    <asp:LinkButton runat="server" ID="linkIMAReplyToComm" OnClick="linkIMAReplyToComm_Click" ForeColor="White">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -353,9 +347,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMArepliedtoCommittee" style="color: white"></a>--%>
-                                                    Committee Query
-                                                    <br />
+                                                    Committee Query                                                    
                                                     Redressed by IMA  
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
@@ -365,7 +357,7 @@
                                     </asp:LinkButton>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkComQryToAppl" OnClick="linkComQryToAppl_Click" ForeColor="White" Width="220px">
+                                    <asp:LinkButton runat="server" ID="linkComQryToAppl" OnClick="linkComQryToAppl_Click" ForeColor="White">
                                         <div class="info-box bg-orange hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -387,7 +379,7 @@
                                 </div>
 
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkApplcReplyToComm" OnClick="linkApplcReplyToComm_Click" ForeColor="White" Width="220px">
+                                    <asp:LinkButton runat="server" ID="linkApplcReplyToComm" OnClick="linkApplcReplyToComm_Click" ForeColor="White">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -410,7 +402,7 @@
                                 <%--</div>
                             <div class="row clearfix">--%>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkComQryToDept" OnClick="linkComQryToDept_Click" ForeColor="White" Width="220px">
+                                    <asp:LinkButton runat="server" ID="linkComQryToDept" OnClick="linkComQryToDept_Click" ForeColor="White">
                                         <div class="info-box bg-orange hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -431,7 +423,7 @@
                                 </div>
 
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkDeptReplyToComm" OnClick="linkDeptReplyToComm_Click" ForeColor="White" Width="220px">
+                                    <asp:LinkButton runat="server" ID="linkDeptReplyToComm" OnClick="linkDeptReplyToComm_Click" ForeColor="White">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
