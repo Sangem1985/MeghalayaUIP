@@ -1114,7 +1114,9 @@ namespace MeghalayaUIP.User.Renewal
                         else { NumberEmp.Visible = false; }
                        
                         ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["RENSE_DISTRIC"].ToString();
-                        ddldist_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
+
+                        //ddldist_SelectedIndexChanged(null, EventArgs.Empty); 
                         ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["RENSE_MANDAL"].ToString();
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["RENSE_VILLAGE"].ToString();

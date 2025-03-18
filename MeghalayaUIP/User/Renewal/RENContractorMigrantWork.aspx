@@ -194,7 +194,7 @@
 
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" id="CONTRACTOR" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Upload Contractor's Photo(Min 20Kb and Max 250Kb) *</label>

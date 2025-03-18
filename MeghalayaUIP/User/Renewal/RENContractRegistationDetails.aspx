@@ -76,7 +76,7 @@
                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Service Specific Details</span></label>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Type of Application  *</label>
                                                     <div class="col-lg-6">
@@ -87,7 +87,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Purpose of Application:  *</label>
                                                     <div class="col-lg-6">
@@ -100,7 +100,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-8">
+                                            <div class="col-md-7">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Choose the Class of Contractor registering for  *</label>
                                                     <div class="col-lg-6">
@@ -253,7 +253,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex ml-3">
+                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Mobile Number   :*</label>

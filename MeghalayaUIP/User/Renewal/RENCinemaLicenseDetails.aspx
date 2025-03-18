@@ -199,9 +199,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-7">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Ownership of Premises *</label>
+                                                    <label class="col-lg-4 col-form-label">Ownership of Premises *</label>
                                                     <div class="col-lg-6">
                                                         <asp:RadioButtonList ID="rblOwned" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal">
                                                             <asp:ListItem Text="Owned" Value="1" />
@@ -213,7 +213,7 @@
                                                 </div>
                                             </div>                                            
                                         </div>
-                                         <div class="col-md-12 d-flex">
+                                         <div class="col-md-12 d-flex" id="Photography" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Photograph of the Proprietor/ Managing Partner/ Kartha/ Managing Director *</label>
