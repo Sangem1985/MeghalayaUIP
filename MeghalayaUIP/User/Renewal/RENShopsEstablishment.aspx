@@ -7,15 +7,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <script type="text/javascript">
-    //let originalValue = "";
-    function handleKeyUp(input)
-    {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        }
-        else {
-            input.style.border = "1px solid #767575b5";
-        }
+        //let originalValue = "";
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            }
+            else {
+                input.style.border = "1px solid #767575b5";
+            }
         }
         function validateDropdown(dropdown) {
 
@@ -187,7 +186,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Mobile Number *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMobileNo" runat="server" class="form-control" TextMode="MultiLine" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMobileNo" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -197,7 +196,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">E-Mail Id *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control" TextMode="MultiLine" onblur="validateEmail(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEmailId" runat="server" class="form-control" onblur="validateEmail(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -228,7 +227,7 @@
                                                 <h4 class="card-title ml-3 mt-3">Proprietor Details</h4>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Proprietor  *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -237,7 +236,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Communication Address *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -246,7 +245,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Community *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -262,7 +261,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4" id="other" runat="server" visible="false">
+                                                <div class="col-md-5" id="other" runat="server" visible="false">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Community(Others) *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -270,15 +269,18 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-5 offset-md-6 text-center">
                                                     <div class="form-group row">
-
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:Button ID="btnAddDetails" Text="Add More" runat="server" OnClick="btnAddDetails_Click" CssClass="btn btn-sm btn-rounded btn-green" Width="110" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <asp:GridView ID="GVPROPERTIE" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
@@ -303,7 +305,7 @@
                                                 <h4 class="card-title ml-3 mt-3">Partnership Firm Details</h4>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Partner  *</label>
                                                         <div class="col-lg-6">
@@ -311,12 +313,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Communication Address  *</label>
                                                         <div class="col-lg-6">
-                                                            <%--  <asp:TextBox ID="txtAddressCommon" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                            <i class="fi fi-rr-calendar-lines"></i>--%>
 
                                                             <asp:TextBox runat="server" ID="txtAddressCommon" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" onkeyup="handleKeyUp(this)" TabIndex="1" AutoPostBack="true" />
                                                             <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtAddressCommon"></cc1:CalendarExtender>
@@ -324,7 +324,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
 
                                                         <div class="col-lg-6 d-flex">
@@ -333,6 +333,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <asp:GridView ID="GVPATNER" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
@@ -355,7 +357,7 @@
                                                 <h4 class="card-title ml-3 mt-3">Limited Company Details</h4>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Name of Director  *</label>
                                                         <div class="col-lg-6">
@@ -363,12 +365,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Communication Address   *</label>
                                                         <div class="col-lg-6">
-                                                            <%-- <asp:TextBox ID="txtAddressCommunicate" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                            <i class="fi fi-rr-calendar-lines"></i>--%>
 
                                                             <asp:TextBox runat="server" ID="txtAddressCommunicate" class="form-control" onkeyup="handleKeyUp(this)" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
                                                             <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="txtAddressCommunicate"></cc1:CalendarExtender>
@@ -376,7 +376,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
 
                                                         <div class="col-lg-6 d-flex">
@@ -567,7 +567,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Nearest Landmark *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandmark" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TextMode="MultiLine" onkeypress="return Address(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLandmark" runat="server" class="form-control" onkeyup="handleKeyUp(this)" onkeypress="return Address(event)"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -739,106 +739,109 @@
                                             </div>
 
                                         </div>
-                                    </div>
-                                    <div class="col-md-12 d-flex justify-content-center">
-                                        <asp:GridView ID="GVTEST" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                            GridLines="None"
-                                            Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVTEST_RowDeleting">
-                                            <RowStyle BackColor="#ffffff" />
-                                            <Columns>
-                                                <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                <asp:BoundField HeaderText="Name" DataField="RENED_NAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                <asp:BoundField HeaderText="Gender" DataField="RENED_GENDER" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                <asp:BoundField HeaderText="Age" DataField="RENED_AGE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                <asp:BoundField HeaderText="Relationship" DataField="RENED_RELATIONSHIP" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
-                                            </Columns>
-                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                            <AlternatingRowStyle BackColor="White" />
-                                        </asp:GridView>
-                                    </div>
-                                </div>
+                                        <div class="col-md-12 d-flex justify-content-center">
+                                            <asp:GridView ID="GVTEST" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                GridLines="None"
+                                                Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVTEST_RowDeleting">
+                                                <RowStyle BackColor="#ffffff" />
+                                                <Columns>
+                                                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Name" DataField="RENED_NAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Gender" DataField="RENED_GENDER" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Age" DataField="RENED_AGE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Relationship" DataField="RENED_RELATIONSHIP" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
-                                <div class="col-md-12 d-flex">
-                                    <h4 class="card-title ml-3 mt-3">Renewal Details</h4>
-                                </div>
-                                <div class="col-md-12 d-flex">
-
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Registration will be renewed from date :</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Label ID="lblRegDate" runat="server" class="form-control"></asp:Label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Registration will be valid upto date:</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Label ID="lblRegUptoDate" runat="server" class="form-control"></asp:Label>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">No of years renewed :</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Label ID="lblYearRenewed" runat="server" class="form-control"></asp:Label>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Fees :</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Label ID="lblFees" runat="server" class="form-control"></asp:Label>
-
-                                            </div>
+                                                </Columns>
+                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                <AlternatingRowStyle BackColor="White" />
+                                            </asp:GridView>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Fees for change notice :</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Label ID="lblFeesChange" runat="server" class="form-control"></asp:Label>
 
+                                <div id="Renewaldet" runat="server" visible="false">
+                                    <div class="col-md-12 d-flex">
+                                        <h4 class="card-title ml-3 mt-3">Renewal Details</h4>
+                                    </div>
+                                    <div class="col-md-12 d-flex">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Registration will be renewed from date :</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:Label ID="lblRegDate" runat="server" class="form-control"></asp:Label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Registration will be valid upto date:</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:Label ID="lblRegUptoDate" runat="server" class="form-control"></asp:Label>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 d-flex">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">No of years renewed :</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:Label ID="lblYearRenewed" runat="server" class="form-control"></asp:Label>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Fees :</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:Label ID="lblFees" runat="server" class="form-control"></asp:Label>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Fine :</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Label ID="lblFine" runat="server" class="form-control"></asp:Label>
+                                    <div class="col-md-12 d-flex">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Fees for change notice :</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:Label ID="lblFeesChange" runat="server" class="form-control"></asp:Label>
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Fine :</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:Label ID="lblFine" runat="server" class="form-control"></asp:Label>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Penalty :</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Label ID="lblPenalty" runat="server" class="form-control"></asp:Label>
+                                    <div class="col-md-12 d-flex">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Penalty :</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:Label ID="lblPenalty" runat="server" class="form-control"></asp:Label>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-6 col-form-label">Total amount to be paid :</label>
-                                            <div class="col-lg-6 d-flex">
-                                                <asp:Label ID="lblTotalPaid" runat="server" class="form-control"></asp:Label>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-6 col-form-label">Total amount to be paid :</label>
+                                                <div class="col-lg-6 d-flex">
+                                                    <asp:Label ID="lblTotalPaid" runat="server" class="form-control"></asp:Label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

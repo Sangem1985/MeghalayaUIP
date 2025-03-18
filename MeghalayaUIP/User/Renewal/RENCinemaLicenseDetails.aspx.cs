@@ -19,7 +19,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "", result;
+        string Questionnaire, ErrorMsg = "", result;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -37,8 +37,16 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["RENUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    //if (Convert.ToString(Session["RENUNITID"]) != "")
+                    //{ UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    if (Convert.ToString(Session["RENQID"]) != "")
+                    {
+                        Questionnaire = Convert.ToString(Session["RENQID"]);
+                        if (!IsPostBack)
+                        {
+                            GetAppliedorNot();
+                        }
+                    }
                     else
                     {
                         string newurl = "~/User/Renewal/RENUserDashboard.aspx";
@@ -50,10 +58,10 @@ namespace MeghalayaUIP.User.Renewal
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
                     success.Visible = false;
-                    if (!IsPostBack)
-                    {
-                        GetAppliedorNot();
-                    }
+                    //if (!IsPostBack)
+                    //{
+                    //    GetAppliedorNot();
+                    //}
                 }
             }
             catch(Exception ex)
@@ -271,7 +279,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     ObjRenCinemaLicDet.Questionnariid = Convert.ToString(Session["RENQID"]); 
                     ObjRenCinemaLicDet.CreatedBy = hdnUserID.Value;
-                    ObjRenCinemaLicDet.UnitId = Convert.ToString(Session["RENUNITID"]);
+                  //  ObjRenCinemaLicDet.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenCinemaLicDet.IPAddress = getclientIP();
 
                     ObjRenCinemaLicDet.OLDREGNO = txtOldRegNumber.Text;
@@ -521,10 +529,10 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet ds = new DataSet();
-                ds = objRenbal.GetRenCinemaLicDetails(hdnUserID.Value, UnitID);
+                ds = objRenbal.GetRenCinemaLicDetails(hdnUserID.Value, Questionnaire);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENCD_UNITID"]);
+                   // ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENCD_UNITID"]);
                     txtOldRegNumber.Text = ds.Tables[0].Rows[0]["RENCD_OLDREGNO"].ToString();
                     txtRegDate.Text = ds.Tables[0].Rows[0]["RENCD_REGDATE"].ToString();
                     txtEstName.Text = ds.Tables[0].Rows[0]["RENCD_NAMEESTCINEMA"].ToString();
@@ -593,7 +601,7 @@ namespace MeghalayaUIP.User.Renewal
 
 
                         RenAttachments objRenAttachments = new RenAttachments();
-                        objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
+                      //  objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
                         objRenAttachments.Questionnareid = Convert.ToString(Session["RENQID"]);
                         objRenAttachments.MasterID = "131";
                         objRenAttachments.FilePath = serverpath + fupDirector.PostedFile.FileName;

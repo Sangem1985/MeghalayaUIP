@@ -199,7 +199,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" id="Contractor" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Upload Contractor's Photo(Min 20Kb and Max 250Kb) *</label>
@@ -406,7 +406,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-md-12 d-flex justify-content-end mt-2 mb-2 pr-4">
+                                        <div class="col-md-12 d-flex justify-content-center mt-2 mb-2 pr-4">
                                             <asp:Button CssClass="btn btn-sm btn-green btn-rounded" Width="110px" Text="Add More" runat="server" onkeyup="handleKeyUp(this)" ID="btnaddmore" OnClick="btnaddmore_Click" />
                                         </div>
 

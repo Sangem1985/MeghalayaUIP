@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "";
+        string Questionnaire, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -32,8 +32,16 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["RENUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    //if (Convert.ToString(Session["RENUNITID"]) != "")
+                    //{ UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    if (Convert.ToString(Session["RENQID"]) != "")
+                    {
+                        Questionnaire = Convert.ToString(Session["RENQID"]);
+                        if (!IsPostBack)
+                        {
+                            GetAppliedorNot();
+                        }
+                    }
                     else
                     {
                         string newurl = "~/User/Renewal/RENUserDashboard.aspx";
@@ -45,10 +53,10 @@ namespace MeghalayaUIP.User.Renewal
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
                     success.Visible = false;
-                    if (!IsPostBack)
-                    {
-                        GetAppliedorNot();
-                    }
+                    //if (!IsPostBack)
+                    //{
+                    //    GetAppliedorNot();
+                    //}
                 }
             }
             catch(Exception ex)
@@ -104,7 +112,7 @@ namespace MeghalayaUIP.User.Renewal
                     RenLegalMetrology objRenLegal = new RenLegalMetrology();
                     objRenLegal.Questionnariid = Convert.ToString(Session["RENQID"]);
                     objRenLegal.CreatedBy = hdnUserID.Value;
-                    objRenLegal.UnitId = Convert.ToString(Session["RENUNITID"]);
+                 //   objRenLegal.UnitId = Convert.ToString(Session["RENUNITID"]);
                     objRenLegal.IPAddress = getclientIP();
 
                     objRenLegal.LICNO = txtLicNo.Text;
@@ -249,10 +257,10 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet ds = new DataSet();
-                ds = objRenbal.GetRenLegalmetrologyDetails(hdnUserID.Value, UnitID);
+                ds = objRenbal.GetRenLegalmetrologyDetails(hdnUserID.Value, Questionnaire);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENLM_UNITID"]);
+                  //  ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENLM_UNITID"]);
                     txtLicNo.Text = ds.Tables[0].Rows[0]["RENLM_LICNO"].ToString();
                     txtBoilerDet.Text = ds.Tables[0].Rows[0]["RENLM_AUTORENEWAL"].ToString();
                     txtLicDateTo.Text = ds.Tables[0].Rows[0]["RENLM_RENEWEDDATE"].ToString();

@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID; Decimal TotFee;
+        string Questionnaire; Decimal TotFee;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -33,9 +33,13 @@ namespace MeghalayaUIP.User.Renewal
                         hdnUserID.Value = ObjUserInfo.Userid;
 
                     }
-                    if (Convert.ToString(Session["RENUNITID"]) != "")
+                    //if (Convert.ToString(Session["RENUNITID"]) != "")
+                    //{
+                    //    UnitID = Convert.ToString(Session["RENUNITID"]);
+                    //}
+                    if (Convert.ToString(Session["RENQID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["RENUNITID"]);
+                        Questionnaire = Convert.ToString(Session["RENQID"]);                     
                     }
                     else
                     {
@@ -64,7 +68,7 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet ds = new DataSet();
-                ds = objRenbal.GetPaymentAmounttoPay(hdnUserID.Value, UnitID);
+                ds = objRenbal.GetPaymentAmounttoPay(hdnUserID.Value, Questionnaire);
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
@@ -133,7 +137,7 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         Label ApprovalID = (Label)row.FindControl("lblApprID");
                         Label DeptID = (Label)row.FindControl("lblDeptID");
-                        objpay.UNITID = Convert.ToString(Session["RENUNITID"]);
+                       // objpay.UNITID = Convert.ToString(Session["RENUNITID"]);
                         objpay.Questionnareid = Convert.ToString(Session["RENQID"]);
                         objpay.RENUID = hdnUIDNo.Value;
                         objpay.DeptID = DeptID.Text;

@@ -821,7 +821,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 offset-md-5 text-center">
                                                 <div class="form-group row">
                                                     <div class="col-lg-12 d-flex">
                                                         <asp:Button ID="btnMigrant" runat="server" Text="Add More" OnClick="btnMigrant_Click" CssClass="btn btn-green btn-rounded" Width="110px" />

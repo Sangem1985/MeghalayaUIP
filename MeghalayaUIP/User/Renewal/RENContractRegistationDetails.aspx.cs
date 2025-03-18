@@ -16,7 +16,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "";
+        string Questionnaire, ErrorMsg = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -34,8 +34,16 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["RENUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    //if (Convert.ToString(Session["RENUNITID"]) != "")
+                    //{ UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    if (Convert.ToString(Session["RENQID"]) != "")
+                    {
+                        Questionnaire = Convert.ToString(Session["RENQID"]);
+                        if (!IsPostBack)
+                        {
+                            GetAppliedorNot();
+                        }
+                    }
                     else
                     {
                         string newurl = "~/User/Renewal/RENUserDashboard.aspx";
@@ -48,10 +56,10 @@ namespace MeghalayaUIP.User.Renewal
                     Failure.Visible = false;
                     success.Visible = false;
 
-                    if (!IsPostBack)
-                    {
-                        GetAppliedorNot();
-                    }
+                    //if (!IsPostBack)
+                    //{
+                    //    GetAppliedorNot();
+                    //}
                 }
             }
             catch(Exception ex)
@@ -174,7 +182,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     ObjRenPublicWork.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenPublicWork.CreatedBy = hdnUserID.Value;
-                    ObjRenPublicWork.UnitId = Convert.ToString(Session["RENUNITID"]);
+                   // ObjRenPublicWork.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenPublicWork.IPAddress = getclientIP();
 
                     ObjRenPublicWork.ApplicantType = rblApplication.SelectedValue;
@@ -433,10 +441,10 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet ds = new DataSet();
-                ds = objRenbal.GetRenPublicWork(hdnUserID.Value, UnitID);
+                ds = objRenbal.GetRenPublicWork(hdnUserID.Value, Questionnaire);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENWC_UNITID"]);
+                   // ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENWC_UNITID"]);
                     rblApplication.SelectedValue = ds.Tables[0].Rows[0]["RENWC_APPLTYPE"].ToString();
                     rblPurApplication.SelectedValue = ds.Tables[0].Rows[0]["RENWC_APPLPURPOSE"].ToString();
                     rblRegister.SelectedValue = ds.Tables[0].Rows[0]["RENWC_CONTRREGCLASS"].ToString();

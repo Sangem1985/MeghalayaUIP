@@ -19,7 +19,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "", result;
+        string Questionnaire, ErrorMsg = "", result;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -37,8 +37,16 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    if (Convert.ToString(Session["RENUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    //if (Convert.ToString(Session["RENUNITID"]) != "")
+                    //{ UnitID = Convert.ToString(Session["RENUNITID"]); }
+                    if (Convert.ToString(Session["RENQID"]) != "")
+                    {
+                        Questionnaire = Convert.ToString(Session["RENQID"]);
+                        if (!IsPostBack)
+                        {
+                            GetAppliedorNot();
+                        }
+                    }
                     else
                     {
                         string newurl = "~/User/Renewal/RENUserDashboard.aspx";
@@ -50,10 +58,10 @@ namespace MeghalayaUIP.User.Renewal
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
                     success.Visible = false;
-                    if (!IsPostBack)
-                    {
-                        GetAppliedorNot();
-                    }
+                    //if (!IsPostBack)
+                    //{
+                    //    GetAppliedorNot();
+                    //}
                 }
             }
             catch(Exception ex)
@@ -85,7 +93,7 @@ namespace MeghalayaUIP.User.Renewal
                         if (Convert.ToString(Request.QueryString[0]) == "N")
                             Response.Redirect("~/User/Renewal/RENCinemaLicenseDetails.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/Renewal/RENBusinessLicenseDetails.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/Renewal/RENLegalmetrologyDetails.aspx?Previous=" + "P");
                     }
                 }
             }
@@ -110,7 +118,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     ObjRenBusinessLic.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenBusinessLic.CreatedBy = hdnUserID.Value;
-                    ObjRenBusinessLic.UnitId = Convert.ToString(Session["RENUNITID"]);
+                  //  ObjRenBusinessLic.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenBusinessLic.IPAddress = getclientIP();
 
                     ObjRenBusinessLic.LICNO = txtLicNo.Text;
@@ -332,10 +340,10 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet ds = new DataSet();
-                ds = objRenbal.GetRenBusinessLicDet(hdnUserID.Value, UnitID);
+                ds = objRenbal.GetRenBusinessLicDet(hdnUserID.Value, Questionnaire);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENBD_UNITID"]);
+                   // ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENBD_UNITID"]);
                     txtLicNo.Text = ds.Tables[0].Rows[0]["RENBD_LICNUMBER"].ToString();
                     txtLicIssue.Text = ds.Tables[0].Rows[0]["RENBD_LICISSUEDT"].ToString();
                     txtLicValid.Text = ds.Tables[0].Rows[0]["RENBD_LICVALID"].ToString();
@@ -397,7 +405,7 @@ namespace MeghalayaUIP.User.Renewal
 
 
                         RenAttachments objRenAttachments = new RenAttachments();
-                        objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
+                       // objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
                         objRenAttachments.Questionnareid = Convert.ToString(Session["RENQID"]);
                         objRenAttachments.MasterID = "130";
                         objRenAttachments.FilePath = serverpath + fupPhoto.PostedFile.FileName;

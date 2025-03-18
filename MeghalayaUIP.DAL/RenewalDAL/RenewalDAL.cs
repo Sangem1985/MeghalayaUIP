@@ -37,7 +37,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENWC_CREATEDBY", Convert.ToInt32(ObjRenPublicWork.CreatedBy));
                 com.Parameters.AddWithValue("@RENWC_CREATEDBYIP", ObjRenPublicWork.IPAddress);
                 com.Parameters.AddWithValue("@RENWC_CFOQDID", Convert.ToInt32(ObjRenPublicWork.Questionnariid));
-                com.Parameters.AddWithValue("@RENWC_UNITID", Convert.ToInt32(ObjRenPublicWork.UnitId));
+               // com.Parameters.AddWithValue("@RENWC_UNITID", Convert.ToInt32(ObjRenPublicWork.UnitId));
                 com.Parameters.AddWithValue("@RENWC_APPLTYPE", ObjRenPublicWork.ApplicantType);
                 com.Parameters.AddWithValue("@RENWC_APPLPURPOSE", ObjRenPublicWork.PurposeApplicant);
                 com.Parameters.AddWithValue("@RENWC_CONTRREGCLASS", ObjRenPublicWork.ContractorReg);
@@ -87,7 +87,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetRenPublicWork(string userid, string UnitID)
+        public DataSet GetRenPublicWork(string userid, string RENQID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -105,7 +105,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQID", Convert.ToInt32(RENQID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
@@ -451,7 +451,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENBD_CREATEDBY", Convert.ToInt32(ObjRenBusinessLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENBD_CREATEDBYIP", ObjRenBusinessLic.IPAddress);
                 com.Parameters.AddWithValue("@RENBD_RENQDID", Convert.ToInt32(ObjRenBusinessLic.Questionnariid));
-                com.Parameters.AddWithValue("@RENBD_UNITID", Convert.ToInt32(ObjRenBusinessLic.UnitId));
+              //  com.Parameters.AddWithValue("@RENBD_UNITID", Convert.ToInt32(ObjRenBusinessLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENBD_LICNUMBER", ObjRenBusinessLic.LICNO);
                 //com.Parameters.AddWithValue("@RENBD_LICISSUEDT", ObjRenBusinessLic.LICISSUEDT);
@@ -487,7 +487,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetRenBusinessLicDet(string userid, string UnitID)
+        public DataSet GetRenBusinessLicDet(string userid, string RENQID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -505,7 +505,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQID", Convert.ToInt32(RENQID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
@@ -544,7 +544,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCD_CREATEDBY", Convert.ToInt32(ObjRenCinemaLicDet.CreatedBy));
                 com.Parameters.AddWithValue("@RENCD_CREATEDBYIP", ObjRenCinemaLicDet.IPAddress);
                 com.Parameters.AddWithValue("@RENCD_RENQDID", Convert.ToInt32(ObjRenCinemaLicDet.Questionnariid));
-                com.Parameters.AddWithValue("@RENCD_UNITID", Convert.ToInt32(ObjRenCinemaLicDet.UnitId));
+               // com.Parameters.AddWithValue("@RENCD_UNITID", Convert.ToInt32(ObjRenCinemaLicDet.UnitId));
 
                 com.Parameters.AddWithValue("@RENCD_OLDREGNO", ObjRenCinemaLicDet.OLDREGNO);
                 //com.Parameters.AddWithValue("@RENCD_REGDATE", ObjRenCinemaLicDet.REGDATE);
@@ -585,7 +585,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetRenCinemaLicDetails(string userid, string UnitID)
+        public DataSet GetRenCinemaLicDetails(string userid, string RENQID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -603,7 +603,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQID", Convert.ToInt32(RENQID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
@@ -642,7 +642,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCLD_CREATEDBY", Convert.ToInt32(ObjRenContractLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENCLD_CREATEDBYIP", ObjRenContractLic.IPAddress);
                 com.Parameters.AddWithValue("@RENCLD_RENQDID", Convert.ToInt32(ObjRenContractLic.Questionnariid));
-                com.Parameters.AddWithValue("@RENCLD_UNITID", Convert.ToInt32(ObjRenContractLic.UnitId));
+               // com.Parameters.AddWithValue("@RENCLD_UNITID", Convert.ToInt32(ObjRenContractLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENCLD_LICRENEWAL", ObjRenContractLic.LICRENEWAL);
                 //com.Parameters.AddWithValue("@RENCLD_LICISSUEDATE", ObjRenContractLic.LICISSUEDATE);
@@ -727,7 +727,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENMD_CREATEDBY", Convert.ToInt32(ObjRenContractLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENMD_CREATEDBYIP", ObjRenContractLic.IPAddress);
                 com.Parameters.AddWithValue("@RENMD_RENQDID", Convert.ToInt32(ObjRenContractLic.Questionnariid));
-                com.Parameters.AddWithValue("@RENMD_UNITID", Convert.ToInt32(ObjRenContractLic.UnitId));
+               // com.Parameters.AddWithValue("@RENMD_UNITID", Convert.ToInt32(ObjRenContractLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENMD_TITLE", ObjRenContractLic.FULLTITLE);
                 com.Parameters.AddWithValue("@RENMD_FULLNAME", ObjRenContractLic.FULLNAME);
@@ -754,7 +754,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetRenContractDetails(string userid, string UnitID)
+        public DataSet GetRenContractDetails(string userid, string RENQID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -772,7 +772,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQID", Convert.ToInt32(RENQID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
@@ -1914,7 +1914,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENFL_CREATEDBY", Convert.ToInt32(ObjRenFactoryLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENFL_CREATEDBYIP", ObjRenFactoryLic.IPAddress);
                 com.Parameters.AddWithValue("@RENFL_RENQDID", Convert.ToInt32(ObjRenFactoryLic.Questionnariid));
-                com.Parameters.AddWithValue("@RENFL_UNITID", Convert.ToInt32(ObjRenFactoryLic.UnitId));
+              //  com.Parameters.AddWithValue("@RENFL_UNITID", Convert.ToInt32(ObjRenFactoryLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENFL_FULLNAME", ObjRenFactoryLic.FULLNAME);
                 com.Parameters.AddWithValue("@RENFL_LICNO", ObjRenFactoryLic.LICNO);
@@ -1984,7 +1984,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetRenFactoriesLic(string userid, string UnitID)
+        public DataSet GetRenFactoriesLic(string userid, string RENQDID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2002,7 +2002,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQDID", Convert.ToInt32(RENQDID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
@@ -2407,7 +2407,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENLM_CREATEDBY", Convert.ToInt32(objRenLegal.CreatedBy));
                 com.Parameters.AddWithValue("@RENLM_CREATEDBYIP", objRenLegal.IPAddress);
                 com.Parameters.AddWithValue("@RENLM_RENQDID", Convert.ToInt32(objRenLegal.Questionnariid));
-                com.Parameters.AddWithValue("@RENLM_UNITID", Convert.ToInt32(objRenLegal.UnitId));
+               // com.Parameters.AddWithValue("@RENLM_UNITID", Convert.ToInt32(objRenLegal.UnitId));
 
                 com.Parameters.AddWithValue("@RENLM_LICNO", objRenLegal.LICNO);
                 com.Parameters.AddWithValue("@RENLM_AUTORENEWAL", Convert.ToInt32(objRenLegal.AUTORENEWAL));
@@ -2437,7 +2437,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetRenLegalmetrologyDetails(string userid, string UnitID)
+        public DataSet GetRenLegalmetrologyDetails(string userid, string RENQDID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2455,7 +2455,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQDID", Convert.ToInt32(RENQDID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
@@ -2488,7 +2488,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-                com.Parameters.AddWithValue("@RENPD_UNITID", Convert.ToInt32(objpay.UNITID));
+               // com.Parameters.AddWithValue("@RENPD_UNITID", Convert.ToInt32(objpay.UNITID));
                 com.Parameters.AddWithValue("@RENPD_RENQDID", Convert.ToInt32(objpay.Questionnareid));
                 com.Parameters.AddWithValue("@RENPD_UIDNO", objpay.RENUID);
                 com.Parameters.AddWithValue("@RENPD_DEPTID", objpay.DeptID);
@@ -2522,7 +2522,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetPaymentAmounttoPay(string userid, string UNITID)
+        public DataSet GetPaymentAmounttoPay(string userid, string RENQDID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2539,7 +2539,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQDID", Convert.ToInt32(RENQDID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();

@@ -1308,7 +1308,6 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                  //  dt.Columns.Add("RENP_UNITID", typeof(string));
                     dt.Columns.Add("RENP_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENP_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENP_NAMEPROPERTIE", typeof(string));
@@ -1333,8 +1332,10 @@ namespace MeghalayaUIP.User.Renewal
                     dr["RENP_COMMUNITY"] = ddlcommunity.SelectedValue;
                     if (ddlcommunity.SelectedValue == "4")
                     {
+                        other.Visible = true;
                         dr["RENP_COMMUNITYOTHER"] = txtOther.Text;
                     }
+                    else { other.Visible = false; }
 
 
                     dt.Rows.Add(dr);

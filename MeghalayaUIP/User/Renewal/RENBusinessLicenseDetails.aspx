@@ -191,7 +191,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" id="Passport" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Passport Size Photograph of Individual/Authorized Representative *</label>

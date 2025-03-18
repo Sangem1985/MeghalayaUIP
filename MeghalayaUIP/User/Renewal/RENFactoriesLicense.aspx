@@ -538,6 +538,7 @@
                                             </div>
 
                                         </div>
+                                        <div id="Feess" runat="server" visible="false">
                                         <div class="col-md-12 d-flex">
 
                                             <h4 class="card-title ml-3 mt-3">Fees to be payed on calculation</h4>
@@ -585,7 +586,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                            </div>
 
 
                                         <div class="col-md-12 text-right mt-2 mb-2">

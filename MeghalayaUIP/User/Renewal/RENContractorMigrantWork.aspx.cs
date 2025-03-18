@@ -19,7 +19,7 @@ namespace MeghalayaUIP.User.Renewal
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID, ErrorMsg = "", result, Questionnaire;
+        string ErrorMsg = "", result, Questionnaire;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -537,7 +537,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("RENMW_UNITID", typeof(string));
+                   // dt.Columns.Add("RENMW_UNITID", typeof(string));
                     dt.Columns.Add("RENMW_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENMW_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENMW_TITLE", typeof(string));
@@ -552,7 +552,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["RENMW_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                   // dr["RENMW_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["RENMW_CREATEDBY"] = hdnUserID.Value;
                     dr["RENMW_CREATEDBYIP"] = getclientIP();
                     dr["RENMW_TITLE"] = ddlTitle.SelectedValue;
