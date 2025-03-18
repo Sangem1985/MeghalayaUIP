@@ -352,22 +352,24 @@
                                                 <label class="col-lg-8 col-form-label">1. Registration required for manufacturing of:</label>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-8">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">(i) Carry Bags:</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:CheckBoxList ID="chkCarryBags" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="(a) Petro-based" Value="1"></asp:ListItem>
-                                                                <asp:ListItem Text="(b) Compostable" Value="2"></asp:ListItem>
+                                                        <label class="col-lg-4 col-form-label">(i) Carry Bags:</label>
+                                                        <div class="col-lg-8">
+                                                            <asp:CheckBoxList ID="chkCarryBags" runat="server" RepeatDirection="Horizontal" style="padding-right: 20px">
+                                                                <asp:ListItem Text="(a)Petro-based" Value="1" ></asp:ListItem>
+                                                                <asp:ListItem Text="(b)Compostable" Value="2" ></asp:ListItem>
                                                             </asp:CheckBoxList>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-8">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">(ii) Multilayered Plastics:</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:CheckBox ID="chkMultilayeredPlastics" runat="server" />
+                                                        <label class="col-lg-4 col-form-label">(ii) Multilayered Plastics:</label>
+                                                        <div class="col-lg-8">
+                                                            <asp:CheckBox ID="chkMultilayeredPlastics" runat="server" RepeatDirection="Horizontal" style="padding-right: 20px"/>
                                                         </div>
                                                     </div>
                                                 </div>

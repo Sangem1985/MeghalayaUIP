@@ -199,8 +199,11 @@ namespace MeghalayaUIP.User.Services
                         txtAuthorisationDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_RENAUTHORIZATIONDATE"]);
                         txtPCB.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_PCB1974"]);
                         txtPCB1981.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_PCB1981"]);
-                        rblHealth.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BMW_BIOHCF_CBWTF"]);
-                        rblGPS.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BMW_GPSCOORDINATE"]);
+                        rblAppliedFor.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BMW_APPLIEDFOR"]);
+                        txtAddress.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_BIOHCF_CBWTF"]);
+                        txtGPS.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_GPSCOORDINATE"]);
+                        //rblHealth.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BMW_BIOHCF_CBWTF"]);
+                        //rblGPS.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["BMW_GPSCOORDINATE"]);
                         txtNoHCF.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_NOBEDHCF"]);
                         txtHCFNO.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_NOPATIENTSMONTHHCF"]);
                         txtHealthCBMWFT.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_NOHELTHCBMWTF"]);
@@ -210,6 +213,8 @@ namespace MeghalayaUIP.User.Services
                         txtwastetreat.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_BIOMEDICALDISPOSED"]);
                         txtBiowaste.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_MODETRANSPORTATION"]);
                         txtBedFee.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_BEDFEE"]);
+                        ddlAuthBeds.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_BEDTYPE"]);
+                        ddlAuthYears.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["BMW_YEARS"]);
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
@@ -247,6 +252,26 @@ namespace MeghalayaUIP.User.Services
                                 txtlegalDet.Text = Convert.ToString(ds.Tables[3].Rows[i]["SRVCA_FILLREFNO"]);
                             }
                         }
+                    }
+                    if (rblAppliedFor.SelectedValue == "Renewal")
+                    {
+                        divRenewal.Visible = true;
+                        divRenewalDate.Visible = true;
+                    }
+                    else if (rblAppliedFor.SelectedValue == "Fresh")
+                    {
+                        divRenewal.Visible = false;
+                        divRenewalDate.Visible = false;
+                    }
+                    if (rblauthorisation.SelectedValue == "Yes")
+                    {
+                        divPCB.Visible = true;
+                        divPCB1981.Visible = true;
+                    }
+                    else if (rblauthorisation.SelectedValue == "No")
+                    {
+                        divPCB.Visible = false;
+                        divPCB1981.Visible = false;
                     }
                 }
             }
@@ -890,6 +915,34 @@ namespace MeghalayaUIP.User.Services
             }
         }
 
+        protected void rblAppliedFor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(rblAppliedFor.SelectedValue == "Renewal")
+            {
+                divRenewal.Visible = true;
+                divRenewalDate.Visible = true;
+            }
+            else if(rblAppliedFor.SelectedValue == "Fresh")
+            {
+                divRenewal.Visible = false;
+                divRenewalDate.Visible = false;
+            }
+        }
+
+        protected void rblauthorisation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblauthorisation.SelectedValue == "Yes")
+            {
+                divPCB.Visible = true;
+                divPCB1981.Visible = true;
+            }
+            else if (rblauthorisation.SelectedValue == "No")
+            {
+                divPCB.Visible = false;
+                divPCB1981.Visible = false;
+            }
+        }
+
         protected void btnNext_Click(object sender, EventArgs e)
         {
             try
@@ -967,8 +1020,11 @@ namespace MeghalayaUIP.User.Services
                     ObjBMWDetails.authorisation_Date = txtAuthorisationDate.Text;
                     ObjBMWDetails.Pollution1974 = txtPCB.Text;
                     ObjBMWDetails.ControlPollution1981 = txtPCB1981.Text;
-                    ObjBMWDetails.AddressHealthHCFCBWFT = rblHealth.SelectedValue;
-                    ObjBMWDetails.GPSCOORDINATES = rblGPS.SelectedValue;
+                    ObjBMWDetails.AppliedFor = rblAppliedFor.SelectedValue;
+                    ObjBMWDetails.AddressHealthHCFCBWFT = txtAddress.Text;
+                    ObjBMWDetails.GPSCOORDINATES = txtGPS.Text;
+                    //ObjBMWDetails.AddressHealthHCFCBWFT = rblHealth.SelectedValue;
+                    //ObjBMWDetails.GPSCOORDINATES = rblGPS.SelectedValue;
                     ObjBMWDetails.NumberBED = txtNoHCF.Text;
                     ObjBMWDetails.patientsHCF = txtHCFNO.Text;
                     ObjBMWDetails.healthcareCBMWTF = txtHealthCBMWFT.Text;
@@ -977,6 +1033,8 @@ namespace MeghalayaUIP.User.Services
                     ObjBMWDetails.DISTANCECBMWTF = txtdistance.Text;
                     ObjBMWDetails.BMWTREATED = txtwastetreat.Text;
                     ObjBMWDetails.MODETRANSACTION = txtBiowaste.Text;
+                    ObjBMWDetails.BedType = ddlAuthBeds.SelectedItem.Text;
+                    ObjBMWDetails.AuthYears = ddlAuthYears.SelectedItem.Text;
                     ObjBMWDetails.BedFee = txtBedFee.Text;
 
 
@@ -1037,6 +1095,11 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please Select Applied for CTO/CTE...! \\n";
                     slno = slno + 1;
                 }
+                if (rblAppliedFor.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Application for Renewal/Fresh...! \\n";
+                    slno = slno + 1;
+                }
                 if (string.IsNullOrEmpty(txtRenno.Text) || txtRenno.Text == "" || txtRenno.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter renewal previous authorisation number...! \\n";
@@ -1047,24 +1110,27 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please Enter renewal previous authorisation Date...! \\n";
                     slno = slno + 1;
                 }
-                //if (string.IsNullOrEmpty(txtPCB.Text) || txtPCB.Text == "" || txtPCB.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Prevention and Control of Pollution) Act, 1974...! \\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtPCB1981.Text) || txtPCB1981.Text == "" || txtPCB1981.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Prevention and Control of Pollution) Act, 1981...! \\n";
-                //    slno = slno + 1;
-                //}
-                if (rblHealth.SelectedIndex == -1)
+                if (rblauthorisation.SelectedValue == "Yes")
                 {
-                    errormsg = errormsg + slno + ". Please Select Address health care facility (HCF)/(CBWTF)...! \\n";
+                    if (string.IsNullOrEmpty(txtPCB.Text) || txtPCB.Text == "" || txtPCB.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Prevention and Control of Pollution) Act, 1974...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtPCB1981.Text) || txtPCB1981.Text == "" || txtPCB1981.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Prevention and Control of Pollution) Act, 1981...! \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (string.IsNullOrEmpty(txtAddress.Text) || txtAddress.Text == "" || txtAddress.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Address health care facility (HCF)/(CBWTF)...! \\n";
                     slno = slno + 1;
                 }
-                if (rblGPS.SelectedIndex == -1)
+                if (string.IsNullOrEmpty(txtGPS.Text) || txtGPS.Text == "" || txtGPS.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Select GPS coordinates of health care facility (HCF)/(CBWTF)...! \\n";
+                    errormsg = errormsg + slno + ". Please Enter GPS coordinates of health care facility (HCF)/(CBWTF)...! \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtNoHCF.Text) || txtNoHCF.Text == "" || txtNoHCF.Text == null)

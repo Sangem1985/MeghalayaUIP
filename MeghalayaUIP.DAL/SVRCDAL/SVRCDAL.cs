@@ -335,6 +335,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                     com.Parameters.AddWithValue("@BMW_PCB1981", ObjBMWDetails.ControlPollution1981);
                 }
 
+                com.Parameters.AddWithValue("@BMW_APPLIEDFOR", ObjBMWDetails.AppliedFor);
                 com.Parameters.AddWithValue("@BMW_BIOHCF_CBWTF ", ObjBMWDetails.AddressHealthHCFCBWFT);
                 com.Parameters.AddWithValue("@BMW_GPSCOORDINATE", ObjBMWDetails.GPSCOORDINATES);
                 com.Parameters.AddWithValue("@BMW_NOBEDHCF", ObjBMWDetails.NumberBED);
@@ -346,8 +347,8 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@BMW_BIOMEDICALDISPOSED", ObjBMWDetails.BMWTREATED);
                 com.Parameters.AddWithValue("@BMW_MODETRANSPORTATION", ObjBMWDetails.MODETRANSACTION);
                 com.Parameters.AddWithValue("@BMW_BEDFEE", Convert.ToDecimal(ObjBMWDetails.BedFee));
-
-
+                com.Parameters.AddWithValue("@BMW_BEDTYPE", ObjBMWDetails.BedType);
+                com.Parameters.AddWithValue("@BMW_YEARS", ObjBMWDetails.AuthYears);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

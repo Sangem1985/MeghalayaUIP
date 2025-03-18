@@ -165,6 +165,7 @@ namespace MeghalayaUIP.Common
         public string authorisation_Date { get; set; }
         public string Pollution1974 { get; set; }
         public string ControlPollution1981 { get; set; }
+        public string AppliedFor { get; set; }
         public string AddressHealthHCFCBWFT { get; set; }
         public string GPSCOORDINATES { get; set; }
         public string NumberBED { get; set; }
@@ -184,8 +185,9 @@ namespace MeghalayaUIP.Common
         public string Bmwname { get; set; }
         public string NoUnit { get; set; }
         public string Capacity { get; set; }
-
         public string BedFee { get; set; }
+        public string BedType { get; set; }
+        public string AuthYears { get; set; }
     }
     public class PDCLD
     {
