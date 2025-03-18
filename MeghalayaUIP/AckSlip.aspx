@@ -55,11 +55,8 @@
                                     </li>
                                     <li>Dear Applicant,<br />
                                         <br />
-                                        Your Application for the following services has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
-                                    <br />
-                                    1. NoC for Ground Water Abstraction for Commercial Connection. <br />
-                                    2.Certificate for non-availability of water supply from water supply agency. <br />
-                                    3.Permission to Draw Water from River/Public Tanks.
+                                        Your Intent to Invest in Meghalaya has been successfully submitted to Meghalaya Investment Promotion Authority (MIPA), Government of Meghalaya.</li>
+
                                 </ul>
                                 <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
                                     <div class="invoice-details text-center d-flex" style="text-align: center;">

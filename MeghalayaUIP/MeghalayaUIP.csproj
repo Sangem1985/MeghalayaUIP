@@ -526,7 +526,9 @@
     <Content Include="assets\assetsnew\images\lighbulb1.png" />
     <Content Include="assets\assetsnew\images\Logo.png" />
     <Content Include="assets\assetsnew\images\Logo_dark.png" />
+    <Content Include="assets\assetsnew\images\Logo_dark_oldnew.png" />
     <Content Include="assets\assetsnew\images\logo_old.png" />
+    <Content Include="assets\assetsnew\images\Logo_oldnew.png" />
     <Content Include="assets\assetsnew\images\main-slider\IM_bgm1.mp4" />
     <Content Include="assets\assetsnew\images\main-slider\slider-1.jpg" />
     <Content Include="assets\assetsnew\images\main-slider\slider-10.jpg" />

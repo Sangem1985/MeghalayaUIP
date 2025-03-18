@@ -231,7 +231,7 @@ h3 a{
 
 .pull-left{
   float: left;
-  width: 46%;
+  width: 56%;
 }
 
 .pull-right{
@@ -20648,11 +20648,11 @@ button.scroll-top.scroll-to-target.open {
 
 .modal-content.custom {
     position: fixed;
-    left: 436px !important;
+    left: 430px !important;
     float: right !important;
     display: flex;
     z-index: 10000;
-    top: 250px;
+    top: 230px;
 }
 
 p.smallinv {

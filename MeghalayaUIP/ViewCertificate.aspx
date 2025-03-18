@@ -92,13 +92,13 @@
                         <tr>
                             <td colspan="3" class="certificate-text">
                                 <asp:Label ID="lblNameOfCertifiedPerson5" runat="server" CssClass="certificate-text"
-                                           Text="In view of the above, the unit is hereby accorded the Permission/Approval applied for under Invest Meghalaya Authority."></asp:Label>
+                                           Text="In view of the above, the unit is hereby accorded the Permission/Approval applied for under Meghalaya Investment Promotion Authority (MIPA)."></asp:Label>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" class="certificate-text">
                                 <asp:Label ID="Label1" runat="server" CssClass="certificate-text"
-                                           Text="This approval is issued in accordance with the powers vested as per the Section ABCD of the Invest Meghalaya Authority Act, No. ABCD of YYYY, Government of Meghalaya."></asp:Label>
+                                           Text="This approval is issued in accordance with the powers vested as per the Section ABCD of the Meghalaya Investment Promotion Authority (MIPA) Act, No. ABCD of YYYY, Government of Meghalaya."></asp:Label>
                             </td>
                         </tr>
                         <tr>

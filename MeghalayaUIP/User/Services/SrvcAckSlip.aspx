@@ -131,7 +131,7 @@
                                         <label runat="server" id="lblEnterPrise" visible="false"></label>
                                     </li>
                                     <li>Dear : <label runat="server" id="lblApplicant"></label>,<br />
-                                        Your Request for Other Sevices has been successfully submitted to Invest Meghalaya Authority, Government of Meghalaya.</li>
+                                        Your Request for Other Sevices has been successfully submitted to Meghalaya Investment Promotion Authority (MIPA), Government of Meghalaya.</li>
                                 </ul>
                                 <div class="col-sm-12 m-b-20 text-center" style="display: flex; justify-content: center;">
                                     <div class="invoice-details text-center d-flex" style="text-align: center;">
@@ -182,9 +182,9 @@
                                         <br />
                                         Regards
                                     </p>
-                                    <p><b>Invest Meghalaya Authority</b></p>
+                                    <p><b>Meghalaya Investment Promotion Authority (MIPA)</b></p>
                                     <p><b>Government of Meghalaya</b></p>
-                                    <p>Email : investmeghalayaauthority@gmail.com</p>
+                                    <p>Email : meghalayainvestmentpromotionauthority@gmail.com</p>
                                 </div>
                             </div>
                         </div>
