@@ -252,13 +252,72 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h3>Query Details (Committee Queries)</h3>
+                        <h3>Applications sent to Committee </h3>
                     </div>
-                    <section id="dashboardcount7">
+                    <section id="dashboardcount">
                         <div class="container-fluid">
                             <div class="row clearfix">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkCommQrytoIMA" OnClick="linkCommQrytoIMA_Click" ForeColor="White">
+
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="LinkButton2" OnClick="linktobeProc_Click" ForeColor="White">
+                                        <div class="info-box bg-yellow hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="Label3" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMATOBEPROCESSED" style="color: white"></a>--%>
+                                     Applications to<br />
+                                                    be Processed
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="LinkButton3" OnClick="linkApproved_Click" ForeColor="White">
+                                        <div class="info-box bg-green hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="Label4" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMAPPROVED" style="color: white"></a>--%>
+                                 Approved 
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-memo-circle-check"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="LinkButton1" ForeColor="White" Enabled="false">
+                                        <div class="info-box bg-yellow hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="Label2" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplIMAView.aspx?status=IMATOBEPROCESSED" style="color: white"></a>--%>
+                        Rejected<br />
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkCommQrytoIMA" OnClick="linkCommQrytoIMA_Click" ForeColor="White" Width="220px">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -268,7 +327,7 @@
                                             <div class="content">
                                                 <div class="text">
                                                     <%--<a href="PreRegApplIMAView.aspx?status=CommitteeQuery" style="color: white"></a>--%>
-                                                    Committee Query<br />
+                    Committee Query<br />
                                                     Raised 
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
@@ -277,8 +336,15 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkIMAReplyToComm" OnClick="linkIMAReplyToComm_Click" ForeColor="White">
+                            </div>
+                        </div>
+                    </section>
+                    <section id="dashboardcount">
+                        <div class="container-fluid">
+                            <div class="row clearfix">
+
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkIMAReplyToComm" OnClick="linkIMAReplyToComm_Click" ForeColor="White" Width="220px">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -298,8 +364,8 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkComQryToAppl" OnClick="linkComQryToAppl_Click" ForeColor="White">
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkComQryToAppl" OnClick="linkComQryToAppl_Click" ForeColor="White" Width="220px">
                                         <div class="info-box bg-orange hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -320,8 +386,8 @@
 
                                 </div>
 
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkApplcReplyToComm" OnClick="linkApplcReplyToComm_Click" ForeColor="White">
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkApplcReplyToComm" OnClick="linkApplcReplyToComm_Click" ForeColor="White" Width="220px">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -343,8 +409,8 @@
                                 </div>
                                 <%--</div>
                             <div class="row clearfix">--%>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkComQryToDept" OnClick="linkComQryToDept_Click" ForeColor="White">
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkComQryToDept" OnClick="linkComQryToDept_Click" ForeColor="White" Width="220px">
                                         <div class="info-box bg-orange hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -364,8 +430,8 @@
                                     </asp:LinkButton>
                                 </div>
 
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkDeptReplyToComm" OnClick="linkDeptReplyToComm_Click" ForeColor="White">
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkDeptReplyToComm" OnClick="linkDeptReplyToComm_Click" ForeColor="White" Width="220px">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
                                                 <h4>

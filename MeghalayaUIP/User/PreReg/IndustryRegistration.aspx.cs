@@ -110,7 +110,7 @@ namespace MeghalayaUIP.User.PreReg
                             ddlcompanytype.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
                             ddlproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
                             if (Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]) != "")
-                                txtCompnyRegDt.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]).ToString("dd-MM-yyyy");
+                                txtCompnyRegDt.Text = ds.Tables[0].Rows[0]["REGISTRATIONDATE"].ToString();
                             txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNNO"]);
                             ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYREGTYPE"]);
                             ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
@@ -127,7 +127,7 @@ namespace MeghalayaUIP.User.PreReg
                             if (ddlstate.SelectedItem.Text == "Meghalaya")
                             {
                                 divMeghaState.Visible = true;
-                               
+
                                 divOtherState.Visible = false;
 
                                 ddlAuthReprDist.SelectedValue = ds.Tables[0].Rows[0]["REP_DISTRICTID"].ToString();
@@ -139,10 +139,10 @@ namespace MeghalayaUIP.User.PreReg
                             }
                             else
                             {
-                                divOtherState.Visible = true;                            
-                           
+                                divOtherState.Visible = true;
+
                                 divMeghaState.Visible = false;
-                              
+
                                 txtDistricted.Text = ds.Tables[0].Rows[0]["REP_DISTRICTNAME"].ToString();
                                 txtMandaled.Text = ds.Tables[0].Rows[0]["REP_MANDALNAME"].ToString();
                                 txtVillagede.Text = ds.Tables[0].Rows[0]["REP_VILLAGENAME"].ToString();
@@ -161,7 +161,8 @@ namespace MeghalayaUIP.User.PreReg
                             ddlPropLocTaluka_SelectedIndexChanged(this, EventArgs.Empty);
                             ddlPropLocVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_VILLAGEID"]);
                             txtPropLocPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["UNIT_PINCODE"]);
-                            txtDCPorOperation.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["PROJECT_DCP"]).ToString("dd-MM-yyyy");
+                            if (Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_DCP"]) != "")
+                                txtDCPorOperation.Text = ds.Tables[0].Rows[0]["PROJECT_DCP"].ToString();
                             ddlSector.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_SECTORNAME"]);
                             ddlSector_SelectedIndexChanged(null, EventArgs.Empty);
                             ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_LOAID"]);
