@@ -330,13 +330,13 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.DropDownList ddlstate;
 
         /// <summary>
-        /// Dist1 control.
+        /// divMeghaState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Dist1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMeghaState;
 
         /// <summary>
         /// ddlAuthReprDist control.
@@ -348,33 +348,6 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.DropDownList ddlAuthReprDist;
 
         /// <summary>
-        /// District control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl District;
-
-        /// <summary>
-        /// txtDistricted control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDistricted;
-
-        /// <summary>
-        /// Mandal1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Mandal1;
-
-        /// <summary>
         /// ddlAuthReprTaluka control.
         /// </summary>
         /// <remarks>
@@ -382,33 +355,6 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAuthReprTaluka;
-
-        /// <summary>
-        /// Div1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
-
-        /// <summary>
-        /// txtMandaled control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMandaled;
-
-        /// <summary>
-        /// villages1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl villages1;
 
         /// <summary>
         /// ddlAuthReprVillage control.
@@ -420,13 +366,31 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.DropDownList ddlAuthReprVillage;
 
         /// <summary>
-        /// Div2 control.
+        /// divOtherState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOtherState;
+
+        /// <summary>
+        /// txtDistricted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDistricted;
+
+        /// <summary>
+        /// txtMandaled control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMandaled;
 
         /// <summary>
         /// txtVillagede control.

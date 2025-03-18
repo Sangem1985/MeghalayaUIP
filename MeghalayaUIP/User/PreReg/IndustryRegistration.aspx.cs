@@ -126,12 +126,9 @@ namespace MeghalayaUIP.User.PreReg
 
                             if (ddlstate.SelectedItem.Text == "Meghalaya")
                             {
-                                Dist1.Visible = true;
-                                Mandal1.Visible = true;
-                                villages1.Visible = true;
-                                District.Visible = false;
-                                Div1.Visible = false;
-                                Div2.Visible = false;
+                                divMeghaState.Visible = true;
+                               
+                                divOtherState.Visible = false;
 
                                 ddlAuthReprDist.SelectedValue = ds.Tables[0].Rows[0]["REP_DISTRICTID"].ToString();
                                 ddlAuthReprDist_SelectedIndexChanged(null, EventArgs.Empty);
@@ -142,14 +139,10 @@ namespace MeghalayaUIP.User.PreReg
                             }
                             else
                             {
-                                District.Visible = true;
-                                Div1.Visible = true;
-                                Div2.Visible = true;
-                                Dist1.Visible = false;
-                                Mandal1.Visible = false;
-                                villages1.Visible = false;
-                                //trotherstate.Visible = true;
-                                //otherDistric.Visible = false;
+                                divOtherState.Visible = true;                            
+                           
+                                divMeghaState.Visible = false;
+                              
                                 txtDistricted.Text = ds.Tables[0].Rows[0]["REP_DISTRICTNAME"].ToString();
                                 txtMandaled.Text = ds.Tables[0].Rows[0]["REP_MANDALNAME"].ToString();
                                 txtVillagede.Text = ds.Tables[0].Rows[0]["REP_VILLAGENAME"].ToString();
@@ -1039,6 +1032,7 @@ namespace MeghalayaUIP.User.PreReg
 
                 if (ddlcompanytype.SelectedValue == "0" || ddlcompanytype.SelectedValue == "--Select--")
                 {
+
                     errormsg = errormsg + slno + ". Please Select Company Type\\n";
                     slno = slno + 1;
                 }
@@ -3345,21 +3339,23 @@ namespace MeghalayaUIP.User.PreReg
             {
                 if (ddlstate.SelectedValue != "23")
                 {
-                    District.Visible = true;
-                    Div1.Visible = true;
-                    Div2.Visible = true;
-                    Dist1.Visible = false;
-                    Mandal1.Visible = false;
-                    villages1.Visible = false;
+                    divOtherState.Visible = true;
+
+                    divMeghaState.Visible = false;
+
+                    ddlAuthReprDist.ClearSelection();
+                    ddlAuthReprTaluka.ClearSelection();
+                    ddlAuthReprVillage.ClearSelection();
                 }
                 else if (ddlstate.SelectedValue == "23")
                 {
-                    Dist1.Visible = true;
-                    Mandal1.Visible = true;
-                    villages1.Visible = true;
-                    District.Visible = false;
-                    Div1.Visible = false;
-                    Div2.Visible = false;
+                    divMeghaState.Visible = true;
+
+                    divOtherState.Visible = false;
+                    txtDistricted.Text = "";
+                    txtMandaled.Text = "";
+                    txtVillagede.Text = "";
+
                 }
             }
             catch (Exception ex)
