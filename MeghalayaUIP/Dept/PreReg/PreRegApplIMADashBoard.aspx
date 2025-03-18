@@ -356,9 +356,53 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkComQryToDept" OnClick="linkComQryToDept_Click" ForeColor="White">
+                                        <div class="info-box bg-cyan hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblComquryfwdtoDept" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplIMAView.aspx?status=CommitteeQueryforwardedtoDept" style="color: white"></a>--%>
+                         Committee Query<br />
+                                                    Forwarded to Department
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-import"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkDeptReplyToComm" OnClick="linkDeptReplyToComm_Click" ForeColor="White">
+                                        <div class="info-box bg-pink hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblDeptrepliedtoCommittee" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    <%--<a href="PreRegApplIMAView.aspx?status=DeptREPLIEDTOCommitteeQUERY" style="color: white"></a>--%>
+                     Committee Query
+                     <br />
+                                                    Redressed by Department 
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-memo-circle-check"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkComQryToAppl" OnClick="linkComQryToAppl_Click" ForeColor="White">
-                                        <div class="info-box bg-orange hover-expand-effect">
+                                        <div class="info-box bg-cyan hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
                                                     <asp:Label ID="lblComquryfwdtoapplcnt" runat="server"></asp:Label>
@@ -401,49 +445,6 @@
                                 </div>
                                 <%--</div>
                             <div class="row clearfix">--%>
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkComQryToDept" OnClick="linkComQryToDept_Click" ForeColor="White">
-                                        <div class="info-box bg-orange hover-expand-effect">
-                                            <div class="icon">
-                                                <h4>
-                                                    <asp:Label ID="lblComquryfwdtoDept" runat="server"></asp:Label>
-                                                </h4>
-                                            </div>
-                                            <div class="content">
-                                                <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=CommitteeQueryforwardedtoDept" style="color: white"></a>--%>
-                                                        Committee Query<br />
-                                                    Forwarded to Department
-                                                </div>
-                                                <div style="font-size: 12px;"></div>
-                                                <i class="fi fi-tr-file-import"></i>
-                                            </div>
-                                        </div>
-                                    </asp:LinkButton>
-                                </div>
-
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkDeptReplyToComm" OnClick="linkDeptReplyToComm_Click" ForeColor="White">
-                                        <div class="info-box bg-pink hover-expand-effect">
-                                            <div class="icon">
-                                                <h4>
-                                                    <asp:Label ID="lblDeptrepliedtoCommittee" runat="server"></asp:Label>
-                                                </h4>
-                                            </div>
-                                            <div class="content">
-                                                <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=DeptREPLIEDTOCommitteeQUERY" style="color: white"></a>--%>
-                                                    Committee Query
-                                                    <br />
-                                                    Redressed by Department 
-                                                </div>
-                                                <div style="font-size: 12px;"></div>
-                                                <i class="fi fi-tr-memo-circle-check"></i>
-                                            </div>
-                                        </div>
-                                    </asp:LinkButton>
-                                </div>
-
                             </div>
                         </div>
                     </section>

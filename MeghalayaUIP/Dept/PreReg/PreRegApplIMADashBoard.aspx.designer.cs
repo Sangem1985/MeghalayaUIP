@@ -348,42 +348,6 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblIMARepltoCommittee;
 
         /// <summary>
-        /// linkComQryToAppl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkComQryToAppl;
-
-        /// <summary>
-        /// lblComquryfwdtoapplcnt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblComquryfwdtoapplcnt;
-
-        /// <summary>
-        /// linkApplcReplyToComm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkApplcReplyToComm;
-
-        /// <summary>
-        /// lblComquryrepliedbyapplcnt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblComquryrepliedbyapplcnt;
-
-        /// <summary>
         /// linkComQryToDept control.
         /// </summary>
         /// <remarks>
@@ -418,5 +382,41 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDeptrepliedtoCommittee;
+
+        /// <summary>
+        /// linkComQryToAppl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkComQryToAppl;
+
+        /// <summary>
+        /// lblComquryfwdtoapplcnt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblComquryfwdtoapplcnt;
+
+        /// <summary>
+        /// linkApplcReplyToComm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkApplcReplyToComm;
+
+        /// <summary>
+        /// lblComquryrepliedbyapplcnt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblComquryrepliedbyapplcnt;
     }
 }
