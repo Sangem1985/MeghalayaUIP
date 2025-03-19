@@ -45,15 +45,15 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
                         //lblToBeProcessed.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
-                        //lblprocessed.Text = dt.Rows[0]["PROCESSED"].ToString();
+                       // lblprocessed.Text = dt.Rows[0]["PROCESSED"].ToString();
                         //lblApproved.Text = dt.Rows[0]["Approved"].ToString(); 
                         //lblQuery.Text = dt.Rows[0]["QUERYRIASED"].ToString(); 
                         //lblQueryReplied.Text = dt.Rows[0]["QUERYREPLIED"].ToString(); 
 
-                        lblIMAQuery.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
-                        lblDeptrepliedtoIMA.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
+                        lblIMAQuery.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
+                        lblDeptrepliedtoIMA.Text = dt.Rows[0]["PROCESSED"].ToString();
                         lblReceivedDEPTQUERY.Text = dt.Rows[0]["DICFORWARDED"].ToString(); 
-                        lblSentDEPT.Text = dt.Rows[0]["DICRECEIVED"].ToString(); 
+                        lblSentDEPT.Text = dt.Rows[0]["DICRECEIVED"].ToString();
                         //lblIMAQueryforwardedtoAppl.Text = dt.Rows[0]["DEPTFWDIMAQUERYTOAPPL"].ToString();
                         //lblAPPLREPLIEDTOIMAQUERY.Text = dt.Rows[0]["APPLREPLIEDTOIMAQUERY"].ToString();
                         //if (prd.UserID == "1030")
@@ -61,15 +61,16 @@ namespace MeghalayaUIP.Dept.PreReg
                         //    linkQryRcvd.Text = "To be Processed";
                         //    linkQryRepld.Text = "Processed";
                         //}
-                        if(ObjUserInfo.Roleid=="4")
+                        int[] GMDICs = { 1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1027 };
+                        if (GMDICs.Contains(Convert.ToInt32(ObjUserInfo.UserID)))
                         {
-                            ApplicationPending.Visible = false;
-                            ApplicationProcessed.Visible = false;
+                            linkDeptSent.Visible = true;
+                            linkDeptReceived.Visible = true;
                         }
                         else
                         {
-                            ApplicationPending.Visible = true;
-                            ApplicationProcessed.Visible = true;
+                            linkQryRcvd.Visible = true;
+                            linkQryRepld.Visible = true;
                         }
                     }
                   
@@ -101,7 +102,7 @@ namespace MeghalayaUIP.Dept.PreReg
             try
             {
                 if (lblIMAQuery.Text != "0")
-                    Response.Redirect("PreRegApplDeptView.aspx?status=IMATODEPTQUERY");
+                    Response.Redirect("PreRegApplDeptView.aspx?status=TOBEPROCESSED");
             }
             catch (Exception ex)
             {
@@ -118,7 +119,7 @@ namespace MeghalayaUIP.Dept.PreReg
             try
             {
                 if (lblDeptrepliedtoIMA.Text != "0")
-                    Response.Redirect("PreRegApplDeptView.aspx?status=DEPTREPLIEDTOIMA");
+                    Response.Redirect("PreRegApplDeptView.aspx?status=PROCESSED");
             }
             catch (Exception ex)
             {

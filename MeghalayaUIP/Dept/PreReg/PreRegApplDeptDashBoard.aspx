@@ -12,14 +12,15 @@
             opacity: 0.3;
             color: #fff;
         }
+
         i.fi.fi-tr-file-edit {
-    position: absolute;
-    top: 15px;
-    right: 8px;
-    font-size: 50px;
-    opacity: 0.3;
-    color: #fff;
-}
+            position: absolute;
+            top: 15px;
+            right: 8px;
+            font-size: 50px;
+            opacity: 0.3;
+            color: #fff;
+        }
     </style>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
@@ -190,7 +191,7 @@
                                                 <div class="text">
                                                     <%--<a href="PreRegApplDeptView.aspx?status=TOTAL" style="color: white"></a>--%>
                                                     Total<br />
-                                                    Application 
+                                                    Applications 
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-ballot-check"></i>
@@ -199,8 +200,8 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="ApplicationPending" runat="server">
-                                    <asp:LinkButton runat="server" ID="linkQryRcvd" OnClick="linkQryRcvd_Click" ForeColor="White">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkQryRcvd" OnClick="linkQryRcvd_Click" ForeColor="White" Visible="false">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -219,9 +220,25 @@
                                             </div>
                                         </div>
                                     </asp:LinkButton>
+                                    <asp:LinkButton runat="server" ID="linkDeptSent" OnClick="linkDeptSent_Click" ForeColor="White" Visible="false">
+                                        <div class="info-box bg-pink hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblSentDEPT" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    Received from DC 
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="ApplicationProcessed" runat="server">
-                                    <asp:LinkButton runat="server" ID="linkQryRepld" OnClick="linkQryRepld_Click" ForeColor="White">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkQryRepld" OnClick="linkQryRepld_Click" ForeColor="White" Visible="false">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -243,17 +260,7 @@
                                             </div>
                                         </div>
                                     </asp:LinkButton>
-                                </div>
-
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="dashboardcount1">
-                        <div class="container-fluid">
-                            <div class="row clearfix">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkDeptReceived" OnClick="linkDeptReceived_Click" ForeColor="White">
+                                    <asp:LinkButton runat="server" ID="linkDeptReceived" OnClick="linkDeptReceived_Click" ForeColor="White" Visible="false">
                                         <div class="info-box bg-cyan hover-expand-effect">
                                             <div class="icon">
                                                 <h4>
@@ -271,27 +278,19 @@
                                     </asp:LinkButton>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkDeptSent" OnClick="linkDeptSent_Click" ForeColor="White">
-                                        <div class="info-box bg-pink hover-expand-effect">
-                                            <div class="icon">
-                                                <h4>
-                                                    <asp:Label ID="lblSentDEPT" runat="server"></asp:Label>
-                                                </h4>
-                                            </div>
-                                            <div class="content">
-                                                <div class="text">
-                                                    Received from DC 
-                                                </div>
-                                                <div style="font-size: 12px;"></div>
-                                                <i class="fi fi-tr-file-edit"></i>
-                                            </div>
-                                        </div>
-                                    </asp:LinkButton>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 </div>
                             </div>
                         </div>
                     </section>
 
+                    <%--  <section id="dashboardcount1">
+                        <div class="container-fluid">
+                            <div class="row clearfix">
+                            </div>
+                        </div>
+                    </section>--%>
                 </div>
             </div>
         </div>
