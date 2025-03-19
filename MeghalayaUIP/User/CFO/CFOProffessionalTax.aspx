@@ -182,7 +182,7 @@
                                                 <label class="col-lg-12 col-form-label">Additional Place of Business Details:</label>
                                             </div>
                                             <div class="col-md-12 d-flex" id="AdditionPlace" runat="server" visible="false">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Place of Business*</label>
                                                         <div class="col-lg-6 d-flex">
@@ -190,7 +190,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Address*</label>
                                                         <div class="col-lg-6 d-flex">
@@ -198,7 +198,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">District *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -210,7 +210,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 d-flex" id="totalemp" runat="server" visible="false">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Total working employees *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -262,7 +262,7 @@
                                                 <label class="col-lg-12 col-form-label">Additional Place of Business Details:</label>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Place of Business*</label>
                                                         <div class="col-lg-6 d-flex">
@@ -270,7 +270,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Address*</label>
                                                         <div class="col-lg-6 d-flex">
@@ -278,7 +278,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">State *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -290,7 +290,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Total working employees *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -458,7 +458,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-4" id="RegistrationType" runat="server" visible="false">
+                                            <div class="col-md-6" id="RegistrationType" runat="server" visible="false">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Registration Type *</label>
                                                     <div class="col-lg-4 d-flex">

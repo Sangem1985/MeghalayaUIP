@@ -747,7 +747,7 @@
                     <h6 class="modal-title" id="exampleModalLabel">
                         <ul>
                             <li><span>Email:</span>
-                                <b>meghalayainvestmentpromotionAuthority[at]gmail[dot]com</b></li>
+                                <b> meghalayaipa@gmail.com</b></li>
                             <li><span>Call Us:</span>
                                 <b>+91 7085741695</b>
 

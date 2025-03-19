@@ -116,21 +116,23 @@ namespace MeghalayaUIP.User.CFO
                         txtDate.Text = ds.Tables[1].Rows[0]["CFOPT_COMMENCEDDATE"].ToString();
                         txtIncome.Text = ds.Tables[1].Rows[0]["CFOPT_ANNUALINCOME"].ToString();
                         rblBusiness.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNESTATE"].ToString();
+                        rblBusiness_SelectedIndexChanged(null, EventArgs.Empty);
                         if (rblBusiness.SelectedValue == "Y")
                         {
                             Div2.Visible = true;
                             GVState.Visible = true;
                         }
                        
-                        // rblBusiness_SelectedIndexChanged(null, EventArgs.Empty);
                         rblbusinessindia.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNECOUNTRY"].ToString();
+                        rblbusinessindia_SelectedIndexChanged(null, EventArgs.Empty);
                         if (rblbusinessindia.SelectedValue == "Y")
                         {
                             Div1.Visible = true;
                             GVCOUNTRY.Visible = true;
                         }
-                        //  rblbusinessindia_SelectedIndexChanged(null, EventArgs.Empty);
+                       
                         rblForeign.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_ADDLBSNEFOREIGN"].ToString();
+                        rblForeign_SelectedIndexChanged(null, EventArgs.Empty);
                         if (rblForeign.SelectedValue == "Y")
                         {
                             Address.Visible = true;
@@ -139,6 +141,7 @@ namespace MeghalayaUIP.User.CFO
                         //  rblForeign_SelectedIndexChanged(null, EventArgs.Empty);
                         txtBranch.Text = ds.Tables[1].Rows[0]["CFOPT_BRANCHCERTNO"].ToString();
                         rblother.SelectedValue = ds.Tables[1].Rows[0]["CFOPT_HADANYREG"].ToString();
+                        rblother_SelectedIndexChanged(null, EventArgs.Empty);
                         if (rblother.SelectedValue == "Y")
                         {
                             RegistrationType.Visible = true;
