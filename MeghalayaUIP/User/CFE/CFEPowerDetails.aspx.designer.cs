@@ -312,15 +312,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtEleChg;
 
         /// <summary>
-        /// txtCosmrEnty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCosmrEnty;
-
-        /// <summary>
         /// fupCosmrEnty control.
         /// </summary>
         /// <remarks>
@@ -355,15 +346,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCosmrEnty;
-
-        /// <summary>
-        /// txtCsmrBody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCsmrBody;
 
         /// <summary>
         /// fupCsmrBody control.
@@ -402,15 +384,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblCsmrBody;
 
         /// <summary>
-        /// txtPCB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPCB;
-
-        /// <summary>
         /// fupPCB control.
         /// </summary>
         /// <remarks>
@@ -445,15 +418,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPCB;
-
-        /// <summary>
-        /// txtMCB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMCB;
 
         /// <summary>
         /// fupMCB control.
@@ -492,15 +456,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblMCB;
 
         /// <summary>
-        /// txtEnvClr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEnvClr;
-
-        /// <summary>
         /// fupEnvClr control.
         /// </summary>
         /// <remarks>
@@ -535,15 +490,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEnvClr;
-
-        /// <summary>
-        /// txtSglWdw control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSglWdw;
 
         /// <summary>
         /// fupSglWdw control.

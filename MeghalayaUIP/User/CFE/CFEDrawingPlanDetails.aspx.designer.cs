@@ -123,15 +123,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.CheckBoxList chkNature;
 
         /// <summary>
-        /// txtReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReport;
-
-        /// <summary>
         /// fupReport control.
         /// </summary>
         /// <remarks>
@@ -166,15 +157,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblReport;
-
-        /// <summary>
-        /// txtduly control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtduly;
 
         /// <summary>
         /// fupduly control.
@@ -213,15 +195,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblduly;
 
         /// <summary>
-        /// txtownership control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtownership;
-
-        /// <summary>
         /// fupownership control.
         /// </summary>
         /// <remarks>
@@ -256,15 +229,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblownership;
-
-        /// <summary>
-        /// txtpole control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtpole;
 
         /// <summary>
         /// fuppole control.
@@ -303,15 +267,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblpole;
 
         /// <summary>
-        /// txtowner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtowner;
-
-        /// <summary>
         /// fupowner control.
         /// </summary>
         /// <remarks>
@@ -346,15 +301,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblowner;
-
-        /// <summary>
-        /// txtPCB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPCB;
 
         /// <summary>
         /// fupPCB control.
@@ -393,15 +339,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblPCB;
 
         /// <summary>
-        /// txtBuilding control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuilding;
-
-        /// <summary>
         /// fupBuilding control.
         /// </summary>
         /// <remarks>
@@ -436,15 +373,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBuilding;
-
-        /// <summary>
-        /// txtOccupancy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOccupancy;
 
         /// <summary>
         /// fupOccupancy control.

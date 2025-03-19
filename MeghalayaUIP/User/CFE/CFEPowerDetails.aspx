@@ -242,60 +242,58 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row d-flex justify-content-center align-items-center" runat="server" visible="false" id="isLoadInPhase" Width="100%">
-                                            <div class="col-lg-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title"><b>Connected Load Required (Year-wise for 5 Years)</b></h4>
+                                        <div class="row d-flex justify-content-center align-items-center"
+                                            runat="server" visible="false" id="isLoadInPhase"
+                                            style="width: 100%; min-height: 50vh;">
+
+                                            <div class="col-lg-8">
+                                                <div class="card" style="width: 100%; padding: 20px;">
+                                                    <div class="card-header text-center">
+                                                        <h3 class="card-title"><b>Connected Load Required (Year-wise for 5 Years)</b></h3>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="table-responsive">
-                                                            <table class="table table-bordered">
-                                                                <thead class="tblHeader" style="background-color: #013161; color: white; text-align: center;" CssClass="GRDHEADER">
+                                                            <table class="table table-bordered text-center" style="font-size: 1.2rem;">
+                                                                <thead class="tblHeader" style="background-color: #013161; color: white;">
                                                                     <tr>
-                                                                        <th style="width: 200px;">Year</th>
-                                                                        <th style="width: 250px;">Connected Load (kW)</th>
+                                                                        <th style="width: 250px;">Year</th>
+                                                                        <th style="width: 300px;">Connected Load (kW)</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
                                                                         <td>Year 1</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txtYear1" runat="server" CssClass="form-control" TabIndex="1"
-                                                                                onkeyup="handleKeyUp(this)" onkeypress="return validateNumbers(event)">
-                                                                            </asp:TextBox>
+                                                                            <asp:TextBox ID="txtYear1" runat="server" CssClass="form-control"
+                                                                                Style="font-size: 1.2rem; padding: 10px; text-align: center;" />
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Year 2</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txtYear2" runat="server" CssClass="form-control" TabIndex="2"
-                                                                                onkeyup="handleKeyUp(this)" onkeypress="return validateNumbers(event)">
-                                                                            </asp:TextBox>
+                                                                            <asp:TextBox ID="txtYear2" runat="server" CssClass="form-control"
+                                                                                Style="font-size: 1.2rem; padding: 10px; text-align: center;" />
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Year 3</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txtYear3" runat="server" CssClass="form-control" TabIndex="3"
-                                                                                onkeyup="handleKeyUp(this)" onkeypress="return validateNumbers(event)">
-                                                                            </asp:TextBox>
+                                                                            <asp:TextBox ID="txtYear3" runat="server" CssClass="form-control"
+                                                                                Style="font-size: 1.2rem; padding: 10px; text-align: center;" />
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Year 4</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txtYear4" runat="server" CssClass="form-control" TabIndex="4"
-                                                                                onkeyup="handleKeyUp(this)" onkeypress="return validateNumbers(event)">
-                                                                            </asp:TextBox>
+                                                                            <asp:TextBox ID="txtYear4" runat="server" CssClass="form-control"
+                                                                                Style="font-size: 1.2rem; padding: 10px; text-align: center;" />
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Year 5</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txtYear5" runat="server" CssClass="form-control" TabIndex="5"
-                                                                                onkeyup="handleKeyUp(this)" onkeypress="return validateNumbers(event)">
-                                                                            </asp:TextBox>
+                                                                            <asp:TextBox ID="txtYear5" runat="server" CssClass="form-control"
+                                                                                Style="font-size: 1.2rem; padding: 10px; text-align: center;" />
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -305,9 +303,8 @@
                                                 </div>
                                             </div>
 
-                                           
-
                                         </div>
+                                        <br />
                                         <br />
                                         <div class="col-md-12 d-flex" style="margin-top: -10px;">
                                             <div class="col-md-8">
@@ -332,9 +329,6 @@
                                                     <label class="col-lg-3 col-form-label"></label>
                                                     <div class="col-lg-2 d-flex">
                                                     </div>
-                                                    <div class="col-lg-4 d-flex">
-                                                        <label class="col-lg-5 col-form-label">Reference No </label>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -348,9 +342,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <%--  <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtCosmrEnty" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupCosmrEnty" runat="server" />
                                                     </div>
@@ -373,9 +367,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <%--  <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtCsmrBody" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupCsmrBody" runat="server" />
                                                     </div>
@@ -398,9 +392,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <%-- <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtPCB" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupPCB" runat="server" />
                                                     </div>
@@ -423,9 +417,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <%--  <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtMCB" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupMCB" runat="server" />
                                                     </div>
@@ -448,9 +442,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <%-- <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtEnvClr" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupEnvClr" runat="server" />
                                                     </div>
@@ -474,9 +468,9 @@ factories)  *
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <%-- <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtSglWdw" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupSglWdw" runat="server" />
                                                     </div>

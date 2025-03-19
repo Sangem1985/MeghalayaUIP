@@ -97,9 +97,9 @@
                                                     <label class="col-lg-3 col-form-label"></label>
                                                     <div class="col-lg-2 d-flex">
                                                     </div>
-                                                    <div class="col-lg-4 d-flex">
+                                                  <%--  <div class="col-lg-4 d-flex">
                                                         <label class="col-lg-5 col-form-label">Reference No </label>
-                                                    </div>
+                                                    </div>--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,9 +110,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                  <%--  <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtReport" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupReport" runat="server" />
 
@@ -134,9 +134,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                  <%--  <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtduly" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupduly" runat="server" />
 
@@ -158,9 +158,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                  <%--  <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtownership" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupownership" runat="server" />
                                                     </div>
@@ -181,9 +181,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                 <%--   <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtpole" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fuppole" runat="server" />
                                                     </div>
@@ -204,9 +204,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                 <%--   <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtowner" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupowner" runat="server" />
                                                     </div>
@@ -227,9 +227,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                  <%--  <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtPCB" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupPCB" runat="server" />
                                                     </div>
@@ -250,9 +250,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                 <%--   <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtBuilding" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupBuilding" runat="server" />
                                                     </div>
@@ -273,9 +273,9 @@
                                                     <div class="col-lg-1 d-flex">
                                                         :
                                                     </div>
-                                                    <div class="col-lg-2 d-flex">
+                                                 <%--   <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtOccupancy" runat="server" class="form-control" MaxLength="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
+                                                    </div>--%>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupOccupancy" runat="server" />
                                                     </div>

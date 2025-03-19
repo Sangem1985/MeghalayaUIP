@@ -77,16 +77,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     BindVoltages();
                     BindENERGYLOAD();
-                    BINDDATA();
-                    //for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                    //{
-                    //if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "3")
-                    //{
-                    //}
-                    //if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "4")
-                    //{
-                    //}
-                    //}
+                    BINDDATA();                  
                 }
                 else
                 {
@@ -233,47 +224,41 @@ namespace MeghalayaUIP.User.CFE
                 {
                     for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
                     {
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 20)
+                        if (ds.Tables[1].Rows[i]["CFEA_MASTERAID"].ToString() == "49")
                         {
                             hypCosmrEnty.Visible = true;
-                            hypCosmrEnty.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                            hypCosmrEnty.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILEPATH"]));
                             hypCosmrEnty.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                            //txtCosmrEnty.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 21)
+                        if (ds.Tables[1].Rows[i]["CFEA_MASTERAID"].ToString() == "50")
                         {
                             hypCsmrBody.Visible = true;
-                            hypCsmrBody.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                            hypCsmrBody.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILEPATH"]));
                             hypCsmrBody.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                            //txtCsmrBody.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 22)
+                        if (ds.Tables[1].Rows[i]["CFEA_MASTERAID"].ToString() == "51")
                         {
                             hypPCB.Visible = true;
-                            hypPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                            hypPCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILEPATH"]));
                             hypPCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                            //txtPCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 23)
+                        if (ds.Tables[1].Rows[i]["CFEA_MASTERAID"].ToString() == "52")
                         {
                             hypMCB.Visible = true;
-                            hypMCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                            hypMCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILEPATH"]));
                             hypMCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                            //txtMCB.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 24)
+                        if (ds.Tables[1].Rows[i]["CFEA_MASTERAID"].ToString() == "53")
                         {
                             hypEnvClr.Visible = true;
-                            hypEnvClr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                            hypEnvClr.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILEPATH"]));
                             hypEnvClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                            //txtEnvClr.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 25)
+                        if (ds.Tables[1].Rows[i]["CFEA_MASTERAID"].ToString() == "54")
                         {
                             hypSglWdw.Visible = true;
-                            hypSglWdw.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILEPATH"]));
+                            hypSglWdw.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILEPATH"]));
                             hypSglWdw.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                            //txtSglWdw.Text = Convert.ToString(ds.Tables[1].Rows[i]["SRVCA_FILLREFNO"]);
                         }
                     }
                 }
@@ -304,7 +289,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     CFEPower objCFEPower = new CFEPower();
 
-                    objCFEPower.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                   // objCFEPower.UNITID = Convert.ToString(Session["CFEUNITID"]);
                     objCFEPower.CreatedBy = hdnUserID.Value;
                     objCFEPower.IPAddress = getclientIP();
                     objCFEPower.Questionnariid = Convert.ToString(Session["CFEQID"]);
@@ -473,6 +458,36 @@ namespace MeghalayaUIP.User.CFE
                     errormsg += slno + ". Please Enter Electricity Charges \\n";
                     slno++;
                 }
+                if (string.IsNullOrEmpty(hypCosmrEnty.Text) || hypCosmrEnty.Text == "" || hypCosmrEnty.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Attach the entity of the consumer body \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypCsmrBody.Text) || hypCsmrBody.Text == "" || hypCsmrBody.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Attach the proprietorship of the consumer body \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypPCB.Text) || hypPCB.Text == "" || hypPCB.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Attach the clearances from the Pollution Control Board (s) (as may be required) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypMCB.Text) || hypMCB.Text == "" || hypMCB.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Attach the clearances from Municipal or Cantonment Board and Urban Affairs authorities \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypEnvClr.Text) || hypEnvClr.Text == "" || hypEnvClr.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Attach environmental clearance from the concerned authorities \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypSglWdw.Text) || hypSglWdw.Text == "" || hypSglWdw.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload Attach approval of the Single Window Agency of the Industries Departments \\n";
+                    slno = slno + 1;
+                }
 
 
 
@@ -545,7 +560,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "Consumer body Document" + "\\";
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + " entity of the consumer body" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -569,12 +584,12 @@ namespace MeghalayaUIP.User.CFE
                         }
 
                         CFEAttachments objCosmrEnty = new CFEAttachments();
-                        objCosmrEnty.Questionnareid = Convert.ToString(Session["SRVCQID"]);  //Convert.ToString(Session["CFEQID"]);
-                        objCosmrEnty.MasterID = "174";
+                        objCosmrEnty.Questionnareid = Convert.ToString(Session["CFEQID"]); 
+                        objCosmrEnty.MasterID = "49";
                         objCosmrEnty.FilePath = serverpath + fupCosmrEnty.PostedFile.FileName;
                         objCosmrEnty.FileName = fupCosmrEnty.PostedFile.FileName;
                         objCosmrEnty.FileType = fupCosmrEnty.PostedFile.ContentType;
-                        objCosmrEnty.FileDescription = "Entity of the consumer body";
+                        objCosmrEnty.FileDescription = "Attach the entity of the consumer body";
                         objCosmrEnty.CreatedBy = hdnUserID.Value;
                         objCosmrEnty.IPAddress = getclientIP();
                         //objCosmrEnty.ReferenceNo = txtCosmrEnty.Text;
@@ -584,7 +599,7 @@ namespace MeghalayaUIP.User.CFE
                             hypCosmrEnty.Text = fupCosmrEnty.PostedFile.FileName;
                             hypCosmrEnty.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupCosmrEnty.PostedFile.FileName);
                             hypCosmrEnty.Target = "blank";
-                            message = "alert('" + "Entity of the consumer body Uploaded successfully" + "')";
+                            message = "alert('" + "Attach the entity of the consumer body Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -647,11 +662,11 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objCsmrBody = new CFEAttachments();
                         objCsmrBody.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objCsmrBody.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objCsmrBody.MasterID = "14";
+                        objCsmrBody.MasterID = "50";
                         objCsmrBody.FilePath = serverpath + fupCsmrBody.PostedFile.FileName;
                         objCsmrBody.FileName = fupCsmrBody.PostedFile.FileName;
                         objCsmrBody.FileType = fupCsmrBody.PostedFile.ContentType;
-                        objCsmrBody.FileDescription = "Proprietorship of the consumer body";
+                        objCsmrBody.FileDescription = "Attach the Proprietorship of the consumer body";
                         objCsmrBody.CreatedBy = hdnUserID.Value;
                         objCsmrBody.IPAddress = getclientIP();
                         //objCsmrBody.ReferenceNo = txtCsmrBody.Text;
@@ -661,7 +676,7 @@ namespace MeghalayaUIP.User.CFE
                             .Text = fupCsmrBody.PostedFile.FileName;
                             hypCsmrBody.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupCsmrBody.PostedFile.FileName);
                             hypCsmrBody.Target = "blank";
-                            message = "alert('" + "Proprietorship of the consumer body Uploaded successfully" + "')";
+                            message = "alert('" + "Attach the Proprietorship of the consumer body Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -724,7 +739,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objPCB = new CFEAttachments();
                         objPCB.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objPCB.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objPCB.MasterID = "14";
+                        objPCB.MasterID = "51";
                         objPCB.FilePath = serverpath + fupPCB.PostedFile.FileName;
                         objPCB.FileName = fupPCB.PostedFile.FileName;
                         objPCB.FileType = fupPCB.PostedFile.ContentType;
@@ -801,7 +816,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objMCB = new CFEAttachments();
                         objMCB.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objMCB.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objMCB.MasterID = "14";
+                        objMCB.MasterID = "52";
                         objMCB.FilePath = serverpath + fupMCB.PostedFile.FileName;
                         objMCB.FileName = fupMCB.PostedFile.FileName;
                         objMCB.FileType = fupMCB.PostedFile.ContentType;
@@ -878,7 +893,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objEnvClr = new CFEAttachments();
                         objEnvClr.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objEnvClr.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objEnvClr.MasterID = "14";
+                        objEnvClr.MasterID = "53";
                         objEnvClr.FilePath = serverpath + fupEnvClr.PostedFile.FileName;
                         objEnvClr.FileName = fupEnvClr.PostedFile.FileName;
                         objEnvClr.FileType = fupEnvClr.PostedFile.ContentType;
@@ -955,7 +970,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSglWdw = new CFEAttachments();
                         objSglWdw.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objSglWdw.Questionnareid = Convert.ToString(Session["CFEQID"]);
-                        objSglWdw.MasterID = "14";
+                        objSglWdw.MasterID = "54";
                         objSglWdw.FilePath = serverpath + fupSglWdw.PostedFile.FileName;
                         objSglWdw.FileName = fupSglWdw.PostedFile.FileName;
                         objSglWdw.FileType = fupSglWdw.PostedFile.ContentType;
