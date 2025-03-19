@@ -34,7 +34,7 @@
                     <asp:HiddenField ID="hdnUserID" runat="server" />
                     <div class="col-md-12 d-flex">
                         <div class="col-md-11">
-                            <h4 style="margin-left: -10px;">Renewals Approvals :
+                            <h4 style="margin-left: -10px;">Renewals Dashboard :
                                 <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
                         </div>
 
@@ -146,13 +146,13 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-                            <%--   <EmptyDataTemplate>
+                               <EmptyDataTemplate>
                                 <div style="text-align: center; padding: 20px;">
                                     <div align="center" style="text-align: center; padding: 20px;">
-                                        <b>There are no Registered Units Under MIIPP, Please  <a href="../PreReg/IndustryRegistration.aspx" style="font-size: 20px; font-family: 'Bookman Old Style'">Click Here </a>to start Industry Registration.</b>
+                                        <b>There are no applied Renewal Services, Please  <a href="../Renewal/RENIndustryDetails.aspx" style="font-size: 20px; font-family: 'Bookman Old Style'">Click Here </a>to apply.</b>
                                     </div>
                                 </div>
-                            </EmptyDataTemplate>--%>
+                            </EmptyDataTemplate>
                         </asp:GridView>
 
                     </div>
