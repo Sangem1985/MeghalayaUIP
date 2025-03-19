@@ -1177,7 +1177,7 @@
                                                     <%# Container.DataItemIndex + 1%>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="DepQID" Visible="false">
+                                            <asp:TemplateField HeaderText="DepQID" Visible="true">
                                                 <ItemTemplate>
                                                     <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
                                                 </ItemTemplate>
@@ -1293,7 +1293,7 @@
                                                             <div class="col-lg-1 d-flex">
                                                                 :
                                                             </div>
-                                                            <div class="col-lg-4 d-flex">
+                                                            <div class="col-lg-4 d-flex"><asp:HiddenField runat="server" ID="hdnDPRQueryID" />
                                                                 <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine"></asp:TextBox>
                                                             </div>
                                                         </div>

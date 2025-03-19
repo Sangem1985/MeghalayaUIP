@@ -248,6 +248,11 @@ namespace MeghalayaUIP.Dept.PreReg
                             if (ObjUserInfo.UserID == "1030")
                             {
                                 verifypanelAttachment.Visible = true;
+                                if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
+                                {
+                                    hdnDPRQueryID.Value = Convert.ToString(ds.Tables[4].Rows[0]["IRQID"]);
+                                   // txtRemark.Text = hdnDPRQueryID.Value;
+                                }
                                 QueryResondpanel.Visible = false;
                             }
                             else
@@ -853,7 +858,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     errormsg = errormsg + slno + ". Please Fill Site Inspection report by clicking the given link ....!\\n";
                     slno = slno + 1;
                 }
-                else if(lblApplNo1.Text !="Y")
+                else if (lblApplNo1.Text != "Y")
                 {
                     if (string.IsNullOrEmpty(txtRemark.Text) || txtRemark.Text == "" || txtRemark.Text == null)
                     {
@@ -1017,6 +1022,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.Investerid = Session["INVESTERID"].ToString();
                     //  string valid = PreBAL.PreRegApprovals(prd);                    
                     prd.Remarks = txtRemark.Text;
+                    prd.QueryID = hdnDPRQueryID.Value;
                     prd.QueryResponse = ddlOfcr.SelectedItem.Text;
 
                     string valid = PreBAL.PreRegUpdateQuery(prd);
@@ -1191,7 +1197,7 @@ namespace MeghalayaUIP.Dept.PreReg
             }
             else
             {
-               // lblmsg0.Text = Message;
+                // lblmsg0.Text = Message;
                 Failure.Visible = false;
             }
         }
