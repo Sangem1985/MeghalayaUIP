@@ -196,7 +196,7 @@
                                     <div class="col-md-12">
 
                                         <div>
-                                            <table cellspacing="0" rules="all" class="table table-succuss table-bordered" border="1" id="ContentPlaceHolder1_grdRevenueProj" style="border-collapse: collapse;">
+                                            <table cellspacing="0" rules="all" class="table-succuss table-bordered" border="1" id="ContentPlaceHolder1_grdRevenueProj" style="border-collapse: collapse;">
                                                 <tbody>
                                                     <tr class="GridviewScrollC1HeaderWrap" align="center" valign="middle" style="height: 40px;">
                                                         <th align="center" scope="col" rowspan="2" style="width: 25%;">&nbsp;</th>
@@ -917,7 +917,7 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="col-md-12 text-right mb-3">
+                                    <div class="col-md-12 text-right mb-3 mt-3">
                                         <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                         <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
                                         <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" class="btn btn-rounded btn-info btn-lg" Width="150px" />

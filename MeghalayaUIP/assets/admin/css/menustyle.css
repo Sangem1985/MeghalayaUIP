@@ -31,8 +31,11 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
     font-size: 16px !important;
 }*/
 a.nav-link {
-    padding: 12px 2px !important;
-    margin: 0px 14px !important;
+    padding: 12px 0px 12px 10px !important;
+    margin: 0px 12px !important;
+    
+    /*old code padding: 12px 2px !important;
+    margin: 0px 14px !important;*/
     font-size: 14px !important;
 }
 .dropdown-menu.show a {

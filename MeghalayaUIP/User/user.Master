@@ -246,13 +246,13 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                         <div class="collapse navbar-collapse" id="navbarNavDropdown" style="display: flex !important; justify-content: space-between;">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="linkuserdshbrd" runat="server" OnClick="linkuserdshbrd_Click" class="nav-link"><i class="fi fi-br-dashboard"></i> Dashboard <span class="sr-only">(current)</span></asp:LinkButton>
+                                    <asp:LinkButton ID="linkuserdshbrd" runat="server" OnClick="linkuserdshbrd_Click" class="nav-link"><i class="fi fi-br-dashboard"></i> Dashboard </asp:LinkButton>
                                 </li>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="linkIndReg" runat="server" OnClick="linkIndReg_Click" class="nav-link"><i class="fi fi-br-industry-alt"></i> Industry Registration <span class="sr-only">(current)</span></asp:LinkButton>
+                                    <asp:LinkButton ID="linkIndReg" runat="server" OnClick="linkIndReg_Click" class="nav-link"><i class="fi fi-br-industry-alt"></i> Industry Registration </asp:LinkButton>
                                 </li>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="linkland" runat="server" class="nav-link" OnClick="linkland_Click"><i class="fi fi-br-land-layer-location"></i> Land Allotment <span class="sr-only">(current)</span></asp:LinkButton>
+                                    <asp:LinkButton ID="linkland" runat="server" class="nav-link" OnClick="linkland_Click"><i class="fi fi-br-land-layer-location"></i> Land Allotment </asp:LinkButton>
                                 </li>
                                 <li class="nav-item">
                                     <asp:LinkButton ID="linkCFEDashbrd" runat="server" OnClick="linkCFEDashbrd_Click" class="nav-link"><i class="fi fi-br-form"></i> Pre-Establishment </asp:LinkButton>
