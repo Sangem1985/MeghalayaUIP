@@ -96,10 +96,32 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                if (e.Row.RowType == DataControlRowType.Header)
+                {
+                    CheckBox chkHeader = (CheckBox)e.Row.FindControl("chkHeader");
+                    chkHeader.Checked = true; chkHeader.Enabled = false;
+
+                }
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
+                    CheckBox chkSel = (CheckBox)e.Row.FindControl("chkSel");
+                    chkSel.Checked = true; chkSel.Enabled = false;
                     decimal Approvalfee = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "CFEDA_APPROVALFEE"));
                     TotFee = TotFee + Approvalfee;
+                    Label lblAmount = (Label)e.Row.FindControl("lblAmount");
+                    if (ViewState["Amount"] == null)
+                    {
+                        ViewState["Amount"] = 0;
+                    }
+                    decimal PrvAmount = Convert.ToDecimal(ViewState["Amount"].ToString());
+                    decimal TotalPaymentAmount;
+
+                    
+                        TotalPaymentAmount = PrvAmount + Convert.ToDecimal(lblAmount.Text);
+                    
+                    
+                    lblPaymentAmount.InnerText = TotalPaymentAmount.ToString();
+                    ViewState["Amount"] = TotalPaymentAmount.ToString();
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {

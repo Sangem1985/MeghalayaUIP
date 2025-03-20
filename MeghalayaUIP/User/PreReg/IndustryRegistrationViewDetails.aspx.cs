@@ -195,6 +195,7 @@ namespace MeghalayaUIP.User.PreReg
 
                         if (ds.Tables[4].Rows.Count > 0)
                         {
+                            divQuery.Visible = true;
                             grdQueries.DataSource = ds.Tables[4];
                             grdQueries.DataBind();
                         }
@@ -205,6 +206,7 @@ namespace MeghalayaUIP.User.PreReg
                         }
                         if (ds.Tables[6].Rows.Count > 0)
                         {
+                            divQueryAttachments.Visible = true;
                             grdQryAttachments.DataSource = ds.Tables[6];
                             grdQryAttachments.DataBind();
                         }

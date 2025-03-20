@@ -123,7 +123,7 @@
 
                                 </h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                            <div id="collapseOne" class="panel-collapse collapse " role="tabpanel"
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
                                     <div class="card-header">
@@ -729,10 +729,8 @@
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                            <div id="collapseTwo" class="panel-collapse collapse show" role="tabpanel"
                                 aria-labelledby="headingTwo" style="" aria-expanded="false">
-
-
                                 <div class="card">
                                     <div class="card-header">
                                         <h3>Check Lists</h3>
@@ -787,7 +785,7 @@
 
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="divQuery" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -796,7 +794,7 @@
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" 
                                 aria-labelledby="headingThree" aria-expanded="false">
                                 <div class="card">
                                     <div class="card-header">
@@ -839,7 +837,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" runat="server" id="divQueryAttachments" visible="false">
                             <div class="panel-heading" role="tab" id="headingFour">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -848,7 +846,7 @@
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" 
                                 aria-labelledby="headingFour" aria-expanded="false">
                                 <div class="card">
                                     <div class="card-header">
@@ -897,7 +895,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" visible="false" runat="server">
+                        <div class="panel panel-default" visible="false" runat="server" >
                             <div class="panel-heading" role="tab" id="headingFive">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"

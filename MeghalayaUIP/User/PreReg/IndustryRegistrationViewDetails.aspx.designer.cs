@@ -726,6 +726,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.GridView grdAttachments;
 
         /// <summary>
+        /// divQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divQuery;
+
+        /// <summary>
         /// grdQueries control.
         /// </summary>
         /// <remarks>
@@ -733,6 +742,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdQueries;
+
+        /// <summary>
+        /// divQueryAttachments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divQueryAttachments;
 
         /// <summary>
         /// grdQryAttachments control.

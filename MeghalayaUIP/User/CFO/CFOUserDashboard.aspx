@@ -38,74 +38,74 @@
                      <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
 
                     <div class="table-responsive CFEUSERDASHBOARD">
-                        <asp:GridView ID="gvCFOApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                        <asp:GridView ID="gvCFOApproved" runat="server" AutoGenerateColumns="False"  ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-hover" ForeColor="#333333"
-                            GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvCFOApproved_RowDataBound"
+                            GridLines="Both" Width="100%" EnableModelValidation="True" OnRowDataBound="gvCFOApproved_RowDataBound"
                             OnRowCreated="gvCFOApproved_RowCreated" ShowFooter="true">
                             <RowStyle />
-                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                            <HeaderStyle BackColor="#013161" BorderColor="White" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <AlternatingRowStyle />
                             <EmptyDataRowStyle BorderStyle="None" BorderColor="White" />
                             <Columns>
-                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%" HeaderStyle-BorderColor="White">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
                                         <%# Container.DataItemIndex + 1%>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField HeaderText="Registration ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
-                                <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Communication Address" DataField="APPLICANTADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Registration ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
+                                <asp:BoundField HeaderStyle-BorderColor="White"  HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Communication Address" DataField="APPLICANTADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Unit Address" DataField="UNITADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <%--7--%>
-                                <asp:TemplateField HeaderText="Applied" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Applied" ItemStyle-Width="12%" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("APPLIEDCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Approved" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Approved" ItemStyle-Width="12%" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplApproved" Text='<%#Eval("APPROVEDDCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Under Process" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Under Process" ItemStyle-Width="12%" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplundrProcess" Text='<%#Eval("UNDERPROCESSCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Rejected" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Rejected" ItemStyle-Width="12%" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplRejected" Text='<%#Eval("REJECTEDDCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Query Raised" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Query Raised" ItemStyle-Width="12%" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" ID="hplQueryRaised" Text='<%#Eval("QUERYCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apply For Pre-Operational" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="Apply For Pre-Operational" ItemStyle-Width="12%" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnApplyCFO" OnClick="btnApplyCFO_Click" Text="Apply" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="View Application Details" ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="View Application Details" ItemStyle-Width="12%" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnCombndAppl" OnClick="btnCombndAppl_Click" Text="View" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="View Application Status " ItemStyle-Width="12%">
+                                <asp:TemplateField HeaderText="View Application Status " ItemStyle-Width="12%" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnApplStatus" OnClick="btnApplStatus_Click" Text="Application Status" CssClass="btn btn-info btn-rounded" />
                                     </ItemTemplate>

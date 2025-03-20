@@ -30,15 +30,15 @@
 
                     <div class="table-responsive CFEUSERDASHBOARD">
 
-                        <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                        <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False"  ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
-                            GridLines="None" Width="100%" EnableModelValidation="True" ShowFooter="true" OnRowDataBound="gvPreRegApproved_RowDataBound" OnRowCreated="gvPreRegApproved_RowCreated">
+                            GridLines="Both" Width="100%" EnableModelValidation="True" ShowFooter="true" OnRowDataBound="gvPreRegApproved_RowDataBound" OnRowCreated="gvPreRegApproved_RowCreated">
                             <RowStyle />
-                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                             <FooterStyle BackColor="#013161" CssClass="no-hover" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <AlternatingRowStyle />
                             <Columns>
-                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%">
+                                <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="3%" HeaderStyle-BorderColor="White">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                     <ItemTemplate>
@@ -46,30 +46,30 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
-                                <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
-                                <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Application ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <%--7--%>                                
-                                <asp:TemplateField HeaderText="Query Raised">
+                                <asp:TemplateField HeaderText="Query Raised" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:LinkButton runat="server" ID="hplQueryRaised" Text='<%#Eval("QUERYCOUNT")%>' />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apply For Land Allotment">
+                                <asp:TemplateField HeaderText="Apply For Land Allotment" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnApplyLand" Text="Apply" OnClick="btnApplyLand_Click" CssClass="btn btn-info btn-rounded btn-sm" Width="100px" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="View Application Details" Visible="true">
+                                <asp:TemplateField HeaderText="View Application Details" Visible="true" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnCombndAppl" Text="View" OnClick="btnCombndAppl_Click" CssClass="btn btn-info btn-rounded" Width="100px" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="View Application Status ">
+                                <asp:TemplateField HeaderText="View Application Status " HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
                                         <asp:Button runat="server" ID="btnApplStatus" Text="Status" CssClass="btn btn-info btn-rounded" Width="100px" />
                                     </ItemTemplate>

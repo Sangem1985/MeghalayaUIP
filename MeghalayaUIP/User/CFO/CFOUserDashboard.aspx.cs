@@ -70,6 +70,7 @@ namespace MeghalayaUIP.User.CFO
                     HeaderCell.RowSpan = 1;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "";
+                    HeaderCell.BorderColor = System.Drawing.Color.White;
                     HeaderCell.Font.Bold = true;
                     HeaderGridRow.Cells.Add(HeaderCell);
 
@@ -80,6 +81,7 @@ namespace MeghalayaUIP.User.CFO
                     HeaderCell.Font.Bold = true;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "Pre Operational Approvals";
+                    HeaderCell.BorderColor = System.Drawing.Color.White;
                     HeaderGridRow.Cells.Add(HeaderCell);
 
                     HeaderCell = new TableHeaderCell();
@@ -88,6 +90,7 @@ namespace MeghalayaUIP.User.CFO
                     HeaderCell.Font.Bold = true;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "";
+                    HeaderCell.BorderColor = System.Drawing.Color.White;
                     HeaderGridRow.Cells.Add(HeaderCell);
 
                     gvCFOApproved.Controls[0].Controls.AddAt(0, HeaderGridRow);

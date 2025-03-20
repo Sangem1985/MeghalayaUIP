@@ -82,14 +82,14 @@
                 <section id="dashboardcount" class="mt-2">
                     <div class="container-fluid">
                         <div class="table-responsive">
-                            <asp:GridView ID="gvUserDashboard" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
+                            <asp:GridView ID="gvUserDashboard" runat="server" AutoGenerateColumns="False"  ShowHeaderWhenEmpty="true"
                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered table-striped table-hover" ForeColor="#333333"
-                                GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvUserDashboard_RowDataBound">
+                                GridLines="Both" Width="100%" EnableModelValidation="True" OnRowDataBound="gvUserDashboard_RowDataBound">
                                 <RowStyle />
-                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" Height="33px" HorizontalAlign="Center" />
+                                <HeaderStyle BackColor="#013161" BorderColor="White" Font-Bold="True" ForeColor="White" Height="33px" HorizontalAlign="Center" />
 
                                 <Columns>
-                                    <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="5%">
+                                    <asp:TemplateField HeaderText="Sl.No" ItemStyle-Width="5%" HeaderStyle-BorderColor="White">
                                         <HeaderStyle HorizontalAlign="Center" />
                                         <ItemStyle HorizontalAlign="Center" />
                                         <ItemTemplate>
@@ -97,10 +97,10 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
-                                    <asp:BoundField HeaderText="Acknowledgement ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" ItemStyle-Width="10%" />
-                                    <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
-                                    <asp:BoundField HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="30%" />
-                                    <asp:HyperLinkField ControlStyle-Font-Underline="false" ControlStyle-ForeColor="Black"
+                                    <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Acknowledgement ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" ItemStyle-Width="10%" />
+                                    <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
+                                    <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Unit Address" DataField="UNITADDRESS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="30%" />
+                                    <asp:HyperLinkField ControlStyle-Font-Underline="false" ControlStyle-ForeColor="Black" HeaderStyle-BorderColor="White"
                                         FooterStyle-CssClass="text-center" Text="Click Here" HeaderText="Status" ControlStyle-CssClass="btn btn-info btn-sm text-white" ItemStyle-Width="6%" ItemStyle-ForeColor="White" ItemStyle-CssClass="text-white">
                                         <FooterStyle HorizontalAlign="Center" Font-Underline="false" Font-Bold="true" CssClass="text-center" />
                                         <ItemStyle Font-Underline="false" HorizontalAlign="Center" CssClass="text-center" />

@@ -19,15 +19,16 @@ namespace MeghalayaUIP.User.Payments
     public partial class RazorPaymentPage : System.Web.UI.Page
     {
         CFEBAL objcfebal = new CFEBAL();
-        public string orderId, InvestorId, KeyId, secret, PayAmount, Name, Desc, Mail, Contact, IpAddress, Notes,CallbackUrl,Cancelurl;
-        
+        public string orderId, InvestorId, KeyId, secret, PayAmount, Name, Desc, Mail, Contact, IpAddress, Notes, CallbackUrl, Cancelurl;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                if (!Page.IsPostBack)
+
+                if (Session["UserInfo"] != null)
                 {
-                    if (Session["UserInfo"] != null)
+                    if (!Page.IsPostBack)
                     {
                         var ObjUserInfo = new UserInfo(); string Receiptorder = "";
                         if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
@@ -82,6 +83,10 @@ namespace MeghalayaUIP.User.Payments
                         }
                     }
                 }
+                else
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
             }
 
             catch (Exception ex)
@@ -106,6 +111,6 @@ namespace MeghalayaUIP.User.Payments
 
             return result;
         }
-        
+
     }
 }
