@@ -38,7 +38,6 @@
             </nav>
             <div class="page-wrapper" id="divText" runat="server">
                 <div class="content container-fluid">
-
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
