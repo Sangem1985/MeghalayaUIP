@@ -608,7 +608,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSWPRTD = new CFEAttachments();
                         objSWPRTD.UNITID = Convert.ToString(Session["CFEUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
                         objSWPRTD.Questionnareid = Convert.ToString(Session["CFEQID"]); //Convert.ToString(Session["CFEQID"]);
-                        objSWPRTD.MasterID = "162";
+                        objSWPRTD.MasterID = "161";
                         objSWPRTD.FilePath = serverpath + fuppole.PostedFile.FileName;
                         objSWPRTD.FileName = fuppole.PostedFile.FileName;
                         objSWPRTD.FileType = fuppole.PostedFile.ContentType;
@@ -687,7 +687,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSWPRTD = new CFEAttachments();
                         objSWPRTD.UNITID = Convert.ToString(Session["CFEUNITID"]);//Convert.ToString(Session["CFEUNITID"]);
                         objSWPRTD.Questionnareid = Convert.ToString(Session["CFEQID"]); //Convert.ToString(Session["CFEQID"]);
-                        objSWPRTD.MasterID = "163";
+                        objSWPRTD.MasterID = "162";
                         objSWPRTD.FilePath = serverpath + fupowner.PostedFile.FileName;
                         objSWPRTD.FileName = fupowner.PostedFile.FileName;
                         objSWPRTD.FileType = fupowner.PostedFile.ContentType;
@@ -766,7 +766,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSiteSelection = new CFEAttachments();
                         objSiteSelection.UNITID = Convert.ToString(Session["CFEUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
                         objSiteSelection.Questionnareid = Convert.ToString(Session["CFEQID"]); //Convert.ToString(Session["CFEQID"]);
-                        objSiteSelection.MasterID = "164";
+                        objSiteSelection.MasterID = "163";
                         objSiteSelection.FilePath = serverpath + fupPCB.PostedFile.FileName;
                         objSiteSelection.FileName = fupPCB.PostedFile.FileName;
                         objSiteSelection.FileType = fupPCB.PostedFile.ContentType;
@@ -844,7 +844,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSiteSelection = new CFEAttachments();
                         objSiteSelection.UNITID = Convert.ToString(Session["CFEUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
                         objSiteSelection.Questionnareid = Convert.ToString(Session["CFEQID"]); //Convert.ToString(Session["CFEQID"]);
-                        objSiteSelection.MasterID = "165";
+                        objSiteSelection.MasterID = "164";
                         objSiteSelection.FilePath = serverpath + fupBuilding.PostedFile.FileName;
                         objSiteSelection.FileName = fupBuilding.PostedFile.FileName;
                         objSiteSelection.FileType = fupBuilding.PostedFile.ContentType;
@@ -922,7 +922,7 @@ namespace MeghalayaUIP.User.CFE
                         CFEAttachments objSiteSelection = new CFEAttachments();
                         objSiteSelection.UNITID = Convert.ToString(Session["CFEUNITID"]); //Convert.ToString(Session["CFEUNITID"]);
                         objSiteSelection.Questionnareid = Convert.ToString(Session["CFEQID"]); //Convert.ToString(Session["CFEQID"]);
-                        objSiteSelection.MasterID = "56";
+                        objSiteSelection.MasterID = "165";
                         objSiteSelection.FilePath = serverpath + fupOccupancy.PostedFile.FileName;
                         objSiteSelection.FileName = fupOccupancy.PostedFile.FileName;
                         objSiteSelection.FileType = fupOccupancy.PostedFile.ContentType;
