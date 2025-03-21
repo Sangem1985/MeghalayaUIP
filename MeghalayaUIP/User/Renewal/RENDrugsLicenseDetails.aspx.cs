@@ -533,21 +533,21 @@ namespace MeghalayaUIP.User.Renewal
                 List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
                 string errormsg = "";
 
-                if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter License Number\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtExpiryDate.Text) || txtExpiryDate.Text == "" || txtExpiryDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter License Expiry Date\\n";
-                    slno = slno + 1;
-                }
-                if (rblCancelledLic.SelectedIndex == -1 || rblCancelledLic.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Cancelled License \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter License Number\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtExpiryDate.Text) || txtExpiryDate.Text == "" || txtExpiryDate.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter License Expiry Date\\n";
+                //    slno = slno + 1;
+                //}
+                //if (rblCancelledLic.SelectedIndex == -1 || rblCancelledLic.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Cancelled License \\n";
+                //    slno = slno + 1;
+                //}
                 //if (string.IsNullOrEmpty(txtSpecifyLicNo.Text) || txtSpecifyLicNo.Text == "" || txtSpecifyLicNo.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter specify license no\\n";
