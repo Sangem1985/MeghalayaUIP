@@ -91,15 +91,15 @@
                             <h5 class="card-title ml-3">a) The Field Visit Team inspected</h5>
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-4">
-                                    <div class="form-group row">
+                                    <div class="form-group d-flex">
                                         <label class="col-lg-6 col-form-label">1. Unit Name:*</label>
-                                        <div class="col-lg-6 d-flex">
+                                        <div class="col-lg-6">
                                             <asp:TextBox ID="txtUnit" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group row">
+                                    <div class="form-group d-flex">
                                         <label class="col-lg-6 col-form-label">2. Place of Inspection: *</label>
                                         <div class="col-lg-6 d-flex">
                                             <asp:TextBox ID="txtLocation" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group row">
+                                    <div class="form-group d-flex">
                                         <label class="col-lg-6 col-form-label">3. Date of Inspection:*</label>
                                         <div class="col-lg-6 d-flex">
                                             <asp:TextBox ID="txtDate" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
@@ -122,7 +122,7 @@
                             <h5 class="card-title ml-3">b) Details Of Inspector Officer</h5>
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-4">
-                                    <div class="form-group row">
+                                    <div class="form-group d-flex">
                                         <label class="col-lg-6 col-form-label">1. Site Inspection Team Member Name:*</label>
                                         <div class="col-lg-6 d-flex">
                                             <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
@@ -130,7 +130,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group row">
+                                    <div class="form-group d-flex">
                                         <label class="col-lg-6 col-form-label">2. Designation/ Department: *</label>
                                         <div class="col-lg-6 d-flex">
                                             <asp:TextBox ID="txtDepartment" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox></td>
@@ -138,9 +138,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+
                                     <div class="form-group row">
                                         <label class="col-lg-6 col-form-label"></label>
-                                        <div class="col-lg-6 d-flex">
+                                        <div class="col-lg-6 d-flex" style="margin-top: -18px;">
                                             <asp:Button ID="btnSave" runat="server" Text="ADD" OnClick="btnSave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
 
                                         </div>
@@ -150,22 +151,30 @@
 
                             <div class="col-md-12 d-flex ">
                                 <div class="col-md-8">
-                                    <asp:GridView ID="gvTeamMembers" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                    <asp:GridView ID="gvTeamMembers" runat="server" AutoGenerateColumns="False"
+                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="0" CssClass="GRD mx-auto" ForeColor="#333333"
                                         GridLines="Both" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="gvTeamMembers_RowDeleting">
+                                        <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                        <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                        <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
+                                        <AlternatingRowStyle BackColor="White" />
                                         <Columns>
-                                            <asp:BoundField HeaderText="Name of the Site Inspection Team Member" DataField="MEMBERNAME" ItemStyle-BackColor="Wheat"
-                                                ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:BoundField HeaderText="Designation/ Department" DataField="DESIGNATION" ItemStyle-BackColor="Wheat"
-                                                ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat"
-                                                ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Name of the Site Inspection Team Member" DataField="MEMBERNAME">
+                                                <ItemStyle Width="350px" HorizontalAlign="Center" />
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField HeaderText="Designation/ Department" DataField="DESIGNATION">
+                                                <ItemStyle Width="300px" HorizontalAlign="Center" />
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="btn btn-rounded btn-danger text-white"/>
                                         </Columns>
                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                         <AlternatingRowStyle BackColor="White" />
                                     </asp:GridView>
                                 </div>
                             </div>
+
 
                             <%--<div class="col-md-12 d-flex table">
                                 <div class="col-md-2">
@@ -190,8 +199,8 @@
                                     </div>
                                 </div>
                             </div>--%>
-                            <h5 class="card-title ml-3">c) Inspection Details</h5>
-                            <div class="col-md-12 d-flex">
+                            <h5 class="card-title ml-3 mt-5">c) Inspection Details</h5>
+                            <div class="col-md-12 d-flex ml-3">
                                 <table style="width: 80%">
                                     <tr>
                                         <th>Sr No</th>
