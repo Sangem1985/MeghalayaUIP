@@ -876,7 +876,7 @@ namespace MeghalayaUIP.User.Services
                         serviceProdPlasticsWasteDetails.MultilayeredPlastic = chkMultilayeredPlastics.Checked ? "1" : "0";
                         serviceProdPlasticsWasteDetails.ManufacturingCapacity = txtManufacturingCapacity.Text;
                         serviceProdPlasticsWasteDetails.PreviousRegistration = txtPreviousRegistration.Text;
-                        serviceProdPlasticsWasteDetails.RegistrationDate = txtDate.Text;
+                        serviceProdPlasticsWasteDetails.RegistrationDate =( txtDate.Text);
                         serviceProdPlasticsWasteDetails.TotalCapitalInvestment = txtCapitalInvestment.Text;
                         serviceProdPlasticsWasteDetails.YearOfCommencement = txtCommencementYear.Text;
                         serviceProdPlasticsWasteDetails.ListQuantityProduct = txtProductsList.Text;
@@ -1114,7 +1114,11 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please Enter Disposal Method \\n";
                     slno = slno + 1;
                 }
-
+                if (rblCmplnc.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Compliance with 50-micron Thickness Rule\\n";
+                    slno = slno + 1;
+                }
                 return errormsg;
             }
             catch (Exception ex)
