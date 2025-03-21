@@ -32,7 +32,7 @@
 
                         <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False"  ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
-                            GridLines="None" Width="100%" EnableModelValidation="True" ShowFooter="true" OnRowDataBound="gvPreRegApproved_RowDataBound" OnRowCreated="gvPreRegApproved_RowCreated">
+                            GridLines="None" Width="100%" EnableModelValidation="True" ShowFooter="false" OnRowDataBound="gvPreRegApproved_RowDataBound" OnRowCreated="gvPreRegApproved_RowCreated">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                             <FooterStyle BackColor="#013161" CssClass="no-hover" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
