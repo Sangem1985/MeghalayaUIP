@@ -133,7 +133,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Mobile *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtmobile" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtmobile" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" TabIndex="1" onblur="validateIndianMobileNumber(this);" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -224,7 +224,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Mobile No.*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtMobilenumber" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtMobilenumber" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" onblur="validateIndianMobileNumber(this);" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -735,7 +735,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Mobile No.*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtmobileno" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtmobileno" runat="server" class="form-control" MaxLength="10" onkeypress="return PhoneNumberOnly(event)" onblur="validateIndianMobileNumber(this);" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

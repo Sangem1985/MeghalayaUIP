@@ -584,6 +584,7 @@ namespace MeghalayaUIP.User.CFE
                         }
 
                         CFEAttachments objCosmrEnty = new CFEAttachments();
+                        objCosmrEnty.UNITID = Convert.ToString(Session["CFEUNITID"]);
                         objCosmrEnty.Questionnareid = Convert.ToString(Session["CFEQID"]); 
                         objCosmrEnty.MasterID = "49";
                         objCosmrEnty.FilePath = serverpath + fupCosmrEnty.PostedFile.FileName;

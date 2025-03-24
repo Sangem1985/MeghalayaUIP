@@ -596,9 +596,36 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEID_REPTELPHNO", objCFEEntrepreneur.AuthRep_TelNo);
                 com.Parameters.AddWithValue("@CFEID_REPDOORNO", objCFEEntrepreneur.AuthRep_DoorNo);
                 com.Parameters.AddWithValue("@CFEID_REPLOCALITY", objCFEEntrepreneur.AuthRep_Locality);
-                com.Parameters.AddWithValue("@CFEID_REPDISTRICTID", Convert.ToInt32(objCFEEntrepreneur.AuthRep_DistrictID));
-                com.Parameters.AddWithValue("@CFEID_REPMANDALID", Convert.ToInt32(objCFEEntrepreneur.AuthRep_MandalID));
-                com.Parameters.AddWithValue("@CFEID_REPVILLAGEID", Convert.ToInt32(objCFEEntrepreneur.AuthRep_VillageID));
+
+                if (objCFEEntrepreneur.Stateid !="" || objCFEEntrepreneur.Stateid !=null)
+                {
+                    com.Parameters.AddWithValue("@CFEID_STATEID", Convert.ToInt32(objCFEEntrepreneur.Stateid));
+                }
+                if (objCFEEntrepreneur.AuthRep_DistrictID != "" || objCFEEntrepreneur.AuthRep_DistrictID != null)
+                {
+                    com.Parameters.AddWithValue("@CFEID_REPDISTRICTID", Convert.ToInt32(objCFEEntrepreneur.AuthRep_DistrictID));
+                }
+                if (objCFEEntrepreneur.AuthRep_MandalID != "" || objCFEEntrepreneur.AuthRep_MandalID != null)
+                {
+                    com.Parameters.AddWithValue("@CFEID_REPMANDALID", Convert.ToInt32(objCFEEntrepreneur.AuthRep_MandalID));
+                }
+                if (objCFEEntrepreneur.AuthRep_VillageID != "" || objCFEEntrepreneur.AuthRep_VillageID != null)
+                {
+                    com.Parameters.AddWithValue("@CFEID_REPVILLAGEID", Convert.ToInt32(objCFEEntrepreneur.AuthRep_VillageID));
+                }
+                if (objCFEEntrepreneur.District != "" || objCFEEntrepreneur.District != null)
+                {
+                    com.Parameters.AddWithValue("@CFEID_DISTRICTNAME", objCFEEntrepreneur.District);
+                }
+                if (objCFEEntrepreneur.Mandal != "" || objCFEEntrepreneur.Mandal != null)
+                {
+                    com.Parameters.AddWithValue("@CFEID_MANDALNAME", objCFEEntrepreneur.Mandal);
+                }
+                if (objCFEEntrepreneur.Village != "" || objCFEEntrepreneur.Village != null)
+                {
+                    com.Parameters.AddWithValue("@CFEID_VILLAGENAME", objCFEEntrepreneur.Village);
+                }
+
                 com.Parameters.AddWithValue("@CFEID_REPPINCODE", Convert.ToInt32(objCFEEntrepreneur.AuthRep_Pincode));
                 com.Parameters.AddWithValue("@CFEID_REPISDIFFABLED", objCFEEntrepreneur.AuthRep_DiffAbled);
                 com.Parameters.AddWithValue("@CFEID_REPISWOMANENTR", objCFEEntrepreneur.AuthRep_Woman);

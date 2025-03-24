@@ -289,6 +289,11 @@ namespace MeghalayaUIP.Common
         public string RoadCutLocation { get; set; }
         public string RoadCut { get; set; }
 
+        public string Stateid { get; set; }
+        public string District { get; set; }
+        public string Mandal { get; set; }
+        public string Village { get; set; }
+
 
     }
     public class CFEEntrepreneur

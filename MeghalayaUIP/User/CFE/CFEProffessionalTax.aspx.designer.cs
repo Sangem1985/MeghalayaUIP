@@ -96,13 +96,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// rblApply control.
+        /// ddlApply control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblApply;
+        protected global::System.Web.UI.WebControls.DropDownList ddlApply;
 
         /// <summary>
         /// EstblishDetails control.
@@ -213,13 +213,22 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblAdditional;
 
         /// <summary>
-        /// Business control.
+        /// divBusinessDet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Business;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBusinessDet;
+
+        /// <summary>
+        /// divBusiness control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBusiness;
 
         /// <summary>
         /// txtBusiness control.
@@ -249,13 +258,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddldist;
 
         /// <summary>
-        /// Div1 control.
+        /// divEmpTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEmpTotal;
 
         /// <summary>
         /// txtEMP control.
@@ -285,13 +294,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.GridView GVState;
 
         /// <summary>
-        /// rblDesignation control.
+        /// ddlDesignation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblDesignation;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDesignation;
 
         /// <summary>
         /// rblother control.

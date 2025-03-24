@@ -228,6 +228,9 @@ namespace MeghalayaUIP.User.CFE
                     result = objcfebal.CFEPDCLDetails(Power);
                     if (result != "")
                     {
+                        success.Visible = true;
+                        Failure.Visible = false;
+
                         string message = "alert('" + "Power distribution corporation limited Details Saved Successfully" + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }

@@ -6,40 +6,40 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type="text/javascript">
-    function handleKeyUp(input) {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        } else {
-            input.style.border = "1px solid #767575b5";
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
         }
-    }
-    function validateDropdown(dropdown) {
+        function validateDropdown(dropdown) {
 
-        if (dropdown.value === "0") {
-            dropdown.style.border = "2px solid red";
-            dropdown.focus();
-        } else {
-            dropdown.style.border = "1px solid #767575b5";
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
         }
-    }
-    function validateRadioButtonList(radioGroupContainer) {
-        // Find all radio buttons inside the container
-        const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
 
-        // Check if any radio button is selected
-        const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
 
-        if (!isSelected) {
-            // If none are selected, apply red border
-            radioGroupContainer.style.border = "2px solid red";
-            radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
-        } else {
-            // Reset the border if an option is selected
-            var id = radioGroupContainer.id;
-            document.getElementById(id).style.border = "1px solid #767575b5";
-            return false;
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
         }
-    }
     </script>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -77,11 +77,11 @@
                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Application Type</span></label>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-11">
+                                            <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Apply As *</label>
-                                                    <div class="col-lg-8">
-                                                        <asp:RadioButtonList ID="rblApply" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">
+                                                    <label class="col-lg-4 col-form-label">Apply As *</label>
+                                                    <div class="col-lg-6">
+                                                        <%--   <asp:RadioButtonList ID="rblApply" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">
                                                             <asp:ListItem Text="Individual" Value="1" />
                                                             <asp:ListItem Text="Firm" Value="2" />
                                                             <asp:ListItem Text="Company" Value="3"></asp:ListItem>
@@ -89,10 +89,26 @@
                                                             <asp:ListItem Text="Society" Value="5"></asp:ListItem>
                                                             <asp:ListItem Text="Club" Value="6"></asp:ListItem>
                                                             <asp:ListItem Text="Association" Value="7"></asp:ListItem>
-                                                        </asp:RadioButtonList>
+                                                        </asp:RadioButtonList>--%>
+
+
+                                                        <asp:DropDownList ID="ddlApply" runat="server" class="form-control">
+                                                            <asp:ListItem Text="--Select--" Value="0" />
+                                                            <asp:ListItem Text="Firm" Value="2" />
+                                                            <asp:ListItem Text="Company" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="Corporation" Value="4"></asp:ListItem>
+                                                            <asp:ListItem Text="Society" Value="5"></asp:ListItem>
+                                                            <asp:ListItem Text="Club" Value="6"></asp:ListItem>
+                                                            <asp:ListItem Text="Association" Value="7"></asp:ListItem>
+                                                        </asp:DropDownList>
+
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
+
                                         </div>
 
                                         <div class="col-md-12 d-flex">
@@ -161,7 +177,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Constitution of Establishment *</label>
                                                     <div class="col-lg-8">
-                                                        <asp:RadioButtonList ID="rblConstitution" runat="server" RepeatDirection="Horizontal"  onchange="validateRadioButtonList(this)">
+                                                        <asp:RadioButtonList ID="rblConstitution" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">
                                                             <asp:ListItem Text="Proprietor" Value="1" />
                                                             <asp:ListItem Text="Partnership" Value="2" />
                                                             <asp:ListItem Text="Company" Value="3"></asp:ListItem>
@@ -180,7 +196,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Additional Place of Business *</label>
+                                                    <label class="col-lg-6 col-form-label">Do you Have Additional Place of Business Details *</label>
                                                     <div class="col-lg-6">
                                                         <asp:RadioButtonList ID="rblAdditional" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblAdditional_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -190,10 +206,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" id="divBusinessDet" runat="server" visible="false">
                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Additional Business Details</label>
                                         </div>
-                                        <div class="col-md-12 d-flex" id="Business" runat="server" visible="false">
+                                        <div class="col-md-12 d-flex" id="divBusiness" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Place of Business* </label>
@@ -222,7 +238,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-md-12 d-flex" id="Div1" runat="server" visible="false">
+                                        <div class="col-md-12 d-flex" id="divEmpTotal" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total working employees *</label>
@@ -261,11 +277,11 @@
                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Applicant's Designation</span></label>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Please Select Designation  *</label>
+                                                    <label class="col-lg-6 col-form-label">Please Select Designation  *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblDesignation" runat="server" RepeatDirection="Horizontal"  onchange="validateRadioButtonList(this)">
+                                                        <%-- <asp:RadioButtonList ID="rblDesignation" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">
                                                             <asp:ListItem Text="Proprietor" Value="1" />
                                                             <asp:ListItem Text="Partner" Value="2" />
                                                             <asp:ListItem Text=" Principal Officer" Value="3"></asp:ListItem>
@@ -273,13 +289,25 @@
                                                             <asp:ListItem Text="Manager" Value="5"></asp:ListItem>
                                                             <asp:ListItem Text="Director" Value="6"></asp:ListItem>
                                                             <asp:ListItem Text="Secretary" Value="7"></asp:ListItem>
-                                                        </asp:RadioButtonList>
+                                                        </asp:RadioButtonList>--%>
+
+                                                        <asp:DropDownList ID="ddlDesignation" runat="server" class="form-control">
+                                                            <asp:ListItem Text="--Select--" Value="0" />
+                                                            <asp:ListItem Text="Proprietor" Value="1" />
+                                                            <asp:ListItem Text="Partner" Value="2" />
+                                                            <asp:ListItem Text=" Principal Officer" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="Agent" Value="4"></asp:ListItem>
+                                                            <asp:ListItem Text="Manager" Value="5"></asp:ListItem>
+                                                            <asp:ListItem Text="Director" Value="6"></asp:ListItem>
+                                                            <asp:ListItem Text="Secretary" Value="7"></asp:ListItem>
+                                                        </asp:DropDownList>
+
+
+
+
                                                     </div>
                                                 </div>
                                             </div>
-
-                                        </div>
-                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Do you have registration under any other act? *</label>
@@ -301,6 +329,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
                                             <div class="col-md-4" id="RegNo" runat="server" visible="false">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Regisration No*</label>
