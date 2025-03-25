@@ -122,6 +122,8 @@ namespace MeghalayaUIP.User.CFE
                         objAadhar.FileName = fupAttachment.PostedFile.FileName;
                         objAadhar.FileType = fupAttachment.PostedFile.ContentType;
                         objAadhar.FileDescription = "RESPONSE ATTACHMENT";
+                        objAadhar.DeptID = "0";
+                        objAadhar.ApprovalID = "0";
                         objAadhar.CreatedBy = hdnUserID.Value;
                         objAadhar.IPAddress = getclientIP();
                         result = objcfebal.InsertCFEAttachments(objAadhar);
@@ -233,7 +235,7 @@ namespace MeghalayaUIP.User.CFE
                 result = objcfebal.InsertCFEQueryResponse(CFEQuery);
 
                 btnSubmit.Enabled = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Replied Successfully!');  window.location.href='CFEQueryDashboard.aspx'", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", $"alert('Query Replied Successfully!');  window.location.href='CFEQueryDashboard.aspx?UnitID={lblUnitId.Text}'", true);
                 return;
             }
             catch (Exception ex)

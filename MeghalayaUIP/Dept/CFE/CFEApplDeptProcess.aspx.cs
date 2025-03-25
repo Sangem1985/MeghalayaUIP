@@ -437,12 +437,12 @@ namespace MeghalayaUIP.Dept.CFE
                         //  Fires.Visible = true;
                         if (Fires.Visible == true)
                         {
-                            lblDistrics.Text = Convert.ToString(ds.Tables[8].Rows[0]["DistrictName"]);
-                            lblMan.Text = Convert.ToString(ds.Tables[8].Rows[0]["Mandalname"]);
-                            lblVill.Text = Convert.ToString(ds.Tables[8].Rows[0]["VillageName"]);
-                            lbllocal.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Locality"]);
-                            lbNear.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Landmark"]);
-                            lblPincodes.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Pincode"]);
+                            //lblDistrics.Text = Convert.ToString(ds.Tables[8].Rows[0]["DistrictName"]);
+                            //lblMan.Text = Convert.ToString(ds.Tables[8].Rows[0]["Mandalname"]);
+                            //lblVill.Text = Convert.ToString(ds.Tables[8].Rows[0]["VillageName"]);
+                            //lbllocal.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Locality"]);
+                            //lbNear.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Landmark"]);
+                            //lblPincodes.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Pincode"]);
                             lblheight.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_BUILDINGHT"]);
                             lblEachfloor.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FLOORHT"]);
                             lblArea.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_PLOTAREA"]);
