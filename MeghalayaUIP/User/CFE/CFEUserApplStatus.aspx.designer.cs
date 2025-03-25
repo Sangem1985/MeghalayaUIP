@@ -69,6 +69,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblmsg0;
 
         /// <summary>
+        /// ddlStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+
+        /// <summary>
         /// lbluidno control.
         /// </summary>
         /// <remarks>
@@ -114,6 +123,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblApprovalsObtained;
 
         /// <summary>
+        /// divApplicationStages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divApplicationStages;
+
+        /// <summary>
         /// linkApprApplied control.
         /// </summary>
         /// <remarks>
@@ -150,6 +168,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblApprovalstobeApplied;
 
         /// <summary>
+        /// divPaymentStages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPaymentStages;
+
+        /// <summary>
         /// linkAddlPaymnt control.
         /// </summary>
         /// <remarks>
@@ -184,6 +211,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAddlPaymentPaid;
+
+        /// <summary>
+        /// divPreScrutinyStages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPreScrutinyStages;
 
         /// <summary>
         /// linkQryRaised control.
@@ -292,6 +328,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblScrtnyPendng;
+
+        /// <summary>
+        /// divApprovalStages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divApprovalStages;
 
         /// <summary>
         /// linkApprovalIssued control.

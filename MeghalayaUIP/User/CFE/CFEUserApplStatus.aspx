@@ -27,15 +27,26 @@
         <div class="modal-header" style="padding: 3px 30px;">
             <h4 class="modal-title cfe" id="myLargeModalLabel cfe1">Applicant Dashboard - Pre-Establishment Approvals</h4>
             <h5 class="modal-title cfe" id="myLargeModalLabel cfe2">Status View : 
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select Status</option>
-                    <option value="1" href="AS">Application Stage</option>
-                    <option value="2" href="PS">Payment Stage</option>
-                    <option value="3" href="PSS">Pre-Scrutiny Stage</option>
-                    <option value="4" href="#APS">Approval Stage</option>
-                </select>
-
+                <asp:DropDownList ID="ddlStatus" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                        <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
+                        <asp:ListItem Value="ApplicationStage" Text="Application Stage"></asp:ListItem>
+                        <asp:ListItem Value="PaymentStage" Text="Payment Stage"></asp:ListItem>
+                        <asp:ListItem Value="Pre-ScrutinyStage" Text="Pre-Scrutiny Stage"></asp:ListItem>
+                        <asp:ListItem Value="ApprovalStage" Text="Approval Stage"></asp:ListItem>                   
+                    </asp:DropDownList>
             </h5>
+
+            <%--  <div class="col-md-12 d-flex row mb-3">
+
+                <div class="col-md-2">Status View </div>
+                <div class="col-md-2 d-flex">
+                    <spna class="dots">:&nbsp;&nbsp;</spna>
+                   
+
+                </div>
+                <div class="col-md-8">&nbsp;</div>
+            </div>--%>
+
         </div>
 
         <div class="page-wrapper cfeuserapplstatus icons">
@@ -100,7 +111,7 @@
                     </section>
                 </div>
 
-                <div class="card">
+                <div class="card" id="divApplicationStages" runat="server" visible="false">
                     <div class="card-header">
                         <h3>Application Stages</h3>
                     </div>
@@ -155,11 +166,11 @@
                 </div>
 
 
-                <div class="card" id="AS">
+                <div class="card" id="divPaymentStages" runat="server" visible="false">
                     <div class="card-header">
                         <h3>Payment Stages</h3>
                     </div>
-                    <section id="dashboardcount2" class="dashboardcount2">
+                    <section id="dashboardcount3" class="dashboardcount3">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
@@ -211,11 +222,11 @@
                     </section>
                 </div>
 
-                <div class="card" id="PSS">
+                <div class="card" id="divPreScrutinyStages" runat="server" visible="false">
                     <div class="card-header">
                         <h3>Pre-Scrutiny Stages</h3>
                     </div>
-                    <section id="dashboardcount1">
+                    <section id="dashboardcount4">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
@@ -342,11 +353,11 @@
                     </section>
                 </div>
 
-                <div class="card" id="APS">
+                <div class="card" id="divApprovalStages" runat="server" visible="false">
                     <div class="card-header">
                         <h3>Approval Stages</h3>
                     </div>
-                    <section id="dashboardcount2" class="dashboardcount2">
+                    <section id="dashboardcount5" class="dashboardcount5">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
