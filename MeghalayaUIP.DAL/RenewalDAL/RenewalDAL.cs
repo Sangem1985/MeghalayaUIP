@@ -2212,7 +2212,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetRENApplicationDetails(string UnitID, string InvesterID)
+        public DataSet GetRENApplicationDetails(string RENQDID, string InvesterID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2228,7 +2228,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQDID", Convert.ToInt32(RENQDID));
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
                 da.Fill(ds);
                 transaction.Commit();

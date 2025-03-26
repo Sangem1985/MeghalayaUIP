@@ -3462,6 +3462,15 @@ namespace MeghalayaUIP.Dept.Renewal
         protected global::System.Web.UI.WebControls.Label lblAmountpaid;
 
         /// <summary>
+        /// grdcfeattachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdcfeattachment;
+
+        /// <summary>
         /// grdQueries control.
         /// </summary>
         /// <remarks>
@@ -3525,13 +3534,13 @@ namespace MeghalayaUIP.Dept.Renewal
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdquryorrej;
 
         /// <summary>
-        /// lblremarks control.
+        /// lblremarked control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblremarks;
+        protected global::System.Web.UI.WebControls.Label lblremarked;
 
         /// <summary>
         /// tdaction control.

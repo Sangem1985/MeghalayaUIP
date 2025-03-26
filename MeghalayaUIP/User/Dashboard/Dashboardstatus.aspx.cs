@@ -92,7 +92,7 @@ namespace MeghalayaUIP.User.Dashboard
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {
-                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFEQD_UNITID"]);
+                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFEQD_CFEUIDNO"]);
                         lblUnitNmae.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["CFEQD_COMPANYNAME"]);
 
                     }

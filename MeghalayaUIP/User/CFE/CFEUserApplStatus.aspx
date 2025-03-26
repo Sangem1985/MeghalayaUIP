@@ -53,7 +53,7 @@
             <div class="content container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Application Status For Acknowledgement ID: 
+                        <h3>Application Status For Application ID: 
                             <asp:Label ID="lbluidno" runat="server"></asp:Label></h3>
                     </div>
                     <section id="dashboardcount1">
@@ -76,7 +76,7 @@
                                             </div>
                                             <hr class="dark horizontal my-0">
                                             <div class="card-footer p-3">
-                                                <p class="mb-0">Approvals Required as per IMA</p>
+                                                <p class="mb-0">Approvals Required as per MiPA</p>
                                             </div>
                                             <%--</a>--%>
                                         </asp:LinkButton>
@@ -226,7 +226,8 @@
                     <div class="card-header">
                         <h3>Pre-Scrutiny Stages</h3>
                     </div>
-                    <section id="dashboardcount4">
+                    <br />
+                    <section id="dashboardcount4" class="dashboardcount4">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
@@ -357,6 +358,7 @@
                     <div class="card-header">
                         <h3>Approval Stages</h3>
                     </div>
+                    <br />
                     <section id="dashboardcount5" class="dashboardcount5">
                         <div class="container-fluid">
                             <div class="row">

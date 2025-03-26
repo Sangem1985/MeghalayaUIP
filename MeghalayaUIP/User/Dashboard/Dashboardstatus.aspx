@@ -46,13 +46,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="col-md-12 row mt-4">
-                                            <div class="col-md-2">1. Unit ID</div>
+                                            <div class="col-md-2">1. Application ID</div>
 
                                             <div class="col-md-3 fw-bold text-info">
                                                 <spna class="dots">:</spna><asp:Label ID="lblUnitID" runat="server"></asp:Label>
                                             </div>
                                             <div class="col-md-1">&nbsp;</div>
-                                            <div class="col-md-3">3. Date of Unit Application</div>
+                                            <div class="col-md-3">3. Date of Application</div>
 
                                             <div class="col-md-3">
                                                 <spna class="dots">:</spna><asp:Label ID="lblDOA" runat="server"></asp:Label>

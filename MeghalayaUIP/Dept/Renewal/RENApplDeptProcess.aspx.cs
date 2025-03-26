@@ -91,10 +91,10 @@ namespace MeghalayaUIP.Dept.Renewal
 
 
 
-                if (Session["RENUNITID"] != null && Session["INVESTERID"] != null)
+                if (Session["Questionnaireid"] != null && Session["INVESTERID"] != null)
                 {
                     DataSet ds = new DataSet();
-                    ds = objRenbal.GetRENApplicationDetails(Convert.ToString(Session["RENUNITID"]), Session["INVESTERID"].ToString());
+                    ds = objRenbal.GetRENApplicationDetails(Convert.ToString(Session["Questionnaireid"]), Session["INVESTERID"].ToString());
                     if (ds != null && ds.Tables.Count > 0 &&  ds.Tables[0].Rows.Count > 0)
                     {
                         lblnameUnit.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
@@ -735,7 +735,11 @@ namespace MeghalayaUIP.Dept.Renewal
                             lblAmountpaid.Text = ds.Tables[20].Rows[0]["RENSE_TOTALPAIDAMOUNT"].ToString();
                         }
                         else { ShopEst.Visible = false; }
-
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[22].Rows.Count > 0)
+                        {
+                            grdcfeattachment.DataSource = ds.Tables[22];
+                            grdcfeattachment.DataBind();
+                        }
 
                     }
 

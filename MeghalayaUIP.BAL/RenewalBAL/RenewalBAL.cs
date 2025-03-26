@@ -169,13 +169,13 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GETANNUALTURNOVER(PMAMOUNT, ANNUALTURNOVER);
         }
-        public string CFEENTERPRISETYPE(string ANNUALTURNOVER)
+        public string CFEENTERPRISETYPE(string ANNUALTURNOVER)  
         {
             return objRENDAL.CFEENTERPRISETYPE(ANNUALTURNOVER);
         }
-        public DataSet GetRENApplicationDetails(string UnitID, string InvesterID)
+        public DataSet GetRENApplicationDetails(string RENQDID, string InvesterID)
         {
-            return objRENDAL.GetRENApplicationDetails(UnitID, InvesterID);
+            return objRENDAL.GetRENApplicationDetails(RENQDID, InvesterID);
         }
         public DataTable GetRENDashboard(RENDtls ObjREN)
         {

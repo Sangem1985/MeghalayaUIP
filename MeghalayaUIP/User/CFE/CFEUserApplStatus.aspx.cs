@@ -34,8 +34,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                     if (Convert.ToString(Session["CFEUNITID"]) != "")
                     {
-                        UnitID = Convert.ToString(Session["CFEUNITID"]);
-                        lbluidno.Text = UnitID;
+                        UnitID = Convert.ToString(Session["CFEUNITID"]);                        
                     }
                     else
                     {
@@ -71,6 +70,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        lbluidno.Text = lblApprovalsReq.Text = Convert.ToString(ds.Tables[0].Rows[0]["UIDNO"]);
                         //lblAppstatus.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPLSTATUS"]);
                         //lblCAFstatus.Text = Convert.ToString(ds.Tables[0].Rows[0]["CAFSTATUS"]);
                         lblApprovalsReq.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPREQ"]);
