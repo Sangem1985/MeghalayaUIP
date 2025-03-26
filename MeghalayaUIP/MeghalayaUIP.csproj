@@ -821,6 +821,7 @@
     <Content Include="User\Renewal\RENCinemaLicenseDetails.aspx" />
     <Content Include="User\Renewal\RENContractLabourDeatils.aspx" />
     <Content Include="User\Renewal\RENContractRegistationDetails.aspx" />
+    <Content Include="User\Renewal\RENDashBoardStatus.aspx" />
     <Content Include="User\Renewal\RENDrugsLicenseDetails.aspx" />
     <Content Include="User\Renewal\RenewalPaymentReceipt.aspx" />
     <Content Include="User\Renewal\RenewalServices.aspx" />
@@ -2499,6 +2500,13 @@
     </Compile>
     <Compile Include="User\Renewal\RENContractRegistationDetails.aspx.designer.cs">
       <DependentUpon>RENContractRegistationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENDashBoardStatus.aspx.cs">
+      <DependentUpon>RENDashBoardStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENDashBoardStatus.aspx.designer.cs">
+      <DependentUpon>RENDashBoardStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENDrugsLicenseDetails.aspx.cs">
       <DependentUpon>RENDrugsLicenseDetails.aspx</DependentUpon>

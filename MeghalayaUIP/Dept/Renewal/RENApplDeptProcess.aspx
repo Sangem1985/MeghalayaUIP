@@ -3278,36 +3278,6 @@
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>
                                                 </div>
-
-
-
-
-
-                                                <%--   <div class="col-md-12">
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered mb-0">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Attachment Name</th>
-                                                                    <th></th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-
-
-                                                                <tr>
-                                                                    <td class="fw-bold">DPR</td>
-
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-rounded btn-dark">View</button>
-                                                                    </td>
-                                                                </tr>
-
-
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>--%>
                                             </div>
                                         </div>
                                     </section>
@@ -3472,8 +3442,8 @@
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseSix" aria-expanded="false"
-                                        aria-controls="collapseSix">
-                                        <asp:Label runat="server" ID="lblVerf"></asp:Label>
+                                        aria-controls="collapseSix">Scrutiny Verification of Application
+                                      <%--  <asp:Label runat="server" ID="lblVerf"></asp:Label>--%>
                                     </a>
                                 </h4>
                             </div>

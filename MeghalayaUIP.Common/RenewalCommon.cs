@@ -70,6 +70,8 @@ namespace MeghalayaUIP.Common
 
         public static string GetRENPaymentReceipt = "GET_RENPAYMENTRECEIPT";
 
+        public static string GetRENApplStatus = "";
+
 
     }
 

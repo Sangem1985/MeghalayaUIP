@@ -208,6 +208,11 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetRENPaymentReceipt(UnitId, Createdby, TransactionNo, Uid);
         }
+        public DataSet GetUserRENApplStatus(string Userid, string RENQID)
+        {
+            return objRENDAL.GetUserRENApplStatus(Userid, RENQID);
+        }
+
 
     }
 }
