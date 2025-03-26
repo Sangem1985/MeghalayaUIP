@@ -1235,6 +1235,8 @@ namespace MeghalayaUIP.Dept.CFE
                         objBldngPlan.FileType = fuApproval.PostedFile.ContentType;
                         objBldngPlan.FileDescription = "ApprovalDocuments";
                         objBldngPlan.CreatedBy = Session["INVESTERID"].ToString();
+                        objBldngPlan.UploadBy = "Department";
+                        objBldngPlan.UploadByID = hdnUserID.Value;
                         objBldngPlan.IPAddress = getclientIP();
                         result = objcfebal.InsertCFEAttachments(objBldngPlan);
                         if (result != "")
@@ -1407,6 +1409,8 @@ namespace MeghalayaUIP.Dept.CFE
                         objBldngPlan.FileType = fupInspReport.PostedFile.ContentType;
                         objBldngPlan.FileDescription = "Inspection Report";
                         objBldngPlan.CreatedBy = Session["INVESTERID"].ToString();
+                        objBldngPlan.UploadBy = "Department";
+                        objBldngPlan.UploadByID = hdnUserID.Value;
                         objBldngPlan.IPAddress = getclientIP();
                         result = objcfebal.InsertCFEAttachments(objBldngPlan);
                         if (result != "")

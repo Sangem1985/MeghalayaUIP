@@ -120,7 +120,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblApprovalsApplied.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=TobeApplied";
                 Response.Redirect(newurl);
             }
         }
@@ -147,7 +147,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblAddlPaymentPaid.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=AddlPayment";
                 Response.Redirect(newurl);
             }
         }
@@ -165,7 +165,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblQueryReplied.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=QueryReplied";
                 Response.Redirect(newurl);
             }
         }
@@ -174,7 +174,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblQueryYettoRespond.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=QueryYettoRespond";
                 Response.Redirect(newurl);
             }
         }

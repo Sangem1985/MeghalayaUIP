@@ -703,6 +703,8 @@ namespace MeghalayaUIP.Common
         public string MasterID { get; set; }
         public string QueryID { get; set; }
         public string ReferenceNo { get; set; }
+        public string UploadBy { get; set; }
+        public string UploadByID { get; set; }
 
     }
     public class Labour_Details

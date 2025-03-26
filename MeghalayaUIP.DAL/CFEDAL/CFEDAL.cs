@@ -1705,6 +1705,14 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 {
                     com.Parameters.AddWithValue("@CFEA_REFERENCENO", objAttachments.ReferenceNo);
                 }
+                if (objAttachments.UploadBy != null && objAttachments.UploadBy != "")
+                {
+                    com.Parameters.AddWithValue("@CFEA_UPLOADBY", objAttachments.UploadBy);
+                }
+                if (objAttachments.UploadByID != null && objAttachments.UploadByID != "")
+                {
+                    com.Parameters.AddWithValue("@CFEA_UPLOADBYID", objAttachments.UploadByID);
+                }
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
