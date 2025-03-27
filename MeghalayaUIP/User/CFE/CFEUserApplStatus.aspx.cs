@@ -46,10 +46,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         BindApplStatus();
                     }
-                    divApplicationStages.Visible = true;
-                    divPaymentStages.Visible = true;
-                    divPreScrutinyStages.Visible = true;
-                    divApprovalStages.Visible = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -77,8 +74,9 @@ namespace MeghalayaUIP.User.CFE
                         lblApprovalsObtained.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPROFFLINE"]);
                         lblApprovalsApplied.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPRAPPLD"]);
                         lblApprovalstobeApplied.Text = Convert.ToString(ds.Tables[0].Rows[0]["TOBEAPPL"]);
+                        lblPaymntdone.Text = Convert.ToString(ds.Tables[0].Rows[0]["PAYMNTPAID"]);
                         lblAddlPaymentReq.Text = Convert.ToString(ds.Tables[0].Rows[0]["ADDLPAYMNT"]);
-                        lblAddlPaymentPaid.Text = Convert.ToString(ds.Tables[0].Rows[0]["PAYMNTPAID"]);
+                        lblAddlPaymentPaid.Text = Convert.ToString(ds.Tables[0].Rows[0]["ADDLPAYMNTPAID"]);
                         lblQueryRaised.Text = Convert.ToString(ds.Tables[0].Rows[0]["QRYRAISE"]);
                         lblQueryReplied.Text = Convert.ToString(ds.Tables[0].Rows[0]["QRYRESPOND"]);
                         lblQueryYettoRespond.Text = Convert.ToString(ds.Tables[0].Rows[0]["QRYTOBERSPND"]);
@@ -102,7 +100,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblApprovalsReq.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=ApprRequired";
                 Response.Redirect(newurl);
             }
         }
@@ -110,7 +108,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblApprovalsObtained.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=OfflineApprovals";
                 Response.Redirect(newurl);
             }
 
@@ -129,7 +127,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblApprovalstobeApplied.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=TobeApplied";
                 Response.Redirect(newurl);
             }
         }
@@ -138,7 +136,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblAddlPaymentReq.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=AddlPayment";
                 Response.Redirect(newurl);
             }
         }
@@ -147,7 +145,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblAddlPaymentPaid.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=AddlPayment";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=AddlPaymentDone";
                 Response.Redirect(newurl);
             }
         }
@@ -221,58 +219,18 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblApprovalPending.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=UnderProcess";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=ApprovalPending";
                 Response.Redirect(newurl);
             }
 
-        }
+        }       
 
-        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        protected void linkPaymntdone_Click(object sender, EventArgs e)
         {
-            try
+            if (lblPaymntdone.Text != "0")
             {
-                if (ddlStatus.SelectedValue == "ApplicationStage")
-                {
-                    divApplicationStages.Visible = true;
-                    divPaymentStages.Visible = false;
-                    divPreScrutinyStages.Visible = false;
-                    divApprovalStages.Visible = false;
-                }
-                else if (ddlStatus.SelectedValue == "PaymentStage")
-                {
-                    divPaymentStages.Visible = true;
-                    divApplicationStages.Visible = false;
-                    divPreScrutinyStages.Visible = false;
-                    divApprovalStages.Visible = false;
-                }
-                else if (ddlStatus.SelectedValue == "Pre-ScrutinyStage")
-                {
-                    divPreScrutinyStages.Visible = true;
-                    divPaymentStages.Visible = false;
-                    divApplicationStages.Visible = false;
-                    divApprovalStages.Visible = false;
-                }
-                else if (ddlStatus.SelectedValue == "ApprovalStage")
-                {
-                    divApprovalStages.Visible = true;
-                    divApplicationStages.Visible = false;
-                    divPaymentStages.Visible = false;
-                    divPreScrutinyStages.Visible = false;
-                }
-                else if (ddlStatus.SelectedValue == "0")
-                {
-                    divApplicationStages.Visible = true;
-                    divPaymentStages.Visible = true;
-                    divPreScrutinyStages.Visible = true;
-                    divApprovalStages.Visible = true;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
+                Response.Redirect(newurl);
             }
         }
 
@@ -285,7 +243,54 @@ namespace MeghalayaUIP.User.CFE
             }
 
         }
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlStatus.SelectedValue == "ApplicationStage")
+                {
+                    //divApplicationStages.Visible = true;
+                  //  divPaymentStages.Visible = false;
+                    divPreScrutinyStages.Visible = false;
+                    divApprovalStages.Visible = false;
+                }
+                else if (ddlStatus.SelectedValue == "PaymentStage")
+                {
+                   // divPaymentStages.Visible = true;
+                   // divApplicationStages.Visible = false;
+                    divPreScrutinyStages.Visible = false;
+                    divApprovalStages.Visible = false;
+                }
+                else if (ddlStatus.SelectedValue == "Pre-ScrutinyStage")
+                {
+                    divPreScrutinyStages.Visible = true;
+                    //divPaymentStages.Visible = false;
+                   // divApplicationStages.Visible = false;
+                    divApprovalStages.Visible = false;
+                }
+                else if (ddlStatus.SelectedValue == "ApprovalStage")
+                {
+                    divApprovalStages.Visible = true;
+                    //divApplicationStages.Visible = false;
+                   // divPaymentStages.Visible = false;
+                    divPreScrutinyStages.Visible = false;
+                }
+                else if (ddlStatus.SelectedValue == "0")
+                {
+                    //divApplicationStages.Visible = true;
+                    //divPaymentStages.Visible = true;
+                    divPreScrutinyStages.Visible = true;
+                    divApprovalStages.Visible = true;
+                }
 
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
 
     }
 }

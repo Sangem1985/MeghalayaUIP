@@ -16,6 +16,7 @@ namespace MeghalayaUIP.User.Dashboard
     public partial class Dashboardstatus : System.Web.UI.Page
     {
         MGCommonBAL objcommonBAL = new MGCommonBAL();
+        MasterBAL mstrBAL = new MasterBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -66,7 +67,7 @@ namespace MeghalayaUIP.User.Dashboard
                     Response.Redirect("~/Login.aspx");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -80,7 +81,7 @@ namespace MeghalayaUIP.User.Dashboard
             {
                 DataSet dsApprovals = new DataSet();
                 UnitID = Convert.ToString(Request.QueryString[0]);
-              
+
                 dsApprovals = objcommonBAL.GetCFEUserDashboardStatus(hdnUserID.Value, UnitID, Request.QueryString[1].ToString());
                 if (dsApprovals.Tables.Count > 0)
                 {
@@ -118,11 +119,24 @@ namespace MeghalayaUIP.User.Dashboard
                     Label lblDeptId = (Label)e.Row.FindControl("lblDeptId");
                     Label lblApprovalId = (Label)e.Row.FindControl("lblApprovalId");
                     Label lblStageId = (Label)e.Row.FindControl("lblStageId");
+                    Label lblScrutinyDoc = (Label)e.Row.FindControl("lblScrutinyDoc");
+                    Label lblApprovalDoc = (Label)e.Row.FindControl("lblApprovalDoc");
 
+                    HyperLink hplScrutiny = (HyperLink)e.Row.FindControl("lblScrutiny");
                     HyperLink hplApprvd = (HyperLink)e.Row.FindControl("lblStatus");
 
-                    if (lblApprovalId.Text == "2" && (lblStageId.Text == "13" || lblStageId.Text == "15"))
-                        hplApprvd.NavigateUrl = "~/User/Services/HAZWMCertificate.aspx";
+                    if (lblStageId.Text == "13" || lblStageId.Text == "15")
+                    {
+                        if (lblApprovalId.Text == "2")
+                            hplApprvd.NavigateUrl = "~/User/Services/HAZWMCertificate.aspx";
+                        else
+                            hplApprvd.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblApprovalDoc.Text);
+
+
+                    }
+                    else
+                        hplScrutiny.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblScrutinyDoc.Text);
+
 
                 }
             }
