@@ -40,9 +40,12 @@ namespace MeghalayaUIP.Dept.Renewal
                         {
                             ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                         }
+                        if (hdnUserID.Value == "")
+                        {
+                            hdnUserID.Value = ObjUserInfo.UserID;
+                        }
                         // username = ObjUserInfo.UserName;
                     }
-
                      BindRENApplicatinDetails();
                 }
             }
@@ -57,6 +60,41 @@ namespace MeghalayaUIP.Dept.Renewal
         {
             try
             {
+                /* var ObjUserInfo = new DeptUserInfo();
+                 if (Session["DeptUserInfo"] != null)
+                 {
+                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                     {
+                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                     }
+                     // username = ObjUserInfo.UserName;
+                 }
+                 if (Request.QueryString.Count > 0)
+                 {
+                     if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING" || Request.QueryString["status"].ToString() == "APPROVALPENDING")
+                     {
+                         verifypanel.Visible = true;
+                         if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
+                         {
+                             scrutiny.Visible = true;
+                             Approval.Visible = false;
+                         }
+                         else
+                         {
+                             scrutiny.Visible = false;
+                             Approval.Visible = true;
+                         }
+                     }
+                     else
+                     {
+                         verifypanel.Visible = false;
+                     }
+                 }
+                 else
+                 {
+                     verifypanel.Visible = false;
+                 }*/
+
                 var ObjUserInfo = new DeptUserInfo();
                 if (Session["DeptUserInfo"] != null)
                 {
@@ -68,16 +106,19 @@ namespace MeghalayaUIP.Dept.Renewal
                 }
                 if (Request.QueryString.Count > 0)
                 {
-                    if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING" || Request.QueryString["status"].ToString() == "APPROVALPENDING")
+                    string status = Convert.ToString(Request.QueryString["status"]);
+                    if (status.Contains("PRESCRUTINYPENDING") || status.Contains("APPROVALPENDING"))
                     {
                         verifypanel.Visible = true;
-                        if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
+                        if (status.Contains("PRESCRUTINYPENDING"))
                         {
+                            lblVerf.Text = "Scrutiny Verification of Application";
                             scrutiny.Visible = true;
                             Approval.Visible = false;
                         }
                         else
                         {
+                            lblVerf.Text = "Approval Process";
                             scrutiny.Visible = false;
                             Approval.Visible = true;
                         }
@@ -86,13 +127,22 @@ namespace MeghalayaUIP.Dept.Renewal
                     {
                         verifypanel.Visible = false;
                     }
+                    //if (Request.QueryString["status"].ToString().ToLower().Contains("offline"))
+                    //{
+                    //    headingThree.Visible = false;
+                    //    headingFour.Visible = false;
+                    //    if (Request.QueryString["status"].ToString() == "OFFLINEPENDING" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGWITHIN" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGBEYOND")
+                    //    {
+
+                    //        Offlineverifypanel.Visible = true;
+                    //    }
+                    //}
                 }
                 else
                 {
                     verifypanel.Visible = false;
+                 //   Offlineverifypanel.Visible = false;
                 }
-
-
 
 
 
@@ -102,7 +152,12 @@ namespace MeghalayaUIP.Dept.Renewal
                     ds = objRenbal.GetRENApplicationDetails(Convert.ToString(Session["Questionnaireid"]), Session["INVESTERID"].ToString());
                     if (ds != null && ds.Tables.Count > 0 &&  ds.Tables[0].Rows.Count > 0)
                     {
-                        lblnameUnit.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
+                        lblnameUnit.Text = lblunitname1.Text = lblunitname1Approval.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"]);
+                        lblApplNo.Text = lblApplNoApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_UIDNO"]);
+                        lblapplDate.Text = lblapplDateApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_CREATEDDATE"]);
+
+
+                        //lblnameUnit.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
                         lblCompanyType.Text = ds.Tables[0].Rows[0]["NSWS_ENTITYTYPENAME"].ToString();
                         lblNatureIndustry.Text = ds.Tables[0].Rows[0]["RENID_SECTORENTERPRISE"].ToString();
                         lblRegCat.Text = ds.Tables[0].Rows[0]["RENID_CATEGORYREG"].ToString();
@@ -208,7 +263,7 @@ namespace MeghalayaUIP.Dept.Renewal
                             lblSafetyExceed.Text = ds.Tables[1].Rows[0]["RENBD_SAFTEY"].ToString();
                             lblPeriodDate.Text = ds.Tables[1].Rows[0]["RENBD_PERIODDATE"].ToString();
                             lblToDateH.Text = ds.Tables[1].Rows[0]["RENBD_TODATE"].ToString();
-                            lblRemarks.Text = ds.Tables[1].Rows[0]["RENBD_REMARK"].ToString();
+                            lblRemarked.Text = ds.Tables[1].Rows[0]["RENBD_REMARK"].ToString();
                             lblRegFees.Text = ds.Tables[1].Rows[0]["RENBD_REGFEES"].ToString();
                             lblTotalAmount.Text = ds.Tables[1].Rows[0]["RENBD_TOTALAMOUNT"].ToString();
                         }
@@ -742,8 +797,20 @@ namespace MeghalayaUIP.Dept.Renewal
                         else { ShopEst.Visible = false; }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[22].Rows.Count > 0)
                         {
-                            grdcfeattachment.DataSource = ds.Tables[22];
-                            grdcfeattachment.DataBind();
+                            grdRenattachment.DataSource = ds.Tables[22];
+                            grdRenattachment.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[23].Rows.Count > 0)
+                        {
+                            divstatusApplication.Visible = true;
+                            grdApplStatus.DataSource = ds.Tables[23];
+                            grdApplStatus.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[24].Rows.Count > 0)
+                        {
+                            Query.Visible = true;
+                            grdQueries.DataSource = ds.Tables[24];
+                            grdQueries.DataBind();
                         }
 
                     }
@@ -864,7 +931,7 @@ namespace MeghalayaUIP.Dept.Renewal
                         }
 
                         RenAttachments objRenAttachments = new RenAttachments();
-                        objRenAttachments.Questionnareid = Session["RENQID"].ToString();
+                        objRenAttachments.Questionnareid = Session["Questionnaireid"].ToString();
                         objRenAttachments.ApprovalID = Session["ApprovalID"].ToString();
                         objRenAttachments.DeptID = Session["DEPTID"].ToString();
                         objRenAttachments.FilePath = serverpath + fupInspReport.PostedFile.FileName;
@@ -974,7 +1041,7 @@ namespace MeghalayaUIP.Dept.Renewal
                         }
                         objrenDtls.IPAddress = getclientIP();
 
-                       // string valid = objrenbal.UpdateCFEDepartmentProcess(objcfeDtls);
+                        string valid = objRenbal.UpdateRENDepartmentProcess(objrenDtls);
                         btnSubmit.Enabled = false;
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='CFEApplDeptProcess.aspx? '", true);
                         return;
@@ -1121,7 +1188,7 @@ namespace MeghalayaUIP.Dept.Renewal
                         var Hostname = Dns.GetHostName();
                         objrenDtls.IPAddress = getclientIP();
 
-                       // string valid = objcfebal.UpdateCFEDepartmentProcess(objrenDtls);
+                        string valid = objRenbal.UpdateRENDepartmentProcess(objrenDtls);
                         btnSubmit.Enabled = false;
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='CFEApplDeptProcess.aspx'", true);
                         return;
@@ -1161,7 +1228,7 @@ namespace MeghalayaUIP.Dept.Renewal
                     Error = validations(fuApproval);
                     if (Error == "")
                     {
-                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string sFileDir = ConfigurationManager.AppSettings["RENAttachments"];
                         string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
                          + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + Session["ApprovalID"] + "\\";
                         if (!Directory.Exists(serverpath))
@@ -1171,7 +1238,6 @@ namespace MeghalayaUIP.Dept.Renewal
                         fuApproval.PostedFile.SaveAs(serverpath + "\\" + fuApproval.PostedFile.FileName);
 
                         RenAttachments objRenAttachments = new RenAttachments();
-                        objRenAttachments.UNITID = Convert.ToString(Session["UNITID"]);
                         objRenAttachments.Questionnareid = Session["Questionnaireid"].ToString();
                         objRenAttachments.ApprovalID = Session["ApprovalID"].ToString();
                         objRenAttachments.DeptID = Session["DEPTID"].ToString();

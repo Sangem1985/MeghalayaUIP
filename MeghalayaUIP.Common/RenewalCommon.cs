@@ -73,6 +73,7 @@ namespace MeghalayaUIP.Common
         public static string GetRENApplStatus = "USP_GETRENAPPLSTATUS";
 
         public static string GetRENApplUserDashboard = "USP_GETUSERRENAPPLTRACKER";
+        public static string UpdateRENDepartmentProcess = "USP_UPDATERENSCRUTINYACTION";
 
 
     }

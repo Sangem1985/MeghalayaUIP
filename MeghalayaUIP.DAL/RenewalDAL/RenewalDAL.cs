@@ -1136,7 +1136,15 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENA_FILENAME", objRenAttachments.FileName);
                 com.Parameters.AddWithValue("@RENA_FILETYPE", objRenAttachments.FileType);
                 com.Parameters.AddWithValue("@RENA_FILEDESCRIPTION", objRenAttachments.FileDescription);
-                com.Parameters.AddWithValue("@RENA_QUERYID", objRenAttachments.QueryID);                  
+                com.Parameters.AddWithValue("@RENA_QUERYID", objRenAttachments.QueryID);
+                if (objRenAttachments.UploadBy !="" && objRenAttachments.UploadBy != null)
+                {
+                    com.Parameters.AddWithValue("@REN_UPLOADBY", objRenAttachments.UploadBy);
+                }
+                if (objRenAttachments.UploadByID != "" && objRenAttachments.UploadByID != null)
+                {
+                    com.Parameters.AddWithValue("@REN_UPLOADBYID", objRenAttachments.UploadByID);
+                }
                           
               
                 com.Parameters.AddWithValue("@RENA_CREATEDBY", Convert.ToInt32(objRenAttachments.CreatedBy));
@@ -2661,6 +2669,61 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Close();
                 connection.Dispose();
             }
+        }
+        public string UpdateRENDepartmentProcess(RENDtls objrenDtls)
+        {
+            string valid = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.UpdateRENDepartmentProcess;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+             
+                com.Parameters.AddWithValue("@RENQDID", objrenDtls.Questionnaireid);
+                if (objrenDtls.deptid != null && objrenDtls.deptid != 0)
+                {
+                    com.Parameters.AddWithValue("@DEPTID", objrenDtls.deptid);
+                }
+                com.Parameters.AddWithValue("@APPROVALID", objrenDtls.ApprovalId);
+                com.Parameters.AddWithValue("@ACTIONID", objrenDtls.status);
+                com.Parameters.AddWithValue("@REMARKS", objrenDtls.Remarks);
+                com.Parameters.AddWithValue("@RENDA_SCRUTINYREJECTIONFLAG", objrenDtls.PrescrutinyRejectionFlag);
+                if (objrenDtls.AdditionalAmount != null && objrenDtls.AdditionalAmount != "")
+                {
+                    com.Parameters.AddWithValue("@ADDLAMOUNT", objrenDtls.AdditionalAmount);
+                }
+
+                com.Parameters.AddWithValue("@IPADDRESS", objrenDtls.IPAddress);
+                com.Parameters.AddWithValue("@CREATEDBY", objrenDtls.UserID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+
         }
     }
 

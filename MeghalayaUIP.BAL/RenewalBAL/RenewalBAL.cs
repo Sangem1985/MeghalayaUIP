@@ -216,6 +216,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetRENApplicationStatus(userid, RENQID, Status);
         }
-
+        public string UpdateRENDepartmentProcess(RENDtls objrenDtls)
+        {
+            return objRENDAL.UpdateRENDepartmentProcess(objrenDtls);
+        }
     }
 }

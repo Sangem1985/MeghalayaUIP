@@ -856,7 +856,7 @@
                                                                     <label>Remark</label>
                                                                 </div>
                                                                 <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblRemarks" runat="server"></asp:Label>
+                                                                    <spna class="dots">:</spna><asp:Label ID="lblRemarked" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
 
@@ -3253,7 +3253,7 @@
                                         <div class="container-fluid">
                                             <div class="row clearfix">
                                                 <div class="table-responsive">
-                                                    <asp:GridView ID="grdcfeattachment" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                    <asp:GridView ID="grdRenattachment" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="#333333"
                                                         GridLines="Both" Width="100%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                         <RowStyle />
@@ -3286,7 +3286,7 @@
 
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="Query" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -3319,9 +3319,9 @@
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="Query Raised By" DataField="QUERYBY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Renewal ID" DataField="RENQDID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <%--<asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
+                                                            <%--<asp:BoundField HeaderText="Query Raised By" DataField="QUERYBY" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />--%>
                                                             <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Raised Date" DataField="QUERYDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Query Response" DataField="QUERYRESPONSEDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
@@ -3384,7 +3384,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="divstatusApplication" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingFive">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -3411,7 +3411,7 @@
                                                             <RowStyle />
                                                             <AlternatingRowStyle BackColor="LightGray" />
                                                             <Columns>
-                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3px">
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle HorizontalAlign="Left" />
                                                                     <ItemTemplate>
@@ -3419,10 +3419,19 @@
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
 
-                                                                <asp:BoundField HeaderText="Department ID" DataField="PRDA_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                                <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Department ID" DataField="Dept_Id" ItemStyle-Width="10px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
+                                                                <asp:BoundField HeaderText="Renewal ID" DataField="RENDA_RENQDID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="100px">
+                                                                    <ItemStyle Width="1px" />
+                                                                    <HeaderStyle Width="1px" />
+                                                                </asp:BoundField>
+                                                                <asp:BoundField HeaderText="Approval Name" DataField="ApprovalName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="250px">
+                                                                    <ItemStyle Width="6px" />
+                                                                    <HeaderStyle Width="6px" />
+                                                                </asp:BoundField>
+                                                                <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
+                                                                     <ItemStyle Width="4px" />
+                                                                    <HeaderStyle Width="4px" />
+                                                                </asp:BoundField>
                                                                 <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             </Columns>
@@ -3588,7 +3597,7 @@
                                 </div>
                             </div>
                         </div>
-                     <%--   <div class="panel panel-default" id="Offlineverifypanel" runat="server" visible="false">
+                        <%--   <div class="panel panel-default" id="Offlineverifypanel" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingSeven">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
