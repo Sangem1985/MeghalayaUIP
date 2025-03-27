@@ -144,7 +144,7 @@ namespace MeghalayaUIP.User.Renewal
                 Session["RENQID"] = lblRENQDID.Text;
                 string newurl = "";
                 if (lblRENAPPLSTATUS.Text == "3")
-                    newurl = ".aspx";
+                    newurl = "RENDashBoardStatus.aspx";
                 else if (lblRENAPPLSTATUS.Text == "2")
                     newurl = "RENIndustryDetails.aspx";
                 Response.Redirect(newurl);

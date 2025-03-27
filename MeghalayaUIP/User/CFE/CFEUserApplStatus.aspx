@@ -26,7 +26,9 @@
     <div class="card mt-2">
         <div class="modal-header" style="padding: 3px 30px;">
             <h4 class="modal-title cfe" id="myLargeModalLabel cfe1">Applicant Dashboard - Pre-Establishment Approvals</h4>
-            <h5 class="modal-title cfe" id="myLargeModalLabel cfe2">Status View : 
+            <h5 class="modal-title cfe d-flex w-25" id="myLargeModalLabel cfe2">
+                <p class="w-100 mt-1">
+                Status View : </p>
                 <asp:DropDownList ID="ddlStatus" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
                         <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
                         <asp:ListItem Value="ApplicationStage" Text="Application Stage"></asp:ListItem>

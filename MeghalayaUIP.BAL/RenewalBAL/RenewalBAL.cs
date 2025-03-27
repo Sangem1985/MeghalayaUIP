@@ -212,7 +212,10 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetUserRENApplStatus(Userid, RENQID);
         }
-
+        public DataSet GetRENApplicationStatus(string userid, string RENQID, string Status)
+        {
+            return objRENDAL.GetRENApplicationStatus(userid, RENQID, Status);
+        }
 
     }
 }
