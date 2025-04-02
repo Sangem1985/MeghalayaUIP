@@ -7,8 +7,8 @@
         <ContentTemplate>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../Services/SRVCUserDashboard.aspx">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Services</li>
+                    <li class="breadcrumb-item"><a href="../Renewal/RENUserDashboard.aspx">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Renewal</li>
                 </ol>
             </nav>
             <div class="page-wrapper griddesignmulticount">
@@ -16,7 +16,7 @@
 
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
-                            <h4 class="card-title">Services Tracking Status
+                            <h4 class="card-title">Renewal Status
                         <asp:Label ID="lblType" runat="server"></asp:Label></h4>
                             <h4 class="card-title">
                                 <label id="unitname" runat="server"></label>
@@ -127,10 +127,10 @@
                                                             <asp:BoundField DataField="DATEOFCOMPLETION" HeaderText="Date of Completion" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:TemplateField HeaderText="Status">
                                                                 <ItemTemplate>  
-                                                                    <asp:Label runat="server" ID="lblQuesnrId" Text='<%#Eval("SRVCDA_SRVCQDID")%>' Visible="false"></asp:Label>
-                                                                    <asp:Label runat="server" ID="lblDeptId" Text='<%#Eval("SRVCDA_DEPTID")%>' Visible="false"></asp:Label>
-                                                                    <asp:Label runat="server" ID="lblApprovalId" Text='<%#Eval("SRVCDA_APPROVALID")%>' Visible="false"></asp:Label>
-                                                                    <asp:Label runat="server" ID="lblStageId" Text='<%#Eval("SRVCDA_STAGEID")%>' Visible="false"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblQuesnrId" Text='<%#Eval("RENDA_RENQDID")%>' Visible="false"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblDeptId" Text='<%#Eval("RENDA_DEPTID")%>' Visible="false"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblApprovalId" Text='<%#Eval("RENDA_APPROVALID")%>' Visible="false"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblStageId" Text='<%#Eval("RENDA_STAGEID")%>' Visible="false"></asp:Label>
                                                                     <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' Target="_blank" runat="server" Visible="true"></asp:HyperLink>
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" Width="100px" />

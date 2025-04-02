@@ -185,8 +185,8 @@ namespace MeghalayaUIP.User.Renewal
                     HyperLink hplApprvd = (HyperLink)e.Row.FindControl("hplApproved");
                     HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
                     HyperLink hplRejctd = (HyperLink)e.Row.FindControl("hplRejected");
-                    HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");
-                   if (hplAppld.Text != "0")
+                    HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");*/
+                    if (hplAppld.Text != "0")
                         hplAppld.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Applied";
                     if (hplApprvd.Text != "0")
                         hplApprvd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
@@ -195,7 +195,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (hplRejctd.Text != "0")
                         hplRejctd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
                     if (hplQryRaised.Text != "0")
-                        hplQryRaised.NavigateUrl = "~/User/CFE/CFEQueryDashBoard.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";*/
+                        hplQryRaised.NavigateUrl = "~/User/Renewal/RENQueryDashBoard.aspx?RENQID=" + lblRENQDID.Text + "&Type=QueryRaised";
 
                     int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
                     TotApplied = TotApplied + TotalAppl;

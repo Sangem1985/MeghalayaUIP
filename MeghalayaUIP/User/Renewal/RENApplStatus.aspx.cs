@@ -46,7 +46,7 @@ namespace MeghalayaUIP.User.Renewal
                             { lblType.Text = " Scrutiny Pending:"; }
                             if (!IsPostBack)
                             {
-                               // BindApplStatus();
+                                BindApplStatus();
                             }
                         }
                     }
@@ -85,8 +85,8 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (dsApprovals.Tables[1].Rows.Count > 0)
                     {
-                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["SRVCED_UIDNO"]);
-                        lblUnitNmae.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["SRVCED_NAMEOFUNIT"]);
+                        lblUnitID.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["RENID_UIDNO"]);
+                        lblUnitNmae.Text = Convert.ToString(dsApprovals.Tables[1].Rows[0]["RENID_NAMEOFUNIT"]);
 
                     }
                 }

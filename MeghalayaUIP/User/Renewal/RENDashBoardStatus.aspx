@@ -154,6 +154,7 @@
                     <div class="card-header">
                         <h3>Pre-Scrutiny Stages</h3>
                     </div>
+                    <br />
                     <section id="dashboardcount4" class="dashboardcount4">
                         <div class="container-fluid">
                             <div class="row">
@@ -289,6 +290,7 @@
                     <div class="card-header">
                         <h3>Approval Stages</h3>
                     </div>
+                    <br />
                     <section id="dashboardcount5" class="dashboardcount5">
                         <div class="container-fluid">
                             <div class="row">

@@ -90,7 +90,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblApprovalsApplied.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
                 Response.Redirect(newurl);
             }
         }
@@ -99,7 +99,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblAddlPaymentReq.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
                 Response.Redirect(newurl);
             }
         }
@@ -108,7 +108,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblAddlPaymentPaid.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
                 Response.Redirect(newurl);
             }
         }
@@ -117,7 +117,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblScrtnyRejected.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=ScrutinyRejected";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=ScrutinyRejected";
                 Response.Redirect(newurl);
             }
         }
@@ -126,7 +126,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblApprovalRejected.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Rejected";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Rejected";
                 Response.Redirect(newurl);
             }
         }
@@ -135,7 +135,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblApprovalPending.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=UnderProcess";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=UnderProcess";
                 Response.Redirect(newurl);
             }
         }
@@ -144,7 +144,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblApprovalIssued.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Approved";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Approved";
                 Response.Redirect(newurl);
             }
         }
@@ -153,7 +153,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblScrtnyPendng.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=ScrutinyPending";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=ScrutinyPending";
                 Response.Redirect(newurl);
             }
         }
@@ -162,7 +162,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblScrtnyCmpltd.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=ScrutinyCompleted";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=ScrutinyCompleted";
                 Response.Redirect(newurl);
             }
         }
@@ -171,7 +171,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblQueryYettoRespond.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
                 Response.Redirect(newurl);
             }
         }
@@ -180,7 +180,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblQueryReplied.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=Applied";
                 Response.Redirect(newurl);
             }
         }
@@ -188,7 +188,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblQueryRaised.Text != "0")
             {
-                newurl = "~/User/Services/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=QueryRaised";
+                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=QueryRaised";
                 Response.Redirect(newurl);
             }
         }

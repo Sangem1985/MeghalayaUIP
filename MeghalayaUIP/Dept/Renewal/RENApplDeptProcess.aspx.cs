@@ -1043,7 +1043,7 @@ namespace MeghalayaUIP.Dept.Renewal
 
                         string valid = objRenbal.UpdateRENDepartmentProcess(objrenDtls);
                         btnSubmit.Enabled = false;
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='CFEApplDeptProcess.aspx? '", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='RENApplDeptProcess.aspx? '", true);
                         return;
                     }
 
@@ -1190,7 +1190,7 @@ namespace MeghalayaUIP.Dept.Renewal
 
                         string valid = objRenbal.UpdateRENDepartmentProcess(objrenDtls);
                         btnSubmit.Enabled = false;
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='CFEApplDeptProcess.aspx'", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='RENApplDeptProcess.aspx'", true);
                         return;
                     }
 

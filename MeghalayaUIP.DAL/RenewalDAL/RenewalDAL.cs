@@ -2725,6 +2725,98 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             return valid;
 
         }
+        public DataSet GetRENQueryDashBoard(string RENQID, string Queryid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENQueryDashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENQueryDashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQID", Convert.ToInt32(RENQID));
+                if (Queryid != "" && Queryid != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(Queryid));
+                }
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+        public string InsertRENQueryResponse(RENQueryDet RENQuery)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRENQueryResponse;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(RENQuery.Investerid));
+                com.Parameters.AddWithValue("@RENQDID", Convert.ToInt32(RENQuery.Questionarieid));
+                com.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(RENQuery.QueryID));
+                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(RENQuery.Deptid));
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(RENQuery.Approvalid));
+                com.Parameters.AddWithValue("@RESPONSE", RENQuery.QueryResponse);
+                com.Parameters.AddWithValue("@IPADDRESS", RENQuery.IPAddress);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
     }
 
 }

@@ -220,5 +220,13 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.UpdateRENDepartmentProcess(objrenDtls);
         }
+        public DataSet GetRENQueryDashBoard(string RENQID, string Queryid)
+        {
+            return objRENDAL.GetRENQueryDashBoard(RENQID, Queryid);
+        }
+        public string InsertRENQueryResponse(RENQueryDet RENQuery)
+        {
+            return objRENDAL.InsertRENQueryResponse(RENQuery);
+        }
     }
 }

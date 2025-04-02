@@ -58,6 +58,9 @@ namespace MeghalayaUIP.Common
 
         public static string InsertRenLegalMetrologyDet = "USP_INSRENLEGALMETROLOGYDET";
         public static string GetLegalMetrologyDetails = "USP_GETRENLEGALMETROLOGY";
+        public static string GetRENQueryDashBoard = "USP_GETRENQUERYRAISEDDEPT";
+        public static string InsertRENQueryResponse = "USP_UPDATERENAPPLQUERYRESPONSE";
+
 
         //////------------------APPLIED APPROVALS--------------///////
 
@@ -685,5 +688,18 @@ namespace MeghalayaUIP.Common
         public string UploadByID { get; set; }
 
     }
-    
+    public class RENQueryDet
+    {
+
+        public string Unitid { get; set; }
+        public string Investerid { get; set; }
+        public string Deptid { get; set; }
+        public string Approvalid { get; set; }
+        public string QueryID { get; set; }
+        public string IPAddress { get; set; }
+        public string QueryResponse { get; set; }
+        public string Questionarieid { get; set; }
+
+    }
+
 }
