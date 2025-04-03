@@ -816,15 +816,6 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.TextBox txtUnsecuredLoan;
 
         /// <summary>
-        /// txtInternalResources control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInternalResources;
-
-        /// <summary>
         /// txtstatescheme control.
         /// </summary>
         /// <remarks>
@@ -859,6 +850,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUNNATI;
+
+        /// <summary>
+        /// txtInternalResources control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInternalResources;
 
         /// <summary>
         /// eligible control.
