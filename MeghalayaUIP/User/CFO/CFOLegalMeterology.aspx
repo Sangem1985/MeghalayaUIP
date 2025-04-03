@@ -199,7 +199,7 @@
                                             <div class="col-md-12 d-flex" id="ADCLicense" runat="server" visible="false">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">7a. Date of registration  *</label>
+                                                        <label class="col-lg-6 col-form-label">8a. Date of registration  *</label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox runat="server" ID="txtDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)" />
                                                             <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate"></cc1:CalendarExtender>
@@ -209,7 +209,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">7b. Current Registration Number   *</label>
+                                                        <label class="col-lg-6 col-form-label">8b. Current Registration Number   *</label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox runat="server" ID="txtcurrentReg" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                             <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="txtcurrentReg"></cc1:CalendarExtender>
@@ -339,7 +339,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Whether the item (s) proposed to be manufactured will be sold within the State or out side the state or both  *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:DropDownList ID="rblstateside" class="form-control" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblstateside_SelectedIndexChanged">
+                                                            <asp:DropDownList ID="rblstateside" class="form-control" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblstateside_SelectedIndexChanged">
                                                                 <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                                 <asp:ListItem Text="Within State" Value="Y" />
                                                                 <asp:ListItem Text="Outside State" Value="N" />
@@ -513,7 +513,7 @@
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Instrument Details for Initial Verification:</span></label>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Instrument type *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -521,7 +521,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Class  *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -529,7 +529,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Capacity  *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -539,7 +539,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Make *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -547,7 +547,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Model  *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -555,7 +555,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Serial No.  *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -566,7 +566,7 @@
 
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Product</label>
                                                         <div class="col-lg-6 d-flex">
@@ -574,7 +574,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Quantity  *</label>
                                                         <div class="col-lg-6 d-flex">
@@ -582,7 +582,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-5">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">
                                                         </label>

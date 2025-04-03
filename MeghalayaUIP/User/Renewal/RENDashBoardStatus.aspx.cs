@@ -76,6 +76,7 @@ namespace MeghalayaUIP.User.Renewal
                         lblApprovalIssued.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPRISSUED"]);
                         lblApprovalPending.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPRUNDRPROCESS"]);
                         lblApprovalRejected.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPRREJ"]);
+                        lblAddPaymentDone.Text = Convert.ToString(ds.Tables[0].Rows[0]["ADDLPAYMNTPAID"]);
                     }
                 }
             }
@@ -189,6 +190,16 @@ namespace MeghalayaUIP.User.Renewal
             if (lblQueryRaised.Text != "0")
             {
                 newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=QueryRaised";
+                Response.Redirect(newurl);
+            }
+        }
+
+        protected void lnkAddPaymentDone_Click(object sender, EventArgs e)
+        {
+
+            if (lblAddPaymentDone.Text != "0")
+            {
+                newurl = "~/User/Dashboard/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=AddlPaymentDone";
                 Response.Redirect(newurl);
             }
         }

@@ -49,6 +49,7 @@ namespace MeghalayaUIP.User.CFO
 
                     if (!IsPostBack)
                     {
+                        BindStates();
                         BindDistricts();
                         BindRegistrationType();
                         BindConstitutionType();
@@ -258,13 +259,41 @@ namespace MeghalayaUIP.User.CFO
                         txtLandlineno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPTELPHNO"]);
                         txtDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPDOORNO"]);
                         txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPLOCALITY"]);
-                        ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPDISTRICTID"]);
-                        ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPMANDALID"]);
-                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPVILLAGEID"]);
-                        txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPPINCODE"]);
 
+
+                        //ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPDISTRICTID"]);
+                        //ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                        //ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPMANDALID"]);
+                        //ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        //ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPVILLAGEID"]);
+
+                        ddlstate.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_STATEID"]);
+                        ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
+
+                        if (ddlstate.SelectedItem.Text == "Meghalaya")
+                        {
+                            divMeghaState.Visible = true;
+                            divOtherState.Visible = false;
+
+                            ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPDISTRICTID"]);
+                            ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPMANDALID"]);
+                            ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPVILLAGEID"]);
+                        }
+                        else
+                        {
+                            divOtherState.Visible = true;
+                            divMeghaState.Visible = false;
+
+                            txtDistricted.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_DISTRICTNAME"]);
+                            txtMandaled.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_MANDALNAME"]);
+                            txtVillagede.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_VILLAGENAME"]);
+
+                        }
+
+
+                        txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPPINCODE"]);
                         rblAbled.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPISDIFFABLED"]);
                         rblWomen.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_REPISWOMANENTR"]);
                         txtDevelopmentArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFOID_DEVELOPAREA"]);
@@ -294,7 +323,7 @@ namespace MeghalayaUIP.User.CFO
 
                         if (txtRdCutlenght.Text != "")
                         { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
-                     
+
                     }
                     else
                     {
@@ -311,11 +340,39 @@ namespace MeghalayaUIP.User.CFO
                         txtMobileno.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_MOBILE"]);
                         txtDoorNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_DOORNO"]);
                         txtLocality.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_LOCALITY"]);
-                        ddlDistric.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_DISTRICTID"]);
-                        ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_MANDALID"]);
-                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
+                        //ddlDistric.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_DISTRICTID"]);
+                        //ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                        //ddlMandal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_MANDALID"]);
+                        //ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                        //ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
+
+                        ddlstate.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["STATEID"]);
+                        ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
+
+
+                        if (ddlstate.SelectedItem.Text == "Meghalaya")
+                        {
+                            divMeghaState.Visible = true;
+                            divOtherState.Visible = false;
+
+                            ddlDistric.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_DISTRICTID"]);
+                            ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlMandal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_MANDALID"]);
+                            ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
+                        }
+                        else
+                        {
+                            divOtherState.Visible = true;
+                            divMeghaState.Visible = false;
+
+                            txtDistricted.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_DISTRICTNAME"]);
+                            txtMandaled.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_MANDALNAME"]);
+                            txtVillagede.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGENAME"]);
+
+                        }
+
+
                         txtpincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_PINCODE"]);
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFOQD_PROPEMP"]);
                         //if (ds.Tables[1].Rows.Count > 0)
@@ -328,13 +385,17 @@ namespace MeghalayaUIP.User.CFO
                         //    { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
                         //}
 
-                    }
+                    }                 
 
                     txtIndustryName.Enabled = false;
                     txtPromoterName.Enabled = false;
                     ddlDistric.Enabled = false;
                     ddlMandal.Enabled = false;
                     ddlVillage.Enabled = false;
+                    ddlstate.Enabled = false;
+                    txtDistricted.Enabled = false;
+                    txtMandaled.Enabled = false;
+                    txtVillagede.Enabled = false;
                     txtLocality.Enabled = false;
                     txtpincode.Enabled = false;
                     txtMobileno.Enabled = false;
@@ -343,7 +404,7 @@ namespace MeghalayaUIP.User.CFO
                     //rblproposal.Enabled = false;
                     //lbltotalEmp.Enabled = false;
                     txtRegDate.Enabled = false;
-                 //   ddlFactories.Enabled = false;
+                    //   ddlFactories.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -473,6 +534,11 @@ namespace MeghalayaUIP.User.CFO
                     objCFOComn.AuthRep_DistrictID = ddlDistric.SelectedValue;
                     objCFOComn.AuthRep_MandalID = ddlMandal.SelectedValue;
                     objCFOComn.AuthRep_VillageID = ddlVillage.SelectedValue;
+                    objCFOComn.Stateid = ddlstate.SelectedValue;
+                    objCFOComn.AuthRep_DistrictName = txtDistricted.Text;
+                    objCFOComn.AuthRep_MandalName = txtMandaled.Text;
+                    objCFOComn.AuthRep_VillageName = txtVillagede.Text;
+
                     objCFOComn.AuthRep_Locality = txtLocality.Text;
                     objCFOComn.AuthRep_DoorNo = txtDoorNo.Text;
                     objCFOComn.AuthRep_Pincode = txtpincode.Text;
@@ -677,20 +743,61 @@ namespace MeghalayaUIP.User.CFO
                     errormsg = errormsg + slno + ". Please Enter Street Name  \\n";
                     slno = slno + 1;
                 }
-                if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+                //if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Distric \\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Mandal \\n";
+                //    slno = slno + 1;
+                //}
+                //if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Village \\n";
+                //    slno = slno + 1;
+                //}
+                if (ddlstate.SelectedValue == "0" || ddlstate.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
+                    errormsg = errormsg + slno + ". Please Select State \\n";
                     slno = slno + 1;
                 }
-                if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
+                if (ddlstate.SelectedValue == "23")
                 {
-                    errormsg = errormsg + slno + ". Please Select Mandal \\n";
-                    slno = slno + 1;
+                    if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Distric \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Mandal \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Village \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
+                else if (ddlstate.SelectedValue != "23" && ddlstate.SelectedValue != "0")
                 {
-                    errormsg = errormsg + slno + ". Please Select Village \\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtDistricted.Text) || txtDistricted.Text == "" || txtDistricted.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Authorised Representative District...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtMandaled.Text) || txtMandaled.Text == "" || txtMandaled.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Authorised Representative Mandal...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtVillagede.Text) || txtVillagede.Text == "" || txtVillagede.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Authorised Representative Village...! \\n";
+                        slno = slno + 1;
+                    }
                 }
                 if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
                 {
@@ -929,6 +1036,68 @@ namespace MeghalayaUIP.User.CFO
                 }
             }
             return emptyTextboxes;
+        }
+        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlstate.SelectedValue != "23")
+                {
+                    divOtherState.Visible = true;
+
+                    divMeghaState.Visible = false;
+
+                    ddlDistric.ClearSelection();
+                    ddlMandal.ClearSelection();
+                    ddlVillage.ClearSelection();
+                }
+                else if (ddlstate.SelectedValue == "23")
+                {
+                    divMeghaState.Visible = true;
+
+                    divOtherState.Visible = false;
+                    txtDistricted.Text = "";
+                    txtMandaled.Text = "";
+                    txtVillagede.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void BindStates()
+        {
+            try
+            {
+                ddlstate.Items.Clear();
+
+                List<MasterStates> objStatesModel = new List<MasterStates>();
+
+                objStatesModel = mstrBAL.GetStates();
+                if (objStatesModel != null)
+                {
+                    ddlstate.DataSource = objStatesModel;
+                    ddlstate.DataValueField = "StateId";
+                    ddlstate.DataTextField = "StateName";
+                    ddlstate.DataBind();
+                }
+                else
+                {
+                    ddlstate.DataSource = null;
+                    ddlstate.DataBind();
+                }
+                AddSelect(ddlstate);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }

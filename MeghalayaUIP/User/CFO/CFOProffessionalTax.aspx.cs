@@ -675,7 +675,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtplacebusiness.Text.Trim()) || string.IsNullOrEmpty(txtadd.Text) || string.IsNullOrEmpty(txtEMP.Text))
+                if (string.IsNullOrEmpty(txtplacebusiness.Text.Trim()) || string.IsNullOrEmpty(txtadd.Text) || string.IsNullOrEmpty(txtEMP.Text)|| string.IsNullOrEmpty(ddldist.SelectedValue))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
@@ -743,7 +743,7 @@ namespace MeghalayaUIP.User.CFO
         {
             try
             {
-                if (string.IsNullOrEmpty(txtBusinessplace.Text.Trim()) || string.IsNullOrEmpty(txtAddeddet.Text) || string.IsNullOrEmpty(txtwork.Text))
+                if (string.IsNullOrEmpty(txtBusinessplace.Text.Trim()) || string.IsNullOrEmpty(txtAddeddet.Text) || string.IsNullOrEmpty(txtwork.Text)||string.IsNullOrEmpty(ddlState.SelectedValue))
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;

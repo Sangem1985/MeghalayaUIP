@@ -77,16 +77,19 @@ namespace MeghalayaUIP.Dept.CFO
                 }
                 if (Request.QueryString.Count > 0)
                 {
-                    if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING" || Request.QueryString["status"].ToString() == "APPROVALPENDING")
+                    string status = Convert.ToString(Request.QueryString["status"]);
+                    if (status.Contains("PRESCRUTINYPENDING") || status.Contains("APPROVALPENDING"))
                     {
                         verifypanel.Visible = true;
-                        if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
+                        if (status.Contains("PRESCRUTINYPENDING"))
                         {
+                            lblVerf.Text = "Scrutiny Verification of Application";
                             scrutiny.Visible = true;
                             Approval.Visible = false;
                         }
                         else
                         {
+                            lblVerf.Text = "Approval Process";
                             scrutiny.Visible = false;
                             Approval.Visible = true;
                         }
@@ -95,13 +98,24 @@ namespace MeghalayaUIP.Dept.CFO
                     {
                         verifypanel.Visible = false;
                     }
+                    if (Request.QueryString["status"].ToString().ToLower().Contains("offline"))
+                    {
+                        headingThree.Visible = false;
+                        headingFour.Visible = false;
+                        if (Request.QueryString["status"].ToString() == "OFFLINEPENDING" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGWITHIN" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGBEYOND")
+                        {
+
+                            Offlineverifypanel.Visible = true;
+                        }
+                    }
                 }
                 else
                 {
                     verifypanel.Visible = false;
+                    Offlineverifypanel.Visible = false;
                 }
 
-              
+
                 if (Session["UNITID"] != null && Session["INVESTERID"] != null)
                 {
                     DataSet ds = new DataSet();
@@ -723,6 +737,23 @@ namespace MeghalayaUIP.Dept.CFO
                             }
                         }
                     }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[23].Rows.Count > 0)
+                    {
+                        grdcfeattachment.DataSource = ds.Tables[23]; 
+                        grdcfeattachment.DataBind();
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[24].Rows.Count > 0)
+                    {
+                        grdApplStatus.DataSource = ds.Tables[24];
+                        grdApplStatus.DataBind();
+                    }
+                    if (ds.Tables[25].Rows.Count > 0)
+                    {
+                        Query.Visible = true;
+                        grdQueries.DataSource = ds.Tables[25];
+                        grdQueries.DataBind();
+                    }
+
                 }
 
             }
@@ -779,9 +810,10 @@ namespace MeghalayaUIP.Dept.CFO
                 }
                 else if (ddlStatus.SelectedValue == "12")
                 {
-                    //tblaction.Visible = true;
-                    //lblaction.Text = "Please Enter Query Description";
-
+                    tdquryorrej.Visible = false; //header label
+                    tdquryorrejTxtbx.Visible = false; //td
+                    tdInspReport.Visible = true;
+                    tdInspReport1.Visible = true;
                 }
                 else
                 {
@@ -907,8 +939,9 @@ namespace MeghalayaUIP.Dept.CFO
                 }
                 if (ddlapproval.SelectedValue == "16")
                 {
+                    tdbtnreject.Visible = true;
+                    tdapprovalAction.Visible = true;
                     trapproval.Visible = false;
-                    trapprovalupload.Visible = false;
                     trrejection.Visible = true;
                     txtRejection.Visible = true;
                     tdapproverejection.Visible = true;
@@ -916,17 +949,19 @@ namespace MeghalayaUIP.Dept.CFO
                     tdapprovalAction.Visible = true;
                     btnreject.Visible = true;
                     btnApprove.Visible = false;
+                    TRAPPROVE.Visible = false;
                 }
                 else
                 {
                     trapproval.Visible = true;
-                    trapprovalupload.Visible = true;
                     trrejection.Visible = false;
                     txtRejection.Visible = false;
                     tdapproverejection.Visible = false;
                     tdapprovalAction.Visible = false;
                     btnreject.Visible = false;
                     btnApprove.Visible = true;
+                    TRAPPROVE.Visible = true;
+                    tdbtnreject.Visible = false;
                 }
 
             }
@@ -949,7 +984,7 @@ namespace MeghalayaUIP.Dept.CFO
                     {
                         string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
                         string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
-                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + "31" + "\\";
+                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + Session["ApprovalID"] + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -959,13 +994,15 @@ namespace MeghalayaUIP.Dept.CFO
                         CFOAttachments objBldngPlan = new CFOAttachments();
                         objBldngPlan.UNITID = Convert.ToString(Session["UNITID"]);
                         objBldngPlan.Questionnareid = Session["Questionnaireid"].ToString();
-                        objBldngPlan.ApprovalID = "31";
-                        objBldngPlan.DeptID = "0";
+                        objBldngPlan.ApprovalID = Session["ApprovalID"].ToString();
+                        objBldngPlan.DeptID = Session["DEPTID"].ToString();
                         objBldngPlan.FilePath = serverpath + fuApproval.PostedFile.FileName;
                         objBldngPlan.FileName = fuApproval.PostedFile.FileName;
                         objBldngPlan.FileType = fuApproval.PostedFile.ContentType;
                         objBldngPlan.FileDescription = "ApprovalDocuments";
                         objBldngPlan.CreatedBy = Session["INVESTERID"].ToString();
+                        objBldngPlan.UploadBy = "Department";
+                        objBldngPlan.UploadByID = hdnUserID.Value;
                         objBldngPlan.IPAddress = getclientIP();
                         result = objcfobal.InsertCFOAttachments(objBldngPlan);
                         if (result != "")
@@ -1251,5 +1288,84 @@ namespace MeghalayaUIP.Dept.CFO
 
             return emptyDropdowns;
         }
+        protected void btnInspReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupInspReport.HasFile)
+                {
+                    Error = validations(fupInspReport);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
+                         + Session["Questionnaireid"].ToString() + "\\" + "InspectionReports" + "\\" + Session["ApprovalID"] + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupInspReport.PostedFile.SaveAs(serverpath + "\\" + fupInspReport.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupInspReport.PostedFile.SaveAs(serverpath + "\\" + fupInspReport.PostedFile.FileName);
+                            }
+                        }
+
+                        CFOAttachments objBldngPlan = new CFOAttachments();
+                        objBldngPlan.UNITID = Convert.ToString(Session["UNITID"]);
+                        objBldngPlan.Questionnareid = Session["Questionnaireid"].ToString();
+                        objBldngPlan.ApprovalID = Session["ApprovalID"].ToString();
+                        objBldngPlan.DeptID = Session["DEPTID"].ToString();
+                        objBldngPlan.FilePath = serverpath + fupInspReport.PostedFile.FileName;
+                        objBldngPlan.FileName = fupInspReport.PostedFile.FileName;
+                        objBldngPlan.FileType = fupInspReport.PostedFile.ContentType;
+                        objBldngPlan.FileDescription = "Inspection Report";
+                        objBldngPlan.CreatedBy = Session["INVESTERID"].ToString();
+                        objBldngPlan.UploadBy = "Department";
+                        objBldngPlan.UploadByID = hdnUserID.Value;
+                        objBldngPlan.IPAddress = getclientIP();
+                        result = objcfobal.InsertCFOAttachments(objBldngPlan);
+                        if (result != "")
+                        {
+                            hplInspReport.Visible = true;
+                            hplInspReport.Text = fupInspReport.PostedFile.FileName;
+                            hplInspReport.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objBldngPlan.FilePath);
+                            hplInspReport.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
     }
 }

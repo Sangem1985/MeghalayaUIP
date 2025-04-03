@@ -2166,7 +2166,7 @@ namespace MeghalayaUIP.User.CFO
             {
                 btnsave_Click(sender, e);
                 if (Errormsg == "")
-                    Response.Redirect("~/User/CFO/CFOUploadEnclosures.aspx?next=N");
+                    Response.Redirect("~/User/CFO/CFOForestTransit.aspx?next=N");
             }
             catch (Exception ex)
             {

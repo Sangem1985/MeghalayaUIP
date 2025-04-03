@@ -87,24 +87,6 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.Label lblApprovalsApplied;
 
         /// <summary>
-        /// linkAddlPaymnt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkAddlPaymnt;
-
-        /// <summary>
-        /// lblAddlPaymentReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddlPaymentReq;
-
-        /// <summary>
         /// linkAddlPaymntdone control.
         /// </summary>
         /// <remarks>
@@ -121,6 +103,60 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAddlPaymentPaid;
+
+        /// <summary>
+        /// linkScrtnyPendng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkScrtnyPendng;
+
+        /// <summary>
+        /// lblScrtnyPendng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblScrtnyPendng;
+
+        /// <summary>
+        /// linkScrtnyCmpltd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkScrtnyCmpltd;
+
+        /// <summary>
+        /// lblScrtnyCmpltd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblScrtnyCmpltd;
+
+        /// <summary>
+        /// linkScrtnyRejected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkScrtnyRejected;
+
+        /// <summary>
+        /// lblScrtnyRejected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblScrtnyRejected;
 
         /// <summary>
         /// linkQryRaised control.
@@ -177,58 +213,40 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.Label lblQueryYettoRespond;
 
         /// <summary>
-        /// linkScrtnyRejected control.
+        /// linkAddlPaymnt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkScrtnyRejected;
+        protected global::System.Web.UI.WebControls.LinkButton linkAddlPaymnt;
 
         /// <summary>
-        /// lblScrtnyRejected control.
+        /// lblAddlPaymentReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScrtnyRejected;
+        protected global::System.Web.UI.WebControls.Label lblAddlPaymentReq;
 
         /// <summary>
-        /// linkScrtnyCmpltd control.
+        /// lnkAddPaymentDone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkScrtnyCmpltd;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAddPaymentDone;
 
         /// <summary>
-        /// lblScrtnyCmpltd control.
+        /// lblAddPaymentDone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScrtnyCmpltd;
-
-        /// <summary>
-        /// linkScrtnyPendng control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkScrtnyPendng;
-
-        /// <summary>
-        /// lblScrtnyPendng control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScrtnyPendng;
+        protected global::System.Web.UI.WebControls.Label lblAddPaymentDone;
 
         /// <summary>
         /// linkApprovalIssued control.

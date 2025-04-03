@@ -232,7 +232,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex justify-content-center">
                                             <asp:GridView ID="gvLogs" runat="server" AutoGenerateColumns="False"
                                                 BorderColor="#003399" BorderStyle="Solid" BorderWidth="1px" CellPadding="4"
                                                 CssClass="GRD" ForeColor="#333333" GridLines="Both"
@@ -303,7 +303,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex justify-content-center">
                                             <asp:GridView ID="gvBarriers" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD"
                                                 DataKeyNames="SlNo" ForeColor="#333333" OnRowDeleting="GvBarriers_RowDeleting"

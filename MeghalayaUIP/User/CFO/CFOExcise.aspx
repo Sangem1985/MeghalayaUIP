@@ -383,11 +383,13 @@
                                             </div>
                                             <br />
 
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-6">
+                                            <div class="col-md-12 d-flex">                                               
+
+
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">The Country of Origin of the Liquor *</label>
-                                                        <div class="col-lg-4 d-flex">
+                                                        <div class="col-lg-6 d-flex">
 
                                                             <asp:DropDownList runat="server" ID="ddlCountry" onchange="validateDropdown(this)" class="form-control">
                                                                 <%--<asp:ListItem Text="--Select--" Value="0"></asp:ListItem>

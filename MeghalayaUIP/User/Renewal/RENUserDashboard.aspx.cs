@@ -187,13 +187,13 @@ namespace MeghalayaUIP.User.Renewal
                     HyperLink hplRejctd = (HyperLink)e.Row.FindControl("hplRejected");
                     HyperLink hplQryRaised = (HyperLink)e.Row.FindControl("hplQueryRaised");*/
                     if (hplAppld.Text != "0")
-                        hplAppld.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Applied";
+                        hplAppld.NavigateUrl = "~/User/Renewal/RENApplStatus.aspx?RENQID=" + lblRENQDID.Text + "&Type=Applied";
                     if (hplApprvd.Text != "0")
-                        hplApprvd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
+                        hplApprvd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?RENQID=" + lblRENQDID.Text + "&Type=Approved";
                     if (hplUndrPrc.Text != "0")
-                        hplUndrPrc.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=UnderProcess";
+                        hplUndrPrc.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?RENQID=" + lblRENQDID.Text + "&Type=UnderProcess";
                     if (hplRejctd.Text != "0")
-                        hplRejctd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
+                        hplRejctd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?RENQID=" + lblRENQDID.Text + "&Type=Rejected";
                     if (hplQryRaised.Text != "0")
                         hplQryRaised.NavigateUrl = "~/User/Renewal/RENQueryDashBoard.aspx?RENQID=" + lblRENQDID.Text + "&Type=QueryRaised";
 

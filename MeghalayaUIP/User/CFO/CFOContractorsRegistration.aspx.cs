@@ -54,13 +54,13 @@ namespace MeghalayaUIP.User.CFO
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-            
+
         }
         protected void GetAppliedorNot()
         {
@@ -224,6 +224,7 @@ namespace MeghalayaUIP.User.CFO
             {
 
                 ErrorMsg = Validations();
+                if (ErrorMsg == "")
                 {
                     PublicWorKDepartment ObjCFOWorkDepartment = new PublicWorKDepartment();
 
@@ -244,7 +245,7 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOWorkDepartment.Datework = txtContractor.Text;
 
                     result = objcfobal.InsertCFOPublicworkDetails(ObjCFOWorkDepartment);
-                    //  ViewState["UnitID"] = result;
+
                     if (result != "")
                     {
                         success.Visible = true;
@@ -252,6 +253,11 @@ namespace MeghalayaUIP.User.CFO
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
+                }
+               else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (Exception ex)
@@ -331,14 +337,16 @@ namespace MeghalayaUIP.User.CFO
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
                 List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
+                string errormsg = "";
+
                 if (string.IsNullOrEmpty(txtNameBank.Text.Trim()) || txtNameBank.Text.Trim() == "" || txtNameBank.Text.Trim() == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please Enter Address\\n";
+                    errormsg = errormsg + slno + ". Please Enter Address\\n";
                     slno = slno + 1;
                 }
                 if (rblPurApplication.SelectedIndex == -1)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please Select Purpose of Application \\n";
+                    errormsg = errormsg + slno + ". Please Select Purpose of Application \\n";
                     slno = slno + 1;
                 }
                 //if (rblRegister.SelectedValue == "1")
@@ -377,61 +385,61 @@ namespace MeghalayaUIP.User.CFO
 
                 if (string.IsNullOrEmpty(txtTurnOver.Text) || txtTurnOver.Text == "" || txtTurnOver.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please Enter Turn Over (in Rs. Lakhs)\\n";
+                    errormsg = errormsg + slno + ". Please Enter Turn Over (in Rs. Lakhs)\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtFinancial.Text) || txtFinancial.Text == "" || txtFinancial.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please Enter Total Value of Works in last 3 financial years (in Rs. Lakhs)\\n";
+                    errormsg = errormsg + slno + ". Please Enter Total Value of Works in last 3 financial years (in Rs. Lakhs)\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtContractor.Text) || txtContractor.Text == "" || txtContractor.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please Enter Date from which working as contractor\\n";
+                    errormsg = errormsg + slno + ". Please Enter Date from which working as contractor\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(hypTaxClearance.Text) || hypTaxClearance.Text == "" || hypTaxClearance.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please upload Tax Clearance Certificate on Professional Tax \\n";
+                    errormsg = errormsg + slno + ". Please upload Tax Clearance Certificate on Professional Tax \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(hypGSTREG.Text) || hypGSTREG.Text == "" || hypGSTREG.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please upload GST Registration \\n";
+                    errormsg = errormsg + slno + ". Please upload GST Registration \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(hypLabourLic.Text) || hypLabourLic.Text == "" || hypLabourLic.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please upload Certificate of Labour License\\n";
+                    errormsg = errormsg + slno + ". Please upload Certificate of Labour License\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(hypTribals.Text) || hypTribals.Text == "" || hypTribals.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please upload Balance sheets for last three financial years \\n";
+                    errormsg = errormsg + slno + ". Please upload Balance sheets for last three financial years \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(hypTradeLic.Text) || hypTradeLic.Text == "" || hypTradeLic.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please upload Trading license In case of SC, ST and OBC \\n";
+                    errormsg = errormsg + slno + ". Please upload Trading license In case of SC, ST and OBC \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(hypCastefirms.Text) || hypCastefirms.Text == "" || hypCastefirms.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please upload Caste certificate In case of firms \\n";
+                    errormsg = errormsg + slno + ". Please upload Caste certificate In case of firms \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(hypattorney.Text) || hypattorney.Text == "" || hypattorney.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please upload Power of attorney In case of renewals \\n";
+                    errormsg = errormsg + slno + ". Please upload Power of attorney In case of renewals \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(hypLastissued.Text) || hypLastissued.Text == "" || hypLastissued.Text == null)
                 {
-                    ErrorMsg = ErrorMsg + slno + ". Please upload  Last issued \\n";
+                    errormsg = errormsg + slno + ". Please upload  Last issued \\n";
                     slno = slno + 1;
                 }
 
-                return ErrorMsg;
+                return errormsg;
             }
             catch (Exception ex)
             {
@@ -963,7 +971,7 @@ namespace MeghalayaUIP.User.CFO
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
-         
+
         }
 
         public string validations(FileUpload Attachment)

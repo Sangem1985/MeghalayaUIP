@@ -2841,6 +2841,42 @@ namespace MeghalayaUIP.Dept.CFO
         protected global::System.Web.UI.WebControls.Label lblResults;
 
         /// <summary>
+        /// divChecklistAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divChecklistAttachment;
+
+        /// <summary>
+        /// grdcfeattachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdcfeattachment;
+
+        /// <summary>
+        /// Query control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Query;
+
+        /// <summary>
+        /// headingThree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headingThree;
+
+        /// <summary>
         /// grdQueries control.
         /// </summary>
         /// <remarks>
@@ -2848,6 +2884,24 @@ namespace MeghalayaUIP.Dept.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdQueries;
+
+        /// <summary>
+        /// QueryAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QueryAttachment;
+
+        /// <summary>
+        /// headingFour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headingFour;
 
         /// <summary>
         /// grdQryAttachments control.
@@ -2913,6 +2967,15 @@ namespace MeghalayaUIP.Dept.CFO
         protected global::System.Web.UI.WebControls.Label lblremarks;
 
         /// <summary>
+        /// tdInspReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdInspReport;
+
+        /// <summary>
         /// tdaction control.
         /// </summary>
         /// <remarks>
@@ -2920,15 +2983,6 @@ namespace MeghalayaUIP.Dept.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdaction;
-
-        /// <summary>
-        /// lbl_Name1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Name1;
 
         /// <summary>
         /// lblunitname1 control.
@@ -2994,6 +3048,42 @@ namespace MeghalayaUIP.Dept.CFO
         protected global::System.Web.UI.WebControls.TextBox txtAdditionalAmount;
 
         /// <summary>
+        /// tdInspReport1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdInspReport1;
+
+        /// <summary>
+        /// fupInspReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fupInspReport;
+
+        /// <summary>
+        /// btnInspReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInspReport;
+
+        /// <summary>
+        /// hplInspReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplInspReport;
+
+        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>
@@ -3037,15 +3127,6 @@ namespace MeghalayaUIP.Dept.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdapprovalAction;
-
-        /// <summary>
-        /// lbl_Name1Approval control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Name1Approval;
 
         /// <summary>
         /// lblunitname1Approval control.
@@ -3102,6 +3183,15 @@ namespace MeghalayaUIP.Dept.CFO
         protected global::System.Web.UI.WebControls.TextBox txtRejection;
 
         /// <summary>
+        /// tdbtnreject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdbtnreject;
+
+        /// <summary>
         /// btnreject control.
         /// </summary>
         /// <remarks>
@@ -3129,15 +3219,6 @@ namespace MeghalayaUIP.Dept.CFO
         protected global::System.Web.UI.WebControls.TextBox txtreferenceno;
 
         /// <summary>
-        /// trapprovalupload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trapprovalupload;
-
-        /// <summary>
         /// fuApproval control.
         /// </summary>
         /// <remarks>
@@ -3156,6 +3237,15 @@ namespace MeghalayaUIP.Dept.CFO
         protected global::System.Web.UI.WebControls.Button btnUpldapproval;
 
         /// <summary>
+        /// tdhyperlink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdhyperlink;
+
+        /// <summary>
         /// hplApproval control.
         /// </summary>
         /// <remarks>
@@ -3165,6 +3255,24 @@ namespace MeghalayaUIP.Dept.CFO
         protected global::System.Web.UI.WebControls.HyperLink hplApproval;
 
         /// <summary>
+        /// trapprovalupload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trapprovalupload;
+
+        /// <summary>
+        /// TRAPPROVE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TRAPPROVE;
+
+        /// <summary>
         /// btnApprove control.
         /// </summary>
         /// <remarks>
@@ -3172,5 +3280,140 @@ namespace MeghalayaUIP.Dept.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnApprove;
+
+        /// <summary>
+        /// Offlineverifypanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Offlineverifypanel;
+
+        /// <summary>
+        /// lblOfflineVerify control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOfflineVerify;
+
+        /// <summary>
+        /// offlinescrutiny control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl offlinescrutiny;
+
+        /// <summary>
+        /// td4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell td4;
+
+        /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+
+        /// <summary>
+        /// td5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell td5;
+
+        /// <summary>
+        /// lblNameOffline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNameOffline;
+
+        /// <summary>
+        /// lblUnitNameOffline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnitNameOffline;
+
+        /// <summary>
+        /// lblAppNoOffline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAppNoOffline;
+
+        /// <summary>
+        /// lblAppDateOffline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAppDateOffline;
+
+        /// <summary>
+        /// ddlActionOffline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlActionOffline;
+
+        /// <summary>
+        /// tdOfflineReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdOfflineReason;
+
+        /// <summary>
+        /// txtRejectReasonOffline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRejectReasonOffline;
+
+        /// <summary>
+        /// td7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell td7;
+
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

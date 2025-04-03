@@ -133,6 +133,9 @@ namespace MeghalayaUIP.User.CFO
 
                     ViewState["UnitID"] = Convert.ToString(ds.Tables[1].Rows[0]["CFOLGM_CFOUNITID"]);
                     txtESTDate.Text = ds.Tables[1].Rows[0]["CFOLGM_ESTBLSHDATE"].ToString();
+                    rblFirm.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_PARTNERSHIPFIRM"].ToString();
+                    rblLimit.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_LIMITEDFIRM"].ToString();
+
                     rblfactory.SelectedValue = ds.Tables[1].Rows[0]["CFOLGM_HADESTBLSHREG"].ToString();
                     if (rblfactory.SelectedValue == "Y")
                     {
@@ -536,8 +539,8 @@ namespace MeghalayaUIP.User.CFO
                     ObjCFOlegalDet.LicADCnO = rblMunicipal.SelectedValue;
                     ObjCFOlegalDet.RegDateNo = txtDate.Text;
                     ObjCFOlegalDet.RegCurrentNo = txtcurrentReg.Text;
-                    //ObjCFOlegalDet.PatnershipFirm = rblFirm.SelectedValue;
-                    //ObjCFOlegalDet.CompanyLimited = rblLimit.SelectedValue;
+                    ObjCFOlegalDet.PatnershipFirm = rblFirm.SelectedValue;
+                    ObjCFOlegalDet.CompanyLimited = rblLimit.SelectedValue;
                     //ObjCFOlegalDet.Name = txtName.Text.Trim();
                     // ObjCFOlegalDet.Address = txtAddress.Text;
                     ObjCFOlegalDet.Weight = txtWeight.Text;
@@ -907,6 +910,46 @@ namespace MeghalayaUIP.User.CFO
                         errormsg = errormsg + slno + ". Please Enter Instrument Details and click on Add Button  \\n";
                         slno = slno + 1;
                     }
+                }
+                if (string.IsNullOrEmpty(hypTaxClearance.Text) || hypTaxClearance.Text == "" || hypTaxClearance.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Letter of Consent from the Manufacturer who wish to appoint you as a Dealer \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypweight.Text) || hypweight.Text == "" || hypweight.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Manufacturing Licence if you intend to import weights & measures from outside the State \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypLabourLic.Text) || hypLabourLic.Text == "" || hypLabourLic.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Model Approval Certificate of weights and measures to be deal with \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypLease.Text) || hypLease.Text == "" || hypLease.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Documentary proof of ownership / Lease agreement \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypGSTReg.Text) || hypGSTReg.Text == "" || hypGSTReg.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload GST Registration Certificate. \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypTax.Text) || hypTax.Text == "" || hypTax.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Professional Tax Certificate. \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypLabour.Text) || hypLabour.Text == "" || hypLabour.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Labour Licence. \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypADC.Text) || hypADC.Text == "" || hypADC.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Trade Licence from respective ADC in case of Non Tribal. \\n";
+                    slno = slno + 1;
                 }
                 return errormsg;
             }
@@ -1618,22 +1661,22 @@ namespace MeghalayaUIP.User.CFO
 
         protected void rblFirm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rblFirm.BorderColor = System.Drawing.Color.White;
+            rblFirm.BorderColor = System.Drawing.Color.Black;
         }
 
         protected void rblLimit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rblLimit.BorderColor = System.Drawing.Color.White;
+            rblLimit.BorderColor = System.Drawing.Color.Black;
         }
 
         protected void rblstateside_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rblstateside.BorderColor = System.Drawing.Color.White;
+            rblstateside.BorderColor = System.Drawing.Color.Black;
         }
 
         protected void rblelectric_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rblelectric.BorderColor = System.Drawing.Color.White;
+            rblelectric.BorderColor = System.Drawing.Color.Black;
         }
 
         protected void btnPreviuos_Click(object sender, EventArgs e)

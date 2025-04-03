@@ -382,7 +382,7 @@ namespace MeghalayaUIP.User.CFO
                     ViewState["LabourDetails"] = dt;
 
                     txtName.Text = "";
-                    rblGender.SelectedValue = "";
+                    rblGender.ClearSelection();
                     txtages.Text = "";
                     txtCommunity.Text = "";
                     txtFulladdress.Text = "";

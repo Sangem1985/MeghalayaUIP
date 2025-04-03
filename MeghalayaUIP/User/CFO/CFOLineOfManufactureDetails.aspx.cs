@@ -89,23 +89,20 @@ namespace MeghalayaUIP.User.CFO
                         gvRwaMaterial.DataBind();
                         gvRwaMaterial.Visible = true;
                     }
-                    //if (ds.Tables[2].Rows.Count > 0)
-                    //{
-
-                    //}
+                  
                 }
                 else
                 {
-                    //ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_LOAID"]);
-                    //hdnQuesID.Value = Convert.ToString(Session["CFEQID"]);
+                    ddlLineOfActivity.SelectedValue = Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_LOAID"]);
+                    hdnQuesID.Value = Convert.ToString(Session["CFOQID"]);
 
-                    //if (Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_NOA"]) == "Manufacturing")
-                    //{
+                    if (Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_NOA"]) == "Manufacturing")
+                    {
 
-                    //    divManf.Visible = true;
-                    //    txtManfItemName.Text = Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_MANFPRODUCT"]);
-                    //    txtRMItemName.Text = Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_MAINRM"]);
-                    //}
+                        divManf.Visible = true;
+                        txtManfItemName.Text = Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_MANFPRODUCT"]);
+                        txtRMItemName.Text = Convert.ToString(ds.Tables[2].Rows[0]["PROJECT_MAINRM"]);
+                    }
 
                 }
             }
