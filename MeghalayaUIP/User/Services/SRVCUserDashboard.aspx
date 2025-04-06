@@ -70,7 +70,7 @@
                                 <%--7--%>
                                 <asp:TemplateField HeaderText="Applied" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
-                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("APPLIEDCOUNT")%>' />
+                                        <asp:HyperLink runat="server" ID="hplApplied" Text='<%#Eval("APPLIEDCOUNT")%>' Enabled="false" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
@@ -82,7 +82,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Under Process" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
-                                        <asp:HyperLink runat="server" ID="hplundrProcess" Text='<%#Eval("UNDERPROCESSCOUNT")%>' />
+                                        <asp:HyperLink runat="server" ID="hplundrProcess" Text='<%#Eval("UNDERPROCESSCOUNT")%>' Enabled="false" />
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>

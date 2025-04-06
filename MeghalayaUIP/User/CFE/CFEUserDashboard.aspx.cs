@@ -115,7 +115,7 @@ namespace MeghalayaUIP.User.CFE
                     if (hplApprvd.Text != "0")
                         hplApprvd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
                     if (hplUndrPrc.Text != "0")
-                        hplUndrPrc.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=UnderProcess";
+                        hplUndrPrc.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=ApprovalPending";
                     if (hplRejctd.Text != "0")
                         hplRejctd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
                     if (hplQryRaised.Text != "0")

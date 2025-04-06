@@ -363,9 +363,9 @@
                                 <li>
                                     <div class="blink" id="blinkkashi">*MIIPP 2024 Registrations open till 31st&nbsp;March 2026</div>
                                 </li>
-                                <li class="phone"><a href="tel:(+88)01912704287">A+</a></li>
-                                <li class="phone"><a href="tel:(+88)01912704287">A</a></li>
-                                <li class="phone"><a href="tel:(+88)01912704287">A-</a></li>
+                                <li class="phone"><a href="#">A+</a></li>
+                                <li class="phone"><a href="#">A</a></li>
+                                <li class="phone"><a href="#">A-</a></li>
                                 <li>
                                     <div class="language dropdownn">
                                         <a class="dropdown-toggle" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">Login</a>

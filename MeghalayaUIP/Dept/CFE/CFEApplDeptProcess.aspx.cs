@@ -810,6 +810,12 @@ namespace MeghalayaUIP.Dept.CFE
                         grdQueries.DataSource = ds.Tables[22];
                         grdQueries.DataBind();
                     }
+                    if (ds.Tables[23].Rows.Count > 0)
+                    {
+                        QueryAttachment.Visible = true;
+                        grdQryAttachments.DataSource = ds.Tables[23];
+                        grdQryAttachments.DataBind();
+                    }
 
                 }
 
@@ -1507,6 +1513,31 @@ namespace MeghalayaUIP.Dept.CFE
             }
 
             return emptyDropdowns;
+        }
+        protected void grdQryAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkViewQueryAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
         }
     }
 }

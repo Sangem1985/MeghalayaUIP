@@ -812,7 +812,12 @@ namespace MeghalayaUIP.Dept.Renewal
                             grdQueries.DataSource = ds.Tables[24];
                             grdQueries.DataBind();
                         }
-
+                        if (ds.Tables[25].Rows.Count > 0)
+                        {
+                            QueryAttachment.Visible = true;
+                            grdQryAttachments.DataSource = ds.Tables[25];
+                            grdQryAttachments.DataBind();
+                        }
                     }
 
 
@@ -1364,6 +1369,45 @@ namespace MeghalayaUIP.Dept.Renewal
             return result;
         }
 
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                Response.Redirect("~/Dept/Renewal/RENApplDeptView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
 
+        protected void grdQryAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkViewQueryAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
     }
 }

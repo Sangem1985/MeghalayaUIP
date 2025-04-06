@@ -37,13 +37,14 @@ namespace MeghalayaUIP.Common
 
         public static string GetHelpDeskReports = "USP_GETHELPDESKSTATUS";
 
-        public static string GetHelpDeskReportDrilldown = "";
+        public static string GetHelpDeskReportDrilldown = "USP_GETHELPDESKSTATUSDRILLDOWN";
 
         public static string GetFeedBackQuestions = "GETFEEDBACKQUES";
         public static string InsertFeedBackTracker = "SP_INSFEEDBACKTRACKER";
         public static string InsertFeedBack = "SP_INSFEEDBACK";
-
         public static string GetApllicationDetails = "USP_GETCMPLNC_DETAILS";
+        public static string GetHelpDeskDrilldown = "USP_GETHELPDESKDRILLDOWN";
+
 
         ////////------------------ApplicationTracker----------------///////
 

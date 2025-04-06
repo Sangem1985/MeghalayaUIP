@@ -3094,12 +3094,12 @@ namespace MeghalayaUIP.User.PreReg
                 //{
                    
                 //}
-                if (string.IsNullOrEmpty(hplBankAppraisal.Text) || hplBankAppraisal.Text == "" || hplBankAppraisal.Text == null)
+               /* if (string.IsNullOrEmpty(hplBankAppraisal.Text) || hplBankAppraisal.Text == "" || hplBankAppraisal.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Upload Bank Appraisal " + "\\n";
                     slno = slno + 1;
-                }
-                /*if (string.IsNullOrEmpty(hplUdyam.Text) || hplUdyam.Text == "" || hplUdyam.Text == null)
+                } 04/04/2025
+                if (string.IsNullOrEmpty(hplUdyam.Text) || hplUdyam.Text == "" || hplUdyam.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Upload Udyam Document \\n";
                     slno = slno + 1;

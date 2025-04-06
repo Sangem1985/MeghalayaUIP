@@ -84,11 +84,11 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group row justify-content-center" style="padding: 0px">
-                                                            <asp:Button ID="btnsubmit" runat="server" Text="Get Data" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" OnClick="btnsubmit_Click" />
-                                                        </div>
+                                                                <asp:Button ID="btnsubmit" runat="server" Text="Get Data" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" OnClick="btnsubmit_Click" />
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                   
+
 
                                                     <div align="center" style="padding: 5px; margin: 5px; width: 60%" id="divPrint" runat="server">
                                                         <asp:GridView ID="grdDetails" runat="server" AutoGenerateColumns="False" CellPadding="4"
@@ -108,16 +108,22 @@
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle HorizontalAlign="Left" Width="20px" />
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField DataField="HD_HELPDESKTYPE" HeaderText="Query Type">
+                                                                <%--  <asp:BoundField DataField="HD_HELPDESKTYPE" HeaderText="Query Type">
                                                                     <ItemStyle HorizontalAlign="Left" />
-                                                                </asp:BoundField>                                                             
+                                                                </asp:BoundField>--%>
+                                                                <asp:TemplateField>
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblHelpDesk" runat="server" Text='<%# Eval("HD_HELPDESKTYPE") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                                 <asp:TemplateField HeaderText="Pending">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblPending" Text='<%#Eval("SCOUNT") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" Width="80px" />
-                                                            </asp:TemplateField>
+
+                                                                <asp:TemplateField HeaderText="Pending">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton runat="server" ID="lblPending" Text='<%#Eval("SCOUNT") %>' />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" Width="80px" />
+                                                                </asp:TemplateField>
                                                             </Columns>
                                                         </asp:GridView>
                                                     </div>
@@ -135,22 +141,21 @@
                                                                 <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S.No">
                                                                     <ItemTemplate>
                                                                         <%# Container.DataItemIndex +1 %>
-                                                                      <%--  <asp:Label ID="lblSOLVED_BY" runat="server" Text='<%# Eval("SOLVED_BY") %>' Visible="false"></asp:Label>--%>
-
+                                                                        <%--  <asp:Label ID="lblSOLVED_BY" runat="server" Text='<%# Eval("SOLVED_BY") %>' Visible="false"></asp:Label>--%>
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Left" Width="20px" />
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                 </asp:TemplateField>
-                                                             <%--   <asp:BoundField DataField="User_name" HeaderText="Name">
+                                                                <%--   <asp:BoundField DataField="User_name" HeaderText="Name">
                                                                     <ItemStyle HorizontalAlign="Left" />
                                                                 </asp:BoundField>--%>
-                                                              
-                                                                 <asp:TemplateField HeaderText="Solved">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblSolved" Text='<%#Eval("SOLVEDCOUNT") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" Width="50px" />
-                                                            </asp:TemplateField>
+
+                                                                <asp:TemplateField HeaderText="Solved">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton runat="server" ID="lblSolved" Text='<%#Eval("SOLVEDCOUNT") %>' />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                                                </asp:TemplateField>
                                                             </Columns>
                                                         </asp:GridView>
                                                     </div>
@@ -161,7 +166,7 @@
 
                                                     <div align="center" style="padding: 5px; margin: 5px" id="Td1" runat="server" colspan="2">
                                                         <asp:GridView ID="grdDetails2" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                                            Width="60%" ShowFooter="True">
+                                                            Width="60%" ShowFooter="false">
                                                             <HeaderStyle ForeColor="#FFFFFF" BackColor="#009688" Height="40px" CssClass="GridviewScrollC1HeaderWrap" />
                                                             <RowStyle Height="40px" CssClass="GridviewScrollC1Item" />
                                                             <PagerStyle CssClass="GridviewScrollC1Pager" />
@@ -180,24 +185,24 @@
                                                                     <ItemStyle HorizontalAlign="Left" />
                                                                 </asp:BoundField>
 
-                                                                 <asp:TemplateField HeaderText="Total Posted">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblposte" Text='<%#Eval("POSTEDCNT") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" Width="50px" />
-                                                            </asp:TemplateField>
-                                                                 <asp:TemplateField HeaderText="Solved">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblSolved" Text='<%#Eval("SOLVEDCOUNT") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" Width="50px" />
-                                                            </asp:TemplateField>
-                                                                 <asp:TemplateField HeaderText="Pending">
-                                                                <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblpending" Text='<%#Eval("PENDING") %>' />
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Center" Width="50px" />
-                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Total Posted">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton runat="server" ID="lblposte" Text='<%#Eval("POSTEDCNT") %>' />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Solved">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton runat="server" ID="lblSolved" Text='<%#Eval("SOLVEDCOUNT") %>' />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Pending">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton runat="server" ID="lblpending" Text='<%#Eval("PENDING") %>' />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                                                </asp:TemplateField>
                                                             </Columns>
                                                         </asp:GridView>
                                                     </div>

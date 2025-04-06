@@ -191,7 +191,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (hplApprvd.Text != "0")
                         hplApprvd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?RENQID=" + lblRENQDID.Text + "&Type=Approved";
                     if (hplUndrPrc.Text != "0")
-                        hplUndrPrc.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?RENQID=" + lblRENQDID.Text + "&Type=UnderProcess";
+                        hplUndrPrc.NavigateUrl = "~/User/Renewal/RENApplStatus.aspx?RENQID=" + lblRENQDID.Text + "&Type=UnderProcess";
                     if (hplRejctd.Text != "0")
                         hplRejctd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?RENQID=" + lblRENQDID.Text + "&Type=Rejected";
                     if (hplQryRaised.Text != "0")

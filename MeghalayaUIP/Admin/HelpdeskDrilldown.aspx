@@ -15,7 +15,7 @@
                     <div class="card-header d-flex justify-content-between">
                         <h4 class="card-title mt-1"><b>Help Desk Report:</b></h4>
                         <div class="col-md-1">
-                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                         </div>
                     </div>
                     <div class="card">
@@ -45,7 +45,7 @@
                                         <div class="panel-body">
                                             <div class="card-body justify-content-center " align="justify">
 
-                                                <div class="panel panel-default">                                                  
+                                                <div class="panel panel-default">
 
                                                     <div class="col-md-12 d-flex justify-content-center align-items-center">
 
@@ -75,7 +75,7 @@
                                                     <asp:GridView ID="GVHelpdesk" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD;" ForeColor="#333333"
                                                         GridLines="Both" ShowFooter="true"
-                                                        Width="100%" EnableModelValidation="True">
+                                                        Width="100%" OnRowDataBound="GVHelpdesk_RowDataBound" EnableModelValidation="True">
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />
                                                         <AlternatingRowStyle BackColor="LightGray" Font-Bold="true" />
                                                         <RowStyle Height="40px" BorderColor="Blue" Font-Bold="true" />
@@ -88,20 +88,26 @@
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField DataField="int_fbid" HeaderText="Helpdesk ID" />
-                                                            <asp:BoundField DataField="hd_Code" HeaderText="Reference No" />
+                                                            <%-- <asp:BoundField DataField="int_fbid" HeaderText="Helpdesk ID" />--%>
+                                                             <asp:BoundField DataField="HelpDeskID" HeaderText="Helpdesk ID" />
+                                                            <asp:BoundField DataField="HD_CREATEDBYUSERNAME" HeaderText="Reference No" />
 
-                                                            <asp:TemplateField HeaderText="Uid NO">
+                                                            <%--  <asp:TemplateField HeaderText="Uid NO">
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lbluid" Text='<%#Eval("") %>' />
+                                                                    <asp:LinkButton runat="server" ID="lbluid" Text='<%#Eval("HD_UIDNO") %>' />
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-
-
-                                                            <asp:BoundField DataField="NameofIndustrialUnder" HeaderText="Unit Name" />
-                                                            <asp:BoundField DataField="Fb_Type" HeaderText="Feedback Type"></asp:BoundField>
-                                                            <asp:BoundField DataField="hd_desc" HeaderText="User change Request/ Comments">
+                                                            </asp:TemplateField>--%>
+                                                            <asp:TemplateField HeaderText="Uid NO">
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="hypUIDNO" Target="_blank" Text='<%# Eval("HD_UIDNO") %>' runat="server"></asp:HyperLink>
+                                                                   <%-- NavigateUrl='<%# Eval("TrackerUrl") %>'--%>
+                                                                </ItemTemplate>
+                                                                <HeaderStyle HorizontalAlign="Left" />
+                                                            </asp:TemplateField>                                                           
+                                                            <asp:BoundField DataField="HD_UNITNAME" HeaderText="Unit Name" />
+                                                            <asp:BoundField DataField="HD_HELPDESKTYPE" HeaderText="Feedback Type"></asp:BoundField>
+                                                            <asp:BoundField DataField="HD_HELPDESKDESCRIPTION" HeaderText="User change Request/ Comments">
                                                                 <HeaderStyle HorizontalAlign="Left" Width="300px"></HeaderStyle>
                                                                 <ItemStyle HorizontalAlign="Left" Width="300px"></ItemStyle>
                                                                 <ControlStyle Width="450px" />
@@ -109,23 +115,23 @@
 
                                                             <asp:TemplateField HeaderText="Uploaded Document">
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="lblCommApproved" Text='<%#Eval("") %>' />
+                                                                    <%--    <asp:LinkButton runat="server" ID="lblCommApproved" Text='<%#Eval("") %>' />--%>
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
 
 
 
-                                                            <asp:BoundField DataField="Status" HeaderText="Status">
+                                                            <asp:BoundField DataField="HD_STATUS" HeaderText="Status">
                                                                 <HeaderStyle HorizontalAlign="Left" VerticalAlign="Middle"></HeaderStyle>
                                                                 <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="100px"></ItemStyle>
                                                             </asp:BoundField>
-                                                            <asp:BoundField DataField="Remarks" HeaderText="Remarks"></asp:BoundField>
-                                                            <asp:BoundField DataField="regdate" HeaderText="Date of Submition">
+                                                            <asp:BoundField DataField="HD_REDRESSEDREMARKES" HeaderText="Remarks"></asp:BoundField>
+                                                            <asp:BoundField DataField="HD_CREATEDATE" HeaderText="Date of Submition">
                                                                 <HeaderStyle HorizontalAlign="Left" VerticalAlign="Middle"></HeaderStyle>
                                                                 <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="150px"></ItemStyle>
                                                             </asp:BoundField>
-                                                            <asp:BoundField DataField="respdate" HeaderText="Date of Closure" />
+                                                            <asp:BoundField DataField="HD_REDRESSEDDATE" HeaderText="Date of Closure" />
 
 
                                                             <asp:TemplateField HeaderText="Change Status">
@@ -147,9 +153,23 @@
                                                                                         ValidationGroup="group" Height="80px" TextMode="MultiLine"></asp:TextBox>
                                                                                 </td>
                                                                             </tr>
+                                                                            <tr>
+                                                                                <td style="text-align: left" align="left">
+                                                                                    <asp:DropDownList ID="ddltypeprob" runat="server" Width="152px" CssClass="DROPDOWN"
+                                                                                        ValidationGroup="group">
+                                                                                        <asp:ListItem>Select</asp:ListItem>
+                                                                                        <asp:ListItem>Application Problem</asp:ListItem>
+                                                                                        <asp:ListItem>General Enquiry</asp:ListItem>
+                                                                                        <asp:ListItem>Data Correction</asp:ListItem>
+                                                                                        <asp:ListItem>Other</asp:ListItem>
+                                                                                    </asp:DropDownList>
+                                                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator68" runat="server" ControlToValidate="ddltypeprob"
+                                                                        ErrorMessage="Please Select Type of Problem" InitialValue="Select" ValidationGroup="group">*</asp:RequiredFieldValidator>--%>
+                                                                                </td>
+                                                                            </tr>
                                                                             <tr id="Close" runat="server">
                                                                                 <td style="padding-bottom: 5px; padding-top: 5px; text-align: center">&nbsp;<asp:Button ID="BtnSave" TabIndex="10" runat="server"
-                                                                                    Width="122px" Text="Change Status" CssClass="BUTTONLONG" ValidationGroup="group"
+                                                                                    Width="122px" Text="Change Status" OnClick="BtnSave_Click" CssClass="BUTTONLONG" ValidationGroup="group"
                                                                                     ToolTip="To Save  the data" Height="30px"></asp:Button>
                                                                                 </td>
                                                                             </tr>

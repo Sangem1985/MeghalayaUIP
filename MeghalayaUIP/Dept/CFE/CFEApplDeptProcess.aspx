@@ -3123,7 +3123,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" id="QueryAttachment" runat="server" visible="true">
+                        <div class="panel panel-default" id="QueryAttachment" runat="server" visible="false">
                             <div class="panel-heading" role="tab" runat="server" id="headingFour">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -3138,12 +3138,12 @@
                                     <div class="card-header">
                                         <h3>Attachments in Response to Query Raised</h3>
                                     </div>
-                                    <section id="dashboardQueryattachmnts">
+                                   <section id="dashboardQueryattachmnts">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
                                                 <div class="col-md-12">
                                                     <asp:GridView ID="grdQryAttachments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333" OnRowDataBound="grdQryAttachments_RowDataBound"
                                                         GridLines="Both" Width="80%" EnableModelValidation="True" ShowHeaderWhenEmpty="true">
                                                         <RowStyle />
                                                         <AlternatingRowStyle BackColor="LightGray" />
@@ -3155,8 +3155,20 @@
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="File Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                            <asp:BoundField HeaderText="View" DataField="IDD_LASTNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="FileName" DataField="CFEA_FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:TemplateField HeaderText="View">
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="linkViewQueryAttachment" Text='<%#Eval("CFEA_FILENAME") %>' runat="server"></asp:HyperLink>
+
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="View" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>

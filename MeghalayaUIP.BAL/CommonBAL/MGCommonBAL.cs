@@ -114,9 +114,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.GETHelpDeskReport(FDate, TDate);
         }
-        public DataSet GetHelpDeskReportDrilldown(string Status,string Districtid, string FDate, string TDate)
+        public DataSet GetHelpDeskReportDrilldown(string HDType, string Status, string FDate, string TDate)
         {
-            return objCommonDAL.GetHelpDeskReportDrilldown(Status, Districtid, FDate, TDate);
+            return objCommonDAL.GetHelpDeskReportDrilldown(HDType, Status, FDate, TDate);
         }
 
         public DataSet GetFeedBackQuestions()
@@ -128,7 +128,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.InsertFeedbackTracker(tracker);
         }
-
+        public DataSet HelpdeskDrilldown(string HelpDeskId, string Createdby)
+        {
+            return objCommonDAL.HelpdeskDrilldown(HelpDeskId, Createdby);
+        }
 
         public string InsertFeedback(int trackerId, List<FeedbackData> feedbackList)
         {

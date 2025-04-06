@@ -1117,7 +1117,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetHelpDeskReportDrilldown(string Status, string Districtid, string FDate, string TDate)
+        public DataSet GetHelpDeskReportDrilldown( string HDType, string Status, string FDate, string TDate)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1140,20 +1140,20 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 if (Status.ToString() == "")
                 {
-                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = DBNull.Value;
+                    da.SelectCommand.Parameters.Add("@STATUS", SqlDbType.VarChar).Value = DBNull.Value;
                 }
                 else
                 {
-                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = Status.ToString();
+                    da.SelectCommand.Parameters.Add("@STATUS", SqlDbType.VarChar).Value = Status.ToString();
                 }
 
-                if (Districtid.ToString() == "")
+                if (HDType.ToString() == "")
                 {
-                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = DBNull.Value;
+                    da.SelectCommand.Parameters.Add("@HDTYPE", SqlDbType.VarChar).Value = DBNull.Value;
                 }
                 else
                 {
-                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = Districtid.ToString();
+                    da.SelectCommand.Parameters.Add("@HDTYPE", SqlDbType.VarChar).Value = HDType.ToString();
                 }
 
 
@@ -1391,6 +1391,58 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public DataSet HelpdeskDrilldown(string HelpDeskId, string Createdby)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetHelpDeskDrilldown, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetHelpDeskDrilldown;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                
+                if (HelpDeskId.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@HelpdeskID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@HelpdeskID", SqlDbType.VarChar).Value = HelpDeskId.ToString();
+                }
+
+                if (Createdby.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@INVESTERID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@INVESTERID", SqlDbType.VarChar).Value = Createdby.ToString();
+                }
+
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
     }
 
 }

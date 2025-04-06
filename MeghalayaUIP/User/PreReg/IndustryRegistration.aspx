@@ -1436,7 +1436,7 @@ Components of DPR-
 * Projected requirement of Water 
 
 Note: Micro Enterprises- Investment in plant and machinery or equipment not exceeding ₹2.5 crore 
-  and annual turnover not exceeding ₹10 crore." class="col-lg-4 col-form-label">6. Upload Detailed Project Report (DPR)<span class="star">*</span></asp:Label>
+  and annual turnover not exceeding ₹10 crore." class="col-lg-4 col-form-label">6. Upload Detailed Project Report (DPR) Summary of DPR for Micro Industry<span class="star">*</span></asp:Label>
                                                                 <%--<div class="col-lg-8 d-flex">--%>
                                                                 <div class="col-lg-3 d-flex">
                                                                     <asp:FileUpload ID="fupDPR" runat="server" />
@@ -1452,7 +1452,7 @@ Note: Micro Enterprises- Investment in plant and machinery or equipment not exce
                                                                 <%--</div>--%>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label" >7. Bank Appraisal Document <span class="star">*</span> </label>
+                                                                <label class="col-lg-4 col-form-label" >7. Bank Appraisal Document </label>
                                                                 <div class="col-lg-3 d-flex">
                                                                     <asp:FileUpload ID="fupBankAppraisal" runat="server" />
                                                                 </div>
