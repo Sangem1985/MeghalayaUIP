@@ -1,6 +1,7 @@
 ﻿using MeghalayaUIP.BAL.RenewalBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,6 +11,9 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Web.Services.Description;
+
 
 namespace MeghalayaUIP.User.Renewal
 {
@@ -73,8 +77,8 @@ namespace MeghalayaUIP.User.Renewal
                     lblQueryDescription.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENQ_QUERYRAISEDESC"]);
                     lblApplicationID.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_UIDNO"]);
 
-                    lblRENQid.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_RENQDID"]);
-                    lblQuesID.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENQID"]);
+                    // lblRENQid.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_RENQDID"]);
+                    lblQuesID.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_RENQDID"]);
                     lblQryid.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENQID"]);
                     lblDeptID.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENQ_DEPTID"]);
                     lblApprovalID.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENQ_APPROVALID"]);
@@ -100,8 +104,9 @@ namespace MeghalayaUIP.User.Renewal
                     Error = validations(fupAttachment);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\RENAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["Questionnaireid"]) + "\\" + "RESPONSEATTACHMNETS" + "\\");
+                        string sFileDir = System.Configuration.ConfigurationManager.AppSettings["RENAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(lblQuesID.Text) + "\\" + "RESPONSEATTACHMNETS" + "\\" + lblDeptID.Text + "\\" + lblApprovalID.Text + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -111,15 +116,15 @@ namespace MeghalayaUIP.User.Renewal
 
                         RenAttachments objRenAttachments = new RenAttachments();
                         //objRenAttachments.UNITID = lblUnitId.Text;
-                        objRenAttachments.Questionnareid = lblRENQid.Text;
+                        objRenAttachments.Questionnareid = lblQuesID.Text;
                         objRenAttachments.MasterID = "";
                         objRenAttachments.QueryID = lblQryid.Text;
                         objRenAttachments.FilePath = serverpath + fupAttachment.PostedFile.FileName;
                         objRenAttachments.FileName = fupAttachment.PostedFile.FileName;
                         objRenAttachments.FileType = fupAttachment.PostedFile.ContentType;
                         objRenAttachments.FileDescription = "RESPONSE ATTACHMENT";
-                        objRenAttachments.DeptID = "0";
-                        objRenAttachments.ApprovalID = "0";
+                        objRenAttachments.DeptID = lblDeptID.Text;
+                        objRenAttachments.ApprovalID = lblApprovalID.Text;
                         objRenAttachments.CreatedBy = hdnUserID.Value;
                         objRenAttachments.IPAddress = getclientIP();
                         result = objrenbal.InsertAttachmentsRenewal(objRenAttachments);
@@ -128,7 +133,7 @@ namespace MeghalayaUIP.User.Renewal
                             hplAttachment.Text = fupAttachment.PostedFile.FileName;
                             hplAttachment.NavigateUrl = serverpath;
                             hplAttachment.Target = "blank";
-                            message = "alert('" + "RENQUERYRESPONSE Uploaded successfully" + "')";
+                            message = "alert('" + "Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }
                     }
@@ -234,22 +239,30 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-                RENQueryDet RENQuery = new RENQueryDet();
+                if (txtQueryResponse.Text.Trim() != "")
+                {
+                    RENQueryDet RENQuery = new RENQueryDet();
 
-              //  CFEQuery.Unitid = lblUnitId.Text;
-                RENQuery.Deptid = lblDeptID.Text;
-                RENQuery.Approvalid = lblApprovalID.Text;
-                RENQuery.QueryID = lblQryid.Text;
-                RENQuery.Investerid = hdnUserID.Value;
-                RENQuery.IPAddress = getclientIP();
-                RENQuery.QueryResponse = txtQueryResponse.Text;
-                RENQuery.Questionarieid = lblQuesID.Text;
+                    //  CFEQuery.Unitid = lblUnitId.Text;
+                    RENQuery.Deptid = lblDeptID.Text;
+                    RENQuery.Approvalid = lblApprovalID.Text;
+                    RENQuery.QueryID = lblQryid.Text;
+                    RENQuery.Investerid = hdnUserID.Value;
+                    RENQuery.IPAddress = getclientIP();
+                    RENQuery.QueryResponse = txtQueryResponse.Text;
+                    RENQuery.Questionarieid = lblQuesID.Text;
 
-                result = objrenbal.InsertRENQueryResponse(RENQuery); // PROCEDURE USP_UPDATERENAPPLQUERYRESPONSE
+                    result = objrenbal.InsertRENQueryResponse(RENQuery); // PROCEDURE USP_UPDATERENAPPLQUERYRESPONSE
 
-                btnSubmit.Enabled = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", $"alert('Query Replied Successfully!');  window.location.href='RENUserDashboard.aspx?RENID_RENQDID={lblRENQid.Text}'", true);
-                return;
+                    btnSubmit.Enabled = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", $"alert('Query Replied Successfully!');  window.location.href='RENUserDashboard.aspx?RENID_RENQDID={lblRENQid.Text}'", true);
+                    return;
+                }
+                else
+                {
+                    string message = "alert('" + "Please enter Query Response " + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
             }
             catch (Exception ex)
             {

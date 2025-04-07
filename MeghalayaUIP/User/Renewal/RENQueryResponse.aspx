@@ -104,15 +104,14 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-12 d-flex">
+                                                    <div class="col-md-12 ">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">Response Attachment</label>
-
-                                                            <div class="col-lg-1 d-flex">: </div>
-                                                            <div class="col-lg-3 d-flex">
-                                                                <asp:FileUpload runat="server" ID="fupAttachment" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
-                                                            </div>
+                                                            <label class="col-lg-2 col-form-label">Response Attachment</label>
+                                                            <%--<div class="col-lg-1 d-flex">: </div>--%>
                                                             <div class="col-lg-2 d-flex">
+                                                                <spna class="dots">:</spna><asp:FileUpload runat="server" ID="fupAttachment" Width="300px" Font-Italic="true" BorderColor="Tomato" Height="45px" padding-right="10px" />
+                                                            </div>
+                                                            <div class="col-lg-1 d-flex">
                                                                 <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="40px" Width="110px" />
                                                             </div>
                                                             <div class="col-lg-2 d-flex">
