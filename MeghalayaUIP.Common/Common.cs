@@ -75,4 +75,17 @@ namespace MeghalayaUIP.Common
         public string FBQ_FEEDBACKTEXT { get; set; }
         public string FBQ_CATEGORY { get; set; }
     }
+    public class HelpDeskDrilldown
+    {
+        public int HelpDeskID { get; set; }
+        public string Investid { get; set; }
+        public string Update { get; set; }
+        public string REDRESSEDREMARKES { get; set; }
+        public string REDRESSEDDATE { get; set; }
+        public string REDRESSEDBYIP { get; set; }
+       
+
+
+
+    }
 }

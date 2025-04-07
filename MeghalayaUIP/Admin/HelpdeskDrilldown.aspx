@@ -51,8 +51,8 @@
 
                                                         <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <label class="col-lg-12 col-form-label">From Date:</label>
-                                                                <div class="col-lg-12 d-flex">
+                                                                <label class="col-lg-6 col-form-label">From Date:</label>
+                                                                <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtFormDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                                     <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtFormDate"></cc1:CalendarExtender>
                                                                     <i class="fi fi-rr-calendar-lines"></i>
@@ -61,8 +61,8 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <label class="col-lg-12 col-form-label">To Date: </label>
-                                                                <div class="col-lg-12 d-flex">
+                                                                <label class="col-lg-6 col-form-label">To Date: </label>
+                                                                <div class="col-lg-6 d-flex">
                                                                     <asp:TextBox runat="server" ID="txtToDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                                     <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="txtToDate"></cc1:CalendarExtender>
                                                                     <i class="fi fi-rr-calendar-lines"></i>
@@ -89,7 +89,14 @@
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <%-- <asp:BoundField DataField="int_fbid" HeaderText="Helpdesk ID" />--%>
-                                                             <asp:BoundField DataField="HelpDeskID" HeaderText="Helpdesk ID" />
+                                                            <%-- <asp:BoundField DataField="HelpDeskID" HeaderText="Helpdesk ID" HeaderStyle-Width="10px" />--%>
+                                                              <asp:TemplateField HeaderText="ID" Visible="false">
+                                                                        <ItemTemplate>
+                                                                            <asp:Label ID="lblHelpDeskID" runat="server" Text='<%# Eval("HelpDeskID") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+
+
                                                             <asp:BoundField DataField="HD_CREATEDBYUSERNAME" HeaderText="Reference No" />
 
                                                             <%--  <asp:TemplateField HeaderText="Uid NO">
@@ -98,16 +105,16 @@
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>--%>
-                                                            <asp:TemplateField HeaderText="Uid NO">
+                                                            <asp:TemplateField HeaderText="Uid NO" HeaderStyle-Width="20px">
                                                                 <ItemTemplate>
                                                                     <asp:HyperLink ID="hypUIDNO" Target="_blank" Text='<%# Eval("HD_UIDNO") %>' runat="server"></asp:HyperLink>
                                                                    <%-- NavigateUrl='<%# Eval("TrackerUrl") %>'--%>
                                                                 </ItemTemplate>
                                                                 <HeaderStyle HorizontalAlign="Left" />
                                                             </asp:TemplateField>                                                           
-                                                            <asp:BoundField DataField="HD_UNITNAME" HeaderText="Unit Name" />
-                                                            <asp:BoundField DataField="HD_HELPDESKTYPE" HeaderText="Feedback Type"></asp:BoundField>
-                                                            <asp:BoundField DataField="HD_HELPDESKDESCRIPTION" HeaderText="User change Request/ Comments">
+                                                            <asp:BoundField DataField="HD_UNITNAME" HeaderText="Unit Name" HeaderStyle-Width="20px" />
+                                                            <asp:BoundField DataField="HD_HELPDESKTYPE" HeaderText="Feedback Type" HeaderStyle-Width="20px"></asp:BoundField>
+                                                            <asp:BoundField DataField="HD_HELPDESKDESCRIPTION" HeaderText="User change Request/ Comments" HeaderStyle-Width="20px">
                                                                 <HeaderStyle HorizontalAlign="Left" Width="300px"></HeaderStyle>
                                                                 <ItemStyle HorizontalAlign="Left" Width="300px"></ItemStyle>
                                                                 <ControlStyle Width="450px" />
@@ -122,21 +129,21 @@
 
 
 
-                                                            <asp:BoundField DataField="HD_STATUS" HeaderText="Status">
+                                                            <asp:BoundField DataField="HD_STATUS" HeaderText="Status" HeaderStyle-Width="20px">
                                                                 <HeaderStyle HorizontalAlign="Left" VerticalAlign="Middle"></HeaderStyle>
                                                                 <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="100px"></ItemStyle>
                                                             </asp:BoundField>
-                                                            <asp:BoundField DataField="HD_REDRESSEDREMARKES" HeaderText="Remarks"></asp:BoundField>
-                                                            <asp:BoundField DataField="HD_CREATEDATE" HeaderText="Date of Submition">
+                                                            <asp:BoundField DataField="HD_REDRESSEDREMARKES" HeaderText="Remarks" HeaderStyle-Width="20px"></asp:BoundField>
+                                                            <asp:BoundField DataField="HD_CREATEDATE" HeaderText="HelpDesk RaiseDate " HeaderStyle-Width="20px">
                                                                 <HeaderStyle HorizontalAlign="Left" VerticalAlign="Middle"></HeaderStyle>
-                                                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="150px"></ItemStyle>
+                                                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="100px"></ItemStyle>
                                                             </asp:BoundField>
-                                                            <asp:BoundField DataField="HD_REDRESSEDDATE" HeaderText="Date of Closure" />
+                                                            <asp:BoundField DataField="HD_REDRESSEDDATE" HeaderText="Date of Closure" HeaderStyle-Width="20px" />
 
 
                                                             <asp:TemplateField HeaderText="Change Status">
                                                                 <ItemTemplate>
-                                                                    <table style="width: 100%" cellspacing="0" cellpadding="2" border="0">
+                                                                    <table style="width: 100px" cellspacing="0" cellpadding="2" border="0">
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td style="text-align: left" align="left">
@@ -153,7 +160,7 @@
                                                                                         ValidationGroup="group" Height="80px" TextMode="MultiLine"></asp:TextBox>
                                                                                 </td>
                                                                             </tr>
-                                                                            <tr>
+                                                                          <%-- <%-- <tr>
                                                                                 <td style="text-align: left" align="left">
                                                                                     <asp:DropDownList ID="ddltypeprob" runat="server" Width="152px" CssClass="DROPDOWN"
                                                                                         ValidationGroup="group">
@@ -163,10 +170,10 @@
                                                                                         <asp:ListItem>Data Correction</asp:ListItem>
                                                                                         <asp:ListItem>Other</asp:ListItem>
                                                                                     </asp:DropDownList>
-                                                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator68" runat="server" ControlToValidate="ddltypeprob"
-                                                                        ErrorMessage="Please Select Type of Problem" InitialValue="Select" ValidationGroup="group">*</asp:RequiredFieldValidator>--%>
+                                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator68" runat="server" ControlToValidate="ddltypeprob"
+                                                                        ErrorMessage="Please Select Type of Problem" InitialValue="Select" ValidationGroup="group">*</asp:RequiredFieldValidator>
                                                                                 </td>
-                                                                            </tr>
+                                                                            </tr>--%>
                                                                             <tr id="Close" runat="server">
                                                                                 <td style="padding-bottom: 5px; padding-top: 5px; text-align: center">&nbsp;<asp:Button ID="BtnSave" TabIndex="10" runat="server"
                                                                                     Width="122px" Text="Change Status" OnClick="BtnSave_Click" CssClass="BUTTONLONG" ValidationGroup="group"

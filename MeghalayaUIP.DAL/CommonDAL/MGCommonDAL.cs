@@ -1096,10 +1096,11 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
+                if (FDate != "")
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
 
-                da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-
-                da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(TDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (TDate != "")
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(TDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
 
 
                 da.Fill(ds);
@@ -1117,7 +1118,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetHelpDeskReportDrilldown( string HDType, string Status, string FDate, string TDate)
+        public DataSet GetHelpDeskReportDrilldown(string HDType, string Status, string FDate, string TDate)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1391,7 +1392,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet HelpdeskDrilldown(string HelpDeskId, string Createdby)
+        public DataSet HelpdeskDrilldown(HelpDeskDrilldown Helpdesk)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1407,24 +1408,53 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                
-                if (HelpDeskId.ToString() == "")
+
+                if (Helpdesk.HelpDeskID.ToString() == "")
                 {
                     da.SelectCommand.Parameters.Add("@HelpdeskID", SqlDbType.VarChar).Value = DBNull.Value;
                 }
                 else
                 {
-                    da.SelectCommand.Parameters.Add("@HelpdeskID", SqlDbType.VarChar).Value = HelpDeskId.ToString();
+                    da.SelectCommand.Parameters.Add("@HelpdeskID", SqlDbType.VarChar).Value = Helpdesk.HelpDeskID.ToString();
                 }
 
-                if (Createdby.ToString() == "")
+                if (Helpdesk.Investid.ToString() == "")
                 {
                     da.SelectCommand.Parameters.Add("@INVESTERID", SqlDbType.VarChar).Value = DBNull.Value;
                 }
                 else
                 {
-                    da.SelectCommand.Parameters.Add("@INVESTERID", SqlDbType.VarChar).Value = Createdby.ToString();
+                    da.SelectCommand.Parameters.Add("@INVESTERID", SqlDbType.VarChar).Value = Helpdesk.Investid.ToString();
                 }
+
+                if (Helpdesk.REDRESSEDREMARKES.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@HD_REDRESSEDREMARKES", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@HD_REDRESSEDREMARKES", SqlDbType.VarChar).Value = Helpdesk.REDRESSEDREMARKES.ToString();
+                }
+                if (Helpdesk.Update.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@DoUpdate", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@DoUpdate", SqlDbType.VarChar).Value = Helpdesk.Update.ToString();
+                }
+
+                if (Helpdesk.REDRESSEDBYIP.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@HD_REDRESSEDBYIP", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@HD_REDRESSEDBYIP", SqlDbType.VarChar).Value = Helpdesk.REDRESSEDBYIP.ToString();
+                }
+
+
+
 
 
                 da.Fill(ds);

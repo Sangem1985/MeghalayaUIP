@@ -19,6 +19,8 @@ namespace MeghalayaUIP.Admin
         {
             if (!IsPostBack)
             {
+                txtFormDate.Text = "14-08-2024";
+                txtToDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
                 FillGrid();
             }
         }

@@ -17,11 +17,12 @@ namespace MeghalayaUIP.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             try
-            {
+            {             
                 if (!IsPostBack)
                 {
                     HelpDeskGrid();
                 }
+
             }
             catch (Exception ex)
             {
@@ -49,6 +50,15 @@ namespace MeghalayaUIP.Admin
                         GVHelpdesk.DataBind();
                         label.Text = "Report from " + txtFormDate.Text.Trim() + " To " + txtToDate.Text.Trim();
 
+                    }
+                    if (status=="1")
+                    {
+
+                    }
+                    else if (status == "2")
+                    {
+                        GVHelpdesk.Columns[9].Visible = false;
+                        GVHelpdesk.Columns[11].Visible = false;
                     }
                 }
 
@@ -80,15 +90,35 @@ namespace MeghalayaUIP.Admin
         {
             try
             {
+                if (Session["UserInfo"] != null)
+                {
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+
+                }
                 Button Button = (Button)sender;
                 GridViewRow row = (GridViewRow)Button.NamingContainer;
 
                 DropDownList ddlchStatus = (DropDownList)row.FindControl("ddlchStatus");
                 TextBox txtremarks = (TextBox)row.FindControl("txtremarks");
+                Label lblHelpDeskID = (Label)row.FindControl("lblHelpDeskID");
 
-                string HelpDeskID = row.Cells[1].Text;
-                string Modified_by = hdnUserID.Value;
-                string Created_by = hdnUserID.Value;
+                HelpDeskDrilldown Helpdesk = new HelpDeskDrilldown();
+
+                Helpdesk.HelpDeskID= Convert.ToInt32(lblHelpDeskID.Text);
+                Helpdesk.REDRESSEDREMARKES = txtremarks.Text;
+                Helpdesk.Update= "1";
+                Helpdesk.Investid = hdnUserID.Value;
+                Helpdesk.REDRESSEDBYIP = getclientIP();
+
+
                 DropDownList ddltypeprob = (DropDownList)row.FindControl("ddltypeprob");
                 if (txtremarks.Text == "")
                 {
@@ -98,13 +128,12 @@ namespace MeghalayaUIP.Admin
                 }
                 HelpDeskGrid();
                 DataSet ds = new DataSet();
-                ds = objcommon.HelpdeskDrilldown(HelpDeskID, Created_by);
+                ds = objcommon.HelpdeskDrilldown(Helpdesk);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     string newhdCode = ds.Tables[0].Rows[0]["HelpDeskID"].ToString();
-                    string txtemail = ds.Tables[0].Rows[0]["HD_EMAILID"].ToString();
-                 
-                    string Label57 = "";
+                    string txtemail = ds.Tables[0].Rows[0]["HD_EMAILID"].ToString();                 
+                   
                     string Label58 = ds.Tables[0].Rows[0]["HD_UNITNAME"].ToString();
                     string ddlfeedback = ds.Tables[0].Rows[0]["HD_HELPDESKTYPE"].ToString();
                     string txtsubjet = ds.Tables[0].Rows[0]["HD_HELPDESKDESCRIPTION"].ToString();
@@ -141,6 +170,23 @@ namespace MeghalayaUIP.Admin
                     hypUIDNO.Visible = true;
                 }
             }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
         }
     }
 }

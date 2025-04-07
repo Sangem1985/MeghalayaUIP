@@ -128,9 +128,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objCommonDAL.InsertFeedbackTracker(tracker);
         }
-        public DataSet HelpdeskDrilldown(string HelpDeskId, string Createdby)
+        public DataSet HelpdeskDrilldown(HelpDeskDrilldown Helpdesk)
         {
-            return objCommonDAL.HelpdeskDrilldown(HelpDeskId, Createdby);
+            return objCommonDAL.HelpdeskDrilldown(Helpdesk);
         }
 
         public string InsertFeedback(int trackerId, List<FeedbackData> feedbackList)
