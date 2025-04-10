@@ -100,7 +100,8 @@ namespace MeghalayaUIP.User.PreReg
                 {
                     string Error = ""; string message = "";
                     string newPath = "";
-                    string sFileDir = Server.MapPath("~\\PreRegAttachments");
+                    // string sFileDir = Server.MapPath("~\\PreRegAttachments");
+                    string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
                     if (fupAttachment.HasFile)
                     {
                         Error = validations(fupAttachment);
