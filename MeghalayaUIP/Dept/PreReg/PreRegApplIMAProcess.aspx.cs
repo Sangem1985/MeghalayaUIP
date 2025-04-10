@@ -230,11 +230,13 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
                         {
+                            divStatusOfApplication.Visible = true;
                             grdApplStatus.DataSource = ds.Tables[6];
                             grdApplStatus.DataBind();
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
                         {
+                           // QueryResondpanel.Visible = true;
                             grdQueryRaised.DataSource = ds.Tables[7];
                             grdQueryRaised.DataBind();
                         }

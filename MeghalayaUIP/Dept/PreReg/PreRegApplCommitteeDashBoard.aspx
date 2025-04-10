@@ -194,7 +194,7 @@
                     </div>
                 </section>
             </div>
-            <div class="card">
+            <div class="card" runat="server" visible="false">
                 <%-- <div class="card-header">
                     <h3>Query Details</h3>
                 </div>--%>

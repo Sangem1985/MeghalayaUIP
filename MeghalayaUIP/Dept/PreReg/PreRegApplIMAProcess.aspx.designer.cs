@@ -816,6 +816,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.GridView grdQryAttachments;
 
         /// <summary>
+        /// divStatusOfApplication control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divStatusOfApplication;
+
+        /// <summary>
         /// grdApplStatus control.
         /// </summary>
         /// <remarks>

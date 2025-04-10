@@ -101,16 +101,16 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-10">
                                                 <asp:CheckBoxList CssClass="" ID="chkActs" runat="server">
-                                                    <asp:ListItem Value="1" Text="The Meghalaya Factories Act, 1948"></asp:ListItem> <%--done--%>
-                                                    <asp:ListItem Value="2" Text="The Meghalaya Shop & Commercial Establishment Act, 1950"></asp:ListItem>
-                                                    <asp:ListItem Value="3" Text="The Maternity Benifit Act, 1961"></asp:ListItem>  <%--done--%>
-                                                    <asp:ListItem Value="4" Text="The Workmen's Compensation Act, 1923"></asp:ListItem>
-                                                    <asp:ListItem Value="5" Text="The Minimum wages Act 1948"></asp:ListItem>  <%--done--%>
-                                                    <asp:ListItem Value="6" Text="The Payment of Wages Act 1936"></asp:ListItem>
-                                                    <asp:ListItem Value="7" Text="The Payment of Bonus Act, 1965"></asp:ListItem>  <%--done--%>
-                                                    <asp:ListItem Value="8" Text="Principal Employer under The Contract Labour Act, 1970"></asp:ListItem>  <%--done--%>
-                                                    <asp:ListItem Value="9" Text="Principal Employer under The Inter-State Migrant Worlimen Act, 1979"></asp:ListItem>
-                                                    <asp:ListItem Value="10" Text="The Motor Transport Worker's Act, 1961"></asp:ListItem>
+                                                    <asp:ListItem Value="1" Text="&nbsp; The Meghalaya Factories Act, 1948"></asp:ListItem> <%--done--%>
+                                                    <asp:ListItem Value="2" Text="&nbsp; The Meghalaya Shop & Commercial Establishment Act, 1950"></asp:ListItem>
+                                                    <asp:ListItem Value="3" Text="&nbsp; The Maternity Benifit Act, 1961"></asp:ListItem>  <%--done--%>
+                                                    <asp:ListItem Value="4" Text="&nbsp; The Workmen's Compensation Act, 1923"></asp:ListItem>
+                                                    <asp:ListItem Value="5" Text="&nbsp; The Minimum wages Act 1948"></asp:ListItem>  <%--done--%>
+                                                    <asp:ListItem Value="6" Text="&nbsp; The Payment of Wages Act 1936"></asp:ListItem>
+                                                    <asp:ListItem Value="7" Text="&nbsp; The Payment of Bonus Act, 1965"></asp:ListItem>  <%--done--%>
+                                                    <asp:ListItem Value="8" Text="&nbsp; Principal Employer under The Contract Labour Act, 1970"></asp:ListItem>  <%--done--%>
+                                                    <asp:ListItem Value="9" Text="&nbsp; Principal Employer under The Inter-State Migrant Worlimen Act, 1979"></asp:ListItem>
+                                                    <asp:ListItem Value="10" Text="&nbsp; The Motor Transport Worker's Act, 1961"></asp:ListItem>
                                                 </asp:CheckBoxList>
                                             </div>
 

@@ -1324,7 +1324,6 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                   // dr["RENP_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["RENP_CREATEDBY"] = hdnUserID.Value;
                     dr["RENP_CREATEDBYIP"] = getclientIP();
                     dr["RENP_NAMEPROPERTIE"] = txtProprtie.Text;
@@ -1615,6 +1614,19 @@ namespace MeghalayaUIP.User.Renewal
             catch (Exception ex)
             { throw ex; }
         }
+
+        protected void GVPROPERTIE_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Label lblCommunity = (Label)e.Row.FindControl("lblCommunity");
+                string communityValue = DataBinder.Eval(e.Row.DataItem, "RENP_COMMUNITY")?.ToString();
+                if(lblCommunity.Text!="")
+                { GVPROPERTIE.Columns[4].Visible = true; }
+                //lblCommunity.Visible = (communityValue == "4");
+            }
+        }
+
         public static bool ValidateFileExtension(FileUpload Attachment)
         {
             try
