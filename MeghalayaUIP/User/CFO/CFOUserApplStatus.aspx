@@ -26,8 +26,12 @@
     <div class="card mt-2">
         <div class="modal-header" style="padding: 3px 30px;">
             <h4 class="modal-title cfe" id="myLargeModalLabel cfe1">Applicant Dashboard - Pre-Operational Approvals</h4>
-            <h5 class="modal-title cfe" id="myLargeModalLabel cfe2">Status View : 
-                <select class="form-select" aria-label="Default select example">
+            <h5 class="modal-title cfe d-flex w-25" id="myLargeModalLabel cfe2">
+                <p class="w-100 mt-1">
+                    <h3>Application ID:
+                        <asp:Label ID="lblCFOUIDNO" runat="server"></asp:Label></h3>
+                </p>
+                <select class="form-select" aria-label="Default select example" runat="server" visible="false">
                     <option selected>Open this select Status</option>
                     <option value="1" href="AS">Application Stage</option>
                     <option value="2" href="PS">Payment Stage</option>
@@ -42,57 +46,11 @@
             <div class="content container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Application Status For Acknowledgement ID: 
-                            <asp:Label ID="lbluidno" runat="server"></asp:Label></h3>
+                        <h3>Application Status</h3>
                     </div>
                     <section id="dashboardcount1">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
-                                    <div class="card">
-                                        <a href="#" style="text-decoration: none;">
-                                            <div class="card-header p-3 pt-2">
-                                                <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                                                    <i class="fi fi-rr-file-download"></i>
-                                                </div>
-                                                <div class="text-end pt-1">
-                                                    <h5 class="mb-0">
-                                                        <asp:Label ID="lblAppstatus" runat="server">Submitted</asp:Label></h5>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">Sumbitted</p>--%>
-                                                </div>
-                                            </div>
-                                            <hr class="dark horizontal my-0">
-                                            <div class="card-footer p-3">
-                                                <p class="mb-0">
-                                                    Application<br />
-                                                    &nbsp;
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
-                                    <div class="card">
-                                        <a href="#" style="text-decoration: none;">
-                                            <div class="card-header p-3 pt-2">
-                                                <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                                    <i class="fi fi-rr-memo-circle-check"></i>
-                                                </div>
-                                                <div class="text-end pt-1">
-                                                    <h5 class="mb-0">
-                                                        <asp:Label ID="lblCAFstatus" runat="server">Draft</asp:Label></h5>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">Draft</p>--%>
-                                                </div>
-                                            </div>
-                                            <hr class="dark horizontal my-0">
-                                            <div class="card-footer p-3">
-                                                <p class="mb-0">
-                                                    Combined Application Form
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
                                 <div class="col-xl-2 col-sm-6">
                                     <div class="card">
                                         <asp:LinkButton runat="server" ID="linkApprReq" OnClick="linkApprReq_Click">
@@ -108,7 +66,7 @@
                                             </div>
                                             <hr class="dark horizontal my-0">
                                             <div class="card-footer p-3">
-                                                <p class="mb-0">Approvals Required as per IMA</p>
+                                                <p class="mb-0">Approvals Required as per MiPA</p>
                                             </div>
                                         </asp:LinkButton>
                                     </div>
@@ -136,40 +94,6 @@
                                     </div>
                                 </div>
 
-
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Application Stages</h3>
-                    </div>
-                    <section id="dashboardcount2" class="dashboardcount2">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
-                                    <div class="card">
-                                        <asp:LinkButton runat="server" ID="linkApprApplied" OnClick="linkApprApplied_Click">
-                                            <div class="card-header p-3 pt-2">
-                                                <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                                    <i class="fi fi-rr-memo-circle-check"></i>
-                                                </div>
-                                                <div class="text-end pt-1">
-                                                    <h4 class="mb-0">
-                                                        <asp:Label ID="lblApprovalsApplied" runat="server">0</asp:Label></h4>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
-                                                </div>
-                                            </div>
-                                            <hr class="dark horizontal my-0">
-                                            <div class="card-footer p-3">
-                                                <p class="mb-0">Applied Approvals</p>
-                                            </div>
-                                        </asp:LinkButton>
-                                    </div>
-                                </div>
-
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
                                         <asp:LinkButton runat="server" ID="linkTobeApplied" OnClick="linkTobeApplied_Click">
@@ -191,38 +115,22 @@
                                     </div>
                                 </div>
 
-
-                            </div>
-
-
-                        </div>
-                    </section>
-                </div>
-
-
-                <div class="card" id="AS">
-                    <div class="card-header">
-                        <h3>Payment Stages</h3>
-                    </div>
-                    <section id="dashboardcount2" class="dashboardcount2">
-                        <div class="container-fluid">
-                            <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <asp:LinkButton runat="server" ID="linkAddlPaymnt" OnClick="linkAddlPaymnt_Click">
+                                        <asp:LinkButton runat="server" ID="linkApprApplied" OnClick="linkApprApplied_Click">
                                             <div class="card-header p-3 pt-2">
                                                 <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-memo-circle-check"></i>
                                                 </div>
                                                 <div class="text-end pt-1">
                                                     <h4 class="mb-0">
-                                                        <asp:Label ID="lblAddlPaymentReq" runat="server">0</asp:Label></h4>
-                                                    <%-- <p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                                        <asp:Label ID="lblApprovalsApplied" runat="server">0</asp:Label></h4>
+                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                                 </div>
                                             </div>
                                             <hr class="dark horizontal my-0">
                                             <div class="card-footer p-3">
-                                                <p class="mb-0">Additional Payment required</p>
+                                                <p class="mb-0">Applied Approvals</p>
                                             </div>
                                         </asp:LinkButton>
                                     </div>
@@ -253,20 +161,137 @@
                                 </div>
 
 
+
+
+                                <%--     <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                    <div class="card">
+                                        <a href="#" style="text-decoration: none;">
+                                            <div class="card-header p-3 pt-2">
+                                                <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                                    <i class="fi fi-rr-file-download"></i>
+                                                </div>
+                                                <div class="text-end pt-1">
+                                                    <h5 class="mb-0">
+                                                        <asp:Label ID="lblAppstatus" runat="server">Submitted</asp:Label></h5>
+                                                   
+                                                </div>
+                                            </div>
+                                            <hr class="dark horizontal my-0">
+                                            <div class="card-footer p-3">
+                                                <p class="mb-0">
+                                                    Application<br />
+                                                    &nbsp;
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                    <div class="card">
+                                        <a href="#" style="text-decoration: none;">
+                                            <div class="card-header p-3 pt-2">
+                                                <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                    <i class="fi fi-rr-memo-circle-check"></i>
+                                                </div>
+                                                <div class="text-end pt-1">
+                                                    <h5 class="mb-0">
+                                                        <asp:Label ID="lblCAFstatus" runat="server">Draft</asp:Label></h5>                                                  
+                                                </div>
+                                            </div>
+                                            <hr class="dark horizontal my-0">
+                                            <div class="card-footer p-3">
+                                                <p class="mb-0">
+                                                    Combined Application Form
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>--%>
                             </div>
-
-
                         </div>
                     </section>
                 </div>
+
+
+                <%--  <div class="card" id="AS">
+                    <div class="card-header">
+                        <h3>Payment Stages</h3>
+                    </div>
+                    <section id="dashboardcount2" class="dashboardcount2">
+                        <div class="container-fluid">
+                            <div class="row">
+                            </div>
+                        </div>
+                    </section>
+                </div>--%>
 
                 <div class="card" id="PSS">
                     <div class="card-header">
                         <h3>Pre-Scrutiny Stages</h3>
                     </div>
-                    <section id="dashboardcount1">
+                    <section id="dashboardcount3" class="dashboardcount3">
                         <div class="container-fluid">
                             <div class="row">
+                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                    <div class="card">
+                                        <asp:LinkButton runat="server" ID="linkScrtnyPendng" OnClick="linkScrtnyPendng_Click">
+                                            <div class="card-header p-3 pt-2">
+                                                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                                    <i class="fi fi-rr-search-alt"></i>
+                                                </div>
+                                                <div class="text-end pt-1">
+                                                    <h4 class="mb-0">
+                                                        <asp:Label ID="lblScrtnyPendng" runat="server">0</asp:Label></h4>                                                  
+                                                </div>
+                                            </div>
+                                            <hr class="dark horizontal my-0">
+                                            <div class="card-footer p-3">
+                                                <p class="mb-0">Pending</p>
+                                            </div>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-2 col-sm-6">
+                                    <div class="card">
+                                        <asp:LinkButton runat="server" ID="linkScrtnyCmpltd" OnClick="linkScrtnyCmpltd_Click">
+                                            <div class="card-header p-3 pt-2">
+                                                <div class="icon icon-lg icon-shape bg-gradient-wait shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                                    <i class="fi fi-rr-pending"></i>
+                                                </div>
+                                                <div class="text-end pt-1">
+                                                    <h4 class="mb-0">
+                                                        <asp:Label ID="lblScrtnyCmpltd" runat="server">0</asp:Label></h4>
+                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                                </div>
+                                            </div>
+                                            <hr class="dark horizontal my-0">
+                                            <div class="card-footer p-3">
+                                                <p class="mb-0">Completed</p>
+                                            </div>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-sm-6">
+                                    <div class="card">
+                                        <asp:LinkButton runat="server" ID="linkScrtnyRejected" OnClick="linkScrtnyRejected_Click">
+                                            <div class="card-header p-3 pt-2">
+                                                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                                                    <i class="fi fi-rr-search-alt"></i>
+                                                </div>
+                                                <div class="text-end pt-1">
+                                                    <h4 class="mb-0">
+                                                        <asp:Label ID="lblScrtnyRejected" runat="server">0</asp:Label></h4>
+                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                                </div>
+                                            </div>
+                                            <hr class="dark horizontal my-0">
+                                            <div class="card-footer p-3">
+                                                <p class="mb-0">Rejected</p>
+                                            </div>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
                                         <asp:LinkButton runat="server" ID="linkQryRaised" OnClick="linkQryRaised_Click">
@@ -329,62 +354,49 @@
                                         </asp:LinkButton>
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-sm-6">
+
+                            </div>
+                            <div class="row">
+                                <br />
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <asp:LinkButton runat="server" ID="linkScrtnyRejected" OnClick="linkScrtnyRejected_Click">
+                                        <asp:LinkButton runat="server" ID="linkAddlPaymnt" OnClick="linkAddlPaymnt_Click">
                                             <div class="card-header p-3 pt-2">
-                                                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                                                    <i class="fi fi-rr-search-alt"></i>
+                                                <div class="icon icon-lg icon-shape bg-gradient-purpule shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                    <i class="fi fi-rr-memo-circle-check"></i>
                                                 </div>
                                                 <div class="text-end pt-1">
                                                     <h4 class="mb-0">
-                                                        <asp:Label ID="lblScrtnyRejected" runat="server">0</asp:Label></h4>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                                        <asp:Label ID="lblAddlPaymentReq" runat="server">0</asp:Label></h4>
+                                                    <%-- <p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
                                                 </div>
                                             </div>
                                             <hr class="dark horizontal my-0">
                                             <div class="card-footer p-3">
-                                                <p class="mb-0">Rejected</p>
-                                            </div>
-                                        </asp:LinkButton>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-sm-6">
-                                    <div class="card">
-                                        <asp:LinkButton runat="server" ID="linkScrtnyCmpltd" OnClick="linkScrtnyCmpltd_Click">
-                                            <div class="card-header p-3 pt-2">
-                                                <div class="icon icon-lg icon-shape bg-gradient-wait shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                                                    <i class="fi fi-rr-pending"></i>
-                                                </div>
-                                                <div class="text-end pt-1">
-                                                    <h4 class="mb-0">
-                                                        <asp:Label ID="lblScrtnyCmpltd" runat="server">0</asp:Label></h4>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
-                                                </div>
-                                            </div>
-                                            <hr class="dark horizontal my-0">
-                                            <div class="card-footer p-3">
-                                                <p class="mb-0">Completed</p>
+                                                <p class="mb-0">Additional Payment required</p>
                                             </div>
                                         </asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
-                                        <asp:LinkButton runat="server" ID="linkScrtnyPendng" OnClick="linkScrtnyPendng_Click">
+                                        <asp:LinkButton runat="server" ID="lnkAddlpayment" OnClick="lnkAddlpayment_Click">
                                             <div class="card-header p-3 pt-2">
-                                                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
                                                     <i class="fi fi-rr-search-alt"></i>
                                                 </div>
                                                 <div class="text-end pt-1">
                                                     <h4 class="mb-0">
-                                                        <asp:Label ID="lblScrtnyPendng" runat="server">0</asp:Label></h4>
-                                                    <%--<p class="text-sm mb-0 text-capitalize">&nbsp;</p>--%>
+                                                        <asp:Label ID="lblAddlPayment" runat="server">0</asp:Label></h4>
                                                 </div>
                                             </div>
                                             <hr class="dark horizontal my-0">
                                             <div class="card-footer p-3">
-                                                <p class="mb-0">Pending</p>
+                                                <p class="mb-0">
+                                                    Additional Payment Paid
+                                                </p>
                                             </div>
                                         </asp:LinkButton>
                                     </div>
@@ -401,6 +413,29 @@
                     <section id="dashboardcount2" class="dashboardcount2">
                         <div class="container-fluid">
                             <div class="row">
+                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
+                                    <div class="card">
+                                        <asp:LinkButton runat="server" ID="linkApprovalPending" OnClick="linkApprovalPending_Click">
+                                            <div class="card-header p-3 pt-2">
+                                                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                                                    <i class="fi fi-rr-search-alt"></i>
+                                                </div>
+                                                <div class="text-end pt-1">
+                                                    <h4 class="mb-0">
+                                                        <asp:Label ID="lblApprovalPending" runat="server">0</asp:Label></h4>
+                                                    <p class="text-sm mb-0 text-capitalize">Approval Under Process</p>
+                                                </div>
+                                            </div>
+                                            <hr class="dark horizontal my-0">
+                                            <div class="card-footer p-3">
+                                                <p class="mb-0">
+                                                    Approval Pending 
+                                                </p>
+                                            </div>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
                                         <asp:LinkButton runat="server" ID="linkApprovalIssued" OnClick="linkApprovalIssued_Click">
@@ -424,28 +459,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
-                                    <div class="card">
-                                        <asp:LinkButton runat="server" ID="linkApprovalPending" OnClick="linkApprovalPending_Click">
-                                            <div class="card-header p-3 pt-2">
-                                                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                                    <i class="fi fi-rr-search-alt"></i>
-                                                </div>
-                                                <div class="text-end pt-1">
-                                                    <h4 class="mb-0">
-                                                        <asp:Label ID="lblApprovalPending" runat="server">0</asp:Label></h4>
-                                                    <p class="text-sm mb-0 text-capitalize">Approval Under Process</p>
-                                                </div>
-                                            </div>
-                                            <hr class="dark horizontal my-0">
-                                            <div class="card-footer p-3">
-                                                <p class="mb-0">
-                                                    Approval Pending 
-                                                </p>
-                                            </div>
-                                        </asp:LinkButton>
-                                    </div>
-                                </div>
                                 <div class="col-xl-2 col-sm-6">
                                     <div class="card">
                                         <asp:LinkButton runat="server" ID="linkApprovalRejected" OnClick="linkApprovalRejected_Click">
@@ -466,10 +479,7 @@
                                         </asp:LinkButton>
                                     </div>
                                 </div>
-
                             </div>
-
-
                         </div>
                     </section>
                 </div>

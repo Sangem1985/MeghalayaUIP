@@ -15,6 +15,24 @@ namespace MeghalayaUIP.Dept.CFO
     {
 
         /// <summary>
+        /// lblHdng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHdng;
+
+        /// <summary>
+        /// lbtnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
+
+        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -58,24 +76,6 @@ namespace MeghalayaUIP.Dept.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
-
-        /// <summary>
-        /// lblHdng control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHdng;
-
-        /// <summary>
-        /// lbtnBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
 
         /// <summary>
         /// divScrutiny control.

@@ -118,7 +118,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblApprovalsApplied.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=TobeApplied";
+                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=Applied";
                 Response.Redirect(newurl);
             }
         }

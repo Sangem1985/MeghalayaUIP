@@ -26,6 +26,12 @@
     <div class="card mt-2">
         <div class="modal-header" style="padding: 3px 30px;">
             <h4 class="modal-title cfe" id="myLargeModalLabel cfe1">Applicant Dashboard - Renewal Approvals</h4>
+              <h5 class="modal-title cfe d-flex w-25" id="myLargeModalLabel cfe2">
+                        <p class="w-100 mt-1">
+                            <h4>Application ID: 
+                        <asp:Label ID="lbluidno" runat="server"></asp:Label></h4>
+                        </p>
+            </h5>
             <%-- <h5 class="modal-title cfe" id="myLargeModalLabel cfe2">Status View : 
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Open this select Status</option>
@@ -265,7 +271,12 @@
                                         </asp:LinkButton>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="row">
                                 <br />
+                            </div>
+                            <div class="row">
                                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4">
                                     <div class="card">
                                         <asp:LinkButton runat="server" ID="linkAddlPaymnt" OnClick="linkAddlPaymnt_Click">

@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -104,8 +105,12 @@ namespace MeghalayaUIP.User.CFE
                     Error = validations(fupAttachment);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFEQID"]) + "\\" + "RESPONSEATTACHMNETS" + "\\");
+                        //string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                        // + Convert.ToString(Session["CFEQID"]) + "\\" + "RESPONSEATTACHMNETS" + "\\");
+
+                        string sFileDir = ConfigurationManager.AppSettings["CFEAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFEQID"]) + "\\" + "RESPONSEATTACHMNETS" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -122,8 +127,8 @@ namespace MeghalayaUIP.User.CFE
                         objAadhar.FileName = fupAttachment.PostedFile.FileName;
                         objAadhar.FileType = fupAttachment.PostedFile.ContentType;
                         objAadhar.FileDescription = "RESPONSE ATTACHMENT";
-                        objAadhar.DeptID = "0";
-                        objAadhar.ApprovalID = "0";
+                        objAadhar.DeptID = lblDeptID.Text;
+                        objAadhar.ApprovalID = lblApprovalID.Text;
                         objAadhar.CreatedBy = hdnUserID.Value;
                         objAadhar.IPAddress = getclientIP();
                         result = objcfebal.InsertCFEAttachments(objAadhar);

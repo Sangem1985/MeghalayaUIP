@@ -192,7 +192,7 @@ namespace MeghalayaUIP.User.CFO
                     if (hplRejctd.Text != "0")
                         hplRejctd.NavigateUrl = "~/User/CFO/CFOTracker.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
                     if (hplQryRaised.Text != "0")
-                        hplQryRaised.NavigateUrl = "~/User/CFO/CFOTracker.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
+                        hplQryRaised.NavigateUrl = "~/User/CFO/CFOQueryDashBoard.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
 
                     int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
                     TotApplied = TotApplied + TotalAppl;
