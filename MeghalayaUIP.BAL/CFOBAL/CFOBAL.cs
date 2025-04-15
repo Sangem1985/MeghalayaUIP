@@ -274,5 +274,9 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.GetForestTransitData(createdBy, unitId);
         }
+        public DataSet GetCFOExciseDet(int UnitID,string userid)
+        {
+            return objCFODAL.GetCFOExciseDet(UnitID, userid);
+        }
     }
 }

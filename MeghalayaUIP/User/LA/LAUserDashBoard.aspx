@@ -23,9 +23,9 @@
                         <div class="col-md-11">
                             <h4 style="margin-left: -10px;">Land Allotment with Meghalaya Investment Promotion Authority (MIPA)/MIIPP</h4>
                         </div>
-                        <div class="col-md-1">
+                       <%-- <div class="col-md-1">
                             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
-                        </div>
+                        </div>--%>
                     </div>
 
                     <div class="table-responsive CFEUSERDASHBOARD">

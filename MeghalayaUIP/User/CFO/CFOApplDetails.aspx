@@ -1603,7 +1603,7 @@
                                                                 <spna class="dots">:</spna>
                                                                 <asp:Label ID="lblRegUnder" runat="server"></asp:Label>
                                                             </div>
-                                                            <div id="RegistrationType" runat="server" visible="false">
+                                                            <div class="col-md-4" id="RegistrationType" runat="server" visible="false">
                                                                 <div class="col-md-2">
                                                                     <label>Registration Type </label>
                                                                 </div>
@@ -1611,7 +1611,7 @@
                                                                     <spna class="dots">:</spna><asp:Label ID="lblRegType" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                            <div id="RegNo" runat="server" visible="false">
+                                                            <div class="col-md-4" id="RegNo" runat="server" visible="false">
                                                                 <div class="col-md-2">
                                                                     <label>Regisration No </label>
                                                                 </div>
@@ -1627,7 +1627,6 @@
                                                         <h4 class="card-title1 col-lg-12">Fire Details</h4>
                                                         <b>Service Specific Details</b>
                                                         <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-
                                                             <div class="col-md-2">
                                                                 <label>Name of Business/Building </label>
                                                             </div>

@@ -51,6 +51,8 @@ namespace MeghalayaUIP.Common
         public static string GetCFOTracker = "USP_GETUSERCFOAPPLTRACKER";
         public static string GetUserCFOApplStatus = "USP_GETCFOAPPLSTATUS";
 
+        public static string GetCFOExciseDet = "USP_GETCFOEXCISEDETAILS";
+
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 
         public static string GetCFODashBoard = "USP_CFODASHBOARDCOUNT";
