@@ -76,12 +76,30 @@ namespace MeghalayaUIP.User.PreReg
                             lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
                             lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                             lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
-                            lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
-                            lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                           
+                           
                             lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
 
                             lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
-                            lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
+
+                            if(lblcatreg.Text != "")
+                            {
+                                divCategory.Visible = true;
+                                lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
+                            }
+                            if (lblUdyam.Text != "")
+                            {
+                                divCategory.Visible = true;
+                                lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                            }
+                            if (lblregdate.Text != "")
+                            {
+                                divCategory.Visible = true;
+                                lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
+                            }
+
+                            
+
                             lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                             lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
                             if (lblisland.Text == "Own")
@@ -91,12 +109,26 @@ namespace MeghalayaUIP.User.PreReg
                             lblequityamount.Text = Convert.ToString(row["FRD_EQUITY"]);
                             lbltermloanworking.Text = Convert.ToString(row["FRD_LOAN"]);
 
-                            lblunsecuredloan.Text = Convert.ToString(row["FRD_UNSECUREDLOAN"]);
-                            lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
+                            lblunsecuredloan.Text = Convert.ToString(row["FRD_UNSECUREDLOAN"]); 
+
                             lblstatescheme.Text = Convert.ToString(row["FRD_STATE"]);
 
                             lblcapitalsubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
-                            lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
+
+                            if (lblinternalresources.Text != "")
+                            {
+                                divResource.Visible = true;
+                                lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
+                            }
+                            if (lblunnati.Text != "")
+                            {
+                                divResource.Visible = true;
+                                lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
+                            }
+
+                           
+
+                          
                             lblcentralscheme.Text = Convert.ToString(row["FRD_CENTRAL"]);
                             if (Convert.ToString(row["ELIGIBLE_FLAG"]).Trim() == "N")
                             {
@@ -166,10 +198,22 @@ namespace MeghalayaUIP.User.PreReg
                             lblIFC.Text = Convert.ToString(row["PROJECT_IFC"]);
                             lblDFA.Text = Convert.ToString(row["PROJECT_DFA"]);
                             lblBuldingValue.Text = Convert.ToString(row["PROJECT_BUILDINGVALUE"]);
-                            lblLandValue.Text = Convert.ToString(row["PROJECT_LANDVALUE"]);
-                            lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
-                            lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
+                            lblLandValue.Text = Convert.ToString(row["PROJECT_LANDVALUE"]);                           
                             lblWorkingCapital.Text = Convert.ToString(row["PROJECT_WORKINGCAPITAL"]);
+
+                            if (lblWaterValue.Text != "")
+                            {
+                                divPowerwater.Visible = true;
+                                lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
+                            }
+                            if (lblElectricityValue.Text != "")
+                            {
+                                divPowerwater.Visible = true;
+                                lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
+                            }
+                           
+
+                          
 
                             //lblCapitalSubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
                             //lblPromoterEquity.Text = Convert.ToString(row["FRD_PROMOTEREQUITY"]);

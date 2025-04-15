@@ -293,8 +293,8 @@ namespace MeghalayaUIP.DAL.CFODAL
                     cmd.Parameters.AddWithValue("@ConvictedSelection", string.IsNullOrEmpty(data.ConvictedSelection) ? (object)DBNull.Value : data.ConvictedSelection);
                     cmd.Parameters.AddWithValue("@ConvictedDetails", string.IsNullOrEmpty(data.ConvictedDetails) ? (object)DBNull.Value : data.ConvictedDetails);
                     cmd.Parameters.AddWithValue("@RenewBrand", string.IsNullOrEmpty(data.RenewBrand) ? (object)DBNull.Value : data.RenewBrand);
-                    cmd.Parameters.AddWithValue("@RegFromDate", data.RegFromDate == null ? (object)DBNull.Value : data.RegFromDate);
-                    cmd.Parameters.AddWithValue("@RegToDate", data.RegToDate == null ? (object)DBNull.Value : data.RegToDate);
+                    cmd.Parameters.AddWithValue("@RegFromDate", data.RegFromDate == null ? (object)DBNull.Value : Convert.ToDateTime(data.RegFromDate));
+                    cmd.Parameters.AddWithValue("@RegToDate", data.RegToDate == null ? (object)DBNull.Value : Convert.ToDateTime(data.RegToDate));
                     cmd.Parameters.AddWithValue("@FirmAddress", string.IsNullOrEmpty(data.FirmAddress) ? (object)DBNull.Value : data.FirmAddress);
                     cmd.Parameters.AddWithValue("@CreatedBy", string.IsNullOrEmpty(data.CreatedBy) ? (object)DBNull.Value : data.CreatedBy);
                     cmd.Parameters.AddWithValue("@CreatedIp", string.IsNullOrEmpty(data.CreatedIp) ? (object)DBNull.Value : data.CreatedIp);

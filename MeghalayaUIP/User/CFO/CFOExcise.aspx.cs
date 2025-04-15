@@ -635,9 +635,9 @@ namespace MeghalayaUIP.User.CFO
                 objcfo.ConvictedDetails = rblConvicted.SelectedValue == "Y" ? txtDetails.Text : "";
                 objcfo.RenewBrand = rblBrand.SelectedValue;
                 if (rblBrand.SelectedValue == "Y")
-                    objcfo.RegFromDate = txtFromDate.Text; //DateTime.ParseExact(txtFromDate.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    objcfo.RegFromDate =( txtFromDate.Text); //DateTime.ParseExact(txtFromDate.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 if (rblBrand.SelectedValue == "Y")
-                    objcfo.RegToDate = txtTodate.Text;//DateTime.ParseExact(txtTodate.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    objcfo.RegToDate = (txtTodate.Text);//DateTime.ParseExact(txtTodate.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 objcfo.FirmAddress = txtAddress.Text;
                 objcfo.CreatedIp = getclientIP();
                 objcfo.CreatedBy = hdnUserID.Value;

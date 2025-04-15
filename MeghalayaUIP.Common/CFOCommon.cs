@@ -136,7 +136,7 @@ namespace MeghalayaUIP.Common
         public string LandOnProof { get; set; }
         public string BottlePlant { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public string CreatedIp { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
@@ -154,7 +154,7 @@ namespace MeghalayaUIP.Common
         public string MRPSSelection { get; set; }
         public string BrandName { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public string CreatedIp { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }

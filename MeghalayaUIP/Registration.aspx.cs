@@ -214,7 +214,7 @@ namespace MeghalayaUIP
                     errormsg = errormsg + slno + ". Please Enter Captcha \\n";
                     slno = slno + 1;
                 }
-                if (txtCaptcha.Text.Trim() != Convert.ToString(ViewState["captcha"]))
+                else if (txtCaptcha.Text.Trim() != Convert.ToString(ViewState["captcha"]))
                 {
                     errormsg = errormsg + slno + ". Please Enter Correct Captcha \\n";
                     slno = slno + 1;
