@@ -57,9 +57,12 @@ namespace MeghalayaUIP.Dept.Grievance
         {
             try
             {
-                DataSet ds = new DataSet();
-
-                ds = objcomBal.GetDepGrievanceList(DeptID, null, Convert.ToString(Request.QueryString["status"]));
+                DataSet ds = new DataSet(); string status = "";
+                if (Request.QueryString.Count > 0)
+                    status = Convert.ToString(Request.QueryString["status"]);
+                else
+                    status = "%";
+                ds = objcomBal.GetDepGrievanceList(DeptID, null, status);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     gvGrievanceDtls.DataSource = ds.Tables[0];
@@ -104,7 +107,7 @@ namespace MeghalayaUIP.Dept.Grievance
                 if (lblID != null)
                 {
 
-                    string newurl = "~/Dept/Grievance/GrievanceDeptProcess.aspx?ID=" + lblID.Text;
+                    string newurl = "~/Dept/Grievance/GrievanceDeptProcess.aspx?ID=" + lblID.Text+"&status="+ Convert.ToString(Request.QueryString["status"]);
                     Response.Redirect(newurl);
                 }
             }

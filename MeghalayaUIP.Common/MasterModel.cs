@@ -98,6 +98,8 @@ namespace MeghalayaUIP.Common
         public static string GetUserSearch = "USP_GETUSERNAMEANDPSWD";
 
         public static string GetEligibileInc = "SP_GETELIGIBLEINCENTIVES";
+
+        public static string GetPageName = "USP_GETPAGENAME";
     }
     public class MasterCountry
     {

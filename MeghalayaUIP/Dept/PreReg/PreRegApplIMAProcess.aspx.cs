@@ -97,25 +97,28 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
 
+                        lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
                         if (lblcatreg.Text != "")
                         {
                             divCategory.Visible = true;
-                            lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
+                            divCategory1.Visible = true;                           
                         }
-                        else { divCategory.Visible = false; }
+
+                        lblregcategory.Text = " " + lblcatreg.Text + " No.";
+                        lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
                         if (lblregcategory.Text != "")
                         {
-                            divCategory.Visible = true;
-                            lblregcategory.Text = "7. " + lblcatreg.Text + " No.";
-                            lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                            divudyam.Visible = true;
+                            divudyam1.Visible = true;
                         }
-                        else { divCategory.Visible = false; }
+
+                        lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
                         if (lblregdate.Text != "")
                         {
-                            divCategory.Visible = true;
-                            lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
+                            divFirm.Visible = true;
+                            divFirm1.Visible = true;
                         }
-                        else { divCategory.Visible = false; }
+                        
 
                         lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                         lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
@@ -132,15 +135,17 @@ namespace MeghalayaUIP.Dept.PreReg
 
                         lblcapitalsubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
 
+                        lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
                         if (lblinternalresources.Text != "")
                         {
                             divResource.Visible = true;
-                            lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
+                            divResource1.Visible = true;
                         }
+                        lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
                         if (lblunnati.Text != "")
                         {
-                            divResource.Visible = true;
-                            lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
+                            divUNNATI.Visible = true;
+                            divUNNATI1.Visible = true;
                         }
 
 
@@ -217,19 +222,20 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblLandValue.Text = Convert.ToString(row["PROJECT_LANDVALUE"]);
                         lblWorkingCapital.Text = Convert.ToString(row["PROJECT_WORKINGCAPITAL"]);
 
+                        lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
                         if (lblWaterValue.Text != "")
                         {
-                            divPowerwater.Visible = true;
-                            lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
+                            divwater.Visible = true;
+                            divwater1.Visible = true;
                         }
-                        else { divPowerwater.Visible = false; }
-
+                       
+                        lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
                         if (lblElectricityValue.Text != "")
                         {
                             divPowerwater.Visible = true;
-                            lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
+                            divPowerwater1.Visible = true;
                         }
-                        else { divPowerwater.Visible = false; }
+                       
 
                         lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
                         lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);

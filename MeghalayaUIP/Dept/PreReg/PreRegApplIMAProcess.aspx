@@ -195,26 +195,28 @@
                                                             <spna class="dots">:</spna><asp:Label ID="lblCompanyProposal" runat="server"></asp:Label>
                                                         </div>
 
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;" id="divCategory" runat="server" visible="false">
-                                                        <div class="col-md-2">
-                                                            <label>6. Category of Registration</label>
+                                                         <div class="col-md-2" id="divCategory" runat="server" visible="false">
+                                                            <label> Category of Registration</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divCategory1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblcatreg" runat="server"></asp:Label>
                                                         </div>
-                                                        <div class="col-md-2">
+
+                                                    </div>
+
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                       
+                                                        <div class="col-md-2" id="divudyam" runat="server" visible="false">
                                                             <asp:Label runat="server" ID="lblregcategory"> </asp:Label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divudyam1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblUdyam" runat="server"></asp:Label>
                                                         </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>8. Firm Registration /Incorporation Date</label>
+                                                        <div class="col-md-2" id="divFirm" runat="server" visible="false">
+                                                            <label> Firm Registration /Incorporation Date</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divFirm1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblregdate" runat="server"></asp:Label>
                                                         </div>
 
@@ -577,19 +579,19 @@
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblWaterReq" runat="server"></asp:Label>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;" id="divPowerwater" runat="server" visible="false">
-                                                        <div class="col-md-2">
+                                                          <div class="col-md-2" id="divPowerwater" runat="server" visible="false">
                                                             <label>Value of Power (INR)</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divPowerwater1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblElectricityValue" runat="server"></asp:Label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                    </div>
+
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                      
+                                                        <div class="col-md-2" id="divwater" runat="server" visible="false">
                                                             <label>Water Value (INR)</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divwater1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblWaterValue" runat="server"></asp:Label>
                                                         </div>
                                                     </div>
@@ -634,19 +636,19 @@
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblcentralscheme" runat="server"></asp:Label>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;" id="divResource" runat="server" visible="false">
-                                                        <div class="col-md-2">
-                                                            <label>6. Internal Resources (INR)</label>
+                                                         <div class="col-md-2" id="divResource" runat="server" visible="false">
+                                                            <label> Internal Resources (INR)</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divResource1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblinternalresources" runat="server"></asp:Label>
                                                         </div>
-                                                        <div class="col-md-2">
-                                                            <label>7. Benifit from UNNATI (INR)</label>
+                                                    </div>
+
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                       
+                                                        <div class="col-md-2" id="divUNNATI" runat="server" visible="false">
+                                                            <label> Benifit from UNNATI (INR)</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divUNNATI1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblunnati" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2" runat="server" visible="false">

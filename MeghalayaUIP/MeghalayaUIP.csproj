@@ -218,6 +218,7 @@
     <Content Include="Admin\ApplicationsView.aspx" />
     <Content Include="Admin\HelpdeskDrilldown.aspx" />
     <Content Include="Admin\HelpdeskReport.aspx" />
+    <Content Include="Admin\PageDetails.aspx" />
     <Content Include="Admin\SearchUser.aspx" />
     <Content Include="Admin\SMSandMAILtesting.aspx" />
     <Content Include="Agri-Horti.aspx" />
@@ -899,6 +900,13 @@
     </Compile>
     <Compile Include="Admin\HelpdeskReport.aspx.designer.cs">
       <DependentUpon>HelpdeskReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PageDetails.aspx.cs">
+      <DependentUpon>PageDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PageDetails.aspx.designer.cs">
+      <DependentUpon>PageDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\SearchUser.aspx.cs">
       <DependentUpon>SearchUser.aspx</DependentUpon>
