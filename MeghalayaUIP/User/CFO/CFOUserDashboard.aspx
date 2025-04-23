@@ -57,10 +57,23 @@
                                 </asp:TemplateField>
                                 <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Registration ID" DataField="PREREGUIDNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" />
                                 <asp:BoundField HeaderStyle-BorderColor="White"  HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                <%--<asp:BoundField HeaderStyle-BorderColor="White"  HeaderText="CFO UIDNO" DataField="CFOUID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />--%>
+                                <asp:TemplateField HeaderText="CFO UIDNO" ItemStyle-Width="12%" Visible="false">
+                                    <ItemTemplate>
+                                        <asp:Label runat="server" ID="lblcfouidno" Text='<%#Eval("CFOUID") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="PAN No" DataField="COMPANYPANNO" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />
                                 <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Communication Address" DataField="APPLICANTADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
                                 <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Unit Address" DataField="UNITADDRESS" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
-                                <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                              <%--  <asp:BoundField HeaderStyle-BorderColor="White" HeaderText="Application Filed Date" DataField="CREATEDDATE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="false" />--%>
+                                 <asp:TemplateField HeaderText="Application Filed Date" ItemStyle-Width="12%" Visible="false">
+                                    <ItemTemplate>
+                                        <asp:Label runat="server" ID="lblCFOAppliDate" Text='<%#Eval("CREATEDDATE") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
                                 <%--7--%>
                                 <asp:TemplateField HeaderText="Applied" ItemStyle-Width="12%" HeaderStyle-BorderColor="White">
                                     <ItemTemplate>
@@ -133,7 +146,7 @@
                             <EmptyDataTemplate>
                                 <div style="text-align: center; padding: 20px;">
                                     <div align="center" style="text-align: center; padding: 20px;">
-                                    <b>There are no Registered Units Under MIIPP, Please  <a href="../PreReg/IndustryRegistration.aspx" style="font-size:20px; font-family:'Bookman Old Style'" >Click Here </a> to start Industry Registration.</b> 
+                                    <b>There are no Applications Applied Under Pre-Establishment, Please  <a href="../CFE/CFEUserDashboard.aspx" style="font-size:20px; font-family:'Bookman Old Style'" >Click Here </a> to Apply Pre-Establishment Approvals.</b> 
                                 </div>
                                 </div>
                             </EmptyDataTemplate>

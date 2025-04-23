@@ -221,7 +221,11 @@ namespace MeghalayaUIP.User.CFO
                         btnCombndAppl.Enabled = false;
                         //btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
                         btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
-                       
+
+                        Label lblCFOAppliDate = (Label)e.Row.FindControl("lblCFOAppliDate");
+                        string communityValue = DataBinder.Eval(e.Row.DataItem, "CFOAPPLSTATUS")?.ToString();
+                        if (lblCFOAppliDate.Text != "")
+                        { gvCFOApproved.Columns[7].Visible = false; }
                     }
                     else
                     {
@@ -229,8 +233,31 @@ namespace MeghalayaUIP.User.CFO
                         btnApply.Enabled = false;
                         btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
                         btnApply.Style.Add("border", "none");
-                        btnApply.Style.Add("color", "black");
+                        btnApply.Style.Add("color", "black"); 
+                        
+
+                         Label lblCFOAppliDate = (Label)e.Row.FindControl("lblCFOAppliDate");
+                        string communityValue = DataBinder.Eval(e.Row.DataItem, "CFOAPPLSTATUS")?.ToString();
+                        if (lblCFOAppliDate.Text != "")
+                        { gvCFOApproved.Columns[7].Visible = true; }
                     }
+
+                    string CFOUIDstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "CFOUID"));
+
+                    if (CFOUIDstatus==""|| CFOUIDstatus==null) //3
+                    {
+                        Label lblcfouidno = (Label)e.Row.FindControl("lblcfouidno");
+                        if (lblcfouidno.Text != "")
+                        { gvCFOApproved.Columns[3].Visible = false; }
+                    }
+                    else
+                    {
+                        Label lblcfouidno = (Label)e.Row.FindControl("lblcfouidno");
+                        if (lblcfouidno.Text != "")
+                        { gvCFOApproved.Columns[3].Visible = true; }
+                    }
+
+
 
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)

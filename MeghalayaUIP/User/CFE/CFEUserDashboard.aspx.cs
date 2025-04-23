@@ -167,6 +167,10 @@ namespace MeghalayaUIP.User.CFE
                             btnApplstatus.Style.Add("border", "none");
                             btnApplstatus.Style.Add("color", "black");
                         }
+                        Label lblCFEAppliDate = (Label)e.Row.FindControl("lblCFEAppliDate");
+                        string communityValue = DataBinder.Eval(e.Row.DataItem, "CFEAPPLSTATUS")?.ToString();
+                        if (lblCFEAppliDate.Text != "")
+                        { gvPreRegApproved.Columns[7].Visible = false; }
                     }
                     else
                     {
@@ -175,8 +179,27 @@ namespace MeghalayaUIP.User.CFE
                         btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
                         btnApply.Style.Add("border", "none");
                         btnApply.Style.Add("color", "black");
+
+                        Label lblCFEAppliDate = (Label)e.Row.FindControl("lblCFEAppliDate");
+                        string communityValue = DataBinder.Eval(e.Row.DataItem, "CFEAPPLSTATUS")?.ToString();
+                        if (lblCFEAppliDate.Text != "")
+                        { gvPreRegApproved.Columns[7].Visible = true; }
                     }
 
+                    string CFEUIDstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "CFEUIDNO"));
+
+                    if (CFEUIDstatus == "" || CFEUIDstatus == null)
+                    {
+                        Label lblcfeuidno = (Label)e.Row.FindControl("lblcfeuidno");
+                        if (lblcfeuidno.Text != "")
+                        { gvPreRegApproved.Columns[3].Visible = false; }
+                    }
+                    else
+                    {
+                        Label lblcfeuidno = (Label)e.Row.FindControl("lblcfeuidno");
+                        if (lblcfeuidno.Text != "")
+                        { gvPreRegApproved.Columns[3].Visible = true; }
+                    }
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {
