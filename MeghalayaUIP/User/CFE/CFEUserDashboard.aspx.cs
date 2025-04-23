@@ -75,6 +75,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         gvPreRegApproved.DataSource = dsApproved.Tables[0];
                         gvPreRegApproved.DataBind();
+                        
                     }
                     else
                     {
@@ -105,6 +106,7 @@ namespace MeghalayaUIP.User.CFE
                     Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFEQID");
                     Label lblunitId = (Label)e.Row.FindControl("lblUNITID");
                     Label APPLSTATUS = (Label)e.Row.FindControl("lblCFEAPPLSTATUS");
+                    Label lblLandReuired=(Label)e.Row.FindControl("lblLandReuired");
                     HyperLink hplAppld = (HyperLink)e.Row.FindControl("hplApplied");
                     HyperLink hplApprvd = (HyperLink)e.Row.FindControl("hplApproved");
                     HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
@@ -142,11 +144,29 @@ namespace MeghalayaUIP.User.CFE
                         btnApply = (Button)e.Row.FindControl("btnApplyCFE");
                         btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
                         btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
-                        btnApply.Enabled = true;
-                        btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
-                        btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
-                        btnApplstatus.Style.Add("border", "none");
-                        btnApplstatus.Style.Add("color", "black");
+                        if (lblLandReuired.Text == "Own")
+                        {                          
+                            btnApply.Enabled = true;
+                            btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                            btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
+                            btnApplstatus.Style.Add("border", "none");
+                            btnApplstatus.Style.Add("color", "black");                           
+                        }
+                        else
+                        {
+                            btnApply.Enabled = false;
+                            btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                            btnApplstatus.Enabled = false;
+
+                            btnApply.Style.Add("border", "none");
+                            btnApply.Style.Add("color", "black");
+
+                            btnApprvlsReq.Style.Add("border", "none");
+                            btnApprvlsReq.Style.Add("color", "black");
+
+                            btnApplstatus.Style.Add("border", "none");
+                            btnApplstatus.Style.Add("color", "black");
+                        }
                     }
                     else
                     {
