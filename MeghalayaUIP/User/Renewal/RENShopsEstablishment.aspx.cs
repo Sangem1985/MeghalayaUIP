@@ -954,7 +954,7 @@ namespace MeghalayaUIP.User.Renewal
                     Error = validations(fupEmployer);
                     if (Error == "")
                     {
-                        string sFileDir = ConfigurationManager.AppSettings["RENAttachments"];
+                        string sFileDir = System.Configuration.ConfigurationManager.AppSettings["RENAttachments"];
                         string serverpath = sFileDir + hdnUserID.Value + "\\"
                          + Convert.ToString(Session["RENQID"]) + "\\" + "Photo of the Employer" + "\\";
                         if (!Directory.Exists(serverpath))
@@ -1314,10 +1314,8 @@ namespace MeghalayaUIP.User.Renewal
                     dt.Columns.Add("RENP_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENP_NAMEPROPERTIE", typeof(string));
                     dt.Columns.Add("RENP_COMMUNICATIONADDRESS", typeof(string));
-                    dt.Columns.Add("RENP_COMMUNITY", typeof(string));
-                    dt.Columns.Add("RENP_COMMUNITYOTHER", typeof(string));
-
-
+                    dt.Columns.Add("RENP_COMMUNITY", typeof(string));                  
+                    dt.Columns.Add("RENP_COMMUNITYOTHER", typeof(string));                   
 
 
                     if (ViewState["PROPERTIE"] != null)
@@ -1326,7 +1324,6 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                   // dr["RENP_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["RENP_CREATEDBY"] = hdnUserID.Value;
                     dr["RENP_CREATEDBYIP"] = getclientIP();
                     dr["RENP_NAMEPROPERTIE"] = txtProprtie.Text;
@@ -1335,6 +1332,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ddlcommunity.SelectedValue == "4")
                     {
                         other.Visible = true;
+                        
                         dr["RENP_COMMUNITYOTHER"] = txtOther.Text;
                     }
                     else { other.Visible = false; }
@@ -1616,6 +1614,19 @@ namespace MeghalayaUIP.User.Renewal
             catch (Exception ex)
             { throw ex; }
         }
+
+        protected void GVPROPERTIE_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Label lblCommunity = (Label)e.Row.FindControl("lblCommunity");
+                string communityValue = DataBinder.Eval(e.Row.DataItem, "RENP_COMMUNITY")?.ToString();
+                if(lblCommunity.Text!="")
+                { GVPROPERTIE.Columns[4].Visible = true; }
+                //lblCommunity.Visible = (communityValue == "4");
+            }
+        }
+
         public static bool ValidateFileExtension(FileUpload Attachment)
         {
             try

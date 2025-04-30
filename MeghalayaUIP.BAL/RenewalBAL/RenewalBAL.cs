@@ -169,13 +169,13 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GETANNUALTURNOVER(PMAMOUNT, ANNUALTURNOVER);
         }
-        public string CFEENTERPRISETYPE(string ANNUALTURNOVER)
+        public string CFEENTERPRISETYPE(string ANNUALTURNOVER)  
         {
             return objRENDAL.CFEENTERPRISETYPE(ANNUALTURNOVER);
         }
-        public DataSet GetRENApplicationDetails(string UnitID, string InvesterID)
+        public DataSet GetRENApplicationDetails(string RENQDID, string InvesterID)
         {
-            return objRENDAL.GetRENApplicationDetails(UnitID, InvesterID);
+            return objRENDAL.GetRENApplicationDetails(RENQDID, InvesterID);
         }
         public DataTable GetRENDashboard(RENDtls ObjREN)
         {
@@ -208,6 +208,25 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetRENPaymentReceipt(UnitId, Createdby, TransactionNo, Uid);
         }
-
+        public DataSet GetUserRENApplStatus(string Userid, string RENQID)
+        {
+            return objRENDAL.GetUserRENApplStatus(Userid, RENQID);
+        }
+        public DataSet GetRENApplicationStatus(string userid, string RENQID, string Status)
+        {
+            return objRENDAL.GetRENApplicationStatus(userid, RENQID, Status);
+        }
+        public string UpdateRENDepartmentProcess(RENDtls objrenDtls)
+        {
+            return objRENDAL.UpdateRENDepartmentProcess(objrenDtls);
+        }
+        public DataSet GetRENQueryDashBoard(string RENQID, string Queryid)
+        {
+            return objRENDAL.GetRENQueryDashBoard(RENQID, Queryid);
+        }
+        public string InsertRENQueryResponse(RENQueryDet RENQuery)
+        {
+            return objRENDAL.InsertRENQueryResponse(RENQuery);
+        }
     }
 }

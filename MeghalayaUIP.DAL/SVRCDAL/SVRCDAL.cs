@@ -1400,7 +1400,10 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCPWD_MULTILAYEREDPLASTIC", serviceProdPlasticsWasteDetails.MultilayeredPlastic);
                 com.Parameters.AddWithValue("@SRVCPWD_MANFCTRNGCAPACITY", serviceProdPlasticsWasteDetails.ManufacturingCapacity);
                 com.Parameters.AddWithValue("@SRVCPWD_PREVREGNO", serviceProdPlasticsWasteDetails.PreviousRegistration);
+               // com.Parameters.AddWithValue("@SRVCPWD_REGDATE", Convert.ToDateTime (serviceProdPlasticsWasteDetails.RegistrationDate).ToString());
                 com.Parameters.AddWithValue("@SRVCPWD_REGDATE", DateTime.ParseExact(serviceProdPlasticsWasteDetails.RegistrationDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                                
+
                 com.Parameters.AddWithValue("@SRVCPWD_TOTCAPTLINV", serviceProdPlasticsWasteDetails.TotalCapitalInvestment);
                 com.Parameters.AddWithValue("@SRVCPWD_YEAROFCMNCEMNT", serviceProdPlasticsWasteDetails.YearOfCommencement);
                 com.Parameters.AddWithValue("@SRVCPWD_LISTQNTMPROD", serviceProdPlasticsWasteDetails.ListQuantityProduct);

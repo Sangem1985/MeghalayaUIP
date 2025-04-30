@@ -76,12 +76,33 @@ namespace MeghalayaUIP.User.PreReg
                             lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
                             lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                             lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
-                            lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
-                            lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                           
+                           
                             lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
 
                             lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
+
                             lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
+                            if (lblcatreg.Text != "")
+                            {
+                                divCategory.Visible = true;
+                                divCategory1.Visible = true;
+                            }
+                            lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                            if (lblUdyam.Text != "")
+                            {
+                                divudyam.Visible = true;
+                                divudyam1.Visible = true;
+                            }
+                            lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
+                            if (lblregdate.Text != "")
+                            {
+                                divFirm.Visible = true;
+                                divFirm1.Visible = true;
+                            }
+
+                            
+
                             lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                             lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
                             if (lblisland.Text == "Own")
@@ -91,12 +112,27 @@ namespace MeghalayaUIP.User.PreReg
                             lblequityamount.Text = Convert.ToString(row["FRD_EQUITY"]);
                             lbltermloanworking.Text = Convert.ToString(row["FRD_LOAN"]);
 
-                            lblunsecuredloan.Text = Convert.ToString(row["FRD_UNSECUREDLOAN"]);
-                            lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
+                            lblunsecuredloan.Text = Convert.ToString(row["FRD_UNSECUREDLOAN"]); 
+
                             lblstatescheme.Text = Convert.ToString(row["FRD_STATE"]);
 
                             lblcapitalsubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
+                            lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
+                            if (lblinternalresources.Text != "")
+                            {
+                                divResource.Visible = true;
+                                divResource1.Visible = true;
+                            }
                             lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
+                            if (lblunnati.Text != "")
+                            {
+                                divUNNATI.Visible = true;
+                                divUNNATI1.Visible = true;
+                            }
+
+                           
+
+                          
                             lblcentralscheme.Text = Convert.ToString(row["FRD_CENTRAL"]);
                             if (Convert.ToString(row["ELIGIBLE_FLAG"]).Trim() == "N")
                             {
@@ -166,10 +202,21 @@ namespace MeghalayaUIP.User.PreReg
                             lblIFC.Text = Convert.ToString(row["PROJECT_IFC"]);
                             lblDFA.Text = Convert.ToString(row["PROJECT_DFA"]);
                             lblBuldingValue.Text = Convert.ToString(row["PROJECT_BUILDINGVALUE"]);
-                            lblLandValue.Text = Convert.ToString(row["PROJECT_LANDVALUE"]);
-                            lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
-                            lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
+                            lblLandValue.Text = Convert.ToString(row["PROJECT_LANDVALUE"]);                           
                             lblWorkingCapital.Text = Convert.ToString(row["PROJECT_WORKINGCAPITAL"]);
+                            lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
+                            if (lblWaterValue.Text != "")
+                            {
+                                divwater.Visible = true;
+                                divwater1.Visible = true;
+                            }
+                            lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
+                            if (lblElectricityValue.Text != "")
+                            {
+                                divPowerwater.Visible = true;
+                                divPowerwater1.Visible = true;
+                            }
+                                                    
 
                             //lblCapitalSubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
                             //lblPromoterEquity.Text = Convert.ToString(row["FRD_PROMOTEREQUITY"]);
@@ -195,6 +242,7 @@ namespace MeghalayaUIP.User.PreReg
 
                         if (ds.Tables[4].Rows.Count > 0)
                         {
+                            divQuery.Visible = true;
                             grdQueries.DataSource = ds.Tables[4];
                             grdQueries.DataBind();
                         }
@@ -205,6 +253,7 @@ namespace MeghalayaUIP.User.PreReg
                         }
                         if (ds.Tables[6].Rows.Count > 0)
                         {
+                            divQueryAttachments.Visible = true;
                             grdQryAttachments.DataSource = ds.Tables[6];
                             grdQryAttachments.DataBind();
                         }

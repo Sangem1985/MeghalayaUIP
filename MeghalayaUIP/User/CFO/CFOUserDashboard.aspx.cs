@@ -70,6 +70,7 @@ namespace MeghalayaUIP.User.CFO
                     HeaderCell.RowSpan = 1;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "";
+                    HeaderCell.BorderColor = System.Drawing.Color.White;
                     HeaderCell.Font.Bold = true;
                     HeaderGridRow.Cells.Add(HeaderCell);
 
@@ -80,6 +81,7 @@ namespace MeghalayaUIP.User.CFO
                     HeaderCell.Font.Bold = true;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "Pre Operational Approvals";
+                    HeaderCell.BorderColor = System.Drawing.Color.White;
                     HeaderGridRow.Cells.Add(HeaderCell);
 
                     HeaderCell = new TableHeaderCell();
@@ -88,6 +90,7 @@ namespace MeghalayaUIP.User.CFO
                     HeaderCell.Font.Bold = true;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "";
+                    HeaderCell.BorderColor = System.Drawing.Color.White;
                     HeaderGridRow.Cells.Add(HeaderCell);
 
                     gvCFOApproved.Controls[0].Controls.AddAt(0, HeaderGridRow);
@@ -189,7 +192,7 @@ namespace MeghalayaUIP.User.CFO
                     if (hplRejctd.Text != "0")
                         hplRejctd.NavigateUrl = "~/User/CFO/CFOTracker.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
                     if (hplQryRaised.Text != "0")
-                        hplQryRaised.NavigateUrl = "~/User/CFO/CFOTracker.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
+                        hplQryRaised.NavigateUrl = "~/User/CFO/CFOQueryDashBoard.aspx?UnitID=" + lblunitId.Text + "&Type=QueryRaised";
 
                     int TotalAppl = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "APPLIEDCOUNT"));
                     TotApplied = TotApplied + TotalAppl;
@@ -218,7 +221,11 @@ namespace MeghalayaUIP.User.CFO
                         btnCombndAppl.Enabled = false;
                         //btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
                         btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
-                       
+
+                        Label lblCFOAppliDate = (Label)e.Row.FindControl("lblCFOAppliDate");
+                        string communityValue = DataBinder.Eval(e.Row.DataItem, "CFOAPPLSTATUS")?.ToString();
+                        if (lblCFOAppliDate.Text != "")
+                        { gvCFOApproved.Columns[7].Visible = false; }
                     }
                     else
                     {
@@ -226,8 +233,31 @@ namespace MeghalayaUIP.User.CFO
                         btnApply.Enabled = false;
                         btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
                         btnApply.Style.Add("border", "none");
-                        btnApply.Style.Add("color", "black");
+                        btnApply.Style.Add("color", "black"); 
+                        
+
+                         Label lblCFOAppliDate = (Label)e.Row.FindControl("lblCFOAppliDate");
+                        string communityValue = DataBinder.Eval(e.Row.DataItem, "CFOAPPLSTATUS")?.ToString();
+                        if (lblCFOAppliDate.Text != "")
+                        { gvCFOApproved.Columns[7].Visible = true; }
                     }
+
+                    string CFOUIDstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "CFOUID"));
+
+                    if (CFOUIDstatus==""|| CFOUIDstatus==null) //3
+                    {
+                        Label lblcfouidno = (Label)e.Row.FindControl("lblcfouidno");
+                        if (lblcfouidno.Text != "")
+                        { gvCFOApproved.Columns[3].Visible = false; }
+                    }
+                    else
+                    {
+                        Label lblcfouidno = (Label)e.Row.FindControl("lblcfouidno");
+                        if (lblcfouidno.Text != "")
+                        { gvCFOApproved.Columns[3].Visible = true; }
+                    }
+
+
 
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)

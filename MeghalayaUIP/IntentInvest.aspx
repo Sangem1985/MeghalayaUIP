@@ -208,7 +208,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Pin/Zip Code    </label>
+                                                            <label class="col-lg-6 col-form-label">Pin/Zip Code*    </label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:TextBox ID="txtPinCode" runat="server" class="form-control" onkeypress="return validatePincode(event)"></asp:TextBox>
                                                             </div>
@@ -216,7 +216,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Email ID</label>
+                                                            <label class="col-lg-6 col-form-label">Email ID*</label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:TextBox ID="txtEmailIds" runat="server" class="form-control" onblur="validateEmail(event)"></asp:TextBox>
                                                             </div>
@@ -249,7 +249,7 @@
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Name    </label>
+                                                            <label class="col-lg-6 col-form-label">Name*    </label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:TextBox ID="txtNames" runat="server" class="form-control" onkeypress="Names()"></asp:TextBox>
                                                             </div>
@@ -257,7 +257,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Designation</label>
+                                                            <label class="col-lg-6 col-form-label">Designation*</label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:TextBox ID="txtDesignation" runat="server" class="form-control" onkeypress="Names()"></asp:TextBox>
                                                             </div>
@@ -362,7 +362,7 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores."
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Proposed Project Location</label>
+                                                            <label class="col-lg-6 col-form-label">Proposed Project Location*</label>
                                                             <div class="col-lg-6 d-flex">
                                                                 <asp:TextBox ID="txtProjectlocation" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                             </div>
@@ -384,7 +384,7 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores."
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Expectation/Support required from the State Govt</label>
+                                                            <label class="col-lg-6 col-form-label">Expectation/Support required from the State Govt*</label>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:TextBox ID="txtExpectation" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                             </div>

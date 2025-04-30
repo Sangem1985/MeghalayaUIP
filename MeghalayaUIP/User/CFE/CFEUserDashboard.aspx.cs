@@ -75,6 +75,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         gvPreRegApproved.DataSource = dsApproved.Tables[0];
                         gvPreRegApproved.DataBind();
+                        
                     }
                     else
                     {
@@ -105,6 +106,7 @@ namespace MeghalayaUIP.User.CFE
                     Label lblCFEQuesnrID = (Label)e.Row.FindControl("lblCFEQID");
                     Label lblunitId = (Label)e.Row.FindControl("lblUNITID");
                     Label APPLSTATUS = (Label)e.Row.FindControl("lblCFEAPPLSTATUS");
+                    Label lblLandReuired=(Label)e.Row.FindControl("lblLandReuired");
                     HyperLink hplAppld = (HyperLink)e.Row.FindControl("hplApplied");
                     HyperLink hplApprvd = (HyperLink)e.Row.FindControl("hplApproved");
                     HyperLink hplUndrPrc = (HyperLink)e.Row.FindControl("hplundrProcess");
@@ -115,7 +117,7 @@ namespace MeghalayaUIP.User.CFE
                     if (hplApprvd.Text != "0")
                         hplApprvd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Approved";
                     if (hplUndrPrc.Text != "0")
-                        hplUndrPrc.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=UnderProcess";
+                        hplUndrPrc.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=ApprovalPending";
                     if (hplRejctd.Text != "0")
                         hplRejctd.NavigateUrl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + lblunitId.Text + "&Type=Rejected";
                     if (hplQryRaised.Text != "0")
@@ -142,11 +144,33 @@ namespace MeghalayaUIP.User.CFE
                         btnApply = (Button)e.Row.FindControl("btnApplyCFE");
                         btnApprvlsReq = (Button)e.Row.FindControl("btnCombndAppl");
                         btnApplstatus = (Button)e.Row.FindControl("btnApplStatus");
-                        btnApply.Enabled = true;
-                        btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
-                        btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
-                        btnApplstatus.Style.Add("border", "none");
-                        btnApplstatus.Style.Add("color", "black");
+                        if (lblLandReuired.Text == "Own")
+                        {                          
+                            btnApply.Enabled = true;
+                            btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                            btnApplstatus.Enabled = false; //btnApplstatus.BackColor = System.Drawing.Color.LightGray; //btnApplstatus.ForeColor = System.Drawing.Color.Red;
+                            btnApplstatus.Style.Add("border", "none");
+                            btnApplstatus.Style.Add("color", "black");                           
+                        }
+                        else
+                        {
+                            btnApply.Enabled = false;
+                            btnApprvlsReq.Enabled = false; //btnApprvlsReq.BackColor = System.Drawing.Color.LightGray; // btnApprvlsReq.ForeColor = System.Drawing.Color.Red;
+                            btnApplstatus.Enabled = false;
+
+                            btnApply.Style.Add("border", "none");
+                            btnApply.Style.Add("color", "black");
+
+                            btnApprvlsReq.Style.Add("border", "none");
+                            btnApprvlsReq.Style.Add("color", "black");
+
+                            btnApplstatus.Style.Add("border", "none");
+                            btnApplstatus.Style.Add("color", "black");
+                        }
+                        Label lblCFEAppliDate = (Label)e.Row.FindControl("lblCFEAppliDate");
+                        string communityValue = DataBinder.Eval(e.Row.DataItem, "CFEAPPLSTATUS")?.ToString();
+                        if (lblCFEAppliDate.Text != "")
+                        { gvPreRegApproved.Columns[7].Visible = false; }
                     }
                     else
                     {
@@ -155,8 +179,27 @@ namespace MeghalayaUIP.User.CFE
                         btnApply.BackColor = System.Drawing.Color.LightGray;// btnApply.ForeColor = System.Drawing.Color.Red;
                         btnApply.Style.Add("border", "none");
                         btnApply.Style.Add("color", "black");
+
+                        Label lblCFEAppliDate = (Label)e.Row.FindControl("lblCFEAppliDate");
+                        string communityValue = DataBinder.Eval(e.Row.DataItem, "CFEAPPLSTATUS")?.ToString();
+                        if (lblCFEAppliDate.Text != "")
+                        { gvPreRegApproved.Columns[7].Visible = true; }
                     }
 
+                    string CFEUIDstatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "CFEUIDNO"));
+
+                    if (CFEUIDstatus == "" || CFEUIDstatus == null)
+                    {
+                        Label lblcfeuidno = (Label)e.Row.FindControl("lblcfeuidno");
+                        if (lblcfeuidno.Text != "")
+                        { gvPreRegApproved.Columns[3].Visible = false; }
+                    }
+                    else
+                    {
+                        Label lblcfeuidno = (Label)e.Row.FindControl("lblcfeuidno");
+                        if (lblcfeuidno.Text != "")
+                        { gvPreRegApproved.Columns[3].Visible = true; }
+                    }
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {
@@ -209,6 +252,7 @@ namespace MeghalayaUIP.User.CFE
                     HeaderCell.RowSpan = 1;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "";
+                    HeaderCell.BorderColor = System.Drawing.Color.White;
                     HeaderCell.Font.Bold = true;
                     HeaderGridRow.Cells.Add(HeaderCell);
 
@@ -219,6 +263,7 @@ namespace MeghalayaUIP.User.CFE
                     HeaderCell.Font.Bold = true;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "Pre Establishment Approvals";
+                    HeaderCell.BorderColor = System.Drawing.Color.White;
                     HeaderGridRow.Cells.Add(HeaderCell);
 
                     HeaderCell = new TableHeaderCell();
@@ -227,6 +272,7 @@ namespace MeghalayaUIP.User.CFE
                     HeaderCell.Font.Bold = true;
                     HeaderCell.HorizontalAlign = HorizontalAlign.Center;
                     HeaderCell.Text = "";
+                    HeaderCell.BorderColor = System.Drawing.Color.White;
                     HeaderGridRow.Cells.Add(HeaderCell);
 
                     gvPreRegApproved.Controls[0].Controls.AddAt(0, HeaderGridRow);

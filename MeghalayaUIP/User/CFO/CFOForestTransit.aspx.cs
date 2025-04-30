@@ -122,33 +122,27 @@ namespace MeghalayaUIP.User.CFO
 
         protected void GvLogs_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            // Retrieve DataTable from ViewState
             DataTable dt = ViewState["LogsTable"] as DataTable;
 
             if (dt != null)
             {
-                // Get the row index to delete
                 int rowIndex = e.RowIndex;
 
-                // Remove the row at the specified index
                 dt.Rows.RemoveAt(rowIndex);
 
-                // **Reassign serial numbers after deletion**
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    dt.Rows[i]["SlNo"] = i + 1;  // Reassign serial numbers sequentially
+                    dt.Rows[i]["SlNo"] = i + 1;  
                 }
 
-                // Store updated DataTable in ViewState
                 ViewState["LogsTable"] = dt;
 
-                // Rebind the GridView
                 gvLogs.DataSource = dt;
                 gvLogs.DataBind();
             }
         }
 
-        private DataTable dtBarriers // Stores the grid data in ViewState
+        private DataTable dtBarriers 
         {
             get
             {
@@ -177,21 +171,41 @@ namespace MeghalayaUIP.User.CFO
 
         protected void BtnAddBarrier_Click(object sender, EventArgs e)
         {
-            DataTable dt = dtBarriers;
+            try
+            {
+                if (string.IsNullOrEmpty(txtState.Text.Trim()) || string.IsNullOrEmpty(txtBarriers.Text.Trim()))
+                {
+                    lblmsg0.Text = "Please Enter All Details Of Inspector Officer";
+                    Failure.Visible = true;
+                    txtState.Text = "";
+                    txtState.Focus();
+                    txtBarriers.Text = "";
+                    txtBarriers.Focus();
 
-            // Add new row
-            DataRow dr = dt.NewRow();
-            dr["SlNo"] = dt.Rows.Count + 1; // Auto-increment SlNo
-            dr["CFOFT_STATE"] = txtState.Text.Trim();
-            dr["CFOFT_BARRIERS"] = txtBarriers.Text.Trim();
-            dt.Rows.Add(dr);
+                }
+                else
+                {
+                    DataTable dt = dtBarriers;
+                    DataRow dr = dt.NewRow();
+                    dr["SlNo"] = dt.Rows.Count + 1;
+                    dr["CFOFT_STATE"] = txtState.Text.Trim();
+                    dr["CFOFT_BARRIERS"] = txtBarriers.Text.Trim();
+                    dt.Rows.Add(dr);
 
-            dtBarriers = dt; // Save back to ViewState
-            BindBariersGrid();
+                    dtBarriers = dt;
+                    BindBariersGrid();
 
-            // Clear input fields after adding
-            txtState.Text = "";
-            txtBarriers.Text = "";
+                    txtState.Text = "";
+                    txtBarriers.Text = "";
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+           
         }
 
         public void GvBarriers_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -200,10 +214,9 @@ namespace MeghalayaUIP.User.CFO
 
             if (dt.Rows.Count > e.RowIndex)
             {
-                dt.Rows.RemoveAt(e.RowIndex); // Remove the selected row
+                dt.Rows.RemoveAt(e.RowIndex); 
             }
 
-            // Reassign serial numbers after deletion
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 dt.Rows[i]["SlNo"] = i + 1;
@@ -215,47 +228,71 @@ namespace MeghalayaUIP.User.CFO
 
         protected void BtnAddlogs_Click(object sender, EventArgs e)
         {
-            // Retrieve DataTable from ViewState or create new if null
-            DataTable dt = ViewState["LogsTable"] as DataTable;
-
-            if (dt == null)
+            try
             {
-                dt = new DataTable();
-                dt.Columns.Add("SlNo", typeof(int));
-                dt.Columns.Add("CFOFT_SPECIESNAME", typeof(string));
-                dt.Columns.Add("CFOFT_LOGNUMBER", typeof(string));
-                dt.Columns.Add("CFOFT_GIRTH", typeof(string));
-                dt.Columns.Add("CFOFT_LENGTH", typeof(string));
-                dt.Columns.Add("CFOFT_VOLUMEORWEIGHT", typeof(string));
+                if (string.IsNullOrEmpty(ddlSpeciesName.SelectedValue.Trim()) || string.IsNullOrEmpty(txtLogNumber.Text.Trim()) || string.IsNullOrEmpty(txtGirth.Text.Trim()) || string.IsNullOrEmpty(txtLength.Text.Trim()) || string.IsNullOrEmpty(txtVolumeWeight.Text.Trim()))
+                {
+                    lblmsg0.Text = "Please Enter All Details Of Inspector Officer";
+                    Failure.Visible = true;
+                    txtLogNumber.Text = "";
+                    txtLogNumber.Focus();
+                    txtGirth.Text = "";
+                    txtGirth.Focus();
+                    txtLength.Text = "";
+                    txtLength.Focus();
+                    txtVolumeWeight.Text = "";
+                    txtVolumeWeight.Focus();
+                    ddlSpeciesName.ClearSelection();
+                    ddlSpeciesName.Focus();
+                }
+                else
+                {
+                    DataTable dt = ViewState["LogsTable"] as DataTable;
+
+                    if (dt == null)
+                    {
+                        dt = new DataTable();
+                        dt.Columns.Add("SlNo", typeof(int));
+                        dt.Columns.Add("CFOFT_SPECIESNAME", typeof(string));
+                        dt.Columns.Add("CFOFT_LOGNUMBER", typeof(string));
+                        dt.Columns.Add("CFOFT_GIRTH", typeof(string));
+                        dt.Columns.Add("CFOFT_LENGTH", typeof(string));
+                        dt.Columns.Add("CFOFT_VOLUMEORWEIGHT", typeof(string));
+                    }
+
+                    int slNo = dt.Rows.Count + 1;
+
+                    DataRow dr = dt.NewRow();
+                    dr["SlNo"] = slNo;
+                    dr["CFOFT_SPECIESNAME"] = ddlSpeciesName.SelectedItem.Text;
+                    dr["CFOFT_LOGNUMBER"] = txtLogNumber.Text;
+                    dr["CFOFT_GIRTH"] = txtGirth.Text;
+                    dr["CFOFT_LENGTH"] = txtLength.Text;
+                    dr["CFOFT_VOLUMEORWEIGHT"] = txtVolumeWeight.Text;
+
+                    dt.Rows.Add(dr);
+
+                    ViewState["LogsTable"] = dt;
+
+                    gvLogs.DataSource = dt;
+                    gvLogs.DataBind();
+
+                    ddlSpeciesName.ClearSelection();
+                    txtLogNumber.Text = "";
+                    txtGirth.Text = "";
+                    txtLength.Text = "";
+                    txtVolumeWeight.Text = "";
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
-            // Auto-increment serial number
-            int slNo = dt.Rows.Count + 1;
-
-            // Add new row
-            DataRow dr = dt.NewRow();
-            dr["SlNo"] = slNo;
-            dr["CFOFT_SPECIESNAME"] = ddlSpeciesName.SelectedItem.Text;
-            dr["CFOFT_LOGNUMBER"] = txtLogNumber.Text;
-            dr["CFOFT_GIRTH"] = txtGirth.Text;
-            dr["CFOFT_LENGTH"] = txtLength.Text;
-            dr["CFOFT_VOLUMEORWEIGHT"] = txtVolumeWeight.Text;
-
-            dt.Rows.Add(dr);
-
-            // Store updated DataTable in ViewState
-            ViewState["LogsTable"] = dt;
-
-            // Rebind the GridView
-            gvLogs.DataSource = dt;
-            gvLogs.DataBind();
-
-            // Clear textboxes after adding
-            ddlSpeciesName.SelectedIndex = 0;
-            txtLogNumber.Text = "";
-            txtGirth.Text = "";
-            txtLength.Text = "";
-            txtVolumeWeight.Text = "";
+           
+         
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

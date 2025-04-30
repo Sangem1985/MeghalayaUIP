@@ -5,8 +5,12 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,7 +23,8 @@ namespace MeghalayaUIP.Dept.Renewal
         PreRegDtls prd = new PreRegDtls();
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string UnitID;
+        RENDtls objrenDtls = new RENDtls();
+        string UnitID, result;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -35,9 +40,12 @@ namespace MeghalayaUIP.Dept.Renewal
                         {
                             ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                         }
+                        if (hdnUserID.Value == "")
+                        {
+                            hdnUserID.Value = ObjUserInfo.UserID;
+                        }
                         // username = ObjUserInfo.UserName;
                     }
-
                      BindRENApplicatinDetails();
                 }
             }
@@ -52,6 +60,41 @@ namespace MeghalayaUIP.Dept.Renewal
         {
             try
             {
+                /* var ObjUserInfo = new DeptUserInfo();
+                 if (Session["DeptUserInfo"] != null)
+                 {
+                     if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                     {
+                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                     }
+                     // username = ObjUserInfo.UserName;
+                 }
+                 if (Request.QueryString.Count > 0)
+                 {
+                     if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING" || Request.QueryString["status"].ToString() == "APPROVALPENDING")
+                     {
+                         verifypanel.Visible = true;
+                         if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
+                         {
+                             scrutiny.Visible = true;
+                             Approval.Visible = false;
+                         }
+                         else
+                         {
+                             scrutiny.Visible = false;
+                             Approval.Visible = true;
+                         }
+                     }
+                     else
+                     {
+                         verifypanel.Visible = false;
+                     }
+                 }
+                 else
+                 {
+                     verifypanel.Visible = false;
+                 }*/
+
                 var ObjUserInfo = new DeptUserInfo();
                 if (Session["DeptUserInfo"] != null)
                 {
@@ -63,16 +106,19 @@ namespace MeghalayaUIP.Dept.Renewal
                 }
                 if (Request.QueryString.Count > 0)
                 {
-                    if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING" || Request.QueryString["status"].ToString() == "APPROVALPENDING")
+                    string status = Convert.ToString(Request.QueryString["status"]);
+                    if (status.Contains("PRESCRUTINYPENDING") || status.Contains("APPROVALPENDING"))
                     {
                         verifypanel.Visible = true;
-                        if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
+                        if (status.Contains("PRESCRUTINYPENDING"))
                         {
+                            lblVerf.Text = "Scrutiny Verification of Application";
                             scrutiny.Visible = true;
                             Approval.Visible = false;
                         }
                         else
                         {
+                            lblVerf.Text = "Approval Process";
                             scrutiny.Visible = false;
                             Approval.Visible = true;
                         }
@@ -81,23 +127,37 @@ namespace MeghalayaUIP.Dept.Renewal
                     {
                         verifypanel.Visible = false;
                     }
+                    //if (Request.QueryString["status"].ToString().ToLower().Contains("offline"))
+                    //{
+                    //    headingThree.Visible = false;
+                    //    headingFour.Visible = false;
+                    //    if (Request.QueryString["status"].ToString() == "OFFLINEPENDING" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGWITHIN" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGBEYOND")
+                    //    {
+
+                    //        Offlineverifypanel.Visible = true;
+                    //    }
+                    //}
                 }
                 else
                 {
                     verifypanel.Visible = false;
+                 //   Offlineverifypanel.Visible = false;
                 }
 
 
 
-
-
-                if (Session["RENUNITID"] != null && Session["INVESTERID"] != null)
+                if (Session["Questionnaireid"] != null && Session["INVESTERID"] != null)
                 {
                     DataSet ds = new DataSet();
-                    ds = objRenbal.GetRENApplicationDetails(Convert.ToString(Session["RENUNITID"]), Session["INVESTERID"].ToString());
+                    ds = objRenbal.GetRENApplicationDetails(Convert.ToString(Session["Questionnaireid"]), Session["INVESTERID"].ToString());
                     if (ds != null && ds.Tables.Count > 0 &&  ds.Tables[0].Rows.Count > 0)
                     {
-                        lblnameUnit.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
+                        lblnameUnit.Text = lblunitname1.Text = lblunitname1Approval.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"]);
+                        lblApplNo.Text = lblApplNoApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_UIDNO"]);
+                        lblapplDate.Text = lblapplDateApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_CREATEDDATE"]);
+
+
+                        //lblnameUnit.Text = ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"].ToString();
                         lblCompanyType.Text = ds.Tables[0].Rows[0]["NSWS_ENTITYTYPENAME"].ToString();
                         lblNatureIndustry.Text = ds.Tables[0].Rows[0]["RENID_SECTORENTERPRISE"].ToString();
                         lblRegCat.Text = ds.Tables[0].Rows[0]["RENID_CATEGORYREG"].ToString();
@@ -203,7 +263,7 @@ namespace MeghalayaUIP.Dept.Renewal
                             lblSafetyExceed.Text = ds.Tables[1].Rows[0]["RENBD_SAFTEY"].ToString();
                             lblPeriodDate.Text = ds.Tables[1].Rows[0]["RENBD_PERIODDATE"].ToString();
                             lblToDateH.Text = ds.Tables[1].Rows[0]["RENBD_TODATE"].ToString();
-                            lblRemarks.Text = ds.Tables[1].Rows[0]["RENBD_REMARK"].ToString();
+                            lblRemarked.Text = ds.Tables[1].Rows[0]["RENBD_REMARK"].ToString();
                             lblRegFees.Text = ds.Tables[1].Rows[0]["RENBD_REGFEES"].ToString();
                             lblTotalAmount.Text = ds.Tables[1].Rows[0]["RENBD_TOTALAMOUNT"].ToString();
                         }
@@ -735,8 +795,29 @@ namespace MeghalayaUIP.Dept.Renewal
                             lblAmountpaid.Text = ds.Tables[20].Rows[0]["RENSE_TOTALPAIDAMOUNT"].ToString();
                         }
                         else { ShopEst.Visible = false; }
-
-
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[22].Rows.Count > 0)
+                        {
+                            grdRenattachment.DataSource = ds.Tables[22];
+                            grdRenattachment.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[23].Rows.Count > 0)
+                        {
+                            divstatusApplication.Visible = true;
+                            grdApplStatus.DataSource = ds.Tables[23];
+                            grdApplStatus.DataBind();
+                        }
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[24].Rows.Count > 0)
+                        {
+                            Query.Visible = true;
+                            grdQueries.DataSource = ds.Tables[24];
+                            grdQueries.DataBind();
+                        }
+                        if (ds.Tables[25].Rows.Count > 0)
+                        {
+                            QueryAttachment.Visible = true;
+                            grdQryAttachments.DataSource = ds.Tables[25];
+                            grdQryAttachments.DataBind();
+                        }
                     }
 
 
@@ -749,6 +830,584 @@ namespace MeghalayaUIP.Dept.Renewal
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                }
+                if (ddlStatus.SelectedValue == "6" || ddlStatus.SelectedValue == "17" || ddlStatus.SelectedValue == "11")
+                {
+                    if (ddlStatus.SelectedValue == "6") //Raise Query
+                    {
+                        tdquryorrej.Visible = true;
+                        tdquryorrejTxtbx.Visible = true;
+                        txtRequest.Visible = true;
+                        lblremarks.Text = "Please Enter Query Details";
+
+                        txtAdditionalAmount.Visible = false;
+                        tdInspReport.Visible = false;
+                        tdInspReport1.Visible = false;
+                    }
+                    else if (ddlStatus.SelectedValue == "17") //Rejected
+                    {
+                        tdquryorrej.Visible = true;
+                        tdquryorrejTxtbx.Visible = true;
+                        txtRequest.Visible = true;
+                        lblremarks.Text = "Please Enter Rejection Reason";
+
+                        txtAdditionalAmount.Visible = false;
+                        tdInspReport.Visible = false;
+                        tdInspReport1.Visible = false;
+                    }
+                    else if (ddlStatus.SelectedValue == "11") //Completed with Payment Request
+                    {
+                        tdquryorrej.Visible = true; //header label
+                        tdquryorrejTxtbx.Visible = true; //td
+                        txtAdditionalAmount.Visible = true;
+                        lblremarks.Text = "Please Enter Additional Amount";
+                        tdInspReport.Visible = true;
+                        tdInspReport1.Visible = true;
+
+                        txtRequest.Visible = false;
+                    }
+                }
+                else if (ddlStatus.SelectedValue == "12") //Completed
+                {
+                    tdquryorrej.Visible = false; //header label
+                    tdquryorrejTxtbx.Visible = false; //td
+                    tdInspReport.Visible = true;
+                    tdInspReport1.Visible = true;
+
+                }
+                else
+                {
+                    //tblaction.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void btnInspReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupInspReport.HasFile)
+                {
+                    Error = validations(fupInspReport);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["RENAttachments"];
+                        string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
+                         + Session["Questionnaireid"].ToString() + "\\" + "InspectionReports" + "\\" + Session["ApprovalID"] + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        int count = dir.GetFiles().Length;
+                        if (count == 0)
+                            fupInspReport.PostedFile.SaveAs(serverpath + "\\" + fupInspReport.PostedFile.FileName);
+                        else
+                        {
+                            if (count == 1)
+                            {
+                                string[] Files = Directory.GetFiles(serverpath);
+
+                                foreach (string file in Files)
+                                {
+                                    File.Delete(file);
+                                }
+                                fupInspReport.PostedFile.SaveAs(serverpath + "\\" + fupInspReport.PostedFile.FileName);
+                            }
+                        }
+
+                        RenAttachments objRenAttachments = new RenAttachments();
+                        objRenAttachments.Questionnareid = Session["Questionnaireid"].ToString();
+                        objRenAttachments.ApprovalID = Session["ApprovalID"].ToString();
+                        objRenAttachments.DeptID = Session["DEPTID"].ToString();
+                        objRenAttachments.FilePath = serverpath + fupInspReport.PostedFile.FileName;
+                        objRenAttachments.FileName = fupInspReport.PostedFile.FileName;
+                        objRenAttachments.FileType = fupInspReport.PostedFile.ContentType;
+                        objRenAttachments.FileDescription = "Inspection Report";
+                        objRenAttachments.CreatedBy = Session["INVESTERID"].ToString();
+                        objRenAttachments.UploadBy = "Department";
+                        objRenAttachments.UploadByID = hdnUserID.Value;
+                        objRenAttachments.IPAddress = getclientIP();
+                        result = objRenbal.InsertAttachmentsRenewal(objRenAttachments);
+                        if (result != "")
+                        {
+                            hplInspReport.Visible = true;
+                            hplInspReport.Text = fupInspReport.PostedFile.FileName;
+                            hplInspReport.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objRenAttachments.FilePath);
+                            hplInspReport.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();                
+
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    // username = ObjUserInfo.UserName;
+                }
+                if (ddlStatus.SelectedValue != "")
+                {
+                    if (ddlStatus.SelectedValue == "6" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
+                    {
+                        lblmsg0.Text = "Please Enter Query Description";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    else if (ddlStatus.SelectedValue == "17" && (string.IsNullOrWhiteSpace(txtRequest.Text) || txtRequest.Text == "" || txtRequest.Text == null))
+                    {
+                        lblmsg0.Text = "Please Enter Rejection Reason";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    else if (ddlStatus.SelectedValue == "11" && (string.IsNullOrWhiteSpace(txtAdditionalAmount.Text) || txtAdditionalAmount.Text == "" || txtAdditionalAmount.Text == null))
+                    {
+                        lblmsg0.Text = "Please Enter Additional Amount";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    else if (ddlStatus.SelectedValue == "11" && txtAdditionalAmount.Text.Trim() == "0")
+                    {
+                        lblmsg0.Text = "Additional Amount should not be Zero";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    //else if (ddlStatus.SelectedValue == "12" && (string.IsNullOrWhiteSpace(hplInspReport.Text) || hplInspReport.Text == "" || hplInspReport.Text == null))
+                    //{
+                    //    lblmsg0.Text = "Please upload Inspection report";
+                    //    Failure.Visible = true;
+                    //    return;
+                    //}
+                    else
+                    {
+                        objrenDtls.Investerid = Session["INVESTERID"].ToString();
+                        if (ddlStatus != null)
+                            objrenDtls.status = Convert.ToInt32(ddlStatus.SelectedValue);
+                        objrenDtls.UserID = ObjUserInfo.UserID;
+                        objrenDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                        objrenDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
+                        objrenDtls.Questionnaireid = Session["Questionnaireid"].ToString();
+                        objrenDtls.Remarks = txtRequest.Text;
+                        if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
+                        {
+                            if (ddlStatus.SelectedValue == "17")
+                            {
+                                objrenDtls.PrescrutinyRejectionFlag = "Y";
+                            }
+                            else
+                            {
+                                objrenDtls.PrescrutinyRejectionFlag = "N";
+                            }
+                        }
+                        objrenDtls.IPAddress = getclientIP();
+
+                        string valid = objRenbal.UpdateRENDepartmentProcess(objrenDtls);
+                        btnSubmit.Enabled = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='RENApplDeptProcess.aspx? '", true);
+                        return;
+                    }
+
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Select Action";
+                    Failure.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+            }
+        }
+
+        protected void ddlapproval_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    // username = ObjUserInfo.UserName;
+                }
+                if (ddlapproval.SelectedValue == "16")
+                {
+                    tdbtnreject.Visible = true;
+                    tdapprovalAction.Visible = true;
+                    trapproval.Visible = false;
+                    trrejection.Visible = true;
+                    txtRejection.Visible = true;
+                    tdapproverejection.Visible = true;
+                    lblremarks.Text = "Please Enter Rejection Reason";
+                    tdapprovalAction.Visible = true;
+                    btnreject.Visible = true;
+                    btnApprove.Visible = false;
+                    TRAPPROVE.Visible = false;
+                }
+                else
+                {
+                    trapproval.Visible = true;
+                    trrejection.Visible = false;
+                    txtRejection.Visible = false;
+                    tdapproverejection.Visible = false;
+                    tdapprovalAction.Visible = false;
+                    btnreject.Visible = false;
+                    btnApprove.Visible = true;
+                    TRAPPROVE.Visible = true;
+                    tdbtnreject.Visible = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void btnreject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnApprove_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void btnApprove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    // username = ObjUserInfo.UserName;
+                }
+                if (ddlapproval.SelectedValue != "")
+                {
+                    if (ddlapproval.SelectedValue == "16")
+                    {
+
+                        if ((ddlapproval.SelectedValue == "16") && (string.IsNullOrWhiteSpace(txtRejection.Text) || txtRejection.Text == "" || txtRejection.Text == null))
+                        {
+                            if (ddlapproval.SelectedValue == "16")
+                            {
+                                lblmsg0.Text = "Please Enter Rejection Reason";
+                                Failure.Visible = true;
+                                return;
+                            }
+
+                        }
+                    }
+
+                    else
+                    {
+                        objrenDtls.Investerid = Session["INVESTERID"].ToString();
+                        if (ddlStatus != null)
+                            objrenDtls.status = Convert.ToInt32(ddlapproval.SelectedValue);
+                        objrenDtls.UserID = ObjUserInfo.UserID;
+                        objrenDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                        objrenDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
+                        objrenDtls.Questionnaireid = Session["Questionnaireid"].ToString();
+                        if (ddlapproval.SelectedValue == "16")
+                        { objrenDtls.Remarks = txtRejection.Text; }
+                        if (ddlapproval.SelectedValue == "13")
+                        { objrenDtls.ReferenceNumber = txtreferenceno.Text; }
+                        objrenDtls.PrescrutinyRejectionFlag = "N";
+                        //if (Request.QueryString["status"].ToString() == "APPROVALPENDING")
+                        //{
+                        //    if (ddlStatus.SelectedValue == "16")
+                        //    {
+                        //        objcfeDtls.PrescrutinyRejectionFlag = "N";
+                        //    }                             
+                        //}
+                        var Hostname = Dns.GetHostName();
+                        objrenDtls.IPAddress = getclientIP();
+
+                        string valid = objRenbal.UpdateRENDepartmentProcess(objrenDtls);
+                        btnSubmit.Enabled = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='RENApplDeptProcess.aspx'", true);
+                        return;
+                    }
+
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Select Action";
+                    Failure.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+            }
+        }
+        protected void btnUpldapproval_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fuApproval.HasFile)
+                {
+                    Error = validations(fuApproval);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["RENAttachments"];
+                        string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
+                         + Session["Questionnaireid"].ToString() + "\\" + "ApprovalDocuments" + "\\" + Session["ApprovalID"] + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        fuApproval.PostedFile.SaveAs(serverpath + "\\" + fuApproval.PostedFile.FileName);
+
+                        RenAttachments objRenAttachments = new RenAttachments();
+                        objRenAttachments.Questionnareid = Session["Questionnaireid"].ToString();
+                        objRenAttachments.ApprovalID = Session["ApprovalID"].ToString();
+                        objRenAttachments.DeptID = Session["DEPTID"].ToString();
+                        objRenAttachments.FilePath = serverpath + fuApproval.PostedFile.FileName;
+                        objRenAttachments.FileName = fuApproval.PostedFile.FileName;
+                        objRenAttachments.FileType = fuApproval.PostedFile.ContentType;
+                        objRenAttachments.FileDescription = "ApprovalDocuments";
+                        objRenAttachments.CreatedBy = Session["INVESTERID"].ToString();
+                        objRenAttachments.UploadBy = "Department";
+                        objRenAttachments.UploadByID = hdnUserID.Value;
+                        objRenAttachments.IPAddress = getclientIP();
+                        result = objRenbal.InsertAttachmentsRenewal(objRenAttachments);
+                        if (result != "")
+                        {
+                            tdhyperlink.Visible = true;
+                            hplApproval.Text = fuApproval.PostedFile.FileName;
+                            hplApproval.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objRenAttachments.FilePath);
+                            hplApproval.Target = "blank";
+                            message = "alert('" + " Document Uploaded successfully" + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        }
+                    }
+                    else
+                    {
+                        message = "alert('" + Error + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
+                int slno = 1; string Error = "";
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
+
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                else if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Document should not contain double extension (double . ) \\n";
+                    slno = slno + 1;
+                }
+                //}
+                return Error;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+            try
+            {
+                string Attachmentname = Attachment.PostedFile.FileName;
+                string[] fileType = Attachmentname.Split('.');
+                int i = fileType.Length;
+
+                if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                Response.Redirect("~/Dept/Renewal/RENApplDeptView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void grdQryAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkViewQueryAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
         }
     }
 }

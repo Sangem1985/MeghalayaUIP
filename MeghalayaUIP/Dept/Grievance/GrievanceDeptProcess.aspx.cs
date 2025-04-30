@@ -255,7 +255,7 @@ namespace MeghalayaUIP.Dept.Grievance
         {
             try
             {
-                Response.Redirect("~/Dept/Grievance/GrievanceDeptView.aspx");
+                Response.Redirect("~/Dept/Grievance/GrievanceDeptView.aspx?status="+ Convert.ToString(Request.QueryString["status"]));
             }
             catch (Exception ex)
             {

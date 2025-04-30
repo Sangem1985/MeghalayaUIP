@@ -383,11 +383,13 @@
                                             </div>
                                             <br />
 
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-6">
+                                            <div class="col-md-12 d-flex">                                               
+
+
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">The Country of Origin of the Liquor *</label>
-                                                        <div class="col-lg-4 d-flex">
+                                                        <div class="col-lg-6 d-flex">
 
                                                             <asp:DropDownList runat="server" ID="ddlCountry" onchange="validateDropdown(this)" class="form-control">
                                                                 <%--<asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
@@ -501,10 +503,13 @@
                                         <h4 class="card-title ml-3">Upload Below Documents</h4>
 
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1.Noc From Local Area Authority Provisional Recognition *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">1.Noc From Local Area Authority Provisional Recognition *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupTribal" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -520,10 +525,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2.NoC from: a. Municipal Board (if within municipal area) b. From Market/ Bazzar Committee (if within market baazar area)  *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">2.NoC from: a. Municipal Board (if within municipal area) b. From Market/ Bazzar Committee (if within market baazar area)  *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupQualification" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -539,10 +547,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3.Professional tax clearance certificate (From Autonomous District Council) *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">3.Professional tax clearance certificate (From Autonomous District Council) *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupSpecimen" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -556,10 +567,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4.Sales tax clearance Certificate (From Meghalaya Taxation Department)   *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">4.Sales tax clearance Certificate (From Meghalaya Taxation Department)   *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupHeadman" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -573,10 +587,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">5.Income tax return for last three year   *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">5.Income tax return for last three year   *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupTenancy" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -590,10 +607,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">6.Financial Capacity Certificate (From any bank or financial institution)*</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">6.Financial Capacity Certificate (From any bank or financial institution)*</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupRegistration" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -607,10 +627,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">7. Age Proof (Birth Certificate/ School leaving Certificate)  *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">7. Age Proof (Birth Certificate/ School leaving Certificate)  *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupPharmacist" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -624,10 +647,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">8.Educational Qualification Certificates   *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">8.Educational Qualification Certificates   *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupQualificationcertificate" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -641,10 +667,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">9.Marriage Certificate (If Married)   *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">9.Marriage Certificate (If Married)   *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupsiteplan" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -658,10 +687,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">10. Scheduled Tribe/ Caste Certificate   *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">10. Scheduled Tribe/ Caste Certificate   *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupCompetentperson" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -675,10 +707,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">11.Trade Licence/ Factories Licence  *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">11.Trade Licence/ Factories Licence  *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fuppharmacistlist" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -692,10 +727,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">12. Non-Encumbrance Certificate   *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">12. Non-Encumbrance Certificate   *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupundertaking1" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -709,10 +747,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">13.Excise licence held individually/jointly for one/multiple shop/s (Current and Previous)  *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">13.Excise licence held individually/jointly for one/multiple shop/s (Current and Previous)  *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupundertaking2" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -726,10 +767,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">14.Excise licence held by direct family member/ dependant individually/jointly for one/multiple shop/s (Current and Previous) 18. Meghalaya Pollution Control Board Clearance  *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">14.Excise licence held by direct family member/ dependant individually/jointly for one/multiple shop/s (Current and Previous) 18. Meghalaya Pollution Control Board Clearance  *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupstaff" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -743,10 +787,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">15. Single Window Agency Clearance    *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">15. Single Window Agency Clearance    *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupagencyClearance" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
@@ -760,10 +807,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-9">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">16.Detailed Project Report  *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">16.Detailed Project Report  *</label>
+                                                     <div class="col-lg-1 d-flex">
+                                                        :
+                                                    </div>
+                                                    <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupProjectReport" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">

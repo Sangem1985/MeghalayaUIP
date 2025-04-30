@@ -533,21 +533,21 @@ namespace MeghalayaUIP.User.Renewal
                 List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
                 string errormsg = "";
 
-                if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter License Number\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtExpiryDate.Text) || txtExpiryDate.Text == "" || txtExpiryDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter License Expiry Date\\n";
-                    slno = slno + 1;
-                }
-                if (rblCancelledLic.SelectedIndex == -1 || rblCancelledLic.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Cancelled License \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter License Number\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtExpiryDate.Text) || txtExpiryDate.Text == "" || txtExpiryDate.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter License Expiry Date\\n";
+                //    slno = slno + 1;
+                //}
+                //if (rblCancelledLic.SelectedIndex == -1 || rblCancelledLic.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Cancelled License \\n";
+                //    slno = slno + 1;
+                //}
                 //if (string.IsNullOrEmpty(txtSpecifyLicNo.Text) || txtSpecifyLicNo.Text == "" || txtSpecifyLicNo.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter specify license no\\n";
@@ -557,6 +557,37 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     errormsg = errormsg + slno + ". Please Select premise and plan ready for inspection \\n";
                     slno = slno + 1;
+                }
+                if(rblLicense.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please specify the purpose of application \\n";
+                    slno = slno + 1;
+                }
+                if (rblLicense.SelectedValue == "R")
+                {
+                    if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter License Number\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtExpiryDate.Text) || txtExpiryDate.Text == "" || txtExpiryDate.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Expiry date of license\\n";
+                        slno = slno + 1;
+                    }
+                    if (rblCancelledLic.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Do you hold any previous cancelled license? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblCancelledLic.SelectedValue == "Y")
+                    {
+                        if (string.IsNullOrEmpty(txtSpecifyLicNo.Text) || txtSpecifyLicNo.Text == "" || txtSpecifyLicNo.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter specify license no\\n";
+                            slno = slno + 1;
+                        }
+                    }
                 }
                 //if (string.IsNullOrEmpty(txtDateInsp.Text) || txtDateInsp.Text == "" || txtDateInsp.Text == null)
                 //{
@@ -639,10 +670,13 @@ namespace MeghalayaUIP.User.Renewal
                             txtExpiryDate.Text = ds.Tables[0].Rows[0]["RENDL_EXPIRYDATE"].ToString();
                             rblCancelledLic.SelectedValue = ds.Tables[0].Rows[0]["RENDL_LICCANCEL"].ToString().Trim();
 
+
                             if (rblCancelledLic.SelectedValue == "Y")
                             {
+                                LicNos.Visible = true;
                                 txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNOSPECIFY"].ToString();
                             }
+                            else { LicNos.Visible = false; }
 
                         }
                         else

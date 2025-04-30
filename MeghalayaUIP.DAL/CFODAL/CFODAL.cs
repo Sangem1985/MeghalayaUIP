@@ -85,9 +85,42 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOID_REPTELPHNO", objCFOEntrepreneur.AuthRep_TelNo);
                 com.Parameters.AddWithValue("@CFOID_REPDOORNO", objCFOEntrepreneur.AuthRep_DoorNo);
                 com.Parameters.AddWithValue("@CFOID_REPLOCALITY", objCFOEntrepreneur.AuthRep_Locality);
-                com.Parameters.AddWithValue("@CFOID_REPDISTRICTID", Convert.ToInt32(objCFOEntrepreneur.AuthRep_DistrictID));
-                com.Parameters.AddWithValue("@CFOID_REPMANDALID", Convert.ToInt32(objCFOEntrepreneur.AuthRep_MandalID));
-                com.Parameters.AddWithValue("@CFOID_REPVILLAGEID", Convert.ToInt32(objCFOEntrepreneur.AuthRep_VillageID));
+
+                //com.Parameters.AddWithValue("@", Convert.ToInt32(objCFOEntrepreneur.AuthRep_DistrictID));
+                //com.Parameters.AddWithValue("@", Convert.ToInt32(objCFOEntrepreneur.AuthRep_MandalID));
+                //com.Parameters.AddWithValue("@", Convert.ToInt32(objCFOEntrepreneur.AuthRep_VillageID));
+
+
+                if (objCFOEntrepreneur.Stateid != "" || objCFOEntrepreneur.Stateid != null)
+                {
+                    com.Parameters.AddWithValue("@CFOID_STATEID", Convert.ToInt32(objCFOEntrepreneur.Stateid));
+                }
+                if (objCFOEntrepreneur.AuthRep_DistrictID != "" || objCFOEntrepreneur.AuthRep_DistrictID != null)
+                {
+                    com.Parameters.AddWithValue("@CFOID_REPDISTRICTID", Convert.ToInt32(objCFOEntrepreneur.AuthRep_DistrictID));
+                }
+                if (objCFOEntrepreneur.AuthRep_MandalID != "" || objCFOEntrepreneur.AuthRep_MandalID != null)
+                {
+                    com.Parameters.AddWithValue("@CFOID_REPMANDALID", Convert.ToInt32(objCFOEntrepreneur.AuthRep_MandalID));
+                }
+                if (objCFOEntrepreneur.AuthRep_VillageID != "" || objCFOEntrepreneur.AuthRep_VillageID != null)
+                {
+                    com.Parameters.AddWithValue("@CFOID_REPVILLAGEID", Convert.ToInt32(objCFOEntrepreneur.AuthRep_VillageID));
+                }
+                if (objCFOEntrepreneur.AuthRep_DistrictName != "" || objCFOEntrepreneur.AuthRep_DistrictName != null)
+                {
+                    com.Parameters.AddWithValue("@CFOID_DISTRICTNAME", objCFOEntrepreneur.AuthRep_DistrictName);
+                }
+                if (objCFOEntrepreneur.AuthRep_MandalName != "" || objCFOEntrepreneur.AuthRep_MandalName != null)
+                {
+                    com.Parameters.AddWithValue("@CFOID_MANDALNAME", objCFOEntrepreneur.AuthRep_MandalName);
+                }
+                if (objCFOEntrepreneur.AuthRep_VillageName != "" || objCFOEntrepreneur.AuthRep_VillageName != null)
+                {
+                    com.Parameters.AddWithValue("@CFOID_VILLAGENAME", objCFOEntrepreneur.AuthRep_VillageName);
+                }
+
+
                 com.Parameters.AddWithValue("@CFOID_REPPINCODE", Convert.ToInt32(objCFOEntrepreneur.AuthRep_Pincode));
                 com.Parameters.AddWithValue("@CFOID_REPISDIFFABLED", objCFOEntrepreneur.AuthRep_DiffAbled);
                 com.Parameters.AddWithValue("@CFOID_REPISWOMANENTR", objCFOEntrepreneur.AuthRep_Woman);
@@ -260,8 +293,8 @@ namespace MeghalayaUIP.DAL.CFODAL
                     cmd.Parameters.AddWithValue("@ConvictedSelection", string.IsNullOrEmpty(data.ConvictedSelection) ? (object)DBNull.Value : data.ConvictedSelection);
                     cmd.Parameters.AddWithValue("@ConvictedDetails", string.IsNullOrEmpty(data.ConvictedDetails) ? (object)DBNull.Value : data.ConvictedDetails);
                     cmd.Parameters.AddWithValue("@RenewBrand", string.IsNullOrEmpty(data.RenewBrand) ? (object)DBNull.Value : data.RenewBrand);
-                    cmd.Parameters.AddWithValue("@RegFromDate", data.RegFromDate == null ? (object)DBNull.Value : data.RegFromDate);
-                    cmd.Parameters.AddWithValue("@RegToDate", data.RegToDate == null ? (object)DBNull.Value : data.RegToDate);
+                    cmd.Parameters.AddWithValue("@RegFromDate", data.RegFromDate == null ? (object)DBNull.Value : Convert.ToDateTime(data.RegFromDate));
+                    cmd.Parameters.AddWithValue("@RegToDate", data.RegToDate == null ? (object)DBNull.Value : Convert.ToDateTime(data.RegToDate));
                     cmd.Parameters.AddWithValue("@FirmAddress", string.IsNullOrEmpty(data.FirmAddress) ? (object)DBNull.Value : data.FirmAddress);
                     cmd.Parameters.AddWithValue("@CreatedBy", string.IsNullOrEmpty(data.CreatedBy) ? (object)DBNull.Value : data.CreatedBy);
                     cmd.Parameters.AddWithValue("@CreatedIp", string.IsNullOrEmpty(data.CreatedIp) ? (object)DBNull.Value : data.CreatedIp);
@@ -975,6 +1008,14 @@ namespace MeghalayaUIP.DAL.CFODAL
                 if (ObjCFOlegalDet.GetDetails != null && ObjCFOlegalDet.GetDetails != "")
                 {
                     com.Parameters.AddWithValue("@CFOLGM_STOCKDETAILS", ObjCFOlegalDet.GetDetails);
+                }
+                if (ObjCFOlegalDet.PatnershipFirm != null && ObjCFOlegalDet.PatnershipFirm != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_PARTNERSHIPFIRM", ObjCFOlegalDet.PatnershipFirm);
+                }
+                if (ObjCFOlegalDet.CompanyLimited != null && ObjCFOlegalDet.CompanyLimited != "")
+                {
+                    com.Parameters.AddWithValue("@CFOLGM_LIMITEDFIRM", ObjCFOlegalDet.CompanyLimited);
                 }
 
                 //com.Parameters.AddWithValue("@CFOLGM_ESTBLSHREGDATE",DateTime.ParseExact( ObjCFOlegalDet.DateReg, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
@@ -2358,7 +2399,24 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFOA_APPROVALID", objAttachments.ApprovalID);
                 com.Parameters.AddWithValue("@CFOA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
                 com.Parameters.AddWithValue("@CFOA_CREATEDBYIP", objAttachments.IPAddress);
-                com.Parameters.AddWithValue("@CFOA_REFERENCENO", objAttachments.ReferenceNo);
+                // com.Parameters.AddWithValue("@CFOA_REFERENCENO", objAttachments.ReferenceNo);
+                if (objAttachments.QueryID != null && objAttachments.QueryID != "")
+                {
+                    com.Parameters.AddWithValue("@CFOA_QUERYID", objAttachments.QueryID);
+
+                }
+                if (objAttachments.ReferenceNo != null && objAttachments.ReferenceNo != "")
+                {
+                    com.Parameters.AddWithValue("@CFOA_REFERENCENO", objAttachments.ReferenceNo);
+                }
+                if (objAttachments.UploadBy != null && objAttachments.UploadBy != "")
+                {
+                    com.Parameters.AddWithValue("@CFOA_UPLOADBY", objAttachments.UploadBy);
+                }
+                if (objAttachments.UploadByID != null && objAttachments.UploadByID != "")
+                {
+                    com.Parameters.AddWithValue("@CFOA_UPLOADBYID", objAttachments.UploadByID);
+                }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -3475,6 +3533,35 @@ namespace MeghalayaUIP.DAL.CFODAL
             {
                 connection.Close();
                 connection.Dispose();
+            }
+        }
+        public DataSet GetCFOExciseDet(int UnitID, string userid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFOExciseDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOExciseDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

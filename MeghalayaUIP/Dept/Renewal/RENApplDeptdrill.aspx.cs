@@ -33,6 +33,10 @@ namespace MeghalayaUIP.Dept.Renewal
                             ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                             BindApplStatus();
                         }
+                        if (hdnUserID.Value == "")
+                        {
+                            hdnUserID.Value = ObjUserInfo.UserID;
+                        }
                         // username = ObjUserInfo.UserName;
                     }
                     else

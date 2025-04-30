@@ -37,13 +37,14 @@ namespace MeghalayaUIP.Common
 
         public static string GetHelpDeskReports = "USP_GETHELPDESKSTATUS";
 
-        public static string GetHelpDeskReportDrilldown = "";
+        public static string GetHelpDeskReportDrilldown = "USP_GETHELPDESKSTATUSDRILLDOWN";
 
         public static string GetFeedBackQuestions = "GETFEEDBACKQUES";
         public static string InsertFeedBackTracker = "SP_INSFEEDBACKTRACKER";
         public static string InsertFeedBack = "SP_INSFEEDBACK";
-
         public static string GetApllicationDetails = "USP_GETCMPLNC_DETAILS";
+        public static string GetHelpDeskDrilldown = "USP_GETHELPDESKDRILLDOWN";
+
 
         ////////------------------ApplicationTracker----------------///////
 
@@ -73,5 +74,18 @@ namespace MeghalayaUIP.Common
         public string FBQ_FEEDBACKVALUE { get; set; }
         public string FBQ_FEEDBACKTEXT { get; set; }
         public string FBQ_CATEGORY { get; set; }
+    }
+    public class HelpDeskDrilldown
+    {
+        public int HelpDeskID { get; set; }
+        public string Investid { get; set; }
+        public string Update { get; set; }
+        public string REDRESSEDREMARKES { get; set; }
+        public string REDRESSEDDATE { get; set; }
+        public string REDRESSEDBYIP { get; set; }
+       
+
+
+
     }
 }

@@ -285,14 +285,21 @@
                                                 <asp:GridView ID="GVPROPERTIE" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                     GridLines="None"
-                                                    Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVPROPERTIE_RowDeleting">
+                                                    Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVPROPERTIE_RowDeleting" OnRowDataBound="GVPROPERTIE_RowDataBound">
                                                     <RowStyle BackColor="#ffffff" />
                                                     <Columns>
                                                         <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                         <asp:BoundField HeaderText="Name of Proprietor" DataField="RENP_NAMEPROPERTIE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                         <asp:BoundField HeaderText="Communication Address" DataField="RENP_COMMUNICATIONADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                         <asp:BoundField HeaderText="Community" DataField="RENP_COMMUNITY" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                        <asp:BoundField HeaderText="Community(Others)" DataField="RENP_COMMUNITYOTHER" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <%-- <asp:BoundField HeaderText="Community(Others)" DataField="RENP_COMMUNITYOTHER" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
+                                                        <asp:TemplateField HeaderText="Community(Others)" Visible="false">
+                                                            <ItemStyle HorizontalAlign="Center" BackColor="Wheat" ForeColor="WindowText" Width="200px" />
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblCommunity" runat="server" Text='<%# Eval("RENP_COMMUNITYOTHER") %>' Visible="true" Style="background-color: wheat;"></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
                                                     </Columns>
                                                     <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -489,13 +496,13 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Employee List Only .doc .docx format allowed(<a href="#">Download Sample Format</a>) *</label>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupEmployeelist" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btndpr" OnClick="btndpr_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-4 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypEmployeelist" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
                                                 </div>

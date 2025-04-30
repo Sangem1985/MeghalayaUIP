@@ -1077,60 +1077,6 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Fires;
 
         /// <summary>
-        /// lblDistrics control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDistrics;
-
-        /// <summary>
-        /// lblMan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMan;
-
-        /// <summary>
-        /// lblVill control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVill;
-
-        /// <summary>
-        /// lbllocal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbllocal;
-
-        /// <summary>
-        /// lbNear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbNear;
-
-        /// <summary>
-        /// lblPincodes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPincodes;
-
-        /// <summary>
         /// lblheight control.
         /// </summary>
         /// <remarks>
@@ -1615,6 +1561,15 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPins;
+
+        /// <summary>
+        /// divBoiler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBoiler;
 
         /// <summary>
         /// lblNameManufacture control.
@@ -3334,6 +3289,15 @@ namespace MeghalayaUIP.Dept.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdQueries;
+
+        /// <summary>
+        /// QueryAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QueryAttachment;
 
         /// <summary>
         /// headingFour control.

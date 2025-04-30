@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -140,8 +141,13 @@ namespace MeghalayaUIP.User.CFO
                     Error = validations(fupAttachment);
                     if (Error == "")
                     {
-                        string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
-                         + Convert.ToString(Session["CFOQ_CFOQDID"]) + "\\" + "RESPONSEATTACHMNETS" + "\\");
+                        //string serverpath = HttpContext.Current.Server.MapPath("~\\CFEAttachments\\" + hdnUserID.Value + "\\"
+                        // + Convert.ToString(Session["CFOQ_CFOQDID"]) + "\\" + "RESPONSEATTACHMNETS" + "\\");
+
+                        string sFileDir = ConfigurationManager.AppSettings["CFOAttachments"];
+                        string serverpath = sFileDir + hdnUserID.Value + "\\"
+                         + Convert.ToString(Session["CFOQID"]) + "\\" + "RESPONSEATTACHMNETS" + "\\";
+
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -153,7 +159,9 @@ namespace MeghalayaUIP.User.CFO
                         objAadhar.UNITID = lblUnitId.Text;
                         objAadhar.Questionnareid = lblQuesID.Text;
                         objAadhar.MasterID = "";
-                        //  objAadhar.QueryID=lblQryid.Text;
+                        objAadhar.QueryID= lblQryid.Text;
+                        objAadhar.DeptID = lblDeptID.Text;
+                        objAadhar.ApprovalID= lblApprovalID.Text;
                         objAadhar.FilePath = serverpath + fupAttachment.PostedFile.FileName;
                         objAadhar.FileName = fupAttachment.PostedFile.FileName;
                         objAadhar.FileType = fupAttachment.PostedFile.ContentType;

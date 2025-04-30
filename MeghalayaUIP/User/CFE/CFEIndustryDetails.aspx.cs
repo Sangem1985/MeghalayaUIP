@@ -49,6 +49,7 @@ namespace MeghalayaUIP.User.CFE
 
                     if (!IsPostBack)
                     {
+                        BindStates();
                         BindDistricts();
                         BindRegistrationType();
                         BindConstitutionType();
@@ -259,13 +260,32 @@ namespace MeghalayaUIP.User.CFE
                         txtLandlineno.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPTELPHNO"]);
                         txtDoorNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPDOORNO"]);
                         txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPLOCALITY"]);
-                        ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPDISTRICTID"]);
-                        ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPMANDALID"]);
-                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPVILLAGEID"]);
-                        txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]);
 
+                        ddlstate.SelectedValue= Convert.ToString(ds.Tables[0].Rows[0]["CFEID_STATEID"]);
+                        ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
+
+                        if (ddlstate.SelectedItem.Text == "Meghalaya")
+                        {
+                            divMeghaState.Visible = true;
+                            divOtherState.Visible = false;
+
+                            ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPDISTRICTID"]);
+                            ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPMANDALID"]);
+                            ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPVILLAGEID"]);
+                        }
+                        else
+                        {
+                            divOtherState.Visible = true;
+                            divMeghaState.Visible = false;
+
+                            txtDistricted.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_DISTRICTNAME"]);
+                            txtMandaled.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_MANDALNAME"]);
+                            txtVillagede.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_VILLAGENAME"]);
+
+                        }
+                        txtpincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]);                  
                         rblAbled.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPISDIFFABLED"]);
                         rblWomen.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPISWOMANENTR"]);
                         txtDevelopmentArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_DEVELOPAREA"]);
@@ -311,11 +331,37 @@ namespace MeghalayaUIP.User.CFE
                         txtMobileno.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_MOBILE"]);
                         txtDoorNo.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_DOORNO"]);
                         txtLocality.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_LOCALITY"]);
-                        ddlDistric.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_DISTRICTID"]);
-                        ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlMandal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_MANDALID"]);
-                        ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
+
+                        ddlstate.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["STATEID"]);
+                        ddlstate_SelectedIndexChanged(null, EventArgs.Empty);
+
+
+                        if (ddlstate.SelectedItem.Text == "Meghalaya")
+                        {
+                            divMeghaState.Visible = true;
+                            divOtherState.Visible = false;
+
+                            ddlDistric.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_DISTRICTID"]);
+                            ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlMandal.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_MANDALID"]);
+                            ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlVillage.SelectedValue = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGEID"]);
+                        }
+                        else
+                        {
+                            divOtherState.Visible = true;
+                            divMeghaState.Visible = false;
+
+                            txtDistricted.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_DISTRICTNAME"]);
+                            txtMandaled.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_MANDALNAME"]);
+                            txtVillagede.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_VILLAGENAME"]);
+
+                        }
+
+
+
+
+                      
                         txtpincode.Text = Convert.ToString(ds.Tables[1].Rows[0]["REP_PINCODE"]);
                         lbltotalEmp.Text = Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_PROPEMP"]);
 
@@ -328,9 +374,14 @@ namespace MeghalayaUIP.User.CFE
                     }
                     txtIndustryName.Enabled = false;
                     txtPromoterName.Enabled = false;
+                    ddlstate.Enabled = false;
                     ddlDistric.Enabled = false;
                     ddlMandal.Enabled = false;
                     ddlVillage.Enabled = false;
+                    txtDistricted.Enabled = false;
+                    txtMandaled.Enabled = false;
+                    txtVillagede.Enabled = false;
+
                     txtLocality.Enabled = false;
                     txtpincode.Enabled = false;
                     txtMobileno.Enabled = false;
@@ -474,6 +525,10 @@ namespace MeghalayaUIP.User.CFE
                     objCFEComn.AuthRep_DistrictID = ddlDistric.SelectedValue;
                     objCFEComn.AuthRep_MandalID = ddlMandal.SelectedValue;
                     objCFEComn.AuthRep_VillageID = ddlVillage.SelectedValue;
+                    objCFEComn.Stateid = ddlstate.SelectedValue;
+                    objCFEComn.District = txtDistricted.Text;
+                    objCFEComn.Mandal = txtMandaled.Text;
+                    objCFEComn.Village = txtVillagede.Text;
                     objCFEComn.AuthRep_Locality = txtLocality.Text;
                     objCFEComn.AuthRep_DoorNo = txtDoorNo.Text;
                     objCFEComn.AuthRep_Pincode = txtpincode.Text;
@@ -513,6 +568,7 @@ namespace MeghalayaUIP.User.CFE
                     if (result != "")
                     {
                         success.Visible = true;
+                        Failure.Visible = false;
                         lblmsg.Text = "All Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -619,21 +675,49 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Street Name  \\n";
                     slno = slno + 1;
                 }
-                if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+
+                if (ddlstate.SelectedValue == "0" || ddlstate.SelectedItem.Text == "--Select--")
                 {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
+                    errormsg = errormsg + slno + ". Please Select State \\n";
                     slno = slno + 1;
                 }
-                if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
+                if (ddlstate.SelectedValue == "23")
                 {
-                    errormsg = errormsg + slno + ". Please Select Mandal \\n";
-                    slno = slno + 1;
+                    if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Distric \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Mandal \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Village \\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
+                else if (ddlstate.SelectedValue != "23" && ddlstate.SelectedValue != "0")
                 {
-                    errormsg = errormsg + slno + ". Please Select Village \\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtDistricted.Text) || txtDistricted.Text == "" || txtDistricted.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Authorised Representative District...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtMandaled.Text) || txtMandaled.Text == "" || txtMandaled.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Authorised Representative Mandal...! \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtVillagede.Text) || txtVillagede.Text == "" || txtVillagede.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Authorised Representative Village...! \\n";
+                        slno = slno + 1;
+                    }
                 }
+              
                 if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Pincode No\\n";
@@ -889,6 +973,40 @@ namespace MeghalayaUIP.User.CFE
 
             return emptyDropdowns;
         }
+
+        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlstate.SelectedValue != "23")
+                {
+                    divOtherState.Visible = true;
+
+                    divMeghaState.Visible = false;
+
+                    ddlDistric.ClearSelection();
+                    ddlMandal.ClearSelection();
+                    ddlVillage.ClearSelection();
+                }
+                else if (ddlstate.SelectedValue == "23")
+                {
+                    divMeghaState.Visible = true;
+
+                    divOtherState.Visible = false;
+                    txtDistricted.Text = "";
+                    txtMandaled.Text = "";
+                    txtVillagede.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         private List<RadioButtonList> FindEmptyRadioButtonLists(Control container)
         {
             List<RadioButtonList> emptyRadioButtonLists = new List<RadioButtonList>();
@@ -920,6 +1038,36 @@ namespace MeghalayaUIP.User.CFE
             }
 
             return emptyRadioButtonLists;
+        }
+        protected void BindStates()
+        {
+            try
+            {
+                ddlstate.Items.Clear();
+
+                List<MasterStates> objStatesModel = new List<MasterStates>();
+
+                objStatesModel = mstrBAL.GetStates();
+                if (objStatesModel != null)
+                {                    
+                    ddlstate.DataSource = objStatesModel;
+                    ddlstate.DataValueField = "StateId";
+                    ddlstate.DataTextField = "StateName";
+                    ddlstate.DataBind();
+                }
+                else
+                {                   
+                    ddlstate.DataSource = null;
+                    ddlstate.DataBind();
+                }
+                AddSelect(ddlstate);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }

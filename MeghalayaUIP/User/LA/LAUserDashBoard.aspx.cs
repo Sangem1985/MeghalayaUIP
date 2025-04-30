@@ -87,24 +87,24 @@ namespace MeghalayaUIP.User.LA
             }
         }
 
-        protected void lbtnBack_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Request.QueryString.Count > 0)
-                    UnitID = Request.QueryString[0];
-                else
-                    UnitID = "%";
-                Response.Redirect("~/User/Dashboard.aspx?UnitID=" + UnitID);
+        //protected void lbtnBack_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (Request.QueryString.Count > 0)
+        //            UnitID = Request.QueryString[0];
+        //        else
+        //            UnitID = "%";
+        //        Response.Redirect("~/User/Dashboard.aspx?UnitID=" + UnitID);
 
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblmsg0.Text = ex.Message;
+        //        Failure.Visible = true;
+        //        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+        //    }
+        //}
 
         protected void btnApplyLand_Click(object sender, EventArgs e)
         {

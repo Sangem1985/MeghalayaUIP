@@ -162,8 +162,54 @@
                             </li>
                             <li>If your application is successful, you agree to comply with all relevant terms of service and policies of our organization.</li>
                         </ul>
+                        <p>
+                        </p>
+                        <p>
+                            <b><i class="fi fi-br-triangle-warning"></i>Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant.
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
                     </p>
-                    <p><b><i class="fi fi-br-triangle-warning"></i>Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant.</p>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
@@ -280,6 +326,10 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+                                                        </div>
+
+                                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
@@ -291,10 +341,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-
-                                                        <div class="col-md-12 d-flex">
-
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">Registration No <span class="star">*</span></label>
@@ -365,7 +411,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
-                                                                        State
+                                                                        State <span class="star">*</span>
                                                                     </label>
                                                                     <div class="col-lg-6 d-flex">
                                                                         <asp:DropDownList ID="ddlstate" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlstate_SelectedIndexChanged">
@@ -789,11 +835,11 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4" visible="false" runat="server">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Value of Power (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox runat="server" ID="txtElectricityValue" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                        <asp:TextBox runat="server" ID="txtElectricityValue" Text="0.00" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -806,12 +852,12 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 d-flex" visible="false" runat="server">
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Value of Water (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox runat="server" ID="txtWaterValue" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
+                                                                        <asp:TextBox runat="server" ID="txtWaterValue" Text="0.00" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" onkeyup="handleKeyUp(this)" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -856,15 +902,6 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12 d-flex">
-
-                                                            <div class="col-md-4">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-6 col-form-label">Internal Resources (INR)<span class="star">*</span></label>
-                                                                    <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox runat="server" ID="txtInternalResources" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">State Scheme (INR) <span class="star">*</span></label>
@@ -882,12 +919,12 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4" runat="server" visible="false">
+                                                        <div class="col-md-12 d-flex" runat="server" visible="false">
+                                                            <div class="col-md-4">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Capital Subsidy (INR) <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox runat="server" ID="txtCapitalSubsidy" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
+                                                                        <asp:TextBox runat="server" ID="txtCapitalSubsidy" Text="0.00" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -895,11 +932,18 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Benefit from UNNATI (INR) <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox runat="server" ID="txtUNNATI" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
+                                                                        <asp:TextBox runat="server" ID="txtUNNATI" Text="0.00" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
                                                                     </div>
                                                                 </div>
                                                             </div>
-
+                                                            <div class="col-md-4">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-6 col-form-label">Internal Resources (INR)<span class="star">*</span></label>
+                                                                    <div class="col-lg-6 d-flex">
+                                                                        <asp:TextBox runat="server" ID="txtInternalResources" Text="0.00" class="form-control" TabIndex="1" onkeypress="return validateNumbersOnly(event)" MaxLength="16" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <br />
@@ -1313,19 +1357,19 @@
 
                                                         <div class="col-md-12" style="padding-top: 10px">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">1. Firm Registration Certificate <span class="star">*</span></label>
+                                                                <label class="col-lg-4 col-form-label">1. Sole Prop. Declaration/ Partnership Deed/ Society Registration Certificate/ Director resolution/ Trust Deed or relevant document to provide proof of business	Required <span class="star">*</span></label>
                                                                 <div class="col-lg-3 d-flex">
                                                                     <asp:FileUpload ID="fupcompanyregistration" runat="server" />
                                                                 </div>
                                                                 <div class="col-lg-1 d-flex">
-                                                                    <asp:Button Text="Upload" runat="server" ID="btnregistration" class="btn btn-rounded btn-dark mb-4" OnClick="btnregistration_Click" />
+                                                                    <asp:Button Text="Upload" Height="35px" runat="server" ID="btnregistration" class="btn btn-rounded btn-dark mb-4" OnClick="btnregistration_Click" />
                                                                 </div>
                                                                 <div class="col-lg-4 d-flex">
-                                                                    <asp:HyperLink ID="hplcompanyregistration" runat="server" Target="_blank"></asp:HyperLink>
+                                                                    <asp:HyperLink  ID="hplcompanyregistration" runat="server" Target="_blank"></asp:HyperLink>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">2. Udyam/IEM Document <span class="star">*</span></label>
+                                                                <label class="col-lg-4 col-form-label">2. Udyam/IEM Document </label>
                                                                 <div class="col-lg-3 d-flex">
                                                                     <asp:FileUpload ID="fupUdyam" runat="server" />
                                                                 </div>
@@ -1349,7 +1393,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">4. GST Certificate <span class="star">*</span></label>
+                                                                <label class="col-lg-4 col-form-label">4. GST Certificate </label>
                                                                 <div class="col-lg-3 d-flex">
                                                                     <asp:FileUpload ID="fupGSTIN" runat="server" />
                                                                 </div>
@@ -1361,7 +1405,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">5. CIN Document <span class="star">*</span></label>
+                                                                <label class="col-lg-4 col-form-label">5. CIN Document </label>
                                                                 <div class="col-lg-3 d-flex">
                                                                     <asp:FileUpload ID="fupCIN" runat="server" />
                                                                 </div>
@@ -1373,7 +1417,26 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">6. Upload Detailed Project Report (DPR)</label>
+                                                                <asp:Label runat="server" ToolTip="Information
+Components of DPR-
+* Investor’s background
+* Details of product to be manufactured/ services rendered and its marketing potential
+* Land Document as mentioned in the guidelines
+* Layout plan
+* Implementation schedule
+* Product process flowchart
+* Requirement of Working Capital
+* Detail of plant & machinery /construction of building and durable assets required by the unit.
+* Sources of Finance for the Project
+* Projected Cash flow statements
+* Total investment detail including investment in Plant & Machinery (in case of Manufacturing Sector), Building & Other
+  Physical Durable Assets (in case of service sector),
+* Projected Employment Detail
+* Projected requirement of Power
+* Projected requirement of Water 
+
+Note: Micro Enterprises- Investment in plant and machinery or equipment not exceeding ₹2.5 crore 
+  and annual turnover not exceeding ₹10 crore." class="col-lg-4 col-form-label">6. Upload Detailed Project Report (DPR) Summary of DPR for Micro Industry<span class="star">*</span></asp:Label>
                                                                 <%--<div class="col-lg-8 d-flex">--%>
                                                                 <div class="col-lg-3 d-flex">
                                                                     <asp:FileUpload ID="fupDPR" runat="server" />
@@ -1389,7 +1452,7 @@
                                                                 <%--</div>--%>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">7. Bank Appraisal Document <span class="star">*</span></label>
+                                                                <label class="col-lg-4 col-form-label" >7. Bank Appraisal Document </label>
                                                                 <div class="col-lg-3 d-flex">
                                                                     <asp:FileUpload ID="fupBankAppraisal" runat="server" />
                                                                 </div>

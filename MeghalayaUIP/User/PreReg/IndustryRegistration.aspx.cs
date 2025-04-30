@@ -1285,61 +1285,16 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Enter Details of hazardous waste to be generated \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtCivilConstr.Text) || txtCivilConstr.Text == "" || txtCivilConstr.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Civil Construction details \\n";
-                    slno = slno + 1;
-                }
+                
                 if (string.IsNullOrEmpty(txtEstimatedProjCost.Text) || txtEstimatedProjCost.Text == "" || txtEstimatedProjCost.Text == null || txtEstimatedProjCost.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEstimatedProjCost.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Estimated Project Cost  \\n";
                     slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLandAreainSqft.Text) || txtLandAreainSqft.Text == "" || txtLandAreainSqft.Text == null || txtLandAreainSqft.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandAreainSqft.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Land area in (in Sq.ft) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null || txtLandValue.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandValue.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Value of LAND \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtWaterReqKLD.Text) || txtWaterReqKLD.Text == "" || txtWaterReqKLD.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Water required (KL/D) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtWaterValue.Text) || txtWaterValue.Text == "" || txtWaterValue.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Water Value \\n";
-                    slno = slno + 1;
-                }
+                }                
+                
                 if (string.IsNullOrEmpty(txtPlantnMachineryCost.Text) || txtPlantnMachineryCost.Text == "" || txtPlantnMachineryCost.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter Plant & Machinery Cost \\n";
-                    slno = slno + 1;
-                }
-
-
-                if (string.IsNullOrEmpty(txtBuildingAreaSqm.Text) || txtBuildingAreaSqm.Text == "" || txtBuildingAreaSqm.Text == null || txtBuildingAreaSqm.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuildingAreaSqm.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Area of Building / Shed \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtBuildingValue.Text) || txtBuildingValue.Text == "" || txtBuildingValue.Text == null || txtBuildingValue.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuildingValue.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Value of Building / Shed \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtPowerReqKV.Text) || txtPowerReqKV.Text == "" || txtPowerReqKV.Text == null || txtPowerReqKV.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtPowerReqKV.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Power Required (KV) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtElectricityValue.Text) || txtElectricityValue.Text == "" || txtElectricityValue.Text == null || txtElectricityValue.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtElectricityValue.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Value of Power  \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtCapitalInvestment.Text) || txtCapitalInvestment.Text == "" || txtCapitalInvestment.Text == null || txtCapitalInvestment.Text.All(c => c == '0' || System.Text.RegularExpressions.Regex.IsMatch(txtCapitalInvestment.Text, @"^0+(\.0+)?$")))
@@ -1358,53 +1313,105 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Enter Working Capital \\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(txtLandAreainSqft.Text) || txtLandAreainSqft.Text == "" || txtLandAreainSqft.Text == null || txtLandAreainSqft.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandAreainSqft.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Land area in (in Sq.ft) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLandValue.Text) || txtLandValue.Text == "" || txtLandValue.Text == null || txtLandValue.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandValue.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Value of LAND \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtBuildingAreaSqm.Text) || txtBuildingAreaSqm.Text == "" || txtBuildingAreaSqm.Text == null || txtBuildingAreaSqm.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuildingAreaSqm.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Area of Building / Shed \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtBuildingValue.Text) || txtBuildingValue.Text == "" || txtBuildingValue.Text == null || txtBuildingValue.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtBuildingValue.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Value of Building / Shed \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtCivilConstr.Text) || txtCivilConstr.Text == "" || txtCivilConstr.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Civil Construction details \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtPowerReqKV.Text) || txtPowerReqKV.Text == "" || txtPowerReqKV.Text == null )
+                {
+                    errormsg = errormsg + slno + ". Please Enter Power Required (KV) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtElectricityValue.Text) || txtElectricityValue.Text == "" || txtElectricityValue.Text == null )
+                {
+                    errormsg = errormsg + slno + ". Please Enter Value of Power  \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtWaterReqKLD.Text) || txtWaterReqKLD.Text == "" || txtWaterReqKLD.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Water required (KL/D) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtWaterValue.Text) || txtWaterValue.Text == "" || txtWaterValue.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Water Value \\n";
+                    slno = slno + 1;
+                }
 
 
-                //if (string.IsNullOrEmpty(txtPromoterEquity.Text) || txtPromoterEquity.Text == "" || txtPromoterEquity.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Promoter’s and Contributors (INR) \\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtEquityAmount.Text) || txtEquityAmount.Text == "" || txtEquityAmount.Text == null || txtEquityAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEquityAmount.Text, @"^0+(\.0+)?$"))
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Equity Amount (INR) \\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtLoanAmount.Text) || txtLoanAmount.Text == "" || txtLoanAmount.Text == null || txtLoanAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLoanAmount.Text, @"^0+(\.0+)?$"))
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Term/ Working loan (INR) \\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtUnsecuredLoan.Text) || txtUnsecuredLoan.Text == "" || txtUnsecuredLoan.Text == null || txtUnsecuredLoan.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtUnsecuredLoan.Text, @"^0+(\.0+)?$"))
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Unsecured Loan (INR)\\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtInternalResources.Text) || txtInternalResources.Text == "" || txtInternalResources.Text == null || txtInternalResources.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtInternalResources.Text, @"^0+(\.0+)?$"))
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Internal Resources (INR)\\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtstatescheme.Text) || txtstatescheme.Text == "" || txtstatescheme.Text == null || txtstatescheme.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtstatescheme.Text, @"^0+(\.0+)?$"))
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter State Scheme (INR)\\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtCapitalSubsidy.Text) || txtCapitalSubsidy.Text == "" || txtCapitalSubsidy.Text == null)
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Capital Subsidy (INR)\\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtUNNATI.Text) || txtUNNATI.Text == "" || txtUNNATI.Text == null || txtUNNATI.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtUNNATI.Text, @"^0+(\.0+)?$"))
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Benefits from UNNATI (INR)\\n";
-                //    slno = slno + 1;
-                //}
-                //if (string.IsNullOrEmpty(txtcentral.Text) || txtcentral.Text == "" || txtcentral.Text == null || txtcentral.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtcentral.Text, @"^0+(\.0+)?$"))
-                //{
-                //    errormsg = errormsg + slno + ". Please Enter Central Scheme (INR)\\n";
-                //    slno = slno + 1;
-                //}
+
+              
+                if (string.IsNullOrEmpty(txtEquityAmount.Text) || txtEquityAmount.Text == "" || txtEquityAmount.Text == null || txtEquityAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEquityAmount.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Equity Amount (INR) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtLoanAmount.Text) || txtLoanAmount.Text == "" || txtLoanAmount.Text == null || txtLoanAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLoanAmount.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Term/ Working loan (INR) \\n";
+                    slno = slno + 1;
+                }
+
+                if (string.IsNullOrEmpty(txtUnsecuredLoan.Text) || txtUnsecuredLoan.Text == "" || txtUnsecuredLoan.Text == null || txtUnsecuredLoan.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtUnsecuredLoan.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Unsecured Loan (INR)\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtstatescheme.Text) || txtstatescheme.Text == "" || txtstatescheme.Text == null || txtstatescheme.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtstatescheme.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter State Scheme (INR)\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtcentral.Text) || txtcentral.Text == "" || txtcentral.Text == null || txtcentral.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtcentral.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Central Scheme (INR)\\n";
+                    slno = slno + 1;
+                }
+
+               /* if (string.IsNullOrEmpty(txtPromoterEquity.Text) || txtPromoterEquity.Text == "" || txtPromoterEquity.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Promoter’s and Contributors (INR) \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtInternalResources.Text) || txtInternalResources.Text == "" || txtInternalResources.Text == null || txtInternalResources.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtInternalResources.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Internal Resources (INR)\\n";
+                    slno = slno + 1;
+                }
+
+                if (string.IsNullOrEmpty(txtCapitalSubsidy.Text) || txtCapitalSubsidy.Text == "" || txtCapitalSubsidy.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Capital Subsidy (INR)\\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtUNNATI.Text) || txtUNNATI.Text == "" || txtUNNATI.Text == null || txtUNNATI.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtUNNATI.Text, @"^0+(\.0+)?$"))
+                {
+                    errormsg = errormsg + slno + ". Please Enter Benefits from UNNATI (INR)\\n";
+                    slno = slno + 1;
+                }
+               */
+
 
                 return errormsg;
             }
@@ -3069,17 +3076,32 @@ namespace MeghalayaUIP.User.PreReg
                 string errormsg = "";
                 if (string.IsNullOrEmpty(hplcompanyregistration.Text) || hplcompanyregistration.Text == "" || hplcompanyregistration.Text == null)
                 {
-                    errormsg = errormsg + slno + ". Please Upload CompanyRegistration Document \\n";
+                    errormsg = errormsg + slno + ". Please Upload Company Registration Document \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(hplUdyam.Text) || hplUdyam.Text == "" || hplUdyam.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload Udyam Document \\n";
-                    slno = slno + 1;
-                }
+                
                 if (string.IsNullOrEmpty(hplPAN.Text) || hplPAN.Text == "" || hplPAN.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Upload PAN Document \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(lbldpr.Text) || lbldpr.Text == "" || lbldpr.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Detailed Project Report (DPR) " + "\\n";
+                    slno = slno + 1;
+                }
+                //if (ddlproposal.SelectedValue == "Existing")
+                //{
+                   
+                //}
+               /* if (string.IsNullOrEmpty(hplBankAppraisal.Text) || hplBankAppraisal.Text == "" || hplBankAppraisal.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Bank Appraisal " + "\\n";
+                    slno = slno + 1;
+                } 04/04/2025
+                if (string.IsNullOrEmpty(hplUdyam.Text) || hplUdyam.Text == "" || hplUdyam.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Udyam Document \\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(hplGSTIN.Text) || hplGSTIN.Text == "" || hplGSTIN.Text == null)
@@ -3087,25 +3109,13 @@ namespace MeghalayaUIP.User.PreReg
                     errormsg = errormsg + slno + ". Please Upload GST Document \\n";
                     slno = slno + 1;
                 }
-                if (ddlproposal.SelectedValue == "Existing")
-                {
-                    if (string.IsNullOrEmpty(lbldpr.Text) || lbldpr.Text == "" || lbldpr.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Upload Detailed Project Report (DPR) " + "\\n";
-                        slno = slno + 1;
-                    }
-                }
-                if (string.IsNullOrEmpty(hplBankAppraisal.Text) || hplBankAppraisal.Text == "" || hplBankAppraisal.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload Bank Appraisal " + "\\n";
-                    slno = slno + 1;
-                }
                 if (string.IsNullOrEmpty(hplCIN.Text) || hplCIN.Text == "" || hplCIN.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Upload CIN Document " + "\\n";
                     slno = slno + 1;
                 }
-
+                as per pooja request on 03/04/2025
+                */
 
 
                 return errormsg;

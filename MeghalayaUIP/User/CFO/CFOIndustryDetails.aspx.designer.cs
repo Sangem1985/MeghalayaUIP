@@ -249,6 +249,24 @@ namespace MeghalayaUIP.User.CFO
         protected global::System.Web.UI.WebControls.TextBox txtLocality;
 
         /// <summary>
+        /// ddlstate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlstate;
+
+        /// <summary>
+        /// divMeghaState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMeghaState;
+
+        /// <summary>
         /// ddlDistric control.
         /// </summary>
         /// <remarks>
@@ -274,6 +292,42 @@ namespace MeghalayaUIP.User.CFO
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlVillage;
+
+        /// <summary>
+        /// divOtherState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOtherState;
+
+        /// <summary>
+        /// txtDistricted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDistricted;
+
+        /// <summary>
+        /// txtMandaled control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMandaled;
+
+        /// <summary>
+        /// txtVillagede control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtVillagede;
 
         /// <summary>
         /// txtpincode control.

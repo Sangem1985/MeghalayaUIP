@@ -82,7 +82,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Line of Activity*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlLineOfActivity" onchange="validateDropdown(this)" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlLineOfActivity" onchange="validateDropdown(this)" Enabled="false" runat="server" class="form-control">
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>

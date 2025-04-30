@@ -6,40 +6,40 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <script type="text/javascript">
-    function handleKeyUp(input) {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        } else {
-            input.style.border = "1px solid #767575b5";
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
         }
-    }
-    function validateDropdown(dropdown) {
+        function validateDropdown(dropdown) {
 
-        if (dropdown.value === "0") {
-            dropdown.style.border = "2px solid red";
-            dropdown.focus();
-        } else {
-            dropdown.style.border = "1px solid #767575b5";
+            if (dropdown.value === "0") {
+                dropdown.style.border = "2px solid red";
+                dropdown.focus();
+            } else {
+                dropdown.style.border = "1px solid #767575b5";
+            }
         }
-    }
-    function validateRadioButtonList(radioGroupContainer) {
-        // Find all radio buttons inside the container
-        const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
+        function validateRadioButtonList(radioGroupContainer) {
+            // Find all radio buttons inside the container
+            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
 
-        // Check if any radio button is selected
-        const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+            // Check if any radio button is selected
+            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
 
-        if (!isSelected) {
-            // If none are selected, apply red border
-            radioGroupContainer.style.border = "2px solid red";
-            radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
-        } else {
-            // Reset the border if an option is selected
-            var id = radioGroupContainer.id;
-            document.getElementById(id).style.border = "1px solid #767575b5";
-            return false;
+            if (!isSelected) {
+                // If none are selected, apply red border
+                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
+            } else {
+                // Reset the border if an option is selected
+                var id = radioGroupContainer.id;
+                document.getElementById(id).style.border = "1px solid #767575b5";
+                return false;
+            }
         }
-    }
     </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
@@ -241,7 +241,7 @@
                                                         6. Landline Tel No
                                                     </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandlineno" runat="server" class="form-control" onkeypress="validateNumberAndHyphen();" MaxLength="8" TabIndex="1" onkeyup="handleKeyUp(this)" ></asp:TextBox>
+                                                        <asp:TextBox ID="txtLandlineno" runat="server" class="form-control" onkeypress="validateNumberAndHyphen();" MaxLength="8" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,7 +265,22 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">9. District<span class="star">*</span></label>
+                                                    <label class="col-lg-6 col-form-label">
+                                                        9. State
+                                                    </label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:DropDownList ID="ddlstate" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlstate_SelectedIndexChanged">
+                                                            <asp:ListItem Text="Select State" Value="0" />
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 d-flex" id="divMeghaState" runat="server" visible="false">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">10. District<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlDistric" runat="server" class="form-control" OnSelectedIndexChanged="ddlDistric_SelectedIndexChanged" onchange="validateDropdown(this)" AutoPostBack="true">
                                                             <asp:ListItem Text="Select Distric" Value="0" />
@@ -273,15 +288,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-                                        </div>
-
-                                        <div class="col-md-12 d-flex">
-
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">10. Mandal<span class="star">*</span></label>
+                                                    <label class="col-lg-6 col-form-label">11. Mandal<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged" onchange="validateDropdown(this)" AutoPostBack="true">
                                                             <asp:ListItem Text="Select Mandal" Value="0" />
@@ -291,7 +300,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">11. Village/Town<span class="star">*</span></label>
+                                                    <label class="col-lg-6 col-form-label">12. Village/Town<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlVillage" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="Select Village" Value="0" />
@@ -299,21 +308,50 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+
+                                        <div class="col-md-12 d-flex" id="divOtherState" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">12. Pincode<span class="star">*</span></label>
+                                                    <label class="col-lg-6 col-form-label">10.District <span class="star">*</span></label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox runat="server" ID="txtDistricted" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">11.Mandal/Taluka <span class="star">*</span></label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox runat="server" ID="txtMandaled" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">12.Village <span class="star">*</span></label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox runat="server" ID="txtVillagede" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-md-12  d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">13. Pincode<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtpincode" runat="server" class="form-control" onkeypress="return validatePincode(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12  d-flex">
-
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        13. Women
+                                                        14. Women
 														Entrepreneur<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:RadioButtonList ID="rblWomen" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">
@@ -326,7 +364,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        14. Differently
+                                                        15. Differently
 														Abled<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:RadioButtonList ID="rblAbled" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">

@@ -218,6 +218,7 @@
     <Content Include="Admin\ApplicationsView.aspx" />
     <Content Include="Admin\HelpdeskDrilldown.aspx" />
     <Content Include="Admin\HelpdeskReport.aspx" />
+    <Content Include="Admin\PageDetails.aspx" />
     <Content Include="Admin\SearchUser.aspx" />
     <Content Include="Admin\SMSandMAILtesting.aspx" />
     <Content Include="Agri-Horti.aspx" />
@@ -811,12 +812,14 @@
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
     <Content Include="User\Renewal\RENApplDetails.aspx" />
+    <Content Include="User\Renewal\RENApplStatus.aspx" />
     <Content Include="User\Renewal\RENContractorMigrantWork.aspx" />
     <Content Include="User\Renewal\RENBoilerDetails.aspx" />
     <Content Include="User\Renewal\RENBusinessLicenseDetails.aspx" />
     <Content Include="User\Renewal\RENCinemaLicenseDetails.aspx" />
     <Content Include="User\Renewal\RENContractLabourDeatils.aspx" />
     <Content Include="User\Renewal\RENContractRegistationDetails.aspx" />
+    <Content Include="User\Renewal\RENDashBoardStatus.aspx" />
     <Content Include="User\Renewal\RENDrugsLicenseDetails.aspx" />
     <Content Include="User\Renewal\RenewalPaymentReceipt.aspx" />
     <Content Include="User\Renewal\RenewalServices.aspx" />
@@ -824,6 +827,8 @@
     <Content Include="User\Renewal\RENIndustryDetails.aspx" />
     <Content Include="User\Renewal\RENLegalmetrologyDetails.aspx" />
     <Content Include="User\Renewal\RENPaymentPage.aspx" />
+    <Content Include="User\Renewal\RENQueryDashBoard.aspx" />
+    <Content Include="User\Renewal\RENQueryResponse.aspx" />
     <Content Include="User\Renewal\RENQuestionnaire.aspx" />
     <Content Include="User\Renewal\RENSafetySecurityDetails.aspx" />
     <Content Include="User\Renewal\RENShopsEstablishment.aspx" />
@@ -891,6 +896,13 @@
     </Compile>
     <Compile Include="Admin\HelpdeskReport.aspx.designer.cs">
       <DependentUpon>HelpdeskReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PageDetails.aspx.cs">
+      <DependentUpon>PageDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PageDetails.aspx.designer.cs">
+      <DependentUpon>PageDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\SearchUser.aspx.cs">
       <DependentUpon>SearchUser.aspx</DependentUpon>
@@ -2454,6 +2466,13 @@
     <Compile Include="User\Renewal\RENApplDetails.aspx.designer.cs">
       <DependentUpon>RENApplDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Renewal\RENApplStatus.aspx.cs">
+      <DependentUpon>RENApplStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENApplStatus.aspx.designer.cs">
+      <DependentUpon>RENApplStatus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Renewal\RENContractorMigrantWork.aspx.cs">
       <DependentUpon>RENContractorMigrantWork.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2495,6 +2514,13 @@
     </Compile>
     <Compile Include="User\Renewal\RENContractRegistationDetails.aspx.designer.cs">
       <DependentUpon>RENContractRegistationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENDashBoardStatus.aspx.cs">
+      <DependentUpon>RENDashBoardStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENDashBoardStatus.aspx.designer.cs">
+      <DependentUpon>RENDashBoardStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENDrugsLicenseDetails.aspx.cs">
       <DependentUpon>RENDrugsLicenseDetails.aspx</DependentUpon>
@@ -2544,6 +2570,20 @@
     </Compile>
     <Compile Include="User\Renewal\RENPaymentPage.aspx.designer.cs">
       <DependentUpon>RENPaymentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENQueryDashBoard.aspx.cs">
+      <DependentUpon>RENQueryDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENQueryDashBoard.aspx.designer.cs">
+      <DependentUpon>RENQueryDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENQueryResponse.aspx.cs">
+      <DependentUpon>RENQueryResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENQueryResponse.aspx.designer.cs">
+      <DependentUpon>RENQueryResponse.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENQuestionnaire.aspx.cs">
       <DependentUpon>RENQuestionnaire.aspx</DependentUpon>

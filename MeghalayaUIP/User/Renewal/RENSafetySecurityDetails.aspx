@@ -142,8 +142,8 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Address  *</label>
-                                                    <div class="col-lg-10 d-flex">
+                                                    <label class="col-lg-6 col-form-label">Address  *</label>
+                                                    <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtAddress" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                     </div>

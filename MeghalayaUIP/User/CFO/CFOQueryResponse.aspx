@@ -215,5 +215,8 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+          <Triggers>
+            <asp:PostBackTrigger ControlID="btnUpldAttachment" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

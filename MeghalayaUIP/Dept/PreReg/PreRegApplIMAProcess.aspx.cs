@@ -44,7 +44,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     ViewState["DEPTID"] = ObjUserInfo.Deptid;
                     if (!IsPostBack)
                     {
-                        BindaApplicatinDetails(); 
+                        BindaApplicatinDetails();
                         BindDepartments();
                     }
 
@@ -87,19 +87,39 @@ namespace MeghalayaUIP.Dept.PreReg
                     ds = PreBAL.GetPreRegNodelOfficer(prd);
                     if (ds.Tables.Count > 0)
                     {
-                        DataRow row = ds.Tables[0].Rows[0];                       
+                        DataRow row = ds.Tables[0].Rows[0];
 
                         lblCompanyName.Text = Convert.ToString(row["COMPANYNAME"]);
                         lblCompanyPAN.Text = Convert.ToString(row["COMPANYPANNO"]);
                         lblCompanyProposal.Text = Convert.ToString(row["COMPANYPRAPOSAL"]);
-                        lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
 
                         lblGSTIN.Text = Convert.ToString(row["GSTNNO"]);
 
                         lblcomptype.Text = Convert.ToString(row["CONST_TYPE"]);
+
                         lblcatreg.Text = Convert.ToString(row["REGISTRATIONTYPENAME"]);
-                        lblregcategory.Text = "7. " + lblcatreg.Text + " No.";
+                        if (lblcatreg.Text != "")
+                        {
+                            divCategory.Visible = true;
+                            divCategory1.Visible = true;                           
+                        }
+
+                        lblregcategory.Text = " " + lblcatreg.Text + " No.";
                         lblUdyam.Text = Convert.ToString(row["UDYAMNO"]);
+                        if (lblregcategory.Text != "")
+                        {
+                            divudyam.Visible = true;
+                            divudyam1.Visible = true;
+                        }
+
+                        lblregdate.Text = Convert.ToString(row["REGISTRATIONDATE"]);
+                        if (lblregdate.Text != "")
+                        {
+                            divFirm.Visible = true;
+                            divFirm1.Visible = true;
+                        }
+                        
+
                         lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                         lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
                         if (lblisland.Text == "Own")
@@ -110,11 +130,25 @@ namespace MeghalayaUIP.Dept.PreReg
                         lbltermloanworking.Text = Convert.ToString(row["FRD_LOAN"]);
 
                         lblunsecuredloan.Text = Convert.ToString(row["FRD_UNSECUREDLOAN"]);
-                        lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
+
                         lblstatescheme.Text = Convert.ToString(row["FRD_STATE"]);
 
                         lblcapitalsubsidy.Text = Convert.ToString(row["FRD_CAPITALSUBSIDY"]);
+
+                        lblinternalresources.Text = Convert.ToString(row["FRD_INTERNALRESOURCE"]);
+                        if (lblinternalresources.Text != "")
+                        {
+                            divResource.Visible = true;
+                            divResource1.Visible = true;
+                        }
                         lblunnati.Text = Convert.ToString(row["FRD_UNNATI"]);
+                        if (lblunnati.Text != "")
+                        {
+                            divUNNATI.Visible = true;
+                            divUNNATI1.Visible = true;
+                        }
+
+
                         lblcentralscheme.Text = Convert.ToString(row["FRD_CENTRAL"]);
                         if (Convert.ToString(row["ELIGIBLE_FLAG"]).Trim() == "N")
                         {
@@ -130,6 +164,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblMobile.Text = Convert.ToString(row["REP_MOBILE"]);
                         lblEmail.Text = Convert.ToString(row["REP_EMAIL"]);
                         lblLocality.Text = Convert.ToString(row["REP_LOCALITY"]);
+                        lblState.Text = Convert.ToString(row["STATENAME"]);
                         lblDistict.Text = Convert.ToString(row["REP_DISTRICT"]);
                         lblMandal.Text = Convert.ToString(row["REP_MANDAL"]);
                         lblVillage.Text = Convert.ToString(row["REP_VILLAGE"]);
@@ -185,9 +220,22 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblDFA.Text = Convert.ToString(row["PROJECT_DFA"]);
                         lblBuldingValue.Text = Convert.ToString(row["PROJECT_BUILDINGVALUE"]);
                         lblLandValue.Text = Convert.ToString(row["PROJECT_LANDVALUE"]);
-                        lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
-                        lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
                         lblWorkingCapital.Text = Convert.ToString(row["PROJECT_WORKINGCAPITAL"]);
+
+                        lblWaterValue.Text = Convert.ToString(row["PROJECT_WATERVALUE"]);
+                        if (lblWaterValue.Text != "")
+                        {
+                            divwater.Visible = true;
+                            divwater1.Visible = true;
+                        }
+                       
+                        lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
+                        if (lblElectricityValue.Text != "")
+                        {
+                            divPowerwater.Visible = true;
+                            divPowerwater1.Visible = true;
+                        }
+                       
 
                         lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
                         lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);
@@ -195,7 +243,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                         ViewDetails.Text = " Unit Name : " + lblCompanyName.Text + ",  Application No :  " + lblApplNo.Text;
                         lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
-                        if(Convert.ToString(row["DITREPORT_UPLOADFLAG"])=="Y")
+                        if (Convert.ToString(row["DITREPORT_UPLOADFLAG"]) == "Y")
                         {
                             GVSite.DataSource = ds.Tables[0];
                             GVSite.DataBind();
@@ -230,11 +278,13 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
                         {
+                            divStatusOfApplication.Visible = true;
                             grdApplStatus.DataSource = ds.Tables[6];
                             grdApplStatus.DataBind();
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
                         {
+                            // QueryResondpanel.Visible = true;
                             grdQueryRaised.DataSource = ds.Tables[7];
                             grdQueryRaised.DataBind();
                         }
@@ -1120,8 +1170,8 @@ namespace MeghalayaUIP.Dept.PreReg
         protected void lnkView_Click(object sender, EventArgs e)
         {
             try
-            {               
-                Response.Redirect("~/Dept/PreReg/PreRegDITSitePrintPage.aspx?status=" + Convert.ToString(Request.QueryString["status"]));               
+            {
+                Response.Redirect("~/Dept/PreReg/PreRegDITSitePrintPage.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
             }
             catch (Exception ex)
             {

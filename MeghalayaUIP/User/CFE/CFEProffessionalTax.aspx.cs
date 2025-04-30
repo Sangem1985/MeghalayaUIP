@@ -102,14 +102,17 @@ namespace MeghalayaUIP.User.CFE
             {
                 if (rblAdditional.SelectedValue == "Y")
                 {
-
-                    Business.Visible = true;
-                    Div1.Visible = true;
+                    divBusinessDet.Visible = true;
+                    divBusiness.Visible = true;
+                    divEmpTotal.Visible = true;
+                    GVState.Visible = true;
                 }
                 else
                 {
-                    Business.Visible = false;
-                    Div1.Visible = false;
+                    divBusinessDet.Visible = false;
+                    divBusiness.Visible = false;
+                    divEmpTotal.Visible = false;
+                    GVState.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -186,6 +189,11 @@ namespace MeghalayaUIP.User.CFE
                     GVState.DataSource = dt;
                     GVState.DataBind();
                     ViewState["PROFESSIONALTAX"] = dt;
+
+                    txtBusiness.Text = "";
+                    txtAddress.Text = "";
+                    ddldist.ClearSelection();
+                    txtEMP.Text = "";
                 }
             }
             catch (Exception ex)
@@ -341,7 +349,7 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFETax.UnitId = Convert.ToString(Session["CFEUNITID"]);
                     ObjCFETax.IPAddress = getclientIP();
 
-                    ObjCFETax.APPLYAS = rblApply.SelectedValue;
+                    ObjCFETax.APPLYAS = ddlApply.SelectedValue;
                     ObjCFETax.NAMEEST = txtEstDet.Text.Trim();
                     ObjCFETax.ADDRESSEST = txtadd.Text;
                     ObjCFETax.DISTRICEST = ddlDistric.SelectedValue;
@@ -351,7 +359,7 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFETax.CONSTITUTIONEST = rblConstitution.SelectedValue;
                     ObjCFETax.GOODSSUPPLIESEST = txtGoodssupplie.Text;
                     ObjCFETax.ADDITIONPLACEBUSINESS = rblAdditional.SelectedValue;
-                    ObjCFETax.DESIGNATION = rblDesignation.SelectedValue;
+                    ObjCFETax.DESIGNATION = ddlDesignation.SelectedValue;
                     ObjCFETax.REGUNDERACT = rblother.SelectedValue;
                     ObjCFETax.REGTYPE = ddlRegType.SelectedValue;
                     ObjCFETax.REGNO = TXTRegNo.Text;
@@ -389,7 +397,7 @@ namespace MeghalayaUIP.User.CFE
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
                 List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
-                if (rblApply.SelectedIndex == -1)
+                if (ddlApply.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Enter Apply as \\n";
                     slno = slno + 1;
@@ -447,7 +455,7 @@ namespace MeghalayaUIP.User.CFE
                         slno = slno + 1;
                     }
                 }
-                if (rblDesignation.SelectedIndex == -1)
+                if (ddlDesignation.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Enter Designation \\n";
                     slno = slno + 1;
@@ -485,7 +493,7 @@ namespace MeghalayaUIP.User.CFE
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEPT_CFEUNITID"]);
-                        rblApply.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_APPLYAS"].ToString();
+                        ddlApply.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_APPLYAS"].ToString();
                         txtEstDet.Text = ds.Tables[0].Rows[0]["CFEPT_NAMEEST"].ToString();
                         txtadd.Text = ds.Tables[0].Rows[0]["CFEPT_ADDRESSEST"].ToString();
                         ddlDistric.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_DISTRICEST"].ToString();
@@ -500,7 +508,7 @@ namespace MeghalayaUIP.User.CFE
                         {
                             GVState.Visible = true;
                         }
-                        rblDesignation.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_DESIGNATION"].ToString();
+                        ddlDesignation.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_DESIGNATION"].ToString();
                         rblother.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_REGUNDERACT"].ToString();
                         if (rblother.SelectedValue == "Y")
                         {

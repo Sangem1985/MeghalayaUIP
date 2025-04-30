@@ -17,7 +17,12 @@ namespace MeghalayaUIP.Admin
         int NumberTotal;        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                txtFormDate.Text = "14-08-2024";
+                txtToDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
+                FillGrid();
+            }
         }
 
         protected void btnsubmit_Click(object sender, EventArgs e)
@@ -62,8 +67,7 @@ namespace MeghalayaUIP.Admin
         }
 
         protected void grdDetails_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            string UID = "";
+        {           
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 int NumberTotal1 = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "SCOUNT"));
@@ -72,29 +76,31 @@ namespace MeghalayaUIP.Admin
                 Label lblUIDNo = (Label)e.Row.FindControl("lbluid");
                 LinkButton lblPending = (LinkButton)e.Row.FindControl("lblPending");
 
-                UID = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "HD_UIDNO"));
+              //  UID = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "HD_UIDNO"));
 
-                string HelpDesk = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "HD_HELPDESKTYPE")).Trim();
+                Label lblHelpDesk = (Label)e.Row.FindControl("lblHelpDesk");
+
+                //  string HelpDesk = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "HD_HELPDESKTYPE")).Trim();
 
                 //LinkButton helpdesk = (LinkButton)e.Row.Cells[2].Controls[0];
                 if (lblPending.Text !="0")
                 {
-                    lblPending.PostBackUrl = "HelpdeskDrilldown.aspx?id=" + UID + "&Status=1&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text;
+                    lblPending.PostBackUrl = "HelpdeskDrilldown.aspx?HDType=" + lblHelpDesk.Text + "&Status=1&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text;
                 }
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
-               // e.Row.Cells[1].Text = "Grand Total";
-               
+                // e.Row.Cells[1].Text = "Grand Total";
+                Label lblHelpDesk = (Label)e.Row.FindControl("lblHelpDesk");
 
                 e.Row.Cells[1].Text = "Grand Total";
                 e.Row.Cells[2].Text = NumberTotal.ToString();
                 LinkButton Total = new LinkButton();
-                UID = "%";
+                //UID = "%";
 
                 if (Total.Text != "0")
                 {
-                    Total.PostBackUrl = "HelpdeskDrilldown.aspx?id=" + UID + "&Status=1&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text;
+                    Total.PostBackUrl = "HelpdeskDrilldown.aspx?HDType=" + lblHelpDesk + "&Status=1&FromDate=" + txtFormDate.Text + "&ToDate=" + txtToDate.Text;
                     e.Row.Cells[2].Controls.Add(Total);
                 }
                 Total.ForeColor = System.Drawing.Color.White;

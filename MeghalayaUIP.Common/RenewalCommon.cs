@@ -58,6 +58,9 @@ namespace MeghalayaUIP.Common
 
         public static string InsertRenLegalMetrologyDet = "USP_INSRENLEGALMETROLOGYDET";
         public static string GetLegalMetrologyDetails = "USP_GETRENLEGALMETROLOGY";
+        public static string GetRENQueryDashBoard = "USP_GETRENQUERYRAISEDDEPT";
+        public static string InsertRENQueryResponse = "USP_UPDATERENAPPLQUERYRESPONSE";
+
 
         //////------------------APPLIED APPROVALS--------------///////
 
@@ -69,6 +72,11 @@ namespace MeghalayaUIP.Common
         public static string GetRENApprovalsAmounttoPay = "USP_GETRENAPPROVALSAMOUNTTOPAY";
 
         public static string GetRENPaymentReceipt = "GET_RENPAYMENTRECEIPT";
+
+        public static string GetRENApplStatus = "USP_GETRENAPPLSTATUS";
+
+        public static string GetRENApplUserDashboard = "USP_GETUSERRENAPPLTRACKER";
+        public static string UpdateRENDepartmentProcess = "USP_UPDATERENSCRUTINYACTION";
 
 
     }
@@ -369,6 +377,8 @@ namespace MeghalayaUIP.Common
         public string MasterID { get; set; }
         public string QueryID { get; set; }
         public string ReferenceNo { get; set; }
+        public string UploadBy { get; set; }
+        public string UploadByID { get; set; }
     }
     public class RenApplicationDetails
     {
@@ -658,4 +668,38 @@ namespace MeghalayaUIP.Common
         public string BankName { get; set; }
 
     }
+    public class RENAttachments
+    {
+        public string Questionnareid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string UNITID { get; set; }
+        public string CFEUID { get; set; }
+        public string DeptID { get; set; }
+        public string ApprovalID { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public string FileDescription { get; set; }
+        public string FileType { get; set; }
+        public string MasterID { get; set; }
+        public string QueryID { get; set; }
+        public string ReferenceNo { get; set; }
+        public string UploadBy { get; set; }
+        public string UploadByID { get; set; }
+
+    }
+    public class RENQueryDet
+    {
+
+        public string Unitid { get; set; }
+        public string Investerid { get; set; }
+        public string Deptid { get; set; }
+        public string Approvalid { get; set; }
+        public string QueryID { get; set; }
+        public string IPAddress { get; set; }
+        public string QueryResponse { get; set; }
+        public string Questionarieid { get; set; }
+
+    }
+
 }

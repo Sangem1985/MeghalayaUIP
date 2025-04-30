@@ -65,17 +65,17 @@ namespace MeghalayaUIP.Dept.Renewal
                 //int RowIndex = gvr.RowIndex;
 
                 string[] Arguents = e.CommandArgument.ToString().Split('$');
-                string CFEQDID = Arguents[0];
+                string RENID_RENQDID = Arguents[0];
                 string INVESTERID = Arguents[1];
                 string UNITID = Arguents[2];
                 string ApprovalID = Arguents[3];
                 string DEPTID = Arguents[4];
                 int stage = 3;
 
-                ObjREN.Questionnaireid = CFEQDID;
+                ObjREN.Questionnaireid = RENID_RENQDID;
                 ObjREN.Investerid = INVESTERID;
                 ObjREN.Stage = stage;
-                Session["Questionnaireid"] = CFEQDID;
+                Session["Questionnaireid"] = RENID_RENQDID;
                 Session["INVESTERID"] = INVESTERID;
                 Session["stage"] = stage;
                 Session["UNITID"] = UNITID;

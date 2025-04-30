@@ -437,12 +437,12 @@ namespace MeghalayaUIP.Dept.CFE
                         //  Fires.Visible = true;
                         if (Fires.Visible == true)
                         {
-                            lblDistrics.Text = Convert.ToString(ds.Tables[8].Rows[0]["DistrictName"]);
-                            lblMan.Text = Convert.ToString(ds.Tables[8].Rows[0]["Mandalname"]);
-                            lblVill.Text = Convert.ToString(ds.Tables[8].Rows[0]["VillageName"]);
-                            lbllocal.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Locality"]);
-                            lbNear.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Landmark"]);
-                            lblPincodes.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Pincode"]);
+                            //lblDistrics.Text = Convert.ToString(ds.Tables[8].Rows[0]["DistrictName"]);
+                            //lblMan.Text = Convert.ToString(ds.Tables[8].Rows[0]["Mandalname"]);
+                            //lblVill.Text = Convert.ToString(ds.Tables[8].Rows[0]["VillageName"]);
+                            //lbllocal.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Locality"]);
+                            //lbNear.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Landmark"]);
+                            //lblPincodes.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_Pincode"]);
                             lblheight.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_BUILDINGHT"]);
                             lblEachfloor.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FLOORHT"]);
                             lblArea.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_PLOTAREA"]);
@@ -809,6 +809,12 @@ namespace MeghalayaUIP.Dept.CFE
                         Query.Visible = true;
                         grdQueries.DataSource = ds.Tables[22];
                         grdQueries.DataBind();
+                    }
+                    if (ds.Tables[23].Rows.Count > 0)
+                    {
+                        QueryAttachment.Visible = true;
+                        grdQryAttachments.DataSource = ds.Tables[23];
+                        grdQryAttachments.DataBind();
                     }
 
                 }
@@ -1235,6 +1241,8 @@ namespace MeghalayaUIP.Dept.CFE
                         objBldngPlan.FileType = fuApproval.PostedFile.ContentType;
                         objBldngPlan.FileDescription = "ApprovalDocuments";
                         objBldngPlan.CreatedBy = Session["INVESTERID"].ToString();
+                        objBldngPlan.UploadBy = "Department";
+                        objBldngPlan.UploadByID = hdnUserID.Value;
                         objBldngPlan.IPAddress = getclientIP();
                         result = objcfebal.InsertCFEAttachments(objBldngPlan);
                         if (result != "")
@@ -1407,6 +1415,8 @@ namespace MeghalayaUIP.Dept.CFE
                         objBldngPlan.FileType = fupInspReport.PostedFile.ContentType;
                         objBldngPlan.FileDescription = "Inspection Report";
                         objBldngPlan.CreatedBy = Session["INVESTERID"].ToString();
+                        objBldngPlan.UploadBy = "Department";
+                        objBldngPlan.UploadByID = hdnUserID.Value;
                         objBldngPlan.IPAddress = getclientIP();
                         result = objcfebal.InsertCFEAttachments(objBldngPlan);
                         if (result != "")
@@ -1503,6 +1513,31 @@ namespace MeghalayaUIP.Dept.CFE
             }
 
             return emptyDropdowns;
+        }
+        protected void grdQryAttachments_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkViewQueryAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
         }
     }
 }

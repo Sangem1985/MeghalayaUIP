@@ -37,6 +37,16 @@ namespace MeghalayaUIP.User
                 {
                     UnitID = Convert.ToString(Request.QueryString[0]);
                     lblType.Text = Request.QueryString[1].ToString();
+                    if (Request.QueryString[1].ToString() == "UnderProcess")
+                    { lblType.Text = " Under Process:"; }
+                    if (Request.QueryString[1].ToString() == "ScrutinyCompleted")
+                    { lblType.Text = " Scrutiny Completed:"; }
+                    if (Request.QueryString[1].ToString() == "ScrutinyPending")
+                    { lblType.Text = " Scrutiny Pending:"; }
+                    if (!IsPostBack)
+                    {
+                        BindApplStatus();
+                    }
                 }
                 else
                 {
@@ -46,10 +56,7 @@ namespace MeghalayaUIP.User
 
                 Page.MaintainScrollPositionOnPostBack = true;
 
-                if (!IsPostBack)
-                {
-                    BindApplStatus();
-                }
+                
             }
             else
             {

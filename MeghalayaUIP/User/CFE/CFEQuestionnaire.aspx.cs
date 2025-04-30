@@ -1673,6 +1673,7 @@ namespace MeghalayaUIP.User.CFE
                 if (rblLbrAct1970.SelectedValue == "Y")
                 {
                     objCFEQ.ApprovalID = "25";
+                    objCFEQ.PropEmployment = txt1970Workers.Text;
                     dtAct1970 = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtAct1970);
                 }

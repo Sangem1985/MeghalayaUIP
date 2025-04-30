@@ -123,7 +123,7 @@
 
                                 </h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                            <div id="collapseOne" class="panel-collapse collapse " role="tabpanel"
                                 aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="card">
                                     <div class="card-header">
@@ -172,31 +172,29 @@
                                                         <div class="col-md-2">
                                                             <label>5. Firm Proposal For</label>
                                                         </div>
-
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblCompanyProposal" runat="server"></asp:Label>
+                                                        </div>       
+                                                          <div class="col-md-2" id="divCategory" runat="server" visible="false">
+                                                            <label> Category of Registration</label>
                                                         </div>
-
-                                                        <div class="col-md-2">
-                                                            <label>6. Category of Registration</label>
-                                                        </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divCategory1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblcatreg" runat="server"></asp:Label>
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>7. Registration No </label>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                       
+                                                        <div class="col-md-2" id="divudyam" runat="server" visible="false">
+                                                            <label> Registration No </label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divudyam1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblUdyam" runat="server"></asp:Label>
                                                         </div>
 
-                                                        <div class="col-md-2">
-                                                            <label>8. Firm Registration /Incorporation Date</label>
+                                                        <div class="col-md-2" id="divFirm" runat="server" visible="false">
+                                                            <label> Firm Registration /Incorporation Date</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divFirm1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblregdate" runat="server"></asp:Label>
                                                         </div>
 
@@ -538,26 +536,27 @@
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblPowerReq" runat="server"></asp:Label>
                                                         </div>
-
+                                                      
                                                         <div class="col-md-2">
-                                                            <label>19.  Value of Power (INR)</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblElectricityValue" runat="server"></asp:Label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <label>20. Water required (KL/D)</label>
+                                                            <label>19. Water required (KL/D)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblWaterReq" runat="server"></asp:Label>
                                                         </div>
+                                                          <div class="col-md-2" id="divPowerwater" runat="server" visible="false">
+                                                            <label> Value of Power (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2" id="divPowerwater1" runat="server" visible="false">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblElectricityValue" runat="server"></asp:Label>
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
+                                                        
+                                                        <div class="col-md-2" id="divwater" runat="server" visible="false">
                                                             <label>21. Water Value (INR)</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divwater1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblWaterValue" runat="server"></asp:Label>
                                                         </div>
                                                     </div>
@@ -565,7 +564,6 @@
                                                     <h4 class="card-title1 col-lg-12">Finance Revenue Details</h4>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-
                                                         <div class="col-md-2">
                                                             <label>1. Equity Amount (INR)</label>
                                                         </div>
@@ -588,34 +586,33 @@
 
 
                                                     </div>
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                      
 
                                                         <div class="col-md-2">
-                                                            <label>4. Internal Resources (INR)</label>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <spna class="dots">:</spna><asp:Label ID="lblinternalresources" runat="server"></asp:Label>
-                                                        </div>
-
-                                                        <div class="col-md-2">
-                                                            <label>5. State Scheme (INR)</label>
+                                                            <label>4. State Scheme (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblstatescheme" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label>6. Central Scheme (INR)</label>
+                                                            <label>5. Central Scheme (INR)</label>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblcentralscheme" runat="server"></asp:Label>
                                                         </div>
+                                                           <div class="col-md-2" id="divResource" runat="server" visible="false">
+                                                            <label> Internal Resources (INR)</label>
+                                                        </div>
+                                                        <div class="col-md-2" id="divResource1" runat="server" visible="false">
+                                                            <spna class="dots">:</spna><asp:Label ID="lblinternalresources" runat="server"></asp:Label>
+                                                        </div>
                                                     </div>
 
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                        <div class="col-md-2">
-                                                            <label>7. Benifit from UNNATI (INR)</label>
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                      
+                                                        <div class="col-md-2" id="divUNNATI" runat="server" visible="false">
+                                                            <label> Benifit from UNNATI (INR)</label>
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-md-2" id="divUNNATI1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblunnati" runat="server"></asp:Label>
                                                         </div>
                                                         <div class="col-md-2" runat="server" visible="false">
@@ -729,10 +726,8 @@
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                            <div id="collapseTwo" class="panel-collapse collapse show" role="tabpanel"
                                 aria-labelledby="headingTwo" style="" aria-expanded="false">
-
-
                                 <div class="card">
                                     <div class="card-header">
                                         <h3>Check Lists</h3>
@@ -787,7 +782,7 @@
 
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="divQuery" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -796,7 +791,7 @@
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" 
                                 aria-labelledby="headingThree" aria-expanded="false">
                                 <div class="card">
                                     <div class="card-header">
@@ -839,7 +834,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" runat="server" id="divQueryAttachments" visible="false">
                             <div class="panel-heading" role="tab" id="headingFour">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -848,7 +843,7 @@
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" 
                                 aria-labelledby="headingFour" aria-expanded="false">
                                 <div class="card">
                                     <div class="card-header">
@@ -897,7 +892,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" visible="false" runat="server">
+                        <div class="panel panel-default" visible="false" runat="server" >
                             <div class="panel-heading" role="tab" id="headingFive">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"

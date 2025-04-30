@@ -165,9 +165,9 @@
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Drug Details</span></label>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">Name of the Drug *</label>
+                                                        <label class="col-lg-6 col-form-label">Name of the Drug *</label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txttradeLic" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return Names(this)" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
@@ -230,7 +230,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12 d-flex justify-content-end">
+                                            <div class="col-md-12 d-flex justify-content-center">
                                                 <asp:Button ID="btnTesting" runat="server" Text="Add More" OnClick="btnTesting_Click" CssClass="btn btn-green btn-rounded mt-2 mb-4" Width="110px" />
                                             </div>
                                             <div class="col-md-12 d-flex justify-content-center">
@@ -250,9 +250,9 @@
                                                     <AlternatingRowStyle BackColor="White" />
                                                 </asp:GridView>
                                             </div>
-
+                                            <br />
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Is the premise and plan ready for inspection? *</label>
                                                         <div class="col-lg-6">
@@ -263,7 +263,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6" id="DateInsp" runat="server" visible="false">
+                                                <div class="col-md-4" id="DateInsp" runat="server" visible="false">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Date for Inspection *</label>
                                                         <div class="col-lg-6">
@@ -282,10 +282,10 @@
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Fees Details</span></label>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">Total Amount to be Paid (Rs.) *</label>
-                                                        <div class="col-lg-8 d-flex">
+                                                        <label class="col-lg-6 col-form-label">Total Amount to be Paid (Rs.) *</label>
+                                                        <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtTotalpaid" runat="server" class="form-control" Type="Text" onkeypress="return validateAmount(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                         </div>
@@ -326,7 +326,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12 d-flex justify-content-end">
+                                            <div class="col-md-12 d-flex justify-content-center">
                                                 <asp:Button ID="btnAddmanu" runat="server" Text="Add More" OnClick="btnAddmanu_Click" CssClass="btn btn-green btn-rounded mt-2 mb-4" Width="110px" />
                                             </div>
                                         </div>
@@ -359,8 +359,8 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">Specify if any additional item is required *</label>
-                                                        <div class="col-lg-8 d-flex">
+                                                        <label class="col-lg-6 col-form-label">Specify if any additional item is required *</label>
+                                                        <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtitem" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                         </div>

@@ -38,7 +38,6 @@
             </nav>
             <div class="page-wrapper" id="divText" runat="server">
                 <div class="content container-fluid">
-
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
@@ -315,7 +314,7 @@
                                                             and, if so, state the details in brief*
                                                     </label>
                                                     <div class="col-lg-3">
-                                                        <asp:TextBox ID="txtEleChg" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateName(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEleChg" Type="text" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
 
                                                     </div>
                                                 </div>

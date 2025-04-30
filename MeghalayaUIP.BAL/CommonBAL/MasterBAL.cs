@@ -414,5 +414,9 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetEligibleInc(category, sector, expansionType, pwd, area);
         }
+        public DataSet GetPageName(string PageName)
+        {
+            return objMasterDAL.GetPageName(PageName);
+        }
     }
 }

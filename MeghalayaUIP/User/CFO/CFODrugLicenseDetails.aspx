@@ -12,15 +12,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <script type="text/javascript">
-    //let originalValue = "";
-    function handleKeyUp(input)
-    {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        }
-        else {
-            input.style.border = "1px solid #767575b5";
-        }
+        //let originalValue = "";
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            }
+            else {
+                input.style.border = "1px solid #767575b5";
+            }
         }
         function validateDropdown(dropdown) {
 
@@ -65,7 +64,7 @@
             </nav>
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="row" id="divText" runat="server" >
+                    <div class="row" id="divText" runat="server">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
@@ -134,7 +133,7 @@
                                                             <%--<asp:TextBox ID="txttradeLic" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                     <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                            <asp:TextBox runat="server" ID="txttradeLic" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"  onkeyup="handleKeyUp(this)"/>
+                                                            <asp:TextBox runat="server" ID="txttradeLic" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)" />
                                                             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txttradeLic"></cc1:CalendarExtender>
                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                         </div>
@@ -211,7 +210,7 @@
                                                             <%--   <asp:TextBox ID="txtInspection" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                     <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                            <asp:TextBox runat="server" ID="txtInspection" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)"/>
+                                                            <asp:TextBox runat="server" ID="txtInspection" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" onkeyup="handleKeyUp(this)" />
                                                             <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtInspection"></cc1:CalendarExtender>
                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                         </div>
@@ -227,7 +226,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Name*</label>
-                                                        <div class="col-lg-8 d-flex">
+                                                        <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
@@ -235,7 +234,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Qualification *</label>
-                                                        <div class="col-lg-8 d-flex">
+                                                        <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtQualification" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
@@ -243,14 +242,14 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-5 col-form-label">Experience(Years) *</label>
-                                                        <div class="col-lg-7 d-flex">
+                                                        <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtExperience" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex justify-content-center">
-                                                <div class="col-md-12">
+                                            <div class="col-md-12 d-flex justify-content-center align-items-center">
+                                                <div class="col-md-6 d-flex justify-content-center">
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label"></label>
                                                         <div class="col-lg-2 d-flex">
@@ -259,8 +258,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
-                                                <div class="table-responsive">
+                                                <div class="col-md-12 d-flex justify-content-center">
+                                                <div class="table-responsive" style="width: 70%;">
                                                     <asp:GridView ID="GVHealthy" runat="server" AutoGenerateColumns="False"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD table-hover table-striped"
                                                         GridLines="None"
@@ -287,7 +286,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Name*</label>
-                                                        <div class="col-lg-8 d-flex">
+                                                        <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtNameTest" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
@@ -295,7 +294,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-4 col-form-label">Qualification *</label>
-                                                        <div class="col-lg-8 d-flex">
+                                                        <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtQualifyTest" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
@@ -303,14 +302,14 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-5 col-form-label">Experience(Years)*</label>
-                                                        <div class="col-lg-7 d-flex">
+                                                        <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtExperienceTest" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="4" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex justify-content-center">
-                                                <div class="col-md-12">
+                                             <div class="col-md-12 d-flex justify-content-center align-items-center">
+                                                <div class="col-md-6 d-flex justify-content-center">
                                                     <div class="form-group row">
                                                         <label class="col-lg-10 col-form-label"></label>
                                                         <div class="col-lg-2 d-flex">
@@ -320,8 +319,8 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12">
-                                                <div class="table-responsive">
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <div class="table-responsive" style="width: 70%;">
                                                     <asp:GridView ID="GVTESTING" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD table-striped table-hover"
                                                         GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVTESTING_RowDeleting">
@@ -347,7 +346,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Name of Drug  *</label>
+                                                        <label class="col-lg-4 col-form-label">Name of Drug  *</label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtNameDrug" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -367,8 +366,8 @@
                                         </div>
                                     </div>
                                 </div>--%>
-                                            <div class="col-md-12">
-                                                <div class="table-responsive">
+                                             <div class="col-md-12 d-flex justify-content-center">
+                                                <div class="table-responsive" style="width: 40%;">
                                                     <asp:GridView ID="GVDrug" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                         GridLines="None"
@@ -423,9 +422,8 @@
                                     </asp:GridView>
                                 </div>--%>
                                         </div>
-                                        <br />
 
-                                        <h4 class="card-title ml-3">Upload Below Documents</h4>
+                                        <h4 class="card-title ml-3" style="margin-top: 20px;">Upload Below Documents</h4>
 
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">

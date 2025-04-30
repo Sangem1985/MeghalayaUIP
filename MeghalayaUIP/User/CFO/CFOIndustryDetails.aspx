@@ -149,7 +149,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Name of Firm</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtIndustryName" runat="server" class="form-control" onkeypress="return validateNames(event)" ></asp:TextBox>
+                                                        <asp:TextBox ID="txtIndustryName" runat="server" class="form-control" onkeypress="return validateNames(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -317,9 +317,25 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">9. District</label>
+                                                    <label class="col-lg-6 col-form-label">
+                                                        9. State
+                                                    </label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:DropDownList ID="ddlstate" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlstate_SelectedIndexChanged">
+                                                            <asp:ListItem Text="Select State" Value="0" />
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 d-flex" id="divMeghaState" runat="server" visible="false">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">10. District</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlDistric" onchange="validateDropdown(this)" runat="server" class="form-control" OnSelectedIndexChanged="ddlDistric_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Select Distric" Value="0" />
@@ -328,14 +344,9 @@
                                                 </div>
                                             </div>
 
-
-                                        </div>
-
-                                        <div class="col-md-12 d-flex">
-
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">10. Mandal</label>
+                                                    <label class="col-lg-6 col-form-label">11. Mandal</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlMandal" onchange="validateDropdown(this)" runat="server" class="form-control" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Select Mandal" Value="0" />
@@ -345,7 +356,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">11. Village/Town</label>
+                                                    <label class="col-lg-6 col-form-label">12. Village/Town</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlVillage" onchange="validateDropdown(this)" runat="server" class="form-control">
                                                             <asp:ListItem Text="Select Village" Value="0" />
@@ -353,21 +364,47 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex" id="divOtherState" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">12. Pincode</label>
+                                                    <label class="col-lg-6 col-form-label">10.District <span class="star">*</span></label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox runat="server" ID="txtDistricted" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">11.Mandal/Taluka <span class="star">*</span></label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox runat="server" ID="txtMandaled" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">12.Village <span class="star">*</span></label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox runat="server" ID="txtVillagede" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="50" onkeyup="handleKeyUp(this)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12  d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">13. Pincode</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtpincode" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="6" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12  d-flex">
-
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        13. Women
+                                                        14. Women
 														Entrepreneur</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:RadioButtonList ID="rblWomen" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblWomen_SelectedIndexChanged">
@@ -380,7 +417,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        18. Differently
+                                                        15. Differently
 														Abled*</label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:RadioButtonList ID="rblAbled" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAbled_SelectedIndexChanged">

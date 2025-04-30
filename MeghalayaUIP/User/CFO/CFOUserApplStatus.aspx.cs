@@ -32,8 +32,9 @@ namespace MeghalayaUIP.User.CFO
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
                     if (Convert.ToString(Session["CFOUNITID"]) != "")
-                    { UnitID = Convert.ToString(Session["CFOUNITID"]);
-                        lbluidno.Text = UnitID;
+                    {
+                        UnitID = Convert.ToString(Session["CFOUNITID"]);
+                       // lbluidno.Text = UnitID;
                     }
                     else
                     {
@@ -65,8 +66,9 @@ namespace MeghalayaUIP.User.CFO
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        lblAppstatus.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPLSTATUS"]);
-                        lblCAFstatus.Text = Convert.ToString(ds.Tables[0].Rows[0]["CAFSTATUS"]);
+                        lblCFOUIDNO.Text= lblApprovalsReq.Text= Convert.ToString(ds.Tables[0].Rows[0]["UIDNO"]);
+                        //lblAppstatus.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPLSTATUS"]);
+                        //lblCAFstatus.Text = Convert.ToString(ds.Tables[0].Rows[0]["CAFSTATUS"]);
                         lblApprovalsReq.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPREQ"]);
                         lblApprovalsObtained.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPROFFLINE"]);
                         lblApprovalsApplied.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPRAPPLD"]);
@@ -82,6 +84,7 @@ namespace MeghalayaUIP.User.CFO
                         lblApprovalIssued.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPRISSUED"]);
                         lblApprovalPending.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPRUNDRPROCESS"]);
                         lblApprovalRejected.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPRREJ"]);
+                        lblAddlPayment.Text = Convert.ToString(ds.Tables[0].Rows[0]["ADDLPAYMNTPAID"]);
                     }
                 }
 
@@ -97,7 +100,7 @@ namespace MeghalayaUIP.User.CFO
         {
             if (lblApprovalsReq.Text != "0")
             {
-                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=ApprRequired";
                 Response.Redirect(newurl);
             }
         }
@@ -105,7 +108,7 @@ namespace MeghalayaUIP.User.CFO
         {
             if (lblApprovalsObtained.Text != "0")
             {
-                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=OfflineApprovals";
                 Response.Redirect(newurl);
             }
 
@@ -124,7 +127,7 @@ namespace MeghalayaUIP.User.CFO
         {
             if (lblApprovalstobeApplied.Text != "0")
             {
-                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=TobeApplied";
                 Response.Redirect(newurl);
             }
         }
@@ -133,7 +136,7 @@ namespace MeghalayaUIP.User.CFO
         {
             if (lblAddlPaymentReq.Text != "0")
             {
-                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=AddlPayment";
                 Response.Redirect(newurl);
             }
         }
@@ -160,7 +163,7 @@ namespace MeghalayaUIP.User.CFO
         {
             if (lblQueryReplied.Text != "0")
             {
-                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=QueryReplied";
                 Response.Redirect(newurl);
             }
         }
@@ -169,7 +172,7 @@ namespace MeghalayaUIP.User.CFO
         {
             if (lblQueryYettoRespond.Text != "0")
             {
-                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=Applied";
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=QueryYettoRespond";
                 Response.Redirect(newurl);
             }
         }
@@ -216,10 +219,19 @@ namespace MeghalayaUIP.User.CFO
         {
             if (lblApprovalPending.Text != "0")
             {
-                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=UnderProcess";
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=ApprovalPending";
                 Response.Redirect(newurl);
             }
 
+        }
+
+        protected void lnkAddlpayment_Click(object sender, EventArgs e)
+        {
+            if (lblAddlPayment.Text != "0")
+            {
+                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=AddlPaymentDone";
+                Response.Redirect(newurl);
+            }
         }
 
         protected void linkApprovalRejected_Click(object sender, EventArgs e)

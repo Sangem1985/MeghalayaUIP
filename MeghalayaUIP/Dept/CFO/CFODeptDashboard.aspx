@@ -8,41 +8,41 @@
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="#">Pre-Opearational</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Department Dashboard</li>
+            <%-- <li class="breadcrumb-item active" aria-current="page">Department Dashboard</li>--%>
         </ol>
     </nav>
     <div class="page-wrapper cfodeptdashboard">
         <div class="content container-fluid">
-            <div class="card flex-fill">
-
-                <h4 class="mt-2 ml-4">View Details</h4>
-                <div class="col-md-12 d-flex">
-                    <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
-                        <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span></button>
-                    </div>
-                </div>
-                <div class="col-md-12 d-flex">
-                    <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
-                        <strong>Warning!</strong>
-                        <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span></button>
-                    </div>
-                </div>
-                  <asp:HiddenField ID="hdnUserID" runat="server" />
-            <div class="col-md-12 d-flex" style="display: flex !important; flex-direction: row; flex-wrap: nowrap; justify-content: space-evenly; align-items: baseline; margin-top: -20px;">
+            <div class="col-md-12 d-flex">
+                <%--  <div class="col-md-12 d-flex" style="display: flex !important; flex-direction: row; flex-wrap: nowrap; justify-content: space-evenly; align-items: baseline; margin-top: -20px;">--%>
                 <div class="col-md-11">
                     <h4 style="margin-left: -10px; padding-top: 20px">Pre-Opearational Applications :
                  <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-1" style="padding-top: 20px">
                     <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"> Back <i class="fi fi-br-angle-double-small-left" style="position: absolute;left: 75%;
     margin-top: -3px;"></i></asp:LinkButton>
                 </div>
-
             </div>
+            <%-- </div>--%>
+            <%--   <h4 class="mt-2 ml-4">View Details</h4>--%>
+            <div class="col-md-12 d-flex">
+                <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
+                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                </div>
+            </div>
+            <div class="col-md-12 d-flex">
+                <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
+                    <strong>Warning!</strong>
+                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                </div>
+            </div>
+            <asp:HiddenField ID="hdnUserID" runat="server" />
+
 
             <div class="card" id="divScrutiny" runat="server">
                 <div class="card-header">
@@ -263,7 +263,6 @@
                     </div>
                 </section>
             </div>
-                </div>
         </div>
     </div>
 </asp:Content>

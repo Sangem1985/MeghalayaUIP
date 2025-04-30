@@ -51,6 +51,8 @@ namespace MeghalayaUIP.Common
         public static string GetCFOTracker = "USP_GETUSERCFOAPPLTRACKER";
         public static string GetUserCFOApplStatus = "USP_GETCFOAPPLSTATUS";
 
+        public static string GetCFOExciseDet = "USP_GETCFOEXCISEDETAILS";
+
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 
         public static string GetCFODashBoard = "USP_CFODASHBOARDCOUNT";
@@ -134,7 +136,7 @@ namespace MeghalayaUIP.Common
         public string LandOnProof { get; set; }
         public string BottlePlant { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public string CreatedIp { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
@@ -152,7 +154,7 @@ namespace MeghalayaUIP.Common
         public string MRPSSelection { get; set; }
         public string BrandName { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public string CreatedIp { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
@@ -618,7 +620,7 @@ namespace MeghalayaUIP.Common
         public string AuthRep_Minority { get; set; }
         public string AuthRep_DiffAbled { get; set; }
         public string AuthRep_Woman { get; set; }
-
+        public string Stateid { get; set; }
         public string Unit_Location { get; set; }
         public string Unit_DoorNo { get; set; }
         public string Unit_Locality { get; set; }
@@ -690,6 +692,9 @@ namespace MeghalayaUIP.Common
         public string FileType { get; set; }
         public string MasterID { get; set; }
         public string ReferenceNo { get; set; }
+        public string QueryID { get; set; }
+        public string UploadBy { get; set; }
+        public string UploadByID { get; set; }
 
     }
     public class CFOQueryDet

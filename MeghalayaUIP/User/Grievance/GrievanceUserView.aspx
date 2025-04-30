@@ -116,7 +116,7 @@
                                         <%-- <div class="card-header">
                                             <h5>View Grievance Pending Applications</h5>
                                         </div>--%>
-                                        <section id="dashboardStatus">
+                                        <section id="dashboardStatus1">
                                             <div class="container-fluid">
                                                 <div class="row clearfix">
                                                     <div class="col-sm-12">
@@ -178,7 +178,7 @@
                                         <%-- <div class="card-header">
                                             <h5>View Grievance Redressed Applications</h5>
                                         </div>--%>
-                                        <section id="dashboardStatus">
+                                        <section id="dashboardStatus2">
                                             <div class="container-fluid">
                                                 <div class="row clearfix">
                                                     <div class="col-sm-12 mt-2">
@@ -238,7 +238,7 @@
                                         <%--<div class="card-header">
                                             <h5>View Grievance Rejected Applications</h5>
                                         </div>--%>
-                                        <section id="dashboardStatus">
+                                        <section id="dashboardStatus3">
                                             <div class="container-fluid">
                                                 <div class="row clearfix">
                                                     <div class="col-sm-12 mt-2">

@@ -37,7 +37,7 @@ namespace MeghalayaUIP.User.CFO
                     if (Request.QueryString.Count > 0)
                     {
                         UnitID = Convert.ToString(Request.QueryString[0]);
-                        lblType.Text = Request.QueryString[1].ToString();
+                        lblType.Text = " " + Request.QueryString[1].ToString() + ":";
                         if (Request.QueryString[1].ToString() == "UnderProcess")
                         { lblType.Text = " Under Process:"; }
                         if (Request.QueryString[1].ToString() == "ScrutinyCompleted")

@@ -263,7 +263,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Purpose for Lopping/Cutting of Branches  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtLoppingPurpose" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtLoppingPurpose" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -273,7 +273,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">a. Local Name*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtLopLocName" runat="server" class="form-control"   TabIndex="1" ></asp:TextBox>
+                                                            <asp:TextBox ID="txtLopLocName" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" ></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -283,7 +283,7 @@
                                                             b.Scientific Name*
                                                         </label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtLopScfName" runat="server" class="form-control" TabIndex="1" ></asp:TextBox>
+                                                            <asp:TextBox ID="txtLopScfName" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -291,7 +291,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">c. Number Of trees*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtLopTreeCount" runat="server" class="form-control"   ></asp:TextBox>
+                                                            <asp:TextBox ID="txtLopTreeCount" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="10"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -348,7 +348,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Purpose for felling of trees * </label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtFellingPurpose" runat="server" class="form-control" TabIndex="1" ></asp:TextBox>
+                                                            <asp:TextBox ID="txtFellingPurpose" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -358,7 +358,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Local Name*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtFellLocName" runat="server" class="form-control"  TabIndex="1" ></asp:TextBox>
+                                                            <asp:TextBox ID="txtFellLocName" runat="server" class="form-control"  TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" ></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -366,7 +366,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2.Scientific Name*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtFellScfName" runat="server" class="form-control"  TabIndex="1" ></asp:TextBox>
+                                                            <asp:TextBox ID="txtFellScfName" runat="server" class="form-control"  TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" ></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -374,7 +374,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">3. Number Of trees*</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtFellTreeCount" runat="server" class="form-control"  TabIndex="1" ></asp:TextBox>
+                                                            <asp:TextBox ID="txtFellTreeCount" runat="server" class="form-control"  TabIndex="1" onkeypress="return NumberOnly()" MaxLength="10" ></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -1096,10 +1096,11 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
+                if (FDate != "")
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
 
-                da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-
-                da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(TDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (TDate != "")
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(TDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
 
 
                 da.Fill(ds);
@@ -1117,7 +1118,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
-        public DataSet GetHelpDeskReportDrilldown(string Status, string Districtid, string FDate, string TDate)
+        public DataSet GetHelpDeskReportDrilldown(string HDType, string Status, string FDate, string TDate)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -1140,20 +1141,20 @@ namespace MeghalayaUIP.DAL.CommonDAL
 
                 if (Status.ToString() == "")
                 {
-                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = DBNull.Value;
+                    da.SelectCommand.Parameters.Add("@STATUS", SqlDbType.VarChar).Value = DBNull.Value;
                 }
                 else
                 {
-                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = Status.ToString();
+                    da.SelectCommand.Parameters.Add("@STATUS", SqlDbType.VarChar).Value = Status.ToString();
                 }
 
-                if (Districtid.ToString() == "")
+                if (HDType.ToString() == "")
                 {
-                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = DBNull.Value;
+                    da.SelectCommand.Parameters.Add("@HDTYPE", SqlDbType.VarChar).Value = DBNull.Value;
                 }
                 else
                 {
-                    da.SelectCommand.Parameters.Add("", SqlDbType.VarChar).Value = Districtid.ToString();
+                    da.SelectCommand.Parameters.Add("@HDTYPE", SqlDbType.VarChar).Value = HDType.ToString();
                 }
 
 
@@ -1391,6 +1392,87 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 connection.Dispose();
             }
         }
+        public DataSet HelpdeskDrilldown(HelpDeskDrilldown Helpdesk)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CommonConstants.GetHelpDeskDrilldown, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CommonConstants.GetHelpDeskDrilldown;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                if (Helpdesk.HelpDeskID.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@HelpdeskID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@HelpdeskID", SqlDbType.VarChar).Value = Helpdesk.HelpDeskID.ToString();
+                }
+
+                if (Helpdesk.Investid.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@INVESTERID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@INVESTERID", SqlDbType.VarChar).Value = Helpdesk.Investid.ToString();
+                }
+
+                if (Helpdesk.REDRESSEDREMARKES.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@HD_REDRESSEDREMARKES", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@HD_REDRESSEDREMARKES", SqlDbType.VarChar).Value = Helpdesk.REDRESSEDREMARKES.ToString();
+                }
+                if (Helpdesk.Update.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@DoUpdate", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@DoUpdate", SqlDbType.VarChar).Value = Helpdesk.Update.ToString();
+                }
+
+                if (Helpdesk.REDRESSEDBYIP.ToString() == "")
+                {
+                    da.SelectCommand.Parameters.Add("@HD_REDRESSEDBYIP", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    da.SelectCommand.Parameters.Add("@HD_REDRESSEDBYIP", SqlDbType.VarChar).Value = Helpdesk.REDRESSEDBYIP.ToString();
+                }
+
+
+
+
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
     }
 
 }

@@ -5,15 +5,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <script type="text/javascript">
-    //let originalValue = "";
-    function handleKeyUp(input)
-    {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        }
-        else {
-            input.style.border = "1px solid #767575b5";
-        }
+        //let originalValue = "";
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            }
+            else {
+                input.style.border = "1px solid #767575b5";
+            }
         }
         function validateDropdown(dropdown) {
 
@@ -91,19 +90,19 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Name of Business/Building *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(event)" TabIndex="1" MaxLength="100" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
                                                     <label class="col-lg-8 col-form-label">Category of Building for which Fire Clearance is applied  *</label>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:DropDownList runat="server" ID="ddlCategory" onchange="validateDropdown(this)" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Name of Business/Building *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(event)" TabIndex="1" MaxLength="100" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -328,7 +327,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2. Fire Safety Certificate*</label>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fupFireCertificate" runat="server" />                                                        
+                                                        <asp:FileUpload ID="fupFireCertificate" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnFireCertificate" OnClick="btnFireCertificate_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
@@ -347,10 +346,10 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">3.Building plan  *</label>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fupBuildingplan" runat="server" />                                                       
+                                                        <asp:FileUpload ID="fupBuildingplan" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
-                                                         <asp:Button Text="Upload" runat="server" ID="btnBuildingplan" OnClick="btnBuildingplan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnBuildingplan" OnClick="btnBuildingplan_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypBuildingplan" runat="server" Target="_blank"></asp:HyperLink>
@@ -364,7 +363,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4.Certificate from the authorized /competent authority certifying that all the Electrical Installations are in good working condition.  *</label>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fupElectricalinstall" runat="server" />                                                        
+                                                        <asp:FileUpload ID="fupElectricalinstall" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnElectricalinstall" OnClick="btnElectricalinstall_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
@@ -381,7 +380,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">5.Declaration with Undertaking that all Fire Safety Measures implemented and installed is in good working condition.  *</label>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fupFireSaftey" runat="server" />                                                        
+                                                        <asp:FileUpload ID="fupFireSaftey" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnFireSaftey" OnClick="btnFireSaftey_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
@@ -398,7 +397,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">6.Pre Construction NOC  *</label>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:FileUpload ID="fupPreconNOC" runat="server" />                                                        
+                                                        <asp:FileUpload ID="fupPreconNOC" runat="server" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btnPreconNOC" OnClick="btnPreconNOC_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />

@@ -96,11 +96,6 @@ namespace MeghalayaUIP.Dept.PreReg
             DataTable dt = new DataTable();
             dt.Columns.Add("MemberName", typeof(string));
             dt.Columns.Add("Designation", typeof(string));
-
-            // Add an initial blank row
-            DataRow blankRow = dt.NewRow();
-            dt.Rows.Add(blankRow);
-
             TeamMembers = dt; // Store in ViewState
         }
 
@@ -170,6 +165,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     if (reportid != "0")// && result != "0")
                     {
                         success.Visible = true;
+                        Failure.Visible = false;
                         lblmsg.Text = "Data Saved Successfully !!!";
                         // lblmsg.ForeColor = System.Drawing.Color.Green;
 
@@ -233,40 +229,36 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtDepartment.Text))
+                if (string.IsNullOrEmpty(txtName.Text.Trim()) || string.IsNullOrEmpty(txtDepartment.Text.Trim()))
                 {
                     lblmsg0.Text = "Please Enter All Details Of Inspector Officer";
                     Failure.Visible = true;
+                    txtName.Text = "";
+                    txtName.Focus();
+                    txtDepartment.Text = "";
+                    txtDepartment.Focus();
                 }
                 else
                 {
                     DataTable dt = new DataTable();
                     if (ViewState["TeamMembers"] != null)
                     {
-                        dt.Columns.Add("MEMBERNAME", typeof(string));
-                        dt.Columns.Add("DESIGNATION", typeof(string));
+                        dt = (DataTable)ViewState["TeamMembers"];
+                        DataRow dr = dt.NewRow();
+                        dr["MEMBERNAME"] = txtName.Text.Trim();
+                        dr["DESIGNATION"] = txtDepartment.Text.Trim();
+                        dt.Rows.Add(dr);
+                        gvTeamMembers.Visible = true;
+                        gvTeamMembers.DataSource = dt;
+                        gvTeamMembers.DataBind();
+                        ViewState["TeamMembers"] = dt;
+                        txtName.Text = "";
+                        txtDepartment.Text = "";
                     }
                     else 
                     {
                         dt = (DataTable)ViewState["TeamMembers"];
                     }
-
-                    DataRow dr = dt.NewRow();
-
-                    dr["MEMBERNAME"] = txtName.Text.Trim();
-                    dr["DESIGNATION"] = txtDepartment.Text.Trim();
-
-
-                    dt.Rows.Add(dr);
-                    gvTeamMembers.Visible = true;
-                    gvTeamMembers.DataSource = dt;
-                    gvTeamMembers.DataBind();
-                    ViewState["TeamMembers"] = dt;
-
-
-                    txtName.Text = "";
-                    txtDepartment.Text = "";
-
                 }
             }
             catch (Exception ex)

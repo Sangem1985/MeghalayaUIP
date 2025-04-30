@@ -123,6 +123,24 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblCompanyProposal;
 
         /// <summary>
+        /// divCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCategory;
+
+        /// <summary>
+        /// divCategory1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCategory1;
+
+        /// <summary>
         /// lblcatreg control.
         /// </summary>
         /// <remarks>
@@ -132,6 +150,24 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblcatreg;
 
         /// <summary>
+        /// divudyam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divudyam;
+
+        /// <summary>
+        /// divudyam1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divudyam1;
+
+        /// <summary>
         /// lblUdyam control.
         /// </summary>
         /// <remarks>
@@ -139,6 +175,24 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUdyam;
+
+        /// <summary>
+        /// divFirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFirm;
+
+        /// <summary>
+        /// divFirm1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFirm1;
 
         /// <summary>
         /// lblregdate control.
@@ -582,6 +636,33 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblPowerReq;
 
         /// <summary>
+        /// lblWaterReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWaterReq;
+
+        /// <summary>
+        /// divPowerwater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPowerwater;
+
+        /// <summary>
+        /// divPowerwater1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPowerwater1;
+
+        /// <summary>
         /// lblElectricityValue control.
         /// </summary>
         /// <remarks>
@@ -591,13 +672,22 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblElectricityValue;
 
         /// <summary>
-        /// lblWaterReq control.
+        /// divwater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWaterReq;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divwater;
+
+        /// <summary>
+        /// divwater1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divwater1;
 
         /// <summary>
         /// lblWaterValue control.
@@ -636,15 +726,6 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.Label lblunsecuredloan;
 
         /// <summary>
-        /// lblinternalresources control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblinternalresources;
-
-        /// <summary>
         /// lblstatescheme control.
         /// </summary>
         /// <remarks>
@@ -661,6 +742,51 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblcentralscheme;
+
+        /// <summary>
+        /// divResource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResource;
+
+        /// <summary>
+        /// divResource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResource1;
+
+        /// <summary>
+        /// lblinternalresources control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblinternalresources;
+
+        /// <summary>
+        /// divUNNATI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUNNATI;
+
+        /// <summary>
+        /// divUNNATI1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUNNATI1;
 
         /// <summary>
         /// lblunnati control.
@@ -726,6 +852,15 @@ namespace MeghalayaUIP.User.PreReg
         protected global::System.Web.UI.WebControls.GridView grdAttachments;
 
         /// <summary>
+        /// divQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divQuery;
+
+        /// <summary>
         /// grdQueries control.
         /// </summary>
         /// <remarks>
@@ -733,6 +868,15 @@ namespace MeghalayaUIP.User.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdQueries;
+
+        /// <summary>
+        /// divQueryAttachments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divQueryAttachments;
 
         /// <summary>
         /// grdQryAttachments control.

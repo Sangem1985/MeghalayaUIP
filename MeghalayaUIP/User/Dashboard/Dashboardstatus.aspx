@@ -4,151 +4,160 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../assets/admin/css/user.css" rel="stylesheet" />
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Pre Establishment</li>
-        </ol>
-    </nav>
-    <div class="page-wrapper griddesignmulticount">
-        <div class="content container-fluid">
 
-            <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title">Pre-Establishment Applications
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
+        <ContentTemplate>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Pre Establishment</li>
+                </ol>
+            </nav>
+            <div class="page-wrapper griddesignmulticount">
+                <div class="content container-fluid">
+
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <h4 class="card-title">Pre-Establishment Applications
                         <asp:Label ID="lblType" runat="server"></asp:Label></h4>
-                    <h4 class="card-title">
-                        <label id="unitname" runat="server"></label>
-                    </h4>
-                </div>
-                <section id="dashboardcount" class="mt-2">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
-                                    <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                    <asp:Label ID="Label1" runat="server"></asp:Label>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span></button>
-                                </div>
-                            </div>
-                            <div class="col-md-12 ">
-                                <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
-                                    <strong>Warning!</strong>
-                                    <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <asp:HiddenField ID="hdnUserID" runat="server" />
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="col-md-12 row mt-4">
-                                            <div class="col-md-2">1. Unit ID</div>
-
-                                            <div class="col-md-3 fw-bold text-info">
-                                                <spna class="dots">:</spna><asp:Label ID="lblUnitID" runat="server"></asp:Label>
-                                            </div>
-                                            <div class="col-md-1">&nbsp;</div>
-                                            <div class="col-md-3">3. Date of Unit Application</div>
-
-                                            <div class="col-md-3">
-                                                <spna class="dots">:</spna><asp:Label ID="lblDOA" runat="server"></asp:Label>
-                                            </div>
+                            <h4 class="card-title">
+                                <label id="unitname" runat="server"></label>
+                            </h4>
+                        </div>
+                        <section id="dashboardcount" class="mt-2">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
+                                            <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span></button>
                                         </div>
-                                        <div class="col-md-12 row mt-2 mb-4">
-                                            <div class="col-md-2">2. Unit Name</div>
-
-                                            <div class="col-md-3 fw-bold text-info">
-                                                <spna class="dots">:</spna><asp:Label ID="lblUnitNmae" runat="server"></asp:Label>
-                                            </div>
-                                            <div class="col-md-1">&nbsp;</div>
-                                            <div class="col-md-3">4. Category of Industry</div>
-
-                                            <div class="col-md-3">
-                                                <spna class="dots">:</spna><asp:Label ID="lblProjCategory" Text="Mega Project" runat="server"></asp:Label>
-                                            </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
+                                            <strong>Warning!</strong>
+                                            <asp:Label ID="lblmsg0" runat="server"></asp:Label>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
                                         </div>
+                                    </div>
+                                    <asp:HiddenField ID="hdnUserID" runat="server" />
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="col-md-12 row mt-4">
+                                                    <div class="col-md-2">1. Application ID</div>
+
+                                                    <div class="col-md-3 fw-bold text-info">
+                                                        <spna class="dots">:</spna><asp:Label ID="lblUnitID" runat="server"></asp:Label>
+                                                    </div>
+                                                    <div class="col-md-1">&nbsp;</div>
+                                                    <div class="col-md-3">3. Date of Application</div>
+
+                                                    <div class="col-md-3">
+                                                        <spna class="dots">:</spna><asp:Label ID="lblDOA" runat="server"></asp:Label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 row mt-2 mb-4">
+                                                    <div class="col-md-2">2. Unit Name</div>
+
+                                                    <div class="col-md-3 fw-bold text-info">
+                                                        <spna class="dots">:</spna><asp:Label ID="lblUnitNmae" runat="server"></asp:Label>
+                                                    </div>
+                                                    <div class="col-md-1">&nbsp;</div>
+                                                    <div class="col-md-3">4. Category of Industry</div>
+
+                                                    <div class="col-md-3">
+                                                        <spna class="dots">:</spna><asp:Label ID="lblProjCategory" Text="Mega Project" runat="server"></asp:Label>
+                                                    </div>
+                                                </div>
 
 
-                                        <div class="col-md-12 d-flex">
-                                            <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTrackerDetails_RowDataBound"
-                                                OnRowCreated="grdTrackerDetails_RowCreated" EnableModelValidation="True" Width="100%">
-                                                <HeaderStyle BackColor="#3b4474" ForeColor="White" />
-                                                <AlternatingRowStyle />
-                                                <Columns>
-                                                    <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="S.No">
-                                                        <ItemTemplate>
-                                                            <%# Container.DataItemIndex +1 %>
-                                                        </ItemTemplate>
-                                                        <HeaderStyle HorizontalAlign="Center" />
-                                                    </asp:TemplateField>
-                                                    <asp:BoundField HeaderText="Name of Approval" DataField="ApprovalName" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
-                                                    <asp:BoundField HeaderText="Date of Application" DataField="DATEOFAPPLICATION" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:TemplateField HeaderText="Date of Payment" ItemStyle-HorizontalAlign="Center">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="hplPayment" Text='<%#Eval("DATEOFPAYMENT")%>' Target="_blank" runat="server" ItemStyle-HorizontalAlign="Center" />
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Query Raised Date" ItemStyle-HorizontalAlign="Center">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="hplQuery" Text='<%#Eval("DATEOFQUERY")%>' Target="_blank" runat="server" />
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Response to Query Date">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="hplQueryResponse" Text='<%#Eval("DATEOFQUERYRRESPONSE")%>' Target="_blank" runat="server" />
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Date of Scrutiny Completion ">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="lblScrutiny" Text='<%#Eval("DATEOFSCRUTINY")%>' runat="server" Visible="true" ItemStyle-HorizontalAlign="Center"></asp:HyperLink>
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Date of Additional Payment">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="hplAddlPmntDate" Text='<%#Eval("DATEOFADDLPAYMENT")%>' Target="_blank" runat="server" />
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
+                                                <div class="col-md-12 d-flex">
+                                                    <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTrackerDetails_RowDataBound"
+                                                        OnRowCreated="grdTrackerDetails_RowCreated" EnableModelValidation="True" Width="100%">
+                                                        <HeaderStyle BackColor="#3b4474" ForeColor="White" />
+                                                        <AlternatingRowStyle />
+                                                        <Columns>
+                                                            <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="S.No">
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex +1 %>
+                                                                </ItemTemplate>
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                            </asp:TemplateField>
+                                                            <asp:BoundField HeaderText="Name of Approval" DataField="ApprovalName" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
+                                                            <asp:BoundField HeaderText="Date of Application" DataField="DATEOFAPPLICATION" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:TemplateField HeaderText="Date of Payment" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="hplPayment" Text='<%#Eval("DATEOFPAYMENT")%>' Target="_blank" runat="server" ItemStyle-HorizontalAlign="Center" />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" Width="100px" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Query Raised Date" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="hplQuery" Text='<%#Eval("DATEOFQUERY")%>' Target="_blank" runat="server" />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" Width="100px" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Response to Query Date">
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="hplQueryResponse" Text='<%#Eval("DATEOFQUERYRRESPONSE")%>' Target="_blank" runat="server" />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" Width="100px" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Date of Scrutiny Completion ">
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="lblScrutiny" Text='<%#Eval("DATEOFSCRUTINY")%>' Target="_blank" runat="server" Visible="true" ItemStyle-HorizontalAlign="Center"></asp:HyperLink>
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" Width="100px" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Date of Additional Payment">
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="hplAddlPmntDate" Text='<%#Eval("DATEOFADDLPAYMENT")%>' Target="_blank" runat="server" />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" Width="100px" />
+                                                            </asp:TemplateField>
 
-                                                    <asp:BoundField DataField="" HeaderText="Date of Receival For Approval" />
-                                                    <asp:BoundField DataField="DATEOFCOMPLETION" HeaderText="Date of Completion" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:TemplateField HeaderText="Status">
-                                                        <ItemTemplate>
-                                                            <asp:Label runat="server" ID="lblUnitID" Text='<%#Eval("CFEDA_UNITID")%>' Visible="false"></asp:Label>
-                                                            <asp:Label runat="server" ID="lblQuesnrId" Text='<%#Eval("CFEDA_CFEQDID")%>' Visible="false"></asp:Label>
-                                                            <asp:Label runat="server" ID="lblDeptId" Text='<%#Eval("CFEDA_DEPTID")%>' Visible="false"></asp:Label>
-                                                            <asp:Label runat="server" ID="lblApprovalId" Text='<%#Eval("CFEDA_APPROVALID")%>' Visible="false"></asp:Label>
-                                                            <asp:Label runat="server" ID="lblStageId" Text='<%#Eval("CFDA_STAGEID")%>' Visible="false"></asp:Label>
-                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' NavigateUrl='<%#Eval("ApprovalDoc")%>' Target="_blank" runat="server" Visible="true"></asp:HyperLink>
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
-                                                </Columns>
-                                            </asp:GridView>
+                                                            <asp:BoundField DataField="" HeaderText="Date of Receival For Approval" />
+                                                            <asp:BoundField DataField="DATEOFCOMPLETION" HeaderText="Date of Completion" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:TemplateField HeaderText="Status">
+                                                                <ItemTemplate>
+                                                                    <asp:Label runat="server" ID="lblUnitID" Text='<%#Eval("CFEDA_UNITID")%>' Visible="false"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblQuesnrId" Text='<%#Eval("CFEDA_CFEQDID")%>' Visible="false"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblDeptId" Text='<%#Eval("CFEDA_DEPTID")%>' Visible="false"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblApprovalId" Text='<%#Eval("CFEDA_APPROVALID")%>' Visible="false"></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblStageId" Text='<%#Eval("CFDA_STAGEID")%>' Visible="false"></asp:Label>
+                                                                     <asp:Label runat="server" ID="lblScrutinyDoc" Text='<%#Eval("ScrutinyDoc")%>' Visible="false"></asp:Label>
+                                                                     <asp:Label runat="server" ID="lblApprovalDoc" Text='<%#Eval("ApprovalDoc")%>' Visible="false"></asp:Label>
+                                                                    <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>'  Target="_blank" runat="server" Visible="true"></asp:HyperLink>
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" Width="100px" />
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                    </asp:GridView>
 
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
-                </section>
+                </div>
             </div>
+            <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </ContentTemplate>
 
-
-        </div>
-
-
-
-
-
-    </div>
+    </asp:UpdatePanel>
 </asp:Content>

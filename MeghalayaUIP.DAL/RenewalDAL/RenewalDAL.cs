@@ -1136,7 +1136,15 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENA_FILENAME", objRenAttachments.FileName);
                 com.Parameters.AddWithValue("@RENA_FILETYPE", objRenAttachments.FileType);
                 com.Parameters.AddWithValue("@RENA_FILEDESCRIPTION", objRenAttachments.FileDescription);
-                com.Parameters.AddWithValue("@RENA_QUERYID", objRenAttachments.QueryID);                  
+                com.Parameters.AddWithValue("@RENA_QUERYID", objRenAttachments.QueryID);
+                if (objRenAttachments.UploadBy !="" && objRenAttachments.UploadBy != null)
+                {
+                    com.Parameters.AddWithValue("@REN_UPLOADBY", objRenAttachments.UploadBy);
+                }
+                if (objRenAttachments.UploadByID != "" && objRenAttachments.UploadByID != null)
+                {
+                    com.Parameters.AddWithValue("@REN_UPLOADBYID", objRenAttachments.UploadByID);
+                }
                           
               
                 com.Parameters.AddWithValue("@RENA_CREATEDBY", Convert.ToInt32(objRenAttachments.CreatedBy));
@@ -2212,7 +2220,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetRENApplicationDetails(string UnitID, string InvesterID)
+        public DataSet GetRENApplicationDetails(string RENQDID, string InvesterID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -2228,7 +2236,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQDID", Convert.ToInt32(RENQDID));
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
                 da.Fill(ds);
                 transaction.Commit();
@@ -2592,6 +2600,223 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Dispose();
             }
         }
+        public DataSet GetUserRENApplStatus(string Userid, string RENQID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENApplStatus, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENApplStatus;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", Convert.ToInt32(Userid));
+                da.SelectCommand.Parameters.AddWithValue("@RENQID", Convert.ToInt32(RENQID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetRENApplicationStatus(string userid, string RENQID, string Status)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENApplUserDashboard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENApplUserDashboard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", userid);
+                da.SelectCommand.Parameters.AddWithValue("@RENQID", RENQID);
+                da.SelectCommand.Parameters.AddWithValue("@TYPE", Status);
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string UpdateRENDepartmentProcess(RENDtls objrenDtls)
+        {
+            string valid = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.UpdateRENDepartmentProcess;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+             
+                com.Parameters.AddWithValue("@RENQDID", objrenDtls.Questionnaireid);
+                if (objrenDtls.deptid != null && objrenDtls.deptid != 0)
+                {
+                    com.Parameters.AddWithValue("@DEPTID", objrenDtls.deptid);
+                }
+                com.Parameters.AddWithValue("@APPROVALID", objrenDtls.ApprovalId);
+                com.Parameters.AddWithValue("@ACTIONID", objrenDtls.status);
+                com.Parameters.AddWithValue("@REMARKS", objrenDtls.Remarks);
+                com.Parameters.AddWithValue("@RENDA_SCRUTINYREJECTIONFLAG", objrenDtls.PrescrutinyRejectionFlag);
+                if (objrenDtls.AdditionalAmount != null && objrenDtls.AdditionalAmount != "")
+                {
+                    com.Parameters.AddWithValue("@ADDLAMOUNT", objrenDtls.AdditionalAmount);
+                }
+
+                com.Parameters.AddWithValue("@IPADDRESS", objrenDtls.IPAddress);
+                com.Parameters.AddWithValue("@CREATEDBY", objrenDtls.UserID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+
+        }
+        public DataSet GetRENQueryDashBoard(string RENQID, string Queryid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENQueryDashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENQueryDashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.SelectCommand.Parameters.AddWithValue("@RENQID", Convert.ToInt32(RENQID));
+                if (Queryid != "" && Queryid != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(Queryid));
+                }
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
+        public string InsertRENQueryResponse(RENQueryDet RENQuery)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRENQueryResponse;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(RENQuery.Investerid));
+                com.Parameters.AddWithValue("@RENQDID", Convert.ToInt32(RENQuery.Questionarieid));
+                com.Parameters.AddWithValue("@QUERYID", Convert.ToInt32(RENQuery.QueryID));
+                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(RENQuery.Deptid));
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(RENQuery.Approvalid));
+                com.Parameters.AddWithValue("@RESPONSE", RENQuery.QueryResponse);
+                com.Parameters.AddWithValue("@IPADDRESS", RENQuery.IPAddress);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
     }
 
 }

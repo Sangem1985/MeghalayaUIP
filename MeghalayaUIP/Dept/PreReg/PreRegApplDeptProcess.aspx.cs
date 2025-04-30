@@ -211,12 +211,14 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
                         {
+                            divQueryDetails.Visible = true;
                             grdQueries.DataSource = ds.Tables[4];
                             grdQueries.DataBind();
 
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
                         {
+                            divQueryReAttachment.Visible = true;
                             grdQryAttachments.DataSource = ds.Tables[5];
                             grdQryAttachments.DataBind();
                         }
