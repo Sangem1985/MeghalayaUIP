@@ -12,17 +12,19 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    
     <!-- Stylesheets -->
     <link href="assets/assetsnew/css/style.css" rel="stylesheet" />
-
+    <link href="assets/assetsnew/css/fonts/css2.css" rel="stylesheet" />
     <link href="assets/assetsnew/css/responsive.css" rel="stylesheet" />
+    <link href="assets/assetsnew/css/fonts/uicons-bold-rounded.css" rel="stylesheet" />
+    <link href="assets/assetsnew/css/fonts/uicons-regular-rounded.css" rel="stylesheet" />
+    <link href="assets/assetsnew/css/fonts/uicons-regular-straight.css" rel="stylesheet" />
+    <link href="assets/assetsnew/css/fonts/uicons-solid-rounded.css" rel="stylesheet" />
+    <link href="assets/assetsnew/css/fonts/uicons-thin-rounded.css" rel="stylesheet" />
 
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-straight/css/uicons-regular-straight.css/'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-rounded/css/uicons-regular-rounded.css' />
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-solid-rounded/css/uicons-solid-rounded.css' />
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css' />
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-thin-rounded/css/uicons-thin-rounded.css' />
+    
     <style>
         .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
             display: none !important;

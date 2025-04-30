@@ -395,6 +395,12 @@
     <Content Include="assets\assetsnew\css\bootstrap.css" />
     <Content Include="assets\assetsnew\css\flaticon.css" />
     <Content Include="assets\assetsnew\css\font-awesome-all.css" />
+    <Content Include="assets\assetsnew\css\fonts\css2.css" />
+    <Content Include="assets\assetsnew\css\fonts\uicons-bold-rounded.css" />
+    <Content Include="assets\assetsnew\css\fonts\uicons-regular-rounded.css" />
+    <Content Include="assets\assetsnew\css\fonts\uicons-regular-straight.css" />
+    <Content Include="assets\assetsnew\css\fonts\uicons-solid-rounded.css" />
+    <Content Include="assets\assetsnew\css\fonts\uicons-thin-rounded.css" />
     <Content Include="assets\assetsnew\css\images\ui-icons_777620_256x240.html" />
     <Content Include="assets\assetsnew\css\images\ui-icons_777777_256x240.html" />
     <Content Include="assets\assetsnew\css\images\ui-icons_cc0000_256x240.html" />
@@ -416,7 +422,6 @@
     <Content Include="assets\assetsnew\images\background\bg5.gif" />
     <Content Include="assets\assetsnew\images\bg-whatsnew.png" />
     <Content Include="assets\assetsnew\images\bghead1.jpg" />
-    <Content Include="assets\assetsnew\images\boult.gif" />
     <Content Include="assets\assetsnew\images\cm1.png" />
     <Content Include="assets\assetsnew\images\cm2.png" />
     <Content Include="assets\assetsnew\images\collagebg.png" />
@@ -530,16 +535,7 @@
     <Content Include="assets\assetsnew\images\logo_old.png" />
     <Content Include="assets\assetsnew\images\Logo_oldnew.png" />
     <Content Include="assets\assetsnew\images\main-slider\IM_bgm1.mp4" />
-    <Content Include="assets\assetsnew\images\main-slider\slider-1.jpg" />
-    <Content Include="assets\assetsnew\images\main-slider\slider-10.jpg" />
-    <Content Include="assets\assetsnew\images\main-slider\slider-2.jpg" />
-    <Content Include="assets\assetsnew\images\main-slider\slider-3.jpg" />
     <Content Include="assets\assetsnew\images\main-slider\slider-4.jpg" />
-    <Content Include="assets\assetsnew\images\main-slider\slider-5.jpg" />
-    <Content Include="assets\assetsnew\images\main-slider\slider-6.jpg" />
-    <Content Include="assets\assetsnew\images\main-slider\slider-7.jpg" />
-    <Content Include="assets\assetsnew\images\main-slider\slider-8.jpg" />
-    <Content Include="assets\assetsnew\images\main-slider\slider-9.jpg" />
     <Content Include="assets\assetsnew\images\main-slider\wim.mp4" />
     <Content Include="assets\assetsnew\images\MIIPP.gif" />
     <Content Include="assets\assetsnew\images\minus.png" />
