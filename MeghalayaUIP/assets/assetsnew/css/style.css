@@ -19766,11 +19766,10 @@ section.intro-style-two{
 
 
 .col.col-xs-12.text-center.bgview {
-  background-color: #fd5f17;
-  background: #FFEFBA;
+  
   background: linear-gradient(45deg, rgb(25 45 102 / 78%) 0%, rgb(63 81 181 / 71%) 100%), url(../images/bghead1.jpg) center center no-repeat;
   background-size: cover;
-  background-position: center;
+  
   border-radius: 95px;
   padding: 20px 0px;
   box-shadow: 1px 4px 20px;

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--Banner Video-->
     <video autoplay="" muted="" loop="" id="myVideo" style="top: -80px; opacity: 1; width: 100%; margin-top: -275px;">
-        <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;">
+        <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;"/>
     </video>
     <section class="slider-style-three centred" style="display: none;">
         <div class="main-slider-carousel-2 owl-carousel owl-theme">
@@ -491,8 +491,8 @@
 
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
 
-                    <video autoplay="" muted="" loop="" id="myVideo" style="width: 100%;">
-                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;">
+                    <video autoplay="" muted="" loop="" id="myVideo1" style="width: 100%;">
+                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;"/>
                     </video>
 
                 </div>

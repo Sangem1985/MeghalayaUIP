@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
+<head runat="server">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<head runat="server">
     <title>MIPA</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -350,7 +351,7 @@
                         <div class="inner-container clearfix">
                             <ul class="header-info pull-left" style="width: 30%;">
 
-                                <li><a href="tel:+91 7085741695" style="text-transform: none;">Toll Free Number : <b>+91 7085741695</b></a></li>
+                                <li><a href="tel:+917085741695" style="text-transform: none;">Toll Free Number : <b>+91 7085741695</b></a></li>
                                 <li>
                                     <div class="language dropdownn" id="google_translate_element"></div>
                                 </li>
@@ -393,7 +394,9 @@
                             <div class="left-content pull-left">
                                 <figure class="logo-box">
                                     <a href="Home.aspx">
-                                        <img src="assets/assetsnew/images/Logo_dark.png" title="Meghalaya Investment Promotion Authority (MIPA)" alt="" style="width: 29%; margin-top: 0px;"></a>
+                                        <img src="assets/assetsnew/images/Logo_dark.png" title="Meghalaya Investment Promotion Authority (MIPA)" alt="Meghalaya Investment Promotion Authority (MIPA)" style="width: 29%; margin-top: 0px;"/>
+
+                                    </a>
                                 </figure>
                             </div>
                             <div class="right-content pull-right">
