@@ -243,9 +243,9 @@ namespace MeghalayaUIP.Dept.PreReg
                             gvDITChecklist.DataSource = ds.Tables[8];
                             gvDITChecklist.DataBind();
                         }
-                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
                         {
-                            grdResponcse.DataSource = ds.Tables[4];
+                            grdResponcse.DataSource = ds.Tables[7];
                             grdResponcse.DataBind();
                         }
                         if (Convert.ToString(Request.QueryString["status"]) != "ApplicationTracker")
