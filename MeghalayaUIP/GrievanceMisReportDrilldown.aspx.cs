@@ -34,7 +34,7 @@ namespace MeghalayaUIP
                     ToDate = Convert.ToString(Request.QueryString[2]);
                     ViewType = Convert.ToString(Request.QueryString[3]);
                     Status = Convert.ToString(Request.QueryString[4]);
-                    Department = Convert.ToString(Request.QueryString[4]);
+                    Department = Convert.ToString(Request.QueryString[5]);
 
                     DataSet ds = new DataSet();
 

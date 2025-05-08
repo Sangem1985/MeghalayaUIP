@@ -117,7 +117,7 @@
                                     <div class="form-group row">
 
                                         <div class="col-lg-6 d-flex">
-                                            <asp:Button ID="btnSearch" runat="server" Text="Search" class="btn btn-rounded btn-success" Width="80px" />
+                                            <asp:Button ID="btnSearch" runat="server" Text="Search" class="btn btn-rounded btn-success" OnClick="btnSearch_Click" Width="80px" />
                                         </div>
                                     </div>
                                 </div>

@@ -181,5 +181,10 @@ namespace MeghalayaUIP
                 TOTALAPPLICATIONSRCVD = 0; TOTALAPPROVRED = 0; TOTALREJECTED = 0;
             }
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            Binddata();
+        }
     }
 }
