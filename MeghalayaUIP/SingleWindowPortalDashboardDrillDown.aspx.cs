@@ -33,6 +33,11 @@ namespace MeghalayaUIP
                     ViewType = Convert.ToString(Request.QueryString[3]);
                     Department = Convert.ToString(Request.QueryString[4]);
 
+                    if (FormDate.Contains("/") || ToDate.Contains("/"))
+                    {
+                        FormDate.Replace("/", "-");
+                        ToDate.Replace("/", "-");
+                    }
                     DataSet ds = new DataSet();
                     ds = masterBAL.SWPDDrilldown(Deptid, FormDate, ToDate, ViewType);
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)

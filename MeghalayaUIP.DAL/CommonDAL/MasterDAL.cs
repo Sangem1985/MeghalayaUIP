@@ -2622,13 +2622,13 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", Deptid);
                 if (FromDate != null && FromDate != "")
                 {
-                    da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                    // da.SelectCommand.Parameters.AddWithValue("@FDATE", FromDate);
+                   // da.SelectCommand.Parameters.AddWithValue("@FDATE", DateTime.ParseExact(FromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@FDATE", FromDate);
                 }
                 if (ToDate != null && ToDate != "")
                 {
-                    //da.SelectCommand.Parameters.AddWithValue("@TDATE", ToDate);
-                    da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(ToDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@TDATE", ToDate);
+                   // da.SelectCommand.Parameters.AddWithValue("@TDATE", DateTime.ParseExact(ToDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
 
                 da.SelectCommand.Parameters.AddWithValue("@VIWETYPE", ViewType);
