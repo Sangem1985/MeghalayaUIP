@@ -57,21 +57,28 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField HeaderText="UnitId" DataField="CFEDA_UNITID" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="20%" Visible="false" />
-                                <asp:BoundField HeaderText="Uid" DataField="CFEDA_CFEUIDNO" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" />
-                                <asp:BoundField HeaderText="Name" DataField="CFEQD_COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" Visible="true" ItemStyle-Width="10%" />
-                                <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" ItemStyle-Width="20%" />
-                                <asp:BoundField HeaderText="Department" DataField="TMD_DeptName" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="15%" />
+                                <asp:BoundField HeaderText="Uid" DataField="CFEDA_CFEUIDNO" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" ItemStyle-Width="10%" Visible="false" />
+                                <asp:BoundField HeaderText="Firm Name" DataField="CFEQD_COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" Visible="true" />
+                                <asp:BoundField HeaderText="Name of the person" DataField="NameofPerson " HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" />
+
+                                <asp:BoundField HeaderText="Email" DataField="Email" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" />
+
+                                <asp:BoundField HeaderText="Address" DataField="ADDRESS" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" />
+                                <asp:BoundField HeaderText="Approval Date" DataField="ApprovalDate" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" />
+
+
+                                <asp:BoundField HeaderText="Department" DataField="TMD_DeptName" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left" ItemStyle-ForeColor="WindowText" />
                                 <%--  <asp:TemplateField HeaderText="View" Visible="false">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="lnkButton" runat="server" Text="View" OnClick="lnkButton_Click"></asp:LinkButton>
-                                    </ItemTemplate>
-                                    <HeaderStyle HorizontalAlign="Left" />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="View" Visible="false">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblFilePath" Text='<%#Eval("GRIEVANCE_FILEPATH")%>' runat="server"></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>--%>
+         <ItemTemplate>
+             <asp:LinkButton ID="lnkButton" runat="server" Text="View" OnClick="lnkButton_Click"></asp:LinkButton>
+         </ItemTemplate>
+         <HeaderStyle HorizontalAlign="Left" />
+     </asp:TemplateField>
+     <asp:TemplateField HeaderText="View" Visible="false">
+         <ItemTemplate>
+             <asp:Label ID="lblFilePath" Text='<%#Eval("GRIEVANCE_FILEPATH")%>' runat="server"></asp:Label>
+         </ItemTemplate>
+     </asp:TemplateField>--%>
                             </Columns>
                         </asp:GridView>
                     </div>
