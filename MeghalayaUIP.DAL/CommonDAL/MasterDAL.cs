@@ -1560,7 +1560,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
             try
             {
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(MasterConstants.GetSingleWindowDepts, connection);
+                da = new SqlDataAdapter(MasterConstants.GetSingleWindowApprovals, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.CommandText = MasterConstants.GetSingleWindowApprovals;
 

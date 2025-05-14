@@ -124,6 +124,7 @@ namespace MeghalayaUIP
                     {
                         if (dsnew.Tables[0].Rows.Count > 0)
                         {
+                            TOTALAPPLICATIONSRCVD = 0; TOTALAPPROVRED = 0; TOTALREJECTED = 0;
                             gvApprovals.DataSource = dsnew.Tables[0];
                             gvApprovals.DataBind();
                         }
