@@ -2951,7 +2951,6 @@
     <Folder Include="Documents\Prerequistes\" />
     <Folder Include="Documents\Rules\" />
     <Folder Include="Documents\SOP\" />
-    <Folder Include="Reports\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
