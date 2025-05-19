@@ -698,6 +698,7 @@
     <Content Include="RegisterGrievance.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="RenewalServices.aspx" />
+    <Content Include="Reports\WaterDashboard.aspx" />
     <Content Include="RTIACT.aspx" />
     <Content Include="Sectoralinformation.aspx" />
     <Content Include="SetNewPassword.aspx" />
@@ -1667,6 +1668,13 @@
     </Compile>
     <Compile Include="RenewalServices.aspx.designer.cs">
       <DependentUpon>RenewalServices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\WaterDashboard.aspx.cs">
+      <DependentUpon>WaterDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\WaterDashboard.aspx.designer.cs">
+      <DependentUpon>WaterDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="RTIACT.aspx.cs">
       <DependentUpon>RTIACT.aspx</DependentUpon>
