@@ -31,7 +31,7 @@ namespace MeghalayaAPI.Models
         public static void LogerrorDB(Exception ex, string CreatedBy)
         {
 
-            string constr = ConfigurationManager.ConnectionStrings["ConnectionStringwebapi"].ConnectionString;
+            string constr = ConfigurationManager.ConnectionStrings["MIPASS"].ConnectionString;
             try
             {
                 DataSet dsdata = new DataSet();

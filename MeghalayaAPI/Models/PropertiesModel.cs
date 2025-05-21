@@ -182,4 +182,12 @@ namespace MeghalayaAPI.Models
         public string message { get; set; }
         public Data data { get; set; }
     }
+    public class VisitorModel
+    {
+        public string VisitorId { get; set; }
+        public string VisitorCity { get; set; }
+        public string MobileNumber { get; set; }
+        public string Email { get; set; }
+    }
+   
 }
