@@ -146,7 +146,7 @@
                         </div>
                         <div class="swpd">
 
-                            <asp:GridView ID="gvWaterQuality" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid" EmptyDataText="No Data Found" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-Font-Bold="true" BackColor="White" BorderStyle="None" BorderWidth="1px">
+                            <asp:GridView ID="gvWaterQuality" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid" EmptyDataText="No Data Found" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-Font-Bold="true" BackColor="White" BorderStyle="None" BorderWidth="1px" OnRowCreated="gvWaterQuality_RowCreated">
                                 <HeaderStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
                                 <RowStyle CssClass="GridviewScrollC1Item" />
@@ -165,16 +165,16 @@
                                     <asp:BoundField HeaderText="Area" DataField="AREA" />
                                     <asp:BoundField HeaderText="Date of Sample Collection" DataField="DATEOFSAMPLECOLLECTION" />
                                     <asp:BoundField HeaderText="Date of Testing" DataField="DATEOFTESTING" />
-                                    <asp:BoundField HeaderText="pH@ 25°C&#10;Acceptable: 6.5-8.5&#10;Permissible: 6.5-8.5" DataField="ACCEPTABLELIMITPERMISSIBLEPH" />
-                                    <asp:BoundField HeaderText="TDS (mg/L)&#10;Acceptable: 500&#10;Permissible: 2000" DataField="ACCEPTABLETDS" />
-                                    <asp:BoundField HeaderText="Iron (mg/L)&#10;Acceptable: 1.0&#10;Permissible: No relaxation" DataField="ACCEPTABLEIRON" />
-                                    <asp:BoundField HeaderText="Turbidity (NTU)&#10;Acceptable: 1.0&#10;Permissible: 5.0" DataField="ACCEPTABLENUT" />
-                                    <%--<asp:BoundField HeaderText="Fluoride (mg/L)&#10;Acceptable: 1.0&#10;Permissible: 1.5" DataField="ACCEPTABLECHLORIDE" />--%>
-                                    <asp:BoundField HeaderText="Chloride (mg/L)&#10;Acceptable: 250&#10;Permissible: 1000" DataField="ACCEPTABLECHLORIDE" />
-                                    <asp:BoundField HeaderText="Alkalinity (mg/L)&#10;Acceptable: 200&#10;Permissible: 600" DataField="ACCEPTABLEALKALINITY" />
-                                    <asp:BoundField HeaderText="Arsenic (mg/L)&#10;Acceptable: 0.01&#10;Permissible: No relaxation" DataField="ACCEPTABLEARSENIC" />
-                                    <asp:BoundField HeaderText="Residual Free Chlorine (mg/L)&#10;Acceptable: 0.2&#10;Permissible: 1.0" DataField="ACCEPTABLERESIDUALFREECHORINE" />
-                                    <asp:BoundField HeaderText="Total Hardness (mg/L)&#10;Acceptable: 200&#10;Permissible: 600" DataField="ACCEPTABLETOTALHARDNESS" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 6.5-8.5&#10;Permissible Limit: 6.5-8.5" DataField="ACCEPTABLELIMITPERMISSIBLEPH" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 500&#10;Permissible Limit: 2000" DataField="ACCEPTABLETDS" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 1.0&#10;Permissible Limit: No relaxation" DataField="ACCEPTABLEIRON" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 1.0&#10;Permissible Limit: 5.0" DataField="ACCEPTABLENUT" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 1.0&#10;Permissible Limit: 1.5" DataField="ACCEPTABLECHLORIDE" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 250&#10;Permissible Limit: 1000" DataField="ACCEPTABLECHLORIDE" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 200&#10;Permissible Limit: 600" DataField="ACCEPTABLEALKALINITY" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 0.01&#10;Permissible Limit: No relaxation" DataField="ACCEPTABLEARSENIC" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 0.2&#10;Permissible Limit: 1.0" DataField="ACCEPTABLERESIDUALFREECHORINE" />
+                                    <asp:BoundField HeaderText="Acceptable Limit: 200&#10;Permissible Limit: 600" DataField="ACCEPTABLETOTALHARDNESS" />
                                 </Columns>
                                 <EmptyDataTemplate>
                                     <div style="text-align: center; padding: 10px;">

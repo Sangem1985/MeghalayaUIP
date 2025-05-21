@@ -565,7 +565,7 @@
                                                         <li><a href="ODOPDashboard.aspx">ODOP Dashboard</a></li>
                                                         <li class="dropdown"><a href="#">Other dashboard</a>
                                                             <ul class="ODOP">
-                                                                <li><a href="https://smb.gov.in/index.php/content/index/dashboard" target="_blank">Water Dashboard</a></li>
+                                                                <li><a href="WaterDashboard.aspx" target="_blank">Water Dashboard</a></li>
                                                             </ul>
                                                         </li>
 
