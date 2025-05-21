@@ -954,6 +954,7 @@ namespace MeghalayaUIP.Dept.CFE
                         objcfeDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
                         objcfeDtls.Questionnaireid = Session["Questionnaireid"].ToString();
                         objcfeDtls.Remarks = txtRequest.Text;
+                        objcfeDtls.AdditionalAmount= txtAdditionalAmount.Text;
                         if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
                         {
                             if (ddlStatus.SelectedValue == "17")
@@ -1156,7 +1157,12 @@ namespace MeghalayaUIP.Dept.CFE
 
                         }
                     }
-
+                    else if (ddlapproval.SelectedValue == "16" && hplApproval.Text=="")
+                    {
+                        lblmsg0.Text = "Please Upload Approval Document";
+                        Failure.Visible = true;
+                        return;
+                    }
                     else
                     {
                         objcfeDtls.Unitid = Session["UNITID"].ToString();
