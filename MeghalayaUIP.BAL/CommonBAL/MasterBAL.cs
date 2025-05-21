@@ -418,5 +418,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetPageName(PageName);
         }
+        public DataSet GetWaterDashBoardReport(string Type)
+        {
+            return objMasterDAL.GetWaterDashBoardReport(Type);
+        }
+
     }
 }

@@ -867,6 +867,7 @@
     <Content Include="User\UserDashboard.aspx" />
     <Content Include="ViewCertifcateDetails.aspx" />
     <Content Include="ViewCertificate.aspx" />
+    <Content Include="WaterDashboard.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2858,6 +2859,13 @@
     </Compile>
     <Compile Include="ViewCertificate.aspx.designer.cs">
       <DependentUpon>ViewCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WaterDashboard.aspx.cs">
+      <DependentUpon>WaterDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WaterDashboard.aspx.designer.cs">
+      <DependentUpon>WaterDashboard.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
