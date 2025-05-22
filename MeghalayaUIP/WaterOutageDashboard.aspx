@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OuterNew.Master" AutoEventWireup="true" CodeBehind="WaterDashboard.aspx.cs" Inherits="MeghalayaUIP.WaterDashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OuterNew.Master" AutoEventWireup="true" CodeBehind="WaterOutageDashboard.aspx.cs" Inherits="MeghalayaUIP.WaterOutageDashboard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -69,7 +69,7 @@
         }
 
             .water-grid th, .water-grid td {
-                border: 1px solid #005691;
+                border: 1px solid #b2e2ff;
                 padding: 8px;
                 font-size: 12px;
                 text-align: center;
@@ -93,13 +93,14 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Report</li>
-                                <li class="breadcrumb-item active" aria-current="page">Water Quality Monitoring Dashboard</li>
+                                <li class="breadcrumb-item active" aria-current="page">Other Dashboard</li>
+                                <li class="breadcrumb-item active" aria-current="page">Planned outage supply dashboard</li>
                             </ol>
                         </nav>
 
 
-                        <h4>Water Quality Monitoring Dashboard</h4><br />
+                        <h4>Planned Outage Water Supply</h4>
+                        <br />
                         <div class="col-md-12 d-flex" style="margin-bottom: 8px;">
                             <div class="col-md-3" runat="server" visible="false">
                                 <div class="form-group row">
@@ -143,12 +144,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                       
                         <div class="swpd">
 
-                            <asp:GridView ID="gvWaterQuality" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid" 
+                            <asp:GridView ID="GVWater" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid"
                                 EmptyDataText="No Data Found" EmptyDataRowStyle-ForeColor="Black" EmptyDataRowStyle-Font-Bold="true" BackColor="#e9ecf5"
-                                BorderStyle="None" BorderWidth="1px" OnRowCreated="gvWaterQuality_RowCreated" ShowHeaderWhenEmpty="true">
+                                BorderStyle="None" BorderWidth="1px" ShowHeaderWhenEmpty="true">
                                 <HeaderStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
                                 <RowStyle CssClass="GridviewScrollC1Item" />
@@ -163,29 +164,20 @@
                                         <HeaderStyle HorizontalAlign="Center" />
                                         <ItemStyle Width="5%" />
                                     </asp:TemplateField>
-
-                                    <asp:BoundField HeaderText="Area" DataField="AREA" />
-                                    <asp:BoundField HeaderText="Date of Sample Collection" DataField="DATEOFSAMPLECOLLECTION" />
-                                    <asp:BoundField HeaderText="Date of Testing" DataField="DATEOFTESTING" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 6.5-8.5&#10;Permissible Limit: 6.5-8.5" DataField="ACCEPTABLELIMITPERMISSIBLEPH" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 500&#10;Permissible Limit: 2000" DataField="ACCEPTABLETDS" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 1.0&#10;Permissible Limit: No relaxation" DataField="ACCEPTABLEIRON" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 1.0&#10;Permissible Limit: 5.0" DataField="ACCEPTABLENUT" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 1.0&#10;Permissible Limit: 1.5" DataField="ACCEPTABLEFLUORIDE" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 250&#10;Permissible Limit: 1000" DataField="ACCEPTABLECHLORIDE" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 200&#10;Permissible Limit: 600" DataField="ACCEPTABLEALKALINITY" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 0.01&#10;Permissible Limit: No relaxation" DataField="ACCEPTABLEARSENIC" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 0.2&#10;Permissible Limit: 1.0" DataField="ACCEPTABLERESIDUALFREECHORINE" />
-                                    <asp:BoundField HeaderText="Acceptable Limit: 200&#10;Permissible Limit: 600" DataField="ACCEPTABLETOTALHARDNESS" />
-                                </Columns>
-                                <EmptyDataTemplate>
+                                    <asp:BoundField HeaderText="Areas which will be affected by Water Outage" DataField="AREAWATER" />
+                                    <asp:BoundField HeaderText="Period of Water Outages (from and to dates)" DataField="PERIODWATEROUTAGE" />
+                                    <asp:BoundField HeaderText="Water Outage Causes" DataField="WATEROUTAGECAUSES" />
+                                    <asp:BoundField HeaderText="Approved Copy Download" DataField="APPROVED" />
+                                    <asp:BoundField HeaderText="Archive Data" DataField="ARCHIVEDATA" />
+                                </Columns>   
+                                 <EmptyDataTemplate>
                                     <div style="text-align: center; padding: 10px;">
-                                        No Water Quality Dashboard Data
+                                        No Planned Outage Water Supply Data...!
                                     </div>
                                 </EmptyDataTemplate>
                             </asp:GridView>
-
                         </div>
+
                     </div>
                 </div>
                 <div id="DivFooter" runat="server">

@@ -101,6 +101,7 @@ namespace MeghalayaUIP.Common
 
         public static string GetPageName = "USP_GETPAGENAME";
         public static string GetWaterDashBoardReport = "USP_WASTERDASHBOARD";
+        public static string GetWaterOuterDashBoard = "USP_WATEROUTAGESUPPLY";
 
     }
     public class MasterCountry

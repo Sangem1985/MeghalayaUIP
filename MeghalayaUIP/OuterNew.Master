@@ -565,7 +565,8 @@
                                                         <li><a href="ODOPDashboard.aspx">ODOP Dashboard</a></li>
                                                         <li class="dropdown"><a href="#">Other dashboard</a>
                                                             <ul class="ODOP">
-                                                                <li><a href="WaterDashboard.aspx" target="_blank">Water Dashboard</a></li>
+                                                                <li><a href="WaterDashboard.aspx" target="_blank">Water Quality Monitoring Dashboard</a></li>
+                                                                <li><a href="WaterOutageDashboard.aspx" target="_blank">Planned outage supply dashboard</a></li>
                                                             </ul>
                                                         </li>
 

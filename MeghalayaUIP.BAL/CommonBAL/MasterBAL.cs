@@ -422,6 +422,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetWaterDashBoardReport(Type);
         }
+        public DataSet GetWaterOutageDashBoard(string Type)
+        {
+            return objMasterDAL.GetWaterOutageDashBoard(Type);
+        }
 
     }
 }
