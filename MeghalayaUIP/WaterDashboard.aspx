@@ -99,7 +99,7 @@
                         </nav>
 
 
-                        <h3>Water Quality Monitoring Dashboard</h3>
+                        <h4>Water Quality Monitoring Dashboard</h4><br />
                         <div class="col-md-12 d-flex" style="margin-bottom: 8px;">
                             <div class="col-md-3" runat="server" visible="false">
                                 <div class="form-group row">
@@ -146,7 +146,9 @@
                         </div>
                         <div class="swpd">
 
-                            <asp:GridView ID="gvWaterQuality" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid" EmptyDataText="No Data Found" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-Font-Bold="true" BackColor="White" BorderStyle="None" BorderWidth="1px" OnRowCreated="gvWaterQuality_RowCreated">
+                            <asp:GridView ID="gvWaterQuality" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid" 
+                                EmptyDataText="No Data Found" EmptyDataRowStyle-ForeColor="Red" EmptyDataRowStyle-Font-Bold="true" BackColor="White"
+                                BorderStyle="None" BorderWidth="1px" OnRowCreated="gvWaterQuality_RowCreated" ShowHeaderWhenEmpty="true">
                                 <HeaderStyle HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
                                 <RowStyle CssClass="GridviewScrollC1Item" />

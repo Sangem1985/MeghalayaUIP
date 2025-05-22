@@ -38,7 +38,7 @@ namespace MeghalayaUIP
                     }
                     else
                     {
-                        gvWaterQuality.DataSource = null;
+                        gvWaterQuality.DataSource = dsnew;
                         gvWaterQuality.DataBind();
                     }
                 }
