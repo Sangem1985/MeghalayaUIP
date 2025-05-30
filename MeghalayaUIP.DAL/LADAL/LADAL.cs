@@ -66,6 +66,56 @@ namespace MeghalayaUIP.DAL.LADAL
             }
             return Result;
         }
+        public string InsertLandIndState(LANDQUESTIONNAIRE Objindustry)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = LANDConstants.InsertIndLandStateDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@IE_CREATEDBY", Convert.ToInt32(Objindustry.CreatedBy));
+                com.Parameters.AddWithValue("@IE_CREATEDBYIP", Objindustry.IPAddress);
+                com.Parameters.AddWithValue("@IE_QDID", Convert.ToInt32(Objindustry.Questionnariid));
+                com.Parameters.AddWithValue("@IE_UNITID", Convert.ToInt32(Objindustry.UnitId));
+
+                com.Parameters.AddWithValue("@IE_NAMEOFINUSTRIALPARK", Objindustry.NAMEINDUSTRYPARK);
+                com.Parameters.AddWithValue("@IE_LANDREQ", Objindustry.QUANTUMLAND);
+                com.Parameters.AddWithValue("@IE_SHEDSNO", Objindustry.SHEDSNO);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
         public string InsertManufactureDetails(LANDQUESTIONNAIRE Objindustry)
         {
             string Result = "";
@@ -303,9 +353,9 @@ namespace MeghalayaUIP.DAL.LADAL
                 com.Parameters.AddWithValue("@ISD_PMLAKH", Convert.ToDecimal(Objindustry.PMLAKH));
                 com.Parameters.AddWithValue("@ISD_PROJECTCOSTLAKH", Convert.ToDecimal(Objindustry.TOTALPROJECTCOST));
                 com.Parameters.AddWithValue("@ISD_WASTEGENERATED", Objindustry.WASTEGENERATOR);
-                com.Parameters.AddWithValue("@ISD_NAMEOFINUSTRIALPARK", Objindustry.NAMEINDUSTRYPARK);
-                com.Parameters.AddWithValue("@ISD_LANDREQ", Objindustry.QUANTUMLAND);
-                com.Parameters.AddWithValue("@ISD_SHEDSNO", Objindustry.SHEDSNO);
+                //com.Parameters.AddWithValue("@ISD_NAMEOFINUSTRIALPARK", Objindustry.NAMEINDUSTRYPARK);
+                //com.Parameters.AddWithValue("@ISD_LANDREQ", Objindustry.QUANTUMLAND);
+                //com.Parameters.AddWithValue("@ISD_SHEDSNO", Objindustry.SHEDSNO);
                 com.Parameters.AddWithValue("@ISD_LAUIDNO", Objindustry.UIDNO);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);

@@ -21,6 +21,8 @@ namespace MeghalayaUIP.Common
         public static string SubmitLandApplication ="USP_SUBMITLANDAPPLICATION";
         public static string GetLANDApprovalsAmounttoPay = "USP_GETLANDAPPROVALSAMOUNTTOPAY";
 
+        public static string InsertIndLandStateDetails = "USP_INSLAINDUSTRIALESTATEDETAILS";
+
         ////////////////////////////////////----------------------------------/////////////////////////////////
         ///
         public static string GetLandDeptDashBoard = "USP_GETLANDDASHBOARD";

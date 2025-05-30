@@ -72,10 +72,7 @@ namespace MeghalayaUIP.User.LA
                         ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["ISD_MANDAL"].ToString();
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["ISD_VILLAGE"].ToString();
-                        ddlname.SelectedValue = ds.Tables[0].Rows[0]["ISD_NAMEOFINUSTRIALPARK"].ToString();
-                        txtQuantum.Text = ds.Tables[0].Rows[0]["ISD_LANDREQ"].ToString();
-                        txtSheds.Text = ds.Tables[0].Rows[0]["ISD_SHEDSNO"].ToString();
+                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["ISD_VILLAGE"].ToString();                      
                         txtEquity.Text = ds.Tables[0].Rows[0]["ISD_EQUITY"].ToString();
                         txtTermLoan.Text = ds.Tables[0].Rows[0]["ISD_LOANBANK"].ToString();
                         txtUnsecured.Text = ds.Tables[0].Rows[0]["ISD_UNSECUREDLOAN"].ToString();
@@ -88,7 +85,12 @@ namespace MeghalayaUIP.User.LA
                         txtGenerated.Text = ds.Tables[0].Rows[0]["ISD_WASTEGENERATED"].ToString();
 
                     }
-
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        GVLANDINDSTATE.DataSource = ds.Tables[1];
+                        GVLANDINDSTATE.DataBind();
+                        GVLANDINDSTATE.Visible = true;
+                    }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
                         GVManu.DataSource = ds.Tables[2];
@@ -113,6 +115,7 @@ namespace MeghalayaUIP.User.LA
                         GVWATER.DataBind();
                         GVWATER.Visible = true;
                     }
+                   
                 }
 
             }
@@ -695,23 +698,19 @@ namespace MeghalayaUIP.User.LA
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-           // string Quesstionriids = 
             try
             {
-                
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
                     LANDQUESTIONNAIRE Objindustry = new LANDQUESTIONNAIRE();
 
-                    int count1 = 0, count2 = 0, count3 = 0, count4 = 0;
+                    int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0;
                     Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]);
                     Objindustry.CreatedBy = hdnUserID.Value;
                     Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                     Objindustry.IPAddress = getclientIP();
-                    Objindustry.NAMEINDUSTRYPARK = ddlname.SelectedValue;
-                    Objindustry.QUANTUMLAND = txtQuantum.Text;
-                    Objindustry.SHEDSNO = txtSheds.Text;
+
                     Objindustry.COMPANYNAME = txtUnitName.Text;
                     Objindustry.DISTRIC = ddlDistrict.SelectedValue;
                     Objindustry.MANDAL = ddlMandal.SelectedValue;
@@ -739,7 +738,7 @@ namespace MeghalayaUIP.User.LA
 
                         for (int i = 0; i < GVManu.Rows.Count; i++)
                         {
-                            Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]); 
+                            Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]);
                             Objindustry.CreatedBy = hdnUserID.Value;
                             Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                             Objindustry.IPAddress = getclientIP();
@@ -790,9 +789,24 @@ namespace MeghalayaUIP.User.LA
                             if (A != "")
                             { count4 = count4 + 1; }
                         }
+                        for (int i = 0; i < GVLANDINDSTATE.Rows.Count; i++)
+                        {
+                            Objindustry.Questionnariid = Convert.ToString(Session["LANDQDID"]);
+                            Objindustry.CreatedBy = hdnUserID.Value;
+                            Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
+                            Objindustry.IPAddress = getclientIP();
+                            Objindustry.NAMEINDUSTRYPARK = GVLANDINDSTATE.Rows[i].Cells[1].Text; //ddlname.SelectedValue;
+                            Objindustry.QUANTUMLAND = GVLANDINDSTATE.Rows[i].Cells[2].Text;
+                            Objindustry.SHEDSNO = GVLANDINDSTATE.Rows[i].Cells[3].Text;
 
+                            string A = Objland.InsertLandIndState(Objindustry);
+                            if (A != "")
+                            {
+                                count5 = count5 + 1;
+                            }
+                        }
 
-                        if (GVManu.Rows.Count == count1 && GVRawMaterial.Rows.Count == count2 && GVPOWER.Rows.Count == count3 && GVWATER.Rows.Count == count4)
+                        if (GVManu.Rows.Count == count1 && GVRawMaterial.Rows.Count == count2 && GVPOWER.Rows.Count == count3 && GVWATER.Rows.Count == count4 && GVLANDINDSTATE.Rows.Count == count5)
                         {
                             Objindustry.UnitId = Convert.ToString(Session["LANDUNITID"]);
                             Objindustry.CreatedBy = hdnUserID.Value;
@@ -830,8 +844,8 @@ namespace MeghalayaUIP.User.LA
             {
                 int slno = 1;
                 string errormsg = "";
-                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
-                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+                //List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                //List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
 
                 if (string.IsNullOrEmpty(txtUnitName.Text) || txtUnitName.Text == "" || txtUnitName.Text == null)
                 {
@@ -958,53 +972,131 @@ namespace MeghalayaUIP.User.LA
 
             return result;
         }
-        protected List<TextBox> FindEmptyTextboxes(Control container)
+
+        protected void GVLANDINDSTATE_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-
-            List<TextBox> emptyTextboxes = new List<TextBox>();
-            foreach (Control control in container.Controls)
+            try
             {
-                if (control is TextBox)
+                if (GVLANDINDSTATE.Rows.Count > 0)
                 {
-                    TextBox textbox = (TextBox)control;
-                    if (string.IsNullOrWhiteSpace(textbox.Text))
-                    {
-                        emptyTextboxes.Add(textbox);
-                        textbox.BorderColor = System.Drawing.Color.Red;
-                    }
-                }
+                    ((DataTable)ViewState["LANDSTATE"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVLANDINDSTATE.DataSource = ((DataTable)ViewState["LANDSTATE"]).DefaultView;
+                    this.GVLANDINDSTATE.DataBind();
+                    GVLANDINDSTATE.Visible = true;
+                    GVLANDINDSTATE.Focus();
 
-                if (control.HasControls())
+                }
+                else
                 {
-                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
                 }
             }
-            return emptyTextboxes;
-        }
-        protected List<DropDownList> FindEmptyDropdowns(Control container)
-        {
-            List<DropDownList> emptyDropdowns = new List<DropDownList>();
-
-            foreach (Control control in container.Controls)
+            catch (Exception ex)
             {
-                if (control is DropDownList)
-                {
-                    DropDownList dropdown = (DropDownList)control;
-                    if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
-                    {
-                        emptyDropdowns.Add(dropdown);
-                        dropdown.BorderColor = System.Drawing.Color.Red;
-                    }
-                }
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
 
-                if (control.HasControls())
+        //protected List<TextBox> FindEmptyTextboxes(Control container)
+        //{
+
+        //    List<TextBox> emptyTextboxes = new List<TextBox>();
+        //    foreach (Control control in container.Controls)
+        //    {
+        //        if (control is TextBox)
+        //        {
+        //            TextBox textbox = (TextBox)control;
+        //            if (string.IsNullOrWhiteSpace(textbox.Text))
+        //            {
+        //                emptyTextboxes.Add(textbox);
+        //                textbox.BorderColor = System.Drawing.Color.Red;
+        //            }
+        //        }
+
+        //        if (control.HasControls())
+        //        {
+        //            emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+        //        }
+        //    }
+        //    return emptyTextboxes;
+        //}
+
+        protected void btnInduPark_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(ddlname.Text) || string.IsNullOrEmpty(txtQuantum.Text) || string.IsNullOrEmpty(txtSheds.Text))
                 {
-                    emptyDropdowns.AddRange(FindEmptyDropdowns(control));
+                    lblmsg0.Text = "Please Enter All Details";
+                    Failure.Visible = true;
+                }
+                else
+                {
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("IE_UNITID", typeof(string));
+                    dt.Columns.Add("IE_CREATEDBY", typeof(string));
+                    dt.Columns.Add("IE_CREATEDBYIP", typeof(string));
+                    dt.Columns.Add("IE_NAMEOFINUSTRIALPARK", typeof(string));
+                    dt.Columns.Add("IE_LANDREQ", typeof(string));
+                    dt.Columns.Add("IE_SHEDSNO", typeof(string));
+
+
+                    if (ViewState["LANDSTATE"] != null)
+                    {
+                        dt = (DataTable)ViewState["LANDSTATE"];
+                    }
+
+                    DataRow dr = dt.NewRow();
+                    dr["IE_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    dr["IE_CREATEDBY"] = hdnUserID.Value;
+                    dr["IE_CREATEDBYIP"] = getclientIP();
+                    dr["IE_NAMEOFINUSTRIALPARK"] = ddlname.SelectedValue;
+                    dr["IE_LANDREQ"] = txtQuantum.Text;
+                    dr["IE_SHEDSNO"] = txtSheds.Text;
+
+
+                    dt.Rows.Add(dr);
+                    GVLANDINDSTATE.Visible = true;
+                    GVLANDINDSTATE.DataSource = dt;
+                    GVLANDINDSTATE.DataBind();
+                    ViewState["LANDSTATE"] = dt;
                 }
             }
-
-            return emptyDropdowns;
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
+
+        //protected List<DropDownList> FindEmptyDropdowns(Control container)
+        //{
+        //    List<DropDownList> emptyDropdowns = new List<DropDownList>();
+
+        //    foreach (Control control in container.Controls)
+        //    {
+        //        if (control is DropDownList)
+        //        {
+        //            DropDownList dropdown = (DropDownList)control;
+        //            if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
+        //            {
+        //                emptyDropdowns.Add(dropdown);
+        //                dropdown.BorderColor = System.Drawing.Color.Red;
+        //            }
+        //        }
+
+        //        if (control.HasControls())
+        //        {
+        //            emptyDropdowns.AddRange(FindEmptyDropdowns(control));
+        //        }
+        //    }
+
+        //    return emptyDropdowns;
+        //}
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
@@ -1012,7 +1104,7 @@ namespace MeghalayaUIP.User.LA
             {
                 btnSave_Click(sender, e);
                 if (ErrorMsg == "")
-                    Response.Redirect("~/User/LA/LAPaymentPage.aspx");
+                    Response.Redirect("~/User/LA/LAEnclosures.aspx");
             }
             catch (Exception ex)
             {
@@ -1021,5 +1113,18 @@ namespace MeghalayaUIP.User.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void CalculateTotal(object sender, EventArgs e)
+        {
+            double equity = string.IsNullOrWhiteSpace(txtEquity.Text) ? 0 : Convert.ToDouble(txtEquity.Text);
+            double termLoan = string.IsNullOrWhiteSpace(txtTermLoan.Text) ? 0 : Convert.ToDouble(txtTermLoan.Text);
+            double unsecured = string.IsNullOrWhiteSpace(txtUnsecured.Text) ? 0 : Convert.ToDouble(txtUnsecured.Text);
+            double internalRes = string.IsNullOrWhiteSpace(txtInternal.Text) ? 0 : Convert.ToDouble(txtInternal.Text);
+            double otherSource = string.IsNullOrWhiteSpace(txtothersource.Text) ? 0 : Convert.ToDouble(txtothersource.Text);
+
+            double total = equity + termLoan + unsecured + internalRes + otherSource;
+
+            txtTotal.Text = total.ToString("F2");
+        }
+
     }
 }

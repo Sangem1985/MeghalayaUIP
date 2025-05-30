@@ -101,7 +101,7 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                              <%--  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" id="LANDQUERY" runat="server" visible="false">
                                     <asp:LinkButton runat="server" ID="linkQueryRaised" ForeColor="White" OnClick="linkQueryRaised_Click">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
@@ -111,7 +111,6 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    <%--<a href="PreRegApplIMAView.aspx?status=CommitteeQuery" style="color: white"></a>--%>
                                                      Query<br />
                                                     Raised 
                                                 </div>
@@ -120,7 +119,7 @@
                                             </div>
                                         </div>
                                     </asp:LinkButton>
-                                </div> 
+                                </div> --%>
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkRejected" ForeColor="White" OnClick="linkRejected_Click" >
                                         <div class="info-box bg-pink hover-expand-effect">

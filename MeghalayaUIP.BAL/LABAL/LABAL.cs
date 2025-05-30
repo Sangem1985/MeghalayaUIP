@@ -17,6 +17,10 @@ namespace MeghalayaUIP.BAL.LABAL
         {
             return objLANDDAL.InsertindustrialareaDetails(Objindustry);
         }
+        public string InsertLandIndState(LANDQUESTIONNAIRE Objindustry)
+        {
+            return objLANDDAL.InsertLandIndState(Objindustry);
+        }
         public string InsertManufactureDetails(LANDQUESTIONNAIRE Objindustry)
         {
             return objLANDDAL.InsertManufactureDetails(Objindustry);

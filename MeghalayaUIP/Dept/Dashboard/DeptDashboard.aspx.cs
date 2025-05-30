@@ -89,7 +89,16 @@ namespace MeghalayaUIP.Dept.Dashboard
                     }
                     
                     
-                }                
+                }
+                else if (ObjUserInfo.Roleid == "10")
+                {
+                    intenttoinvest.Visible = false;
+                    prereg.Visible = false;
+                    Preestablishment.Visible = false;
+                    Land.Visible = true;
+                    Ammendments.Visible = false;
+                    Report.Visible = false;
+                }
                 else
                 {
                     intenttoinvest.Visible = false;
@@ -187,7 +196,7 @@ namespace MeghalayaUIP.Dept.Dashboard
 
         protected void lnkLandAllotment_Click(object sender, EventArgs e)
         {
-            if (ObjUserInfo.Roleid == "1" || ObjUserInfo.Roleid == "4")
+            if (ObjUserInfo.Roleid == "10")
             {
                 Land.Visible = true;
                 string url = "~/Dept/LA/LADeptdashboard.aspx";
