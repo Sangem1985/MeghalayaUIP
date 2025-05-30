@@ -221,6 +221,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
                                                         State
+                                                   
                                                     </label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlStatedt" onchange="validateDropdown(this)" runat="server" class="form-control" AutoPostBack="true">
@@ -233,6 +234,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
                                                         District
+                                                   
                                                     </label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlDistricdt" onchange="validateDropdown(this)" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistricdt_SelectedIndexChanged">
@@ -344,6 +346,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
                                                         State
+                                                   
                                                     </label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlSates" onchange="validateDropdown(this)" runat="server" class="form-control" AutoPostBack="true">
@@ -356,6 +359,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
                                                         District
+                                                   
                                                     </label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlDistric" onchange="validateDropdown(this)" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistric_SelectedIndexChanged">
@@ -548,6 +552,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-12 d-flex">
                                         <div class="col-md-4" id="Reasons" runat="server" visible="false">
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">Reasons *</label>
@@ -622,6 +628,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-6 col-form-label">
                                                     District
+                                               
                                                 </label>
                                                 <div class="col-lg-6 d-flex">
                                                     <asp:DropDownList ID="ddldist" onchange="validateDropdown(this)" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddldist_SelectedIndexChanged">
@@ -991,6 +998,7 @@
                 </div>
             </div>
             </div>
+           
             <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
                 <ProgressTemplate>
                     <div class="update">

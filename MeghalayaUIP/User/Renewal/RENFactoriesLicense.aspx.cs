@@ -466,6 +466,7 @@ namespace MeghalayaUIP.User.Renewal
                     txtMaxEmp12.Text = ds.Tables[0].Rows[0]["RENFL_MAXNOWORK"].ToString();
                     txtFactoryEmpWorker.Text = ds.Tables[0].Rows[0]["RENFL_NOORDINARIYEMP"].ToString();
                     rblpowerGeneration.SelectedValue = ds.Tables[0].Rows[0]["RENFL_UNITELECTRICPOWER"].ToString();
+                    rblpowerGeneration_SelectedIndexChanged(null, EventArgs.Empty);
                     if (rblpowerGeneration.SelectedValue == "Y")
                     {
                         Generating.Visible = true;

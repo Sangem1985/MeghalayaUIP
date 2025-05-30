@@ -477,7 +477,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Number of contract labour approved in the existing License *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtApproved" runat="server" class="form-control" Type="text" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtApproved" runat="server" class="form-control" Type="text" onkeyup="handleKeyUp(this)" onkeypress="return NumberOnly()" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -486,7 +486,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Maximum number of contract labour proposed to be employed now *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtNoContract" runat="server" class="form-control" TextMode="MultiLine" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNoContract" runat="server" class="form-control" TextMode="MultiLine" onkeyup="handleKeyUp(this)" onkeypress="return NumberOnly()" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>

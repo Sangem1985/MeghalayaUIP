@@ -677,7 +677,10 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCLD_DETAILS", ObjRenContractLic.DETAILS);
                 com.Parameters.AddWithValue("@RENCLD_REVOKINGLIC", ObjRenContractLic.REVOKINGLIC);
                 // com.Parameters.AddWithValue("@RENCLD_ORDERDATE", ObjRenContractLic.ORDERDATE);
-                com.Parameters.AddWithValue("@RENCLD_ORDERDATE", DateTime.ParseExact(ObjRenContractLic.ORDERDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if(ObjRenContractLic.ORDERDATE !=null && ObjRenContractLic.ORDERDATE != "")
+                {
+                    com.Parameters.AddWithValue("@RENCLD_ORDERDATE", DateTime.ParseExact(ObjRenContractLic.ORDERDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
                 com.Parameters.AddWithValue("@RENCLD_ESTWITHIN5YEAR", ObjRenContractLic.ESTWITHIN5YEAR);
                 com.Parameters.AddWithValue("@RENCLD_ESTDETAILS", ObjRenContractLic.ESTDETAILS);
                 com.Parameters.AddWithValue("@RENCLD_EMPDETAILS", ObjRenContractLic.EMPDETAILS);
@@ -1769,9 +1772,14 @@ namespace MeghalayaUIP.DAL.RenewalDAL
 
                 com.Parameters.AddWithValue("@RENCM_LICRENO", ObjRenMigrant.LICRENO);
                 // com.Parameters.AddWithValue("@RENCM_LICISSUEDDATE", ObjRenMigrant.LICISSUEDDATE);
-                com.Parameters.AddWithValue("@RENCM_LICISSUEDDATE", DateTime.ParseExact(ObjRenMigrant.LICISSUEDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                // com.Parameters.AddWithValue("@RENCM_LICRENVALIDDATE", ObjRenMigrant.LICRENVALIDDATE);
-                com.Parameters.AddWithValue("@RENCM_LICRENVALIDDATE", DateTime.ParseExact(ObjRenMigrant.LICRENVALIDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ObjRenMigrant.LICISSUEDDATE != null && ObjRenMigrant.LICISSUEDDATE != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_LICISSUEDDATE", DateTime.ParseExact(ObjRenMigrant.LICISSUEDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }// com.Parameters.AddWithValue("@RENCM_LICRENVALIDDATE", ObjRenMigrant.LICRENVALIDDATE);
+                if (ObjRenMigrant.LICRENVALIDDATE != null && ObjRenMigrant.LICRENVALIDDATE != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_LICRENVALIDDATE", DateTime.ParseExact(ObjRenMigrant.LICRENVALIDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
                 com.Parameters.AddWithValue("@RENCM_TITLE", ObjRenMigrant.TITLE);
                 com.Parameters.AddWithValue("@RENCM_NAME ", ObjRenMigrant.NAME);
                 com.Parameters.AddWithValue("@RENCM_EMAILID ", ObjRenMigrant.EMAILID);
@@ -1786,7 +1794,10 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCM_PINCODE", Convert.ToInt32(ObjRenMigrant.PINCODE));
                 com.Parameters.AddWithValue("@RENCM_BIRTHAGE", ObjRenMigrant.DATEOFBIRTH);
                 // com.Parameters.AddWithValue("@RENCM_DATEOFBIRTH", ObjRenMigrant.DATE);
-                com.Parameters.AddWithValue("@RENCM_DATEOFBIRTH", DateTime.ParseExact(ObjRenMigrant.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ObjRenMigrant.DATE != null && ObjRenMigrant.DATE != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_DATEOFBIRTH", DateTime.ParseExact(ObjRenMigrant.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
                 com.Parameters.AddWithValue("@RENCM_AGE", ObjRenMigrant.AGE);
                 com.Parameters.AddWithValue("@RENCM_STATES", Convert.ToInt32(ObjRenMigrant.STATES));
                 com.Parameters.AddWithValue("@RENCM_DISTRICS ", Convert.ToInt32(ObjRenMigrant.DISTRICS));
@@ -1800,12 +1811,22 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCM_CONVICTED5APPLICATION", ObjRenMigrant.CONVICTED5APPLICATION);
                 com.Parameters.AddWithValue("@RENCM_DISTRICCOUNCIL", ObjRenMigrant.DISTRICCOUNCIL);
                 com.Parameters.AddWithValue("@RENCM_LICENSE", ObjRenMigrant.LICENSE);
-                com.Parameters.AddWithValue("@RENCM_LICNOS", Convert.ToInt32(ObjRenMigrant.LICNOS));
+                if (ObjRenMigrant.LICNOS != null && ObjRenMigrant.LICNOS != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_LICNOS", Convert.ToInt32(ObjRenMigrant.LICNOS));
+                }
                 // com.Parameters.AddWithValue("@RENCM_DATEOFLICENSE", ObjRenMigrant.DATEOFLICENSE);
-                com.Parameters.AddWithValue("@RENCM_DATEOFLICENSE", DateTime.ParseExact(ObjRenMigrant.DATEOFLICENSE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ObjRenMigrant.DATEOFLICENSE != null && ObjRenMigrant.DATEOFLICENSE != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_DATEOFLICENSE", DateTime.ParseExact(ObjRenMigrant.DATEOFLICENSE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
                 // com.Parameters.AddWithValue("@RENCM_VALIDDATE", ObjRenMigrant.VALIDDATE);
-                com.Parameters.AddWithValue("@RENCM_VALIDDATE", DateTime.ParseExact(ObjRenMigrant.VALIDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@RENCM_TRIBAL ", ObjRenMigrant.TRIBAL);
+                if (ObjRenMigrant.VALIDDATE != null && ObjRenMigrant.VALIDDATE != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_VALIDDATE", DateTime.ParseExact(ObjRenMigrant.VALIDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+
+                    com.Parameters.AddWithValue("@RENCM_TRIBAL ", ObjRenMigrant.TRIBAL);
                 com.Parameters.AddWithValue("@RENCM_REMARK ", ObjRenMigrant.REMARK);
                 com.Parameters.AddWithValue("@RENCM_NAMEEST", ObjRenMigrant.NAMEEST);
                 com.Parameters.AddWithValue("@RENCM_STATED ", Convert.ToInt32(ObjRenMigrant.STATED));
@@ -1818,29 +1839,74 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCM_TYPEOFBUSINESS", ObjRenMigrant.TYPEOFBUSINESS);
                 com.Parameters.AddWithValue("@RENCM_REGNO", ObjRenMigrant.REGNO);
                 //  com.Parameters.AddWithValue("@RENCM_DATEOFREG", ObjRenMigrant.DATEOFREG);
-                com.Parameters.AddWithValue("@RENCM_DATEOFREG", DateTime.ParseExact(ObjRenMigrant.DATEOFREG, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+
+                if (ObjRenMigrant.DATEOFREG != null && ObjRenMigrant.DATEOFREG != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_DATEOFREG", DateTime.ParseExact(ObjRenMigrant.DATEOFREG, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
                 com.Parameters.AddWithValue("@RENCM_TITLES", ObjRenMigrant.TITLES);
                 com.Parameters.AddWithValue("@RENCM_NAMEOFEMP", ObjRenMigrant.NAMEOFEMP);
                 com.Parameters.AddWithValue("@RENCM_MIGRANTNAMEEMP", ObjRenMigrant.MIGRANTNAMEEMP);
                 com.Parameters.AddWithValue("@RENCM_CONTRACTWORK", ObjRenMigrant.CONTRACTWORK);
                 //  com.Parameters.AddWithValue("@RENCM_DATECOMMENCING", ObjRenMigrant.DATECOMMENCING);
-                com.Parameters.AddWithValue("@RENCM_DATECOMMENCING", DateTime.ParseExact(ObjRenMigrant.DATECOMMENCING, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                //  com.Parameters.AddWithValue("@RENCM_ENDINGDATE", ObjRenMigrant.ENDINGDATE);
-                com.Parameters.AddWithValue("@RENCM_ENDINGDATE", DateTime.ParseExact(ObjRenMigrant.ENDINGDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@RENCM_AGENTNAME", ObjRenMigrant.AGENTNAME);
-                com.Parameters.AddWithValue("@RENCM_MAXIMUMNOMIGRANT", ObjRenMigrant.MAXIMUMNOMIGRANT);
-                com.Parameters.AddWithValue("@RENCM_AGENTNAMEADDRESS", ObjRenMigrant.AGENTNAMEADDRESS);
-                com.Parameters.AddWithValue("@RENCM_5CONTRACTOR", ObjRenMigrant.CONTRACTOR);
-                com.Parameters.AddWithValue("@RENCM_DEATILS", ObjRenMigrant.DEATILS);
-                com.Parameters.AddWithValue("@RENCM_SUSPENDINGREVOKING", ObjRenMigrant.SUSPENDINGREVOKING);
-                com.Parameters.AddWithValue("@RENCM_ORDERNO", Convert.ToInt32(ObjRenMigrant.ORDERNO));
+                if (ObjRenMigrant.DATECOMMENCING != null && ObjRenMigrant.DATECOMMENCING != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_DATECOMMENCING", DateTime.ParseExact(ObjRenMigrant.DATECOMMENCING, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }//  com.Parameters.AddWithValue("@RENCM_ENDINGDATE", ObjRenMigrant.ENDINGDATE);
+                if (ObjRenMigrant.ENDINGDATE != null && ObjRenMigrant.ENDINGDATE != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_ENDINGDATE", DateTime.ParseExact(ObjRenMigrant.ENDINGDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjRenMigrant.AGENTNAME != null && ObjRenMigrant.AGENTNAME != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_AGENTNAME", ObjRenMigrant.AGENTNAME);
+                }
+                if (ObjRenMigrant.MAXIMUMNOMIGRANT != null && ObjRenMigrant.MAXIMUMNOMIGRANT != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_MAXIMUMNOMIGRANT", ObjRenMigrant.MAXIMUMNOMIGRANT);
+                }
+                if (ObjRenMigrant.AGENTNAMEADDRESS != null && ObjRenMigrant.AGENTNAMEADDRESS != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_AGENTNAMEADDRESS", ObjRenMigrant.AGENTNAMEADDRESS);
+                }
+                if (ObjRenMigrant.CONTRACTOR != null && ObjRenMigrant.CONTRACTOR != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_5CONTRACTOR", ObjRenMigrant.CONTRACTOR);
+                }
+                if (ObjRenMigrant.DEATILS != null && ObjRenMigrant.DEATILS != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_DEATILS", ObjRenMigrant.DEATILS);
+                }
+                if (ObjRenMigrant.SUSPENDINGREVOKING != null && ObjRenMigrant.SUSPENDINGREVOKING != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_SUSPENDINGREVOKING", ObjRenMigrant.SUSPENDINGREVOKING);
+                }
+                if (ObjRenMigrant.ORDERNO != null && ObjRenMigrant.ORDERNO != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_ORDERNO", Convert.ToInt32(ObjRenMigrant.ORDERNO));
+                }
                 //  com.Parameters.AddWithValue("@RENCM_ORDERDATE", ObjRenMigrant.ORDERDATE);
-                com.Parameters.AddWithValue("@RENCM_ORDERDATE", DateTime.ParseExact(ObjRenMigrant.ORDERDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@RENCM_WORKESTPAST5YEARS", ObjRenMigrant.WORKESTPAST5YEARS);
-                com.Parameters.AddWithValue("@RENCM_ESTDETAILS", ObjRenMigrant.ESTDETAILS);
-                com.Parameters.AddWithValue("@RENCM_PRINCIPLEEMPDETAILS", ObjRenMigrant.PRINCIPLEEMPDETAILS);
-                com.Parameters.AddWithValue("@RENCM_NATUREWORK", ObjRenMigrant.NATUREWORK);
-                com.Parameters.AddWithValue("@RENCM_EMPENCLOSED", ObjRenMigrant.EMPENCLOSED);
+                if (ObjRenMigrant.ORDERDATE != null && ObjRenMigrant.ORDERDATE != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_ORDERDATE", DateTime.ParseExact(ObjRenMigrant.ORDERDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                    com.Parameters.AddWithValue("@RENCM_WORKESTPAST5YEARS", ObjRenMigrant.WORKESTPAST5YEARS);
+                if (ObjRenMigrant.ESTDETAILS != null && ObjRenMigrant.ESTDETAILS != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_ESTDETAILS", ObjRenMigrant.ESTDETAILS);
+                }
+                if (ObjRenMigrant.PRINCIPLEEMPDETAILS != null && ObjRenMigrant.PRINCIPLEEMPDETAILS != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_PRINCIPLEEMPDETAILS", ObjRenMigrant.PRINCIPLEEMPDETAILS);
+                }
+                if (ObjRenMigrant.NATUREWORK != null && ObjRenMigrant.NATUREWORK != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_NATUREWORK", ObjRenMigrant.NATUREWORK);
+                }
+                if (ObjRenMigrant.EMPENCLOSED != null && ObjRenMigrant.EMPENCLOSED != "")
+                {
+                    com.Parameters.AddWithValue("@RENCM_EMPENCLOSED", ObjRenMigrant.EMPENCLOSED);
+                }
 
 
 
@@ -1962,10 +2028,18 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENFL_FACTORYEXTENDED", ObjRenFactoryLic.FACTORYEXTENDED);
                 com.Parameters.AddWithValue("@RENFL_REFNOAPPROVALSITE", ObjRenFactoryLic.REFNOAPPROVALSITE);
                 //  com.Parameters.AddWithValue("@RENFL_DATEOFAPPROVAL", ObjRenFactoryLic.DATEOFAPPROVAL);
-                com.Parameters.AddWithValue("@RENFL_DATEOFAPPROVAL", DateTime.ParseExact(ObjRenFactoryLic.DATEOFAPPROVAL, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ObjRenFactoryLic.DATEOFAPPROVAL != null && ObjRenFactoryLic.DATEOFAPPROVAL != "")
+                {
+                    com.Parameters.AddWithValue("@RENFL_DATEOFAPPROVAL", DateTime.ParseExact(ObjRenFactoryLic.DATEOFAPPROVAL, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+
+                }
                 com.Parameters.AddWithValue("@RENFL_REFAPPROVALAUTHORITY", ObjRenFactoryLic.REFAPPROVALAUTHORITY);
                 // com.Parameters.AddWithValue("@RENFL_DATEOFAPPROVALAUTHORITY", ObjRenFactoryLic.DATEOFAPPROVALAUTHORITY);
-                com.Parameters.AddWithValue("@RENFL_DATEOFAPPROVALAUTHORITY", DateTime.ParseExact(ObjRenFactoryLic.DATEOFAPPROVALAUTHORITY, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (ObjRenFactoryLic.DATEOFAPPROVALAUTHORITY != null && ObjRenFactoryLic.DATEOFAPPROVALAUTHORITY != "")
+                {
+
+                    com.Parameters.AddWithValue("@RENFL_DATEOFAPPROVALAUTHORITY", DateTime.ParseExact(ObjRenFactoryLic.DATEOFAPPROVALAUTHORITY, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
                 com.Parameters.AddWithValue("@RENFL_FINALFEES", ObjRenFactoryLic.FINALFEES);
                 com.Parameters.AddWithValue("@RENFL_PENALTY", ObjRenFactoryLic.PENALTY);
                 com.Parameters.AddWithValue("@RENFL_LICVALIDUPTO", ObjRenFactoryLic.LICVALIDUPTO);

@@ -666,46 +666,59 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Maximum number of contract labour proposed to be employed ....!\\n";
                     slno = slno + 1;
                 }
-                if (rblwithin5Year.SelectedIndex == -1 || rblwithin5Year.SelectedItem.Text == "--Select--")
+                if (rblwithin5Year.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Whether the contractor is convicted\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
+                if (rblwithin5Year.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Enter Details ....!\\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtDetails.Text) || txtDetails.Text == "" || txtDetails.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Details ....!\\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (rblRevoking.SelectedIndex == -1 || rblRevoking.SelectedItem.Text == "--Select--")
+                
+                if (rblRevoking.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Whether there was any order against the contractor revoking \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtOrderDate.Text) || txtOrderDate.Text == "" || txtOrderDate.Text == null)
+                if (rblRevoking.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Enter Order Date ....!\\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtOrderDate.Text) || txtOrderDate.Text == "" || txtOrderDate.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Order Date ....!\\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (rblpast5year.SelectedIndex == -1 || rblpast5year.SelectedItem.Text == "--Select--")
+               
+                if (rblpast5year.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Whether the contractor has work in any other establishment \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtEstDetails.Text) || txtEstDetails.Text == "" || txtEstDetails.Text == null)
+                if (rblpast5year.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Enter Establishment's Details ....!\\n";
-                    slno = slno + 1;
+                    if (string.IsNullOrEmpty(txtEstDetails.Text) || txtEstDetails.Text == "" || txtEstDetails.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Establishment's Details ....!\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtEmpDetails.Text) || txtEmpDetails.Text == "" || txtEmpDetails.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Principal's Employers Details ....!\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtNature.Text) || txtNature.Text == "" || txtNature.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Nature Of Work ....!\\n";
+                        slno = slno + 1;
+                    }
                 }
-                if (string.IsNullOrEmpty(txtEmpDetails.Text) || txtEmpDetails.Text == "" || txtEmpDetails.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Principal's Employers Details ....!\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtNature.Text) || txtNature.Text == "" || txtNature.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Nature Of Work ....!\\n";
-                    slno = slno + 1;
-                }
+              
+               
                 //if (string.IsNullOrEmpty(hypContractor.Text) || hypContractor.Text == "" || hypContractor.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please Enter Contractor's ....!\\n";
