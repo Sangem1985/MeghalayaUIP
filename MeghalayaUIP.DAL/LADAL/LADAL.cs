@@ -757,5 +757,55 @@ namespace MeghalayaUIP.DAL.LADAL
             }
             return Result;
         }
+        public string LADeptProcess(LANDALLOTMENTIND land)
+        {
+            string valid = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = LANDConstants.GetLandDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@UNITID", land.UNITID);
+                com.Parameters.AddWithValue("@INVESTERID", land.Investerid);
+
+                if (land.deptid != null && land.deptid != "")
+                {
+                    com.Parameters.AddWithValue("@DEPTID", land.deptid);
+                }
+                com.Parameters.AddWithValue("@ACTIONID", land.status);
+                com.Parameters.AddWithValue("@REMARKS", land.Remarks);
+              
+                com.Parameters.AddWithValue("@IPADDRESS", land.IPAddress);
+                com.Parameters.AddWithValue("@USERID", land.UserID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+
+        }
     }
 }
