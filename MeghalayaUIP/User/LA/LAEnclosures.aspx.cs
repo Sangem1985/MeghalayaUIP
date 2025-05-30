@@ -641,9 +641,9 @@ namespace MeghalayaUIP.User.LA
                         result = Objland.InsertLAAttachments(objAadhar);
                         if (result != "")
                         {
-                            hplYear.Text = fupstateGov.PostedFile.FileName;
-                            hplYear.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupstateGov.PostedFile.FileName);
-                            hplYear.Target = "blank";
+                            hplStateGov.Text = fupstateGov.PostedFile.FileName;
+                            hplStateGov.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupstateGov.PostedFile.FileName);
+                            hplStateGov.Target = "blank";
                             message = "alert('" + "State Government/lessor Document Uploaded successfully" + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         }

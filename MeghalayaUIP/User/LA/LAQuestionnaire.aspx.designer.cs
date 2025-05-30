@@ -366,15 +366,6 @@ namespace MeghalayaUIP.User.LA
         protected global::System.Web.UI.WebControls.TextBox txtTotal;
 
         /// <summary>
-        /// ddlEnterprise control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEnterprise;
-
-        /// <summary>
         /// txtPMLakh control.
         /// </summary>
         /// <remarks>
@@ -384,6 +375,15 @@ namespace MeghalayaUIP.User.LA
         protected global::System.Web.UI.WebControls.TextBox txtPMLakh;
 
         /// <summary>
+        /// txtAnnualTurnover control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAnnualTurnover;
+
+        /// <summary>
         /// txtprojectCost control.
         /// </summary>
         /// <remarks>
@@ -391,6 +391,15 @@ namespace MeghalayaUIP.User.LA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtprojectCost;
+
+        /// <summary>
+        /// ddlEnterprise control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEnterprise;
 
         /// <summary>
         /// txtGenerated control.

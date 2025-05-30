@@ -1,8 +1,9 @@
-﻿using MeghalayaUIP.BAL.CommonBAL;
+﻿using MeghalayaUIP.BAL.CFEBLL;
+using MeghalayaUIP.BAL.CommonBAL;
+using MeghalayaUIP.BAL.LABAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using MeghalayaUIP.DAL.LADAL;
-using MeghalayaUIP.BAL.LABAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,6 +19,7 @@ namespace MeghalayaUIP.User.LA
         MasterBAL mstrBAL = new MasterBAL();
         LABAL Objland = new LABAL();
         string UnitID, ErrorMsg, result;
+        CFEBAL objcfebal = new CFEBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -72,7 +74,7 @@ namespace MeghalayaUIP.User.LA
                         ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlMandal.SelectedValue = ds.Tables[0].Rows[0]["ISD_MANDAL"].ToString();
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["ISD_VILLAGE"].ToString();                      
+                        ddlVillage.SelectedValue = ds.Tables[0].Rows[0]["ISD_VILLAGE"].ToString();
                         txtEquity.Text = ds.Tables[0].Rows[0]["ISD_EQUITY"].ToString();
                         txtTermLoan.Text = ds.Tables[0].Rows[0]["ISD_LOANBANK"].ToString();
                         txtUnsecured.Text = ds.Tables[0].Rows[0]["ISD_UNSECUREDLOAN"].ToString();
@@ -115,7 +117,7 @@ namespace MeghalayaUIP.User.LA
                         GVWATER.DataBind();
                         GVWATER.Visible = true;
                     }
-                   
+
                 }
 
             }
@@ -867,19 +869,24 @@ namespace MeghalayaUIP.User.LA
                     errormsg = errormsg + slno + ". Please Enter village\\n";
                     slno = slno + 1;
                 }
-                if (ddlname.SelectedIndex == 0)
+                //if (ddlname.SelectedIndex == 0)
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Industrial Shed\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtQuantum.Text) || txtQuantum.Text == "" || txtQuantum.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Quantum of land required (in square metres)\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtEquity.Text) || txtEquity.Text == "" || txtEquity.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Equity\\n";
+                //    slno = slno + 1;
+                //}
+                if (GVLANDINDSTATE.Rows.Count == 0)
                 {
-                    errormsg = errormsg + slno + ". Please Select Industrial Shed\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtQuantum.Text) || txtQuantum.Text == "" || txtQuantum.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Quantum of land required (in square metres)\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtEquity.Text) || txtEquity.Text == "" || txtEquity.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Equity\\n";
+                    errormsg = errormsg + slno + ". Please Enter Industrial Estate details\\n";
                     slno = slno + 1;
                 }
                 if (string.IsNullOrEmpty(txtTermLoan.Text) || txtTermLoan.Text == "" || txtTermLoan.Text == null)
@@ -1123,7 +1130,34 @@ namespace MeghalayaUIP.User.LA
 
             double total = equity + termLoan + unsecured + internalRes + otherSource;
 
-            txtTotal.Text = total.ToString("F2");
+            txtTotal.Text = Convert.ToString(total);
+        }
+        protected void GetProjectType(object sender, EventArgs e)
+        {
+            if (txtPMLakh.Text.Trim() != "" && txtAnnualTurnover.Text.Trim() != "")
+            {
+                double PMLakh = string.IsNullOrWhiteSpace(txtPMLakh.Text) ? 0 : Convert.ToDouble(txtPMLakh.Text);
+                double AnnualTurnover = string.IsNullOrWhiteSpace(txtAnnualTurnover.Text) ? 0 : Convert.ToDouble(txtAnnualTurnover.Text);
+
+                string Res = objcfebal.GETANNUALTURNOVER(txtPMLakh.Text.ToString(), txtAnnualTurnover.Text.ToString());
+                if (Res != "")
+                {
+                    txtAnnualTurnover.Text = "";
+                    string message = "alert('" + Res + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+
+                }
+                else
+                {
+                    string Result = objcfebal.CFEENTERPRISETYPE(txtAnnualTurnover.Text.ToString());
+                    if (Result != "")
+                    {
+                        lblEntCategory.Text = Result;
+
+                    }
+                }
+            }
         }
 
     }
