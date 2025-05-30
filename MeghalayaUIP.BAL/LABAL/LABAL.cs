@@ -77,6 +77,10 @@ namespace MeghalayaUIP.BAL.LABAL
         {
             return objLANDDAL.InsertLAAttachments(objAttach);
         }
+        public string LADeptProcess(LANDALLOTMENTIND land)
+        {
+            return objLANDDAL.LADeptProcess(land);
+        }
 
     }
 }

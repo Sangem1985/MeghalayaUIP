@@ -22,6 +22,7 @@ namespace MeghalayaUIP.Common
         public static string GetLANDApprovalsAmounttoPay = "USP_GETLANDAPPROVALSAMOUNTTOPAY";
 
         public static string InsertIndLandStateDetails = "USP_INSLAINDUSTRIALESTATEDETAILS";
+        public static string GetLandDetails = "USP_UPDATEPLANDALLOTMENTPROCESACTION";
 
         ////////////////////////////////////----------------------------------/////////////////////////////////
         ///
@@ -115,6 +116,18 @@ namespace MeghalayaUIP.Common
         public string ReferenceNo { get; set; }
         public string UploadBy { get; set; }
         public string UploadByID { get; set; }
+
+    }
+    public class LANDALLOTMENTIND
+    {
+
+        public string UNITID { get; set; }
+        public string Investerid { get; set; }
+        public string status { get; set; }
+        public string UserID { get; set; }
+        public string deptid { get; set; }
+        public string Remarks { get; set; }
+        public string IPAddress { get; set; }      
 
     }
 }

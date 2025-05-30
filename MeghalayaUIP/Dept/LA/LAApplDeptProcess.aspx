@@ -505,7 +505,7 @@
                                                 </td>
                                                 <td style="width: 200px">
                                                     <asp:DropDownList ID="ddlStatus" runat="server" Class="form-control">
-                                                        <asp:ListItem Text="Forward to Land Allotment Committee" Value="0"></asp:ListItem>
+                                                        <asp:ListItem Text="Forward to Land Allotment Committee" Value="7"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central">
