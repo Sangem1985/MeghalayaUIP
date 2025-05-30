@@ -1,4 +1,5 @@
-﻿using MeghalayaUIP.BAL.CommonBAL;
+﻿using MeghalayaUIP.BAL.CFEBLL;
+using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.BAL.LABAL;
 using MeghalayaUIP.BAL.PreRegBAL;
 using MeghalayaUIP.Common;
@@ -19,7 +20,7 @@ namespace MeghalayaUIP.Dept.LA
         LADeptDtls objDtls = new LADeptDtls();
         MasterBAL mstrBAL = new MasterBAL();
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
-      
+
         string UNITID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +36,7 @@ namespace MeghalayaUIP.Dept.LA
                     {
                         ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
                     }
-                 //   hdnUserID.Value = ObjUserInfo.UserID;
+                    //   hdnUserID.Value = ObjUserInfo.UserID;
                     ViewState["DEPTID"] = ObjUserInfo.Deptid;
                     if (!IsPostBack)
                     {
@@ -53,7 +54,7 @@ namespace MeghalayaUIP.Dept.LA
         }
         public void BindLandApplicationDetails()
         {
-           // hdnUserID.Value = "1001";
+            // hdnUserID.Value = "1001";
             try
             {
 
@@ -84,7 +85,7 @@ namespace MeghalayaUIP.Dept.LA
                     DataSet ds = new DataSet();
                     ds = Objland.GetLandApplicationDetails(Session["UNITID"].ToString(), Session["INVESTERID"].ToString());
                     // ds = Objland.GetLandApplicationDetails(Convert.ToString(Session["UNITID"]),(Session["INVESTERID"]));
-                
+
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
                         lblName.Text = Convert.ToString(ds.Tables[0].Rows[0]["ISD_NAMEOFCOMPANY"]);
@@ -137,11 +138,11 @@ namespace MeghalayaUIP.Dept.LA
                     }
                     if (Convert.ToString(ds.Tables[7].Rows[0]["STAGEID"]) == "4")
                     {
-                        verifypanel.Visible = true;
+                        Indverifypanel.Visible = true;
                     }
                     else
                     {
-                        verifypanel.Visible = false;
+                        Indverifypanel.Visible = false;
                     }
                 }
 
@@ -178,6 +179,94 @@ namespace MeghalayaUIP.Dept.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
 
+        }
+
+        protected void btnIndSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                }
+                if (ddlStatus.SelectedValue == "7")
+                {
+                    if (string.IsNullOrWhiteSpace(txtRemarks.Text) || txtRemarks.Text == "" || txtRemarks.Text == null)
+                    {
+                        lblmsg0.Text = "Please Enter Remarks";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    //if ((ddlStatus.SelectedValue == "4") && (string.IsNullOrWhiteSpace(txtApplQuery.Text) || txtApplQuery.Text == "" || txtApplQuery.Text == null))
+                    //{
+                    //    lblmsg0.Text = "Please Enter Query Description";
+                    //    Failure.Visible = true;
+                    //    return;
+                    //}
+                    else
+                    {
+                        //Unitid = unitid
+                        //Investerid = investerid
+
+                        //status = Convert.ToInt32(ddlStatus.SelectedValue);
+                        //UserID = ObjUserInfo.UserID;
+
+                        //prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+
+                        //Remarks = txtRemarks.Text;
+                        //IPAddress = getclientIP();
+
+                        string valid = PreBAL.LADeptProcess(prd);
+                        btnIndSubmit.Enabled = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                        return;
+                    }
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Select Action";
+                    Failure.Visible = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+            }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
         }
     }
 }

@@ -1153,7 +1153,7 @@ namespace MeghalayaUIP.User.LA
                     string Result = objcfebal.CFEENTERPRISETYPE(txtAnnualTurnover.Text.ToString());
                     if (Result != "")
                     {
-                        lblEntCategory.Text = Result;
+                        //lblEntCategory.Text = Result;
 
                     }
                 }

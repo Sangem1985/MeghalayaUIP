@@ -463,7 +463,7 @@
                         </div>
 
 
-                        <div class="panel panel-default" id="verifypanel" runat="server" visible="true">
+                        <div class="panel panel-default" id="Indverifypanel" runat="server" visible="true">
                             <div class="panel-heading" role="tab" id="headingSix" runat="server">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -505,7 +505,7 @@
                                                 </td>
                                                 <td style="width: 200px">
                                                     <asp:DropDownList ID="ddlStatus" runat="server" Class="form-control">                                                       
-                                                        <asp:ListItem Text="Forward to Land Allotment Committee" Value="0"></asp:ListItem>                                                       
+                                                        <asp:ListItem Text="Forward to Land Allotment Committee" Value="7"></asp:ListItem>                                                       
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central">
@@ -513,7 +513,7 @@
                                                 </td>
                                                
                                                 <td>
-                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+                                                    <asp:Button ID="btnIndSubmit" runat="server" Text="Submit" OnClick="btnIndSubmit_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
                                                 </td>
                                             </tr>
                                             <tr>
