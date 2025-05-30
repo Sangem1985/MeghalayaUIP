@@ -139,7 +139,7 @@ namespace MeghalayaUIP
 
                 if (dsInfo != null && dsInfo.Tables.Count > 0 && dsInfo.Tables[0].Rows.Count > 0 || dsInfo.Tables[1].Rows.Count > 0 || dsInfo.Tables[2].Rows.Count > 0)
                 {
-                    if (dsInfo.Tables[0].Rows.Count > 0)
+                    if (dsInfo.Tables[0].Rows.Count > 0 && dsInfo.Tables[1].Rows.Count > 0)
                     {
                         if (!IsPostBack)
                         {
@@ -148,22 +148,23 @@ namespace MeghalayaUIP
                             ddldept.DataTextField = "Department";
                             ddldept.DataBind();
                             ddldept.Enabled = true;
+                            ddlSector.DataSource = dsInfo.Tables[1];
+                            ddlSector.DataValueField = "SECTOR";
+                            ddlSector.DataBind();
+                            AddSelect(ddldept);
+                            AddSelect(ddlSector);
                         }
 
                     }
-                    if (dsInfo.Tables[1].Rows.Count > 0)
-                    {
-                        ddlSector.DataSource = dsInfo.Tables[1];
-                        ddlSector.DataValueField = "SECTOR";
-                        ddlSector.DataBind();
-                    }
+                   
                     else
                     {
                         ddldept.DataSource = null;
                         ddldept.DataBind();
+                        ddlSector.DataSource = null;
+                        ddlSector.DataBind();
                     }
-                    AddSelect(ddldept);
-                    AddSelect(ddlSector);
+                    
                     if (dsInfo.Tables[2].Rows.Count > 0)
                     {
                         gvDecriminalisation.DataSource = dsInfo.Tables[2];
