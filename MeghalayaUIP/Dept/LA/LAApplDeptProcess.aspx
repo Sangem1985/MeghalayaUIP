@@ -487,9 +487,7 @@
                                                 <td><b>
                                                     <asp:Label runat="server" Text="Please Enter Remarks if any"></asp:Label></b>
                                                 </td>
-                                                <td><b>
-                                                    <asp:Label runat="server" Text="Please Enter Query Description"></asp:Label></b>
-                                                </td>
+                                                
                                                 <td id="tdaction" runat="server" visible="true">
                                                     <b>Submit Action</b>
                                                 </td>
@@ -507,16 +505,13 @@
                                                 </td>
                                                 <td style="width: 200px">
                                                     <asp:DropDownList ID="ddlStatus" runat="server" Class="form-control">                                                       
-                                                        <asp:ListItem Text="Dept Forward to Land Allotment" Value="0"></asp:ListItem>                                                       
+                                                        <asp:ListItem Text="Forward to Land Allotment Committee" Value="0"></asp:ListItem>                                                       
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central">
                                                     <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </td>
-                                                <td style="vertical-align: central">
-                                                    <asp:TextBox ID="txtApplQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                </td>
-
+                                               
                                                 <td>
                                                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
                                                 </td>
