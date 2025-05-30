@@ -17,6 +17,7 @@ namespace MeghalayaUIP.Dept.LA
     {
         LABAL Objland = new LABAL();
         LADeptDtls objDtls = new LADeptDtls();
+        MasterBAL mstrBAL = new MasterBAL();
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
       
         string UNITID;
@@ -100,6 +101,9 @@ namespace MeghalayaUIP.Dept.LA
                         lblPMLakh.Text = Convert.ToString(ds.Tables[0].Rows[0]["ISD_PMLAKH"]);
                         lblCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["ISD_PROJECTCOSTLAKH"]);
                         lblDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["ISD_WASTEGENERATED"]);
+
+                        //lblAppNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["ISD_LAUIDNO"]);
+
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
                     {
@@ -126,6 +130,19 @@ namespace MeghalayaUIP.Dept.LA
                         GVWATER.DataSource = ds.Tables[5];
                         GVWATER.DataBind();
                     }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
+                    {
+                        grdAttachments.DataSource = ds.Tables[6];
+                        grdAttachments.DataBind();
+                    }
+                    if (Convert.ToString(ds.Tables[7].Rows[0]["STAGEID"]) == "4")
+                    {
+                        verifypanel.Visible = true;
+                    }
+                    else
+                    {
+                        verifypanel.Visible = false;
+                    }
                 }
 
             }
@@ -135,6 +152,32 @@ namespace MeghalayaUIP.Dept.LA
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void grdcfeattachment_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
         }
     }
 }
