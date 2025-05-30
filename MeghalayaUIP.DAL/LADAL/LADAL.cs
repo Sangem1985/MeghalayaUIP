@@ -610,5 +610,102 @@ namespace MeghalayaUIP.DAL.LADAL
             }
             return dt;
         }
+        public DataSet GetLAAttachmentsData(string userid, string UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(LANDConstants.GetLAAttachments, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = LANDConstants.GetLAAttachments;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string InsertLAAttachments(LAAttachments objAttachments)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = LANDConstants.InsertLAAttachments;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@LAA_UNITID", Convert.ToInt32(objAttachments.UNITID));
+                com.Parameters.AddWithValue("@LAA_LAQDID", Convert.ToInt32(objAttachments.Questionnareid));
+                com.Parameters.AddWithValue("@LAA_QUERYID", objAttachments.QueryID);
+                com.Parameters.AddWithValue("@LAA_MASTERAID", objAttachments.MasterID);
+                com.Parameters.AddWithValue("@LAA_FILEPATH", objAttachments.FilePath);
+                com.Parameters.AddWithValue("@LAA_FILENAME", objAttachments.FileName);
+                com.Parameters.AddWithValue("@LAA_FILETYPE", objAttachments.FileType);
+                com.Parameters.AddWithValue("@LAA_FILEDESCRIPTION", objAttachments.FileDescription);
+                com.Parameters.AddWithValue("@LAA_DEPTID", objAttachments.DeptID);
+                com.Parameters.AddWithValue("@LAA_APPROVALID", objAttachments.ApprovalID);
+                com.Parameters.AddWithValue("@LAA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
+                com.Parameters.AddWithValue("@LAA_CREATEDBYIP", objAttachments.IPAddress);
+                //if (objAttachments.ReferenceNo != null && objAttachments.ReferenceNo != "")
+                //{
+                //    com.Parameters.AddWithValue("@CFEA_REFERENCENO", objAttachments.ReferenceNo);
+                //}
+                if (objAttachments.UploadBy != null && objAttachments.UploadBy != "")
+                {
+                    com.Parameters.AddWithValue("@LAA_UPLOADBY", objAttachments.UploadBy);
+                }
+                if (objAttachments.UploadByID != null && objAttachments.UploadByID != "")
+                {
+                    com.Parameters.AddWithValue("@LAA_UPLOADBYID", objAttachments.UploadByID);
+                }
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

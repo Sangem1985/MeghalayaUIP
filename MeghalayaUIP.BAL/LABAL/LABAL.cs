@@ -67,6 +67,12 @@ namespace MeghalayaUIP.BAL.LABAL
         {
             return objLANDDAL.GetLandAllottmentDashBoardView(objDtls);
         }
+        public DataSet GetLAAttachmentsData(string userid, string UNITID)
+        { return objLANDDAL.GetLAAttachmentsData(userid, UNITID); }
+        public string InsertLAAttachments(LAAttachments objAttach)
+        {
+            return objLANDDAL.InsertLAAttachments(objAttach);
+        }
 
     }
 }
