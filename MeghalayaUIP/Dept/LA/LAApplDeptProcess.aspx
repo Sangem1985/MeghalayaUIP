@@ -479,39 +479,50 @@
                                     <div class="table-responsive">
                                         <table align="Center" style="width: 100%; align-content: center" class="table-bordered mb-10">
                                             <tr id="trVrfyhdng" runat="server">
-                                                <td><b>Name</b></td>
-                                                <td><b>Unit Name</b></td>
+                                                <%--<td><b>Name</b></td>
+                                                <td><b>Unit Name</b></td>--%>
                                                 <td><b>Application ID</b></td>
                                                 <td style="width: 150px"><b>Application Date</b></td>
                                                 <td style="width: 200px"><b>Application Action</b></td>
                                                 <td><b>
                                                     <asp:Label runat="server" Text="Please Enter Remarks if any"></asp:Label></b>
                                                 </td>
-                                                
+
                                                 <td id="tdaction" runat="server" visible="true">
                                                     <b>Submit Action</b>
                                                 </td>
                                             </tr>
                                             <tr id="trVrfydtls" runat="server">
-                                                <td>
+                                                <%--<td>
                                                     <asp:Label runat="server" ID="lbl_Name1"></asp:Label></td>
                                                 <td>
                                                     <asp:Label ID="lblunitname1" runat="server"></asp:Label>
-                                                </td>
+                                                </td>--%>
                                                 <td>
                                                     <asp:Label ID="lblApplNo" runat="server"></asp:Label></td>
                                                 <td tyle="width: 100px">
                                                     <asp:Label ID="lblapplDate" runat="server"></asp:Label>
                                                 </td>
                                                 <td style="width: 200px">
-                                                    <asp:DropDownList ID="ddlStatus" runat="server" Class="form-control">                                                       
-                                                        <asp:ListItem Text="Forward to Land Allotment Committee" Value="0"></asp:ListItem>                                                       
+                                                    <asp:DropDownList ID="ddlStatus" runat="server" Class="form-control">
+                                                        <asp:ListItem Text="Forward to Land Allotment Committee" Value="0"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central">
                                                     <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+
+
+                                                    <p>Upload File if any: </p>
+                                                    <asp:FileUpload runat="server" ID="FileUploadqueryLand" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
+
+                                                    <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
+                                                    <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+
+
                                                 </td>
-                                               
+
+
+
                                                 <td>
                                                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
                                                 </td>
