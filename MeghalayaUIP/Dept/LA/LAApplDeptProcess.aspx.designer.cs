@@ -312,24 +312,6 @@ namespace MeghalayaUIP.Dept.LA
         protected global::System.Web.UI.HtmlControls.HtmlTableRow trVrfydtls;
 
         /// <summary>
-        /// lbl_Name1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Name1;
-
-        /// <summary>
-        /// lblunitname1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblunitname1;
-
-        /// <summary>
         /// lblApplNo control.
         /// </summary>
         /// <remarks>
@@ -364,6 +346,33 @@ namespace MeghalayaUIP.Dept.LA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRemarks;
+
+        /// <summary>
+        /// FileUploadqueryLand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadqueryLand;
+
+        /// <summary>
+        /// hplAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplAttachment;
+
+        /// <summary>
+        /// btnUpldAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpldAttachment;
 
         /// <summary>
         /// btnIndSubmit control.
