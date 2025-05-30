@@ -102,7 +102,7 @@ namespace MeghalayaUIP.User.Renewal
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblLicense;
+        protected global::System.Web.UI.WebControls.DropDownList rblLicense;
 
         /// <summary>
         /// pnlLicenseDetails control.

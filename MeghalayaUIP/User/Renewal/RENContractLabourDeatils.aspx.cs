@@ -94,7 +94,7 @@ namespace MeghalayaUIP.User.Renewal
                         if (Convert.ToString(Request.QueryString[0]) == "N")
                             Response.Redirect("~/User/Renewal/RENLegalmetrologyDetails.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/Renewal/RENContractLabourDeatils.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/Renewal/RENFactoriesLicense.aspx?Previous=" + "P");
                     }
                 }
             }

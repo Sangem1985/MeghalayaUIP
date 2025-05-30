@@ -100,21 +100,21 @@
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Application Details</span></label>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-10">
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">Please specify the purpose of application  *</label>
-                                                        <div class="col-lg-8">
-                                                            <asp:RadioButtonList ID="rblLicense" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicense_SelectedIndexChanged">
+                                                        <label class="col-lg-6 col-form-label">Please specify the purpose of application  *</label>
+                                                        <div class="col-lg-6">
+                                                            <asp:DropDownList ID="rblLicense" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicense_SelectedIndexChanged">
+                                                                <asp:ListItem Text="--Select--" Value="-1" />
                                                                 <asp:ListItem Text=" New registration for Grant of license" Value="N" />
                                                                 <asp:ListItem Text="Renewal of license" Value="R" />
-                                                            </asp:RadioButtonList>
+                                                            </asp:DropDownList>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <asp:Panel ID="pnlLicenseDetails" runat="server" Visible="false">
                                             <div class="col-md-12 d-flex" >
-
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">License Number *</label>
@@ -139,10 +139,10 @@
                                             </div>
                                                 
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-8 col-form-label">Do you hold any previous cancelled license?  *</label>
-                                                        <div class="col-lg-4">
+                                                        <label class="col-lg-6 col-form-label">Do you hold any previous cancelled license?  *</label>
+                                                        <div class="col-lg-6">
                                                             <asp:RadioButtonList ID="rblCancelledLic" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCancelledLic_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
@@ -150,7 +150,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6" id="LicNos" runat="server" visible="false">
+                                                <div class="col-md-4" id="LicNos" runat="server" visible="false">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Please specify license no *</label>
                                                         <div class="col-lg-6">
@@ -183,7 +183,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex justify-content-center ml-3">
+                                            <div class="col-md-6 d-flex justify-content-center ml-3">
                                                 <asp:GridView ID="GVDrugName" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                     GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVDrugName_RowDeleting">
@@ -233,7 +233,7 @@
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <asp:Button ID="btnTesting" runat="server" Text="Add More" OnClick="btnTesting_Click" CssClass="btn btn-green btn-rounded mt-2 mb-4" Width="110px" />
                                             </div>
-                                            <div class="col-md-12 d-flex justify-content-center">
+                                            <div class="col-md-6 d-flex justify-content-center">
                                                 <asp:GridView ID="GVTEST" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                     GridLines="None"

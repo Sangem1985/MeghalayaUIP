@@ -97,10 +97,21 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
+                if (e.Row.RowType == DataControlRowType.Header)
+                {
+                    CheckBox chkHeader = (CheckBox)e.Row.FindControl("chkHeader");
+                    chkHeader.Checked = true; chkHeader.Enabled = false;
+
+                }
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
+                    CheckBox chkSel = (CheckBox)e.Row.FindControl("chkSel");
+                    chkSel.Checked = true; chkSel.Enabled = false;
                     decimal Approvalfee = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "RENDA_APPROVALFEE"));
                     TotFee = TotFee + Approvalfee;
+
+                    lblPaymentAmount.InnerText = TotFee.ToString();
+                    ViewState["Amount"] = TotFee.ToString();
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {

@@ -1440,7 +1440,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENID_COMPANYTYPE", ObjApplicationDetails.companyType);
                 com.Parameters.AddWithValue("@RENID_SECTORENTERPRISE", ObjApplicationDetails.INDUSTRY);
                 com.Parameters.AddWithValue("@RENID_CATEGORYREG", ObjApplicationDetails.CATEGORYREG);
-                com.Parameters.AddWithValue("@RENID_REGNUMBER", Convert.ToInt32(ObjApplicationDetails.RegNumber));
+                com.Parameters.AddWithValue("@RENID_REGNUMBER", ObjApplicationDetails.RegNumber);
                 com.Parameters.AddWithValue("@RENID_REGDATE", ObjApplicationDetails.RegDate);
                 //com.Parameters.AddWithValue("@RENID_SECTORENTERPRISE", ObjApplicationDetails.SectorEntrprise);
                 com.Parameters.AddWithValue("@RENID_SECTOR", ObjApplicationDetails.Sector);
