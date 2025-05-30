@@ -622,8 +622,8 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Remark *</label>
-                                                    <div class="col-lg-10 d-flex">
+                                                    <label class="col-lg-3 col-form-label">Remarks *</label>
+                                                    <div class="col-lg-9 d-flex">
                                                         <asp:TextBox ID="txtRemarktype" runat="server" onkeyup="handleKeyUp(this)" class="form-control" Type="text" onkeypress="return Names(event)"></asp:TextBox>
 
                                                     </div>
@@ -637,7 +637,7 @@
 
 
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Registration Fees to be Paid (Rs):  *</label>
                                                     <div class="col-lg-6 d-flex">
@@ -646,7 +646,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Total Amount to be paid (in Rs): *</label>
                                                     <div class="col-lg-6 d-flex">

@@ -205,16 +205,16 @@
                                         </div>
 
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Photo of the Employer/Proprietor /Partner *</label>
-                                                    <div class="col-lg-3 d-flex">
+                                                    <label class="col-lg-4 col-form-label">Photo of the Employer /Proprietor /Partner *</label>
+                                                    <div class="col-lg-4 d-flex">
                                                         <asp:FileUpload ID="fupEmployer" runat="server" />
                                                     </div>
-                                                    <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnphoto" OnClick="btnphoto_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                    <div class="col-lg-2 d-flex">
+                                                        <asp:Button Text="Upload" runat="server" ID="btnphoto" OnClick="btnphoto_Click" Height="30px" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
-                                                    <div class="col-lg-4 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:HyperLink ID="hypEmployer" runat="server" Target="_blank"></asp:HyperLink>
                                                     </div>
                                                 </div>
@@ -493,13 +493,13 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Employee List Only .doc .docx format allowed(<a href="#">Download Sample Format</a>) *</label>
-                                                    <div class="col-lg-2 d-flex">
+                                                    <label class="col-lg-4 col-form-label">Employee List *</label>
+                                                    <div class="col-lg-4 d-flex">
                                                         <asp:FileUpload ID="fupEmployeelist" runat="server" />
                                                     </div>
-                                                    <div class="col-lg-1 d-flex">
+                                                    <div class="col-lg-2 d-flex">
                                                         <asp:Button Text="Upload" runat="server" ID="btndpr" OnClick="btndpr_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-2 d-flex">

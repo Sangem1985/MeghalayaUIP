@@ -498,10 +498,10 @@
                                             <h4 class="card-title ml-3">Other Details</h4>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
+                                            <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Whether the contractor is convicted of any offence within the proceeding five years *</label>
-                                                    <div class="col-lg-6">
+                                                    <label class="col-lg-9 col-form-label">Whether the contractor is convicted of any offence within the proceeding five years *</label>
+                                                    <div class="col-lg-3">
                                                         <asp:RadioButtonList ID="rblwithin5Year" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblwithin5Year_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
@@ -520,10 +520,10 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
+                                            <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Whether there was any order against the contractor revoking or suspending license or forfeiting Security Deposit in respect of an earlier contract *</label>
-                                                    <div class="col-lg-6">
+                                                    <label class="col-lg-9 col-form-label">Whether there was any order against the contractor revoking or suspending license or forfeiting Security Deposit in respect of an earlier contract *</label>
+                                                    <div class="col-lg-3">
                                                         <asp:RadioButtonList ID="rblRevoking" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblRevoking_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
@@ -547,10 +547,10 @@
                                         </div>
 
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
+                                            <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Whether the contractor has work in any other establishment within the past five years*</label>
-                                                    <div class="col-lg-6">
+                                                    <label class="col-lg-9 col-form-label">Whether the contractor has work in any other establishment within the past five years*</label>
+                                                    <div class="col-lg-3">
                                                         <asp:RadioButtonList ID="rblpast5year" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblpast5year_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />

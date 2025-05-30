@@ -240,10 +240,11 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Type of Establishment  *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblApplication" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblApplication_SelectedIndexChanged">
+                                                        <asp:DropdownList ID="rblApplication" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblApplication_SelectedIndexChanged">
+                                                            <asp:ListItem Text="--Select--" Value="-1" />
                                                             <asp:ListItem Text="Private owned establishment" Value="Y" />
                                                             <asp:ListItem Text="Municipal owned shop/establishment" Value="N" />
-                                                        </asp:RadioButtonList>
+                                                        </asp:DropdownList>
                                                     </div>
                                                 </div>
                                             </div>
