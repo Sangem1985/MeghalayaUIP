@@ -1142,20 +1142,7 @@ namespace MeghalayaUIP.User.LA
                 string Res = objcfebal.GETANNUALTURNOVER(txtPMLakh.Text.ToString(), txtAnnualTurnover.Text.ToString());
                 if (Res != "")
                 {
-                    txtAnnualTurnover.Text = "";
-                    string message = "alert('" + Res + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
-
-                }
-                else
-                {
-                    string Result = objcfebal.CFEENTERPRISETYPE(txtAnnualTurnover.Text.ToString());
-                    if (Result != "")
-                    {
-                        //lblEntCategory.Text = Result;
-
-                    }
+                    ddlEnterprise.SelectedItem.Text = Res;
                 }
             }
         }

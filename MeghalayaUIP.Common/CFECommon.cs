@@ -67,7 +67,8 @@ namespace MeghalayaUIP.Common
 
         public static string GetAppliedApprovalIDs = "USP_GETCFEAPPROVALIDS";
         public static string InsertDGSetDetails ="USP_INSCFEDGSETDETAILS";
-        public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
+        //public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
+        public static string GETANNUALTURNOVER = "USP_GETPROJECTCATEGORY";
         public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
         public static string INSERTCFEDGSETDETAILS = "USP_INSCFEDGSETDETAILS";
         public static string GETCFEGSETDETAILS = "USP_GETCFEDGSETDETAILS";

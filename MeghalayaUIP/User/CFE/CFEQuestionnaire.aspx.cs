@@ -1880,21 +1880,22 @@ namespace MeghalayaUIP.User.CFE
                     string Res = objcfebal.GETANNUALTURNOVER(txtPMCost.Text.ToString(), txtAnnualTurnOver.Text.ToString());
                     if (Res != "")
                     {
-                        txtAnnualTurnOver.Text = "";
-                        string message = "alert('" + Res + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        return;
+                        lblEntCategory.Text = Res;
+                        //txtAnnualTurnOver.Text = "";
+                        //string message = "alert('" + Res + "')";
+                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        //return;
 
                     }
-                    else
-                    {
-                        string Result = objcfebal.CFEENTERPRISETYPE(txtAnnualTurnOver.Text.ToString());
-                        if (Result != "")
-                        {
-                            lblEntCategory.Text = Result;
+                    //else
+                    //{
+                    //    string Result = objcfebal.CFEENTERPRISETYPE(txtAnnualTurnOver.Text.ToString());
+                    //    if (Result != "")
+                    //    {
+                    //        lblEntCategory.Text = Result;
 
-                        }
-                    }
+                    //    }
+                    //}
                 }
             }
             catch (Exception ex)
