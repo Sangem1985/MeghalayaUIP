@@ -357,6 +357,8 @@ namespace MeghalayaUIP.DAL.LADAL
                 //com.Parameters.AddWithValue("@ISD_LANDREQ", Objindustry.QUANTUMLAND);
                 //com.Parameters.AddWithValue("@ISD_SHEDSNO", Objindustry.SHEDSNO);
                 com.Parameters.AddWithValue("@ISD_LAUIDNO", Objindustry.UIDNO);
+                com.Parameters.AddWithValue("@ISD_PROCESSINGFEE", Convert.ToDecimal( Objindustry.PROCESSINGFEE));
+                com.Parameters.AddWithValue("@ISD_ANNUALTURNOVER", Convert.ToDecimal(Objindustry.ANNUALTURNOVER));
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

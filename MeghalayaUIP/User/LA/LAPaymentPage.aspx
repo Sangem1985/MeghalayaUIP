@@ -34,7 +34,7 @@
                 <asp:HiddenField ID="hdnUserID" runat="server" />
                 <asp:HiddenField ID="hdnQuesID" runat="server" />
                 <asp:HiddenField ID="hdnUIDNo" runat="server" />
-                <asp:HiddenField ID="hdnPaymentAmount" runat="server" Value="0" />
+                <asp:HiddenField ID="hdnPaymentAmount" runat="server"  />
                 <div class="card card-table">
                     <div class="card-header">
                         <h4 class="card-title">Department Payments</h4>
@@ -72,46 +72,31 @@
                                         <HeaderStyle HorizontalAlign="Center" />
                                         <ItemStyle Width="10%" />
                                     </asp:TemplateField>
-                                    <asp:TemplateField
-                                        ItemStyle-HorizontalAlign="Center"
-                                        HeaderStyle-Width="70px">
-                                        <HeaderTemplate>
-                                            <div style="text-align: center">
-                                                Select All<br />
-                                                <asp:CheckBox ID="chkHeader" runat="server" AutoPostBack="true"
-                                                    onclick="myheadcheck(this)" />
-                                            </div>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <asp:CheckBox ID="chkSel" AutoPostBack="true" runat="server" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                   
                                     <asp:BoundField DataField="ApprovalName" HeaderText="Approval Name ">
                                         <ItemStyle Width="450px" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
+                                   <%-- <asp:BoundField DataField="TMD_DeptName" HeaderText="Department">
                                         <ItemStyle Width="180px" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="SRVCDA_APPROVALFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
+                                    </asp:BoundField>--%>
+                                    <asp:BoundField DataField="ISD_PROCESSINGFEE" FooterStyle-HorizontalAlign="Right" HeaderText="Fee (Rs.)">
                                         <FooterStyle CssClass="GRDITEM2" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                                         <HeaderStyle HorizontalAlign="Right" />
                                         <ItemStyle CssClass="GRDITEM2" Width="150px" HorizontalAlign="Center" />
-                                    </asp:BoundField>
-
-
+                                    </asp:BoundField>                                    
                                     <asp:TemplateField HeaderText="Approval ID" Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("SRVCDA_APPROVALID") %>'></asp:Label>
+                                            <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("ApprovalID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Fee" Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("SRVCDA_APPROVALFEE") %>'></asp:Label>
+                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("ISD_PROCESSINGFEE") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText=" Dept ID" Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("SRVCDA_DEPTID") %>'></asp:Label>
+                                            <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("Dept_Id") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -150,7 +135,7 @@
                         <div class="col-md-12 text-right">
                             <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
-                            <asp:Button ID="btnPay" runat="server" Text="Pay" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+                            <asp:Button ID="btnPay" runat="server" Text="Pay" class="btn btn-rounded btn-submit btn-lg" Width="150px" OnClick="btnPay_Click" />
 
 
 

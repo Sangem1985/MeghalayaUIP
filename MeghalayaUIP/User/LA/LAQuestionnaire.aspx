@@ -45,6 +45,7 @@
                     </div>
                 </div>
                 <asp:HiddenField ID="hdnUserID" runat="server" />
+                <asp:HiddenField ID="hdnFEE" runat="server" />
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">

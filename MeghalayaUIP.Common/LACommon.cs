@@ -73,6 +73,8 @@ namespace MeghalayaUIP.Common
 
         public string WATERMANU { get; set; }
         public string SOURCEWATER { get; set; }
+        public string PROCESSINGFEE { get; set; }
+        public string ANNUALTURNOVER { get; set; }
     }
     public class LADeptDtls
     {

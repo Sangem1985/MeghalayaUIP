@@ -85,6 +85,9 @@ namespace MeghalayaUIP.User.LA
                         txtPMLakh.Text = ds.Tables[0].Rows[0]["ISD_PMLAKH"].ToString();
                         txtprojectCost.Text = ds.Tables[0].Rows[0]["ISD_PROJECTCOSTLAKH"].ToString();
                         txtGenerated.Text = ds.Tables[0].Rows[0]["ISD_WASTEGENERATED"].ToString();
+                        txtAnnualTurnover.Text = ds.Tables[0].Rows[0]["ISD_ANNUALTURNOVER"].ToString();
+                        hdnFEE.Value = ds.Tables[0].Rows[0]["ISD_PROCESSINGFEE"].ToString();
+                        GetProjectType(null, EventArgs.Empty);
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
@@ -727,6 +730,8 @@ namespace MeghalayaUIP.User.LA
                     Objindustry.PMLAKH = txtPMLakh.Text;
                     Objindustry.TOTALPROJECTCOST = txtprojectCost.Text;
                     Objindustry.WASTEGENERATOR = txtGenerated.Text;
+                    Objindustry.PROCESSINGFEE=hdnFEE.Value;
+                    Objindustry.ANNUALTURNOVER = txtAnnualTurnover.Text;
                     Objindustry.UIDNO = "LA" + "/" + DateTime.Now.Year.ToString() + "/" + Objindustry.UnitId;
 
                     result = Objland.InsertIndustrialShedDetails(Objindustry);
@@ -1143,6 +1148,14 @@ namespace MeghalayaUIP.User.LA
                 if (Res != "")
                 {
                     ddlEnterprise.SelectedItem.Text = Res;
+
+                    if (ddlEnterprise.SelectedItem.Text == "Micro" ||ddlEnterprise.SelectedItem.Text == "Small" )
+                        hdnFEE.Value = "50000";
+                    else
+                        hdnFEE.Value = "100000";
+
+
+
                 }
             }
         }

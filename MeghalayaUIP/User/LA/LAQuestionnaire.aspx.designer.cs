@@ -69,6 +69,15 @@ namespace MeghalayaUIP.User.LA
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
+        /// hdnFEE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnFEE;
+
+        /// <summary>
         /// txtUnitName control.
         /// </summary>
         /// <remarks>

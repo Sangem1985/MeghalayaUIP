@@ -32,7 +32,7 @@ namespace MeghalayaUIP.User.LA
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
 
-                    UnitID = "1016"; //Convert.ToString(Session["LANDUNITID"]);
+                    UnitID = Convert.ToString(Session["LANDUNITID"]);
 
                     Page.MaintainScrollPositionOnPostBack = true;
                     if (!IsPostBack)
@@ -60,8 +60,10 @@ namespace MeghalayaUIP.User.LA
                     {
                         if (ds.Tables[0].Rows.Count > 0)
                         {                            
-                            hdnQuesID.Value = Convert.ToString(Session["LANDQDID"]);
-                            hdnUIDNo.Value = Convert.ToString(ds.Tables[0].Rows[0]["UIDNO"]);
+                            hdnQuesID.Value = Convert.ToString(Session["ISD_QDID"]);
+                            hdnUIDNo.Value = Convert.ToString(ds.Tables[0].Rows[0]["ISD_LAUIDNO"]);
+                            hdnPaymentAmount.Value= Convert.ToString(ds.Tables[0].Rows[0]["ISD_PROCESSINGFEE"]);
+                            lblPaymentAmount.InnerText = Convert.ToString(ds.Tables[0].Rows[0]["ISD_PROCESSINGFEE"]);
                             grdApprovals.DataSource = ds.Tables[0];
                             grdApprovals.DataBind();
                             grdApprovals.Visible = true;
@@ -75,6 +77,28 @@ namespace MeghalayaUIP.User.LA
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void btnPay_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToDecimal(hdnPaymentAmount.Value) > 0)
+                {
+                    string receipt = "MIP_" + DateTime.Now.Year + DateTime.Now.Month +
+                    DateTime.Now.Day + DateTime.Now.Minute + DateTime.Now.Year + DateTime.Now.Second + DateTime.Now.Millisecond;
+                    Session["OrderNo"] = receipt;
+
+                    Session["PaymentAmount"] = Convert.ToDecimal(hdnPaymentAmount.Value);
+                    Response.Redirect("~/User/Payments/RazorPaymentPage.aspx?receipt=" + receipt + "&Amount=" + hdnPaymentAmount.Value);
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please select atleast one Approval')", true);
+                    return;
+                }
+            }
+            catch(Exception ex) { }
         }
     }
 }
