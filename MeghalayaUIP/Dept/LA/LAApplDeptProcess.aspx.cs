@@ -274,5 +274,77 @@ namespace MeghalayaUIP.Dept.LA
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }*/
         }
+
+
+        protected void btnIndSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                }
+                if (ddlStatus.SelectedValue == "7")
+                {
+                    if (string.IsNullOrWhiteSpace(txtRemarks.Text) || txtRemarks.Text == "" || txtRemarks.Text == null)
+                    {
+                        lblmsg0.Text = "Please Enter Remarks";
+                        Failure.Visible = true;
+                        return;
+                    }
+                    //if ((ddlStatus.SelectedValue == "4") && (string.IsNullOrWhiteSpace(txtApplQuery.Text) || txtApplQuery.Text == "" || txtApplQuery.Text == null))
+                    //{
+                    //    lblmsg0.Text = "Please Enter Query Description";
+                    //    Failure.Visible = true;
+                    //    return;
+                    //}
+                    else
+                    {
+                        //Unitid = unitid
+                        //Investerid = investerid
+
+                        //status = Convert.ToInt32(ddlStatus.SelectedValue);
+                        //UserID = ObjUserInfo.UserID;
+
+                        //prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+
+                        //Remarks = txtRemarks.Text;
+                        //IPAddress = getclientIP();
+
+                        string valid = PreBAL.LADeptProcess(prd);
+                        btnIndSubmit.Enabled = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='LADeptDashBoard.aspx'", true);
+                        return;
+                    }
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Select Action";
+                    Failure.Visible = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+            }
+        }
     }
 }
