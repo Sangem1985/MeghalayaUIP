@@ -46,6 +46,14 @@ namespace MeghalayaUIP.Dept
                     Preestablishment.Visible = true;
                     PreOperational.Visible = true;
                 }
+                //else if (ObjUserInfo.Roleid == "10")
+                //{
+                //    intenttoinvest.Visible = false;
+                //    prereg.Visible = false;
+                //    Preestablishment.Visible = false;
+                //    PreOperational.Visible = false;
+                //    divLand.Visible = true;
+                //}
                 else
                 {
                     intenttoinvest.Visible = false;
@@ -102,5 +110,15 @@ namespace MeghalayaUIP.Dept
             Response.Redirect(url);
 
         }
+
+        //protected void lnkLandAllotment_Click(object sender, EventArgs e)
+        //{
+        //    if (ObjUserInfo.Roleid == "10")
+        //    {
+        //        divLand.Visible = true;
+        //        string url = "~/Dept/LA/LADeptdashboard.aspx";
+        //        Response.Redirect(url);
+        //    }
+        //}
     }
 }

@@ -554,6 +554,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="panel panel-default" id="verifypanel" runat="server" visible="true">
                             <div class="panel-heading" role="tab" id="headingSix">
                                 <h4 class="panel-title">
@@ -737,10 +738,8 @@
                                                     <asp:Label ID="lblAppDateOffline" runat="server"></asp:Label>
                                                 </td>
                                                 <td style="width: 200px">
-                                                    <asp:DropDownList ID="ddlActionOffline" AutoPostBack="true" runat="server" Class="form-control">
-                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        <asp:ListItem Text="Approve" Value="13"></asp:ListItem>
-                                                        <asp:ListItem Text="Rejected" Value="16"></asp:ListItem>
+                                                    <asp:DropDownList ID="ddlAction" AutoPostBack="true" runat="server" Class="form-control">                                                       
+                                                        <asp:ListItem Text="Forward to Land Allotment" Value="1"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td style="vertical-align: central" id="tdOfflineReason" runat="server" visible="false">

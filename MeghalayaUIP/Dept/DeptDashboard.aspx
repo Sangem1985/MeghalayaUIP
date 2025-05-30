@@ -67,6 +67,29 @@
 
                             </div>
 
+                             <%-- <div class="col-md-3" id="divLand" runat="server" visible="false">
+                                <div class="card-counter primary">
+                                    <asp:LinkButton runat="server" ID="lnkLandAllotment" OnClick="lnkLandAllotment_Click">
+									<img src="../assets/admin/img/prl.png" alt="logo">
+									<span class="count-numbers">Land Allotment</span>
+									<span class="count-name"></span>
+                                    </asp:LinkButton>
+                                </div>
+
+                            </div>--%>
+
+
+
+<%--                               <div class="col-md-3" id="divLand" runat="server" visible="true">
+                                <div class="card-counter success">
+                                    <asp:LinkButton runat="server" ID="LinkButton1" >
+                                    <img src="../assets/admin/img/inc.png" alt="logo">
+                                    <span class="count-numbers">Land Allotment</span>
+                                    <span class="count-name"></span>
+                                    </asp:LinkButton>
+                                </div>--%>
+
+                            </div>
 
                         </div>
                     </div>

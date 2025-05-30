@@ -69,7 +69,7 @@ namespace MeghalayaUIP.Dept.LA
                     lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
                     lblIMATOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
                     lblIMAPPROVED.Text = dt.Rows[0]["APPROVED"].ToString();
-                    lblQueryRaised.Text = dt.Rows[0]["QUERYRAISED"].ToString();
+                    //lblQueryRaised.Text = dt.Rows[0]["QUERYRAISED"].ToString();
                     lblRejected.Text = dt.Rows[0]["REJECTED"].ToString();
                 }
                 else
@@ -77,7 +77,7 @@ namespace MeghalayaUIP.Dept.LA
                     lblTotalApp.Text = "0";
                     lblIMATOBEPROCESSED.Text = "0";
                     lblIMAPPROVED.Text = "0";
-                    lblQueryRaised.Text = "0";
+                    //lblQueryRaised.Text = "0";
                     lblRejected.Text = "0";
                 }
             }
@@ -141,21 +141,21 @@ namespace MeghalayaUIP.Dept.LA
             }
         }
 
-        protected void linkQueryRaised_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (lblQueryRaised.Text != "0")
-                    Response.Redirect("LAApplView.aspx?status=QUERYRAISED");
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+        //protected void linkQueryRaised_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (lblQueryRaised.Text != "0")
+        //            Response.Redirect("LAApplView.aspx?status=QUERYRAISED");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Failure.Visible = true;
+        //        lblmsg0.Text = ex.Message;
+        //        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
 
-            }
-        }
+        //    }
+        //}
 
         protected void linkRejected_Click(object sender, EventArgs e)
         {

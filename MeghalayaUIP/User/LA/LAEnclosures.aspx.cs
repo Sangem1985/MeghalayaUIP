@@ -172,8 +172,8 @@ namespace MeghalayaUIP.User.LA
                         }
 
                         LAAttachments objAadhar = new LAAttachments();
-                        objAadhar.UNITID = "1001";//Convert.ToString(Session["LANDUNITID"]);
-                        objAadhar.Questionnareid = "101"; //Convert.ToString(Session["LANDQDID"]);
+                        objAadhar.UNITID = Convert.ToString(Session["LANDUNITID"]);
+                        objAadhar.Questionnareid = Convert.ToString(Session["LANDQDID"]);
                         objAadhar.MasterID = "177";
                         objAadhar.FilePath = serverpath + fupPANSign.PostedFile.FileName;
                         objAadhar.FileName = fupPANSign.PostedFile.FileName;
@@ -785,6 +785,22 @@ namespace MeghalayaUIP.User.LA
             try
             {
                 Response.Redirect("~/User/LA/LAQuestionnaire.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnSave_Click(sender, e);
+                if (errormsg == "")
+                    Response.Redirect("~/User/LA/LAPaymentPage.aspx");
             }
             catch (Exception ex)
             {
