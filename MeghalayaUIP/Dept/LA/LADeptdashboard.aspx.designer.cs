@@ -105,6 +105,33 @@ namespace MeghalayaUIP.Dept.LA
         protected global::System.Web.UI.WebControls.Label lblIMATOBEPROCESSED;
 
         /// <summary>
+        /// divCommittee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCommittee;
+
+        /// <summary>
+        /// lnkforward control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkforward;
+
+        /// <summary>
+        /// lblForward control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblForward;
+
+        /// <summary>
         /// linkApproved control.
         /// </summary>
         /// <remarks>

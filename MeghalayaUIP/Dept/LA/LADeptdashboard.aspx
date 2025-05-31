@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dept/dept.Master" AutoEventWireup="true" CodeBehind="LADeptdashboard.aspx.cs" Inherits="MeghalayaUIP.Dept.LA.LADeptdashboard" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
             <li class="breadcrumb-item active" aria-current="page">Land Application</li>
@@ -11,7 +12,7 @@
     <div class="page-wrapper LADB" style="margin: 10px 0px !important;">
         <div class="container-fluid">
             <div class="card-header d-flex justify-content-between">
-                <h4 class="card-title mt-1"><b></b></h4>               
+                <h4 class="card-title mt-1"><b></b></h4>
             </div>
 
             <div class="card" style="padding: 10px; border-radius: 4px;">
@@ -53,6 +54,7 @@
                                             <div class="content">
                                                 <div class="text">
                                                     Total Application
+                                                   
                                                     <%-- <a href="PreRegApplIMAView.aspx?status=IMATOTAL" style="color: white">Total<br />
                                                     Application </a>--%>
                                                 </div>
@@ -75,6 +77,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMATOBEPROCESSED" style="color: white"></a>--%>
                                                         Applications to<br />
                                                     be Processed
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -82,6 +85,28 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" id="divCommittee" runat="server">
+                                    <asp:LinkButton runat="server" ID="lnkforward" ForeColor="White" OnClick="lnkforward_Click">
+                                        <div class="info-box bg-cyan hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblForward" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    Forwarded to Land Committee
+                                               
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+
+
                                 <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkApproved" OnClick="linkApproved_Click" ForeColor="White">
                                         <div class="info-box bg-green hover-expand-effect">
@@ -92,8 +117,8 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                              
-                                                    Land Allotted Approved
+                                                    Approved
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-memo-circle-check"></i>
@@ -101,7 +126,27 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
-                              <%--  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" id="LANDQUERY" runat="server" visible="false">
+
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="linkRejected" ForeColor="White" OnClick="linkRejected_Click">
+                                        <div class="info-box bg-red hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblRejected" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    Rejected
+                                               
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+                                <%--  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" id="LANDQUERY" runat="server" visible="false">
                                     <asp:LinkButton runat="server" ID="linkQueryRaised" ForeColor="White" OnClick="linkQueryRaised_Click">
                                         <div class="info-box bg-blue hover-expand-effect">
                                             <div class="icon">
@@ -120,28 +165,10 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div> --%>
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                    <asp:LinkButton runat="server" ID="linkRejected" ForeColor="White" OnClick="linkRejected_Click" >
-                                        <div class="info-box bg-pink hover-expand-effect">
-                                            <div class="icon">
-                                                <h4>
-                                                    <asp:Label ID="lblRejected" runat="server"></asp:Label>
-                                                </h4>
-                                            </div>
-                                            <div class="content">
-                                                <div class="text">
-                                                    Rejected
-                                                </div>
-                                                <div style="font-size: 12px;"></div>
-                                                <i class="fi fi-tr-file-edit"></i>
-                                            </div>
-                                        </div>
-                                    </asp:LinkButton>
-                                </div>
                             </div>
                         </div>
-                    </section>                 
-                </div>              
+                    </section>
+                </div>
             </div>
         </div>
     </div>

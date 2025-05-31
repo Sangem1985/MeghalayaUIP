@@ -60,7 +60,7 @@ namespace MeghalayaUIP.Dept.LA
                     objDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                 }
 
-                dt = Objland.GetLADeptDashBoard(objDtls);
+                dt = Objland.GetLADeptDashBoard(objDtls);   
 
                 if (dt.Rows.Count > 0)
                 {
@@ -163,6 +163,22 @@ namespace MeghalayaUIP.Dept.LA
             {
                 if (lblRejected.Text != "0")
                     Response.Redirect("LAApplView.aspx?status=REJECTED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
+
+        protected void lnkforward_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblRejected.Text != "0")
+                   Response.Redirect("LAApplView.aspx?status=FORWARD");
             }
             catch (Exception ex)
             {
