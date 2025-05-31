@@ -1,18 +1,19 @@
-﻿using System;
+﻿using iText.Layout.Borders;
+using MeghalayaUIP.BAL.CFEBLL;
+using MeghalayaUIP.Common;
+using Newtonsoft.Json;
+using Razorpay.Api;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using iText.Layout.Borders;
-using MeghalayaUIP.BAL.CFEBLL;
-using MeghalayaUIP.Common;
-using Newtonsoft.Json;
-using Razorpay.Api;
 
 namespace MeghalayaUIP.User.Payments
 {
@@ -73,12 +74,42 @@ namespace MeghalayaUIP.User.Payments
                                 Receipt = Request.QueryString["receipt"].ToString();
                             }
                             Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
-                            string UnitID = Convert.ToString(Session["CFEUNITID"]);
+                            string UnitID = "", Module = "";
+
+                            if (Request.QueryString["Module"] != null)
+                            {
+                                if (Convert.ToString(Request.QueryString["Module"]) == "LAND")
+                                {
+                                    UnitID = Convert.ToString(Session["LANDUNITID"]);
+                                    Module = "LAND";
+                                }
+                                if (Convert.ToString(Request.QueryString["Module"]) == "CFE")
+                                {
+                                    UnitID = Convert.ToString(Session["CFEUNITID"]);
+                                    Module = "CFE";
+                                }
+                                if (Convert.ToString(Request.QueryString["Module"]) == "CFO")
+                                {
+                                    UnitID = Convert.ToString(Session["CFOUNITID"]);
+                                    Module = "CFO";
+                                }
+                                if (Convert.ToString(Request.QueryString["Module"]) == "REN")
+                                {
+                                    UnitID = Convert.ToString(Session["RENQID"]);
+                                    Module = "REN";
+                                }
+                                if (Convert.ToString(Request.QueryString["Module"]) == "SRVC")
+                                {
+                                    UnitID = Convert.ToString(Session["SRVCQID"]);
+                                    Module = "SRVC";
+                                }
+                            }
+                            //string UnitID = Convert.ToString(Session["CFEUNITID"]);
 
 
 
                             DataSet dspaydtls = new DataSet();
-                            dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString());
+                            dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString(), Module);
 
                             if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
                             {   

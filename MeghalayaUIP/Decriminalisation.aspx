@@ -29,44 +29,43 @@
                                             <h3>Decriminalisation</h3>
                                             <div class="card">
                                                 <div class="card-body justify-content-center" align="justify">
-                                                    <div class="row">
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-3">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-5 col-form-label">
-                                                                        Department :
-                                                                    </label>
-                                                                    <div class="col-lg-7 d-flex">
-                                                                        <asp:DropDownList ID="ddldept" runat="server" class="form-control">
-                                                                        </asp:DropDownList>
-                                                                    </div>
+                                                    <div class="col-md-12 d-flex">
+                                                        <div class="col-md-3">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">
+                                                                    Department :
+           
+                                                                </label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:DropDownList ID="ddldept" runat="server" class="form-control">
+                                                                    </asp:DropDownList>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-3">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-3 col-form-label">Sector :</label>
-                                                                    <div class="col-lg-7 d-flex">
-                                                                        <asp:DropDownList ID="ddlSector" runat="server" class="form-control">
-                                                                        </asp:DropDownList>
-                                                                    </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-6 col-form-label">Sector :</label>
+                                                                <div class="col-lg-6 d-flex">
+                                                                    <asp:DropDownList ID="ddlSector" runat="server" class="form-control">
+                                                                    </asp:DropDownList>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-3">
-                                                                <div class="form-group row">
-                                                                    <div class="col-lg-4 d-flex">
-                                                                        <asp:Button ID="btnSearch" runat="server" Text="GET" ValidationGroup="Search" class="btn btn-rounded btn-success" Width="150px" OnClick="btnSearch_Click" />
-                                                                    </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group row">
+                                                                <div class="col-lg-4 d-flex">
+                                                                    <asp:Button ID="btnSearch" runat="server" Text="GET" ValidationGroup="Search" class="btn btn-rounded btn-success" Width="150px" OnClick="btnSearch_Click" />
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-3">
-                                                                <div class="form-group row">
-                                                                    <label class="col-lg-3 col-form-label">Search :</label>
-                                                                    <div class="col-lg-7 d-flex">
-                                                                        <asp:TextBox ID="txtSearch" onkeyup="filterGridView(this.value)" runat="server" class="form-control"></asp:TextBox>
-                                                                    </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-5 col-form-label">Search :</label>
+                                                                <div class="col-lg-7 d-flex">
+                                                                    <asp:TextBox ID="txtSearch" onkeyup="filterGridView(this.value)" runat="server" class="form-control"></asp:TextBox>
                                                                 </div>
                                                             </div>
-                                                        </div>                                                     
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-100 d-flex">
                                                         <asp:GridView ID="gvDecriminalisation" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
@@ -162,7 +161,7 @@
     <script type="text/javascript">
 
         function filterGridView(searchText) {
-            
+
             searchText = searchText.toLowerCase();
 
             // Get the GridView element

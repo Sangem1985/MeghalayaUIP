@@ -58,22 +58,36 @@ namespace MeghalayaUIP.User.Payments
                                 Receipt = Request.QueryString["receipt"].ToString();
                             }
                             Amount = Convert.ToDecimal(Session["PaymentAmount"].ToString()) * 100;
-                            string UnitID="";
+                            string UnitID="",  Module="";
                             if (Request.QueryString["Module"] != null)
                             {
                                 if (Convert.ToString(Request.QueryString["Module"]) == "LAND")
+                                {
                                     UnitID = Convert.ToString(Session["LANDUNITID"]);
+                                    Module = "LAND";
+                                }
                                 if (Convert.ToString(Request.QueryString["Module"]) == "CFE")
-                                    UnitID = Convert.ToString(Session["CFEUNITID"]);
+                                { UnitID = Convert.ToString(Session["CFEUNITID"]);
+                                    Module = "CFE";
+                                }
                                 if (Convert.ToString(Request.QueryString["Module"]) == "CFO")
+                                { 
                                     UnitID = Convert.ToString(Session["CFOUNITID"]);
+                                    Module = "CFO";
+                                }
                                 if (Convert.ToString(Request.QueryString["Module"]) == "REN")
+                                {
                                     UnitID = Convert.ToString(Session["RENQID"]);
+                                    Module = "REN";
+                                }
                                 if (Convert.ToString(Request.QueryString["Module"]) == "SRVC")
+                                {
                                     UnitID = Convert.ToString(Session["SRVCQID"]);
+                                    Module = "SRVC";
+                                }
                             }
                             DataSet dspaydtls = new DataSet();
-                            dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString());
+                            dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString(), Module);
                             if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
                             {
                                 PayAmount = Amount.ToString();

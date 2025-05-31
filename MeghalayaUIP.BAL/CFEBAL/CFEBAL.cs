@@ -266,9 +266,9 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.UpdateCFEDepartmentProcess(Objcfedtls);
         }
-        public DataSet GetUnitDetailsforPayment(string UnitID, string InvesterID)
+        public DataSet GetUnitDetailsforPayment(string UnitID, string InvesterID, string Module)
         {
-            return objCFEDAL.GetUnitDetailsforPayment(UnitID, InvesterID);
+            return objCFEDAL.GetUnitDetailsforPayment(UnitID, InvesterID, Module);
         }
         public string InsertPaymentRequest(string UnitID, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
             string Contact, string Notes, string IpAddress)

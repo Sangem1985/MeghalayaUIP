@@ -3322,7 +3322,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
             return valid;
 
         }
-        public DataSet GetUnitDetailsforPayment(string UnitID, string InvesterID)
+        public DataSet GetUnitDetailsforPayment(string UnitID, string InvesterID, string Module)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -3340,6 +3340,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.SelectCommand.Parameters.AddWithValue("@MODULE", Module);
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
