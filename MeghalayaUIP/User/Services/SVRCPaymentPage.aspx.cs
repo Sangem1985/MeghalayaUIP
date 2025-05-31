@@ -166,7 +166,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     PaymentAmount = ((int?)TotalAmount).ToString();
                     Session["PaymentAmount"] = ((int?)TotalAmount).ToString();
-                    Response.Redirect("~/User/Payments/RazorPaymentPage.aspx?receipt=" + receipt + "&Amount=" + PaymentAmount);
+                    Response.Redirect("~/User/Payments/RazorPaymentPage.aspx?receipt=" + receipt + "&Amount=" + PaymentAmount + "&Module=SRVC");
                 }
                 else
                 {

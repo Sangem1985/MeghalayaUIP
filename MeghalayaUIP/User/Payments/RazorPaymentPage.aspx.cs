@@ -35,7 +35,7 @@ namespace MeghalayaUIP.User.Payments
                         {
                             ObjUserInfo = (UserInfo)Session["UserInfo"];
                             Session["INSTRIDPM"] = ObjUserInfo.Userid.ToString();
-                            int orderAmount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
+                            decimal orderAmount = Convert.ToDecimal(Session["PaymentAmount"].ToString()) * 100;
                             if (Request.QueryString["receipt"] != null)
                             {
                                 Receiptorder = Request.QueryString["receipt"].ToString();
@@ -52,14 +52,26 @@ namespace MeghalayaUIP.User.Payments
                             Razorpay.Api.Order order = client.Order.Create(input);
                             orderId = order["id"].ToString();
 
-                            string Receipt = ""; int Amount;
+                            string Receipt = ""; decimal Amount;
                             if (Request.QueryString["receipt"] != null)
                             {
                                 Receipt = Request.QueryString["receipt"].ToString();
                             }
-                            Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
-                            string UnitID = Convert.ToString(Session["CFEUNITID"]);
-
+                            Amount = Convert.ToDecimal(Session["PaymentAmount"].ToString()) * 100;
+                            string UnitID="";
+                            if (Request.QueryString["Module"] != null)
+                            {
+                                if (Convert.ToString(Request.QueryString["Module"]) == "LAND")
+                                    UnitID = Convert.ToString(Session["LANDUNITID"]);
+                                if (Convert.ToString(Request.QueryString["Module"]) == "CFE")
+                                    UnitID = Convert.ToString(Session["CFEUNITID"]);
+                                if (Convert.ToString(Request.QueryString["Module"]) == "CFO")
+                                    UnitID = Convert.ToString(Session["CFOUNITID"]);
+                                if (Convert.ToString(Request.QueryString["Module"]) == "REN")
+                                    UnitID = Convert.ToString(Session["RENQID"]);
+                                if (Convert.ToString(Request.QueryString["Module"]) == "SRVC")
+                                    UnitID = Convert.ToString(Session["SRVCQID"]);
+                            }
                             DataSet dspaydtls = new DataSet();
                             dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString());
                             if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)

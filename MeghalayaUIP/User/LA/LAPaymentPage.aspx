@@ -34,6 +34,7 @@
                 <asp:HiddenField ID="hdnUserID" runat="server" />
                 <asp:HiddenField ID="hdnQuesID" runat="server" />
                 <asp:HiddenField ID="hdnUIDNo" runat="server" />
+                  <asp:HiddenField ID="hdnUnitID" runat="server" />
                 <asp:HiddenField ID="hdnPaymentAmount" runat="server"  />
                 <div class="card card-table">
                     <div class="card-header">
@@ -99,6 +100,7 @@
                                             <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("Dept_Id") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
+
                                 </Columns>
                             </asp:GridView>
                         </div>

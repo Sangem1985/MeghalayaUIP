@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -64,6 +65,8 @@ namespace MeghalayaUIP.User.LA
                             hdnUIDNo.Value = Convert.ToString(ds.Tables[0].Rows[0]["ISD_LAUIDNO"]);
                             hdnPaymentAmount.Value= Convert.ToString(ds.Tables[0].Rows[0]["ISD_PROCESSINGFEE"]);
                             lblPaymentAmount.InnerText = Convert.ToString(ds.Tables[0].Rows[0]["ISD_PROCESSINGFEE"]);
+                            hdnUnitID.Value = Convert.ToString(ds.Tables[0].Rows[0]["ISD_UNITID"]);
+                            Session["LANDUNITID"] = hdnUnitID.Value;
                             grdApprovals.DataSource = ds.Tables[0];
                             grdApprovals.DataBind();
                             grdApprovals.Visible = true;
@@ -90,7 +93,7 @@ namespace MeghalayaUIP.User.LA
                     Session["OrderNo"] = receipt;
 
                     Session["PaymentAmount"] = Convert.ToDecimal(hdnPaymentAmount.Value);
-                    Response.Redirect("~/User/Payments/RazorPaymentPage.aspx?receipt=" + receipt + "&Amount=" + hdnPaymentAmount.Value);
+                    Response.Redirect("~/User/Payments/RazorPaymentPage.aspx?receipt=" + receipt + "&Amount=" + hdnPaymentAmount.Value+"&Module=LAND");
                 }
                 else
                 {
