@@ -45,7 +45,7 @@ namespace MeghalayaUIP.Dept.LA
                     {
                         BindLandApplicationDetails();
                     }
-
+                    lblapplDate.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -191,79 +191,74 @@ namespace MeghalayaUIP.Dept.LA
             try
             {
 
-                string newPath = "", Error = "", message = "";
-                string sFileDir = ConfigurationManager.AppSettings["PreRegAttachments"];
-                // string shortFileDir = "~\\PreRegAttachments";
+                string Error = ""; string message = "";
                 if (FileUploadqueryLand.HasFile)
                 {
                     Error = validations(FileUploadqueryLand);
                     if (Error == "")
                     {
-                        if ((FileUploadqueryLand.PostedFile != null) && (FileUploadqueryLand.PostedFile.ContentLength > 0))
+                        string sFileDir = ConfigurationManager.AppSettings["LANDAttachments"];
+
+                        string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
+                         + Convert.ToString(Session["UNITID"])+"\\" + "RESPONSEATTACHMENTS"+"\\";
+                        if (!Directory.Exists(serverpath))
                         {
-                            string sFileName = System.IO.Path.GetFileName(FileUploadqueryLand.PostedFile.FileName);
-                            try
-                            {
-                                newPath = System.IO.Path.Combine(sFileDir, Session["INVESTERID"].ToString(), ViewState["UNITID"].ToString() + "\\RESPONSEATTACHMENTS");
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
+                        //int count = dir.GetFiles().Length;
+                        //if (count == 0)
+                        //    FileUploadqueryLand.PostedFile.SaveAs(serverpath + "\\" + FileUploadqueryLand.PostedFile.FileName);
+                        //else
+                        //{
+                        //    if (count == 1)
+                        //    {
+                        //        string[] Files = Directory.GetFiles(serverpath);
 
-                                if (!Directory.Exists(newPath))
-                                    System.IO.Directory.CreateDirectory(newPath);
+                        //        foreach (string file in Files)
+                        //        {
+                        //            File.Delete(file);
+                        //        }
+                        //        FileUploadqueryLand.PostedFile.SaveAs(serverpath + "\\" + FileUploadqueryLand.PostedFile.FileName);
+                        //    }
+                        //}
 
-                                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
-                                FileUploadqueryLand.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                        LAAttachments objAadhar = new LAAttachments();
+                        objAadhar.UNITID = Convert.ToString(Session["UNITID"]);
+                        objAadhar.Questionnareid = "0"; //Convert.ToString(Session["LANDQDID"]);                        
+                        objAadhar.FilePath = serverpath + FileUploadqueryLand.PostedFile.FileName;
+                        objAadhar.FileName = serverpath.ToString();//FileUploadqueryLand.PostedFile.FileName;
+                        objAadhar.FileType = FileUploadqueryLand.PostedFile.ContentType;
+                        objAadhar.FileDescription = "RESPONSE ATTACHMENT";
+                        objAadhar.CreatedBy = Session["INVESTERID"].ToString();
+                        objAadhar.MasterID = "0";
+                        objAadhar.DeptID = Convert.ToString(ViewState["DEPTID"]);
+                        objAadhar.ApprovalID = "0";
+                        objAadhar.IPAddress = getclientIP();
+                       string result = Objland.InsertLAAttachments(objAadhar);
+                        if (result != "")
+                        {
+                            lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
+                            hplAttachment.Text = FileUploadqueryLand.FileName;
+                            hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
 
-                                
-                                LAAttachments objAttach = new LAAttachments();
-
-                              //  objAttach.QueryID = ViewState["COMMQID"].ToString();
-                                objAttach.UNITID = ViewState["UNITID"].ToString();
-                                objAttach.CreatedBy = hdnUserID.Value.ToString();                              
-                                objAttach.FileType = FileUploadqueryLand.PostedFile.ContentType;
-                                objAttach.FileName = sFileName.ToString();
-                                objAttach.FilePath = newPath.ToString() + "\\" + sFileName.ToString();
-                                objAttach.FileDescription = "RESPONSE ATTACHMENT";
-                                objAttach.DeptID = Convert.ToString(ViewState["DEPTID"]);
-                                objAttach.ApprovalID = "0";
-                               // objattachments.ResponseFileBy = "DEPARTMENT";
-
-                                int result = 0;
-                              //  result = Objland.InsertLAAttachments(objAttach);
-
-                                if (result > 0)
-                                {
-                                    lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
-                                    hplAttachment.Text = FileUploadqueryLand.FileName;
-                                    hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAttach.FilePath);
-
-                                    //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + ViewState["UNITID"].ToString() + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
-                                    hplAttachment.Visible = true;
-                                    success.Visible = true;
-                                    Failure.Visible = false;
-                                }
-                                else
-                                {
-                                    lblmsg0.Text = "<font color='red'>Attachment Upload Failed..!</font>";
-                                    success.Visible = false;
-                                    Failure.Visible = true;
-                                }
-                            }
-                            catch (Exception)//in case of an error
-                            {
-                                DeleteFile(newPath + "\\" + sFileName);
-                            }
+                            //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + ViewState["UNITID"].ToString() + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
+                            hplAttachment.Visible = true;
+                            success.Visible = true;
+                            Failure.Visible = false;
                         }
                     }
                     else
                     {
-                        message = "alert('" + Error + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        lblmsg0.Text = "<font color='red'>Attachment Upload Failed..!</font>";
+                        success.Visible = false;
+                        Failure.Visible = true;
                     }
                 }
                 else
                 {
-                    lblmsg0.Text = "<font color='red'>Please Select a file To Upload..!</font>";
-                    success.Visible = false;
-                    Failure.Visible = true;
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
 
 

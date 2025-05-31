@@ -715,14 +715,18 @@ namespace MeghalayaUIP.DAL.LADAL
 
                 com.Parameters.AddWithValue("@LAA_UNITID", Convert.ToInt32(objAttachments.UNITID));
                 com.Parameters.AddWithValue("@LAA_LAQDID", Convert.ToInt32(objAttachments.Questionnareid));
-                com.Parameters.AddWithValue("@LAA_QUERYID", objAttachments.QueryID);
-                com.Parameters.AddWithValue("@LAA_MASTERAID", objAttachments.MasterID);
+                if(objAttachments.QueryID !=null && objAttachments.QueryID !="")
+                { com.Parameters.AddWithValue("@LAA_QUERYID", objAttachments.QueryID); }
+               if(objAttachments.MasterID !=null && objAttachments.MasterID !="")
+                { com.Parameters.AddWithValue("@LAA_MASTERAID", objAttachments.MasterID); }               
                 com.Parameters.AddWithValue("@LAA_FILEPATH", objAttachments.FilePath);
                 com.Parameters.AddWithValue("@LAA_FILENAME", objAttachments.FileName);
                 com.Parameters.AddWithValue("@LAA_FILETYPE", objAttachments.FileType);
                 com.Parameters.AddWithValue("@LAA_FILEDESCRIPTION", objAttachments.FileDescription);
-                com.Parameters.AddWithValue("@LAA_DEPTID", objAttachments.DeptID);
-                com.Parameters.AddWithValue("@LAA_APPROVALID", objAttachments.ApprovalID);
+                if (objAttachments.DeptID !=null && objAttachments.DeptID !="")
+                { com.Parameters.AddWithValue("@LAA_DEPTID", objAttachments.DeptID); }
+                if(objAttachments.ApprovalID!=null && objAttachments.ApprovalID!="")
+                { com.Parameters.AddWithValue("@LAA_APPROVALID", objAttachments.ApprovalID); }                
                 com.Parameters.AddWithValue("@LAA_CREATEDBY", Convert.ToInt32(objAttachments.CreatedBy));
                 com.Parameters.AddWithValue("@LAA_CREATEDBYIP", objAttachments.IPAddress);
                 //if (objAttachments.ReferenceNo != null && objAttachments.ReferenceNo != "")

@@ -980,7 +980,12 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Criminal-Case at any time during the period of five years immediately preceding the date\\n";
                     slno = slno + 1;
                 }
-                if (rblCriminalCase.SelectedValue == "Y")
+                if (rblDistricCouncil.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Enter applicant holds a trading/business license granted by District Council\\n";
+                    slno = slno + 1;
+                }
+                if (rblDistricCouncil.SelectedValue == "Y")
                 {
                     if (ddlLic.SelectedIndex == 0)
                     {
@@ -1071,6 +1076,25 @@ namespace MeghalayaUIP.User.Renewal
                 //    errormsg = errormsg + slno + ". Please Enter Contractor's Photo \\n";
                 //    slno = slno + 1;
                 //}
+                if (rblLicSuspending.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please select Whether there was any order against the contractor revoking or suspending license or forfeiting Security Deposit in respect of an earlier contract\\n";
+                    slno = slno + 1;
+                }
+                if (rblLicSuspending.SelectedValue == "Y")
+                {
+                    
+                    if (string.IsNullOrEmpty(txtOrderNo.Text) || txtOrderNo.Text == "" || txtOrderNo.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Order No\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtOrderDate.Text) || txtOrderDate.Text == "" || txtOrderDate.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter order Date\\n";
+                        slno = slno + 1;
+                    }
+                }
 
                 return errormsg;
 
