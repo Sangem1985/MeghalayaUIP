@@ -193,7 +193,6 @@ namespace MeghalayaUIP.Common
         public string QuerytoDeptID { get; set; } // FROM IMA TO DEPT (OR) FROM COMM TO IMA OR DEPT
         public string QueryID { get; set; }
         public string QueryResponse { get; set; }
-
         public string DPRCRETEDBY { get; set; }
         public string DPRBYIP { get; set; }
         public string DPRCHECKLIST { get; set; }

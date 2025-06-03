@@ -443,12 +443,12 @@
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
 
-                                                                <asp:BoundField HeaderText="Department ID" DataField="Dept_Id" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                                <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Approval Name" DataField="ApprovalName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Department ID" DataField="TMD_DEPTID" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
+                                                                <asp:BoundField HeaderText="Unit ID" DataField="AL_LAUNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Department Name" DataField="TMD_DeptName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Approval Name" DataField="USERNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Dept Processed Date" DataField="DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             </Columns>
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         </asp:GridView>
@@ -461,6 +461,11 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
 
 
                         <div class="panel panel-default" id="Indverifypanel" runat="server" visible="true">
@@ -485,7 +490,7 @@
                                                 <td style="width: 150px"><b>Application Date</b></td>
                                                 <td style="width: 200px"><b>Application Action</b></td>
                                                 <td><b>
-                                                    <asp:Label runat="server" Text="Please Enter Remarks if any"></asp:Label></b>
+                                                    <asp:Label runat="server" Text="Please Enter Remarks"></asp:Label></b>
                                                 </td>
 
                                                 <td id="tdaction" runat="server" visible="true">
@@ -493,11 +498,6 @@
                                                 </td>
                                             </tr>
                                             <tr id="trVrfydtls" runat="server">
-                                                <%--<td>
-                                                    <asp:Label runat="server" ID="lbl_Name1"></asp:Label></td>
-                                                <td>
-                                                    <asp:Label ID="lblunitname1" runat="server"></asp:Label>
-                                                </td>--%>
                                                 <td>
                                                     <asp:Label ID="lblApplNo" runat="server"></asp:Label></td>
                                                 <td tyle="width: 100px">
@@ -512,16 +512,12 @@
                                                     <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
 
-                                                    <p>Upload File if any: </p>
+                                                    <p>Upload File: </p>
                                                     <asp:FileUpload runat="server" ID="FileUploadqueryLand" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
 
                                                     <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                                     <asp:Button runat="server" ID="btnUpldAttachment" Text="Upload" OnClick="btnUpldAttachment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
-
-
                                                 </td>
-
-
 
                                                 <td>
                                                     <asp:Button ID="btnIndSubmit" runat="server" Text="Submit" OnClick="btnIndSubmit_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
@@ -596,6 +592,136 @@
                         </div>
 
 
+                        <div class="panel panel-default" id="divLandAllotmentPanel" runat="server" visible="true">
+                            <div class="panel-heading" role="tab" id="divLand" runat="server">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">Verification of Application
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSeven" class="panel-collapse show" role="tabpanel"
+                                aria-labelledby="headingSeven" aria-expanded="false">
+
+                                <div class="card">
+                                    <div class="table-responsive">
+                                        <table align="Center" style="width: 100%; align-content: center" class="table-bordered mb-10">
+                                            <tr id="tr1" runat="server">
+                                                <td><b>Application ID</b></td>
+                                                <td style="width: 150px"><b>Application Date</b></td>
+                                                <td style="width: 200px"><b>Application Action</b></td>
+                                                <td><b>
+                                                    <asp:Label runat="server" Text="Please Enter Remarks"></asp:Label></b>
+                                                </td>
+
+                                                <td id="td1" runat="server" visible="true">
+                                                    <b>Submit Action</b>
+                                                </td>
+                                            </tr>
+                                            <tr id="tr2" runat="server">
+                                                <td>
+                                                    <asp:Label ID="lblApplicationID" runat="server"></asp:Label></td>
+                                                <td tyle="width: 100px">
+                                                    <asp:Label ID="lblApplicationDate" runat="server"></asp:Label>
+                                                </td>
+                                                <td style="width: 200px">
+                                                    <asp:DropDownList ID="ddlLandAllotment" runat="server" Class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLandAllotment_SelectedIndexChanged">
+                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                        <asp:ListItem Text="Approved" Value="8"></asp:ListItem>
+                                                        <asp:ListItem Text="Rejected" Value="9"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </td>
+                                                <td style="vertical-align: central">
+                                                    <asp:TextBox ID="txtLandRemarks" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                        
+                                                    <p id="PPPayment" runat="server" visible="false"></p>
+                                                        <asp:TextBox ID="txtPayment" runat="server" onkeypress="return NumberOnly()" MaxLength="10" onkeyup="handleKeyUp(this)" Visible="false"></asp:TextBox>
+                                                   
+
+
+                                                    <p id="divUpload" runat="server"></p>
+                                                    <asp:FileUpload runat="server" ID="fupLandAllotment" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
+
+                                                    <asp:HyperLink ID="hypLandAllotment" runat="server" Visible="false" Text="View" Target="_blank" ForeColor="Blue"></asp:HyperLink>
+                                                    <asp:Button runat="server" ID="btnLandAllotment" Text="Upload" OnClick="btnLandAllotment_Click" class="btn btn-dark btn-rounded" Height="35px" Width="110px" /><br />
+
+
+                                                </td>
+
+
+
+                                                <td>
+                                                    <asp:Button ID="btnLand" runat="server" Text="Submit" class="btn btn-rounded btn-submit btn-lg" Width="150px" OnClick="btnLand_Click" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: central" id="td2" runat="server" visible="false" colspan="5">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Select Department to Forward</td>
+                                                            <td>
+                                                                <asp:DropDownList ID="DropDownList2" runat="server" class="form-control">
+                                                                    <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                            <td>Enter Remarks
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="TextBox2" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <asp:Button ID="Button3" Text="Add Department" runat="server" class="btn btn-rounded btn-submit btn-lg" Width="200px" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333">
+                                                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                                                    <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                                                    <EditRowStyle BackColor="#B9D684" />
+                                                                    <AlternatingRowStyle BackColor="White" />
+                                                                    <Columns>
+                                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Sl. No">
+                                                                            <ItemTemplate>
+                                                                                <%# Container.DataItemIndex + 1%>
+                                                                            </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
+                                                                        <asp:BoundField HeaderText="Department Name" DataField="DEPTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:TemplateField Visible="false">
+                                                                            <ItemTemplate>
+                                                                                <asp:Label ID="lblDEPTID" runat="server" Text='<%#Eval("DEPTID") %>' Visible="false"></asp:Label>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <asp:BoundField HeaderText="Query Description" DataField="QUERYDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="INVESTER ID" DataField="INVESTERID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+
+                                                                    </Columns>
+                                                                </asp:GridView>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="Button4" runat="server" Visible="false" Text="Forward" Enabled="false" class="btn btn-rounded btn-submit btn-lg" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

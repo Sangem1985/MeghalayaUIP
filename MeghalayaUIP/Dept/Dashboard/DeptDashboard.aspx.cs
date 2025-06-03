@@ -90,7 +90,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                     
                     
                 }
-                else if (ObjUserInfo.Roleid == "10")
+                else if (ObjUserInfo.Roleid == "10" || ObjUserInfo.Roleid=="11")
                 {
                     intenttoinvest.Visible = false;
                     prereg.Visible = false;
@@ -196,7 +196,7 @@ namespace MeghalayaUIP.Dept.Dashboard
 
         protected void lnkLandAllotment_Click(object sender, EventArgs e)
         {
-            if (ObjUserInfo.Roleid == "10")
+            if (ObjUserInfo.Roleid == "10" || ObjUserInfo.Roleid=="11")
             {
                 Land.Visible = true;
                 string url = "~/Dept/LA/LADeptdashboard.aspx";

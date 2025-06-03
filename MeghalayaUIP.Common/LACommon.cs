@@ -23,6 +23,7 @@ namespace MeghalayaUIP.Common
 
         public static string InsertIndLandStateDetails = "USP_INSLAINDUSTRIALESTATEDETAILS";
         public static string GetLandDetails = "USP_UPDATEPLANDALLOTMENTPROCESACTION";
+        public static string GetLandAllotmentDetails = "USP_UPDATELANDALLOTMENT";
 
         ////////////////////////////////////----------------------------------/////////////////////////////////
         ///
@@ -129,7 +130,9 @@ namespace MeghalayaUIP.Common
         public string UserID { get; set; }
         public string deptid { get; set; }
         public string Remarks { get; set; }
+        public string Payment { get; set; }
         public string IPAddress { get; set; }      
 
     }
+
 }

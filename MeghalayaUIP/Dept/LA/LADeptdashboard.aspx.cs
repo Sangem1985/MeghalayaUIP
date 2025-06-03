@@ -63,11 +63,16 @@ namespace MeghalayaUIP.Dept.LA
                 dt = Objland.GetLADeptDashBoard(objDtls);   
 
                 if (dt.Rows.Count > 0)
-                {
-                   
+                {                   
 
                     lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
                     lblIMATOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
+                    if (ObjUserInfo.Roleid=="10")
+                    {
+                        divCommittee.Visible = true;
+                        lblForward.Text = dt.Rows[0]["FORWARDTOLAND"].ToString();
+                    }
+                   
                     lblIMAPPROVED.Text = dt.Rows[0]["APPROVED"].ToString();
                     //lblQueryRaised.Text = dt.Rows[0]["QUERYRAISED"].ToString();
                     lblRejected.Text = dt.Rows[0]["REJECTED"].ToString();
@@ -178,7 +183,7 @@ namespace MeghalayaUIP.Dept.LA
             try
             {
                 if (lblRejected.Text != "0")
-                   Response.Redirect("LAApplView.aspx?status=FORWARD");
+                   Response.Redirect("LAApplView.aspx?status=FORWARDTOLAND");
             }
             catch (Exception ex)
             {

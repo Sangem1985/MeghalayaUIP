@@ -86,7 +86,7 @@
                                     </asp:LinkButton>
                                 </div>
 
-                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" id="divCommittee" runat="server">
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" id="divCommittee" runat="server" visible="false">
                                     <asp:LinkButton runat="server" ID="lnkforward" ForeColor="White" OnClick="lnkforward_Click">
                                         <div class="info-box bg-cyan hover-expand-effect">
                                             <div class="icon">

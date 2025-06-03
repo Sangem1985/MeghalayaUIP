@@ -62,8 +62,8 @@ namespace MeghalayaUIP.Dept.LA
                     { lblHdng.Text = "Land Registration Applications - Forwarded to Committee"; }
                     else if(Request.QueryString["status"].ToString()== "REJECTED")
                     { lblHdng.Text = "Land Registration Applications - Reject"; }
-                    else if (Request.QueryString["status"].ToString() == "TODEPTQUERY")
-                    { lblHdng.Text = "Land Registration Applications - Query Raised to Departments"; }
+                    else if (Request.QueryString["status"].ToString() == "FORWARDTOLAND")
+                    { lblHdng.Text = "Land Registration Applications - Forward To Land Allotment"; }
                     else if (Request.QueryString["status"].ToString() == "DEPTREPLIEDTOLAND")
                     { lblHdng.Text = "Land Registration Applications - Queries Redressed by Departments"; }
                     else if (Request.QueryString["status"].ToString() == "LANDQUERYTOAPPLCNT")
