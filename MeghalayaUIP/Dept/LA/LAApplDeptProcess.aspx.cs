@@ -154,6 +154,7 @@ namespace MeghalayaUIP.Dept.LA
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
                     {
+                        divStatus.Visible = true;
                         grdApplStatus.DataSource = ds.Tables[8];
                         grdApplStatus.DataBind();
                     }
@@ -611,6 +612,20 @@ namespace MeghalayaUIP.Dept.LA
                     User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
                 }
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+            }
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/LA/LAApplView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+            }
+            catch(Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
     }

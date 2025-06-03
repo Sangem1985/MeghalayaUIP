@@ -182,7 +182,7 @@ namespace MeghalayaUIP.Dept.LA
         {
             try
             {
-                if (lblRejected.Text != "0")
+                if (lblForward.Text != "0")
                    Response.Redirect("LAApplView.aspx?status=FORWARDTOLAND");
             }
             catch (Exception ex)

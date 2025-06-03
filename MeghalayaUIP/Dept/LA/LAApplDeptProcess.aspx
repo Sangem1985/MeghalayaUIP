@@ -18,7 +18,7 @@
                 <h4 class="card-title mt-1"><b>Allottment Application Details</b></h4>
 
                 <div class="col-md-1">
-                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                 </div>
             </div>
             <div class="card flex-fill">
@@ -408,7 +408,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="divStatus" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingFive">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -468,7 +468,7 @@
 
 
 
-                        <div class="panel panel-default" id="Indverifypanel" runat="server" visible="true">
+                        <div class="panel panel-default" id="Indverifypanel" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingSix" runat="server">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -592,7 +592,7 @@
                         </div>
 
 
-                        <div class="panel panel-default" id="divLandAllotmentPanel" runat="server" visible="true">
+                        <div class="panel panel-default" id="divLandAllotmentPanel" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="divLand" runat="server">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
