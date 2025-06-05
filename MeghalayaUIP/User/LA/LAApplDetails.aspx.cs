@@ -17,6 +17,7 @@ namespace MeghalayaUIP.User.LA
     {
         PreRegBAL PreBAL = new PreRegBAL();
         PreRegDtls prd = new PreRegDtls();
+        LADeptDtls objDtls = new LADeptDtls();
         MasterBAL mstrBAL = new MasterBAL();
         LABAL Objland = new LABAL();
         string UNITID;
@@ -67,7 +68,7 @@ namespace MeghalayaUIP.User.LA
                 if (Session["LANDUNITID"] != null && hdnUserID.Value != null)
                 {
                     DataSet ds = new DataSet();
-                    ds = Objland.GetLandApplicationDetails(Convert.ToString(Session["LANDUNITID"]), hdnUserID.Value);
+                    ds = Objland.GetLandApplicationDetails(objDtls);
 
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {

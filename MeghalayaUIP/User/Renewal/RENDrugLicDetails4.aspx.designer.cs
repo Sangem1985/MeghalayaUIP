@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User.Renewal
 {
 
 
-    public partial class RENLegalmetrologyDetails
+    public partial class RENDrugLicDetails4
     {
 
         /// <summary>
@@ -96,310 +96,193 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// txtLicNo control.
+        /// txtClinical control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLicNo;
+        protected global::System.Web.UI.WebControls.TextBox txtClinical;
 
         /// <summary>
-        /// btnsearch control.
+        /// CHKRegistered control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsearch;
+        protected global::System.Web.UI.WebControls.CheckBoxList CHKRegistered;
 
         /// <summary>
-        /// divManu control.
+        /// txtFacility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divManu;
+        protected global::System.Web.UI.WebControls.TextBox txtFacility;
 
         /// <summary>
-        /// txtLicIssedYear control.
+        /// rblLicense control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLicIssedYear;
+        protected global::System.Web.UI.WebControls.DropDownList rblLicense;
 
         /// <summary>
-        /// divdealer74 control.
+        /// ddlType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divdealer74;
+        protected global::System.Web.UI.WebControls.DropDownList ddlType;
 
         /// <summary>
-        /// txtLiceIssuedDate1 control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLiceIssuedDate1;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
-        /// CalendarExtender10 control.
+        /// ddlprenatal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender10;
+        protected global::System.Web.UI.WebControls.DropDownList ddlprenatal;
 
         /// <summary>
-        /// txtLicDateTo control.
+        /// otherownership control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLicDateTo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl otherownership;
 
         /// <summary>
-        /// CalendarExtender2 control.
+        /// txtOwnership control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
+        protected global::System.Web.UI.WebControls.TextBox txtOwnership;
 
         /// <summary>
-        /// txtLicValiddate control.
+        /// Starttype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLicValiddate;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Starttype;
 
         /// <summary>
-        /// CalendarExtender1 control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
-        /// rbdLicRenleast control.
+        /// rblequipments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbdLicRenleast;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblequipments;
 
         /// <summary>
-        /// divRepair75 control.
+        /// divequipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRepair75;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divequipment;
 
         /// <summary>
-        /// txtLicissuedDate1 control.
+        /// txtEquipmentmake control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLicissuedDate1;
+        protected global::System.Web.UI.WebControls.TextBox txtEquipmentmake;
 
         /// <summary>
-        /// CalendarExtender5 control.
+        /// txtMakeEquipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender5;
+        protected global::System.Web.UI.WebControls.TextBox txtMakeEquipment;
 
         /// <summary>
-        /// txtlastdate1 control.
+        /// btn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlastdate1;
+        protected global::System.Web.UI.WebControls.Button btn;
 
         /// <summary>
-        /// CalendarExtender3 control.
+        /// GVDrugName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender3;
+        protected global::System.Web.UI.WebControls.GridView GVDrugName;
 
         /// <summary>
-        /// txtExpireDate1 control.
+        /// txtFciliites control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpireDate1;
+        protected global::System.Web.UI.WebControls.TextBox txtFciliites;
 
         /// <summary>
-        /// CalendarExtender4 control.
+        /// txtRadiologist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender4;
+        protected global::System.Web.UI.WebControls.TextBox txtRadiologist;
 
         /// <summary>
-        /// rbdRenLeast control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbdRenLeast;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// divManufacture76 control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divManufacture76;
-
-        /// <summary>
-        /// txtTypeLic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTypeLic;
-
-        /// <summary>
-        /// txtNameLic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNameLic;
-
-        /// <summary>
-        /// txtExpireLic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpireLic;
-
-        /// <summary>
-        /// CalendarExtender9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender9;
-
-        /// <summary>
-        /// txtDateLastRen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateLastRen;
-
-        /// <summary>
-        /// CalendarExtender8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender8;
-
-        /// <summary>
-        /// txtExpirDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpirDate;
-
-        /// <summary>
-        /// CalendarExtender7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender7;
-
-        /// <summary>
-        /// txtRenYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRenYear;
-
-        /// <summary>
-        /// txtLegalLic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLegalLic;
-
-        /// <summary>
-        /// txtLicissuedDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLicissuedDate;
-
-        /// <summary>
-        /// CalendarExtender6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender6;
-
-        /// <summary>
-        /// rbdLicRen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbdLicRen;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
         /// btnPreviuos control.

@@ -9,6 +9,7 @@
             <b> Meghalaya will host the National Games in 2024</b></marquee>
     </p>--%>
     <!-- main-slider -->
+    
     <video autoplay="" muted="" loop="" id="myVideo" style="top: -80px; opacity: 1; width: 100%; margin-top: -275px;">
         <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;">
     </video>
@@ -34,7 +35,10 @@
             <div class="row">
                 <div class="col col-xs-12 text-center bgview">
 
-                    <h3 class="wow zoomOut animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
+                    <h3 class="wow zoomOut animated" data-wow-delay="100ms"
+                        data-wow-duration="1500ms" style="visibility: visible;
+animation-duration: 1500ms; animation-delay: 100ms; 
+animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p>
                         Empowering Investor at every stage of their journey.<br>
                         Set up your business in Meghalaya with ease- now one of the fastest growing business

@@ -57,7 +57,6 @@ namespace MeghalayaUIP.Dept.LA
         }
         public void BindLandApplicationDetails()
         {
-            // hdnUserID.Value = "1001";
             try
             {
 
@@ -72,21 +71,21 @@ namespace MeghalayaUIP.Dept.LA
                     // username = ObjUserInfo.UserName;
                 }
 
-                if (Session["UNITID"] != null && Session["INVESTERID"] != null)
+                if (Session["UNITID"] != null && Session["INVESTERID"] != null && Session["stage"] != null)
                 {
 
-                    //objDtls.Unitid = Session["UNITID"].ToString();
-                    //objDtls.Investerid = Session["INVESTERID"].ToString();
-                    //objDtls.UserID = ObjUserInfo.UserID;
-                    //objDtls.Role = Convert.ToInt32(ObjUserInfo.Roleid);
-                    //objDtls.Stage = Convert.ToInt32(Session["stage"]);
-                    //if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
-                    //{
-                    //    objDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                    //}
+                    objDtls.Unitid = Session["UNITID"].ToString();
+                    objDtls.Investerid = Session["INVESTERID"].ToString();
+                    objDtls.UserID = ObjUserInfo.UserID;
+                    objDtls.Role = Convert.ToInt32(ObjUserInfo.Roleid);
+                    objDtls.Stage = Convert.ToInt32(Session["stage"]);
+                    if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                    {
+                        objDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    }
 
                     DataSet ds = new DataSet();
-                    ds = Objland.GetLandApplicationDetails(Session["UNITID"].ToString(), Session["INVESTERID"].ToString());
+                    ds = Objland.GetLandApplicationDetails(objDtls);
                     // ds = Objland.GetLandApplicationDetails(Convert.ToString(Session["UNITID"]),(Session["INVESTERID"]));
 
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -142,12 +141,22 @@ namespace MeghalayaUIP.Dept.LA
                     if (Convert.ToString(ds.Tables[7].Rows[0]["STAGEID"]) == "4")
                     {
                         Indverifypanel.Visible = true;
+                        divLandAllotmentPanel.Visible = false;
                         lblApplNo.Text = Convert.ToString(ds.Tables[7].Rows[0]["ISD_LAUIDNO"]);
                         lblapplDate.Text = Convert.ToString(ds.Tables[7].Rows[0]["APPLICATIONDATE"]);
                     }
-                    else
+                    else if(Convert.ToString(ds.Tables[7].Rows[0]["STAGEID"]) == "7")
                     {
                         Indverifypanel.Visible = false;
+                        divLandAllotmentPanel.Visible = true;
+                        lblApplicationID.Text = Convert.ToString(ds.Tables[7].Rows[0]["ISD_LAUIDNO"]);
+                        lblApplicationDate.Text = Convert.ToString(ds.Tables[7].Rows[0]["APPLICATIONDATE"]);
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
+                    {
+                        divStatus.Visible = true;
+                        grdApplStatus.DataSource = ds.Tables[8];
+                        grdApplStatus.DataBind();
                     }
                 }
 
@@ -229,7 +238,7 @@ namespace MeghalayaUIP.Dept.LA
                         objAadhar.FilePath = serverpath + FileUploadqueryLand.PostedFile.FileName;
                         objAadhar.FileName = serverpath.ToString();//FileUploadqueryLand.PostedFile.FileName;
                         objAadhar.FileType = FileUploadqueryLand.PostedFile.ContentType;
-                        objAadhar.FileDescription = "RESPONSE ATTACHMENT";
+                        objAadhar.FileDescription = "INDUSTRIES RESPONSE ATTACHMENT";
                         objAadhar.CreatedBy = Session["INVESTERID"].ToString();
                         objAadhar.MasterID = "0";
                         objAadhar.DeptID = Convert.ToString(ViewState["DEPTID"]);
@@ -443,5 +452,181 @@ namespace MeghalayaUIP.Dept.LA
             }
         }
 
+        protected void btnLandAllotment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Error = ""; string message = "";
+                if (fupLandAllotment.HasFile)
+                {
+                    Error = validations(fupLandAllotment);
+                    if (Error == "")
+                    {
+                        string sFileDir = ConfigurationManager.AppSettings["LANDAttachments"];
+
+                        string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
+                         + Convert.ToString(Session["UNITID"]) + "\\" + "LANDAPPROVEATTACHMENTS" + "\\";
+                        if (!Directory.Exists(serverpath))
+                        {
+                            Directory.CreateDirectory(serverpath);
+                        }
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);                      
+
+                        LAAttachments objAadhar = new LAAttachments();
+                        objAadhar.UNITID = Convert.ToString(Session["UNITID"]);
+                        objAadhar.Questionnareid = "0"; //Convert.ToString(Session["LANDQDID"]);                        
+                        objAadhar.FilePath = serverpath + fupLandAllotment.PostedFile.FileName;
+                        objAadhar.FileName = serverpath.ToString();
+                        objAadhar.FileType = fupLandAllotment.PostedFile.ContentType;
+                        objAadhar.FileDescription = "APPROVED ATTACHMENT";
+                        objAadhar.CreatedBy = Session["INVESTERID"].ToString();
+                        objAadhar.MasterID = "0";
+                        objAadhar.DeptID = Convert.ToString(ViewState["DEPTID"]);
+                        objAadhar.ApprovalID = "0";
+                        objAadhar.IPAddress = getclientIP();
+                        string result = Objland.InsertLAAttachments(objAadhar);
+                        if (result != "")
+                        {
+                            lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
+                            hypLandAllotment.Text = fupLandAllotment.FileName;
+                            hypLandAllotment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objAadhar.FilePath);
+
+                            //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + ViewState["UNITID"].ToString() + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
+                            hypLandAllotment.Visible = true;
+                            success.Visible = true;
+                            Failure.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        lblmsg0.Text = "<font color='red'>Attachment Upload Failed..!</font>";
+                        success.Visible = false;
+                        Failure.Visible = true;
+                    }
+                }
+                else
+                {
+                    message = "alert('" + "Please Upload Document" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void ddlLandAllotment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlLandAllotment.SelectedValue=="8")
+                {
+                    PPPayment.Visible = true;
+                    txtPayment.Visible = true;
+                    PPPayment.InnerText = "Payment :";
+                    divUpload.InnerText = "Upload File Approved : ";
+                }
+                else
+                {
+                    PPPayment.Visible = false;
+                    txtPayment.Visible = false;
+                    divUpload.InnerText = "Upload File Rejected : ";
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnLand_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    hdnUserID.Value = ObjUserInfo.UserID;
+                    ViewState["DEPTID"] = ObjUserInfo.Deptid;
+                }
+                if (ddlLandAllotment.SelectedValue == "8"|| ddlLandAllotment.SelectedValue=="9")
+                {
+                    if (string.IsNullOrWhiteSpace(txtLandRemarks.Text) || txtLandRemarks.Text == "" || txtLandRemarks.Text == null)
+                    {
+                        lblmsg0.Text = "Please Enter Remarks";
+                        Failure.Visible = true;
+                        return;
+                    }                   
+                    else
+                    {
+
+                        LANDALLOTMENTIND land = new LANDALLOTMENTIND();
+
+                        land.UNITID = Session["UNITID"].ToString();
+                        land.Investerid = Session["INVESTERID"].ToString();
+
+                        land.status = ddlLandAllotment.SelectedValue;
+                        land.UserID = ObjUserInfo.UserID;
+                        land.deptid = ObjUserInfo.Deptid;
+                        land.Payment = txtPayment.Text;
+                        land.Remarks = txtLandRemarks.Text;
+                        land.IPAddress = getclientIP();
+
+                        string valid = Objland.LandAllotmentProcess(land);
+                        btnLandAllotment.Enabled = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Submitted Successfully!');  window.location.href='LADeptDashBoard.aspx'", true);
+                        return;
+                    }
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Select Action";
+                    Failure.Visible = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
+                Failure.Visible = true;
+                string User_id = "0";
+                var ObjUserInfo = new DeptUserInfo();
+                if (Session["DeptUserInfo"] != null)
+                {
+                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                    }
+                    User_id = ((DeptUserInfo)Session["DeptUserInfo"]).UserID;
+                }
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, User_id);
+            }
+        }
+
+        protected void lbtnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Dept/LA/LAApplView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+            }
+            catch(Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
     }
 }

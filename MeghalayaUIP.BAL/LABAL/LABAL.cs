@@ -49,9 +49,9 @@ namespace MeghalayaUIP.BAL.LABAL
         {
             return objLANDDAL.GetLandUserDashboard(USERID, UnitID);
         }
-        public DataSet GetLandApplicationDetails(string UnitID, string InvesterID)
+        public DataSet GetLandApplicationDetails(LADeptDtls objDtls)
         {
-            return objLANDDAL.GetLandApplicationDetails(UnitID, InvesterID);
+            return objLANDDAL.GetLandApplicationDetails(objDtls);
         }
         public string SubmitLandApplication(LANDQUESTIONNAIRE Objindustry)
         {
@@ -75,11 +75,15 @@ namespace MeghalayaUIP.BAL.LABAL
         { return objLANDDAL.GetLAAttachmentsData(userid, UNITID); }
         public string InsertLAAttachments(LAAttachments objAttach)
         {
-            return objLANDDAL.InsertLAAttachments(objAttach);
+            return objLANDDAL.InsertLAAttachments(objAttach); 
         }
         public string LADeptProcess(LANDALLOTMENTIND land)
         {
             return objLANDDAL.LADeptProcess(land);
+        }
+        public string LandAllotmentProcess(LANDALLOTMENTIND land)
+        {
+            return objLANDDAL.LandAllotmentProcess(land);
         }
 
     }

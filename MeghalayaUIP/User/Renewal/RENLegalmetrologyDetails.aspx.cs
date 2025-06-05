@@ -32,14 +32,13 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         hdnUserID.Value = ObjUserInfo.Userid;
                     }
-                    //if (Convert.ToString(Session["RENUNITID"]) != "")
-                    //{ UnitID = Convert.ToString(Session["RENUNITID"]); }
                     if (Convert.ToString(Session["RENQID"]) != "")
                     {
                         Questionnaire = Convert.ToString(Session["RENQID"]);
                         if (!IsPostBack)
                         {
                             GetAppliedorNot();
+                            Binddata();
                         }
                     }
                     else
@@ -47,8 +46,6 @@ namespace MeghalayaUIP.User.Renewal
                         string newurl = "~/User/Renewal/RENUserDashboard.aspx";
                         Response.Redirect(newurl);
                     }
-                    //Session["UNITID"] = "1001";
-                    //UnitID = Convert.ToString(Session["UNITID"]);
 
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
@@ -59,7 +56,7 @@ namespace MeghalayaUIP.User.Renewal
                     //}
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -72,14 +69,28 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet ds = new DataSet();
 
-                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "11", "76");
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "11", "");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    if (Convert.ToString(ds.Tables[0].Rows[0]["RENDA_APPROVALID"]) == "76")
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                     {
-                        Binddata();
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["RENDA_APPROVALID"]) == "74")
+                        {
+                            divdealer74.Visible = true;
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["RENDA_APPROVALID"]) == "75")
+                        {
+                            divRepair75.Visible = true;
+
+                        }
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["RENDA_APPROVALID"]) == "76")
+                        {
+                            divManufacture76.Visible = true;
+                            divManu.Visible = true;
+                        }
                     }
+
                 }
                 else
                 {
@@ -102,7 +113,7 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-          //  string Questionnariid = "1001";
+
             try
             {
                 string result = "";
@@ -112,13 +123,28 @@ namespace MeghalayaUIP.User.Renewal
                     RenLegalMetrology objRenLegal = new RenLegalMetrology();
                     objRenLegal.Questionnariid = Convert.ToString(Session["RENQID"]);
                     objRenLegal.CreatedBy = hdnUserID.Value;
-                 //   objRenLegal.UnitId = Convert.ToString(Session["RENUNITID"]);
+                    //   objRenLegal.UnitId = Convert.ToString(Session["RENUNITID"]);
                     objRenLegal.IPAddress = getclientIP();
 
                     objRenLegal.LICNO = txtLicNo.Text;
-                    objRenLegal.AUTORENEWAL = txtBoilerDet.Text;
-                    objRenLegal.RENEWEDDATE = txtLicDateTo.Text;
-                    objRenLegal.LICVALIDDATE = txtLicValiddate.Text;
+                    objRenLegal.LicenseIssuedManufacture = txtLicIssedYear.Text;
+                    objRenLegal.DLLicenseIssuedDate = txtLiceIssuedDate1.Text;
+                    objRenLegal.DLDatelastrenewal = txtLicDateTo.Text;
+                    objRenLegal.DLExpirydatelastrenewal = txtLicValiddate.Text;
+                    objRenLegal.DLRenewedONE = rbdLicRenleast.SelectedValue;
+                    objRenLegal.RPLicenseIssuedDate = txtLicissuedDate1.Text;
+                    objRenLegal.RPDatelastrenewal = txtlastdate1.Text;
+                    objRenLegal.RPExpirydatelastrenewal = txtExpireDate1.Text;
+                    objRenLegal.RPRenewedONE = rbdRenLeast.SelectedValue;
+                    objRenLegal.MLTYPLIC = txtTypeLic.Text;
+                    objRenLegal.MLNAMELIC = txtNameLic.Text;
+                    objRenLegal.MLExpirydateLIC = txtExpireLic.Text;
+                    objRenLegal.MLDateRenewal = txtDateLastRen.Text;
+                    objRenLegal.MLExpirydatelasteren = txtExpirDate.Text;
+                    objRenLegal.MLRenewedYear = txtRenYear.Text;
+                    objRenLegal.MLLegalIssued = txtLegalLic.Text;
+                    objRenLegal.MLLICIssuedDate = txtLicissuedDate.Text;
+                    objRenLegal.MLLicRenewedleast = rbdLicRen.SelectedValue;
 
                     result = objRenbal.InsertRENLegalMetrologyDetails(objRenLegal);
 
@@ -137,7 +163,7 @@ namespace MeghalayaUIP.User.Renewal
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -145,46 +171,46 @@ namespace MeghalayaUIP.User.Renewal
             }
         }
 
-        protected List<TextBox> FindEmptyTextboxes(Control container)
-        {
+        //protected List<TextBox> FindEmptyTextboxes(Control container)
+        //{
 
-            List<TextBox> emptyTextboxes = new List<TextBox>();
-            foreach (Control control in container.Controls)
-            {
-                if (control is TextBox)
-                {
-                    TextBox textbox = (TextBox)control;
-                    if (string.IsNullOrWhiteSpace(textbox.Text))
-                    {
-                        emptyTextboxes.Add(textbox);
-                        textbox.BorderColor = System.Drawing.Color.Red;
-                    }
-                }
+        //    List<TextBox> emptyTextboxes = new List<TextBox>();
+        //    foreach (Control control in container.Controls)
+        //    {
+        //        if (control is TextBox)
+        //        {
+        //            TextBox textbox = (TextBox)control;
+        //            if (string.IsNullOrWhiteSpace(textbox.Text))
+        //            {
+        //                emptyTextboxes.Add(textbox);
+        //                textbox.BorderColor = System.Drawing.Color.Red;
+        //            }
+        //        }
 
-                if (control.HasControls())
-                {
-                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
-                }
-            }
-            return emptyTextboxes;
-        }
+        //        if (control.HasControls())
+        //        {
+        //            emptyTextboxes.AddRange(FindEmptyTextboxes(control));
+        //        }
+        //    }
+        //    return emptyTextboxes;
+        //}
         public string validations()
         {
             try
             {
                 int slno = 1;
-                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+              //  List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 string errormsg = "";
                 if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter License Number\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtBoilerDet.Text) || txtBoilerDet.Text == "" || txtBoilerDet.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Total amount of fee to be paid for Auto Renewal...!\\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtBoilerDet.Text) || txtBoilerDet.Text == "" || txtBoilerDet.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Total amount of fee to be paid for Auto Renewal...!\\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtLicDateTo.Text) || txtLicDateTo.Text == "" || txtLicDateTo.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter License Renewed upto Date.....!\\n";
@@ -196,8 +222,6 @@ namespace MeghalayaUIP.User.Renewal
                     slno = slno + 1;
                 }
                 return errormsg;
-
-
             }
             catch (Exception ex)
             {
@@ -260,12 +284,28 @@ namespace MeghalayaUIP.User.Renewal
                 ds = objRenbal.GetRenLegalmetrologyDetails(hdnUserID.Value, Questionnaire);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                  //  ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENLM_UNITID"]);
-                    txtLicNo.Text = ds.Tables[0].Rows[0]["RENLM_LICNO"].ToString();
-                    txtBoilerDet.Text = ds.Tables[0].Rows[0]["RENLM_AUTORENEWAL"].ToString();
-                    txtLicDateTo.Text = ds.Tables[0].Rows[0]["RENLM_RENEWEDDATE"].ToString();
-                    txtLicValiddate.Text = ds.Tables[0].Rows[0]["RENLM_LICVALIDDATE"].ToString();
-                   
+                    txtLicNo.Text = ds.Tables[0].Rows[0]["REN_LICNO"].ToString();
+
+
+                    txtLicIssedYear.Text = ds.Tables[0].Rows[0]["RENMF_LICISSUEDYEAR"].ToString();
+                    txtLiceIssuedDate1.Text = ds.Tables[0].Rows[0]["RENDL_LICENSEISSUEDATE"].ToString();
+                    txtLicDateTo.Text = ds.Tables[0].Rows[0]["RENDL_DATELASTRENEWAL"].ToString();
+                    txtLicValiddate.Text = ds.Tables[0].Rows[0]["RENDL_EXPIREDATELASTRENEWAL"].ToString();
+                    rbdLicRenleast.Text = ds.Tables[0].Rows[0]["RENDL_LICNSERENEWED"].ToString();
+                    txtLicissuedDate1.Text = ds.Tables[0].Rows[0]["RENRP_LICENSEISSUEDATE"].ToString();
+                    txtlastdate1.Text = ds.Tables[0].Rows[0]["RENRP_DATELASTRENEWAL"].ToString();
+                    txtExpireDate1.Text = ds.Tables[0].Rows[0]["RENRP_EXPIREDATELASTRENEWAL"].ToString();
+                    rbdRenLeast.Text = ds.Tables[0].Rows[0]["RENRP_LICNSERENEWED"].ToString();
+                    txtTypeLic.Text = ds.Tables[0].Rows[0]["RENLM_TYPELIC"].ToString();
+                    txtNameLic.Text = ds.Tables[0].Rows[0]["RENLM_LICNAME"].ToString();
+                    txtExpireLic.Text = ds.Tables[0].Rows[0]["RENLM_EXPIREDATELIC"].ToString();
+                    txtDateLastRen.Text = ds.Tables[0].Rows[0]["RENLM_LASTRENDATE"].ToString();
+                    txtExpirDate.Text = ds.Tables[0].Rows[0]["RENLM_EXPIREDATELASTRENEWAL"].ToString();
+                    txtRenYear.Text = ds.Tables[0].Rows[0]["RENLM_RENEWEDYEAR"].ToString();
+                    txtLegalLic.Text = ds.Tables[0].Rows[0]["RENLM_LEGALISSUEDLIC"].ToString();
+                    txtLicissuedDate.Text = ds.Tables[0].Rows[0]["RENLM_LICISSUEDDATE"].ToString();
+                    rbdLicRen.Text = ds.Tables[0].Rows[0]["RENLM_LICNSERENEWED"].ToString();
+
                 }
             }
             catch (Exception ex)

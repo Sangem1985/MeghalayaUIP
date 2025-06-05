@@ -529,7 +529,7 @@ namespace MeghalayaUIP.DAL.LADAL
                 connection.Dispose();
             }
         }
-        public DataSet GetLandApplicationDetails(string UnitID, string InvesterID)
+        public DataSet GetLandApplicationDetails(LADeptDtls objDtls)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -545,8 +545,16 @@ namespace MeghalayaUIP.DAL.LADAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
-                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(objDtls.Unitid));
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(objDtls.Investerid));
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", objDtls.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objDtls.Role);
+                if (objDtls.deptid != null && objDtls.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objDtls.deptid);
+                }
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
@@ -789,6 +797,60 @@ namespace MeghalayaUIP.DAL.LADAL
                 com.Parameters.AddWithValue("@ACTIONID", land.status);
                 com.Parameters.AddWithValue("@REMARKS", land.Remarks);
               
+                com.Parameters.AddWithValue("@IPADDRESS", land.IPAddress);
+                com.Parameters.AddWithValue("@USERID", land.UserID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+
+        }
+        public string LandAllotmentProcess(LANDALLOTMENTIND land)
+        {
+            string valid = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = LANDConstants.GetLandAllotmentDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@UNITID", land.UNITID);
+                com.Parameters.AddWithValue("@INVESTERID", land.Investerid);
+
+                if (land.deptid != null && land.deptid != "")
+                {
+                    com.Parameters.AddWithValue("@DEPTID", land.deptid);
+                }
+                com.Parameters.AddWithValue("@ACTIONID", land.status);
+                com.Parameters.AddWithValue("@REMARKS", land.Remarks);
+                if (land.Payment != null && land.Payment != "")
+                {
+                    com.Parameters.AddWithValue("@PAYMENT", Convert.ToDecimal(land.Payment));
+                }
+
                 com.Parameters.AddWithValue("@IPADDRESS", land.IPAddress);
                 com.Parameters.AddWithValue("@USERID", land.UserID);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);

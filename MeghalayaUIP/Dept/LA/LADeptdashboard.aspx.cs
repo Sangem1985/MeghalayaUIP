@@ -60,14 +60,19 @@ namespace MeghalayaUIP.Dept.LA
                     objDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                 }
 
-                dt = Objland.GetLADeptDashBoard(objDtls);
+                dt = Objland.GetLADeptDashBoard(objDtls);   
 
                 if (dt.Rows.Count > 0)
-                {
-                   
+                {                   
 
                     lblTotalApp.Text = dt.Rows[0]["TOTAL"].ToString();
                     lblIMATOBEPROCESSED.Text = dt.Rows[0]["TOBEPROCESSED"].ToString();
+                    if (ObjUserInfo.Roleid=="10")
+                    {
+                        divCommittee.Visible = true;
+                        lblForward.Text = dt.Rows[0]["FORWARDTOLAND"].ToString();
+                    }
+                   
                     lblIMAPPROVED.Text = dt.Rows[0]["APPROVED"].ToString();
                     //lblQueryRaised.Text = dt.Rows[0]["QUERYRAISED"].ToString();
                     lblRejected.Text = dt.Rows[0]["REJECTED"].ToString();
@@ -163,6 +168,22 @@ namespace MeghalayaUIP.Dept.LA
             {
                 if (lblRejected.Text != "0")
                     Response.Redirect("LAApplView.aspx?status=REJECTED");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
+        }
+
+        protected void lnkforward_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblForward.Text != "0")
+                   Response.Redirect("LAApplView.aspx?status=FORWARDTOLAND");
             }
             catch (Exception ex)
             {
