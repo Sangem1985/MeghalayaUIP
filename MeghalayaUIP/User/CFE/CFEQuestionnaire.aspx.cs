@@ -1572,9 +1572,9 @@ namespace MeghalayaUIP.User.CFE
                 {
                     objCFEQ.PowerReqKW = ddlPowerReq.SelectedValue;
                     objCFEQ.PropEmployment = txtPropEmp.Text;
-                    objCFEQ.ApprovalID = "3";
-                    dtpower = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                    dtApprReq.Merge(dtpower);
+                    //objCFEQ.ApprovalID = "3";
+                    //dtpower = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    //dtApprReq.Merge(dtpower);
 
                     objCFEQ.ApprovalID = "4";
                     dtElectric = objcfebal.GetApprovalsReqWithFee(objCFEQ);

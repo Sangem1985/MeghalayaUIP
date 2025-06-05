@@ -102,6 +102,8 @@ namespace MeghalayaUIP.Common
         public static string GetPageName = "USP_GETPAGENAME";
         public static string GetWaterDashBoardReport = "USP_WASTERDASHBOARD";
         public static string GetWaterOuterDashBoard = "USP_WATEROUTAGESUPPLY";
+        public static string GetSubDivMaster = "USP_GET_SUBDIVISIONS";
+        public static string GetSubDivDistMaster = "USP_GET_SUBDIV_DISTRICTS";
 
     }
     public class MasterCountry
@@ -414,6 +416,12 @@ namespace MeghalayaUIP.Common
     {
         public string SECTOR_ID { get; set; }
         public string SECTOR_NAME { get; set; }
+
+    }
+    public class MasterSubDivisions
+    {
+        public string SubDiv_ID { get; set; }
+        public string SubDiv_NAME { get; set; }
 
     }
     public class Ammendmentvo

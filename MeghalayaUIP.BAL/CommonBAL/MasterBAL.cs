@@ -426,6 +426,14 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetWaterOutageDashBoard(Type);
         }
+        public List<MasterSubDivisions> GetSubDivisions()
+        {
+            return objMasterDAL.GetSubDivisions();
+        }
+        public List<MasterDistrcits> GetSubDivDistricts(int subDivisionId)
+        {
+            return objMasterDAL.GetSubDivDistricts(subDivisionId);
+        }
 
     }
 }

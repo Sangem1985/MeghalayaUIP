@@ -96,6 +96,29 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1. Subdivision *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:DropDownList ID="ddlSubDiv" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSubDiv_SelectedIndexChanged">
+                                                        </asp:DropDownList>
+                                                        <span class="form-text text-muted mt-2 ml-2"></span>
+                                                        <!-- <span class="mt-2">HP</span> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">2. District *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:DropDownList ID="ddlDist" runat="server" class="form-control"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                         <div id="EXISTING" runat="server" visible="false">
                                             <div class="col-md-12 d-flex">
 

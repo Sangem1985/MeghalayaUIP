@@ -77,7 +77,8 @@ namespace MeghalayaUIP.User.CFE
                 {
                     BindVoltages();
                     BindENERGYLOAD();
-                    BINDDATA();                  
+                    BINDDATA();
+                    BindSubdivision();
                 }
                 else
                 {
@@ -119,6 +120,36 @@ namespace MeghalayaUIP.User.CFE
                     ddlloadenergy.DataBind();
                 }
                 AddSelect(ddlloadenergy);
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void BindSubdivision()
+        {
+            try
+            {
+                ddlSubDiv.Items.Clear();
+
+                List<MasterSubDivisions> objCategoryModel = new List<MasterSubDivisions>();
+
+                objCategoryModel = mstrBAL.GetSubDivisions();
+                if (objCategoryModel != null)
+                {
+                    ddlSubDiv.DataSource = objCategoryModel;
+                    ddlSubDiv.DataValueField = "SubDiv_ID";
+                    ddlSubDiv.DataTextField = "SubDiv_NAME";
+                    ddlSubDiv.DataBind();
+                }
+                else
+                {
+                    ddlSubDiv.DataSource = null;
+                    ddlSubDiv.DataBind();
+                }
+                AddSelect(ddlSubDiv);
             }
             catch (Exception ex)
             {
@@ -1132,6 +1163,60 @@ namespace MeghalayaUIP.User.CFE
             }
             catch (Exception ex)
             { throw ex; }
+        }
+
+        protected void ddlSubDiv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlDist.SelectedValue.ToString() != "--Select--")
+                {
+                    ddlDist.Items.Clear();
+                    AddSelect(ddlDist);
+                    //lblPCBCategory.Text = "";
+                    BindSubDivDistricts(ddlSubDiv.SelectedItem.Value);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+
+        }
+        protected void BindSubDivDistricts(string SubDiv)
+        {
+            try
+            {
+                List<MasterDistrcits> objLOA = mstrBAL.GetSubDivDistricts(Convert.ToInt32(SubDiv));
+
+                if (objLOA != null && objLOA.Count > 0)
+                {
+                    ddlDist.DataSource = objLOA;
+                    ddlDist.DataValueField = "DistrictId";
+                    ddlDist.DataTextField = "DistrictName";
+                    ddlDist.DataBind();
+                }
+                else
+                {
+
+                    ddlDist.DataSource = null;
+                    ddlDist.DataBind();
+                }
+
+                AddSelect(ddlDist);
+            }
+            catch (Exception ex)
+            {
+
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }

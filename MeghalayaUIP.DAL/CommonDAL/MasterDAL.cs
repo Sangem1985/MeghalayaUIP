@@ -2889,6 +2889,77 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
         }
 
+        public List<MasterSubDivisions> GetSubDivisions()
+        {
+            List<MasterSubDivisions> lstsubDiv = new List<MasterSubDivisions>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetSubDivMaster);
 
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Subdiv = new MasterSubDivisions()
+                        {
+                            SubDiv_ID = Convert.ToString(drOptions["SD_CODE"]),
+                            SubDiv_NAME = Convert.ToString(drOptions["SD_NAME"])
+                        };
+                        lstsubDiv.Add(Subdiv);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstsubDiv;
+        }
+        public List<MasterDistrcits> GetSubDivDistricts(int subDivisionId)
+        {
+            List<MasterDistrcits> lstDistrictMstr = new List<MasterDistrcits>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                SqlParameter[] param = new SqlParameter[]
+                {
+             new SqlParameter("@SD_CODE",Convert.ToInt32(subDivisionId))
+                };
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetSubDivDistMaster, param);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var District = new MasterDistrcits()
+                        {
+                            DistrictId = Convert.ToString(drOptions["DistrictCode"]),
+                            DistrictName = Convert.ToString(drOptions["DistrictName"])
+                        };
+                        lstDistrictMstr.Add(District);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstDistrictMstr;
+        }
     }
 }
