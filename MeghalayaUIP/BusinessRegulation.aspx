@@ -4,7 +4,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="">
 
+    </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -21,7 +23,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4><b>BUSINESS REGULATIONS (ACT/RULES/REGULATIONS/ORDERS)</b></h4>
+                            <h4><b>BUSINESS REGULATIONS (ACT/POLICY/RULES/REGULATIONS/ORDERS)</b></h4>
                             <div class="card">
                                 <div class="card-body justify-content-center " align="justify">
                                     <div class="col-md-12 ">
@@ -64,7 +66,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle Width="50px" />
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Ammendment Name" HeaderStyle-HorizontalAlign="left" ItemStyle-HorizontalAlign="Center">
+                                                            <asp:TemplateField HeaderText="Act/Policy/Rules/Regulations/Orders" HeaderStyle-HorizontalAlign="left" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
                                                                     <asp:Label runat="server" ID="lblAmendment" Text='<%#Eval("AMMENDMENT_NAME") %>' ></asp:Label>
                                                                 </ItemTemplate>

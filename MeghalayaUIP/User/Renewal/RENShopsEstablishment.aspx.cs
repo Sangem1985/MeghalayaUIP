@@ -605,6 +605,7 @@ namespace MeghalayaUIP.User.Renewal
                     ObjRenShopEst.FINE = lblFine.Text;
                     ObjRenShopEst.PENALTY = lblPenalty.Text;
                     ObjRenShopEst.TOTALPAIDAMOUNT = lblTotalPaid.Text;
+                    ObjRenShopEst.RegRenewed = RblRegRenewed.SelectedValue;
 
 
                     result = objRenbal.InsertRenShopEstablishmentDetails(ObjRenShopEst);
@@ -1138,6 +1139,9 @@ namespace MeghalayaUIP.User.Renewal
                         lblPenalty.Text = ds.Tables[0].Rows[0]["RENSE_PENALTY"].ToString();
                         lblTotalPaid.Text = ds.Tables[0].Rows[0]["RENSE_TOTALPAIDAMOUNT"].ToString();
 
+                        RblRegRenewed.SelectedValue = ds.Tables[0].Rows[0]["RENSE_REGRENEWED"].ToString();
+                        RblRegRenewed_SelectedIndexChanged(null, EventArgs.Empty);
+
                     }
                     if (ds.Tables[1].Rows.Count > 0)
                     {
@@ -1624,6 +1628,27 @@ namespace MeghalayaUIP.User.Renewal
                 if(lblCommunity.Text!="")
                 { GVPROPERTIE.Columns[4].Visible = true; }
                 //lblCommunity.Visible = (communityValue == "4");
+            }
+        }
+
+        protected void RblRegRenewed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (RblRegRenewed.SelectedValue == "Y")
+                {
+                    lblRegvalid.Text = "Renewal valid up to";
+                }
+                else
+                {
+                    lblRegvalid.Text = "Registration valid up to";
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
 

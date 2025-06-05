@@ -143,18 +143,22 @@ namespace MeghalayaUIP.DAL.RenewalDAL
 
                 com.Parameters.AddWithValue("@RENDL_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENDL_CREATEDBYIP", ObjRenDrugLic.IPAddress);
-                com.Parameters.AddWithValue("@RENDL_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
-              //  com.Parameters.AddWithValue("@RENDL_UNITID", Convert.ToInt32(ObjRenDrugLic.UnitId));
+                com.Parameters.AddWithValue("@RENDL_RENQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                if (ObjRenDrugLic.ServiceApply != null && ObjRenDrugLic.ServiceApply != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SERVICETO", Convert.ToInt32(ObjRenDrugLic.ServiceApply));
+                }
+
                 if (ObjRenDrugLic.ApplicationPurpose != null && ObjRenDrugLic.ApplicationPurpose != "")
                 {
-                    com.Parameters.AddWithValue("@RENDL_APPLICATIONPURPOSE", ObjRenDrugLic.ApplicationPurpose);
+                    com.Parameters.AddWithValue("@RENDL_SPECIFYAPPLICATION", ObjRenDrugLic.ApplicationPurpose);
                 }
                 if (ObjRenDrugLic.Licnumber != null && ObjRenDrugLic.Licnumber != "")
                 {
                     com.Parameters.AddWithValue("@RENDL_LICNO", ObjRenDrugLic.Licnumber);
                 }
-
-                //com.Parameters.AddWithValue("@", ObjRenDrugLic.ExpiryDate);
+             
                 if (ObjRenDrugLic.ExpiryDate != null && ObjRenDrugLic.ExpiryDate != "")
                 {
                     com.Parameters.AddWithValue("@RENDL_EXPIRYDATE", DateTime.ParseExact(ObjRenDrugLic.ExpiryDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
@@ -165,17 +169,18 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 }
                 if (ObjRenDrugLic.SpecifyLicno != null && ObjRenDrugLic.SpecifyLicno != "")
                 {
-                    com.Parameters.AddWithValue("@RENDL_LICNOSPECIFY", ObjRenDrugLic.SpecifyLicno);
+                    com.Parameters.AddWithValue("@RENDL_SPECIFYLICNO", ObjRenDrugLic.SpecifyLicno);
                 }
 
-                com.Parameters.AddWithValue("@RENDL_PREMISEINSPECTION", ObjRenDrugLic.PremiseInspection);
-                //com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", ObjRenDrugLic.DateInspection);
-                com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", DateTime.ParseExact(ObjRenDrugLic.DateInspection, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@RENDL_TOTALAMOUNT", Convert.ToInt32(ObjRenDrugLic.TotalAmount));
-                com.Parameters.AddWithValue("@RENDL_ADDITIONALFEES", Convert.ToInt32(ObjRenDrugLic.AdditionalFees));
-                com.Parameters.AddWithValue("@RENDL_LATEFEES", Convert.ToInt32(ObjRenDrugLic.LateFees));
-                com.Parameters.AddWithValue("@RENDL_REGFEES", Convert.ToInt32(ObjRenDrugLic.RegFees));
-                com.Parameters.AddWithValue("@RENDL_TOTALPAIDAMOUNT", Convert.ToInt32(ObjRenDrugLic.TotalPaidAmount));
+                if (ObjRenDrugLic.PremiseInspection != null && ObjRenDrugLic.PremiseInspection != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_PREMISEINSPECTION", ObjRenDrugLic.PremiseInspection);
+                }
+
+                if (ObjRenDrugLic.DateInspection != null && ObjRenDrugLic.DateInspection != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", DateTime.ParseExact(ObjRenDrugLic.DateInspection, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -221,7 +226,6 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@REND_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
                 com.Parameters.AddWithValue("@REND_CREATEDBYIP", ObjRenDrugLic.IPAddress);
                 com.Parameters.AddWithValue("@REND_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
-               // com.Parameters.AddWithValue("@REND_UNITID", Convert.ToInt32(ObjRenDrugLic.UnitId));
 
                 com.Parameters.AddWithValue("@REND_DRUGNAME", ObjRenDrugLic.NameDrug);
 
@@ -269,7 +273,6 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENST_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENST_CREATEDBYIP", ObjRenDrugLic.IPAddress);
                 com.Parameters.AddWithValue("@RENSTCFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
-              //  com.Parameters.AddWithValue("@RENST_UNITID", Convert.ToInt32(ObjRenDrugLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENST_NAME", ObjRenDrugLic.Name);
                 com.Parameters.AddWithValue("@RENST_QUALIFICATION", ObjRenDrugLic.Qualification);
@@ -985,7 +988,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENSE_FINE", ObjRenShopEst.FINE);
                 com.Parameters.AddWithValue("@RENSE_PENALTY", ObjRenShopEst.PENALTY);
                 com.Parameters.AddWithValue("@RENSE_TOTALPAIDAMOUNT", ObjRenShopEst.TOTALPAIDAMOUNT);
-
+                com.Parameters.AddWithValue("@RENSE_REGRENEWED", ObjRenShopEst.RegRenewed);
 
 
 
@@ -2486,17 +2489,70 @@ namespace MeghalayaUIP.DAL.RenewalDAL
 
 
 
-                com.Parameters.AddWithValue("@RENLM_CREATEDBY", Convert.ToInt32(objRenLegal.CreatedBy));
-                com.Parameters.AddWithValue("@RENLM_CREATEDBYIP", objRenLegal.IPAddress);
-                com.Parameters.AddWithValue("@RENLM_RENQDID", Convert.ToInt32(objRenLegal.Questionnariid));
-               // com.Parameters.AddWithValue("@RENLM_UNITID", Convert.ToInt32(objRenLegal.UnitId));
+                com.Parameters.AddWithValue("@REN_CREATEDBY", Convert.ToInt32(objRenLegal.CreatedBy));
+                com.Parameters.AddWithValue("@REN_CREATEDBYIP", objRenLegal.IPAddress);
+                com.Parameters.AddWithValue("@REN_RENQDID", Convert.ToInt32(objRenLegal.Questionnariid));
+                // com.Parameters.AddWithValue("@RENLM_UNITID", Convert.ToInt32(objRenLegal.UnitId));
 
-                com.Parameters.AddWithValue("@RENLM_LICNO", objRenLegal.LICNO);
-                com.Parameters.AddWithValue("@RENLM_AUTORENEWAL", Convert.ToInt32(objRenLegal.AUTORENEWAL));
-                // com.Parameters.AddWithValue("", objRenLegal.RENEWEDDATE);
-                com.Parameters.AddWithValue("@RENLM_RENEWEDDATE", DateTime.ParseExact(objRenLegal.RENEWEDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                //   com.Parameters.AddWithValue("@", objRenLegal.LICVALIDDATE);
-                com.Parameters.AddWithValue("@RENLM_LICVALIDDATE", DateTime.ParseExact(objRenLegal.LICVALIDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (objRenLegal.LICNO !=null && objRenLegal.LICNO !="")
+                { com.Parameters.AddWithValue("@REN_LICNO", objRenLegal.LICNO); }
+
+                if (objRenLegal.LicenseIssuedManufacture != null && objRenLegal.LicenseIssuedManufacture != "")
+                { com.Parameters.AddWithValue("@RENMF_LICISSUEDYEAR", objRenLegal.LicenseIssuedManufacture); }
+
+                if (objRenLegal.DLLicenseIssuedDate != null && objRenLegal.DLLicenseIssuedDate != "")
+                { com.Parameters.AddWithValue("@RENDL_LICENSEISSUEDATE", DateTime.ParseExact(objRenLegal.DLLicenseIssuedDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.DLDatelastrenewal != null && objRenLegal.DLDatelastrenewal != "")
+                { com.Parameters.AddWithValue("@RENDL_DATELASTRENEWAL", DateTime.ParseExact(objRenLegal.DLDatelastrenewal, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.DLExpirydatelastrenewal != null && objRenLegal.DLExpirydatelastrenewal != "")
+                { com.Parameters.AddWithValue("@RENDL_EXPIREDATELASTRENEWAL", DateTime.ParseExact(objRenLegal.DLExpirydatelastrenewal, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.DLRenewedONE != null && objRenLegal.DLRenewedONE != "")
+                { com.Parameters.AddWithValue("@RENDL_LICNSERENEWED", objRenLegal.DLRenewedONE); }
+
+                if (objRenLegal.RPLicenseIssuedDate != null && objRenLegal.RPLicenseIssuedDate != "")
+                { com.Parameters.AddWithValue("@RENRP_LICENSEISSUEDATE", DateTime.ParseExact(objRenLegal.RPLicenseIssuedDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.RPDatelastrenewal != null && objRenLegal.RPDatelastrenewal != "")
+                { com.Parameters.AddWithValue("@RENRP_DATELASTRENEWAL", DateTime.ParseExact(objRenLegal.RPDatelastrenewal, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.RPExpirydatelastrenewal != null && objRenLegal.RPExpirydatelastrenewal != "")
+                { com.Parameters.AddWithValue("@RENRP_EXPIREDATELASTRENEWAL", DateTime.ParseExact(objRenLegal.RPExpirydatelastrenewal, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.RPRenewedONE != null && objRenLegal.RPRenewedONE != "")
+                { com.Parameters.AddWithValue("@RENRP_LICNSERENEWED", objRenLegal.RPRenewedONE); }
+
+                if (objRenLegal.MLTYPLIC != null && objRenLegal.MLTYPLIC != "")
+                { com.Parameters.AddWithValue("@RENLM_TYPELIC", objRenLegal.MLTYPLIC); }
+
+                if (objRenLegal.MLNAMELIC != null && objRenLegal.MLNAMELIC != "")
+                { com.Parameters.AddWithValue("@RENLM_LICNAME", objRenLegal.MLNAMELIC); }
+
+                if (objRenLegal.MLExpirydateLIC != null && objRenLegal.MLExpirydateLIC != "")
+                { com.Parameters.AddWithValue("@RENLM_EXPIREDATELIC", DateTime.ParseExact(objRenLegal.MLExpirydateLIC, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.MLDateRenewal != null && objRenLegal.MLDateRenewal != "")
+                { com.Parameters.AddWithValue("@RENLM_LASTRENDATE", DateTime.ParseExact(objRenLegal.MLDateRenewal, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.MLExpirydatelasteren != null && objRenLegal.MLExpirydatelasteren != "")
+                { com.Parameters.AddWithValue("@RENLM_EXPIREDATELASTRENEWAL", DateTime.ParseExact(objRenLegal.MLExpirydatelasteren, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.MLRenewedYear != null && objRenLegal.MLRenewedYear != "")
+                { com.Parameters.AddWithValue("@RENLM_RENEWEDYEAR", objRenLegal.MLRenewedYear); }
+
+                if (objRenLegal.MLLegalIssued != null && objRenLegal.MLLegalIssued != "")
+                { com.Parameters.AddWithValue("@RENLM_LEGALISSUEDLIC", objRenLegal.MLLegalIssued); }
+
+                if (objRenLegal.MLLICIssuedDate != null && objRenLegal.MLLICIssuedDate != "")
+                { com.Parameters.AddWithValue("@RENLM_LICISSUEDDATE", DateTime.ParseExact(objRenLegal.MLLICIssuedDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); }
+
+                if (objRenLegal.MLLicRenewedleast != null && objRenLegal.MLLicRenewedleast != "")
+                { com.Parameters.AddWithValue("@RENLM_LICNSERENEWED", objRenLegal.MLLicRenewedleast); }
+
+
+
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -2881,6 +2937,184 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             catch (Exception ex)
             {
                 transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertDrugDet(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRenDrugDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@REND_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@REND_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@REND_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                com.Parameters.AddWithValue("@REND_DRUGNAME", ObjRenDrugLic.NameDrug);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertRenStaff(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertStaffTesting;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENST_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENST_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@RENSTCFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                com.Parameters.AddWithValue("@RENST_NAME", ObjRenDrugLic.Name);
+                com.Parameters.AddWithValue("@RENST_QUALIFICATION", ObjRenDrugLic.Qualification);
+                com.Parameters.AddWithValue("@RENST_EXPERIENCE", ObjRenDrugLic.Experience);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertRENDrugLicDetails63(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRENDrugLicDet63;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENDL_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENDL_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@RENDL_RENQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                if (ObjRenDrugLic.ServiceApply != null && ObjRenDrugLic.ServiceApply != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SERVICETO", Convert.ToInt32(ObjRenDrugLic.ServiceApply));
+                }
+
+                if (ObjRenDrugLic.ApplicationPurpose != null && ObjRenDrugLic.ApplicationPurpose != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SPECIFYAPPLICATION", ObjRenDrugLic.ApplicationPurpose);
+                }
+                if (ObjRenDrugLic.Licnumber != null && ObjRenDrugLic.Licnumber != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_LICNO", ObjRenDrugLic.Licnumber);
+                }
+
+                if (ObjRenDrugLic.ExpiryDate != null && ObjRenDrugLic.ExpiryDate != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_EXPIRYDATE", DateTime.ParseExact(ObjRenDrugLic.ExpiryDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjRenDrugLic.CancelledLic != null && ObjRenDrugLic.CancelledLic != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_LICCANCEL", ObjRenDrugLic.CancelledLic);
+                }
+                if (ObjRenDrugLic.SpecifyLicno != null && ObjRenDrugLic.SpecifyLicno != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SPECIFYLICNO", ObjRenDrugLic.SpecifyLicno);
+                }
+
+                //if (ObjRenDrugLic.PremiseInspection != null && ObjRenDrugLic.PremiseInspection != "")
+                //{
+                //    com.Parameters.AddWithValue("@RENDL_PREMISEINSPECTION", ObjRenDrugLic.PremiseInspection);
+                //}
+
+                //if (ObjRenDrugLic.DateInspection != null && ObjRenDrugLic.DateInspection != "")
+                //{
+                //    com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", DateTime.ParseExact(ObjRenDrugLic.DateInspection, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                //}
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
             finally

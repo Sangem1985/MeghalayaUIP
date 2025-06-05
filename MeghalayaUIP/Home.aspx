@@ -3,7 +3,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        section#marquee {
+            padding: 0px 0;
+            position: relative;
+            background: linear-gradient(to bottom, #0f7f8f 0%, #185784 100%);
+            z-index:9;
+            color:#fff;
+        }
+        section#marquee a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px !important;
+}
+    </style>
     <!--Banner Video-->
+    <section id="marquee">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <marquee scrolldelay="50" scrollamount="5" behavior="alternate" direction="left" width="100%" onmouseover="this.stop();" onmouseout="this.start();" title="Scrolling the Latest News">
+                <i class="icofont-ui-next"></i> <a target="_blank" href="BusinessRegulation.aspx" style="text-transform: initial !important;"> <strong>Submit feedback on Draft Meghalaya Film Tourism Policy, 2025 to content.hellomeghalaya@gmail.com. Read Policy here.</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:100 !important;"></span>
+                <!-- <i class="icofont-ui-next"></i> <a target="_blank" href="#"> <strong> Implementation of AH Revised Rates</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<br> -->
+                </marquee>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <video autoplay="" muted="" loop="" id="myVideo" style="top: -80px; opacity: 1; width: 100%; margin-top: -275px;">
         <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;"/>
     </video>
@@ -29,7 +56,10 @@
             <div class="row">
                 <div class="col col-xs-12 text-center bgview">
 
-                    <h3 class="wow zoomOut animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
+                    <h3 class="wow zoomOut animated" data-wow-delay="100ms"
+                        data-wow-duration="1500ms" style="visibility: visible;
+animation-duration: 1500ms; animation-delay: 100ms; 
+animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p>
                         Empowering Investors at every stage of their journey.<br>
                         Set up your business in Meghalaya with, one of the fastest growing business destinations in North-East India.

@@ -435,11 +435,11 @@ namespace MeghalayaUIP.User.Renewal
                     ObjRenDrugLic.SpecifyLicno = txtSpecifyLicNo.Text;
                     ObjRenDrugLic.PremiseInspection = rblInspection.SelectedValue;
                     ObjRenDrugLic.DateInspection = txtDateInsp.Text;
-                    ObjRenDrugLic.TotalAmount = txtTotalpaid.Text;
-                    ObjRenDrugLic.AdditionalFees = txtFeeAdd.Text;
-                    ObjRenDrugLic.LateFees = txtLatefee.Text;
-                    ObjRenDrugLic.RegFees = txtRegFees.Text;
-                    ObjRenDrugLic.TotalPaidAmount = txtPaidTotalAMount.Text;
+                    //ObjRenDrugLic.TotalAmount = txtTotalpaid.Text;
+                    //ObjRenDrugLic.AdditionalFees = txtFeeAdd.Text;
+                    //ObjRenDrugLic.LateFees = txtLatefee.Text;
+                    //ObjRenDrugLic.RegFees = txtRegFees.Text;
+                    //ObjRenDrugLic.TotalPaidAmount = txtPaidTotalAMount.Text;
 
                     result = objRenbal.InsertRENDrugLicDetails(ObjRenDrugLic);
 

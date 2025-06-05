@@ -106,7 +106,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">License No for which renewal is required *</label>
+                                                    <label class="col-lg-6 col-form-label">Registration No for which renewal is required: *</label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
                                                     </div>
@@ -114,7 +114,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">License Issued Date *</label>
+                                                    <label class="col-lg-6 col-form-label">Registration Issued Date: *</label>
                                                     <div class="col-lg-6">
                                                         <%--  <asp:TextBox ID="txtLicIssueDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
@@ -125,12 +125,27 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">License/ Renewal valid up to Date *</label>
+                                                    <label class="col-lg-6 col-form-label">Whether Registration has been renewed previously  *</label>
                                                     <div class="col-lg-6">
-                                                        <%-- <asp:TextBox ID="txtLicValidDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                        <i class="fi fi-rr-calendar-lines"></i>--%>
+                                                        <asp:RadioButtonList ID="RblRegRenewed" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="RblRegRenewed_SelectedIndexChanged" >
+                                                            <asp:ListItem Text="Yes" Value="Y" />
+                                                            <asp:ListItem Text="No" Value="N" />
+                                                        </asp:RadioButtonList>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label"><asp:Label ID="lblRegvalid" runat="server" Text="Registration / Renewal valid up to Date:"></asp:Label> *</label>   <%-- Registration / Renewal valid up to Date: --%>
+                                                    <div class="col-lg-6">
 
                                                         <asp:TextBox runat="server" ID="txtLicValidDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" onkeyup="handleKeyUp(this)" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtLicValidDate"></cc1:CalendarExtender>
@@ -138,6 +153,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
 
 
@@ -437,6 +453,9 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlCategory" runat="server" onchange="validateDropdown(this)" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0" />
+                                                            <asp:ListItem Text="Shop" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="Commercial Establishment" Value="2"></asp:ListItem>
+                                                            <asp:ListItem Text="Place of Amusement/Entertainment" Value="3"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -581,7 +600,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Do you have any other office/godown/warehouse attached to this establishment situated in a different premises *</label>
                                                     <div class="col-lg-6">

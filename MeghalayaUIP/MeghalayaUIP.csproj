@@ -821,6 +821,12 @@
     <Content Include="User\Renewal\RENContractLabourDeatils.aspx" />
     <Content Include="User\Renewal\RENContractRegistationDetails.aspx" />
     <Content Include="User\Renewal\RENDashBoardStatus.aspx" />
+    <Content Include="User\Renewal\RENDrugLicDetails1.aspx" />
+    <Content Include="User\Renewal\RENDrugLicDetails2.aspx" />
+    <Content Include="User\Renewal\RENDrugLicDetails3.aspx" />
+    <Content Include="User\Renewal\RENDrugLicDetails4.aspx" />
+    <Content Include="User\Renewal\RENDrugLicDetails64.aspx" />
+    <Content Include="User\Renewal\RENDrugLicDetails65.aspx" />
     <Content Include="User\Renewal\RENDrugsLicenseDetails.aspx" />
     <Content Include="User\Renewal\RenewalPaymentReceipt.aspx" />
     <Content Include="User\Renewal\RenewalServices.aspx" />
@@ -2538,6 +2544,48 @@
     </Compile>
     <Compile Include="User\Renewal\RENDashBoardStatus.aspx.designer.cs">
       <DependentUpon>RENDashBoardStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails1.aspx.cs">
+      <DependentUpon>RENDrugLicDetails1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails1.aspx.designer.cs">
+      <DependentUpon>RENDrugLicDetails1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails2.aspx.cs">
+      <DependentUpon>RENDrugLicDetails2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails2.aspx.designer.cs">
+      <DependentUpon>RENDrugLicDetails2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails3.aspx.cs">
+      <DependentUpon>RENDrugLicDetails3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails3.aspx.designer.cs">
+      <DependentUpon>RENDrugLicDetails3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails4.aspx.cs">
+      <DependentUpon>RENDrugLicDetails4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails4.aspx.designer.cs">
+      <DependentUpon>RENDrugLicDetails4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails64.aspx.cs">
+      <DependentUpon>RENDrugLicDetails64.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails64.aspx.designer.cs">
+      <DependentUpon>RENDrugLicDetails64.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails65.aspx.cs">
+      <DependentUpon>RENDrugLicDetails65.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENDrugLicDetails65.aspx.designer.cs">
+      <DependentUpon>RENDrugLicDetails65.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENDrugsLicenseDetails.aspx.cs">
       <DependentUpon>RENDrugsLicenseDetails.aspx</DependentUpon>

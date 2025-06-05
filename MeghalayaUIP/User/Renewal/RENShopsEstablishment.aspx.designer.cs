@@ -123,6 +123,24 @@ namespace MeghalayaUIP.User.Renewal
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
 
         /// <summary>
+        /// RblRegRenewed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RblRegRenewed;
+
+        /// <summary>
+        /// lblRegvalid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRegvalid;
+
+        /// <summary>
         /// txtLicValidDate control.
         /// </summary>
         /// <remarks>

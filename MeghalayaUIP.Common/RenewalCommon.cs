@@ -56,10 +56,15 @@ namespace MeghalayaUIP.Common
         public static string GetRENDashBoard = "USP_RENDASHBOARDCOUNT"; 
         public static string GetRENDashBoardView = "USP_RENDASHBOARDVIEW";
 
-        public static string InsertRenLegalMetrologyDet = "USP_INSRENLEGALMETROLOGYDET";
+        public static string InsertRenLegalMetrologyDet = "USP_INSLEGALMETROLOGYDETAILS";
         public static string GetLegalMetrologyDetails = "USP_GETRENLEGALMETROLOGY";
         public static string GetRENQueryDashBoard = "USP_GETRENQUERYRAISEDDEPT";
         public static string InsertRENQueryResponse = "USP_UPDATERENAPPLQUERYRESPONSE";
+
+
+        public static string InsertRenDrugDet = "USP_INSRENDRUGDETAILS63";
+        public static string InsertStaffTesting = "USP_INSRENSTAFFTESTING63";
+        public static string InsertRENDrugLicDet63 = "USP_INSRENDRUGLICDETAILS63";
 
 
         //////------------------APPLIED APPROVALS--------------///////
@@ -127,22 +132,14 @@ namespace MeghalayaUIP.Common
         public string SpecifyLicno { get; set; }
         public string PremiseInspection { get; set; }
         public string DateInspection { get; set; }
-        public string TotalAmount { get; set; }
-        public string AdditionalFees { get; set; }
-        public string LateFees { get; set; }
-        public string RegFees { get; set; }
-        public string TotalPaidAmount { get; set; }
-
         public string NameDrug { get; set; }
-
+        public string ServiceApply { get; set; }
         public string Name { get; set; }
         public string Qualification { get; set; }
         public string Experience { get; set; }
-
         public string NameManu { get; set; }
         public string QualificationManu { get; set; }
         public string ExperienceManu { get; set; }
-
         public string AdditionalItem { get; set; }
     }
     public class RenBusinessLicDetails
@@ -359,6 +356,7 @@ namespace MeghalayaUIP.Common
 
         public string NAMEDIRECTOR { get; set; }
         public string LIMITEDADDRESS { get; set; }
+        public string RegRenewed { get; set; }
 
     }
     public class RenAttachments
@@ -645,11 +643,26 @@ namespace MeghalayaUIP.Common
         public string UnitId { get; set; }
         public string CreatedBy { get; set; }
         public string IPAddress { get; set; }
-        public string UNITID { get; set; }
         public string LICNO { get; set; }
-        public string AUTORENEWAL { get; set; }
-        public string RENEWEDDATE { get; set; }
-        public string LICVALIDDATE { get; set; }
+        public string LicenseIssuedManufacture { get; set; }
+        public string DLLicenseIssuedDate { get; set; }
+        public string DLDatelastrenewal { get; set; }
+        public string DLExpirydatelastrenewal { get; set; }
+        public string DLRenewedONE { get; set; }
+        public string RPLicenseIssuedDate { get; set; }
+        public string RPDatelastrenewal { get; set; }
+        public string RPExpirydatelastrenewal { get; set; }
+        public string RPRenewedONE { get; set; }
+        public string MLTYPLIC { get; set; }
+        public string MLNAMELIC { get; set; }
+        public string MLExpirydateLIC { get; set; }
+        public string MLDateRenewal { get; set; }
+        public string MLExpirydatelasteren { get; set; }
+        public string MLRenewedYear { get; set; }
+        public string MLLegalIssued { get; set; }
+        public string MLLICIssuedDate { get; set; }
+        public string MLLicRenewedleast { get; set; }   
+
     }
     public class RENPayments
     {

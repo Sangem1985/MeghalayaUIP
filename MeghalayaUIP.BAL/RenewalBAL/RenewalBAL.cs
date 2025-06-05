@@ -228,5 +228,17 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRENQueryResponse(RENQuery);
         }
+        public string InsertDrugDet(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertDrugDet(ObjRenDrugLic);
+        }
+        public string InsertRenStaff(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertRenStaff(ObjRenDrugLic);
+        }
+        public string InsertRENDrugLicDetails63(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertRENDrugLicDetails63(ObjRenDrugLic);
+        }
     }
 }
