@@ -65,7 +65,16 @@ namespace MeghalayaUIP.Common
         public static string InsertRenDrugDet = "USP_INSRENDRUGDETAILS63";
         public static string InsertStaffTesting = "USP_INSRENSTAFFTESTING63";
         public static string InsertRENDrugLicDet63 = "USP_INSRENDRUGLICDETAILS63";
+        public static string InsertRENDrugLicDet64 = "USP_INSRENDRUGLICDETAILS64";
+        public static string InsertRenDrugItemDet64 = "USP_INSRENDARUGADDITIONALITEM64";
+        public static string InsertDrugManufactureDet64 = "USP_INSRENDRUGMANU64";
+        public static string InsertRenDrugDet64 = "USP_INSRENDRUGDETAILS64";
 
+        public static string InsertRenDrugDet65 = "USP_INSRENDRUGDETAILS65";
+        public static string InsertRENDrugLicDet65 = "USP_INSRENDRUGLICDETAILS65";
+        public static string InsertRenEquipment67 = "USP_INSRENEQUIPMENT67";
+        public static string InsertRenRadiologist67 = "USP_INSRENRADIOLOGIST67";
+        public static string InsertRENPCPNDTAMENDS67 = "USP_INSRENPCPNDTAMENDED67";
 
         //////------------------APPLIED APPROVALS--------------///////
 
@@ -141,6 +150,20 @@ namespace MeghalayaUIP.Common
         public string QualificationManu { get; set; }
         public string ExperienceManu { get; set; }
         public string AdditionalItem { get; set; }
+        public string SERIALNO { get; set; }
+        public string MAKEMODEL { get; set; }
+        public string RADIOLOGIST { get; set; }
+        public string ValidClinicReg { get; set; }
+        public string geneticcounselling { get; set; }
+        public string Typefacility { get; set; }
+        public string ownership { get; set; }
+        public string Institute { get; set; }
+        public string Description { get; set; }
+        public string nataldiagnostic { get; set; }
+        public string Anyownership { get; set; }
+        public string AnyInstitute { get; set; }
+        public string Whetherequipment { get; set; }
+        public string Facilitiescounsell { get; set; }
     }
     public class RenBusinessLicDetails
     {

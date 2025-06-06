@@ -4,9 +4,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script type="">
+    <style>
+        .grid-style {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
 
-    </script>
+            .grid-style th,
+            .grid-style td {
+                border: 1px solid #ccc !important;
+                padding: 8px;
+                text-align: center;
+            }
+    </style>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -16,7 +27,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
                     <li class="breadcrumb-item">Resources</li>
-                    <li class="breadcrumb-item active" aria-current="page">BUSINESS REGULATIONS</li>
+                  <%--  <li class="breadcrumb-item active" aria-current="page">BUSINESS REGULATIONS</li>--%>
                 </ol>
             </nav>
             <section class="innerpages">
@@ -46,18 +57,18 @@
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <div class="row">
 
-                                        <table cellspacing="0" border="1" width="120%" >
+                                        <table cellspacing="0" border="1" width="120%">
                                             <tr>
-                                                <td style="text-align: center; font-size:20px"><b>Draft Regulations</b></td>
-                                                <td style="text-align: center; font-size:20px"><b>Final Regulations</b>
+                                                <td style="text-align: center; font-size: 20px"><b>Draft Regulations</b></td>
+                                                <td style="text-align: center; font-size: 20px"><b>Final Regulations</b>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td width="700px" style="border: solid; vertical-align:top">                                                   
+                                                <td width="700px" style="border: solid; vertical-align: top">
                                                     <asp:GridView ID="grdDraft" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="true"
-                                                        CssClass="GRD table-hover" ForeColor="#333333" Width="100%" ShowFooter="false">
+                                                        CssClass="grid-style" GridLines="Both" BorderStyle="Solid" BorderWidth="1px" ForeColor="#333333" Width="100%" ShowFooter="false">
                                                         <RowStyle Height="40px" />
-                                                        <HeaderStyle CssClass="GRDHEADER" Font-Bold="True" ForeColor="Black"  />
+                                                        <HeaderStyle CssClass="GRDHEADER" Font-Bold="True" ForeColor="Black" />
                                                         <Columns>
                                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Sl.No">
                                                                 <ItemTemplate>
@@ -66,9 +77,9 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle Width="50px" />
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Act/Policy/Rules/Regulations/Orders" HeaderStyle-HorizontalAlign="left" ItemStyle-HorizontalAlign="Center">
+                                                            <asp:TemplateField HeaderText="Act/Policy/Rules<br/>/Regulations/Orders" HeaderStyle-HorizontalAlign="left" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
-                                                                    <asp:Label runat="server" ID="lblAmendment" Text='<%#Eval("AMMENDMENT_NAME") %>' ></asp:Label>
+                                                                    <asp:Label runat="server" ID="lblAmendment" Text='<%#Eval("AMMENDMENT_NAME") %>'></asp:Label>
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="left" />
                                                             </asp:TemplateField>
@@ -78,9 +89,9 @@
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="left" />
                                                             </asp:TemplateField>
-                                                             <asp:TemplateField HeaderText="View" HeaderStyle-HorizontalAlign="left" ItemStyle-HorizontalAlign="Center">
+                                                            <asp:TemplateField HeaderText="View" HeaderStyle-HorizontalAlign="left" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="linkDraft" Text="View" OnClick="linkDraft_Click" ></asp:LinkButton>
+                                                                    <asp:LinkButton runat="server" ID="linkDraft" Text="View" OnClick="linkDraft_Click"></asp:LinkButton>
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="left" />
                                                             </asp:TemplateField>
@@ -99,11 +110,11 @@
                                                                 <ItemStyle HorizontalAlign="Center" Width="140px" />
                                                             </asp:TemplateField>
                                                         </Columns>
-                                                    </asp:GridView>                                                   
+                                                    </asp:GridView>
                                                 </td>
-                                                <td width="700px" style="border: solid; vertical-align:top">                                                  
+                                                <td width="700px" style="border: solid; vertical-align: top">
                                                     <asp:GridView ID="grdFinal" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                                        ForeColor="#333333" Width="100%" ShowFooter="false" GridLines="Both">
+                                                        ForeColor="#333333" Width="100%" ShowFooter="false" CssClass="grid-style" GridLines="Both" BorderStyle="Solid" BorderWidth="1px">
                                                         <RowStyle Height="40px" />
                                                         <HeaderStyle Font-Bold="True" ForeColor="Black" HorizontalAlign="Center" />
                                                         <Columns>
@@ -126,9 +137,9 @@
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
-                                                             <asp:TemplateField HeaderText="View" HeaderStyle-HorizontalAlign="left" ItemStyle-HorizontalAlign="Center">
+                                                            <asp:TemplateField HeaderText="View" HeaderStyle-HorizontalAlign="left" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" ID="linkFinal" Text="View" OnClick="linkFinal_Click" ></asp:LinkButton>
+                                                                    <asp:LinkButton runat="server" ID="linkFinal" Text="View" OnClick="linkFinal_Click"></asp:LinkButton>
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="left" />
                                                             </asp:TemplateField>
@@ -147,7 +158,7 @@
                                                                 <ItemStyle HorizontalAlign="Center" Width="140px" />
                                                             </asp:TemplateField>
                                                         </Columns>
-                                                    </asp:GridView>                                                   
+                                                    </asp:GridView>
                                                 </td>
                                             </tr>
                                         </table>

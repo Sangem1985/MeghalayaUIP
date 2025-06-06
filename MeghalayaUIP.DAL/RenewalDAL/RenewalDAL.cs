@@ -322,11 +322,10 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENDM_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENDM_CREATEDBYIP", ObjRenDrugLic.IPAddress);
                 com.Parameters.AddWithValue("@RENDMCFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
-              //  com.Parameters.AddWithValue("@RENDM_UNITID", Convert.ToInt32(ObjRenDrugLic.UnitId));
 
-                com.Parameters.AddWithValue("@RENDM_NAME", ObjRenDrugLic.NameManu);
-                com.Parameters.AddWithValue("@RENDM_QUALIFICATION", ObjRenDrugLic.QualificationManu);
-                com.Parameters.AddWithValue("@RENDM_EXPERIENCE", ObjRenDrugLic.ExperienceManu);
+                com.Parameters.AddWithValue("@RENDM_NAME", ObjRenDrugLic.Name);
+                com.Parameters.AddWithValue("@RENDM_QUALIFICATION", ObjRenDrugLic.Qualification);
+                com.Parameters.AddWithValue("@RENDM_EXPERIENCE", ObjRenDrugLic.Experience);
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -374,7 +373,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENDA_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
                // com.Parameters.AddWithValue("@RENDA_UNITID", Convert.ToInt32(ObjRenDrugLic.UnitId));
 
-                com.Parameters.AddWithValue("@RENDA_ADDITIONALITEM", ObjRenDrugLic.AdditionalItem);
+                com.Parameters.AddWithValue("@RENDA_ADDITIONALITEM", ObjRenDrugLic.Name);
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -3103,6 +3102,524 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 //    com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", DateTime.ParseExact(ObjRenDrugLic.DateInspection, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 //}
 
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertRENDrugLicDetails64(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRENDrugLicDet64;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENDL_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENDL_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@RENDL_RENQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                if (ObjRenDrugLic.ServiceApply != null && ObjRenDrugLic.ServiceApply != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SERVICETO", Convert.ToInt32(ObjRenDrugLic.ServiceApply));
+                }
+
+                if (ObjRenDrugLic.ApplicationPurpose != null && ObjRenDrugLic.ApplicationPurpose != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SPECIFYAPPLICATION", ObjRenDrugLic.ApplicationPurpose);
+                }
+                if (ObjRenDrugLic.Licnumber != null && ObjRenDrugLic.Licnumber != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_LICNO", ObjRenDrugLic.Licnumber);
+                }
+
+                if (ObjRenDrugLic.ExpiryDate != null && ObjRenDrugLic.ExpiryDate != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_EXPIRYDATE", DateTime.ParseExact(ObjRenDrugLic.ExpiryDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjRenDrugLic.CancelledLic != null && ObjRenDrugLic.CancelledLic != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_LICCANCEL", ObjRenDrugLic.CancelledLic);
+                }
+                if (ObjRenDrugLic.SpecifyLicno != null && ObjRenDrugLic.SpecifyLicno != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SPECIFYLICNO", ObjRenDrugLic.SpecifyLicno);
+                }                
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertRenDrugItemDet64(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRenDrugItemDet64;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENDA_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENDA_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@RENDA_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                com.Parameters.AddWithValue("@RENDA_ADDITIONALITEM", ObjRenDrugLic.Name);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertRENManufacture64(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertDrugManufactureDet64;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENDM_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENDM_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@RENDMCFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                com.Parameters.AddWithValue("@RENDM_NAME", ObjRenDrugLic.Name);
+                com.Parameters.AddWithValue("@RENDM_QUALIFICATION", ObjRenDrugLic.Qualification);
+                com.Parameters.AddWithValue("@RENDM_EXPERIENCE", ObjRenDrugLic.Experience);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertDrugDet64(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRenDrugDet64;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@REND_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@REND_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@REND_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                com.Parameters.AddWithValue("@REND_DRUGNAME", ObjRenDrugLic.NameDrug);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertDrugDet65(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRenDrugDet65;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@REND_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@REND_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@REND_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                com.Parameters.AddWithValue("@REND_DRUGNAME", ObjRenDrugLic.NameDrug);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertRENDrugLicDetails65(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRENDrugLicDet65;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENDL_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENDL_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@RENDL_RENQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                if (ObjRenDrugLic.ServiceApply != null && ObjRenDrugLic.ServiceApply != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SERVICETO", Convert.ToInt32(ObjRenDrugLic.ServiceApply));
+                }
+
+                if (ObjRenDrugLic.ApplicationPurpose != null && ObjRenDrugLic.ApplicationPurpose != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SPECIFYAPPLICATION", ObjRenDrugLic.ApplicationPurpose);
+                }
+                if (ObjRenDrugLic.Licnumber != null && ObjRenDrugLic.Licnumber != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_LICNO", ObjRenDrugLic.Licnumber);
+                }
+
+                if (ObjRenDrugLic.ExpiryDate != null && ObjRenDrugLic.ExpiryDate != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_EXPIRYDATE", DateTime.ParseExact(ObjRenDrugLic.ExpiryDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (ObjRenDrugLic.CancelledLic != null && ObjRenDrugLic.CancelledLic != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_LICCANCEL", ObjRenDrugLic.CancelledLic);
+                }
+                if (ObjRenDrugLic.SpecifyLicno != null && ObjRenDrugLic.SpecifyLicno != "")
+                {
+                    com.Parameters.AddWithValue("@RENDL_SPECIFYLICNO", ObjRenDrugLic.SpecifyLicno);
+                }
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertEquipment67(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRenEquipment67;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENE_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENE_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@RENE_QDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                com.Parameters.AddWithValue("@RENE_SERIALNO", ObjRenDrugLic.SERIALNO);
+                com.Parameters.AddWithValue("@RENE_MAKEMODEL", ObjRenDrugLic.MAKEMODEL);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertRENRadiologist(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRenRadiologist67;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENR_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENR_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@RENR_RENQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                com.Parameters.AddWithValue("@RENR_RADIONAME", ObjRenDrugLic.RADIOLOGIST);
+
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertRENPCPNDTAMENDED67(RenDrugLicDet ObjRenDrugLic)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsertRENPCPNDTAMENDS67;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+
+                com.Parameters.AddWithValue("@RENDL_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
+                com.Parameters.AddWithValue("@RENDL_CREATEDBYIP", ObjRenDrugLic.IPAddress);
+                com.Parameters.AddWithValue("@RENDL_RENQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
+
+                if (ObjRenDrugLic.ValidClinicReg != null && ObjRenDrugLic.ValidClinicReg != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_VALIDCLINICALNO", ObjRenDrugLic.ValidClinicReg);
+                }
+
+                if (ObjRenDrugLic.geneticcounselling != null && ObjRenDrugLic.geneticcounselling != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_GENETICCOUNSELLINGCENTRE", ObjRenDrugLic.geneticcounselling);
+                }
+                if (ObjRenDrugLic.Typefacility != null && ObjRenDrugLic.Typefacility != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_TYPEFACILITYREG", ObjRenDrugLic.Typefacility);
+                }
+
+                if (ObjRenDrugLic.ownership != null && ObjRenDrugLic.ownership != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_TYPEOFOWNERSHIP", ObjRenDrugLic.ownership);
+                }
+                if (ObjRenDrugLic.Institute != null && ObjRenDrugLic.Institute != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_TYPEOFINSTITUTION", ObjRenDrugLic.Institute);
+                }
+                if (ObjRenDrugLic.Description != null && ObjRenDrugLic.Description != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_DECRIPTION", ObjRenDrugLic.Description);
+                }
+                if (ObjRenDrugLic.nataldiagnostic != null && ObjRenDrugLic.nataldiagnostic != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_PRENATALDIAGNOSTIC", ObjRenDrugLic.nataldiagnostic);
+                }
+                if (ObjRenDrugLic.Anyownership != null && ObjRenDrugLic.Anyownership != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_ANYOTHEROWNERSHIP", ObjRenDrugLic.Anyownership);
+                }
+                if (ObjRenDrugLic.AnyInstitute != null && ObjRenDrugLic.AnyInstitute != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_ANYOTHERINSTITUTION", ObjRenDrugLic.AnyInstitute);
+                }
+                if (ObjRenDrugLic.Whetherequipment != null && ObjRenDrugLic.Whetherequipment != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_EQUIPMENTSALREADY", ObjRenDrugLic.Whetherequipment);
+                }
+                if (ObjRenDrugLic.Facilitiescounsell != null && ObjRenDrugLic.Facilitiescounsell != "")
+                {
+                    com.Parameters.AddWithValue("@RENPC_FACILITIESCOUNSELL", ObjRenDrugLic.Facilitiescounsell);
+                }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

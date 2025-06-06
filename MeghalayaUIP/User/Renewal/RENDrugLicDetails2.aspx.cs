@@ -313,7 +313,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("Specify", typeof(string));                  
+                    dt.Columns.Add("RENDA_ADDITIONALITEM", typeof(string));
 
                     if (ViewState["SpecifyAdditional"] != null)
                     {
