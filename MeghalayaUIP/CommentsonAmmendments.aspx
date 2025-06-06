@@ -40,8 +40,8 @@
                                         <td style="width: 500px; border: 2px solid">
                                             <%--<uc:docViewer  id="mcPdfDoc" runat="server" />--%>
                                            
-                                            <asp:Panel runat="server" ID="Panel1" Visible="false">
-                                                <asp:Literal runat="server" ID="ltDoc" ></asp:Literal>
+                                            <asp:Panel runat="server" ID="Panel1" Visible="true">
+                                              
                                                 <iframe runat="server" id="IframePanel" width="500px" height="700px" title="Document Viewer"></iframe>
 
                                                 <%--    <asp:HyperLink ID="hypLink" runat="server" Text="View" Target="_blank" />--%>

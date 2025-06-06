@@ -62,10 +62,7 @@ namespace MeghalayaUIP
                
                 MGCommonClass.LogData("AFTER REPLACE PDFFILEPPATH - " + PathFile);
                 PathFile = mstrBAL.EncryptFilePath(Convert.ToString(PathFile));
-                MGCommonClass.LogData("AFTER ENCRYPT PDFFILEPPATH - " + PathFile);
-
-                Session["FILEPPATH"] = "~/PdfFile.ashx?filePath=" + PathFile;
-                //mcPdfDoc.DocumentUrl = "~/PdfFile.ashx?filePath=" + PathFile;
+                MGCommonClass.LogData("AFTER ENCRYPT PDFFILEPPATH - " + PathFile);              
 
                 IframePanel.Attributes["src"] = "~/PdfFile.ashx?filePath=" + PathFile;
                 //IframePanel.Attributes["src"] = "https://invest.meghalaya.gov.in/Documents/mipp2024.pdf";
