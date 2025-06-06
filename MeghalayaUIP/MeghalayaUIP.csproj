@@ -667,7 +667,7 @@
     <Content Include="Dept\Services\SrvcApplDeptProcess.aspx" />
     <Content Include="Dept\Services\SrvcApplDeptView.aspx" />
     <Content Include="Dept\Services\SrvcDeptDashboard.aspx" />
-    <Content Include="Document.ascx" />
+    <Content Include="DocUserControl.ascx" />
     <Content Include="EODB.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Faq.aspx" />
@@ -1461,12 +1461,12 @@
     <Compile Include="Dept\Services\SrvcDeptDashboard.aspx.designer.cs">
       <DependentUpon>SrvcDeptDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Document.ascx.cs">
-      <DependentUpon>Document.ascx</DependentUpon>
+    <Compile Include="DocUserControl.ascx.cs">
+      <DependentUpon>DocUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Document.ascx.designer.cs">
-      <DependentUpon>Document.ascx</DependentUpon>
+    <Compile Include="DocUserControl.ascx.designer.cs">
+      <DependentUpon>DocUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="EODB.aspx.cs">
       <DependentUpon>EODB.aspx</DependentUpon>

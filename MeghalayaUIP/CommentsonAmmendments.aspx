@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OuterNew.Master" AutoEventWireup="true" CodeBehind="CommentsonAmmendments.aspx.cs" Inherits="MeghalayaUIP.CommentsonAmmendments" %>
+<%@ Register Src="~/DocUserControl.ascx" TagPrefix="uc" TagName="docViewer" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -37,7 +38,10 @@
                                 <table style="width: 100%; padding-top: 5px">
                                     <tr>
                                         <td style="width: 500px; border: 2px solid">
-                                            <asp:Panel runat="server" ID="Panel1">
+                                            <%--<uc:docViewer  id="mcPdfDoc" runat="server" />--%>
+                                           
+                                            <asp:Panel runat="server" ID="Panel1" Visible="false">
+                                                <asp:Literal runat="server" ID="ltDoc" ></asp:Literal>
                                                 <iframe runat="server" id="IframePanel" width="500px" height="700px" title="Document Viewer"></iframe>
 
                                                 <%--    <asp:HyperLink ID="hypLink" runat="server" Text="View" Target="_blank" />--%>
