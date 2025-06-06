@@ -240,5 +240,41 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRENDrugLicDetails63(ObjRenDrugLic);
         }
+        public string InsertRENDrugLicDetails64(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertRENDrugLicDetails64(ObjRenDrugLic);
+        }
+        public string InsertRenDrugItemDet64(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertRenDrugItemDet64(ObjRenDrugLic);
+        }
+        public string InsertRENManufacture64(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertRENManufacture64(ObjRenDrugLic);
+        }
+        public string InsertDrugDet64(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertDrugDet64(ObjRenDrugLic);
+        }
+        public string InsertDrugDet65(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertDrugDet65(ObjRenDrugLic);
+        }
+        public string InsertRENDrugLicDetails65(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertRENDrugLicDetails65(ObjRenDrugLic);
+        }
+        public string InsertEquipment67(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertEquipment67(ObjRenDrugLic);
+        }
+        public string InsertRENRadiologist(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertRENRadiologist(ObjRenDrugLic);
+        }
+        public string InsertRENPCPNDTAMENDED67(RenDrugLicDet ObjRenDrugLic)
+        {
+            return objRENDAL.InsertRENPCPNDTAMENDED67(ObjRenDrugLic);
+        }
     }
 }

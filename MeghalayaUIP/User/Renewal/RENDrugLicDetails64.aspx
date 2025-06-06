@@ -156,7 +156,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Do you hold any previous cancelled license?  *</label>
                                                             <div class="col-lg-6">
-                                                                <asp:RadioButtonList ID="rblCancelledLic" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                                <asp:RadioButtonList ID="rblCancelledLic" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCancelledLic_SelectedIndexChanged">
                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                     <asp:ListItem Text="No" Value="N" />
                                                                 </asp:RadioButtonList>
@@ -308,7 +308,7 @@
 
                                             <div class="col-md-12 text-right mt-2 mb-2">
                                                 <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
-                                                <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                                <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
                                                 <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
 
                                             </div>

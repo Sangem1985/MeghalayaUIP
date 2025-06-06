@@ -189,6 +189,96 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+
+        protected void rblCancelledLic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblCancelledLic.SelectedValue == "Y")
+                {
+                    LicNos.Visible = true;
+                }
+                else
+                {
+                    LicNos.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnsave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string result = "";
+                ErrorMsg = validations();
+                if (ErrorMsg == "")
+                {
+                    RenDrugLicDet ObjRenDrugLic = new RenDrugLicDet();
+
+                    int count = 0;
+                    for (int i = 0; i < GVDruges.Rows.Count; i++)
+                    {
+                        ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]);
+                        ObjRenDrugLic.CreatedBy = hdnUserID.Value;
+                        ObjRenDrugLic.IPAddress = getclientIP();
+                        ObjRenDrugLic.NameDrug = GVDruges.Rows[i].Cells[1].Text;
+
+
+                        string A = objRenbal.InsertDrugDet65(ObjRenDrugLic);
+                        if (A != "")
+                        { count = count + 1; }
+                    }
+                    if (GVDruges.Rows.Count == count)
+                    {
+                        success.Visible = true;
+                        lblmsg.Text = "Renewal Drug Details Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                  
+
+                    ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]);
+                    ObjRenDrugLic.CreatedBy = hdnUserID.Value;
+                    ObjRenDrugLic.IPAddress = getclientIP();
+
+                    ObjRenDrugLic.ServiceApply = ddlservice.SelectedValue;
+                    ObjRenDrugLic.ApplicationPurpose = rblLicense.SelectedValue;
+                    ObjRenDrugLic.Licnumber = txtLicNo.Text;
+                    ObjRenDrugLic.ExpiryDate = txtExpiryDate.Text;
+                    ObjRenDrugLic.CancelledLic = rblCancelledLic.SelectedValue;
+                    ObjRenDrugLic.SpecifyLicno = txtSpecifyLicNo.Text;
+
+
+                    result = objRenbal.InsertRENDrugLicDetails65(ObjRenDrugLic);
+
+                    if (result != "")
+                    {
+                        success.Visible = true;
+                        lblmsg.Text = "Renewal DrugLicense Details Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -204,6 +294,74 @@ namespace MeghalayaUIP.User.Renewal
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+        public string validations()
+        {
+            try
+            {
+                int slno = 1;
+                string errormsg = "";
+
+                if (ddlservice.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Service Apply To \\n";
+                    slno = slno + 1;
+                }
+                if (rblLicense.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please specify the purpose of application \\n";
+                    slno = slno + 1;
+                }
+                if (rblLicense.SelectedValue == "R")
+                {
+                    if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter License Number\\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtExpiryDate.Text) || txtExpiryDate.Text == "" || txtExpiryDate.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Expiry date of license\\n";
+                        slno = slno + 1;
+                    }
+                    if (rblCancelledLic.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Do you hold any previous cancelled license? \\n";
+                        slno = slno + 1;
+                    }
+                    if (rblCancelledLic.SelectedValue == "Y")
+                    {
+                        if (string.IsNullOrEmpty(txtSpecifyLicNo.Text) || txtSpecifyLicNo.Text == "" || txtSpecifyLicNo.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please Enter specify license no\\n";
+                            slno = slno + 1;
+                        }
+                    }
+                }
+
+                return errormsg;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
         }
     }
 }

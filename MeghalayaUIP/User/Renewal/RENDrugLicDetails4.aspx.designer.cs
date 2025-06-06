@@ -186,13 +186,13 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Starttype;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtanyinstitute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtanyinstitute;
 
         /// <summary>
         /// rblequipments control.
@@ -231,22 +231,22 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtMakeEquipment;
 
         /// <summary>
-        /// btn control.
+        /// btnEquipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn;
+        protected global::System.Web.UI.WebControls.Button btnEquipment;
 
         /// <summary>
-        /// GVDrugName control.
+        /// GVEquipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVDrugName;
+        protected global::System.Web.UI.WebControls.GridView GVEquipment;
 
         /// <summary>
         /// txtFciliites control.
@@ -267,22 +267,22 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtRadiologist;
 
         /// <summary>
-        /// Button1 control.
+        /// btnradiologist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnradiologist;
 
         /// <summary>
-        /// GridView1 control.
+        /// GVRADIO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GVRADIO;
 
         /// <summary>
         /// btnPreviuos control.

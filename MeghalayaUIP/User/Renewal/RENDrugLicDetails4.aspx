@@ -108,15 +108,15 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Type of ownership of Organization  *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:DropDownList ID="rblLicense" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                            <asp:DropDownList ID="rblLicense" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicense_SelectedIndexChanged">
                                                                 <asp:ListItem Text="--Select--" Value="-1" />
-                                                                <asp:ListItem Text="Individual ownership" Value="N" />
-                                                                <asp:ListItem Text="Partnership" Value="R" />
-                                                                <asp:ListItem Text="Company" Value="R" />
-                                                                <asp:ListItem Text="Co-operative" Value="R" />
-                                                                <asp:ListItem Text="State Government" Value="R" />
-                                                                <asp:ListItem Text="Central Government" Value="R" />
-                                                                <asp:ListItem Text="Any other to be specified" Value="R" />
+                                                                <asp:ListItem Text="Individual ownership" Value="1" />
+                                                                <asp:ListItem Text="Partnership" Value="2" />
+                                                                <asp:ListItem Text="Company" Value="3" />
+                                                                <asp:ListItem Text="Co-operative" Value="4" />
+                                                                <asp:ListItem Text="State Government" Value="5" />
+                                                                <asp:ListItem Text="Central Government" Value="6" />
+                                                                <asp:ListItem Text="Any other to be specified" Value="7" />
                                                             </asp:DropDownList>
                                                         </div>
                                                     </div>
@@ -127,15 +127,15 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Type of Institution   *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:DropDownList ID="ddlType" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                            <asp:DropDownList ID="ddlType" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">
                                                                 <asp:ListItem Text="--Select--" Value="-1" />
-                                                                <asp:ListItem Text="Private Clinic" Value="N" />
-                                                                <asp:ListItem Text="Private laboratory" Value="R" />
-                                                                <asp:ListItem Text="Govt. Hospital" Value="R" />
-                                                                <asp:ListItem Text="Municipal Hospital" Value="R" />
-                                                                <asp:ListItem Text="Private Hospital" Value="R" />
-                                                                <asp:ListItem Text="Private Nursing Home" Value="R" />
-                                                                <asp:ListItem Text="Any other to be stated" Value="R" />
+                                                                <asp:ListItem Text="Private Clinic" Value="1" />
+                                                                <asp:ListItem Text="Private laboratory" Value="2" />
+                                                                <asp:ListItem Text="Govt. Hospital" Value="3" />
+                                                                <asp:ListItem Text="Municipal Hospital" Value="4" />
+                                                                <asp:ListItem Text="Private Hospital" Value="5" />
+                                                                <asp:ListItem Text="Private Nursing Home" Value="6" />
+                                                                <asp:ListItem Text="Any other to be stated" Value="7" />
                                                             </asp:DropDownList>
                                                         </div>
                                                     </div>
@@ -179,7 +179,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Any other type of institution to be stated *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="TextBox1" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtanyinstitute" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -190,7 +190,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Whether equipments already available   *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:RadioButtonList ID="rblequipments" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                            <asp:RadioButtonList ID="rblequipments" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblequipments_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
@@ -230,20 +230,20 @@
                                                         <div class="form-group row">
                                                             <div class="col-lg-12 d-flex">
 
-                                                                <asp:Button ID="btn" runat="server" Text="Add More" CssClass="btn btn-green btn-rounded" Width="110px" />
+                                                                <asp:Button ID="btnEquipment" runat="server" Text="Add More" OnClick="btnEquipment_Click" CssClass="btn btn-green btn-rounded" Width="110px" />
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 d-flex justify-content-center ml-3">
-                                                    <asp:GridView ID="GVDrugName" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                    <asp:GridView ID="GVEquipment" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                         GridLines="None" Width="100%" EnableModelValidation="True" Visible="false">
                                                         <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                         <Columns>
                                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                            <asp:BoundField HeaderText="Serial number of equipment " DataField="REND_DRUGNAME" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                            <asp:BoundField HeaderText="Make and Model of equipment " DataField="REND_DRUGNAME" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                            <asp:BoundField HeaderText="Serial number of equipment " DataField="SERIALEQUIPMENT" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                            <asp:BoundField HeaderText="Make and Model of equipment " DataField="MAKEEQUIPMENT" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -252,6 +252,7 @@
                                                 </div>
                                             </div>
 
+                                            <br />
 
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-6">
@@ -283,19 +284,19 @@
                                                     <div class="form-group row">
                                                         <div class="col-lg-12 d-flex">
 
-                                                            <asp:Button ID="Button1" runat="server" Text="Add More" CssClass="btn btn-green btn-rounded" Width="110px" />
+                                                            <asp:Button ID="btnradiologist" runat="server" Text="Add More" OnClick="btnradiologist_Click" CssClass="btn btn-green btn-rounded" Width="110px" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 d-flex justify-content-center ml-3">
-                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                <asp:GridView ID="GVRADIO" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                     GridLines="None" Width="100%" EnableModelValidation="True" Visible="false">
                                                     <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                     <Columns>
                                                         <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                        <asp:BoundField HeaderText="Name of radiologist / sonologist" DataField="REND_DRUGNAME" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Name of radiologist / sonologist" DataField="RADIOLOGIST" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                     </Columns>
                                                     <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     <AlternatingRowStyle BackColor="White" />
@@ -307,7 +308,7 @@
 
                                             <div class="col-md-12 text-right mt-2 mb-2">
                                                 <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
-                                                <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                                <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
                                                 <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
 
                                             </div>
