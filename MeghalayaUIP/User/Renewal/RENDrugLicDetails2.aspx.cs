@@ -39,9 +39,8 @@ namespace MeghalayaUIP.User.Renewal
                         if (!IsPostBack)
                         {
                             GetAppliedorNot();
-                            BindDistricts();
+                            
                         }
-                        //Binddata();                        
                     }
                     else
                     {
@@ -67,7 +66,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet ds = new DataSet();
 
-                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "8", "");
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "8", "63");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -75,7 +74,8 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         if (Convert.ToString(ds.Tables[0].Rows[i]["RENDA_APPROVALID"]) == "63")
                         {
-                            divManufacture63.Visible = true;
+                            BindDistricts();
+                            Binddata();
                         }                     
                     }
                 }
@@ -84,15 +84,90 @@ namespace MeghalayaUIP.User.Renewal
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Renewal/RENSafetySecurityDetails.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Renewal/RENDrugLicDetails64.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/Renewal/RenewalServices.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/Renewal/RENDrugLicDetails1.aspx?Previous=" + "P");
                     }
                 }
             }
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public void Binddata()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objRenbal.GetRenDrugLicDetails63(hdnUserID.Value, Questionnaire);
+                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        ddlservice.SelectedValue = ds.Tables[0].Rows[0]["RENDL_SERVICETO"].ToString();
+
+                        rblLicense.SelectedValue = ds.Tables[0].Rows[0]["RENDL_SPECIFYAPPLICATION"].ToString();
+
+                        if (rblLicense.SelectedValue == "R")
+                        {
+                            pnlLicenseDetails.Visible = true;
+                            txtLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNO"].ToString();
+                            txtExpiryDate.Text = ds.Tables[0].Rows[0]["RENDL_EXPIRYDATE"].ToString();
+                            rblCancelledLic.SelectedValue = ds.Tables[0].Rows[0]["RENDL_LICCANCEL"].ToString().Trim();
+
+
+                            if (rblCancelledLic.SelectedValue == "Y")
+                            {
+                                LicNos.Visible = true;
+                                txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNOSPECIFY"].ToString();
+                            }
+                            else { LicNos.Visible = false; }
+
+                        }
+                        else
+                        {
+                            pnlLicenseDetails.Visible = false;
+                        }
+
+                    }
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        ViewState["NameDrug"] = ds.Tables[1];
+                        GVDrugName.DataSource = ds.Tables[1];
+                        GVDrugName.DataBind();
+                        GVDrugName.Visible = true;
+                    }
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        ViewState["TESTING"] = ds.Tables[2];
+                        GVTEST.DataSource = ds.Tables[2];
+                        GVTEST.DataBind();
+                        GVTEST.Visible = true;
+                    }
+                    if (ds.Tables[3].Rows.Count > 0)
+                    {
+                        ViewState["StaffEmployed"] = ds.Tables[3];
+                        GVSTAFF.DataSource = ds.Tables[3];
+                        GVSTAFF.DataBind();
+                        GVSTAFF.Visible = true;
+                    }
+                    if (ds.Tables[4].Rows.Count > 0)
+                    {
+                        ViewState["SpecifyAdditional"] = ds.Tables[4];
+                        GVSpecify.DataSource = ds.Tables[4];
+                        GVSpecify.DataBind();
+                        GVSpecify.Visible = true;
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
@@ -484,6 +559,144 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     LicNos.Visible = false;
                 }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void GVDrugName_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVDrugName.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["NameDrug"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVDrugName.DataSource = ((DataTable)ViewState["NameDrug"]).DefaultView;
+                    this.GVDrugName.DataBind();
+                    GVDrugName.Visible = true;
+                    GVDrugName.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void GVTEST_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVTEST.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["TESTING"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVTEST.DataSource = ((DataTable)ViewState["TESTING"]).DefaultView;
+                    this.GVTEST.DataBind();
+                    GVTEST.Visible = true;
+                    GVTEST.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void GVSTAFF_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVSTAFF.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["StaffEmployed"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVSTAFF.DataSource = ((DataTable)ViewState["StaffEmployed"]).DefaultView;
+                    this.GVSTAFF.DataBind();
+                    GVSTAFF.Visible = true;
+                    GVSTAFF.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void GVSpecify_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVSpecify.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["SpecifyAdditional"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVSpecify.DataSource = ((DataTable)ViewState["SpecifyAdditional"]).DefaultView;
+                    this.GVSpecify.DataBind();
+                    GVSpecify.Visible = true;
+                    GVSpecify.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Renewal/RENDrugLicDetails64.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Renewal/RENDrugLicDetails1.aspx?Previous=" + "P");
             }
             catch (Exception ex)
             {

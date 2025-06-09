@@ -276,5 +276,29 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRENPCPNDTAMENDED67(ObjRenDrugLic);
         }
+        public DataSet GetRenDrugLicDetails67(string Userid, string RENQID)
+        {
+            return objRENDAL.GetRenDrugLicDetails67(Userid, RENQID);
+        }
+        public DataSet GetRenDrugLicDetails63(string Userid, string RENQID)
+        {
+            return objRENDAL.GetRenDrugLicDetails63(Userid, RENQID);
+        }
+        public DataSet GetRenDrugLicDetails64(string userid, string RENQID)
+        {
+            return objRENDAL.GetRenDrugLicDetails64(userid, RENQID);
+        }
+        public DataSet GetRenDrugLicDetails65(string userid, string RENQID)
+        {
+            return objRENDAL.GetRenDrugLicDetails65(userid, RENQID);
+        }
+        public DataSet GetRenDrugLicDetails3(string userid, string RENQID)
+        {
+            return objRENDAL.GetRenDrugLicDetails3(userid, RENQID);
+        }
+        public string InsertRENDrugLicDetails3(RenDrugLicDet ObjRenDrugLic3)
+        {
+            return objRENDAL.InsertRENDrugLicDetails3(ObjRenDrugLic3);
+        }
     }
 }

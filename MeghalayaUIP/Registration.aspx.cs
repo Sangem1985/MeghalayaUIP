@@ -110,7 +110,7 @@ namespace MeghalayaUIP
                         "</b><br/><br/> Welcome to Invest Meghalaya Portal. Thank you for registering."
                         + "</b><br/><br/> Please Login with Registered E-mail by using the link  <a href='" + "https://invest.meghalaya.gov.in/Login.aspx" + "' target='_blank' > Invest Meghalaya Authority - Login Link </a>"
                                + " </b><br/><br/> Best Regards"
-                                + "</b><br/> Invest Meghalaya Authority";
+                                + "</b><br/> Meghalaya Investment Promotion Authority";
                         SMSandMail smsMail = new SMSandMail();
 
                         smsMail.SendEmailSingle(txtEmail.Text.Trim(), "sangem_madhuri@cms.co.in,chinni_sowjanya@cms.co.in", "Welcome to Our Web Portal", EmailText, "", "User Registration",

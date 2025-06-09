@@ -14,7 +14,7 @@ using static System.Net.WebRequestMethods;
 namespace MeghalayaUIP
 {
     public partial class CommentsonAmmendments : System.Web.UI.Page
-    { 
+    {
         MasterBAL mstrBAL = new MasterBAL();
         string Result;
         protected void Page_Load(object sender, EventArgs e)
@@ -52,6 +52,8 @@ namespace MeghalayaUIP
                 lblDepatname.Text = lblDeptFinal.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_NAME"]);
                 lblAmendmentID.Text = Convert.ToString(Request.QueryString[0]);
                 lblDeptID.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["DEPT_ID"]);
+                lblDeptMailid.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["TMD_MAILIDFOR_AMMENDMENTS"]);
+
                 lblLegalBasis.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["LEGALBASIS"]);
                 lblNecessity.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["NECESSITY"]);
                 lblbusinsfrndly.Text = Convert.ToString(dsdepts.Tables[0].Rows[0]["BUSINESSFRIENDLY"]);
@@ -59,10 +61,10 @@ namespace MeghalayaUIP
                 string PathFile = dsdepts.Tables[0].Rows[0]["AMMENDMENT_FILEPATH"].ToString();
                 MGCommonClass.LogData("PDFFILEPPATH - " + PathFile);
                 PathFile = PathFile.Replace("@\\", "/");
-               
+
                 MGCommonClass.LogData("AFTER REPLACE PDFFILEPPATH - " + PathFile);
                 PathFile = mstrBAL.EncryptFilePath(Convert.ToString(PathFile));
-                MGCommonClass.LogData("AFTER ENCRYPT PDFFILEPPATH - " + PathFile);              
+                MGCommonClass.LogData("AFTER ENCRYPT PDFFILEPPATH - " + PathFile);
 
                 IframePanel.Attributes["src"] = "~/PdfFile.ashx?filePath=" + PathFile;
                 //IframePanel.Attributes["src"] = "https://invest.meghalaya.gov.in/Documents/mipp2024.pdf";
@@ -130,6 +132,20 @@ namespace MeghalayaUIP
                 Result = mstrBAL.InsertAmmendmentsComments(ammendment);
                 if (Result != "")
                 {
+                    if (lblDeptMailid.Text.Trim() != "")
+                    {
+                        string loginlink = "https://invest.meghalaya.gov.in/Login.aspx";
+                        string EmailText = "Dear Team,<br/><br/>" + "The following feedback has been submitted by User for " + lblAmendmentFinal.Text.Trim() + "<br/>" +
+                          "<strong>User Name:</strong> " + txtUserName.Text.Trim() + "<br/>" + "<strong>Email ID:</strong> " + txtEmailId.Text.Trim() + "<br/>" +
+                          "<strong>Mobile No:</strong> " + txtMobileNo.Text.Trim() + "<br/>" + "<strong>District:</strong> " + ddlDistrict.SelectedItem.Text.Trim() + "<br/>" +
+                          "<strong>Comments/Feedback:</strong>" + txtComments.Text.Trim() + "<br/><br/>" + "Thanks & Regards,<br/>" +
+                          "Meghalaya Investment Promotion Authority";
+
+                        SMSandMail smsMail = new SMSandMail();
+                        smsMail.SendEmailSingle(lblDeptMailid.Text.Trim(), "sangem_madhuri@cms.co.in,chinni_sowjanya@cms.co.in", "Feedback /Comments on " + lblAmendmentFinal.Text.Trim(), EmailText, "", "Ammendments",
+                                     "", "", Result);
+                    }
+
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "alertMsg", "alert('Comments Saved Successfully');" + "window.location='UseCommentsOnAmmendments.aspx';", true);
                     lblresult.Text = "Comments Saved Successfully";
                     lblresult.Visible = true;

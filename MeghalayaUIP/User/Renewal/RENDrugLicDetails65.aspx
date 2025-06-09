@@ -201,7 +201,7 @@
                                                 <div class="col-md-6 d-flex justify-content-center ml-3">
                                                     <asp:GridView ID="GVDruges" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                        GridLines="None" Width="100%" EnableModelValidation="True" Visible="false">
+                                                        GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVDruges_RowDeleting">
                                                         <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                         <Columns>
                                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
@@ -216,9 +216,9 @@
 
 
                                             <div class="col-md-12 text-right mt-2 mb-2">
-                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
+                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
                                                 <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                                <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
+                                                <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
 
                                             </div>
                                         </div>

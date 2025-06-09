@@ -19,9 +19,162 @@ namespace MeghalayaUIP.User.Renewal
         string ErrorMsg = "", Questionnaire;
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (Session["UserInfo"] != null)
+                {
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
 
+                    if (Convert.ToString(Session["RENQID"]) != "")
+                    {
+                        Questionnaire = Convert.ToString(Session["RENQID"]);
+                        if (!IsPostBack)
+                        {
+                            GetAppliedorNot();
+                        }
+                    }
+                    else
+                    {
+                        string newurl = "~/User/Renewal/RENUserDashboard.aspx";
+                        Response.Redirect(newurl);
+                    }
+
+                    Page.MaintainScrollPositionOnPostBack = true;
+                    Failure.Visible = false;
+                    success.Visible = false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
+        protected void GetAppliedorNot()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
 
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "8", "67");
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["RENDA_APPROVALID"]) == "67")
+                    {
+                        Binddata();
+                    }
+                }
+                else
+                {
+                    if (Request.QueryString.Count > 0)
+                    {
+                        if (Convert.ToString(Request.QueryString[0]) == "N")
+                            Response.Redirect("~/User/Renewal/RENSafetySecurityDetails.aspx?Next=" + "N");
+                        else if (Convert.ToString(Request.QueryString[0]) == "P")
+                            Response.Redirect("~/User/Renewal/RENDrugLicDetails3.aspx?Previous=" + "P");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message; Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public void Binddata()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objRenbal.GetRenDrugLicDetails67(hdnUserID.Value, Questionnaire);
+                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        txtClinical.Text = ds.Tables[0].Rows[0]["RENPC_VALIDCLINICALNO"].ToString();
+
+                        if (ds.Tables[0].Rows[0]["RENPC_GENETICCOUNSELLINGCENTRE"].ToString().Contains("Genetic Counselling Centre"))
+                            CHKRegistered.Items[0].Selected = true;
+                        if (ds.Tables[0].Rows[0]["RENPC_GENETICCOUNSELLINGCENTRE"].ToString().Contains("Genetic Laboratory"))
+                            CHKRegistered.Items[1].Selected = true;
+                        if (ds.Tables[0].Rows[0]["RENPC_GENETICCOUNSELLINGCENTRE"].ToString().Contains("Genetic Clinic"))
+                            CHKRegistered.Items[2].Selected = true;
+                        if (ds.Tables[0].Rows[0]["RENPC_GENETICCOUNSELLINGCENTRE"].ToString().Contains("Ultrasound Clinic"))
+                            CHKRegistered.Items[3].Selected = true;
+                        if (ds.Tables[0].Rows[0]["RENPC_GENETICCOUNSELLINGCENTRE"].ToString().Contains("Imaging Centre"))
+                            CHKRegistered.Items[4].Selected = true;
+
+                        txtFacility.Text = ds.Tables[0].Rows[0]["RENPC_TYPEFACILITYREG"].ToString();
+
+
+
+                        rblLicense.SelectedValue = ds.Tables[0].Rows[0]["RENPC_TYPEOFOWNERSHIP"].ToString();
+
+                        if (rblLicense.SelectedValue == "7")
+                        {
+                            otherownership.Visible = true;
+                            txtOwnership.Text = ds.Tables[0].Rows[0]["RENPC_ANYOTHEROWNERSHIP"].ToString();                 
+                                                    }
+                        else
+                        {
+                            otherownership.Visible = false;
+                        }
+
+
+                        ddlType.SelectedValue = ds.Tables[0].Rows[0]["RENPC_TYPEOFINSTITUTION"].ToString();
+                        if (ddlType.SelectedValue == "7")
+                        {
+                            Starttype.Visible = true;
+                            txtanyinstitute.Text = ds.Tables[0].Rows[0]["RENPC_ANYOTHERINSTITUTION"].ToString();
+                        }
+                        else { Starttype.Visible = false; }
+
+                        txtDescription.Text = ds.Tables[0].Rows[0]["RENPC_DECRIPTION"].ToString();
+                        ddlprenatal.SelectedValue = ds.Tables[0].Rows[0]["RENPC_PRENATALDIAGNOSTIC"].ToString();
+                        txtFciliites.Text = ds.Tables[0].Rows[0]["RENPC_FACILITIESCOUNSELL"].ToString();
+                        rblequipments.SelectedValue = ds.Tables[0].Rows[0]["RENPC_EQUIPMENTSALREADY"].ToString();
+
+                        if (rblequipments.SelectedValue == "Y")
+                        {
+                            if (ds.Tables[1].Rows.Count > 0)
+                            {
+                                ViewState["Equipment"] = ds.Tables[1];
+                                GVEquipment.DataSource = ds.Tables[1];
+                                GVEquipment.DataBind();
+                                GVEquipment.Visible = true;
+                            }
+                        }
+
+                    }                  
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        ViewState["SONOLOGIST"] = ds.Tables[2];
+                        GVRADIO.DataSource = ds.Tables[2];
+                        GVRADIO.DataBind();
+                        GVRADIO.Visible = true;
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void rblLicense_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -268,42 +421,80 @@ namespace MeghalayaUIP.User.Renewal
                 int slno = 1;
                 string errormsg = "";
 
-                /* if (ddlservice.SelectedIndex == -1)
-                 {
-                     errormsg = errormsg + slno + ". Please Select Service Apply To \\n";
-                     slno = slno + 1;
-                 }
-                 if (rblLicense.SelectedIndex == -1)
-                 {
-                     errormsg = errormsg + slno + ". Please specify the purpose of application \\n";
-                     slno = slno + 1;
-                 }
-                 if (rblLicense.SelectedValue == "R")
-                 {
-                     if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
-                     {
-                         errormsg = errormsg + slno + ". Please Enter License Number\\n";
-                         slno = slno + 1;
-                     }
-                     if (string.IsNullOrEmpty(txtExpiryDate.Text) || txtExpiryDate.Text == "" || txtExpiryDate.Text == null)
-                     {
-                         errormsg = errormsg + slno + ". Please Enter Expiry date of license\\n";
-                         slno = slno + 1;
-                     }
-                     if (rblCancelledLic.SelectedIndex == -1)
-                     {
-                         errormsg = errormsg + slno + ". Please Select Do you hold any previous cancelled license? \\n";
-                         slno = slno + 1;
-                     }
-                     if (rblCancelledLic.SelectedValue == "Y")
-                     {
-                         if (string.IsNullOrEmpty(txtSpecifyLicNo.Text) || txtSpecifyLicNo.Text == "" || txtSpecifyLicNo.Text == null)
-                         {
-                             errormsg = errormsg + slno + ". Please Enter specify license no\\n";
-                             slno = slno + 1;
-                         }
-                     }
-                 }*/
+                if (string.IsNullOrEmpty(txtClinical.Text) || txtClinical.Text == "" || txtClinical.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Valid clinical establishment registration number\\n";
+                    slno = slno + 1;
+                }
+                if (CHKRegistered.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Type of facility to be registered   \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(txtFacility.Text) || txtFacility.Text == "" || txtFacility.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Type of facility to be registered\\n";
+                    slno = slno + 1;
+                }
+                if (rblLicense.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Type of ownership of Organization \\n";
+                    slno = slno + 1;
+                }
+                if (rblLicense.SelectedValue=="7")
+                {
+                    if (string.IsNullOrEmpty(txtOwnership.Text) || txtOwnership.Text == "" || txtOwnership.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Any other type of ownership to be stated\\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (ddlType.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Type of Institution  \\n";
+                    slno = slno + 1;
+                }
+                if (ddlType.SelectedValue == "7")
+                {
+                    if (string.IsNullOrEmpty(txtanyinstitute.Text) || txtanyinstitute.Text == "" || txtanyinstitute.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Any other type of institution to be stated\\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (string.IsNullOrEmpty(txtDescription.Text) || txtDescription.Text == "" || txtDescription.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Description\\n";
+                    slno = slno + 1;
+                }
+                if (ddlprenatal.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Specific pre-natal diagnostic procedures  \\n";
+                    slno = slno + 1;
+                }
+                if (rblequipments.SelectedIndex == -1)
+                {
+                    errormsg = errormsg + slno + ". Please Select Whether equipments already available  \\n";
+                    slno = slno + 1;
+                }
+                if (rblequipments.SelectedValue=="Y")
+                {
+                    if (GVEquipment.Rows.Count <= 0)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Equipment available with the make and model of each equipment \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (string.IsNullOrEmpty(txtFciliites.Text) || txtFciliites.Text == "" || txtFciliites.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Facilities available in the Counselling Centre\\n";
+                    slno = slno + 1;
+                }
+                if (GVRADIO.Rows.Count <= 0)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Name of Radiologists/Sonologists \\n";
+                    slno = slno + 1;
+                }
 
                 return errormsg;
             }
@@ -312,6 +503,91 @@ namespace MeghalayaUIP.User.Renewal
                 throw ex;
             }
         }
+
+        protected void GVEquipment_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVEquipment.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["Equipment"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVEquipment.DataSource = ((DataTable)ViewState["Equipment"]).DefaultView;
+                    this.GVEquipment.DataBind();
+                    GVEquipment.Visible = true;
+                    GVEquipment.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void GVRADIO_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVRADIO.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["SONOLOGIST"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVRADIO.DataSource = ((DataTable)ViewState["SONOLOGIST"]).DefaultView;
+                    this.GVRADIO.DataBind();
+                    GVRADIO.Visible = true;
+                    GVRADIO.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Renewal/RENDrugLicDetails3.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Renewal/RENSafetySecurityDetails.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         public static string getclientIP()
         {
             string result = string.Empty;

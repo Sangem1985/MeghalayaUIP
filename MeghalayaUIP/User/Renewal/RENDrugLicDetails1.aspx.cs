@@ -17,6 +17,7 @@ namespace MeghalayaUIP.User.Renewal
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
         string ErrorMsg = "", Questionnaire;
+        RenDrugLicDet ObjRenDrugLic = new RenDrugLicDet();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -82,7 +83,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Renewal/RENSafetySecurityDetails.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Renewal/RENDrugLicDetails2.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
                             Response.Redirect("~/User/Renewal/RenewalServices.aspx?Previous=" + "P");
                     }
@@ -119,7 +120,7 @@ namespace MeghalayaUIP.User.Renewal
                             if (rblCancelledLic.SelectedValue == "Y")
                             {
                                 LicNos.Visible = true;
-                                txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNOSPECIFY"].ToString();
+                                txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_SPECIFYLICNO"].ToString();
                             }
                             else { LicNos.Visible = false; }
 
@@ -308,10 +309,7 @@ namespace MeghalayaUIP.User.Renewal
                 }
                 else
                 {
-                    DataTable dt = new DataTable();
-                    //dt.Columns.Add("RENQID", typeof(string));
-                    //dt.Columns.Add("RENST_CREATEDBY", typeof(string));
-                    //dt.Columns.Add("RENST_CREATEDBYIP", typeof(string));
+                    DataTable dt = new DataTable();                  
                     dt.Columns.Add("RENST_NAME", typeof(string));
                     dt.Columns.Add("RENST_QUALIFICATION", typeof(string));
                     dt.Columns.Add("RENST_EXPERIENCE", typeof(string));
@@ -321,10 +319,7 @@ namespace MeghalayaUIP.User.Renewal
                         dt = (DataTable)ViewState["TESTING"];
                     }
 
-                    DataRow dr = dt.NewRow();
-                    //dr["RENQID"] = Convert.ToString(ViewState["RENQID"]);
-                    //dr["RENST_CREATEDBY"] = hdnUserID.Value;
-                    //dr["RENST_CREATEDBYIP"] = getclientIP();
+                    DataRow dr = dt.NewRow();                 
                     dr["RENST_NAME"] = txtnames.Text;
                     dr["RENST_QUALIFICATION"] = txtqualifies.Text;
                     dr["RENST_EXPERIENCE"] = txtexpered.Text;
@@ -352,7 +347,6 @@ namespace MeghalayaUIP.User.Renewal
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
-                    RenDrugLicDet ObjRenDrugLic = new RenDrugLicDet();
 
                     int count = 0, count1 = 0;
                     for (int i = 0; i < GVDrugName.Rows.Count; i++)
@@ -525,6 +519,37 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnsave_Click(sender, e);
+                if (ErrorMsg == "")
+                    Response.Redirect("~/User/Renewal/RENDrugLicDetails2.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnPreviuos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/User/Renewal/RenewalServices.aspx?Previous=" + "P");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         public string validations()
         {
             try

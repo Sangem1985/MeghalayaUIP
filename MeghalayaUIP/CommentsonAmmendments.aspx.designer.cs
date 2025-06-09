@@ -96,6 +96,15 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.Label lblDeptID;
 
         /// <summary>
+        /// lblDeptMailid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDeptMailid;
+
+        /// <summary>
         /// lblAmendment control.
         /// </summary>
         /// <remarks>

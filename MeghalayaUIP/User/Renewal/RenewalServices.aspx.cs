@@ -167,7 +167,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (result > 0)
                     {
                         // string newurl = "RENQuestionnaire.aspx?ApprId=" + ApprovalIds;
-                        string newurl = "~/User/Renewal/RENDrugsLicenseDetails.aspx?Next=" + "N";
+                        string newurl = "~/User/Renewal/RENDrugLicDetails1.aspx?Next=" + "N";
                         Response.Redirect(newurl);
                     }
                     else

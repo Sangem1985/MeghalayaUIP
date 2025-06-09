@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OuterNew.Master" AutoEventWireup="true" CodeBehind="CommentsonAmmendments.aspx.cs" Inherits="MeghalayaUIP.CommentsonAmmendments" %>
+
 <%@ Register Src="~/DocUserControl.ascx" TagPrefix="uc" TagName="docViewer" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -39,9 +40,9 @@
                                     <tr>
                                         <td style="width: 500px; border: 2px solid">
                                             <%--<uc:docViewer  id="mcPdfDoc" runat="server" />--%>
-                                           
+
                                             <asp:Panel runat="server" ID="Panel1" Visible="true">
-                                              
+
                                                 <iframe runat="server" id="IframePanel" width="500px" height="700px" title="Document Viewer"></iframe>
 
                                                 <%--    <asp:HyperLink ID="hypLink" runat="server" Text="View" Target="_blank" />--%>
@@ -65,6 +66,8 @@
                                                                         <asp:Label runat="server" ID="lblDepatname"></asp:Label>
                                                                         <br />
                                                                         <asp:Label runat="server" ID="lblDeptID" Visible="false"></asp:Label>
+                                                                        <asp:Label runat="server" ID="lblDeptMailid" Visible="false"></asp:Label>
+
                                                                     </td>
 
                                                                 </tr>
@@ -145,8 +148,9 @@
                                                                         <asp:Button ID="btnSave" runat="server" CssClass="btn btn-success" Height="40px"
                                                                             OnClick="btnSave_Click" Text="Submit Comments" ValidationGroup="group" Width="200px" />
                                                                         &nbsp;
-                                                                                <asp:Button ID="btnClear" runat="server" CssClass="btn btn-warning" Height="40px"
-                                                                                    OnClick="btnClear_Click" Text="Clear" Width="120px" />
+                                                                               
+                                                                        <asp:Button ID="btnClear" runat="server" CssClass="btn btn-warning" Height="40px"
+                                                                            OnClick="btnClear_Click" Text="Clear" Width="120px" />
                                                                     </td>
                                                                     <%--  <td colspan="4" style="text-align: center">&nbsp;</td>--%>
                                                                 </tr>
@@ -230,15 +234,15 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <table style=" border: 2px solid;">
+                                <table style="border: 2px solid;">
                                     <tr>
                                         <td>
                                             <asp:Label runat="server" ID="lblNocomments" ForeColor="Red" Visible="false"></asp:Label>
 
-                                            <asp:GridView ID="grdComments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                              <asp:GridView ID="grdComments" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                 BorderStyle="Solid" BorderWidth="1px" CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
                                                 GridLines="None" AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
-                                                Width="135%" EnableModelValidation="True" Visible="false">
+                                                Width="100px" EnableModelValidation="True" Visible="false">
                                                 <HeaderStyle BackColor="#3366cc" />
                                                 <RowStyle BackColor="#ffffff" />
                                                 <Columns>
@@ -247,12 +251,12 @@
                                                             <%#Container.DataItemIndex+1 %>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:BoundField HeaderText="User Name" DataField="USERNAME" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="District" DataField="DistrictName" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Mobile No." DataField="MOBILENO" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Mail Id" DataField="MAILID" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Comments" DataField="COMMENTS" ItemStyle-Width="200px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Comments Date" DataField="CREATEDDATE" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="User Name" DataField="USERNAME" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="District" DataField="DistrictName" ItemStyle-Width="500px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Mobile No." DataField="MOBILENO" ItemStyle-Width="40px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Mail Id" DataField="MAILID" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Comments" DataField="COMMENTS" ItemStyle-Width="100px" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Comments Date" DataField="CREATEDDATE" DataFormatString="{0:dd/MM/yyyy}" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Center" ItemStyle-ForeColor="WindowText" />
 
                                                 </Columns>
                                             </asp:GridView>

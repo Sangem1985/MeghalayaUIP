@@ -69,12 +69,21 @@ namespace MeghalayaUIP.Common
         public static string InsertRenDrugItemDet64 = "USP_INSRENDARUGADDITIONALITEM64";
         public static string InsertDrugManufactureDet64 = "USP_INSRENDRUGMANU64";
         public static string InsertRenDrugDet64 = "USP_INSRENDRUGDETAILS64";
+        public static string GetRENDrugLicenseDetails64 = "USP_GETDRUGLICDETAILS64";
 
         public static string InsertRenDrugDet65 = "USP_INSRENDRUGDETAILS65";
         public static string InsertRENDrugLicDet65 = "USP_INSRENDRUGLICDETAILS65";
+        public static string GetRENDrugLicenseDetails65 = "USP_GETDRUGLICDETAILS65";
         public static string InsertRenEquipment67 = "USP_INSRENEQUIPMENT67";
         public static string InsertRenRadiologist67 = "USP_INSRENRADIOLOGIST67";
         public static string InsertRENPCPNDTAMENDS67 = "USP_INSRENPCPNDTAMENDED67";
+
+        public static string GetRENDrugDetails67 = "USP_GETDRUGLICDETAILS67";
+
+        public static string GetRENDrugDetails63 = "USP_GETDRUGDETAILS63";
+
+        public static string GetRENDrugLicenseDetails3 = "USP_GETDRUGDETAILS66";
+        public static string InsertRENDrugLicDep3 = "USP_INSRENDRUGLICDETAILS66";
 
         //////------------------APPLIED APPROVALS--------------///////
 
@@ -164,6 +173,7 @@ namespace MeghalayaUIP.Common
         public string AnyInstitute { get; set; }
         public string Whetherequipment { get; set; }
         public string Facilitiescounsell { get; set; }
+        public string Serviceto { get; set; }
     }
     public class RenBusinessLicDetails
     {

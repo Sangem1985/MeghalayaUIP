@@ -176,9 +176,6 @@
 
                                             </asp:Panel>
 
-
-                                            <div id="divManufacture63" runat="server" visible="true">
-
                                                 <div class="col-md-12 d-flex">
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Drug Details</span></label>
                                                 </div>
@@ -204,7 +201,7 @@
                                                 <div class="col-md-6 d-flex justify-content-center ml-3">
                                                     <asp:GridView ID="GVDrugName" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                        GridLines="None" Width="100%" EnableModelValidation="True" Visible="false">
+                                                        GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVDrugName_RowDeleting">
                                                         <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                         <Columns>
                                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
@@ -252,7 +249,7 @@
                                                 <div class="col-md-6 d-flex justify-content-center">
                                                     <asp:GridView ID="GVTEST" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                        GridLines="None"
+                                                        GridLines="None" OnRowDeleting="GVTEST_RowDeleting"
                                                         Width="100%" EnableModelValidation="True" Visible="false">
                                                         <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                         <Columns>
@@ -303,7 +300,7 @@
                                                 <div class="col-md-6 d-flex justify-content-center">
                                                     <asp:GridView ID="GVSTAFF" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                        GridLines="None"
+                                                        GridLines="None" OnRowDeleting="GVSTAFF_RowDeleting"
                                                         Width="100%" EnableModelValidation="True" Visible="false">
                                                         <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                         <Columns>
@@ -342,7 +339,7 @@
                                                 <div class="col-md-6 d-flex justify-content-center ml-3">
                                                     <asp:GridView ID="GVSpecify" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                        GridLines="None" Width="100%" EnableModelValidation="True" Visible="false">
+                                                        GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVSpecify_RowDeleting">
                                                         <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                         <Columns>
                                                             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
@@ -354,7 +351,7 @@
                                                     </asp:GridView>
                                                 </div>
 
-                                            </div>
+                                            
 
                                            
 
@@ -362,9 +359,9 @@
 
 
                                             <div class="col-md-12 text-right mt-2 mb-2">
-                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
+                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
                                                 <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                                <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
+                                                <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
 
                                             </div>
                                         </div>
