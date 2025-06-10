@@ -91,6 +91,7 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEQueryResponse = "USP_UPDATECFEAPPLQUERYRESPONSE";
         public static string InsertCFEPDCLDetails = "USP_INSCFEDRAWINGAPPDETAILS";
 
+        public static string GetPowerDetailsAPI = "UPS_GETPOWERAPIDETAILS";
         /// <summary>
         /// DEPARTMENT STARTED
         /// </summary>
@@ -548,6 +549,10 @@ namespace MeghalayaUIP.Common
         public string Year4 { get; set; }
         public string Year5 { get; set; }
         public string ElectricityCharge { get; set; }
+        public string SUBDIVISION { get; set; }
+        public string DISTRICT { get; set; }        
+        public string RESPONSEOUTPUT { get; set; }
+        public string REGNO { get; set; }
     }
     public class CFEForest
     {

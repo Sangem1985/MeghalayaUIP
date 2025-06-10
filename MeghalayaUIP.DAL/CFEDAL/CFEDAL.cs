@@ -876,6 +876,11 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPD_YEAR4", objCFEPower.Year4);
                 com.Parameters.AddWithValue("@CFEPD_YEAR5", objCFEPower.Year5);
                 com.Parameters.AddWithValue("@CFEPD_ELECHARGE", objCFEPower.ElectricityCharge);
+                com.Parameters.AddWithValue("@CFEPD_SUBDIVISION", Convert.ToInt32(objCFEPower.SUBDIVISION));
+                com.Parameters.AddWithValue("@CFEPD_DISTRICT", Convert.ToInt32(objCFEPower.DISTRICT));
+                com.Parameters.AddWithValue("@CFDA_RESPONSEOUTPUT", objCFEPower.RESPONSEOUTPUT);
+                com.Parameters.AddWithValue("@CFDA_REGNO", objCFEPower.REGNO);
+
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -3684,6 +3689,40 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetPowerDetailsAPI(string userid, String UNITID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetPowerDetailsAPI, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetPowerDetailsAPI;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UNITID));
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(userid));
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

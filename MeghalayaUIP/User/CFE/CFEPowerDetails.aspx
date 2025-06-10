@@ -63,6 +63,7 @@
                                         </div>
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
+                                    <asp:HiddenField ID="hdnapiReg" runat="server" />
                                     <div class="row">
 
                                         <h4 class="card-title ml-3">Power*</h4>

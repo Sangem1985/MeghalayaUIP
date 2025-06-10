@@ -305,6 +305,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetCFEPDCLDetails(userid, UNITID);
         }
+        public DataSet GetPowerDetailsAPI(string userid, string UNITID)
+        {
+            return objCFEDAL.GetPowerDetailsAPI(userid, UNITID);
+        }
 
     }
 }

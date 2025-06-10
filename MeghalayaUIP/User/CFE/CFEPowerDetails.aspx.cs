@@ -13,7 +13,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static AjaxControlToolkit.AsyncFileUpload.Constants;
-
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
 
 namespace MeghalayaUIP.User.CFE
 {
@@ -77,8 +79,8 @@ namespace MeghalayaUIP.User.CFE
                 {
                     BindVoltages();
                     BindENERGYLOAD();
-                    BINDDATA();
                     BindSubdivision();
+                    BINDDATA();
                 }
                 else
                 {
@@ -247,7 +249,9 @@ namespace MeghalayaUIP.User.CFE
                     txtYear4.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR4"]);
                     txtYear5.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR5"]);
                     txtEleChg.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_ELECHARGE"]);
-
+                    ddlSubDiv.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]);
+                    ddlSubDiv_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]);
 
                 }
 
@@ -316,57 +320,75 @@ namespace MeghalayaUIP.User.CFE
             {
                
                 ErrorMsg = StepValidations();
+                
                 if (ErrorMsg == "")
                 {
-                    CFEPower objCFEPower = new CFEPower();
-
-                   // objCFEPower.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                    objCFEPower.CreatedBy = hdnUserID.Value;
-                    objCFEPower.IPAddress = getclientIP();
-                    objCFEPower.Questionnariid = Convert.ToString(Session["CFEQID"]);
-                    objCFEPower.UnitId = Convert.ToString(Session["CFEUNITID"]);
-                    objCFEPower.Con_Load_HP = txtHP.Text;
-                    objCFEPower.Maximum_KVA = txtMaxDemand.Text;
-                    objCFEPower.Voltage_Level = ddlvtglevel.SelectedValue;
-                    objCFEPower.Existing_Service = ddlPermise.SelectedValue;
-                    objCFEPower.Per_Day = txtMaxhours.Text;
-                    objCFEPower.Per_Month = txtMonth.Text;
-                    objCFEPower.Expected_Month_Trial = txttrailProduct.Text;
-                    objCFEPower.Probable_Date_Power = txtPowersupply.Text;
-                    objCFEPower.LoadReq = txtenergy.Text;
-                    objCFEPower.EnergySource = ddlloadenergy.SelectedValue;
-
-                    objCFEPower.Purpose = txtPrpse.Text;
-                    objCFEPower.LoadType = rblCmplnc.SelectedItem.Text;
-
-                    List<string> selectedLoadCharacterItems = new List<string>();
-                    foreach (ListItem item in chkCharacterSupply.Items)
+                    DataSet dss = new DataSet();
+                    dss = GetDataPower();
+                    if (dss.Tables[0].Rows.Count > 0)
                     {
-                        if (item.Selected)
+                        string RegNo = Post(dss);
+                        if (RegNo != "") 
                         {
-                            selectedLoadCharacterItems.Add(item.Text);
+                            if (hdnapiReg.Value != "")
+                            {
+                                CFEPower objCFEPower = new CFEPower();
+
+
+                                objCFEPower.CreatedBy = hdnUserID.Value;
+                                objCFEPower.IPAddress = getclientIP();
+                                objCFEPower.Questionnariid = Convert.ToString(Session["CFEQID"]);
+                                objCFEPower.UnitId = Convert.ToString(Session["CFEUNITID"]);
+                                objCFEPower.Con_Load_HP = txtHP.Text;
+                                objCFEPower.Maximum_KVA = txtMaxDemand.Text;
+                                objCFEPower.Voltage_Level = ddlvtglevel.SelectedValue;
+                                objCFEPower.Existing_Service = ddlPermise.SelectedValue;
+                                objCFEPower.Per_Day = txtMaxhours.Text;
+                                objCFEPower.Per_Month = txtMonth.Text;
+                                objCFEPower.Expected_Month_Trial = txttrailProduct.Text;
+                                objCFEPower.Probable_Date_Power = txtPowersupply.Text;
+                                objCFEPower.LoadReq = txtenergy.Text;
+                                objCFEPower.EnergySource = ddlloadenergy.SelectedValue;
+
+                                objCFEPower.Purpose = txtPrpse.Text;
+                                objCFEPower.LoadType = rblCmplnc.SelectedItem.Text;
+
+                                List<string> selectedLoadCharacterItems = new List<string>();
+                                foreach (ListItem item in chkCharacterSupply.Items)
+                                {
+                                    if (item.Selected)
+                                    {
+                                        selectedLoadCharacterItems.Add(item.Text);
+                                    }
+                                }
+                                objCFEPower.LoadCharacter = string.Join("/", selectedLoadCharacterItems);
+
+                                objCFEPower.ConnectedLoadReq = rblInPhase.SelectedItem.Text;
+                                objCFEPower.Year1 = txtYear1.Text;
+                                objCFEPower.Year2 = txtYear2.Text;
+                                objCFEPower.Year3 = txtYear3.Text;
+                                objCFEPower.Year4 = txtYear4.Text;
+                                objCFEPower.Year5 = txtYear5.Text;
+                                objCFEPower.ElectricityCharge = txtEleChg.Text;
+                                objCFEPower.SUBDIVISION = ddlSubDiv.SelectedValue;
+                                objCFEPower.DISTRICT = ddlDist.SelectedValue;
+                                objCFEPower.RESPONSEOUTPUT = RegNo;
+                                objCFEPower.REGNO = hdnapiReg.Value;
+
+
+                                result = objcfebal.InsertCFEPowerDetails(objCFEPower);
+
+                                if (result != "")
+                                {
+                                    success.Visible = true;
+                                    lblmsg.Text = "POWER Details Submitted Successfully";
+                                    string message = "alert('" + lblmsg.Text + "')";
+                                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                                }
+                            }
                         }
                     }
-                    objCFEPower.LoadCharacter = string.Join("/", selectedLoadCharacterItems);
-
-                    objCFEPower.ConnectedLoadReq = rblInPhase.SelectedItem.Text;
-                    objCFEPower.Year1 = txtYear1.Text;
-                    objCFEPower.Year2 = txtYear2.Text;
-                    objCFEPower.Year3 = txtYear3.Text;
-                    objCFEPower.Year4 = txtYear4.Text;
-                    objCFEPower.Year5 = txtYear5.Text;
-                    objCFEPower.ElectricityCharge = txtEleChg.Text;
-
-
-                    result = objcfebal.InsertCFEPowerDetails(objCFEPower);
-
-                    if (result != "")
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "POWER Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
+                    
                 }
                 else
                 {
@@ -1216,6 +1238,84 @@ namespace MeghalayaUIP.User.CFE
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public DataSet GetDataPower()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetPowerDetailsAPI(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
+                return ds;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private string Post(DataSet ds)
+        {
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+            using (var client = new HttpClient())
+            {
+                var url = "https://uat.mepdcl.trm.ieasybill.com/api/registration/new";          
+                
+                var requestBody = new
+                {
+                    Subdivisonname = Convert.ToString(ds.Tables[0].Rows[0]["SUBDIVISIONNAME"]),
+                    Subdivison = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]),
+                    District = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]),
+                    DistrictName = Convert.ToString(ds.Tables[0].Rows[0]["DistName"]),
+                    //  Applicationfor = Convert.ToString(ds.Tables[0].Rows[0]["Applicationfor"]),
+                    //Applicationtype = Convert.ToString(ds.Tables[0].Rows[0]["Applicationtype"]),
+                    Applicationtype = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationtype"]),
+                    Applicationfor = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationfor"]),
+                    PinCode = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]),
+                    state = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_STATEID"]),
+                    Address_of_inst = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESS"]),
+                    Owner_type = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]),                    
+                    Purpose = Convert.ToInt32(ds.Tables[0].Rows[0]["PROPOSALFOR"]),
+                    AppliedLoad = Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
+                    Applicatent_Name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]),
+                    Father_name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPSoWoDo"]),
+                    MotherName = Convert.ToString(ds.Tables[0].Rows[0]["MOTHERNAME"]),
+                    Mobile_number = Convert.ToString(ds.Tables[0].Rows[0]["Mobile_number"]),
+                    Phone = Convert.ToString(ds.Tables[0].Rows[0]["Phone"]),
+                    Email = Convert.ToString(ds.Tables[0].Rows[0]["Email"]),
+                    Door_no = Convert.ToInt32(ds.Tables[0].Rows[0]["DOORNO"]),
+                    Perm_Address = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESSED"]),
+                    Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
+                    IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
+                    CreatedBy = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
+                /*    lstDocuments = new[]
+                {
+                new {
+                    documantId = 2,
+                    documentName = "Proof of ownership/occupancy",
+                    document_path = "doc1.pdf"
+                },
+                new {
+                    documantId = 3,
+                    documentName = "Proof of Identification",
+                    document_path = "doc2.pdf"
+                }
+                }*/
+            };
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = client.PostAsync(url, content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var resultContent = response.Content.ReadAsStringAsync().Result;
+                    dynamic Response = JsonConvert.DeserializeObject(resultContent);
+                   string application_Reg_no = Response["application_Reg_no"]?.ToString();
+                    hdnapiReg.Value = application_Reg_no;
+                    return Response;
+                }
+
+                throw new Exception("Failed  " + response.StatusCode);
             }
         }
     }
