@@ -880,6 +880,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPD_DISTRICT", Convert.ToInt32(objCFEPower.DISTRICT));
                 com.Parameters.AddWithValue("@CFDA_RESPONSEOUTPUT", objCFEPower.RESPONSEOUTPUT);
                 com.Parameters.AddWithValue("@CFDA_REGNO", objCFEPower.REGNO);
+                com.Parameters.AddWithValue("@CFDA_PINCODEID", objCFEPower.Pincode);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -3737,6 +3738,57 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Close();
                 connection.Dispose();
             }
+        }
+
+        public string UpdateCFEApplStatus(CFEDtls ObjCfe)
+        {
+
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.UpdateCFEApplStatus;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(ObjCfe.Unitid));
+                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(ObjCfe.Investerid));
+                com.Parameters.AddWithValue("@CFEQDID", Convert.ToInt32(ObjCfe.Questionnaireid));
+                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(ObjCfe.deptid));
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(ObjCfe.ApprovalId));
+                com.Parameters.AddWithValue("@RESPONSE", ObjCfe.Remarks);
+                com.Parameters.AddWithValue("@IPADDRESS", ObjCfe.IPAddress); 
+                com.Parameters.AddWithValue("@REFNUMBER", ObjCfe.ReferenceNumber);
+                com.Parameters.AddWithValue("@APPLEVEL", ObjCfe.ViewStatus);                
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
     }
 }

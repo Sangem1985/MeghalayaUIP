@@ -40,8 +40,8 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEPowerDet = "USP_INSCFEPOWERDETAILS";
 
         public static string GetRetriveFireDetails = "USP_GETRETRIVEFIRE";
-        public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS"; 
-        
+        public static string InsertCFEFierDet = "USP_INSCFEFIREDETAILS";
+
         public static string InsertCFEForestDetails = "USP_INSCFEFORESTDETAILS";
         public static string InsertCFETreesLopped = "USP_INSCFETREELOPPNGDETAILS";
         public static string InsertCFETreesFelled = "USP_INSCFETREEFELLINFDETAILS";
@@ -66,7 +66,7 @@ namespace MeghalayaUIP.Common
         public static string GetCFEMigrantDetails = "USP_GETCFEMIGRANTWORKERDETAILS";
 
         public static string GetAppliedApprovalIDs = "USP_GETCFEAPPROVALIDS";
-        public static string InsertDGSetDetails ="USP_INSCFEDGSETDETAILS";
+        public static string InsertDGSetDetails = "USP_INSCFEDGSETDETAILS";
         //public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
         public static string GETANNUALTURNOVER = "USP_GETPROJECTCATEGORY";
         public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
@@ -105,6 +105,8 @@ namespace MeghalayaUIP.Common
         public static string GetPreRegPaymentReceipt = "GET_CFEPAYMENTRECEIPT";
         public static string GetCFEPDCLDetails = "USP_GETCFEDRAWINGAPPDETAILS";
 
+        public static string UpdateCFEApplStatus = "USP_UPDATECFEAPPLSTATUS";
+
         ///END///
 
     }
@@ -126,7 +128,7 @@ namespace MeghalayaUIP.Common
         public string PrescrutinyRejectionFlag { get; set; }
         public string DeptDesc { get; set; }
         public string ReferenceNumber { get; set; }
-        public string IPAddress { get; set; }       
+        public string IPAddress { get; set; }
     }
     public class CFEQuestionnaireDet
     {
@@ -480,7 +482,7 @@ namespace MeghalayaUIP.Common
         public string BULK { get; set; }
 
     }
-    
+
     public class CFELand
     {
         public string Questionnariid { get; set; }
@@ -550,9 +552,10 @@ namespace MeghalayaUIP.Common
         public string Year5 { get; set; }
         public string ElectricityCharge { get; set; }
         public string SUBDIVISION { get; set; }
-        public string DISTRICT { get; set; }        
+        public string DISTRICT { get; set; }
         public string RESPONSEOUTPUT { get; set; }
         public string REGNO { get; set; }
+        public string Pincode { get; set; }
     }
     public class CFEForest
     {
@@ -656,13 +659,13 @@ namespace MeghalayaUIP.Common
         public string LatDegrees { get; set; }
         public string LatMinutes { get; set; }
         public string LatSeconds { get; set; }
-        public string Longitude { get; set; }        
+        public string Longitude { get; set; }
         public string LongDegrees { get; set; }
         public string LongMinutes { get; set; }
         public string LongSeconds { get; set; }
         public string GPSCoodinates { get; set; }
         public string DistncLtrPurpose { get; set; }
-      
+
         public string Information { get; set; }
         public string LandArea { get; set; }
         public string NFLPurpose { get; set; }
@@ -979,14 +982,14 @@ namespace MeghalayaUIP.Common
         public string INDUSTRYWORK { get; set; }
     }
     public class CFEQueryDet
-    {      
-      
+    {
+
         public string Unitid { get; set; }
         public string Investerid { get; set; }
         public string Deptid { get; set; }
         public string Approvalid { get; set; }
         public string QueryID { get; set; }
-        public string IPAddress { get; set; }      
+        public string IPAddress { get; set; }
         public string QueryResponse { get; set; }
         public string Questionarieid { get; set; }
 

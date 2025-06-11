@@ -104,6 +104,7 @@ namespace MeghalayaUIP.Common
         public static string GetWaterOuterDashBoard = "USP_WATEROUTAGESUPPLY";
         public static string GetSubDivMaster = "USP_GET_SUBDIVISIONS";
         public static string GetSubDivDistMaster = "USP_GET_SUBDIV_DISTRICTS";
+        public static string GetPincodesMaster = "USP_GETPINCODES";
 
     }
     public class MasterCountry
@@ -422,6 +423,12 @@ namespace MeghalayaUIP.Common
     {
         public string SubDiv_ID { get; set; }
         public string SubDiv_NAME { get; set; }
+
+    }
+    public class MasterPincodes
+    {
+        public string Pincode_ID { get; set; }
+        public string Pincode_NAME { get; set; }
 
     }
     public class Ammendmentvo

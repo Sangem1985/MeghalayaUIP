@@ -434,6 +434,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetSubDivDistricts(subDivisionId);
         }
+        public List<MasterPincodes> GetPincodes(int DistrictId)
+        {
+            return objMasterDAL.GetPincodes(DistrictId);
+        }
 
     }
 }

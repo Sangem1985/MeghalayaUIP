@@ -309,6 +309,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetPowerDetailsAPI(userid, UNITID);
         }
+        public string UpdateCFEApplStatus(CFEDtls ObjCfe)
+        { 
+            return objCFEDAL.UpdateCFEApplStatus(ObjCfe);
+        }
 
     }
 }

@@ -105,6 +105,33 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.HiddenField hdnapiReg;
 
         /// <summary>
+        /// ddlSubDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSubDiv;
+
+        /// <summary>
+        /// ddlDist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDist;
+
+        /// <summary>
+        /// ddlPincode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPincode;
+
+        /// <summary>
         /// txtHP control.
         /// </summary>
         /// <remarks>
@@ -130,24 +157,6 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlvtglevel;
-
-        /// <summary>
-        /// ddlSubDiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSubDiv;
-
-        /// <summary>
-        /// ddlDist control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDist;
 
         /// <summary>
         /// EXISTING control.

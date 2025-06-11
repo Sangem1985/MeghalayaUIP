@@ -301,7 +301,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     isLoadInPhase.Visible = true;
                 }
-                else if(rblInPhase.SelectedValue == "No")
+                else if (rblInPhase.SelectedValue == "No")
                 {
                     isLoadInPhase.Visible = false;
                 }
@@ -318,77 +318,78 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-               
+
                 ErrorMsg = StepValidations();
-                
+
                 if (ErrorMsg == "")
                 {
+
+                    CFEPower objCFEPower = new CFEPower();
+
+
+                    objCFEPower.CreatedBy = hdnUserID.Value;
+                    objCFEPower.IPAddress = getclientIP();
+                    objCFEPower.Questionnariid = Convert.ToString(Session["CFEQID"]);
+                    objCFEPower.UnitId = Convert.ToString(Session["CFEUNITID"]);
+                    objCFEPower.Con_Load_HP = txtHP.Text;
+                    objCFEPower.Maximum_KVA = txtMaxDemand.Text;
+                    objCFEPower.Voltage_Level = ddlvtglevel.SelectedValue;
+                    objCFEPower.Existing_Service = ddlPermise.SelectedValue;
+                    objCFEPower.Per_Day = txtMaxhours.Text;
+                    objCFEPower.Per_Month = txtMonth.Text;
+                    objCFEPower.Expected_Month_Trial = txttrailProduct.Text;
+                    objCFEPower.Probable_Date_Power = txtPowersupply.Text;
+                    objCFEPower.LoadReq = txtenergy.Text;
+                    objCFEPower.EnergySource = ddlloadenergy.SelectedValue;
+
+                    objCFEPower.Purpose = txtPrpse.Text;
+                    objCFEPower.LoadType = rblCmplnc.SelectedItem.Text;
+                    objCFEPower.Pincode = ddlPincode.SelectedValue;
+
+                    List<string> selectedLoadCharacterItems = new List<string>();
+                    foreach (ListItem item in chkCharacterSupply.Items)
+                    {
+                        if (item.Selected)
+                        {
+                            selectedLoadCharacterItems.Add(item.Text);
+                        }
+                    }
+                    objCFEPower.LoadCharacter = string.Join("/", selectedLoadCharacterItems);
+
+                    objCFEPower.ConnectedLoadReq = rblInPhase.SelectedItem.Text;
+                    objCFEPower.Year1 = txtYear1.Text;
+                    objCFEPower.Year2 = txtYear2.Text;
+                    objCFEPower.Year3 = txtYear3.Text;
+                    objCFEPower.Year4 = txtYear4.Text;
+                    objCFEPower.Year5 = txtYear5.Text;
+                    objCFEPower.ElectricityCharge = txtEleChg.Text;
+                    objCFEPower.SUBDIVISION = ddlSubDiv.SelectedValue;
+                    objCFEPower.DISTRICT = ddlDist.SelectedValue;
+                   // objCFEPower.RESPONSEOUTPUT = RegNo;
+                    objCFEPower.REGNO = hdnapiReg.Value;
+
+
+                    result = objcfebal.InsertCFEPowerDetails(objCFEPower);
+
+                    if (result != "")
+                    {
+                        success.Visible = true;
+                        lblmsg.Text = "POWER Details Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    }
                     DataSet dss = new DataSet();
                     dss = GetDataPower();
                     if (dss.Tables[0].Rows.Count > 0)
                     {
                         string RegNo = Post(dss);
-                        if (RegNo != "") 
+                        if (RegNo != "")
                         {
-                            if (hdnapiReg.Value != "")
-                            {
-                                CFEPower objCFEPower = new CFEPower();
-
-
-                                objCFEPower.CreatedBy = hdnUserID.Value;
-                                objCFEPower.IPAddress = getclientIP();
-                                objCFEPower.Questionnariid = Convert.ToString(Session["CFEQID"]);
-                                objCFEPower.UnitId = Convert.ToString(Session["CFEUNITID"]);
-                                objCFEPower.Con_Load_HP = txtHP.Text;
-                                objCFEPower.Maximum_KVA = txtMaxDemand.Text;
-                                objCFEPower.Voltage_Level = ddlvtglevel.SelectedValue;
-                                objCFEPower.Existing_Service = ddlPermise.SelectedValue;
-                                objCFEPower.Per_Day = txtMaxhours.Text;
-                                objCFEPower.Per_Month = txtMonth.Text;
-                                objCFEPower.Expected_Month_Trial = txttrailProduct.Text;
-                                objCFEPower.Probable_Date_Power = txtPowersupply.Text;
-                                objCFEPower.LoadReq = txtenergy.Text;
-                                objCFEPower.EnergySource = ddlloadenergy.SelectedValue;
-
-                                objCFEPower.Purpose = txtPrpse.Text;
-                                objCFEPower.LoadType = rblCmplnc.SelectedItem.Text;
-
-                                List<string> selectedLoadCharacterItems = new List<string>();
-                                foreach (ListItem item in chkCharacterSupply.Items)
-                                {
-                                    if (item.Selected)
-                                    {
-                                        selectedLoadCharacterItems.Add(item.Text);
-                                    }
-                                }
-                                objCFEPower.LoadCharacter = string.Join("/", selectedLoadCharacterItems);
-
-                                objCFEPower.ConnectedLoadReq = rblInPhase.SelectedItem.Text;
-                                objCFEPower.Year1 = txtYear1.Text;
-                                objCFEPower.Year2 = txtYear2.Text;
-                                objCFEPower.Year3 = txtYear3.Text;
-                                objCFEPower.Year4 = txtYear4.Text;
-                                objCFEPower.Year5 = txtYear5.Text;
-                                objCFEPower.ElectricityCharge = txtEleChg.Text;
-                                objCFEPower.SUBDIVISION = ddlSubDiv.SelectedValue;
-                                objCFEPower.DISTRICT = ddlDist.SelectedValue;
-                                objCFEPower.RESPONSEOUTPUT = RegNo;
-                                objCFEPower.REGNO = hdnapiReg.Value;
-
-
-                                result = objcfebal.InsertCFEPowerDetails(objCFEPower);
-
-                                if (result != "")
-                                {
-                                    success.Visible = true;
-                                    lblmsg.Text = "POWER Details Submitted Successfully";
-                                    string message = "alert('" + lblmsg.Text + "')";
-                                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                                }
-                            }
+                            CFEDtls objcfeDtls = new CFEDtls();
+                            
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -412,7 +413,23 @@ namespace MeghalayaUIP.User.CFE
                 string errormsg = "";
                 List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+                if (ddlSubDiv.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please select Sub Division  \\n";
+                    slno = slno + 1;
+                }
+                if (ddlDist.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please select Disctrict  \\n";
+                    slno = slno + 1;
+                }
+                if (ddlPincode.SelectedIndex == 0)
+                {
+                    errormsg = errormsg + slno + ". Please select Pincode  \\n";
+                    slno = slno + 1;
+                }
 
+                /*
                 if (string.IsNullOrEmpty(txtHP.Text) || txtHP.Text == "" || txtHP.Text == null || txtHP.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtHP.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Load Connected  \\n";
@@ -542,7 +559,7 @@ namespace MeghalayaUIP.User.CFE
                     slno = slno + 1;
                 }
 
-
+                */
 
                 return errormsg;
             }
@@ -568,7 +585,7 @@ namespace MeghalayaUIP.User.CFE
 
             return result;
         }
-        
+
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
             try
@@ -638,7 +655,7 @@ namespace MeghalayaUIP.User.CFE
 
                         CFEAttachments objCosmrEnty = new CFEAttachments();
                         objCosmrEnty.UNITID = Convert.ToString(Session["CFEUNITID"]);
-                        objCosmrEnty.Questionnareid = Convert.ToString(Session["CFEQID"]); 
+                        objCosmrEnty.Questionnareid = Convert.ToString(Session["CFEQID"]);
                         objCosmrEnty.MasterID = "49";
                         objCosmrEnty.FilePath = serverpath + fupCosmrEnty.PostedFile.FileName;
                         objCosmrEnty.FileName = fupCosmrEnty.PostedFile.FileName;
@@ -726,7 +743,8 @@ namespace MeghalayaUIP.User.CFE
                         //objCsmrBody.ReferenceNo = txtCsmrBody.Text;
                         result = objcfebal.InsertCFEAttachments(objCsmrBody);
                         if (result != "")
-                        {hypCsmrBody
+                        {
+                            hypCsmrBody
                             .Text = fupCsmrBody.PostedFile.FileName;
                             hypCsmrBody.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(serverpath + fupCsmrBody.PostedFile.FileName);
                             hypCsmrBody.Target = "blank";
@@ -1145,11 +1163,11 @@ namespace MeghalayaUIP.User.CFE
 
         protected void rblInPhase_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(rblInPhase.SelectedValue == "Yes")
+            if (rblInPhase.SelectedValue == "Yes")
             {
                 isLoadInPhase.Visible = true;
             }
-            else if(rblInPhase.SelectedValue == "No")
+            else if (rblInPhase.SelectedValue == "No")
             {
                 isLoadInPhase.Visible = false;
             }
@@ -1240,6 +1258,44 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+
+        protected void ddlDist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<MasterPincodes> objPincodes = mstrBAL.GetPincodes(Convert.ToInt32(ddlDist.SelectedValue));
+
+                if (objPincodes != null && objPincodes.Count > 0)
+                {
+                    ddlPincode.DataSource = objPincodes;
+                    ddlPincode.DataValueField = "Pincode_ID";
+                    ddlPincode.DataTextField = "Pincode_NAME";
+                    ddlPincode.DataBind();
+                }
+                else
+                {
+
+                    ddlPincode.DataSource = null;
+                    ddlPincode.DataBind();
+                }
+
+                AddSelect(ddlPincode);
+            }
+            catch (Exception ex)
+            {
+
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+       
+        protected void btnOccProof_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public DataSet GetDataPower()
         {
             try
@@ -1248,7 +1304,7 @@ namespace MeghalayaUIP.User.CFE
                 ds = objcfebal.GetPowerDetailsAPI(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 return ds;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -1259,8 +1315,8 @@ namespace MeghalayaUIP.User.CFE
 
             using (var client = new HttpClient())
             {
-                var url = "https://uat.mepdcl.trm.ieasybill.com/api/registration/new";          
-                
+                var url = "https://uat.mepdcl.trm.ieasybill.com/api/registration/new";
+
                 var requestBody = new
                 {
                     Subdivisonname = Convert.ToString(ds.Tables[0].Rows[0]["SUBDIVISIONNAME"]),
@@ -1274,7 +1330,7 @@ namespace MeghalayaUIP.User.CFE
                     PinCode = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]),
                     state = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_STATEID"]),
                     Address_of_inst = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESS"]),
-                    Owner_type = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]),                    
+                    Owner_type = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]),
                     Purpose = Convert.ToInt32(ds.Tables[0].Rows[0]["PROPOSALFOR"]),
                     AppliedLoad = Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
                     Applicatent_Name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]),
@@ -1288,20 +1344,20 @@ namespace MeghalayaUIP.User.CFE
                     Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
                     IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
                     CreatedBy = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
-                /*    lstDocuments = new[]
-                {
-                new {
-                    documantId = 2,
-                    documentName = "Proof of ownership/occupancy",
-                    document_path = "doc1.pdf"
-                },
-                new {
-                    documantId = 3,
-                    documentName = "Proof of Identification",
-                    document_path = "doc2.pdf"
-                }
-                }*/
-            };
+                    /*    lstDocuments = new[]
+                    {
+                    new {
+                        documantId = 2,
+                        documentName = "Proof of ownership/occupancy",
+                        document_path = "doc1.pdf"
+                    },
+                    new {
+                        documantId = 3,
+                        documentName = "Proof of Identification",
+                        document_path = "doc2.pdf"
+                    }
+                    }*/
+                };
                 var json = JsonConvert.SerializeObject(requestBody);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -1310,9 +1366,10 @@ namespace MeghalayaUIP.User.CFE
                 {
                     var resultContent = response.Content.ReadAsStringAsync().Result;
                     dynamic Response = JsonConvert.DeserializeObject(resultContent);
-                   string application_Reg_no = Response["application_Reg_no"]?.ToString();
+                    string application_Reg_no = Response["application_Reg_no"]?.ToString();
+                    string message = Response["message"]?.ToString();
                     hdnapiReg.Value = application_Reg_no;
-                    return Response;
+                    return application_Reg_no + "," + message;
                 }
 
                 throw new Exception("Failed  " + response.StatusCode);

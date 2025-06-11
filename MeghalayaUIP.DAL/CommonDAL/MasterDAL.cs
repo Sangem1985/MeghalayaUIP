@@ -2961,5 +2961,44 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstDistrictMstr;
         }
+
+        public List<MasterPincodes> GetPincodes(int DistrictId)
+        {
+            List<MasterPincodes> lstPincodemstr = new List<MasterPincodes>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                SqlParameter[] param = new SqlParameter[]
+                {
+             new SqlParameter("@DISTRICTID",Convert.ToInt32(DistrictId))
+                };
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetPincodesMaster, param);
+
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var Pincodes = new MasterPincodes()
+                        {
+                            Pincode_ID = Convert.ToString(drOptions["PI_ID"]),
+                            Pincode_NAME = Convert.ToString(drOptions["PI_PINCODE"])
+                        };
+                        lstPincodemstr.Add(Pincodes);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstPincodemstr;
+        }
     }
 }

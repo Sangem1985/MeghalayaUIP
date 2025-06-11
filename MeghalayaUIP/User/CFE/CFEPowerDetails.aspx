@@ -67,7 +67,38 @@
                                     <div class="row">
 
                                         <h4 class="card-title ml-3">Power*</h4>
+
                                         <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">1. Subdivision *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:DropDownList ID="ddlSubDiv" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSubDiv_SelectedIndexChanged">
+                                                        </asp:DropDownList>
+                                                        <span class="form-text text-muted mt-2 ml-2"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">2. District *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:DropDownList ID="ddlDist" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDist_SelectedIndexChanged"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">3. Pincode *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:DropDownList ID="ddlPincode" runat="server" class="form-control"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                       
+
+                                        
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Connected Load in KW*</label>
@@ -97,32 +128,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Subdivision *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlSubDiv" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSubDiv_SelectedIndexChanged">
-                                                        </asp:DropDownList>
-                                                        <span class="form-text text-muted mt-2 ml-2"></span>
-                                                        <!-- <span class="mt-2">HP</span> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. District *</label>
-                                                    <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlDist" runat="server" class="form-control"></asp:DropDownList>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
                                         <div id="EXISTING" runat="server" visible="false">
                                             <div class="col-md-12 d-flex">
-
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">4. Any Other Services Existing in the Same Premises*</label>
@@ -138,8 +145,8 @@
                                             </div>
                                         </div>
 
-                                        <h4 class="card-title ml-3">Proposed Maximum Working Hours</h4>
-                                        <div class="col-md-12 d-flex">
+                                        <%--<h4 class="card-title ml-3">Proposed Maximum Working Hours</h4>--%>
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Per Day*</label>
@@ -169,7 +176,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4. Probable Date of Requirement of Power Supply*</label>
@@ -203,7 +210,7 @@
                                         </div>
                                         <%-- -------------------POWER FEASIBILITY------------------------------------------- --%>
 
-                                        <div class="mePDCL" visible="true">
+                                        <div class="mePDCL" runat="server" visible="false">
                                             <h4 class="card-title ml-3">Power Feasibility</h4>
 
                                             <div class="col-md-12 d-flex">
@@ -329,7 +336,7 @@
                                         </div>
                                         <br />
                                         <br />
-                                        <div class="col-md-12 d-flex" style="margin-top: -10px;">
+                                        <div class="col-md-12 d-flex" style="margin-top: -10px;" runat="server" visible="false">
                                             <div class="col-md-8">
                                                 <div class="form-group row">
                                                     <label class="col-lg-9 col-form-label">
@@ -356,7 +363,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">
@@ -381,7 +388,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">
@@ -406,7 +413,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">
@@ -431,7 +438,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">
@@ -456,7 +463,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">
@@ -481,7 +488,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">
