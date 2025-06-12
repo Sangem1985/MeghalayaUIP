@@ -12,11 +12,11 @@ using System.Web.UI.WebControls;
 
 namespace MeghalayaUIP.User.Renewal
 {
-    public partial class RENDrugLicDetails2 : System.Web.UI.Page
+    public partial class RENDrugsLicenseDetails4 : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
-        string ErrorMsg = "", Questionnaire;
+        string ErrorMsg = "", Questionnaire = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -39,7 +39,6 @@ namespace MeghalayaUIP.User.Renewal
                         if (!IsPostBack)
                         {
                             GetAppliedorNot();
-                            
                         }
                     }
                     else
@@ -51,6 +50,7 @@ namespace MeghalayaUIP.User.Renewal
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
                     success.Visible = false;
+
                 }
             }
             catch (Exception ex)
@@ -66,17 +66,17 @@ namespace MeghalayaUIP.User.Renewal
             {
                 DataSet ds = new DataSet();
 
-                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "8", "63");
+                ds = objRenbal.GetRenAppliedApprovalID(hdnUserID.Value, Convert.ToString(Session["RENQID"]), "8", "66");
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                     {
-                        if (Convert.ToString(ds.Tables[0].Rows[i]["RENDA_APPROVALID"]) == "63")
+                        if (Convert.ToString(ds.Tables[0].Rows[i]["RENDA_APPROVALID"]) == "66")
                         {
                             BindDistricts();
                             Binddata();
-                        }                     
+                        }
                     }
                 }
                 else
@@ -84,9 +84,9 @@ namespace MeghalayaUIP.User.Renewal
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Renewal/RENDrugLicDetails64.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails5.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/Renewal/RENDrugLicDetails1.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails3.aspx?Previous=" + "P");
                     }
                 }
             }
@@ -101,18 +101,18 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet ds = new DataSet();
-                ds = objRenbal.GetRenDrugLicDetails63(hdnUserID.Value, Questionnaire);
-                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0)
+                ds = objRenbal.GetRenDrugLicDetails(hdnUserID.Value, Questionnaire,66);
+                if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0 || ds.Tables[2].Rows.Count > 0 || ds.Tables[3].Rows.Count > 0 || ds.Tables[4].Rows.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        //  ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENDL_UNITID"]);
                         ddlservice.SelectedValue = ds.Tables[0].Rows[0]["RENDL_SERVICETO"].ToString();
-
                         rblLicense.SelectedValue = ds.Tables[0].Rows[0]["RENDL_SPECIFYAPPLICATION"].ToString();
 
                         if (rblLicense.SelectedValue == "R")
                         {
-                            pnlLicenseDetails.Visible = true;
+                            divLicNo.Visible = true;
                             txtLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNO"].ToString();
                             txtExpiryDate.Text = ds.Tables[0].Rows[0]["RENDL_EXPIRYDATE"].ToString();
                             rblCancelledLic.SelectedValue = ds.Tables[0].Rows[0]["RENDL_LICCANCEL"].ToString().Trim();
@@ -121,19 +121,27 @@ namespace MeghalayaUIP.User.Renewal
                             if (rblCancelledLic.SelectedValue == "Y")
                             {
                                 LicNos.Visible = true;
-                                txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNOSPECIFY"].ToString();
+                                txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_SPECIFYLICNO"].ToString();
                             }
                             else { LicNos.Visible = false; }
 
                         }
-                        else
+
+
+
+                        rblInspection.SelectedValue = ds.Tables[0].Rows[0]["RENDL_PREMISEINSPECTION"].ToString();
+                        if (rblInspection.SelectedValue == "Y")
                         {
-                            pnlLicenseDetails.Visible = false;
+                            DateInsp.Visible = true;
+                            txtDateInsp.Text = ds.Tables[0].Rows[0]["RENDL_INSPECTIONDATE"].ToString();
                         }
+                        else { DateInsp.Visible = false; }
+
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
                     {
+                        //hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["REND_CFOQDID"]);
                         ViewState["NameDrug"] = ds.Tables[1];
                         GVDrugName.DataSource = ds.Tables[1];
                         GVDrugName.DataBind();
@@ -141,26 +149,28 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
-                        ViewState["TESTING"] = ds.Tables[2];
-                        GVTEST.DataSource = ds.Tables[2];
-                        GVTEST.DataBind();
-                        GVTEST.Visible = true;
-                    }
-                    if (ds.Tables[3].Rows.Count > 0)
-                    {
-                        ViewState["StaffEmployed"] = ds.Tables[3];
-                        GVSTAFF.DataSource = ds.Tables[3];
+                        ViewState["STAFF"] = ds.Tables[2];
+                        GVSTAFF.DataSource = ds.Tables[2];
                         GVSTAFF.DataBind();
                         GVSTAFF.Visible = true;
                     }
+                    if (ds.Tables[3].Rows.Count > 0)
+                    {//hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["RENSTCFOQDID"]);
+                        ViewState["TESTING"] = ds.Tables[3];
+                        GVTEST.DataSource = ds.Tables[3];
+                        GVTEST.DataBind();
+                        GVTEST.Visible = true;
+                        // hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["RENDMCFOQDID"]);
+                        
+                    }
                     if (ds.Tables[4].Rows.Count > 0)
                     {
+                        // hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["RENDA_CFOQDID"]);
                         ViewState["SpecifyAdditional"] = ds.Tables[4];
                         GVSpecify.DataSource = ds.Tables[4];
                         GVSpecify.DataBind();
                         GVSpecify.Visible = true;
                     }
-
 
                 }
             }
@@ -171,18 +181,22 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
         protected void rblLicense_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 if (rblLicense.SelectedValue == "R")
                 {
-                    pnlLicenseDetails.Visible = true;
+                    divLicNo.Visible = true;
+                    divExpireDate.Visible = true;
+                    divCancelLic.Visible = true;
                 }
                 else
                 {
-                    pnlLicenseDetails.Visible = false;
+                    divLicNo.Visible = false;
+                    divExpireDate.Visible = false;
+                    divCancelLic.Visible = false;
+
                 }
             }
             catch (Exception ex)
@@ -238,20 +252,43 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
+        }
 
         protected void btn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrEmpty(txttradeLic.Text.Trim()))
+                if (string.IsNullOrEmpty(txttradeLic.Text))
                 {
-                    lblmsg0.Text = "Please Enter All Details..!";
+                    lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
                 }
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("REND_DRUGNAME", typeof(string));                   
+                    dt.Columns.Add("RENQID", typeof(string));
+                    dt.Columns.Add("REND_CREATEDBY", typeof(string));
+                    dt.Columns.Add("REND_CREATEDBYIP", typeof(string));
+                    dt.Columns.Add("REND_DRUGNAME", typeof(string));
+
+
+
 
                     if (ViewState["NameDrug"] != null)
                     {
@@ -259,19 +296,18 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
+                    dr["RENQID"] = Convert.ToString(ViewState["RENQID"]);
+                    dr["REND_CREATEDBY"] = hdnUserID.Value;
+                    dr["REND_CREATEDBYIP"] = getclientIP();
+                    dr["REND_DRUGNAME"] = txttradeLic.Text;
 
-                    dr["REND_DRUGNAME"] = txttradeLic.Text.Trim();                  
+
 
                     dt.Rows.Add(dr);
                     GVDrugName.Visible = true;
                     GVDrugName.DataSource = dt;
                     GVDrugName.DataBind();
                     ViewState["NameDrug"] = dt;
-
-
-                    txttradeLic.Text = "";
-                  
-
                 }
             }
             catch (Exception ex)
@@ -286,14 +322,14 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-                if (string.IsNullOrEmpty(txtnames.Text.Trim())|| string.IsNullOrEmpty(txtqualifies.Text.Trim())|| string.IsNullOrEmpty(txtexpered.Text.Trim()))
+                if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtQualifications.Text) || string.IsNullOrEmpty(txtExperiment.Text))
                 {
-                    lblmsg0.Text = "Please Enter All Details..!";
+                    lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
                 }
                 else
                 {
-                    DataTable dt = new DataTable();
+                    DataTable dt = new DataTable();                    
                     dt.Columns.Add("RENST_NAME", typeof(string));
                     dt.Columns.Add("RENST_QUALIFICATION", typeof(string));
                     dt.Columns.Add("RENST_EXPERIENCE", typeof(string));
@@ -303,22 +339,16 @@ namespace MeghalayaUIP.User.Renewal
                         dt = (DataTable)ViewState["TESTING"];
                     }
 
-                    DataRow dr = dt.NewRow();
-
-                    dr["RENST_NAME"] = txtnames.Text;
-                    dr["RENST_QUALIFICATION"] = txtqualifies.Text;
-                    dr["RENST_EXPERIENCE"] = txtexpered.Text;
+                    DataRow dr = dt.NewRow();                 
+                    dr["RENST_NAME"] = txtName.Text;
+                    dr["RENST_QUALIFICATION"] = txtQualifications.Text;
+                    dr["RENST_EXPERIENCE"] = txtExperiment.Text;
 
                     dt.Rows.Add(dr);
                     GVTEST.Visible = true;
                     GVTEST.DataSource = dt;
                     GVTEST.DataBind();
                     ViewState["TESTING"] = dt;
-
-
-                    txtnames.Text = "";
-                    txtqualifies.Text = "";
-                    txtexpered.Text = "";
                 }
             }
             catch (Exception ex)
@@ -329,6 +359,86 @@ namespace MeghalayaUIP.User.Renewal
             }
         }
 
+        protected void rblCancelledLic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblCancelledLic.SelectedValue == "Y")
+                {
+                    LicNos.Visible = true;
+                }
+                else { LicNos.Visible = false; }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void rblInspection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rblInspection.SelectedValue == "Y")
+                {
+                    DateInsp.Visible = true;
+                }
+                else { DateInsp.Visible = false; }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void btnspecify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtSpecify.Text.Trim()))
+                {
+                    lblmsg0.Text = "Please Enter All Details..!";
+                    Failure.Visible = true;
+                }
+                else
+                {
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("RENQID", typeof(string));
+                    dt.Columns.Add("RENDA_CREATEDBY", typeof(string));
+                    dt.Columns.Add("RENDA_CREATEDBYIP", typeof(string));
+                    dt.Columns.Add("RENDA_ADDITIONALITEM", typeof(string));
+
+
+                    if (ViewState["SpecifyAdditional"] != null)
+                    {
+                        dt = (DataTable)ViewState["SpecifyAdditional"];
+                    }
+
+                    DataRow dr = dt.NewRow();
+
+                    dr["RENDA_ADDITIONALITEM"] = txtSpecify.Text;
+
+                    dt.Rows.Add(dr);
+                    GVSpecify.Visible = true;
+                    GVSpecify.DataSource = dt;
+                    GVSpecify.DataBind();
+                    ViewState["SpecifyAdditional"] = dt;
+
+
+                    txtSpecify.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void Button1_Click(object sender, EventArgs e)
         {
             try
@@ -341,20 +451,20 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("RENST_NAME", typeof(string));
-                    dt.Columns.Add("RENST_QUALIFICATION", typeof(string));
-                    dt.Columns.Add("RENST_EXPERIENCE", typeof(string));
+                    dt.Columns.Add("NAME", typeof(string));
+                    dt.Columns.Add("QUALIFICATION", typeof(string));
+                    dt.Columns.Add("EXPERIENCE", typeof(string));
 
-                    if (ViewState["StaffEmployed"] != null) 
+                    if (ViewState["StaffEmployed"] != null)
                     {
                         dt = (DataTable)ViewState["StaffEmployed"];
                     }
 
                     DataRow dr = dt.NewRow();
 
-                    dr["RENST_NAME"] = txtName.Text;
-                    dr["RENST_QUALIFICATION"] = txtQualifications.Text;
-                    dr["RENST_EXPERIENCE"] = txtExperiment.Text;
+                    dr["NAME"] = txtName.Text;
+                    dr["QUALIFICATION"] = txtQualifications.Text;
+                    dr["EXPERIENCE"] = txtExperiment.Text;
 
                     dt.Rows.Add(dr);
                     GVSTAFF.Visible = true;
@@ -376,48 +486,6 @@ namespace MeghalayaUIP.User.Renewal
             }
         }
 
-        protected void btnspecify_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(txtSpecify.Text.Trim()))
-                {
-                    lblmsg0.Text = "Please Enter All Details..!";
-                    Failure.Visible = true;
-                }
-                else
-                {
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("RENDA_ADDITIONALITEM", typeof(string));
-
-                    if (ViewState["SpecifyAdditional"] != null)
-                    {
-                        dt = (DataTable)ViewState["SpecifyAdditional"];
-                    }
-
-                    DataRow dr = dt.NewRow();
-
-                    dr["RENDA_ADDITIONALITEM"] = txtSpecify.Text;                    
-
-                    dt.Rows.Add(dr);
-                    GVSpecify.Visible = true;
-                    GVSpecify.DataSource = dt;
-                    GVSpecify.DataBind();
-                    ViewState["SpecifyAdditional"] = dt;
-
-
-                    txtSpecify.Text = "";
-                   
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-
         protected void btnsave_Click(object sender, EventArgs e)
         {
             try
@@ -426,86 +494,80 @@ namespace MeghalayaUIP.User.Renewal
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
-                    RenDrugLicDet ObjRenDrugLic = new RenDrugLicDet();
+                    RenDrugLicDet ObjRenDrug3 = new RenDrugLicDet();
 
-                    int count = 0, count1 = 0,count2=0,count3=0;
+                    int count = 0, count1 = 0, count2 = 0, count3 = 0;
                     for (int i = 0; i < GVDrugName.Rows.Count; i++)
                     {
-                        ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]);
-                        ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                        ObjRenDrugLic.IPAddress = getclientIP();
-                        ObjRenDrugLic.NameDrug = GVDrugName.Rows[i].Cells[1].Text;
+                        ObjRenDrug3.Questionnariid = Convert.ToString(Session["RENQID"]);
+                        ObjRenDrug3.CreatedBy = hdnUserID.Value;
+                        ObjRenDrug3.IPAddress = getclientIP();
+                        ObjRenDrug3.NameDrug = GVDrugName.Rows[i].Cells[1].Text;
+                        ObjRenDrug3.ApprovalID = 66;
 
-
-                        string A = objRenbal.InsertDrugDet(ObjRenDrugLic);
+                        string A = objRenbal.InsertDrugDetails(ObjRenDrug3);
                         if (A != "")
                         { count = count + 1; }
-                    }
-                    if (GVDrugName.Rows.Count == count)
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "Renewal Drug Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
 
                     for (int i = 0; i < GVTEST.Rows.Count; i++)
                     {
-                        ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]);
-                        ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                        ObjRenDrugLic.IPAddress = getclientIP();
-                        ObjRenDrugLic.Name = GVTEST.Rows[i].Cells[1].Text;
-                        ObjRenDrugLic.Qualification = GVTEST.Rows[i].Cells[2].Text;
-                        ObjRenDrugLic.Experience = GVTEST.Rows[i].Cells[3].Text;
+                        ObjRenDrug3.Questionnariid = Convert.ToString(Session["RENQID"]);
+                        ObjRenDrug3.CreatedBy = hdnUserID.Value;
+                        ObjRenDrug3.IPAddress = getclientIP();
+                        ObjRenDrug3.Name = GVTEST.Rows[i].Cells[1].Text;
+                        ObjRenDrug3.Qualification = GVTEST.Rows[i].Cells[2].Text;
+                        ObjRenDrug3.Experience = GVTEST.Rows[i].Cells[3].Text;
+                        ObjRenDrug3.ApprovalID = 66;
 
-
-                        string A = objRenbal.InsertRENManufacture(ObjRenDrugLic);
+                        string A = objRenbal.INSERTRENTestingDetails(ObjRenDrug3);
                         if (A != "")
                         { count1 = count + 1; }
                     }
+
                     for (int i = 0; i < GVSTAFF.Rows.Count; i++)
                     {
-                        ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]);
-                        ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                        ObjRenDrugLic.IPAddress = getclientIP();
-                        ObjRenDrugLic.Name = GVSTAFF.Rows[i].Cells[1].Text;
-                        ObjRenDrugLic.Qualification = GVSTAFF.Rows[i].Cells[2].Text;
-                        ObjRenDrugLic.Experience = GVSTAFF.Rows[i].Cells[3].Text;
-
-
-                        string A = objRenbal.InsertRenStaff(ObjRenDrugLic);
+                        ObjRenDrug3.Questionnariid = Convert.ToString(Session["RENQID"]);
+                        ObjRenDrug3.CreatedBy = hdnUserID.Value;
+                        ObjRenDrug3.IPAddress = getclientIP();
+                        ObjRenDrug3.NameManu = GVSTAFF.Rows[i].Cells[1].Text;
+                        ObjRenDrug3.QualificationManu = GVSTAFF.Rows[i].Cells[2].Text;
+                        ObjRenDrug3.ExperienceManu = GVSTAFF.Rows[i].Cells[3].Text;
+                        ObjRenDrug3.ApprovalID = 66;
+                        string A = objRenbal.InsertRENManufacture(ObjRenDrug3);
                         if (A != "")
                         { count2 = count + 1; }
                     }
+
+
                     for (int i = 0; i < GVSpecify.Rows.Count; i++)
                     {
-                        ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]);
-                        ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                        ObjRenDrugLic.IPAddress = getclientIP();
-                        ObjRenDrugLic.Name = GVSpecify.Rows[i].Cells[1].Text;
-                       
+                        ObjRenDrug3.Questionnariid = Convert.ToString(Session["RENQID"]);
+                        ObjRenDrug3.CreatedBy = hdnUserID.Value;
+                        ObjRenDrug3.IPAddress = getclientIP();
+                        ObjRenDrug3.AdditionalItem = GVSpecify.Rows[i].Cells[1].Text;
+                        ObjRenDrug3.ApprovalID = 66;
 
-
-                        string A = objRenbal.InsertRenDrugItemDet(ObjRenDrugLic);
+                        string A = objRenbal.InsertRenDrugItemDet(ObjRenDrug3);
                         if (A != "")
                         { count3 = count + 1; }
                     }
 
 
+                    ObjRenDrug3.Questionnariid = Convert.ToString(Session["RENQID"]);
+                    ObjRenDrug3.CreatedBy = hdnUserID.Value;
+                    ObjRenDrug3.IPAddress = getclientIP();
+                    ObjRenDrug3.Serviceto = ddlservice.SelectedValue;
+                    ObjRenDrug3.Licnumber = txtLicNo.Text;
+                    ObjRenDrug3.ExpiryDate = txtExpiryDate.Text;
+                    ObjRenDrug3.CancelledLic = rblCancelledLic.SelectedValue;
+                    ObjRenDrug3.ApplicationPurpose = rblLicense.SelectedValue;
+                    ObjRenDrug3.SpecifyLicno = txtSpecifyLicNo.Text;
+                    ObjRenDrug3.PremiseInspection = rblInspection.SelectedValue;
+                    ObjRenDrug3.DateInspection = txtDateInsp.Text;
+                    ObjRenDrug3.ApprovalID = 66;
 
-                    ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]);
-                    ObjRenDrugLic.CreatedBy = hdnUserID.Value;
-                    ObjRenDrugLic.IPAddress = getclientIP();
-
-                    ObjRenDrugLic.ServiceApply = ddlservice.SelectedValue;
-                    ObjRenDrugLic.ApplicationPurpose = rblLicense.SelectedValue;
-                    ObjRenDrugLic.Licnumber = txtLicNo.Text;
-                    ObjRenDrugLic.ExpiryDate = txtExpiryDate.Text;
-                    ObjRenDrugLic.CancelledLic = rblCancelledLic.SelectedValue;
-                    ObjRenDrugLic.SpecifyLicno = txtSpecifyLicNo.Text;               
-
-
-                    result = objRenbal.InsertRENDrugLicDetails63(ObjRenDrugLic);
+                    result = objRenbal.InsertRENDrugLicDetails(ObjRenDrug3);
 
                     if (result != "")
                     {
@@ -527,37 +589,41 @@ namespace MeghalayaUIP.User.Renewal
                 lblmsg0.Text = ex.Message;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+
         }
 
-        public static string getclientIP()
-        {
-            string result = string.Empty;
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (!string.IsNullOrEmpty(ip))
-            {
-                string[] ipRange = ip.Split(',');
-                int le = ipRange.Length - 1;
-                result = ipRange[0];
-            }
-            else
-            {
-                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            }
-
-            return result;
-        }
-
-        protected void rblCancelledLic_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnStaff_Click(object sender, EventArgs e)
         {
             try
             {
-                if (rblCancelledLic.SelectedValue == "Y")
+                if (string.IsNullOrEmpty(txtnames.Text) || string.IsNullOrEmpty(txtqualifies.Text) || string.IsNullOrEmpty(txtexpered.Text))
                 {
-                    LicNos.Visible = true;
+                    lblmsg0.Text = "Please Enter All Details";
+                    Failure.Visible = true;
                 }
                 else
                 {
-                    LicNos.Visible = false;
+                    DataTable dt = new DataTable();
+                   
+                    dt.Columns.Add("RENDM_NAME", typeof(string));
+                    dt.Columns.Add("RENDM_QUALIFICATION", typeof(string));
+                    dt.Columns.Add("RENDM_EXPERIENCE", typeof(string));
+
+                    if (ViewState["STAFF"] != null)
+                    {
+                        dt = (DataTable)ViewState["STAFF"];
+                    }
+
+                    DataRow dr = dt.NewRow();                  
+                    dr["RENDM_NAME"] = txtnames.Text;
+                    dr["RENDM_QUALIFICATION"] = txtqualifies.Text;
+                    dr["RENDM_EXPERIENCE"] = txtexpered.Text;
+
+                    dt.Rows.Add(dr);
+                    GVSTAFF.Visible = true;
+                    GVSTAFF.DataSource = dt;
+                    GVSTAFF.DataBind();
+                    ViewState["STAFF"] = dt;
                 }
             }
             catch (Exception ex)
@@ -628,8 +694,8 @@ namespace MeghalayaUIP.User.Renewal
             {
                 if (GVSTAFF.Rows.Count > 0)
                 {
-                    ((DataTable)ViewState["StaffEmployed"]).Rows.RemoveAt(e.RowIndex);
-                    this.GVSTAFF.DataSource = ((DataTable)ViewState["StaffEmployed"]).DefaultView;
+                    ((DataTable)ViewState["STAFF"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVSTAFF.DataSource = ((DataTable)ViewState["STAFF"]).DefaultView;
                     this.GVSTAFF.DataBind();
                     GVSTAFF.Visible = true;
                     GVSTAFF.Focus();
@@ -649,24 +715,11 @@ namespace MeghalayaUIP.User.Renewal
             }
         }
 
-        protected void GVSpecify_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void btnPreviuos_Click(object sender, EventArgs e)
         {
             try
             {
-                if (GVSpecify.Rows.Count > 0)
-                {
-                    ((DataTable)ViewState["SpecifyAdditional"]).Rows.RemoveAt(e.RowIndex);
-                    this.GVSpecify.DataSource = ((DataTable)ViewState["SpecifyAdditional"]).DefaultView;
-                    this.GVSpecify.DataBind();
-                    GVSpecify.Visible = true;
-                    GVSpecify.Focus();
-
-                }
-                else
-                {
-                    Failure.Visible = true;
-                    lblmsg0.Text = "";
-                }
+                Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails3.aspx?Previous=" + "P");
             }
             catch (Exception ex)
             {
@@ -682,21 +735,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 btnsave_Click(sender, e);
                 if (ErrorMsg == "")
-                    Response.Redirect("~/User/Renewal/RENDrugLicDetails64.aspx?Next=" + "N");
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-
-        protected void btnPreviuos_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Response.Redirect("~/User/Renewal/RENDrugLicDetails1.aspx?Previous=" + "P");
+                    Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails5.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {
@@ -711,11 +750,22 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 int slno = 1;
+
                 string errormsg = "";
 
-                if (ddlservice.SelectedIndex == -1)
+
+                if (rblLicense.SelectedValue == "Y")
                 {
-                    errormsg = errormsg + slno + ". Please Select Service Apply To \\n";
+                    if (string.IsNullOrEmpty(txtDateInsp.Text) || txtDateInsp.Text == "" || txtDateInsp.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Date for Inspection\\n";
+                        slno = slno + 1;
+                    }
+                }
+
+                if (rblInspection.SelectedIndex == -1 || rblInspection.SelectedItem.Text == "--Select--")
+                {
+                    errormsg = errormsg + slno + ". Please Select premise and plan ready for inspection \\n";
                     slno = slno + 1;
                 }
                 if (rblLicense.SelectedIndex == -1)
@@ -735,9 +785,10 @@ namespace MeghalayaUIP.User.Renewal
                         errormsg = errormsg + slno + ". Please Enter Expiry date of license\\n";
                         slno = slno + 1;
                     }
+
                     if (rblCancelledLic.SelectedIndex == -1)
                     {
-                        errormsg = errormsg + slno + ". Please Select Do you hold any previous cancelled license? \\n";
+                        errormsg = errormsg + slno + ". Please Select previous cancelled license? \\n";
                         slno = slno + 1;
                     }
                     if (rblCancelledLic.SelectedValue == "Y")
@@ -747,16 +798,45 @@ namespace MeghalayaUIP.User.Renewal
                             errormsg = errormsg + slno + ". Please Enter specify license no\\n";
                             slno = slno + 1;
                         }
-                    }
-                }              
+                        if (string.IsNullOrEmpty(txtSpecifyLicNo.Text) || txtSpecifyLicNo.Text == "" || txtSpecifyLicNo.Text == null)
+                        {
+                            errormsg = errormsg + slno + ". Please enter license no\\n";
+                            slno = slno + 1;
+                        }
 
+                    }
+
+
+                }
+                if (GVDrugName.Rows.Count == 0)
+                {
+                    errormsg = errormsg + slno + ". Please enter drug name \\n";
+                    slno = slno + 1;
+                }
+                if (GVTEST.Rows.Count == 0)
+                {
+                    errormsg = errormsg + slno + ". Please enter Test name \\n";
+                    slno = slno + 1;
+                }
+                if (GVSTAFF.Rows.Count == 0)
+                {
+                    errormsg = errormsg + slno + ". Please enter Staff name \\n";
+                    slno = slno + 1;
+                }
+                if (GVSpecify.Rows.Count == 0)
+                {
+                    errormsg = errormsg + slno + ". Please enter specify name \\n";
+                    slno = slno + 1;
+                }
                 return errormsg;
+
             }
+
+
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
     }
 }

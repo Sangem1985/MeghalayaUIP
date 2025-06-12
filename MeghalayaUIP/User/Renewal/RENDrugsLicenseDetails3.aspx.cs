@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace MeghalayaUIP.User.Renewal
 {
-    public partial class RENDrugLicDetails65 : System.Web.UI.Page
+    public partial class RENDrugsLicenseDetails3 : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
@@ -38,9 +38,9 @@ namespace MeghalayaUIP.User.Renewal
                         Questionnaire = Convert.ToString(Session["RENQID"]);
                         if (!IsPostBack)
                         {
-                            GetAppliedorNot();                           
+                            GetAppliedorNot();
                         }
-                       
+
 
                     }
                     else
@@ -73,7 +73,7 @@ namespace MeghalayaUIP.User.Renewal
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                    {                     
+                    {
                         if (Convert.ToString(ds.Tables[0].Rows[i]["RENDA_APPROVALID"]) == "65")
                         {
                             divTestAnalysis65.Visible = true;
@@ -88,9 +88,9 @@ namespace MeghalayaUIP.User.Renewal
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Renewal/RENDrugLicDetails3.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails4.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
-                            Response.Redirect("~/User/Renewal/RENDrugLicDetails64.aspx?Previous=" + "P");
+                            Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails2.aspx?Previous=" + "P");
                     }
                 }
 
@@ -106,7 +106,7 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 DataSet ds = new DataSet();
-                ds = objRenbal.GetRenDrugLicDetails65(hdnUserID.Value, Questionnaire);
+                ds = objRenbal.GetRenDrugLicDetails(hdnUserID.Value, Questionnaire,65);
                 if (ds.Tables[0].Rows.Count > 0 || ds.Tables[1].Rows.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0)
@@ -144,7 +144,7 @@ namespace MeghalayaUIP.User.Renewal
                         GVDruges.DataBind();
                         GVDruges.Visible = true;
                     }
-                    
+
                 }
             }
             catch (Exception ex)
@@ -166,7 +166,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("DRUGNAME", typeof(string));
+                    dt.Columns.Add("REND_DRUGNAME", typeof(string));
 
                     if (ViewState["DRUGES"] != null)
                     {
@@ -175,7 +175,7 @@ namespace MeghalayaUIP.User.Renewal
 
                     DataRow dr = dt.NewRow();
 
-                    dr["DRUGNAME"] = txtDrugName.Text.Trim();
+                    dr["REND_DRUGNAME"] = txtDrugName.Text.Trim();
 
                     dt.Rows.Add(dr);
                     GVDruges.Visible = true;
@@ -282,20 +282,12 @@ namespace MeghalayaUIP.User.Renewal
                         ObjRenDrugLic.CreatedBy = hdnUserID.Value;
                         ObjRenDrugLic.IPAddress = getclientIP();
                         ObjRenDrugLic.NameDrug = GVDruges.Rows[i].Cells[1].Text;
+                        ObjRenDrugLic.ApprovalID = 65;
 
-
-                        string A = objRenbal.InsertDrugDet65(ObjRenDrugLic);
+                        string A = objRenbal.InsertDrugDetails(ObjRenDrugLic);
                         if (A != "")
                         { count = count + 1; }
-                    }
-                    if (GVDruges.Rows.Count == count)
-                    {
-                        success.Visible = true;
-                        lblmsg.Text = "Renewal Drug Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-                  
+                    }                   
 
                     ObjRenDrugLic.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenDrugLic.CreatedBy = hdnUserID.Value;
@@ -307,9 +299,9 @@ namespace MeghalayaUIP.User.Renewal
                     ObjRenDrugLic.ExpiryDate = txtExpiryDate.Text;
                     ObjRenDrugLic.CancelledLic = rblCancelledLic.SelectedValue;
                     ObjRenDrugLic.SpecifyLicno = txtSpecifyLicNo.Text;
+                    ObjRenDrugLic.ApprovalID = 65;
 
-
-                    result = objRenbal.InsertRENDrugLicDetails65(ObjRenDrugLic);
+                    result = objRenbal.InsertRENDrugLicDetails(ObjRenDrugLic);
 
                     if (result != "")
                     {
@@ -432,7 +424,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-                Response.Redirect("~/User/Renewal/RENDrugLicDetails64.aspx?Previous=" + "P");
+                Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails2.aspx?Previous=" + "P");
             }
             catch (Exception ex)
             {
@@ -448,7 +440,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 btnsave_Click(sender, e);
                 if (ErrorMsg == "")
-                    Response.Redirect("~/User/Renewal/RENDrugLicDetails3.aspx?Next=" + "N");
+                    Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails4.aspx?Next=" + "N");
             }
             catch (Exception ex)
             {

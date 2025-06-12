@@ -10,12 +10,14 @@ namespace MeghalayaUIP.Common
     {
         public static string InsertRENPublicWorkDep = "USP_INSRENEWALWORKCONTRACTORDETAILS";
         public static string GetRenPublicWorkDep = "USP_GETRENEWALWORKCONTRACTORDETAILS";
+
         public static string InsertRENDrugLicDep = "USP_INSRENDRUGLICDETAILS";
         public static string InsertRenDrugDetails = "USP_INSRENDRUGDETAILS";
         public static string InsertDrugTesting = "USP_INSRENSTAFFTESTING";
         public static string InsertDrugManufactureDet = "USP_INSRENDRUGMANU";
         public static string InsertRenDrugItemDet = "USP_INSRENDARUGADDITIONALITEM";
         public static string GetRENDrugLicenseDetails = "USP_GETDRUGDETAILS";
+
         public static string InsertRenBusinessLicDet = "USP_INSRENBUSINESSDETAILS";
         public static string GetRenBusinessLicDetails = "USP_GETRENBUSINESSDETAILS";
         public static string InsertRenCinemaLicDetails = "USP_INSRENCINEMALICDETAILS";
@@ -174,6 +176,7 @@ namespace MeghalayaUIP.Common
         public string Whetherequipment { get; set; }
         public string Facilitiescounsell { get; set; }
         public string Serviceto { get; set; }
+        public int ApprovalID { get; set; }
     }
     public class RenBusinessLicDetails
     {

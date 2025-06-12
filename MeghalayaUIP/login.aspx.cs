@@ -27,11 +27,8 @@ namespace MeghalayaUIP
         {
             try
             {
-                //DataSet ds = new DataSet();
-                //string status = Request.QueryString[0].ToString().Trim();
-
-
-
+                
+                
                 if (!IsPostBack)
                 {
                     Killsession();

@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User.Renewal
 {
 
 
-    public partial class RENDrugLicDetails64
+    public partial class RENDrugsLicenseDetails5
     {
 
         /// <summary>
@@ -96,13 +96,31 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
 
         /// <summary>
-        /// ddlservice control.
+        /// txtClinical control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlservice;
+        protected global::System.Web.UI.WebControls.TextBox txtClinical;
+
+        /// <summary>
+        /// CHKRegistered control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList CHKRegistered;
+
+        /// <summary>
+        /// txtFacility control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFacility;
 
         /// <summary>
         /// rblLicense control.
@@ -114,175 +132,157 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.DropDownList rblLicense;
 
         /// <summary>
-        /// pnlLicenseDetails control.
+        /// ddlType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlLicenseDetails;
+        protected global::System.Web.UI.WebControls.DropDownList ddlType;
 
         /// <summary>
-        /// txtLicNo control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLicNo;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
-        /// txtExpiryDate control.
+        /// ddlprenatal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpiryDate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlprenatal;
 
         /// <summary>
-        /// CalendarExtender9 control.
+        /// otherownership control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender9;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl otherownership;
 
         /// <summary>
-        /// rblCancelledLic control.
+        /// txtOwnership control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblCancelledLic;
+        protected global::System.Web.UI.WebControls.TextBox txtOwnership;
 
         /// <summary>
-        /// LicNos control.
+        /// Starttype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LicNos;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Starttype;
 
         /// <summary>
-        /// txtSpecifyLicNo control.
+        /// txtanyinstitute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSpecifyLicNo;
+        protected global::System.Web.UI.WebControls.TextBox txtanyinstitute;
 
         /// <summary>
-        /// divRepack64 control.
+        /// rblequipments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRepack64;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblequipments;
 
         /// <summary>
-        /// txtDrugLic control.
+        /// divequipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDrugLic;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divequipment;
 
         /// <summary>
-        /// btnDrug control.
+        /// txtEquipmentmake control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDrug;
+        protected global::System.Web.UI.WebControls.TextBox txtEquipmentmake;
 
         /// <summary>
-        /// GVDRUGLIC control.
+        /// txtMakeEquipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVDRUGLIC;
+        protected global::System.Web.UI.WebControls.TextBox txtMakeEquipment;
 
         /// <summary>
-        /// txtEmpName control.
+        /// btnEquipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
+        protected global::System.Web.UI.WebControls.Button btnEquipment;
 
         /// <summary>
-        /// txtEmpQualify control.
+        /// GVEquipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpQualify;
+        protected global::System.Web.UI.WebControls.GridView GVEquipment;
 
         /// <summary>
-        /// txtEmpExperince control.
+        /// txtFciliites control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpExperince;
+        protected global::System.Web.UI.WebControls.TextBox txtFciliites;
 
         /// <summary>
-        /// btnTechincal control.
+        /// txtRadiologist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTechincal;
+        protected global::System.Web.UI.WebControls.TextBox txtRadiologist;
 
         /// <summary>
-        /// GVTehnical control.
+        /// btnradiologist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVTehnical;
+        protected global::System.Web.UI.WebControls.Button btnradiologist;
 
         /// <summary>
-        /// txtItem control.
+        /// GVRADIO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItem;
-
-        /// <summary>
-        /// btnItem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnItem;
-
-        /// <summary>
-        /// GVAdditional control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVAdditional;
+        protected global::System.Web.UI.WebControls.GridView GVRADIO;
 
         /// <summary>
         /// btnPreviuos control.

@@ -114,53 +114,80 @@
                                                 </div>
                                             </div>
                                             <asp:Panel ID="pnlLicenseDetails" runat="server" Visible="false">
-                                            <div class="col-md-12 d-flex" >
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">License Number *</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtLicNo" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">License Number *</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtLicNo" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Expiry date of license *</label>
-                                                        <div class="col-lg-6">
-                                                            <%--   <asp:TextBox ID="txtExpiryDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Expiry date of license *</label>
+                                                            <div class="col-lg-6">
+                                                                <%--   <asp:TextBox ID="txtExpiryDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                             <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                            <asp:TextBox runat="server" ID="txtExpiryDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
-                                                            <cc1:CalendarExtender ID="CalendarExtender9" runat="server" Format="dd-MM-yyyy" TargetControlID="txtExpiryDate"></cc1:CalendarExtender>
-                                                            <i class="fi fi-rr-calendar-lines"></i>
+                                                                <asp:TextBox runat="server" ID="txtExpiryDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
+                                                                <cc1:CalendarExtender ID="CalendarExtender9" runat="server" Format="dd-MM-yyyy" TargetControlID="txtExpiryDate"></cc1:CalendarExtender>
+                                                                <i class="fi fi-rr-calendar-lines"></i>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                                
+
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Do you hold any previous cancelled license?  *</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:RadioButtonList ID="rblCancelledLic" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCancelledLic_SelectedIndexChanged">
+                                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                                    <asp:ListItem Text="No" Value="N" />
+                                                                </asp:RadioButtonList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4" id="LicNos" runat="server" visible="false">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Please specify license no *</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:TextBox ID="txtSpecifyLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </asp:Panel>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Do you hold any previous cancelled license?  *</label>
+                                                        <label class="col-lg-6 col-form-label">Is the premise and plan ready for inspection? *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:RadioButtonList ID="rblCancelledLic" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCancelledLic_SelectedIndexChanged">
+                                                            <asp:RadioButtonList ID="rblInspection" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblInspection_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4" id="LicNos" runat="server" visible="false">
+                                                <div class="col-md-4" id="DateInsp" runat="server" visible="false">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Please specify license no *</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtSpecifyLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <label class="col-lg-6 col-form-label">Date for Inspection *</label>
+                                                        <div class="col-lg-6">    
+                                                            <asp:TextBox runat="server" ID="txtDateInsp" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
+                                                            <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDateInsp"></cc1:CalendarExtender>
+                                                            <i class="fi fi-rr-calendar-lines"></i>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            </asp:Panel>
+
+                                        </div>
+                                        <div class="drugcommon" id="drug">
                                             <div class="col-md-12 d-flex">
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Drug Details</span></label>
                                             </div>
@@ -197,9 +224,8 @@
                                                     <AlternatingRowStyle BackColor="White" />
                                                 </asp:GridView>
                                             </div>
-
-
-
+                                        </div>
+                                        <div class="drugcommon" id="drug">
                                             <div class="col-md-12 d-flex">
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Details of Technical Staff employed for Manufacturing and Testing</span></label>
                                             </div>
@@ -250,51 +276,10 @@
                                                     <AlternatingRowStyle BackColor="White" />
                                                 </asp:GridView>
                                             </div>
-                                            <br />
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Is the premise and plan ready for inspection? *</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:RadioButtonList ID="rblInspection" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblInspection_SelectedIndexChanged">
-                                                                <asp:ListItem Text="Yes" Value="Y" />
-                                                                <asp:ListItem Text="No" Value="N" />
-                                                            </asp:RadioButtonList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4" id="DateInsp" runat="server" visible="false">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Date for Inspection *</label>
-                                                        <div class="col-lg-6">
-                                                            <%-- <asp:TextBox ID="txtDateInsp" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                            <i class="fi fi-rr-calendar-lines"></i>--%>
-
-                                                            <asp:TextBox runat="server" ID="txtDateInsp" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
-                                                            <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDateInsp"></cc1:CalendarExtender>
-                                                            <i class="fi fi-rr-calendar-lines"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Fees Details</span></label>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Total Amount to be Paid (Rs.) *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtTotalpaid" runat="server" class="form-control" Type="Text" onkeypress="return validateAmount(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
                                         </div>
+                                        <br />
+
+
                                         <div class="drugcommon" id="drugcommom">
                                             <div class="col-md-12 d-flex">
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Details of Technical Staff employed for Manufacturing</span></label>
@@ -325,37 +310,34 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <asp:Button ID="btnAddmanu" runat="server" Text="Add More" OnClick="btnAddmanu_Click" CssClass="btn btn-green btn-rounded mt-2 mb-4" Width="110px" />
                                             </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex justify-content-center">
-                                            <asp:GridView ID="GVMANU" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                GridLines="None"
-                                                Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVMANU_RowDeleting">
-                                                <RowStyle BackColor="#ffffff" BorderWidth="1px" />
-                                                <Columns>
-                                                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Name" DataField="RENDM_NAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Qualification" DataField="RENDM_QUALIFICATION" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Experience" DataField="RENDM_EXPERIENCE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <asp:GridView ID="GVMANU" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                    GridLines="None"
+                                                    Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVMANU_RowDeleting">
+                                                    <RowStyle BackColor="#ffffff" BorderWidth="1px" />
+                                                    <Columns>
+                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Name" DataField="RENDM_NAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Qualification" DataField="RENDM_QUALIFICATION" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Experience" DataField="RENDM_EXPERIENCE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
-                                                </Columns>
-                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                <AlternatingRowStyle BackColor="White" />
-                                            </asp:GridView>
+                                                    </Columns>
+                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                    <AlternatingRowStyle BackColor="White" />
+                                                </asp:GridView>
+                                            </div>
                                         </div>
+
 
 
                                         <div class="drug" id="drugothers">
-
-
                                             <div class="col-md-12 d-flex">
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Additional Item</span></label>
                                             </div>
-
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
@@ -390,49 +372,63 @@
                                                     <AlternatingRowStyle BackColor="White" />
                                                 </asp:GridView>
                                             </div>
+                                        </div>
 
-                                            <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Additional Item Fees Details</span></label>
+                                        <%--
+                                             <div class="col-md-12 d-flex">
+                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Fees Details</span></label>
                                             </div>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Additional Fees To be Paid (Rs.) *</label>
+                                                        <label class="col-lg-6 col-form-label">Total Amount to be Paid (Rs.) *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtFeeAdd" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Late Fees *</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtLatefee" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Registration Fees to be Paid(Rs.) *</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtRegFees" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                            <asp:TextBox ID="txtTotalpaid" runat="server" class="form-control" Type="Text" onkeypress="return validateAmount(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
-                                            </div>
-                                            <div class="col-md-12  d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Total Amount to be Paid (Rs.)  *</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtPaidTotalAMount" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                            <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Additional Item Fees Details</span></label>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Additional Fees To be Paid (Rs.) *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtFeeAdd" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Late Fees *</label>
+                                                    <div class="col-lg-6">
+                                                        <asp:TextBox ID="txtLatefee" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Registration Fees to be Paid(Rs.) *</label>
+                                                    <div class="col-lg-6">
+                                                        <asp:TextBox ID="txtRegFees" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
 
                                         </div>
+                                        <div class="col-md-12  d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Total Amount to be Paid (Rs.)  *</label>
+                                                    <div class="col-lg-6">
+                                                        <asp:TextBox ID="txtPaidTotalAMount" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>--%>
 
 
                                         <div runat="server" id="div_52" visible="false">

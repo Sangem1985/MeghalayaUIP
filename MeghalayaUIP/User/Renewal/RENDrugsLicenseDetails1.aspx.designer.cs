@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User.Renewal
 {
 
 
-    public partial class RENDrugLicDetails1
+    public partial class RENDrugsLicenseDetails1
     {
 
         /// <summary>
@@ -240,6 +240,51 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.Button btnTesting;
 
         /// <summary>
+        /// GVSTAFF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVSTAFF;
+
+        /// <summary>
+        /// txtName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtName;
+
+        /// <summary>
+        /// txtQualifications control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQualifications;
+
+        /// <summary>
+        /// txtExperiment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExperiment;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
         /// GVTEST control.
         /// </summary>
         /// <remarks>
@@ -249,40 +294,31 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.GridView GVTEST;
 
         /// <summary>
-        /// rblInspection control.
+        /// txtSpecify control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblInspection;
+        protected global::System.Web.UI.WebControls.TextBox txtSpecify;
 
         /// <summary>
-        /// DateInsp control.
+        /// btnspecify control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DateInsp;
+        protected global::System.Web.UI.WebControls.Button btnspecify;
 
         /// <summary>
-        /// txtDateInsp control.
+        /// GVSpecify control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateInsp;
-
-        /// <summary>
-        /// CalendarExtender1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
+        protected global::System.Web.UI.WebControls.GridView GVSpecify;
 
         /// <summary>
         /// btnPreviuos control.

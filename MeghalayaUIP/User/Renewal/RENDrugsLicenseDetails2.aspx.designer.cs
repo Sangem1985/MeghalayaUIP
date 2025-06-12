@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User.Renewal
 {
 
 
-    public partial class RENDrugLicDetails2
+    public partial class RENDrugsLicenseDetails2
     {
 
         /// <summary>
@@ -177,148 +177,112 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtSpecifyLicNo;
 
         /// <summary>
-        /// txttradeLic control.
+        /// divRepack64 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttradeLic;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRepack64;
 
         /// <summary>
-        /// btn control.
+        /// txtDrugLic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn;
+        protected global::System.Web.UI.WebControls.TextBox txtDrugLic;
 
         /// <summary>
-        /// GVDrugName control.
+        /// btnDrug control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVDrugName;
+        protected global::System.Web.UI.WebControls.Button btnDrug;
 
         /// <summary>
-        /// txtnames control.
+        /// GVDRUGLIC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnames;
+        protected global::System.Web.UI.WebControls.GridView GVDRUGLIC;
 
         /// <summary>
-        /// txtqualifies control.
+        /// txtEmpName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtqualifies;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
 
         /// <summary>
-        /// txtexpered control.
+        /// txtEmpQualify control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtexpered;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpQualify;
 
         /// <summary>
-        /// btnTesting control.
+        /// txtEmpExperince control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTesting;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpExperince;
 
         /// <summary>
-        /// GVTEST control.
+        /// btnTechincal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVTEST;
+        protected global::System.Web.UI.WebControls.Button btnTechincal;
 
         /// <summary>
-        /// txtName control.
+        /// GVTehnical control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.GridView GVTehnical;
 
         /// <summary>
-        /// txtQualifications control.
+        /// txtItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQualifications;
+        protected global::System.Web.UI.WebControls.TextBox txtItem;
 
         /// <summary>
-        /// txtExperiment control.
+        /// btnItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExperiment;
+        protected global::System.Web.UI.WebControls.Button btnItem;
 
         /// <summary>
-        /// Button1 control.
+        /// GVAdditional control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// GVSTAFF control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVSTAFF;
-
-        /// <summary>
-        /// txtSpecify control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSpecify;
-
-        /// <summary>
-        /// btnspecify control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnspecify;
-
-        /// <summary>
-        /// GVSpecify control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVSpecify;
+        protected global::System.Web.UI.WebControls.GridView GVAdditional;
 
         /// <summary>
         /// btnPreviuos control.

@@ -111,9 +111,6 @@ namespace MeghalayaUIP.User.Renewal
                         Label lblApprovalFee = (Label)row.FindControl("lblApprovalFee");
                         ApprovalIds = ApprovalIds + "," + lblApprovalId.Text.ToString();
                         ApprovalIds = ApprovalIds.Trim().TrimStart(',');
-
-
-
                     }
                 }
                 if (ApprovalIds == "")
@@ -167,7 +164,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (result > 0)
                     {
                         // string newurl = "RENQuestionnaire.aspx?ApprId=" + ApprovalIds;
-                        string newurl = "~/User/Renewal/RENDrugLicDetails1.aspx?Next=" + "N";
+                        string newurl = "~/User/Renewal/RENDrugsLicenseDetails.aspx?Next=" + "N";
                         Response.Redirect(newurl);
                     }
                     else

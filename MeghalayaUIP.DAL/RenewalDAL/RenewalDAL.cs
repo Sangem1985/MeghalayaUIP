@@ -181,6 +181,8 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 {
                     com.Parameters.AddWithValue("@RENDL_INSPECTIONDATE", DateTime.ParseExact(ObjRenDrugLic.DateInspection, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
+                com.Parameters.AddWithValue("@RENDL_APPROVALID", ObjRenDrugLic.ApprovalID);
+
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -226,8 +228,8 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@REND_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
                 com.Parameters.AddWithValue("@REND_CREATEDBYIP", ObjRenDrugLic.IPAddress);
                 com.Parameters.AddWithValue("@REND_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
-
                 com.Parameters.AddWithValue("@REND_DRUGNAME", ObjRenDrugLic.NameDrug);
+                com.Parameters.AddWithValue("@REND_APPROVALID", ObjRenDrugLic.ApprovalID);
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -277,6 +279,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENST_NAME", ObjRenDrugLic.Name);
                 com.Parameters.AddWithValue("@RENST_QUALIFICATION", ObjRenDrugLic.Qualification);
                 com.Parameters.AddWithValue("@RENST_EXPERIENCE", ObjRenDrugLic.Experience);
+                com.Parameters.AddWithValue("@RENST_APPROVALID", ObjRenDrugLic.ApprovalID);
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -326,6 +329,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENDM_NAME", ObjRenDrugLic.Name);
                 com.Parameters.AddWithValue("@RENDM_QUALIFICATION", ObjRenDrugLic.Qualification);
                 com.Parameters.AddWithValue("@RENDM_EXPERIENCE", ObjRenDrugLic.Experience);
+                com.Parameters.AddWithValue("@RENDM_APPROVALID", ObjRenDrugLic.ApprovalID);
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -371,9 +375,8 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENDA_CREATEDBY", Convert.ToInt32(ObjRenDrugLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENDA_CREATEDBYIP", ObjRenDrugLic.IPAddress);
                 com.Parameters.AddWithValue("@RENDA_CFOQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
-               // com.Parameters.AddWithValue("@RENDA_UNITID", Convert.ToInt32(ObjRenDrugLic.UnitId));
-
                 com.Parameters.AddWithValue("@RENDA_ADDITIONALITEM", ObjRenDrugLic.Name);
+                com.Parameters.AddWithValue("@RENDA_APPROVALID", Convert.ToInt32(ObjRenDrugLic.ApprovalID));
 
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -396,7 +399,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
             }
             return Result;
         }
-        public DataSet GetRenDrugLicDetails(string userid, string RENQID)
+        public DataSet GetRenDrugLicDetails(string userid, string RENQID, int ApprovalID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -416,6 +419,8 @@ namespace MeghalayaUIP.DAL.RenewalDAL
 
                 da.SelectCommand.Parameters.AddWithValue("@RENQID", Convert.ToInt32(RENQID));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.SelectCommand.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(ApprovalID));
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

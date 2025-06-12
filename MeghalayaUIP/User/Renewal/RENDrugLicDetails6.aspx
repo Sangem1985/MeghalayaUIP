@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="RENDrugLicDetails4.aspx.cs" Inherits="MeghalayaUIP.User.Renewal.RENDrugLicDetails4" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="RENDrugLicDetails6.aspx.cs" Inherits="MeghalayaUIP.User.Renewal.RENDrugLicDetails4" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 

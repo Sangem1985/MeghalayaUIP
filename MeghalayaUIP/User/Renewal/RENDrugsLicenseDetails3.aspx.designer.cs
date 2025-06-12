@@ -11,7 +11,7 @@ namespace MeghalayaUIP.User.Renewal
 {
 
 
-    public partial class RENDrugLicDetails65
+    public partial class RENDrugsLicenseDetails3
     {
 
         /// <summary>

@@ -40,9 +40,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRenDrugItemDet(ObjRenDrugLic);
         }
-        public DataSet GetRenDrugLicDetails(string userid, string RENQID)
+        public DataSet GetRenDrugLicDetails(string userid, string RENQID, int ApprovalID)
         {
-            return objRENDAL.GetRenDrugLicDetails(userid, RENQID);
+            return objRENDAL.GetRenDrugLicDetails(userid, RENQID, ApprovalID);
         }
         public string InsertRENBusinessLicDet(RenBusinessLicDetails ObjRenBusinessLic)
         {
