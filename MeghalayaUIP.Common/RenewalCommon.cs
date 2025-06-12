@@ -101,7 +101,7 @@ namespace MeghalayaUIP.Common
         public static string GetRENApplUserDashboard = "USP_GETUSERRENAPPLTRACKER";
         public static string UpdateRENDepartmentProcess = "USP_UPDATERENSCRUTINYACTION";
 
-
+        public static string GetRENFactoryFee = "USP_GETRENAPPROVALWITHFEE";
     }
 
     public class RenPublicWorK
@@ -637,7 +637,13 @@ namespace MeghalayaUIP.Common
         public string LICVALIDUPTO { get; set; }
         public string TOTALAMOUNTPAID { get; set; }
 
-
+        public string APPROVALID { get; set; }
+        public string EMPLOYEES { get; set; }
+        public string POWERKW { get; set; }
+        public string TYPEID { get; set; }
+        public string EnterpriseCategory { get; set; }
+        public string Investment { get; set; }
+        public string FEES { get; set; }
     }
     public class RenApprovals
     {

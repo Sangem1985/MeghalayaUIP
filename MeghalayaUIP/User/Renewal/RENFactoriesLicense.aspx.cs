@@ -17,6 +17,7 @@ namespace MeghalayaUIP.User.Renewal
         MasterBAL mstrBAL = new MasterBAL();
         RenewalBAL objRenbal = new RenewalBAL();
         string ErrorMsg = "", Questionnaire;
+        RenFactoryLicense ObjRenFactoryLic = new RenFactoryLicense();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -107,17 +108,20 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-
-                if (rblpowerGeneration.SelectedValue == "Y")
+                if (rblpowerGeneration.SelectedValue !="0")
                 {
-                    Generating.Visible = true;
-                    DGSETKW.Visible = false;
+                    if (rblpowerGeneration.SelectedValue == "Y")
+                    {
+                        Generating.Visible = false;
+                        DGSETKW.Visible = true;
+                    }
+                    else
+                    {
+                        DGSETKW.Visible = true;
+                        Generating.Visible = true;
+                    }
                 }
-                else
-                {
-                    DGSETKW.Visible = true;
-                    Generating.Visible = false;
-                }
+              
             }
             catch(Exception ex)
             {
@@ -125,7 +129,7 @@ namespace MeghalayaUIP.User.Renewal
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-            rblpowerGeneration.BorderColor = System.Drawing.Color.White;
+          //  rblpowerGeneration.BorderColor = System.Drawing.Color.White;
         }
 
         protected void rblfirmconcer_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,15 +148,13 @@ namespace MeghalayaUIP.User.Renewal
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-            rblfirmconcer.BorderColor = System.Drawing.Color.White;
+           // rblfirmconcer.BorderColor = System.Drawing.Color.White;
         }
 
         protected void rblpublicfactory_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-
-
                 if (rblpublicfactory.SelectedValue == "Y")
                 {
                     Director.Visible = true;
@@ -165,15 +167,13 @@ namespace MeghalayaUIP.User.Renewal
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-            rblpublicfactory.BorderColor = System.Drawing.Color.White;
+           // rblpublicfactory.BorderColor = System.Drawing.Color.White;
         }
 
         protected void rbllocalfactory_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-
-
                 if (rbllocalfactory.SelectedValue == "Y")
                 {
                     Administrative.Visible = true;
@@ -186,7 +186,7 @@ namespace MeghalayaUIP.User.Renewal
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-            rbllocalfactory.BorderColor = System.Drawing.Color.White;
+          //  rbllocalfactory.BorderColor = System.Drawing.Color.White;
         }
 
         protected void rblAgent_SelectedIndexChanged(object sender, EventArgs e)
@@ -205,15 +205,13 @@ namespace MeghalayaUIP.User.Renewal
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-            rblAgent.BorderColor = System.Drawing.Color.White;
+          //  rblAgent.BorderColor = System.Drawing.Color.White;
         }
 
         protected void rblDateofRules_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-
-
                 if (rblDateofRules.SelectedValue == "Y")
                 {
                     Div1.Visible = true;
@@ -231,23 +229,27 @@ namespace MeghalayaUIP.User.Renewal
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-            rblDateofRules.BorderColor = System.Drawing.Color.White;
+         //   rblDateofRules.BorderColor = System.Drawing.Color.White;
         }
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-           // string Quesstionriids = "1001";
             try
             {
                 string result = "";
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
-                    RenFactoryLicense ObjRenFactoryLic = new RenFactoryLicense();
+                    DataSet ds = new DataSet();
+                    ds = GetRenFees();
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        hdnFactoryFEE.Value = Convert.ToString(ds.Tables[0].Rows[0]["FEE"]);
+                        ObjRenFactoryLic.FEES = hdnFactoryFEE.Value;
+                    }
 
-                    ObjRenFactoryLic.Questionnariid = Convert.ToString(Session["RENQID"]); ;
+                    ObjRenFactoryLic.Questionnariid = Convert.ToString(Session["RENQID"]); 
                     ObjRenFactoryLic.CreatedBy = hdnUserID.Value;
-                  //  ObjRenFactoryLic.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenFactoryLic.IPAddress = getclientIP();
 
                     ObjRenFactoryLic.FULLNAME = txtFullName.Text;
@@ -261,8 +263,6 @@ namespace MeghalayaUIP.User.Renewal
                     ObjRenFactoryLic.NEXT12MONTHS = txtfactorymonths12.Text;
                     ObjRenFactoryLic.MANUPRODUCT = txtmanufacture12.Text;
                     ObjRenFactoryLic.PRINCIPALPRODUCT = txtproductManufacture12.Text;
-                    //ObjRenFactoryLic.NAMESOFMANU = ddlEmpday.SelectedValue; txtmanufacture12
-                    //ObjRenFactoryLic.MANUPRODUCT12MONTHS = txtMaxEmp12.Text; txtproductManufacture12
                     ObjRenFactoryLic.MAXNOEMP = ddlEmpday.SelectedValue;
                     ObjRenFactoryLic.MAXNOWORK = txtMaxEmp12.Text;
                     ObjRenFactoryLic.NOORDINARIYEMP = txtFactoryEmpWorker.Text;
@@ -295,7 +295,6 @@ namespace MeghalayaUIP.User.Renewal
                     ObjRenFactoryLic.TOTALAMOUNTPAID = totalamount.Text;
 
 
-
                     result = objRenbal.InsertRENFactoryLicDetails(ObjRenFactoryLic);
 
                     if (result != "")
@@ -320,6 +319,31 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        public DataSet GetRenFees()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                if (rblpowerGeneration.SelectedValue == "Y")
+                {
+                    ObjRenFactoryLic.APPROVALID = "72";
+                    ObjRenFactoryLic.POWERKW = ddlDGSet.SelectedValue;
+                }
+                else
+                {
+                    ObjRenFactoryLic.APPROVALID = "72";
+                    ObjRenFactoryLic.EMPLOYEES = txtMaxEmp12.Text;
+                    ObjRenFactoryLic.POWERKW = ddlPowerAmount.SelectedValue;
+                }                
+
+                ds = objRenbal.GetFactoryFees(ObjRenFactoryLic);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         protected List<TextBox> FindEmptyTextboxes(Control container)
         {
 
@@ -332,7 +356,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (string.IsNullOrWhiteSpace(textbox.Text))
                     {
                         emptyTextboxes.Add(textbox);
-                        textbox.BorderColor = System.Drawing.Color.Red;
+                       // textbox.BorderColor = System.Drawing.Color.Red;
                     }
                 }
 
@@ -355,7 +379,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
                     {
                         emptyDropdowns.Add(dropdown);
-                        dropdown.BorderColor = System.Drawing.Color.Red;
+                      //  dropdown.BorderColor = System.Drawing.Color.Red;
                     }
                 }
 
@@ -380,18 +404,17 @@ namespace MeghalayaUIP.User.Renewal
                     {
                         emptyRadioButtonLists.Add(radioButtonList);
 
-                        radioButtonList.BorderColor = System.Drawing.Color.Red;
-                        radioButtonList.BorderWidth = Unit.Pixel(2);
-                        radioButtonList.BorderStyle = BorderStyle.Solid;
+                        //radioButtonList.BorderColor = System.Drawing.Color.Red;
+                        //radioButtonList.BorderWidth = Unit.Pixel(2);
+                        //radioButtonList.BorderStyle = BorderStyle.Solid;
                     }
-                    else
-                    {
-                        radioButtonList.BorderColor = System.Drawing.Color.Empty;
-                        radioButtonList.BorderWidth = Unit.Empty;
-                        radioButtonList.BorderStyle = BorderStyle.NotSet;
-                    }
+                    //else
+                    //{
+                    //    radioButtonList.BorderColor = System.Drawing.Color.Empty;
+                    //    radioButtonList.BorderWidth = Unit.Empty;
+                    //    radioButtonList.BorderStyle = BorderStyle.NotSet;
+                    //}
                 }
-
                 if (control.HasControls())
                 {
                     emptyRadioButtonLists.AddRange(FindEmptyRadioButtonLists(control));
@@ -407,10 +430,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-                int slno = 1;
-                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
-                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
-                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
+                int slno = 1;              
                 string errormsg = "";
 
                 if (string.IsNullOrEmpty(txtFullName.Text) || txtFullName.Text == "" || txtFullName.Text == null)
@@ -469,12 +489,15 @@ namespace MeghalayaUIP.User.Renewal
                     rblpowerGeneration_SelectedIndexChanged(null, EventArgs.Empty);
                     if (rblpowerGeneration.SelectedValue == "Y")
                     {
-                        Generating.Visible = true;
-                        ddlGenerating.SelectedValue = ds.Tables[0].Rows[0]["RENFL_TOTALCAPGENERATING"].ToString();
+                        DGSETKW.Visible = true;
+                        Generating.Visible = false;
+                        // ddlGenerating.SelectedValue = ds.Tables[0].Rows[0]["RENFL_TOTALCAPGENERATING"].ToString();
+                        ddlDGSet.SelectedValue = ds.Tables[0].Rows[0]["RENFL_TOTALDGSET"].ToString();
                     }
                     else
                     {
                         Generating.Visible = true;
+                        DGSETKW.Visible = true;
                         ddlDGSet.SelectedValue = ds.Tables[0].Rows[0]["RENFL_TOTALDGSET"].ToString();
                         ddlPowerAmount.SelectedValue = ds.Tables[0].Rows[0]["RENFL_MAXPOWER"].ToString();
                     }
@@ -605,9 +628,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             try
             {
-
                 ddlPowerAmount.Items.Clear();
-
 
                 List<MasterMAXAMOUNTPOWER> objDGPOWERModel = new List<MasterMAXAMOUNTPOWER>();
                 string strmode = string.Empty;
@@ -664,19 +685,13 @@ namespace MeghalayaUIP.User.Renewal
                     ddlEmpday.DataValueField = "NOOFWORKERSYEARS_ID";
                     ddlEmpday.DataTextField = "NOOFWORKERS_NAME";
                     ddlEmpday.DataBind();
-
-
                 }
                 else
                 {
                     ddlEmpday.DataSource = null;
                     ddlEmpday.DataBind();
-
-
                 }
                 AddSelect(ddlEmpday);
-
-
             }
             catch (Exception ex)
             {
@@ -704,7 +719,6 @@ namespace MeghalayaUIP.User.Renewal
                     ddlGenerating.DataValueField = "DGPOWER_ID";
                     ddlGenerating.DataTextField = "DGPOWER_NAME";
                     ddlGenerating.DataBind();
-
                 }
                 else
                 {
@@ -712,8 +726,6 @@ namespace MeghalayaUIP.User.Renewal
                     ddlGenerating.DataBind();
                 }
                 AddSelect(ddlGenerating);
-
-
             }
             catch (Exception ex)
             {

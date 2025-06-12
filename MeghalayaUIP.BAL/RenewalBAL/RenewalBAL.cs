@@ -300,5 +300,9 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.InsertRENDrugLicDetails3(ObjRenDrugLic3);
         }
+        public DataSet GetFactoryFees(RenFactoryLicense ObjRenFactoryLic)
+        {
+            return objRENDAL.GetFactoryFees(ObjRenFactoryLic);
+        }
     }
 }
