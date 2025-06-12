@@ -2022,7 +2022,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div id="Drug" runat="server" visible="true">
+                                                <div id="Drug" runat="server" visible="false">
                                                     <div class="row">
                                                         <div class="col-xl-12 col-sm-12 col-12">
                                                             <div class="card">

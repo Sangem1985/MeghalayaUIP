@@ -2047,6 +2047,10 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENFL_LICVALIDUPTO", ObjRenFactoryLic.LICVALIDUPTO);
                 com.Parameters.AddWithValue("@RENFL_TOTALAMOUNTPAID", ObjRenFactoryLic.TOTALAMOUNTPAID);
 
+                if (ObjRenFactoryLic.FEES != null && ObjRenFactoryLic.FEES != "")
+                {
+                    com.Parameters.AddWithValue("@RENDA_APPROVALFEE", ObjRenFactoryLic.FEES);
+                }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -3886,6 +3890,66 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Dispose();
             }
             return Result;
+        }
+        public DataSet GetFactoryFees(RenFactoryLicense ObjRenFactoryLic)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(RENConstants.GetRENFactoryFee, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = RENConstants.GetRENFactoryFee;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                if(ObjRenFactoryLic.EnterpriseCategory!=null && ObjRenFactoryLic.EnterpriseCategory != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@ENTPRISETYPE", ObjRenFactoryLic.EnterpriseCategory);
+                }
+                if (ObjRenFactoryLic.APPROVALID != null && ObjRenFactoryLic.APPROVALID != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", ObjRenFactoryLic.APPROVALID);
+                }
+                if (ObjRenFactoryLic.POWERKW != null && ObjRenFactoryLic.POWERKW != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@POWERKW_ID", ObjRenFactoryLic.POWERKW);
+                }
+                if(ObjRenFactoryLic.EMPLOYEES != null && ObjRenFactoryLic.EMPLOYEES != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@EMPLOYEES", Convert.ToInt32(ObjRenFactoryLic.EMPLOYEES));
+                }
+
+                if (ObjRenFactoryLic.Investment != null && ObjRenFactoryLic.Investment != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@INVESTMENT", ObjRenFactoryLic.Investment);
+                }
+
+                if (ObjRenFactoryLic.TYPEID != null && ObjRenFactoryLic.TYPEID != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@TYPEID", ObjRenFactoryLic.TYPEID);
+                }
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
         }
     }
 

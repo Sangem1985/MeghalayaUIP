@@ -126,30 +126,54 @@ namespace MeghalayaUIP.Dept.Renewal
                     else
                     {
                         verifypanel.Visible = false;
-                    }
-                    //if (Request.QueryString["status"].ToString().ToLower().Contains("offline"))
-                    //{
-                    //    headingThree.Visible = false;
-                    //    headingFour.Visible = false;
-                    //    if (Request.QueryString["status"].ToString() == "OFFLINEPENDING" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGWITHIN" || Request.QueryString["status"].ToString() == "OFFLINEPENDINGBEYOND")
-                    //    {
-
-                    //        Offlineverifypanel.Visible = true;
-                    //    }
-                    //}
+                    }                   
                 }
                 else
                 {
                     verifypanel.Visible = false;
-                 //   Offlineverifypanel.Visible = false;
                 }
-
-
 
                 if (Session["Questionnaireid"] != null && Session["INVESTERID"] != null)
                 {
                     DataSet ds = new DataSet();
                     ds = objRenbal.GetRENApplicationDetails(Convert.ToString(Session["Questionnaireid"]), Session["INVESTERID"].ToString());
+
+                    if (ObjUserInfo.Deptid == "2")
+                    {
+                        Pollution.Visible = true;
+                    }
+                    else { Pollution.Visible = false; }
+                    if (ObjUserInfo.Deptid == "8")
+                    {
+                        Drug.Visible = true;
+                    }
+                    else { Drug.Visible = false; }
+
+                    if (ObjUserInfo.Deptid == "10")
+                    {
+
+                    }
+                    else { }
+
+                    if (ObjUserInfo.Deptid == "11")
+                    {
+
+                    }
+                    else { }
+
+                    if (ObjUserInfo.Deptid == "13")
+                    {
+
+                    }
+                    else { }
+
+                    if (ObjUserInfo.Deptid == "16")
+                    {
+
+                    }
+                    else { }
+
+
                     if (ds != null && ds.Tables.Count > 0 &&  ds.Tables[0].Rows.Count > 0)
                     {
                         lblnameUnit.Text = lblunitname1.Text = lblunitname1Approval.Text = Convert.ToString(ds.Tables[0].Rows[0]["RENID_NAMEOFUNIT"]);
@@ -1091,32 +1115,49 @@ namespace MeghalayaUIP.Dept.Renewal
                     }
                     // username = ObjUserInfo.UserName;
                 }
-                if (ddlapproval.SelectedValue == "16")
+                if(ddlapproval.SelectedValue != "0")
                 {
-                    tdbtnreject.Visible = true;
-                    tdapprovalAction.Visible = true;
-                    trapproval.Visible = false;
-                    trrejection.Visible = true;
-                    txtRejection.Visible = true;
-                    tdapproverejection.Visible = true;
-                    lblremarks.Text = "Please Enter Rejection Reason";
-                    tdapprovalAction.Visible = true;
-                    btnreject.Visible = true;
-                    btnApprove.Visible = false;
-                    TRAPPROVE.Visible = false;
+                    if (ddlapproval.SelectedValue == "16")
+                    {
+                        tdbtnreject.Visible = true;
+                        tdapprovalAction.Visible = true;
+                        trapproval.Visible = false;
+                        trrejection.Visible = true;
+                        txtRejection.Visible = true;
+                        tdapproverejection.Visible = true;
+                        lblremarks.Text = "Please Enter Rejection Reason";
+                        tdapprovalAction.Visible = true;
+                        btnreject.Visible = true;
+                        btnApprove.Visible = false;
+                        TRAPPROVE.Visible = false;
+                    }
+                    else if(ddlapproval.SelectedValue == "13")
+                    {
+                        trapproval.Visible = true;
+                        trrejection.Visible = false;
+                        txtRejection.Visible = false;
+                        tdapproverejection.Visible = false;
+                        tdapprovalAction.Visible = false;
+                        btnreject.Visible = false;
+                        btnApprove.Visible = true;
+                        TRAPPROVE.Visible = true;
+                        tdbtnreject.Visible = false;
+                    }
                 }
                 else
                 {
-                    trapproval.Visible = true;
+                    trapproval.Visible = false;
                     trrejection.Visible = false;
                     txtRejection.Visible = false;
                     tdapproverejection.Visible = false;
                     tdapprovalAction.Visible = false;
                     btnreject.Visible = false;
-                    btnApprove.Visible = true;
-                    TRAPPROVE.Visible = true;
+                    btnApprove.Visible = false;
+                    TRAPPROVE.Visible = false;
                     tdbtnreject.Visible = false;
                 }
+              
+
 
             }
             catch (Exception ex)
