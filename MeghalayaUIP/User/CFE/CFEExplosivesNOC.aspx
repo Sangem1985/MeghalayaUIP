@@ -68,7 +68,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Name and Description *</label>
+                                                    <label class="col-lg-6 col-form-label">Name and Description <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -76,7 +76,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Class *</label>
+                                                    <label class="col-lg-6 col-form-label">Class <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtClass" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -84,7 +84,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Division if any *</label>
+                                                    <label class="col-lg-6 col-form-label">Division if any <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtDivision" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -94,7 +94,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Quantity(at any one time) *</label>
+                                                    <label class="col-lg-6 col-form-label">Quantity(at any one time) <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtQuantityTime" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -102,7 +102,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Quantity(at any one month) *</label>
+                                                    <label class="col-lg-6 col-form-label">Quantity(at any one month) <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtQuantityMonth" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -117,14 +117,15 @@
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                 GridLines="None"
                                                 Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVEXPLOSIVE_RowDeleting">
+                                                <HeaderStyle HorizontalAlign="Center"  />
                                                 <RowStyle BackColor="#ffffff" />
                                                 <Columns>
                                                     <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Name and Description" DataField="CFEME_NAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Class" DataField="CFEME_CLASS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Division if any" DataField="CFEME_DIVISION" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Quantity(at any one time)" DataField="CFEME_QUANTITYTIME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Quantity(at any one month)" DataField="CFEME_QUANTITYMONTH" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Name and Description" DataField="CFEME_NAME"   ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Class" DataField="CFEME_CLASS"   ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Division if any" DataField="CFEME_DIVISION" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Quantity(at any one time)" DataField="CFEME_QUANTITYTIME"   ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Quantity(at any one month)" DataField="CFEME_QUANTITYMONTH"   ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
                                                 </Columns>
                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -138,7 +139,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-11">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-9 col-form-label">Details of site where explosives will be used and distance of site of use from the storage premises (in case of licence for use)  *</label>
+                                                    <label class="col-lg-9 col-form-label">Details of site where explosives will be used and distance of site of use from the storage premises (in case of licence for use)  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtExplosive" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -148,7 +149,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-11">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-9 col-form-label">Details of explosives road van which will be used for transportation of explosives (in case of no objection certificate for road van)</label>
+                                                    <label class="col-lg-9 col-form-label">Details of explosives road van which will be used for transportation of explosives (in case of no objection certificate for road van)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtRoadVan" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -162,7 +163,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-9 col-form-label">(i) I or We have not been convicted under any offence or ordered to execute bond under Chapter VIII of Code of Criminal Procedure, 1973, during the last 10 years ( If yes, please give details).*</label>
+                                                    <label class="col-lg-9 col-form-label">(i) I or We have not been convicted under any offence or ordered to execute bond under Chapter VIII of Code of Criminal Procedure, 1973, during the last 10 years ( If yes, please give details).<span class="text-danger">*</span></label>
                                                     <div class="col-lg-3">
                                                         <asp:RadioButtonList ID="rblcriminal1973" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblcriminal1973_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -175,7 +176,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6" id="Details" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Enter Details  *</label>
+                                                    <label class="col-lg-6 col-form-label">Enter Details  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:TextBox ID="txtDetails" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -185,7 +186,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-9 col-form-label">(ii) Particulars of other licenses: I / We possess under Explosives Act, 1884 (Note: Please write the licence no(s), if any) *</label>
+                                                    <label class="col-lg-9 col-form-label">(ii) Particulars of other licenses: I / We possess under Explosives Act, 1884 (Note: Please write the licence no(s), if any) <span class="text-danger">*</span></label>
                                                     <div class="col-lg-3">
                                                         <asp:RadioButtonList ID="rblLIC1884" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLIC1884_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -198,7 +199,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6" id="LicDetails" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Enter Details  *</label>
+                                                    <label class="col-lg-6 col-form-label">Enter Details  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:TextBox ID="txtDet" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="50" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -208,7 +209,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-9 col-form-label">(iii) I/We have obtained approval as required under rule 101 from the competent authority: (Note: Please enclose the approval letter, approved drawing(s), other enclosures, if any) *</label>
+                                                    <label class="col-lg-9 col-form-label">(iii) I/We have obtained approval as required under rule 101 from the competent authority: (Note: Please enclose the approval letter, approved drawing(s), other enclosures, if any)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-3">
                                                         <asp:RadioButtonList ID="rblApproval101" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblApproval101_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -221,7 +222,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6" id="approvaldet" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Enter Details  *</label>
+                                                    <label class="col-lg-6 col-form-label">Enter Details  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:TextBox ID="txtDetail" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -231,7 +232,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">(iv) Any other relevant information: *</label>
+                                                    <label class="col-lg-6 col-form-label">(iv) Any other relevant information: <span class="text-danger">*</span></label>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:TextBox ID="txtinformation" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -243,7 +244,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1.NOC from Headman for proposed site for rural areas and NOC from Local Authority for urban areas *</label>
+                                                    <label class="col-lg-6 col-form-label">1.NOC from Headman for proposed site for rural areas and NOC from Local Authority for urban areas <span class="text-danger">*</span></label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupNocHeadman" runat="server" />
                                                     </div>
@@ -263,7 +264,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2.Clearance certificate from Fire Department *</label>
+                                                    <label class="col-lg-6 col-form-label">2.Clearance certificate from Fire Department <span class="text-danger">*</span></label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupFireDepartment" runat="server" />
                                                     </div>
@@ -284,7 +285,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        3.Details of site where explosives will be used and distance of site of use from the storage premises (Site layout) *</label>
+                                                        3.Details of site where explosives will be used and distance of site of use from the storage premises (Site layout) <span class="text-danger">*</span></label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupsite" runat="server" />
                                                     </div>
@@ -304,7 +305,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4.Clearance from Deputy Controller of Explosives *</label>
+                                                    <label class="col-lg-6 col-form-label">4.Clearance from Deputy Controller of Explosives <span class="text-danger">*</span></label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupExplosives" runat="server" />
                                                     </div>

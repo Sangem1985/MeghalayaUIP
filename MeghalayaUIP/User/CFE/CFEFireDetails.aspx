@@ -4,12 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type="text/javascript">
-    function handleKeyUp(input) {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        } else {
-            input.style.border = "1px solid #767575b5";
-        }
+        function handleKeyUp(input) {
+            if (input.value.trim() === "") {
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "1px solid #767575b5";
+            }
         }
         function validateDropdown(dropdown) {
 
@@ -75,7 +75,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1. District*</label>
+                                                        <label class="col-lg-6 col-form-label">1. District<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:DropDownList ID="ddldistric" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddldistric_SelectedIndexChanged">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
@@ -85,7 +85,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">2. Mandal*</label>
+                                                        <label class="col-lg-6 col-form-label">2. Mandal<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:DropDownList ID="ddlmandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlmandal_SelectedIndexChanged">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
@@ -95,7 +95,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">3. Village*</label>
+                                                        <label class="col-lg-6 col-form-label">3. Village<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:DropDownList ID="ddlvillage" runat="server" class="form-control">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
@@ -136,7 +136,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Height of the building (in mtrs.) *</label>
+                                                    <label class="col-lg-6 col-form-label">1. Height of the building (in mtrs.) <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtheight" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -144,7 +144,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. Height of each floor (in mtrs.)*(min 2.9 mtrs) </label>
+                                                    <label class="col-lg-6 col-form-label">2. Height of each floor (in mtrs.)<span class="text-danger">*</span>(min 2.9 mtrs) </label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtheightfloor" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -152,7 +152,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3. Plot Area (in Sq m) *</label>
+                                                    <label class="col-lg-6 col-form-label">3. Plot Area (in Sq m) <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtplot" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -162,7 +162,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4. Proposed build up area (in Sq m) *</label>
+                                                    <label class="col-lg-6 col-form-label">4. Proposed build up area (in Sq m) <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtbuildup" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -170,7 +170,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">5. Proposed Drive way (Breadth with units in meters)  *</label>
+                                                    <label class="col-lg-6 col-form-label">5. Proposed Drive way (Breadth with units in meters)  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtdriveway" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -180,7 +180,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">6. Existing or proposed Approach Road (Breadth with units in meters)*</label>
+                                                    <label class="col-lg-6 col-form-label">6. Existing or proposed Approach Road (Breadth with units in meters)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:TextBox ID="txtBreadth" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -190,7 +190,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">7. Category of Building for which Fire Clearance is applied *</label>
+                                                    <label class="col-lg-6 col-form-label">7. Category of Building for which Fire Clearance is applied <span class="text-danger">*</span></label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:DropDownList ID="ddlbuilding" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
@@ -199,7 +199,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">8. Fee Amount in Rs (Note: This is an aprrox. value. The amount may change tentatively)</label>
@@ -217,7 +217,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1 (a).                                                                          East *</label>
+                                                    <label class="col-lg-6 col-form-label">1 (a).East <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtEast" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -225,7 +225,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1   (b). Distance from proposed Building (in meters)    *</label>
+                                                    <label class="col-lg-6 col-form-label">1   (b). Distance from proposed Building (in meters)   <span class="text-danger">*</span></label>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:TextBox ID="txtdistance" runat="server" class="form-control" onkeypress="return NumberOnly()" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -236,7 +236,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2  (a). West  *</label>
+                                                    <label class="col-lg-6 col-form-label">2  (a). West  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtWest" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -244,7 +244,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2   (b). Distance from proposed Building (in meters)    *</label>
+                                                    <label class="col-lg-6 col-form-label">2   (b). Distance from proposed Building (in meters)    <span class="text-danger">*</span></label>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:TextBox ID="txtbuilding" runat="server" class="form-control" onkeypress="return NumberOnly()" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -254,7 +254,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3  (a). North  *</label>
+                                                    <label class="col-lg-6 col-form-label">3  (a). North <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtnorth" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -262,7 +262,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3  (b). Distance from proposed Building (in meters)    *</label>
+                                                    <label class="col-lg-6 col-form-label">3  (b). Distance from proposed Building (in meters)    <span class="text-danger">*</span></label>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:TextBox ID="txtproposedbuid" runat="server" class="form-control" onkeypress="return NumberOnly()" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -272,7 +272,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4  (a). South   *</label>
+                                                    <label class="col-lg-6 col-form-label">4  (a). South   <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtsouth" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -280,7 +280,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4 (b).  Distance from proposed Building (in meters)     *</label>
+                                                    <label class="col-lg-6 col-form-label">4 (b).  Distance from proposed Building (in meters)     <span class="text-danger">*</span></label>
                                                     <div class="col-lg-4 d-flex">
                                                         <asp:TextBox ID="txtdistancebuild" runat="server" class="form-control" onkeypress="return NumberOnly()" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -291,7 +291,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-8">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Distance from the nearest Fire Station (in meters)    *</label>
+                                                    <label class="col-lg-6 col-form-label">Distance from the nearest Fire Station (in meters)    <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtstation" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -303,7 +303,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">1.Blueprint of Building i.e. Building Plan as per NBC  *</label>
+                                                    <label class="col-lg-4 col-form-label">1.Blueprint of Building i.e. Building Plan as per NBC <span class="text-danger">*</span></label>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupBuildingplan" runat="server" />
                                                     </div>
@@ -321,7 +321,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">2.Fire Lay out Plan  *</label>
+                                                    <label class="col-lg-4 col-form-label">2.Fire Lay out Plan  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupfireplan" runat="server" />
                                                     </div>

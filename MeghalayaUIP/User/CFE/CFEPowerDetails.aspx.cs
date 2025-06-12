@@ -213,48 +213,52 @@ namespace MeghalayaUIP.User.CFE
                 ds = objcfebal.GetPowerDetailsRetrive(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
 
                 if (ds.Tables[0].Rows.Count > 0)
+                {   
+                    ddlSubDiv.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"].ToString();
+                    ddlSubDiv_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlDist.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_DISTRICT"].ToString();
+                    ddlDist_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlPincode.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_PINCODEID"].ToString();
+                }
+                /*
+                txtHP.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_CONNECTEDLOAD"]);
+                txtMaxDemand.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_MAXIMUMDEMAND"]);
+                ddlvtglevel.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_VOLTEAGELEVEL"].ToString();
+                //ddlPermise.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_EXISTINGSERVICE"].ToString();
+                txtMaxhours.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_WRKNGHRSPERDAY"]);
+                txtMonth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_WRKNGHRSPERMONTH"]);
+                txttrailProduct.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_TRIALPRODUCTIONDATE"]);
+                txtPowersupply.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_POWERREQDATE"]);
+                txtenergy.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_REQLOAD"]);
+                ddlloadenergy.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_ENERGYSOURCE"].ToString();
+
+                txtPrpse.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_PURPOSE"]);
+                rblCmplnc.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_LOADTYPE"]);
+                string loadCharacterData = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_CHARLOADTYPE"]);
+
+                if (!string.IsNullOrEmpty(loadCharacterData))
                 {
-                    //ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_UNITID"]);
-                    txtHP.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_CONNECTEDLOAD"]);
-                    txtMaxDemand.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_MAXIMUMDEMAND"]);
-                    ddlvtglevel.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_VOLTEAGELEVEL"].ToString();
-                    //ddlPermise.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_EXISTINGSERVICE"].ToString();
-                    txtMaxhours.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_WRKNGHRSPERDAY"]);
-                    txtMonth.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_WRKNGHRSPERMONTH"]);
-                    txttrailProduct.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_TRIALPRODUCTIONDATE"]);
-                    txtPowersupply.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_POWERREQDATE"]);
-                    txtenergy.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_REQLOAD"]);
-                    ddlloadenergy.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_ENERGYSOURCE"].ToString();
-
-                    txtPrpse.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_PURPOSE"]);
-                    rblCmplnc.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_LOADTYPE"]);
-                    string loadCharacterData = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_CHARLOADTYPE"]);
-
-                    if (!string.IsNullOrEmpty(loadCharacterData))
+                    string[] selectedLoadCharacterItems = loadCharacterData.Split('/');
+                    foreach (ListItem item in chkCharacterSupply.Items)
                     {
-                        string[] selectedLoadCharacterItems = loadCharacterData.Split('/');
-                        foreach (ListItem item in chkCharacterSupply.Items)
+                        if (selectedLoadCharacterItems.Contains(item.Text))
                         {
-                            if (selectedLoadCharacterItems.Contains(item.Text))
-                            {
-                                item.Selected = true;
-                            }
+                            item.Selected = true;
                         }
                     }
-
-                    rblInPhase.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_CONCTDLOAD"]);
-                    txtYear1.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR1"]);
-                    txtYear2.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR2"]);
-                    txtYear3.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR3"]);
-                    txtYear4.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR4"]);
-                    txtYear5.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR5"]);
-                    txtEleChg.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_ELECHARGE"]);
-                    ddlSubDiv.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]);
-                    ddlSubDiv_SelectedIndexChanged(null, EventArgs.Empty);
-                    ddlDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]);
-
                 }
 
+                rblInPhase.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_CONCTDLOAD"]);
+                txtYear1.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR1"]);
+                txtYear2.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR2"]);
+                txtYear3.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR3"]);
+                txtYear4.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR4"]);
+                txtYear5.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_YEAR5"]);
+                txtEleChg.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_ELECHARGE"]);
+                ddlSubDiv.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]);
+                ddlSubDiv_SelectedIndexChanged(null, EventArgs.Empty);
+                ddlDist.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]);
+                
                 if (ds.Tables[1].Rows.Count > 0)
                 {
                     for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
@@ -305,7 +309,7 @@ namespace MeghalayaUIP.User.CFE
                 {
                     isLoadInPhase.Visible = false;
                 }
-
+                */
             }
             catch (Exception ex)
             {
@@ -343,7 +347,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEPower.EnergySource = ddlloadenergy.SelectedValue;
 
                     objCFEPower.Purpose = txtPrpse.Text;
-                    objCFEPower.LoadType = rblCmplnc.SelectedItem.Text;
+                    objCFEPower.LoadType = rblCmplnc.SelectedValue;
                     objCFEPower.Pincode = ddlPincode.SelectedValue;
 
                     List<string> selectedLoadCharacterItems = new List<string>();
@@ -356,7 +360,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                     objCFEPower.LoadCharacter = string.Join("/", selectedLoadCharacterItems);
 
-                    objCFEPower.ConnectedLoadReq = rblInPhase.SelectedItem.Text;
+                    objCFEPower.ConnectedLoadReq = rblInPhase.SelectedValue;
                     objCFEPower.Year1 = txtYear1.Text;
                     objCFEPower.Year2 = txtYear2.Text;
                     objCFEPower.Year3 = txtYear3.Text;
@@ -379,8 +383,8 @@ namespace MeghalayaUIP.User.CFE
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                     DataSet dss = new DataSet();
-                    dss = GetDataPower();
-                    if (dss.Tables[0].Rows.Count > 0)
+                    //dss = GetDataPower();
+                    if (dss.Tables.Count>0 && dss.Tables[0].Rows.Count > 0)
                     {
                         string RegNo = Post(dss);
                         if (RegNo != "")
@@ -411,8 +415,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
-                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
+              
                 if (ddlSubDiv.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please select Sub Division  \\n";
@@ -430,6 +433,8 @@ namespace MeghalayaUIP.User.CFE
                 }
 
                 /*
+                  List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
+                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
                 if (string.IsNullOrEmpty(txtHP.Text) || txtHP.Text == "" || txtHP.Text == null || txtHP.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtHP.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Load Connected  \\n";
@@ -558,7 +563,6 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please upload Attach approval of the Single Window Agency of the Industries Departments \\n";
                     slno = slno + 1;
                 }
-
                 */
 
                 return errormsg;

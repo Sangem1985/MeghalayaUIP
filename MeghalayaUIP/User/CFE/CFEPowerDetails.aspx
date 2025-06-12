@@ -71,7 +71,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Subdivision *</label>
+                                                    <label class="col-lg-6 col-form-label">1. Subdivision <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlSubDiv" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSubDiv_SelectedIndexChanged">
                                                         </asp:DropDownList>
@@ -81,7 +81,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. District *</label>
+                                                    <label class="col-lg-6 col-form-label">2. District <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlDist" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDist_SelectedIndexChanged"></asp:DropDownList>
                                                     </div>
@@ -89,7 +89,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3. Pincode *</label>
+                                                    <label class="col-lg-6 col-form-label">3. Pincode <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlPincode" runat="server" class="form-control"></asp:DropDownList>
                                                     </div>

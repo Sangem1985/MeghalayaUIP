@@ -413,15 +413,13 @@ namespace MeghalayaUIP.User.CFE
                         divMunicipalWatr.Visible = false; divUrbanWatr.Visible = false; divLbrAct1970.Visible = false;
                         divLbrAct1979.Visible = false; divLbrAct1996.Visible = false; divContrLbrAct.Visible = false;
                         divContrLbrAct1979.Visible = false; divConstrPermit.Visible = false; divBldngPlan.Visible = false;
-
-
-
                         div2.Visible = true;
+
+                        /*
                         for (int i = 0; i < dsOffline.Tables[0].Rows.Count; i++)
                         {
                             if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "1")
                                 divPCB.Visible = true;
-
 
                             if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "2")
                                 divHazPCB.Visible = true;
@@ -509,9 +507,8 @@ namespace MeghalayaUIP.User.CFE
 
                             if (Convert.ToString(dsOffline.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "31")
                                 divBldngPlan.Visible = true;
-
-
                         }
+                        */
                         if (dsOffline.Tables[1].Rows.Count > 0)
                         {
                             divOffline.Visible = true; btnNext.Visible = true; btnNext.Enabled = false; div2.Visible = true;
@@ -521,8 +518,7 @@ namespace MeghalayaUIP.User.CFE
                             {
                                 if (Convert.ToInt32(dsOffline.Tables[1].Rows[i]["CFEA_APPROVALID"]) == 1)//PCB NOC
                                 {
-                                    divPCB.Visible = true;
-                                    hpl1PCB.Visible = true;
+                                    divPCB.Visible = true; hpl1PCB.Visible = true;                                   
                                     hpl1PCB.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath((Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILEPATH"])));
                                     hpl1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_FILENAME"]);
                                     txt1PCB.Text = Convert.ToString(dsOffline.Tables[1].Rows[i]["CFEA_REFERENCENO"]);

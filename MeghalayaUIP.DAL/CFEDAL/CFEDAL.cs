@@ -597,7 +597,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEID_REPDOORNO", objCFEEntrepreneur.AuthRep_DoorNo);
                 com.Parameters.AddWithValue("@CFEID_REPLOCALITY", objCFEEntrepreneur.AuthRep_Locality);
 
-                if (objCFEEntrepreneur.Stateid !="" || objCFEEntrepreneur.Stateid !=null)
+                if (objCFEEntrepreneur.Stateid != "" || objCFEEntrepreneur.Stateid != null)
                 {
                     com.Parameters.AddWithValue("@CFEID_STATEID", Convert.ToInt32(objCFEEntrepreneur.Stateid));
                 }
@@ -854,18 +854,28 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 com.Parameters.AddWithValue("@CFEPD_CFEQDID", Convert.ToInt32(objCFEPower.Questionnariid));
                 com.Parameters.AddWithValue("@CFEPD_UNITID", Convert.ToInt32(objCFEPower.UnitId));
-                com.Parameters.AddWithValue("@CFEPD_CONNECTEDLOAD", Convert.ToDecimal(objCFEPower.Con_Load_HP));
-                com.Parameters.AddWithValue("@CFEPD_MAXIMUMDEMAND", Convert.ToDecimal(objCFEPower.Maximum_KVA));
-                com.Parameters.AddWithValue("@CFEPD_VOLTEAGELEVEL", Convert.ToInt32(objCFEPower.Voltage_Level));
-                com.Parameters.AddWithValue("@CFEPD_WRKNGHRSPERDAY", Convert.ToInt32(objCFEPower.Per_Day));
-                com.Parameters.AddWithValue("@CFEPD_WRKNGHRSPERMONTH", Convert.ToInt32(objCFEPower.Per_Month));
-                com.Parameters.AddWithValue("@CFEPD_TRIALPRODUCTIONDATE", DateTime.ParseExact(objCFEPower.Expected_Month_Trial, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFEPD_POWERREQDATE", DateTime.ParseExact(objCFEPower.Probable_Date_Power, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@CFEPD_REQLOAD", Convert.ToDecimal(objCFEPower.LoadReq));
-                com.Parameters.AddWithValue("@CFEPD_ENERGYSOURCE", Convert.ToInt32(objCFEPower.EnergySource));
+
+                if (objCFEPower.Con_Load_HP != "")
+                    com.Parameters.AddWithValue("@CFEPD_CONNECTEDLOAD", Convert.ToDecimal(objCFEPower.Con_Load_HP));
+                if (objCFEPower.Maximum_KVA != "")
+                    com.Parameters.AddWithValue("@CFEPD_MAXIMUMDEMAND", Convert.ToDecimal(objCFEPower.Maximum_KVA));
+                if (objCFEPower.Voltage_Level != "")
+                    com.Parameters.AddWithValue("@CFEPD_VOLTEAGELEVEL", Convert.ToInt32(objCFEPower.Voltage_Level));
+                if (objCFEPower.Per_Day != "")
+                    com.Parameters.AddWithValue("@CFEPD_WRKNGHRSPERDAY", Convert.ToInt32(objCFEPower.Per_Day));
+                if (objCFEPower.Per_Month != "")
+                    com.Parameters.AddWithValue("@CFEPD_WRKNGHRSPERMONTH", Convert.ToInt32(objCFEPower.Per_Month));
+                if (objCFEPower.Expected_Month_Trial != "")
+                    com.Parameters.AddWithValue("@CFEPD_TRIALPRODUCTIONDATE", DateTime.ParseExact(objCFEPower.Expected_Month_Trial, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (objCFEPower.Expected_Month_Trial != "")
+                    com.Parameters.AddWithValue("@CFEPD_POWERREQDATE", DateTime.ParseExact(objCFEPower.Probable_Date_Power, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (objCFEPower.Probable_Date_Power != "")
+                    com.Parameters.AddWithValue("@CFEPD_REQLOAD", Convert.ToDecimal(objCFEPower.LoadReq));
+                if (objCFEPower.EnergySource != "")
+                    com.Parameters.AddWithValue("@CFEPD_ENERGYSOURCE", Convert.ToInt32(objCFEPower.EnergySource));
+
                 com.Parameters.AddWithValue("CFEPD_CREATEDBY", Convert.ToInt32(objCFEPower.CreatedBy));
                 com.Parameters.AddWithValue("CFEPD_CREATEDBYIP", objCFEPower.IPAddress);
-
                 com.Parameters.AddWithValue("@CFEPD_PURPOSE", objCFEPower.Purpose);
                 com.Parameters.AddWithValue("@CFEPD_LOADTYPE", objCFEPower.LoadType);
                 com.Parameters.AddWithValue("@CFEPD_CHARLOADTYPE", objCFEPower.LoadCharacter);
@@ -1317,7 +1327,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
             return Result;
         }
 
-       public string InsertCFETreesLopped(Forest_Details objCFEQForest)
+        public string InsertCFETreesLopped(Forest_Details objCFEQForest)
         {
             string Result = "";
             SqlConnection connection = new SqlConnection(connstr);
@@ -1340,7 +1350,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFELP_LOCALNAME", objCFEQForest.LocalName);
                 com.Parameters.AddWithValue("@CFELP_SCIENTIFICNAME", objCFEQForest.ScfcName);
                 com.Parameters.AddWithValue("@CFELP_NOOFTREES", objCFEQForest.NoofTrees);
-              
+
 
                 com.Parameters.AddWithValue("@CFELP_CREATEDBY", Convert.ToInt32(objCFEQForest.CreatedBy));
                 com.Parameters.AddWithValue("@CFELP_CREATEDBYIP", objCFEQForest.IPAddress);
@@ -3766,9 +3776,9 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(ObjCfe.deptid));
                 com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(ObjCfe.ApprovalId));
                 com.Parameters.AddWithValue("@RESPONSE", ObjCfe.Remarks);
-                com.Parameters.AddWithValue("@IPADDRESS", ObjCfe.IPAddress); 
+                com.Parameters.AddWithValue("@IPADDRESS", ObjCfe.IPAddress);
                 com.Parameters.AddWithValue("@REFNUMBER", ObjCfe.ReferenceNumber);
-                com.Parameters.AddWithValue("@APPLEVEL", ObjCfe.ViewStatus);                
+                com.Parameters.AddWithValue("@APPLEVEL", ObjCfe.ViewStatus);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();

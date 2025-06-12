@@ -74,7 +74,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Line of Activity*</label>
+                                                    <label class="col-lg-6 col-form-label">Line of Activity<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlLineOfActivity" runat="server" class="form-control" Enabled="false" onchange="validateDropdown(this)">
                                                         </asp:DropDownList>
@@ -88,7 +88,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1. Name of Product *</label>
+                                                        <label class="col-lg-6 col-form-label">1. Name of Product <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtManfItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -96,7 +96,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">2. Annual Manufacturing Capacity (in Tons)</label>
+                                                        <label class="col-lg-6 col-form-label">2. Annual Manufacturing Capacity (in Tons)<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtManfAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -104,7 +104,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">3. Approx. Value in Lakhs</label>
+                                                        <label class="col-lg-6 col-form-label">3. Approx. Value in Lakhs<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtManfValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -133,6 +133,7 @@
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                         GridLines="Both" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="gvManufacture_RowDeleting">
                                                         <RowStyle BackColor="#ffffff" />
+                                                        <HeaderStyle HorizontalAlign="Center" />
                                                         <Columns>
                                                             <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="Name of Product" DataField="ManfItemName" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
@@ -151,7 +152,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Name of major raw material  *</label>
+                                                    <label class="col-lg-6 col-form-label">1. Name of major raw material  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtRMItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -159,7 +160,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. Annual Manufacturing Capacity (in tonne)*</label>
+                                                    <label class="col-lg-6 col-form-label">2. Annual Manufacturing Capacity (in Tons)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtRMAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -170,7 +171,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        3. Appox. value (₹ in lakhs) *</label>
+                                                        3. Appox. value (₹ in lakhs) <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtRMValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="9" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -178,7 +179,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4. Source(s) of supply</label>
+                                                    <label class="col-lg-6 col-form-label">4. Source(s) of supply<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtRMSource" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -196,12 +197,13 @@
                                                 GridLines="Both" OnRowDeleting="gvRwaMaterial_RowDeleting"
                                                 Width="100%" EnableModelValidation="True" Visible="false">
                                                 <RowStyle BackColor="#ffffff" />
+                                                <HeaderStyle HorizontalAlign="Center" />
                                                 <Columns>
                                                     <asp:CommandField HeaderText="Status" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField HeaderText="Name of major raw material" DataField="RMName" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Annual manufacturing capacity (in tonne)" DataField="RMAnnualCapacity" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Appox. value (₹ in lakh)" DataField="RMValue" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Source(s) of supply" DataField="RMSource" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Name of major raw material" DataField="RMName"  HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Annual manufacturing capacity (in tonne)" DataField="RMAnnualCapacity"  HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Appox. value (₹ in lakh)" DataField="RMValue"  HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Source(s) of supply" DataField="RMSource"  HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                 </Columns>
                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                 <AlternatingRowStyle BackColor="White" />

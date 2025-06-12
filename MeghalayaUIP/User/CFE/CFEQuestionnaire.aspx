@@ -553,6 +553,20 @@
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">
+                                                                                4. Do you Use (High Tension)
+                                                                                <br />
+                                                                                HT meter Above 70KVA (Drawing Plan Approval)<span class="text-danger">*</span></label>
+                                                                            <div class="col-lg-6 d-flex">
+                                                                                <asp:RadioButtonList ID="rblHighTension" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblHighTension_SelectedIndexChanged">
+                                                                                    <asp:ListItem Text="Yes" Value="Y" />
+                                                                                    <asp:ListItem Text="No" Value="N" />
+                                                                                </asp:RadioButtonList>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6" runat="server" visible="false">
+                                                                        <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Do you store RS, DS<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
                                                                                 <asp:RadioButtonList ID="rblRSDSstore" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
@@ -561,6 +575,49 @@
                                                                                 </asp:RadioButtonList>
                                                                             </div>
                                                                         </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 d-flex" runat="server" id="divHTMeter" visible="false">
+
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">4a. Select Regulation<span class="star">*</span></label>
+                                                                            <div class="col-lg-4">
+                                                                                <asp:DropDownList ID="ddlRegulation" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlRegulation_SelectedIndexChanged" onchange="validateDropdown(this)">
+                                                                                    <asp:ListItem Text="Regulation" Value="0" />
+                                                                                </asp:DropDownList>
+                                                                                <%-- <p>43(3)- Electrical Installation<br /> 32 - Generating Unit/Generators</p>--%>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6" runat="server" visible="false" id="divvoltages">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">4b. Select Voltage<span class="star">*</span></label>
+                                                                            <div class="col-lg-4 d-flex">
+                                                                                <asp:DropDownList ID="ddlVoltage" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
+                                                                                    <asp:ListItem Text="Voltage" Value="0" />
+                                                                                </asp:DropDownList>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6" runat="server" visible="false" id="divpowerplants1">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">4b. Select Power Plant<span class="star">*</span></label>
+                                                                            <div class="col-lg-4 d-flex">
+                                                                                <asp:DropDownList ID="ddlPowerPlant" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
+                                                                                    <asp:ListItem Text="Voltage" Value="0" />
+                                                                                </asp:DropDownList>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">4c. Aggregate Capacity:<span class="star">*</span></label>
+                                                                            <div class="col-lg-4">
+                                                                                <asp:TextBox ID="txtAggrCapacity" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="10" onkeyup="handleKeyUp(this)"></asp:TextBox>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6" runat="server" visible="false" id="divpowerplants2">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12 d-flex">
@@ -641,67 +698,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                10. Do you Use (High Tension)
-                                                                                <br />
-                                                                                HT meter Above 70KVA<span class="text-danger">*</span></label>
-                                                                            <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblHighTension" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblHighTension_SelectedIndexChanged">
-                                                                                    <asp:ListItem Text="Yes" Value="Y" />
-                                                                                    <asp:ListItem Text="No" Value="N" />
-                                                                                </asp:RadioButtonList>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-12 d-flex" runat="server" id="divHTMeter" visible="false">
-
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-lg-6 col-form-label">10a. Select Regulation<span class="star">*</span></label>
-                                                                            <div class="col-lg-4">
-                                                                                <asp:DropDownList ID="ddlRegulation" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlRegulation_SelectedIndexChanged" onchange="validateDropdown(this)">
-                                                                                    <asp:ListItem Text="Regulation" Value="0" />
-                                                                                </asp:DropDownList>
-                                                                                <%-- <p>43(3)- Electrical Installation<br /> 32 - Generating Unit/Generators</p>--%>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6" runat="server" visible="false" id="divvoltages">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-lg-6 col-form-label">10b. Select Voltage<span class="star">*</span></label>
-                                                                            <div class="col-lg-4 d-flex">
-                                                                                <asp:DropDownList ID="ddlVoltage" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
-                                                                                    <asp:ListItem Text="Voltage" Value="0" />
-                                                                                </asp:DropDownList>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6" runat="server" visible="false" id="divpowerplants1">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-lg-6 col-form-label">10b. Select Power Plant<span class="star">*</span></label>
-                                                                            <div class="col-lg-4 d-flex">
-                                                                                <asp:DropDownList ID="ddlPowerPlant" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
-                                                                                    <asp:ListItem Text="Voltage" Value="0" />
-                                                                                </asp:DropDownList>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group row">
-                                                                            <label class="col-lg-6 col-form-label">10c. Aggregate Capacity:<span class="star">*</span></label>
-                                                                            <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtAggrCapacity" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="10" onkeyup="handleKeyUp(this)"></asp:TextBox>
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6" runat="server" visible="false" id="divpowerplants2">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-lg-6 col-form-label">
-                                                                                11. Do You require Letter for distance
+                                                                                10. Do You require Letter for distance
                                                                                 <br />
                                                                                 from Forest<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -712,11 +709,16 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                </div>
+
+
+                                                                <div class="col-md-12 d-flex">
+
 
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                12. Do you require Non-Forest Land
+                                                                                11. Do you require Non-Forest Land
                                                                                 <br />
                                                                                 Certificate<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -727,27 +729,27 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-md-12 d-flex">
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                13. Do you require Permission to Fell Isolated Trees/Lopping of Branches 
-                                                                                <br />
-                                                                                From Homesteads, Farms, etc
-                                                                                <span class="star">*</span></label>
+                                                                                12. Do you require Permission to Fell Isolated Trees/Lopping of Branches 
+                                                                                     <br />
+                                                                                From Homesteads, Farms, etc<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblFelltrees" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblFelltrees_SelectedIndexChanged">
+                                                                                <asp:RadioButtonList ID="rblFelltrees" runat="server" RepeatDirection="Horizontal" TabIndex="1"  OnSelectedIndexChanged="rblFelltrees_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                </div>
+                                                                <div class="col-md-12 d-flex">
+
                                                                     <div class="col-md-6" runat="server" visible="false" id="divtrees">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                13a. Number of trees to be felled
+                                                                                12a. Number of trees to be felled
                                                                                 <br />
                                                                                 (Girth of tree > 30 centimeters)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -757,7 +759,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
+                                                                <div class="col-md-12 d-flex" runat="server" visible="false">
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
@@ -792,7 +794,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                16. Do You Require NoC for Ground 
+                                                                                13. Do You Require NoC for Ground 
                                                                                 <br />
                                                                                 Water Abstraction for Commercial Connection<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -807,7 +809,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                17. Do You Require Certificate for 
+                                                                                14. Do You Require Certificate for 
                                                                                 <br />
                                                                                 non-availability of water supply from 
                                                                                 <br />
@@ -826,7 +828,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                18. Do You Require Permission to 
+                                                                                15. Do You Require Permission to 
                                                                                 <br />
                                                                                 Draw Water from River/Public Tanks <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -841,7 +843,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                19. Do You Require Water Connection 
+                                                                                16. Do You Require Water Connection 
                                                                                 <br />
                                                                                 for the Municipal Area <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -857,7 +859,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                20. Do You Required Grant of Water 
+                                                                                17. Do You Required Grant of Water 
                                                                                 <br />
                                                                                 Connection to Non Municipal urban 
                                                                                 <br />
@@ -873,7 +875,7 @@
                                                                     <div class="col-md-6" id="MunicipalArea" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                Water Connection for the Municipal Area <span class="text-danger">*</span></label>
+                                                                                17a. Water Connection for the Municipal Area <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-4 d-flex">
                                                                                 <asp:DropDownList ID="ddlMunicipal" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                                                     <asp:ListItem Text="--Select--" Value="0" />
@@ -883,7 +885,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
+                                                                <div class="col-md-12 d-flex" runat="server" visible="false">
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
@@ -904,12 +906,12 @@
                                                                     <table class="table">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th colspan="3" style="margin: 0px !important; padding: 3px 14px !important;">21. Labour Application Type</th>
+                                                                                <th colspan="3" style="margin: 0px !important; padding: 3px 14px !important;">18. Labour Application Type</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td>21 a.</td>
+                                                                                <td>18 a.</td>
                                                                                 <td>Does your Establishment employ 05 or more contract Labour as defined in the
                                                                        
                                                                     Contract Labour(Regulation and Abolition)Act, 1970? <span class="text-danger">*</span></td>
@@ -929,7 +931,7 @@
                                                                             </tr>
 
                                                                             <tr>
-                                                                                <td>21 b.</td>
+                                                                                <td>18 b.</td>
                                                                                 <td>Does your Establishment employ 05 or more Inter-State migrant workmen as defined
                                                                     in the Inter-state Migrant Workmen Act, 1979? <span class="text-danger">*</span></td>
                                                                                 <td>
@@ -947,7 +949,7 @@
                                                                             </tr>
 
                                                                             <tr>
-                                                                                <td>21 c.</td>
+                                                                                <td>18 c.</td>
                                                                                 <td>Does your Establishment fall under the definition of establishment as per Building
                                                                     and Other Constrution Worker(RE&COS) Act, 1996? <span class="text-danger">*</span></td>
                                                                                 <td>
@@ -977,7 +979,7 @@
                                                                             </tr>
 
                                                                             <tr>
-                                                                                <td>21 d.</td>
+                                                                                <td>18 d.</td>
                                                                                 <td>License under Contract Labour Act (For Contractor) <span class="text-danger">*</span>
                                                                                     <br />
                                                                                 </td>
@@ -995,7 +997,7 @@
                                                                                     <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>21 e.</td>
+                                                                                <td>18 e.</td>
                                                                                 <td>Does your Establishment employ 05 or more contract Labour(License for Contractors) as defined in the contract labour
                                                                     <br />
                                                                                     (Regulation and Abolition) Act,1970?  <span class="text-danger">*</span>
