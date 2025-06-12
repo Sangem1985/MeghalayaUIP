@@ -1407,6 +1407,14 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Require Water Connection for the Municipal Area or not \\n";
                     slno = slno + 1;
                 }
+                if (rblMunicipal.SelectedValue == "Y")
+                {
+                    if (ddlMunicipal.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Water Connection for the Municipal Area  \\n";
+                        slno = slno + 1;
+                    }
+                }
                 if (rblGrantwater.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Required Grant of Water Connection to Non Municipal urban or not \\n";
@@ -1579,11 +1587,11 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQ.ApprovalID = "4";
                     dtElectric = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtElectric);
-                   
+
                     objCFEQ.ApprovalID = "5";
                     dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtFctry);
-                }                
+                }
                 if (Convert.ToDecimal(txtBuildingHeight.Text) != 0)
                 {
                     objCFEQ.BuildingHeight = txtBuildingHeight.Text;
