@@ -33,15 +33,6 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// divText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divText;
-
-        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -195,6 +186,15 @@ namespace MeghalayaUIP.User.Renewal
         protected global::System.Web.UI.WebControls.TextBox txtanyinstitute;
 
         /// <summary>
+        /// txtFciliites control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFciliites;
+
+        /// <summary>
         /// rblequipments control.
         /// </summary>
         /// <remarks>
@@ -247,15 +247,6 @@ namespace MeghalayaUIP.User.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GVEquipment;
-
-        /// <summary>
-        /// txtFciliites control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFciliites;
 
         /// <summary>
         /// txtRadiologist control.
