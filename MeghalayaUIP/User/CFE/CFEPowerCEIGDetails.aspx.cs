@@ -75,12 +75,12 @@ namespace MeghalayaUIP.User.CFE
                     {
                         if (Convert.ToString(ds.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "14")
                         {
-                            BindDistricts();
+                           
                             GetElectricRegulations();
                             GetVoltageMaster();
                             GetPowerPlants();
                             Binddata();
-                           // BindAttachments();
+                            // BindAttachments();  BindDistricts();
                         }
 
                     }
@@ -102,103 +102,7 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void BindDistricts()
-        {
-            try
-            {
-
-                ddlDistrict.Items.Clear();
-                ddlMandal.Items.Clear();
-                ddlVillage.Items.Clear();
-
-                List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
-                string strmode = string.Empty;
-                strmode = "";
-                objDistrictModel = mstrBAL.GetDistrcits();
-                if (objDistrictModel != null)
-                {
-                    ddlDistrict.DataSource = objDistrictModel;
-                    ddlDistrict.DataValueField = "DistrictId";
-                    ddlDistrict.DataTextField = "DistrictName";
-                    ddlDistrict.DataBind();
-                }
-                else
-                {
-                    ddlDistrict.DataSource = null;
-                    ddlDistrict.DataBind();
-                }
-                AddSelect(ddlDistrict);
-                AddSelect(ddlMandal);
-                AddSelect(ddlVillage);
-
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        protected void BindMandal(DropDownList ddlmndl, string DistrictID)
-        {
-            try
-            {
-                List<MasterMandals> objMandal = mstrBAL.GetMandals(DistrictID);
-
-                if (objMandal != null && objMandal.Count > 0)
-                {
-                    ddlmndl.DataSource = objMandal;
-                    ddlmndl.DataValueField = "MandalId";
-                    ddlmndl.DataTextField = "MandalName";
-                    ddlmndl.DataBind();
-                }
-                else
-                {
-                    ddlmndl.DataSource = null;
-                    ddlmndl.DataBind();
-                }
-
-                AddSelect(ddlmndl);
-            }
-            catch (Exception ex)
-            {
-
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-
-        }
-        protected void BindVillages(DropDownList ddlvlg, string MandalID)
-        {
-            try
-            {
-                List<MasterVillages> objVillage = new List<MasterVillages>();
-                string strmode = string.Empty;
-
-                objVillage = mstrBAL.GetVillages(MandalID);
-
-                if (objVillage != null)
-                {
-                    ddlvlg.DataSource = objVillage;
-                    ddlvlg.DataValueField = "VillageId";
-                    ddlvlg.DataTextField = "VillageName";
-                    ddlvlg.DataBind();
-                }
-                else
-                {
-                    ddlvlg.DataSource = null;
-                    ddlvlg.DataBind();
-                }
-                AddSelect(ddlvlg);
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
+      
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -336,6 +240,8 @@ namespace MeghalayaUIP.User.CFE
                     }
 
                     ddlLocFactory.SelectedValue = ds.Tables[0].Rows[0]["CFECD_FACTORYLOCATION"].ToString();
+                    txtDate.Text = ds.Tables[0].Rows[0]["CFECD_DATE"].ToString();
+                    /*
                     txtSurvey.Text = ds.Tables[0].Rows[0]["CFECD_SURVEYNO"].ToString();
                     txtExtent.Text = ds.Tables[0].Rows[0]["CFECD_EXTENT"].ToString();
                     ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["CFECD_DISTRIC"].ToString();
@@ -347,7 +253,7 @@ namespace MeghalayaUIP.User.CFE
                     txtPincode.Text = ds.Tables[0].Rows[0]["CFECD_PINCODE"].ToString();
                     txtTelephone.Text = ds.Tables[0].Rows[0]["CFECD_TELEPHONE"].ToString();
                     txtNearestNo.Text = ds.Tables[0].Rows[0]["CFECD_NEARTELEPHONENO"].ToString();
-                    txtDate.Text = ds.Tables[0].Rows[0]["CFECD_DATE"].ToString();
+                    */
                 }
                 if (ds.Tables[1].Rows.Count > 0)
                 {
@@ -411,33 +317,131 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        //protected void BindAttachments()
-        //{
-        //    try
-        //    {
-        //        DataSet ds = new DataSet();
-        //        ds = objcfebal.GetCFEAttachmentsData(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
-        //        if (ds != null)
-        //        {
-        //            if (ds.Tables.Count > 0)
-        //            {
-        //                if (ds.Tables[0].Rows.Count > 0)
-        //                {
+        /*
+           protected void BindDistricts()
+        {
+            try
+            {
+
+                ddlDistrict.Items.Clear();
+                ddlMandal.Items.Clear();
+                ddlVillage.Items.Clear();
+
+                List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
+                string strmode = string.Empty;
+                strmode = "";
+                objDistrictModel = mstrBAL.GetDistrcits();
+                if (objDistrictModel != null)
+                {
+                    ddlDistrict.DataSource = objDistrictModel;
+                    ddlDistrict.DataValueField = "DistrictId";
+                    ddlDistrict.DataTextField = "DistrictName";
+                    ddlDistrict.DataBind();
+                }
+                else
+                {
+                    ddlDistrict.DataSource = null;
+                    ddlDistrict.DataBind();
+                }
+                AddSelect(ddlDistrict);
+                AddSelect(ddlMandal);
+                AddSelect(ddlVillage);
+
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void BindMandal(DropDownList ddlmndl, string DistrictID)
+        {
+            try
+            {
+                List<MasterMandals> objMandal = mstrBAL.GetMandals(DistrictID);
+
+                if (objMandal != null && objMandal.Count > 0)
+                {
+                    ddlmndl.DataSource = objMandal;
+                    ddlmndl.DataValueField = "MandalId";
+                    ddlmndl.DataTextField = "MandalName";
+                    ddlmndl.DataBind();
+                }
+                else
+                {
+                    ddlmndl.DataSource = null;
+                    ddlmndl.DataBind();
+                }
+
+                AddSelect(ddlmndl);
+            }
+            catch (Exception ex)
+            {
+
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+        protected void BindVillages(DropDownList ddlvlg, string MandalID)
+        {
+            try
+            {
+                List<MasterVillages> objVillage = new List<MasterVillages>();
+                string strmode = string.Empty;
+
+                objVillage = mstrBAL.GetVillages(MandalID);
+
+                if (objVillage != null)
+                {
+                    ddlvlg.DataSource = objVillage;
+                    ddlvlg.DataValueField = "VillageId";
+                    ddlvlg.DataTextField = "VillageName";
+                    ddlvlg.DataBind();
+                }
+                else
+                {
+                    ddlvlg.DataSource = null;
+                    ddlvlg.DataBind();
+                }
+                AddSelect(ddlvlg);
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void BindAttachments()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objcfebal.GetCFEAttachmentsData(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
+                if (ds != null)
+                {
+                    if (ds.Tables.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
 
 
-        //                }
-                      
-        //            }
-        //        }
+                        }
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        lblmsg0.Text = ex.Message;
-        //        Failure.Visible = true;
-        //        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-        //    }
-        //}
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void ddlDistrict_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -479,6 +483,7 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        */
         protected void ddlRegulation_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -1082,6 +1087,8 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFECEIG.Plant = ddlPlant.SelectedValue;
                     ObjCFECEIG.CAPACITY = txtCapacity.Text;
                     ObjCFECEIG.LOCATIONFACTORY = ddlLocFactory.SelectedValue;
+                    ObjCFECEIG.DATE = txtDate.Text;
+                    /*
                     ObjCFECEIG.SURVEYNO = txtSurvey.Text;
                     ObjCFECEIG.EXTENT = txtExtent.Text;
                     ObjCFECEIG.DISTRIC = ddlDistrict.SelectedValue;
@@ -1091,7 +1098,7 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFECEIG.PINCODE = txtPincode.Text;
                     ObjCFECEIG.TELEPHOPNE = txtTelephone.Text;
                     ObjCFECEIG.NEARESTPHONENO = txtNearestNo.Text;
-                    ObjCFECEIG.DATE = txtDate.Text;
+                    */
 
                     result = objcfebal.InsertCFECEIGDetails(ObjCFECEIG);
 
@@ -1186,7 +1193,53 @@ namespace MeghalayaUIP.User.CFE
                         slno = slno + 1;
                     }
                 }
+                if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Enter Date \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypowner.Text) || hypowner.Text == "" || hypowner.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Agreement letter between Contractor & Owner \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypLic.Text) || hypLic.Text == "" || hypLic.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Contractor License copy \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypElectrical.Text) || hypElectrical.Text == "" || hypElectrical.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Contractor/Project electrical supervisor permit copy \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypdiscoms.Text) || hypdiscoms.Text == "" || hypdiscoms.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Feasibility report from the DISCOMS \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypenergy.Text) || hypenergy.Text == "" || hypenergy.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Electrical Single line diagram \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypplan.Text) || hypplan.Text == "" || hypplan.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload The structural layout showing plan and Elevations with sectional and safe clearances \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypDraw.Text) || hypDraw.Text == "" || hypDraw.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload General arrangement of the equipment drawing \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypEarth.Text) || hypEarth.Text == "" || hypEarth.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please Upload The earthing layout diagram \\n";
+                    slno = slno + 1;
+                }
 
+                /*
                 if (ddlLocFactory.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please Enter Proposed Location of Factory \\n";
@@ -1237,51 +1290,8 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Phone Number \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtDate.Text) || txtDate.Text == "" || txtDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Date \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypowner.Text) || hypowner.Text == "" || hypowner.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload Agreement letter between Contractor & Owner \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypLic.Text) || hypLic.Text == "" || hypLic.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload Contractor License copy \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypElectrical.Text) || hypElectrical.Text == "" || hypElectrical.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload Contractor/Project electrical supervisor permit copy \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypdiscoms.Text) || hypdiscoms.Text == "" || hypdiscoms.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload Feasibility report from the DISCOMS \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypenergy.Text) || hypenergy.Text == "" || hypenergy.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload Electrical Single line diagram \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypplan.Text) || hypplan.Text == "" || hypplan.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload The structural layout showing plan and Elevations with sectional and safe clearances \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypDraw.Text) || hypDraw.Text == "" || hypDraw.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload General arrangement of the equipment drawing \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypEarth.Text) || hypEarth.Text == "" || hypEarth.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Upload The earthing layout diagram \\n";
-                    slno = slno + 1;
-                }
+                */
+                
                 return errormsg;
             }
             catch (Exception ex)

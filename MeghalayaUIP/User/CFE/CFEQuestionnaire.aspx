@@ -862,7 +862,7 @@
                                                                     <div class="col-md-6" id="MunicipalArea" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                17a. Water Connection for the Municipal Area <span class="text-danger">*</span></label>
+                                                                                16a. Water Connection for the Municipal Area <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-4 d-flex">
                                                                                 <asp:DropDownList ID="ddlMunicipal" runat="server" class="form-control">
                                                                                     <asp:ListItem Text="--Select--" Value="0" />
