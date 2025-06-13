@@ -2525,6 +2525,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFECD_FACTORYLOCATION", ObjCFECEIG.LOCATIONFACTORY);
                 com.Parameters.AddWithValue("@CFECD_SURVEYNO", ObjCFECEIG.SURVEYNO);
                 com.Parameters.AddWithValue("@CFECD_EXTENT", Convert.ToDecimal(ObjCFECEIG.EXTENT));
+                /*
                 com.Parameters.AddWithValue("@CFECD_DISTRIC", Convert.ToInt32(ObjCFECEIG.DISTRIC));
                 com.Parameters.AddWithValue("@CFECD_MANDAL ", Convert.ToInt32(ObjCFECEIG.MANDAL));
                 com.Parameters.AddWithValue("@CFECD_VILLAGE", Convert.ToInt32(ObjCFECEIG.VILLAGE));
@@ -2532,10 +2533,9 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFECD_PINCODE", Convert.ToInt32(ObjCFECEIG.PINCODE));
                 com.Parameters.AddWithValue("@CFECD_TELEPHONE", Convert.ToInt64(ObjCFECEIG.TELEPHOPNE));
                 com.Parameters.AddWithValue("@CFECD_NEARTELEPHONENO", Convert.ToInt64(ObjCFECEIG.NEARESTPHONENO));
+                */
+                
                 com.Parameters.AddWithValue("@CFECD_DATE", DateTime.ParseExact(ObjCFECEIG.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-
-
-
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -2953,7 +2953,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 }
                 if (ObjCFETax.REGNO != null && ObjCFETax.REGNO != "")
                 {
-                    com.Parameters.AddWithValue("@CFEPT_REGNO", Convert.ToInt32(ObjCFETax.REGNO));
+                    com.Parameters.AddWithValue("@CFEPT_REGNO", ObjCFETax.REGNO);
                 }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -3749,7 +3749,6 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
-
         public string UpdateCFEApplStatus(CFEDtls ObjCfe)
         {
 

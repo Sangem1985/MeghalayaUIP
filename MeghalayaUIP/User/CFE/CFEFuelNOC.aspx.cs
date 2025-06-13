@@ -493,6 +493,17 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Depth\\n";
                     slno = slno + 1;
                 }
+                if (string.IsNullOrEmpty(hypPCB.Text) || hypPCB.Text == "" || hypPCB.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NoC from Meghalaya State Pollution Control Board \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrEmpty(hypNocFire.Text) || hypNocFire.Text == "" || hypNocFire.Text == null)
+                {
+                    errormsg = errormsg + slno + ". Please upload NoC from Fire Department \\n";
+                    slno = slno + 1;
+                }
+                /*
                 if (string.IsNullOrEmpty(hypNHAI.Text) || hypNHAI.Text == "" || hypNHAI.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please upload NOC from National Highways Authority of India (NHAI) \\n";
@@ -508,16 +519,8 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please upload Letter of Intent \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(hypPCB.Text) || hypPCB.Text == "" || hypPCB.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please upload NoC from Meghalaya State Pollution Control Board \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypNocFire.Text) || hypNocFire.Text == "" || hypNocFire.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please upload NoC from Fire Department \\n";
-                    slno = slno + 1;
-                }
+                */
+
                 return errormsg;
             }
             catch (Exception ex)

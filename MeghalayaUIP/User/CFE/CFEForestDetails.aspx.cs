@@ -262,7 +262,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
 
-                string ErrorMsg = ""; int slno = 0;
+                string ErrorMsg = ""; int slno = 1;
                 if (string.IsNullOrEmpty(txtLopLocName.Text.Trim()) || txtLopLocName.Text.Trim() == "" || txtLopLocName.Text.Trim() == null)
                 {
                     ErrorMsg = ErrorMsg + slno + ". Please Enter Local Name of the Tree \\n";
@@ -330,7 +330,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
 
-                string ErrorMsg = ""; int slno = 0;
+                string ErrorMsg = ""; int slno = 1;
                 if (string.IsNullOrEmpty(txtFellLocName.Text.Trim()) || txtFellLocName.Text.Trim() == "" || txtFellLocName.Text.Trim() == null)
                 {
                     ErrorMsg = ErrorMsg + slno + ". Please Enter Local Name of the Tree \\n";

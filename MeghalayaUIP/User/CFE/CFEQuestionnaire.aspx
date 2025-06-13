@@ -6,7 +6,7 @@
     <script type="text/javascript">
         function handleKeyUp(input) {
             if (input.value.trim() === "") {
-                input.style.border = "2px solid red";
+                input.style.border = "1px solid #767575b5";
             } else {
                 input.style.border = "1px solid #767575b5";
             }
@@ -14,7 +14,7 @@
         function validateDropdown(dropdown) {
 
             if (dropdown.value === "0") {
-                dropdown.style.border = "2px solid red";
+                dropdown.style.border = "1px solid #767575b5";
                 dropdown.focus();
             } else {
                 dropdown.style.border = "1px solid #767575b5";
@@ -29,12 +29,12 @@
 
             if (!isSelected) {
                 // If none are selected, apply red border
-                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.style.border = "1px solid #767575b5";
                 radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
             } else {
                 // Reset the border if an option is selected
                 var id = radioGroupContainer.id;
-                document.getElementById(id).style.border = "1px solid #767575b5";
+                document.getElementById(id).style.border = "0px solid #767575b5";
                 return false;
             }
         }
@@ -114,7 +114,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Name of Unit<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()" Enabled="false" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()" Enabled="false" TabIndex="1" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -123,7 +123,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 2. Firm Type<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control" onkeypress="return Names()" Enabled="false" TabIndex="1" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlCompanyType" runat="server" class="form-control" onkeypress="return Names()" Enabled="false" TabIndex="1" >
                                                                                 </asp:DropDownList>
                                                                             </div>
                                                                         </div>
@@ -134,7 +134,7 @@
                                                                                 3. Nature of
 																		Industry<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:DropDownList ID="ddlIndustryType" runat="server" class="form-control" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlIndustryType" runat="server" class="form-control" >
                                                                                     <%-- <asp:ListItem Text="Manufacturing" Value="Manufacturing" style="padding-right: 10px"></asp:ListItem>
                                                                     <asp:ListItem Text="Service" Value="Service"></asp:ListItem>--%>
                                                                                 </asp:DropDownList>
@@ -148,7 +148,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Firm Proposal <span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:DropDownList ID="rblProposal" runat="server" TabIndex="1" class="form-control" Enabled="false" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="rblProposal" runat="server" TabIndex="1" class="form-control" Enabled="false" >
                                                                                     <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
                                                                                     <asp:ListItem Value="New" Text="New"></asp:ListItem>
                                                                                     <asp:ListItem Value="Existing" Text="Existing"></asp:ListItem>
@@ -166,7 +166,7 @@
                                                                                 1.District
                                                                             <span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged" TabIndex="1" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged" TabIndex="1" >
                                                                                     <asp:ListItem Text="Select District" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -176,7 +176,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Mandal<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged" >
                                                                                     <asp:ListItem Text="Select Mandal" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -187,7 +187,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Village<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:DropDownList ID="ddlVillage" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlVillage" runat="server" class="form-control" TabIndex="1" >
                                                                                     <asp:ListItem Text="Select Village" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -202,7 +202,7 @@
 																		Extent of Land<br />
                                                                                 (in sq.m)<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:TextBox ID="txtLandArea" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="16" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtLandArea" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="16" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -213,7 +213,7 @@
                                                                                 <br />
                                                                                 (In Sq.m)<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="16" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuiltArea" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="16" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -221,7 +221,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">6. Sector<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:DropDownList ID="ddlSector" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged" Enabled="false" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlSector" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlSector_SelectedIndexChanged" Enabled="false" >
                                                                                     <asp:ListItem Text="Select" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -236,7 +236,7 @@
                                                                                 7. Line of
 																		Activity<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:DropDownList ID="ddlLine_Activity" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlLine_Activity_SelectedIndexChanged" Enabled="false" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlLine_Activity" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlLine_Activity_SelectedIndexChanged" Enabled="false" >
                                                                                     <asp:ListItem Text="Select" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -260,7 +260,7 @@
                                                                                 purchased from MIDCL<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
                                                                                 <div class="form-check form-check-inline ">
-                                                                                    <asp:RadioButtonList ID="rblMIDCL" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                    <asp:RadioButtonList ID="rblMIDCL" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                         <asp:ListItem Text="Yes" Value="1" />
                                                                                         <asp:ListItem Text="No" Value="2" />
                                                                                     </asp:RadioButtonList>
@@ -276,7 +276,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 10. Location of the unit<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
-                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitLocation" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100" TabIndex="1" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
 
@@ -318,7 +318,7 @@
                                                                                 1. Proposed
 																		Employment<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="7" TabIndex="1" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -326,7 +326,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Value of Land as per sale Deed(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtLandValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtLandValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -336,7 +336,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Value of Building(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -345,7 +345,7 @@
                                                                             <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
                                                                                 <asp:TextBox ID="txtPMCost" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8"
-                                                                                    AutoPostBack="true" OnTextChanged="txtPMCost_TextChanged" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                    AutoPostBack="true" OnTextChanged="txtPMCost_TextChanged" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -358,7 +358,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" AutoPostBack="true" OnTextChanged="txtAnnualTurnOver_TextChanged" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtAnnualTurnOver" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8" AutoPostBack="true" OnTextChanged="txtAnnualTurnOver_TextChanged" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -532,7 +532,7 @@
                                                                                 2. Generator
 																		Requirement<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex ">
-                                                                                <asp:RadioButtonList ID="rblGenerator" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblGenerator" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -547,7 +547,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 3. Height of the building(in Meters)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="4" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingHeight" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNumberAndDot(event)" MaxLength="4" ></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -569,7 +569,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Do you store RS, DS<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblRSDSstore" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblRSDSstore" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -583,7 +583,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4a. Select Regulation<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:DropDownList ID="ddlRegulation" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlRegulation_SelectedIndexChanged" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlRegulation" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlRegulation_SelectedIndexChanged" >
                                                                                     <asp:ListItem Text="Regulation" Value="0" />
                                                                                 </asp:DropDownList>
                                                                                 <%-- <p>43(3)- Electrical Installation<br /> 32 - Generating Unit/Generators</p>--%>
@@ -594,7 +594,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4b. Select Voltage<span class="star">*</span></label>
                                                                             <div class="col-lg-4 d-flex">
-                                                                                <asp:DropDownList ID="ddlVoltage" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlVoltage" runat="server" class="form-control" TabIndex="1" >
                                                                                     <asp:ListItem Text="Voltage" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -604,7 +604,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4b. Select Power Plant<span class="star">*</span></label>
                                                                             <div class="col-lg-4 d-flex">
-                                                                                <asp:DropDownList ID="ddlPowerPlant" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlPowerPlant" runat="server" class="form-control" TabIndex="1" >
                                                                                     <asp:ListItem Text="Voltage" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -612,7 +612,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4c. Aggregate Capacity:<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtAggrCapacity" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="10" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtAggrCapacity" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="10" ></asp:TextBox>
 
                                                                             </div>
                                                                         </div>
@@ -628,7 +628,7 @@
                                                                                 <br />
                                                                                 transport explosives<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex radio">
-                                                                                <asp:RadioButtonList ID="rblexplosives" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblexplosives" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -641,7 +641,7 @@
                                                                                 6. Do you Manufacture, store, sale,<br />
                                                                                 Petroleum, Diesel, Kerosene<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblPetrlManf" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblPetrlManf" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -657,7 +657,7 @@
                                                                                 <br />
                                                                                 Permission<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblRoadCutting" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblRoadCutting" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -671,7 +671,7 @@
                                                                                 <br />
                                                                                 Certificate<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblNonEncCert" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblNonEncCert" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -688,7 +688,7 @@
                                                                                 <br />
                                                                                 Commerical Tax<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblCommericalTax" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblCommericalTax" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -702,7 +702,7 @@
                                                                                 <br />
                                                                                 from Forest<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblfrstDistncLtr" runat="server" TabIndex="1" RepeatDirection="Horizontal" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblfrstDistncLtr" runat="server" TabIndex="1" RepeatDirection="Horizontal" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -722,7 +722,7 @@
                                                                                 <br />
                                                                                 Certificate<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblNonForstLandCert" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblNonForstLandCert" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -753,7 +753,7 @@
                                                                                 <br />
                                                                                 (Girth of tree > 30 centimeters)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtNoofTrees" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="4" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtNoofTrees" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="4" ></asp:TextBox>
 
                                                                             </div>
                                                                         </div>
@@ -767,7 +767,7 @@
                                                                                 <br />
                                                                                 100mts vicinity of any water body?<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblwaterbody" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblwaterbody" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -781,7 +781,7 @@
                                                                                 <br />
                                                                                 proposed factory Location<span class="star">*</span></label>
                                                                             <div class="col-lg-6 ">
-                                                                                <asp:RadioButtonList ID="rblborewell" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblborewell" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -798,7 +798,7 @@
                                                                                 <br />
                                                                                 Water Abstraction for Commercial Connection<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblNocGroundWater" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblNocGroundWater" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -815,7 +815,7 @@
                                                                                 <br />
                                                                                 water supply agency<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblwatersupply" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblwatersupply" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -832,7 +832,7 @@
                                                                                 <br />
                                                                                 Draw Water from River/Public Tanks <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblRiverTanks" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblRiverTanks" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -865,7 +865,7 @@
                                                                                 <br />
                                                                                 areas<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblGrantwater" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblGrantwater" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -875,9 +875,9 @@
                                                                     <div class="col-md-6" id="MunicipalArea" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                17a. Water Connection for the Municipal Area <span class="text-danger">*</span></label>
+                                                                                16a. Water Connection for the Municipal Area <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-4 d-flex">
-                                                                                <asp:DropDownList ID="ddlMunicipal" runat="server" class="form-control" onchange="validateDropdown(this)">
+                                                                                <asp:DropDownList ID="ddlMunicipal" runat="server" class="form-control" >
                                                                                     <asp:ListItem Text="--Select--" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -891,7 +891,7 @@
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 21. Do You Required Drawing Plan Approval<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:RadioButtonList ID="rblDrawing" runat="server" RepeatDirection="Horizontal" TabIndex="1" onchange="validateRadioButtonList(this)">
+                                                                                <asp:RadioButtonList ID="rblDrawing" runat="server" RepeatDirection="Horizontal" TabIndex="1" >
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                                     <asp:ListItem Text="No" Value="N" />
                                                                                 </asp:RadioButtonList>
@@ -926,7 +926,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txt1970Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                                    <asp:TextBox ID="txt1970Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" ></asp:TextBox>
                                                                                 </td>
                                                                             </tr>
 
@@ -945,7 +945,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txt1979Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                                                                                    <asp:TextBox ID="txt1979Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" ></asp:TextBox></td>
                                                                             </tr>
 
                                                                             <tr>
@@ -975,7 +975,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txt1996Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                                                                                    <asp:TextBox ID="txt1996Workers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" ></asp:TextBox></td>
                                                                             </tr>
 
                                                                             <tr>
@@ -994,7 +994,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                                                                                    <asp:TextBox ID="txtContractWorkers" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" ></asp:TextBox></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>18 e.</td>
@@ -1014,7 +1014,7 @@
                                                                                 <td></td>
                                                                                 <td align="right">No of Workers <span class="text-danger">*</span></td>
                                                                                 <td>
-                                                                                    <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox></td>
+                                                                                    <asp:TextBox ID="txtContr1970wrkrs" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="7" ></asp:TextBox></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>

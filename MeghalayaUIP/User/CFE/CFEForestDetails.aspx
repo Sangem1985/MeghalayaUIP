@@ -6,7 +6,7 @@
     <script type="text/javascript">
         function handleKeyUp(input) {
             if (input.value.trim() === "") {
-                input.style.border = "2px solid red";
+                input.style.border = "0px solid red";
             } else {
                 input.style.border = "1px solid #767575b5";
             }
@@ -14,7 +14,7 @@
         function validateDropdown(dropdown) {
 
             if (dropdown.value === "0") {
-                dropdown.style.border = "2px solid red";
+                dropdown.style.border = "0px solid red";
                 dropdown.focus();
             } else {
                 dropdown.style.border = "1px solid #767575b5";
@@ -29,7 +29,7 @@
 
             if (!isSelected) {
                 // If none are selected, apply red border
-                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.style.border = "0px solid red";
                 radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
             } else {
                 // Reset the border if an option is selected
@@ -82,7 +82,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Forest Division</label>
+                                                    <label class="col-lg-6 col-form-label">1. Forest Division<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlForest" runat="server" class="form-control" onchange="validateDropdown(this)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
@@ -92,7 +92,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2. Type of Land*</label>
+                                                    <label class="col-lg-6 col-form-label">2. Type of Land<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlLandType" runat="server" class="form-control" onchange="validateRadioButtonList(radioGroupContainer)">
                                                             <asp:ListItem Text="--Select--" Value="0" />
@@ -109,7 +109,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-7 col-form-label">1. GPS Coordinates Latitude*</label>
+                                                        <label class="col-lg-7 col-form-label">1. GPS Coordinates Latitude<span class="text-danger">*</span></label>
                                                         <div class="col-lg-5 d-flex">
                                                             <asp:RadioButtonList ID="RblLatitude" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(radioGroupContainer)">
                                                                 <asp:ListItem Text="N" Value="N" />
@@ -122,7 +122,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1a. Degrees(L)*</label>
+                                                        <label class="col-lg-6 col-form-label">1a. Degrees(L)<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLatDegrees" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -130,7 +130,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1b. Minutes(L) *</label>
+                                                        <label class="col-lg-6 col-form-label">1b. Minutes(L) <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLatMinutes" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -138,7 +138,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1c. Seconds(L)*</label>
+                                                        <label class="col-lg-6 col-form-label">1c. Seconds(L)<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLatSeconds" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -148,7 +148,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-7 col-form-label">2. GPS Coordinates Longitude*</label>
+                                                        <label class="col-lg-7 col-form-label">2. GPS Coordinates Longitude<span class="text-danger">*</span></label>
                                                         <div class="col-lg-5 d-flex">
                                                             <asp:RadioButtonList ID="rblLongitude" runat="server" RepeatDirection="Horizontal" onchange="validateRadioButtonList(radioGroupContainer)">
                                                                 <asp:ListItem Text="E" Value="E" />
@@ -161,7 +161,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">2a. Degrees*</label>
+                                                        <label class="col-lg-6 col-form-label">2a. Degrees<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLongDegrees" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -169,7 +169,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">2b. Minutes*</label>
+                                                        <label class="col-lg-6 col-form-label">2b. Minutes<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLongMinutes" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -177,7 +177,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">2c. Seconds*</label>
+                                                        <label class="col-lg-6 col-form-label">2c. Seconds<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLongSeconds" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="6" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -187,7 +187,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">3. GPS Coordinates (Description) *</label>
+                                                        <label class="col-lg-6 col-form-label">3. GPS Coordinates (Description) <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtGPSCordinates" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -195,7 +195,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">4. Purpose of Application  *</label>
+                                                        <label class="col-lg-6 col-form-label">4. Purpose of Application <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtDistncLtrPurpose" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -203,7 +203,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">5. Any other information *</label>
+                                                        <label class="col-lg-6 col-form-label">5. Any other information <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtInformation" runat="server" class="form-control" onkeypress="return Names()" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -218,7 +218,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1. Area of Land in Ha *</label>
+                                                        <label class="col-lg-6 col-form-label">1. Area of Land in Ha <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLandArea" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -226,7 +226,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">2. Purpose Non-Forest land Certificate sought *</label>
+                                                        <label class="col-lg-6 col-form-label">2. Purpose Non-Forest land Certificate sought <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtNFLPurpose" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -238,10 +238,9 @@
                                         <div id="divTreeFelling" runat="server" visible="false" class="row">
                                             <h4 class="card-title ml-3">Application Form For Tree Felling Permission</h4>
                                             <div class="col-md-12 d-flex">
-
-                                                <div class="col-md-6">
+                                                <div class="col-md-8">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-4 col-form-label">1. Type of Permission  *</label>
+                                                        <label class="col-lg-6 col-form-label">1.Type of Permission  <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:CheckBoxList ID="chkPermType" AutoPostBack="true" runat="server" OnSelectedIndexChanged="chkPermType_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Lopping of branches" Value="Lopping of branches" />
@@ -261,7 +260,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1. Purpose for Lopping/Cutting of Branches  *</label>
+                                                        <label class="col-lg-6 col-form-label">1. Purpose for Lopping/Cutting of Branches <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLoppingPurpose" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
                                                         </div>
@@ -271,7 +270,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">a. Local Name*</label>
+                                                        <label class="col-lg-6 col-form-label">a. Local Name<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLopLocName" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" ></asp:TextBox>
                                                         </div>
@@ -280,7 +279,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">
-                                                            b.Scientific Name*
+                                                            b.Scientific Name<span class="text-danger">*</span>
                                                         </label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLopScfName" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
@@ -289,7 +288,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">c. Number Of trees*</label>
+                                                        <label class="col-lg-6 col-form-label">c. Number Of trees<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtLopTreeCount" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="10"></asp:TextBox>
                                                         </div>
@@ -306,10 +305,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex justify-content-center">
+                                            <div class="col-md-8 d-flex justify-content-center">
                                                 <div class="table-responsive mx-auto">
                                                     <asp:GridView ID="grdLopped" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                                        CssClass="GRD mx-auto" ForeColor="#333333" Width="90%" ShowFooter="true">
+                                                        CssClass="GRD mx-auto" ForeColor="#333333" Width="90%" >
                                                         <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
                                                         <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
@@ -337,16 +336,15 @@
                                             </div>
                                         </div>
 
-
+                                        <br />
                                         <div class="row" id="divFelled" runat="server" visible="false">
                                             <div class="col-md-12 d-flex">
-                                                <h4 class="card-title ml-3">Details Of Trees to be felled</h4>
-                                               
+                                                <h4 class="card-title ml-3">Details Of Trees to be felled</h4>                                               
                                             </div>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1. Purpose for felling of trees * </label>
+                                                        <label class="col-lg-6 col-form-label">1. Purpose for felling of trees <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtFellingPurpose" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
                                                         </div>
@@ -356,7 +354,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1. Local Name*</label>
+                                                        <label class="col-lg-6 col-form-label">1. Local Name<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtFellLocName" runat="server" class="form-control"  TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" ></asp:TextBox>
                                                         </div>
@@ -364,7 +362,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">2.Scientific Name*</label>
+                                                        <label class="col-lg-6 col-form-label">2.Scientific Name<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtFellScfName" runat="server" class="form-control"  TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" ></asp:TextBox>
                                                         </div>
@@ -372,7 +370,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">3. Number Of trees*</label>
+                                                        <label class="col-lg-6 col-form-label">3. Number Of trees<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtFellTreeCount" runat="server" class="form-control"  TabIndex="1" onkeypress="return NumberOnly()" MaxLength="10" ></asp:TextBox>
                                                         </div>
@@ -389,10 +387,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex">
+                                            <div class="col-md-8 d-flex">
                                                 <div class="table-responsive mx-auto">
                                                     <asp:GridView ID="grdFelled" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                                        CssClass="GRD mx-auto" ForeColor="#333333" Width="90%" ShowFooter="true">
+                                                        CssClass="GRD mx-auto" ForeColor="#333333" Width="90%" >
                                                         <FooterStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
                                                         <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" />
@@ -420,13 +418,13 @@
                                             </div>
                                         </div>
 
-
+                                        <br />
                                         <div class="row">
                                             <h4 class="card-title ml-3">Upload Documents</h4>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1.Proof of ownership of land (Lease deed or Agreement of Sale or any related document) *</label>
+                                                        <label class="col-lg-6 col-form-label">1.Proof of ownership of land (Lease deed or Agreement of Sale or any related document) <span class="text-danger">*</span></label>
                                                         <div class="col-lg-2 d-flex">
                                                             <asp:FileUpload ID="fupOwnership" runat="server" />
                                                         </div>
@@ -445,7 +443,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">2.Rough map of the concerned land *</label>
+                                                        <label class="col-lg-6 col-form-label">2.Rough map of the concerned land <span class="text-danger">*</span></label>
                                                         <div class="col-lg-2 d-flex">
                                                             <asp:FileUpload ID="fupland" runat="server" />
                                                         </div>
@@ -464,7 +462,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">3.NoC from the concerned Autonomous District Council for land use *</label>
+                                                        <label class="col-lg-6 col-form-label">3.NoC from the concerned Autonomous District Council for land use <span class="text-danger">*</span></label>
                                                         <div class="col-lg-2 d-flex">
                                                             <asp:FileUpload ID="fupNOCLand" runat="server" />
                                                         </div>
@@ -483,7 +481,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">4.Distance from Forest Certificate from DFO (Wild-life) *</label>
+                                                        <label class="col-lg-6 col-form-label">4.Distance from Forest Certificate from DFO (Wild-life) <span class="text-danger">*</span></label>
                                                         <div class="col-lg-2 d-flex">
                                                             <asp:FileUpload ID="fupForestDFO" runat="server" />
                                                         </div>

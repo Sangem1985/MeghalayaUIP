@@ -6,7 +6,7 @@
     <script type="text/javascript">
         function handleKeyUp(input) {
             if (input.value.trim() === "") {
-                input.style.border = "2px solid red";
+                input.style.border = "1px solid #767575b5";
             } else {
                 input.style.border = "1px solid #767575b5";
             }
@@ -20,7 +20,7 @@
 
             if (!isSelected) {
                 // If none are selected, apply red border
-                radioGroupContainer.style.border = "2px solid red";
+                radioGroupContainer.style.border = "1px #767575b5";
                 radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
             } else {
                 // Reset the border if an option is selected
@@ -32,7 +32,7 @@
         function validateDropdown(dropdown) {
 
             if (dropdown.value === "0") {
-                dropdown.style.border = "2px solid red";
+                dropdown.style.border = "1px solid #767575b5";
                 dropdown.focus();
             } else {
                 dropdown.style.border = "1px solid #767575b5";
@@ -77,25 +77,25 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1	Drinking Water ( in KL/Day )*</label>
+                                                    <label class="col-lg-6 col-form-label">1.Drinking Water (in KL/Day)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtwater" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtwater" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2	Water for Processing(Industrial use) ( in KL/Day )</label>
+                                                    <label class="col-lg-6 col-form-label">2.Water for Processing(Industrial use) (in KL/Day)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtIndustrial" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtIndustrial" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3	Quantity of Water Required for Consumptive Use (in KL/Day)*</label>
+                                                    <label class="col-lg-6 col-form-label">3.Quantity of Water Required for Consumptive Use (in KL/Day)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtQuantwater" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtQuantwater" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,9 +103,9 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4	Quantity of Water Required for Non-Consumptive Use (in KL/Day)*</label>
+                                                    <label class="col-lg-6 col-form-label">4.Quantity of Water Required for Non-Consumptive Use (in KL/Day)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtwaterReq" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtwaterReq" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,25 +121,25 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Overhead *</label>
+                                                        <label class="col-lg-6 col-form-label">Overhead <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtoverhead" runat="server" class="form-control" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtoverhead" runat="server" class="form-control" ></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Underground</label>
+                                                        <label class="col-lg-6 col-form-label">Underground<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtunderground" runat="server" class="form-control" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtunderground" runat="server" class="form-control" ></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Choose Available Tanker Capacity[In litres]</label>
+                                                        <label class="col-lg-6 col-form-label">Choose Available Tanker Capacity(In litres)<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlTanker" runat="server" class="form-control" onchange="validateDropdown(this)">
+                                                            <asp:DropDownList ID="ddlTanker" runat="server" class="form-control" >
                                                                 <asp:ListItem Text="--Select--" Value="0" />
                                                                 <asp:ListItem Text="1800" Value="1" />
                                                                 <asp:ListItem Text="4000" Value="2" />
@@ -154,7 +154,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label fw-bold"><span style="font-weight: 900;">Type Of Water Connection *</span></label>
+                                                    <label class="col-lg-2 col-form-label fw-bold"><span style="font-weight: 900;">Type Of Water Connection<span class="text-danger">*</span> </span></label>
                                                     <div class="col-lg-10">
                                                         <asp:RadioButtonList ID="rblwatercon" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblwatercon_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text=" Permanent Water Connection" Value="1" />
@@ -169,17 +169,17 @@
                                         <div class="col-md-12 d-flex" id="holdno" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Holding No </label>
+                                                    <label class="col-lg-6 col-form-label">Holding No<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtholding" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtholding" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="100" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Select Ward No*</label>
+                                                    <label class="col-lg-6 col-form-label">Select Ward No<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlwardno" runat="server" class="form-control" onchange="validateDropdown(this)">
+                                                        <asp:DropDownList ID="ddlwardno" runat="server" class="form-control" >
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -190,25 +190,25 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1	Sub Divisional Office for Application *</label>
+                                                    <label class="col-lg-6 col-form-label">1.Sub Divisional Office for Application <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtsubdivision" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtsubdivision" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2	Number of persons working in the premise </label>
+                                                    <label class="col-lg-6 col-form-label">2.Number of persons working in the premise <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtpremise" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="4" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtpremise" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="4" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">3	Water requirement per day demand *</label>
+                                                    <label class="col-lg-6 col-form-label">3.Water requirement per day demand <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtdemand" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="2" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtdemand" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="2" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -216,9 +216,9 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">4	Any other information  </label>
+                                                    <label class="col-lg-6 col-form-label">4.Any other information  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtinformation" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNames(event)" MaxLength="200" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtinformation" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNames(event)" MaxLength="200" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,9 +227,9 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">District *</label>
+                                                    <label class="col-lg-6 col-form-label">District <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddldistric" runat="server" class="form-control" OnSelectedIndexChanged="ddldistric_SelectedIndexChanged" AutoPostBack="true" onchange="validateDropdown(this)">
+                                                        <asp:DropDownList ID="ddldistric" runat="server" class="form-control" OnSelectedIndexChanged="ddldistric_SelectedIndexChanged" AutoPostBack="true" >
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -237,9 +237,9 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Mandal</label>
+                                                    <label class="col-lg-6 col-form-label">Mandal<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlmandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlmandal_SelectedIndexChanged" AutoPostBack="true" onchange="validateDropdown(this)">
+                                                        <asp:DropDownList ID="ddlmandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlmandal_SelectedIndexChanged" AutoPostBack="true" >
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -247,9 +247,9 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Village</label>
+                                                    <label class="col-lg-6 col-form-label">Village<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlvillage" runat="server" class="form-control" onchange="validateDropdown(this)">
+                                                        <asp:DropDownList ID="ddlvillage" runat="server" class="form-control" >
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -259,25 +259,25 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Locality *</label>
+                                                    <label class="col-lg-6 col-form-label">Locality <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtlocality" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtlocality" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Nearest Landmark</label>
+                                                    <label class="col-lg-6 col-form-label">Nearest Landmark<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtlandmark" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtlandmark" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Pincode</label>
+                                                    <label class="col-lg-6 col-form-label">Pincode<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtpincode" runat="server" class="form-control" MaxLength="6" onkeypress="return validatePincode(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtpincode" runat="server" class="form-control" MaxLength="6" onkeypress="return validatePincode(event)" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -285,17 +285,17 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Purpose for which connection is required  *</label>
+                                                    <label class="col-lg-6 col-form-label">Purpose for which connection is required  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtconnection" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNames(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtconnection" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNames(event)" MaxLength="100" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Type of connection *</label>
+                                                    <label class="col-lg-6 col-form-label">Type of connection <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlconnection" runat="server" class="form-control" OnSelectedIndexChanged="ddlconnection_SelectedIndexChanged" AutoPostBack="true" onchange="validateDropdown(this)">
+                                                        <asp:DropDownList ID="ddlconnection" runat="server" class="form-control" OnSelectedIndexChanged="ddlconnection_SelectedIndexChanged" AutoPostBack="true" >
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                             <asp:ListItem Text="Domestic" Value="Y"></asp:ListItem>
                                                             <asp:ListItem Text="Bulk" Value="N"></asp:ListItem>
@@ -305,9 +305,9 @@
                                             </div>
                                             <div class="col-md-4" id="NominalDN" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Size of pipe connection for domestic(Diameter Nominal DN (mm))* </label>
+                                                    <label class="col-lg-6 col-form-label">Size of pipe connection for domestic(Diameter Nominal DN (mm))<span class="text-danger">*</span> </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlDiameter" runat="server" class="form-control" onchange="validateDropdown(this)">
+                                                        <asp:DropDownList ID="ddlDiameter" runat="server" class="form-control" >
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -317,9 +317,9 @@
                                         <div class="col-md-12 d-flex" id="DiameterDN" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Size of pipe connection(Diameter Nominal DN (mm))* </label>
+                                                    <label class="col-lg-6 col-form-label">Size of pipe connection(Diameter Nominal DN (mm))<span class="text-danger">*</span> </label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlDN" runat="server" class="form-control" onchange="validateDropdown(this)">
+                                                        <asp:DropDownList ID="ddlDN" runat="server" class="form-control" >
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                             <asp:ListItem Text="15" Value="1"></asp:ListItem>
                                                             <asp:ListItem Text="20" Value="2"></asp:ListItem>
@@ -337,7 +337,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1.Route Sketch Map</label>
+                                                    <label class="col-lg-2 col-form-label">1.Route Sketch Map<span class="text-danger">*</span></label>
                                                     <div class="col-lg-2 d-flex">
                                                         <asp:FileUpload ID="fupSketch" runat="server" />
                                                     </div>

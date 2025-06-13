@@ -130,13 +130,13 @@ namespace MeghalayaUIP.User.CFE
             {
                 if (rblother.SelectedItem.Text == "Yes")
                 {
-                    RegistrationType.Visible = true;
+                    RegistrationType.Visible = true; 
                     RegNo.Visible = true;
                 }
                 else
                 {
-                    RegistrationType.Visible = false;
-                    RegNo.Visible = false;
+                    RegistrationType.Visible = false; ddlRegType.ClearSelection();
+                    RegNo.Visible = false; TXTRegNo.Text = "";
                 }
             }
             catch (Exception ex)
@@ -312,7 +312,7 @@ namespace MeghalayaUIP.User.CFE
 
             try
             {
-                string  result = "";
+                string result = "";
                 ErrorMsg = validations();
                 if (ErrorMsg == "")
                 {
@@ -506,7 +506,13 @@ namespace MeghalayaUIP.User.CFE
                         rblAdditional_SelectedIndexChanged(null, EventArgs.Empty);
                         if (rblAdditional.SelectedValue == "Y")
                         {
-                            GVState.Visible = true;
+                            if (ds.Tables[1].Rows.Count > 0)
+                            {
+                                ViewState["PROFESSIONALTAX"] = ds.Tables[1];
+                                GVState.DataSource = ds.Tables[1];
+                                GVState.DataBind();
+                                GVState.Visible = true;
+                            }
                         }
                         ddlDesignation.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_DESIGNATION"].ToString();
                         rblother.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_REGUNDERACT"].ToString();
@@ -517,15 +523,9 @@ namespace MeghalayaUIP.User.CFE
                             ddlRegType.SelectedValue = ds.Tables[0].Rows[0]["CFEPT_REGTYPE"].ToString();
                             TXTRegNo.Text = ds.Tables[0].Rows[0]["CFEPT_REGNO"].ToString();
                         }
-                      
+
                     }
-                    if (ds.Tables[1].Rows.Count > 0)
-                    {
-                        ViewState["PROFESSIONALTAX"] = ds.Tables[1];
-                        GVState.DataSource = ds.Tables[1];
-                        GVState.DataBind();
-                        GVState.Visible = true;
-                    }
+
                 }
             }
             catch (Exception ex)

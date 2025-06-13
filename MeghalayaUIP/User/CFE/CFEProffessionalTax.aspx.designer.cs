@@ -105,6 +105,24 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddlApply;
 
         /// <summary>
+        /// txtGoodssupplie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGoodssupplie;
+
+        /// <summary>
+        /// rblAdditional control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblAdditional;
+
+        /// <summary>
         /// EstblishDetails control.
         /// </summary>
         /// <remarks>
@@ -195,24 +213,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblConstitution;
 
         /// <summary>
-        /// txtGoodssupplie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGoodssupplie;
-
-        /// <summary>
-        /// rblAdditional control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblAdditional;
-
-        /// <summary>
         /// divBusinessDet control.
         /// </summary>
         /// <remarks>
@@ -249,15 +249,6 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
         /// <summary>
-        /// ddldist control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddldist;
-
-        /// <summary>
         /// divEmpTotal control.
         /// </summary>
         /// <remarks>
@@ -265,6 +256,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEmpTotal;
+
+        /// <summary>
+        /// ddldist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddldist;
 
         /// <summary>
         /// txtEMP control.

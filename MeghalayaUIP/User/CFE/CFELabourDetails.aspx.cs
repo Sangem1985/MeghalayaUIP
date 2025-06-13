@@ -916,6 +916,8 @@ namespace MeghalayaUIP.User.CFE
                 {
                     lblmsg0.Text = "Please Enter All Details";
                     Failure.Visible = true;
+                    string message = "alert('" + lblmsg0.Text + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
                 else
                 {

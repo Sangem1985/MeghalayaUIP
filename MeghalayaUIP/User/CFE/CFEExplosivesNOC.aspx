@@ -94,7 +94,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Quantity(at any one time) <span class="text-danger">*</span></label>
+                                                    <label class="col-lg-6 col-form-label">Quantity(at any one time)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtQuantityTime" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
@@ -112,7 +112,7 @@
                                                 <asp:Button ID="btnAdd" Text="Add Details" OnClick="btnAdd_Click" class="btn btn-rounded btn-green" runat="server" Width="110px" />
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex justify-content-center">
+                                        <div class="col-md-12 d-flex justify-content-left">
                                             <asp:GridView ID="GVEXPLOSIVE" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                 GridLines="None"
