@@ -1,0 +1,80 @@
+Time: 13/06/2025 05:11:44 PM
+-----------------------------------------------------------
+Message: Conversion failed when converting the varchar value 'CFEFR-2025-1' to data type int.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls) in D:\Projects\Meghalaya\MeghalayaAPI\DAL\CFEProcessDAL.cs:line 78
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility) in D:\Projects\Meghalaya\MeghalayaAPI\BAL\CFEProcessBAL.cs:line 17
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model) in D:\Projects\Meghalaya\MeghalayaAPI\Controllers\CFEProcessController.cs:line 95
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 13/06/2025 05:12:47 PM
+-----------------------------------------------------------
+Message: Conversion failed when converting the varchar value 'CFEFR-2025-1' to data type int.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls) in D:\Projects\Meghalaya\MeghalayaAPI\DAL\CFEProcessDAL.cs:line 78
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility) in D:\Projects\Meghalaya\MeghalayaAPI\BAL\CFEProcessBAL.cs:line 17
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model) in D:\Projects\Meghalaya\MeghalayaAPI\Controllers\CFEProcessController.cs:line 95
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 13/06/2025 05:13:07 PM
+-----------------------------------------------------------
+Message: Conversion failed when converting the varchar value 'CFEFR-2025-1' to data type int.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls) in D:\Projects\Meghalaya\MeghalayaAPI\DAL\CFEProcessDAL.cs:line 78
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility) in D:\Projects\Meghalaya\MeghalayaAPI\BAL\CFEProcessBAL.cs:line 17
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model) in D:\Projects\Meghalaya\MeghalayaAPI\Controllers\CFEProcessController.cs:line 95
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 13/06/2025 05:14:04 PM
+-----------------------------------------------------------
+Message: Conversion failed when converting the varchar value 'CFEFR-2025-1' to data type int.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls) in D:\Projects\Meghalaya\MeghalayaAPI\DAL\CFEProcessDAL.cs:line 78
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility) in D:\Projects\Meghalaya\MeghalayaAPI\BAL\CFEProcessBAL.cs:line 17
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model) in D:\Projects\Meghalaya\MeghalayaAPI\Controllers\CFEProcessController.cs:line 95
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 13/06/2025 05:15:30 PM
+-----------------------------------------------------------
+Message: Conversion failed when converting the varchar value 'CFEFR-2025-1' to data type int.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls) in D:\Projects\Meghalaya\MeghalayaAPI\DAL\CFEProcessDAL.cs:line 78
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility) in D:\Projects\Meghalaya\MeghalayaAPI\BAL\CFEProcessBAL.cs:line 17
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model) in D:\Projects\Meghalaya\MeghalayaAPI\Controllers\CFEProcessController.cs:line 95
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 13/06/2025 05:51:55 PM
+-----------------------------------------------------------
+Message: Procedure or function 'USP_INS_CFE_FEASIBILITY_DETAILS' expects parameter '@CFE_QDID', which was not supplied.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls)
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility)
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model)
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 13/06/2025 05:52:15 PM
+-----------------------------------------------------------
+Message: Procedure or function 'USP_INS_CFE_FEASIBILITY_DETAILS' expects parameter '@CFE_QDID', which was not supplied.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls)
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility)
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model)
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 13/06/2025 05:52:48 PM
+-----------------------------------------------------------
+Message: Procedure or function 'USP_INS_CFE_FEASIBILITY_DETAILS' expects parameter '@CFE_QDID', which was not supplied.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls)
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility)
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model)
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+

@@ -1,4 +1,5 @@
-﻿using MeghalayaUIP.Common;
+﻿using MeghalayaAPI.Models;
+using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,17 @@ namespace MeghalayaAPI.Validations
             if (model.status == 11 && (string.IsNullOrWhiteSpace(model.AdditionalAmount) || model.AdditionalAmount == "" || model.AdditionalAmount == null || model.AdditionalAmount == "0"))
             {
                 ErrorMsg = ErrorMsg + slno + ".AdditionalAmount should not be empty or Zero \\n";
+                slno = slno + 1;
+            }
+            return ErrorMsg;
+        }
+        public string ValidateFeasibilityFields(CFE_FEASIBILITY model)
+        {
+            int slno = 1;
+            string ErrorMsg = "";
+            if (model.NearestConsumerId == "" || model.NearestConsumerId == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ".Nearest Consumer Id should not be empty \\n";
                 slno = slno + 1;
             }
             return ErrorMsg;

@@ -401,6 +401,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="BAL\CFEProcessBAL.cs" />
     <Compile Include="BAL\NSWSBAL.cs" />
     <Compile Include="BasicAuthentication.cs" />
     <Compile Include="Common\Constants.cs" />
@@ -411,11 +412,14 @@
     <Compile Include="Controllers\NSWSController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DAL\CFEProcessDAL.cs" />
     <Compile Include="DAL\CommonDAL.cs" />
     <Compile Include="DAL\NSWSDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CFEProcConstants.cs" />
+    <Compile Include="Models\CFEProcess.cs" />
     <Compile Include="Models\ErrorLog.cs" />
     <Compile Include="Models\NSWSCommon.cs" />
     <Compile Include="Models\PropertiesModel.cs" />

@@ -1,4 +1,5 @@
-﻿using MeghalayaAPI.Models;
+﻿using MeghalayaAPI.BAL;
+using MeghalayaAPI.Models;
 using MeghalayaAPI.Validations;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.DAL.CFEDAL;
@@ -9,6 +10,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
@@ -22,28 +25,29 @@ namespace MeghalayaAPI.Controllers
     {
         /*private string connectionString = ConfigurationManager.ConnectionStrings["MIPASS"].ConnectionString;*/
         CFEDAL objcfeDtls = new CFEDAL();
+        CFEProcessBAL _cfeprocessbal = new CFEProcessBAL();
         CFEProcessValidations validations = new CFEProcessValidations();
 
-       /* [HttpGet]
-        [Route("get")]
-        public IHttpActionResult GetData([FromUri] string param)
-        {
-            List<string> results = new List<string>();
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "SELECT Info FROM SampleTable WHERE ParamValue = @param";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@param", param);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    results.Add(reader["Info"].ToString());
-                }
-            }
-            return Ok(results);
-        }*/
-        
+        /* [HttpGet]
+         [Route("get")]
+         public IHttpActionResult GetData([FromUri] string param)
+         {
+             List<string> results = new List<string>();
+             using (SqlConnection conn = new SqlConnection(connectionString))
+             {
+                 string query = "SELECT Info FROM SampleTable WHERE ParamValue = @param";
+                 SqlCommand cmd = new SqlCommand(query, conn);
+                 cmd.Parameters.AddWithValue("@param", param);
+                 conn.Open();
+                 SqlDataReader reader = cmd.ExecuteReader();
+                 while (reader.Read())
+                 {
+                     results.Add(reader["Info"].ToString());
+                 }
+             }
+             return Ok(results);
+         }*/
+
         [HttpPost]
         [Route("UpdateCFEDepartmentProcess")]
         public IHttpActionResult CFEDepartmentProcessUpdate([FromBody] CFEDtls model)
@@ -73,7 +77,54 @@ namespace MeghalayaAPI.Controllers
                 return InternalServerError(ex);
             }
         }
+        [HttpPost]
+        [Route("PostCFEFeasibilityReport")]
+        public IHttpActionResult InsertCFEFeasibilityReport([FromBody] CFE_FEASIBILITY model)
+        {
+            try
+            {
+                if (model == null)
+                {
+                    return BadRequest("Invalid data.");
+                }
+                if (!ModelState.IsValid)
+                {
+                    var customErrors = ModelState
+                   .Where(ms => ms.Value.Errors.Count > 0)
+                   .SelectMany(ms => ms.Value.Errors)
+                   .Select(err =>
+                   !string.IsNullOrWhiteSpace(err.ErrorMessage)
+                       ? err.ErrorMessage
+                       : err.Exception?.Message 
+                       )           
+                       .Where(msg => !string.IsNullOrWhiteSpace(msg))
+                       .ToList();
 
+                    return Content(HttpStatusCode.BadRequest, new { status = "failed", errors = customErrors });
+                }
+                string errormsg = validations.ValidateFeasibilityFields(model);
+                if (errormsg.Trim().TrimStart() != "")
+                {
+                    return BadRequest(errormsg);
+                }
+                else
+                {
+                    string valid = _cfeprocessbal.CFEFeasibilityReportInsert(model);
+                    return Ok(new
+                    {
+                        status = "success",
+                        message = valid
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.LogError(ex);
+                ErrorLog.LogData(Convert.ToString(ex), "InsertCFEFeasibilityReport");
+                ErrorLog.LogerrorDB(ex, "InsertCFEFeasibilityReport");
+                return InternalServerError(ex);
+            }
+        }
         public DataSet GetDataPower()
         {
             try
