@@ -28,7 +28,7 @@
             </nav>
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="row" id="divText" runat="server">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
@@ -54,16 +54,16 @@
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <div class="row">
-                                        <div class="drug" id="drug">
+                                        <div class="drug" id="drugcommom">
                                             <div class="col-md-12 d-flex">
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Clinical establishment registration number</span></label>
                                             </div>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Valid clinical establishment registration number    *</label>
+                                                        <label class="col-lg-6 col-form-label">Valid clinical establishment registration number <span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox ID="txtClinical" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtClinical" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
 
                                                         </div>
                                                     </div>
@@ -76,11 +76,11 @@
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Genetic Counselling Centre/Genetic Laboratory/Genetic Clinic/Ultrasound Clinic/Imaging Centre Details</span></label>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-8">
+                                                <div class="col-md-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-8 col-form-label">Type of facility to be registered (Please specify whether the application is for registration of a Genetic Counselling Centre/ Genetic Laboratory/Genetic Clinic /Ultrasound Clinic/ Imaging Centre or any combination of these)  *</label>
-                                                        <div class="col-lg-12 d-flex">
-                                                            <asp:CheckBoxList ID="CHKRegistered" runat="server" RepeatDirection="Vertical" RepeatColumns="7" Style="padding: 20px">
+                                                        <label class="col-lg-6 col-form-label">Please Select Type of facility to be registered (Please specify whether the application is for registration of a Genetic Counselling Centre/ Genetic Laboratory/Genetic Clinic /Ultrasound Clinic/ Imaging Centre or any combination of these)<span style="color: red">*</span></label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:CheckBoxList ID="CHKRegistered" runat="server" RepeatDirection="Vertical" RepeatColumns="3" Style="padding: 20px">
                                                                 <asp:ListItem Text="Genetic Counselling Centre" Value="1" style="padding-right: 20px"></asp:ListItem>
                                                                 <asp:ListItem Text="Genetic Laboratory" Value="2" style="padding-right: 20px"></asp:ListItem>
                                                                 <asp:ListItem Text="Genetic Clinic" Value="3" style="padding-right: 20px"></asp:ListItem>
@@ -90,9 +90,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Type of facility to be registered(Description) *</label>
+                                                        <label class="col-lg-6 col-form-label">Type of facility to be registered(Description)<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:TextBox ID="txtFacility" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -104,7 +107,7 @@
 
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Type of ownership of Organization  *</label>
+                                                        <label class="col-lg-6 col-form-label">Type of ownership of Organization<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:DropDownList ID="rblLicense" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicense_SelectedIndexChanged">
                                                                 <asp:ListItem Text="--Select--" Value="-1" />
@@ -123,7 +126,7 @@
 
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Type of Institution   *</label>
+                                                        <label class="col-lg-6 col-form-label">Type of Institution<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:DropDownList ID="ddlType" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">
                                                                 <asp:ListItem Text="--Select--" Value="-1" />
@@ -141,7 +144,7 @@
 
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Decription *</label>
+                                                        <label class="col-lg-6 col-form-label">Decription<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:TextBox ID="txtDescription" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                         </div>
@@ -154,7 +157,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Specific pre-natal diagnostic procedures/tests for which approval is sought *</label>
+                                                        <label class="col-lg-6 col-form-label">Specific pre-natal diagnostic procedures/tests for which approval is sought<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:DropDownList ID="ddlprenatal" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
@@ -167,7 +170,7 @@
 
                                                 <div class="col-md-4" id="otherownership" runat="server" visible="false">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Any other type of ownership to be stated*</label>
+                                                        <label class="col-lg-6 col-form-label">Any other type of ownership to be stated<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:TextBox ID="txtOwnership" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
@@ -175,18 +178,26 @@
                                                 </div>
                                                 <div class="col-md-4" id="Starttype" runat="server" visible="false">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Any other type of institution to be stated *</label>
+                                                        <label class="col-lg-6 col-form-label">Any other type of institution to be stated<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:TextBox ID="txtanyinstitute" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Whether equipments already available   *</label>
+                                                        <label class="col-lg-6 col-form-label">(a).Facilities available in the Counselling Centre <span style="color: red">*</span></label>
+                                                        <div class="col-lg-6">
+                                                            <asp:TextBox ID="txtFciliites" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Whether equipments already available<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:RadioButtonList ID="rblequipments" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblequipments_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Yes" Value="Y" />
@@ -195,11 +206,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
-
-
-
                                             <div id="divequipment" runat="server" visible="false">
                                                 <div class="col-md-12 d-flex">
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Equipment available with the make and model of each equipment</span></label>
@@ -207,18 +214,17 @@
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Serial number of equipment *</label>
+                                                            <label class="col-lg-6 col-form-label">Serial number of equipment<span style="color: red">*</span></label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtEquipmentmake" runat="server" class="form-control" onkeypress="return Names(this)" onkeyup="handleKeyUp(this)"></asp:TextBox>
-
+                                                                <asp:TextBox ID="txtEquipmentmake" runat="server" class="form-control" onkeypress="return NumberOnly()" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Make and Model of equipment *</label>
+                                                            <label class="col-lg-6 col-form-label">Make and Model of equipment<span style="color: red">*</span></label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtMakeEquipment" runat="server" class="form-control" onkeypress="return Names(this)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                <asp:TextBox ID="txtMakeEquipment" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                             </div>
                                                         </div>
@@ -233,7 +239,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 d-flex justify-content-center ml-3">
+                                                <div class="col-12 d-flex justify-content-center">
                                                     <asp:GridView ID="GVEquipment" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                         GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVEquipment_RowDeleting">
@@ -248,31 +254,23 @@
                                                         <AlternatingRowStyle BackColor="White" />
                                                     </asp:GridView>
                                                 </div>
+                                                <br />
                                             </div>
+                                        </div>
 
-                                            <br />
 
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">(a).Facilities available in the Counselling Centre    *</label>
-                                                        <div class="col-lg-4">
-                                                            <asp:TextBox ID="txtFciliites" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
+                                        <div class="drug" id="drugothers">
                                             <div class="col-md-12 d-flex">
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Name of Radiologists/Sonologists</span></label>
                                             </div>
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Name of radiologist / sonologist  *</label>
-                                                        <div class="col-lg-4 d-flex">
-                                                            <asp:TextBox ID="txtRadiologist" runat="server" class="form-control" onkeypress="return Names(this)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <label class="col-lg-6 col-form-label">Name of radiologist / sonologist<span style="color: red">*</span></label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtRadiologist" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
 
                                                         </div>
                                                     </div>
@@ -287,7 +285,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 d-flex justify-content-center ml-3">
+                                            <div class="col-12 d-flex justify-content-center">
                                                 <asp:GridView ID="GVRADIO" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                     GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVRADIO_RowDeleting">
@@ -300,16 +298,16 @@
                                                     <AlternatingRowStyle BackColor="White" />
                                                 </asp:GridView>
                                             </div>
+                                            <br />
+                                        </div>
 
 
 
+                                        <div class="col-md-12 text-right mt-2 mb-2">
+                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
+                                            <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                            <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
 
-                                            <div class="col-md-12 text-right mt-2 mb-2">
-                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
-                                                <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                                <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
-
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

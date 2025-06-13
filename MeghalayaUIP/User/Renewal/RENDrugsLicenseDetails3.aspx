@@ -1,50 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="RENDrugsLicenseDetails3.aspx.cs" Inherits="MeghalayaUIP.User.Renewal.RENDrugsLicenseDetails3" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        //let originalValue = "";
-        function handleKeyUp(input) {
-            if (input.value.trim() === "") {
-                input.style.border = "2px solid red";
-            }
-            else {
-                input.style.border = "1px solid #767575b5";
-            }
-        }
-        function validateDropdown(dropdown) {
-
-            if (dropdown.value === "0") {
-                dropdown.style.border = "2px solid red";
-                dropdown.focus();
-            } else {
-                dropdown.style.border = "1px solid #767575b5";
-            }
-        }
-
-
-        function validateRadioButtonList(radioGroupContainer) {
-            // Find all radio buttons inside the container
-            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
-
-            // Check if any radio button is selected
-            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
-
-            if (!isSelected) {
-                // If none are selected, apply red border
-                radioGroupContainer.style.border = "2px solid red";
-                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
-            } else {
-                // Reset the border if an option is selected
-                var id = radioGroupContainer.id;
-                document.getElementById(id).style.border = "1px solid #767575b5";
-                return false;
-            }
-        }
-    </script>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
         div#drug, div#drugothers, div#drugcommom {
             width: 100%;
@@ -100,7 +61,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Service Apply To:   *</label>
+                                                        <label class="col-lg-6 col-form-label">Service Apply To:<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:DropDownList ID="ddlservice" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
@@ -118,7 +79,7 @@
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Please specify the purpose of application  *</label>
+                                                        <label class="col-lg-6 col-form-label">Please specify the purpose of application<span style="color: red">*</span></label>
                                                         <div class="col-lg-6">
                                                             <asp:DropDownList ID="rblLicense" runat="server" class="form-control" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblLicense_SelectedIndexChanged">
                                                                 <asp:ListItem Text="--Select--" Value="-1" />
@@ -133,15 +94,15 @@
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">License Number *</label>
+                                                            <label class="col-lg-6 col-form-label">License Number<span style="color: red">*</span></label>
                                                             <div class="col-lg-6">
-                                                                <asp:TextBox ID="txtLicNo" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                <asp:TextBox ID="txtLicNo" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Expiry date of license *</label>
+                                                            <label class="col-lg-6 col-form-label">Expiry date of license<span style="color: red">*</span></label>
                                                             <div class="col-lg-6">
                                                                 <asp:TextBox runat="server" ID="txtExpiryDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
                                                                 <cc1:CalendarExtender ID="CalendarExtender9" runat="server" Format="dd-MM-yyyy" TargetControlID="txtExpiryDate"></cc1:CalendarExtender>
@@ -154,9 +115,9 @@
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Do you hold any previous cancelled license?  *</label>
+                                                            <label class="col-lg-6 col-form-label">Do you hold any previous cancelled license?<span style="color: red">*</span></label>
                                                             <div class="col-lg-6">
-                                                                <asp:RadioButtonList ID="rblCancelledLic" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCancelledLic_SelectedIndexChanged">
+                                                                <asp:RadioButtonList ID="rblCancelledLic" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblCancelledLic_SelectedIndexChanged">
                                                                     <asp:ListItem Text="Yes" Value="Y" />
                                                                     <asp:ListItem Text="No" Value="N" />
                                                                 </asp:RadioButtonList>
@@ -165,26 +126,26 @@
                                                     </div>
                                                     <div class="col-md-4" id="LicNos" runat="server" visible="false">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Please specify license no *</label>
+                                                            <label class="col-lg-6 col-form-label">Please specify license no<span style="color: red">*</span></label>
                                                             <div class="col-lg-6">
-                                                                <asp:TextBox ID="txtSpecifyLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                <asp:TextBox ID="txtSpecifyLicNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </asp:Panel>
-                                         
-
-                                            <div id="divTestAnalysis65" runat="server" visible="true">
+                                        </div>
+                                        <div class="drug" id="drugothers">
+                                        <div id="divTestAnalysis65" runat="server" visible="true">                                            
                                                 <div class="col-md-12 d-flex">
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Drug Details</span></label>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-4">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-6 col-form-label">Name of the Drug *</label>
+                                                            <label class="col-lg-6 col-form-label">Name of the Drug<span style="color: red">*</span></label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtDrugName" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return Names(this)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                                <asp:TextBox ID="txtDrugName" runat="server" class="form-control" onkeypress="return Names(this)"></asp:TextBox>
 
                                                             </div>
                                                         </div>
@@ -198,7 +159,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 d-flex justify-content-center ml-3">
+                                                <div class="col-12 d-flex justify-content-center">
                                                     <asp:GridView ID="GVDruges" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                         BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
                                                         GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVDruges_RowDeleting">
@@ -211,16 +172,15 @@
                                                         <AlternatingRowStyle BackColor="White" />
                                                     </asp:GridView>
                                                 </div>
-
                                             </div>
+                                        </div>
 
 
-                                            <div class="col-md-12 text-right mt-2 mb-2">
-                                                <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
-                                                <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
-                                                <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
+                                        <div class="col-md-12 text-right mt-2 mb-2">
+                                            <asp:Button Text="Previous" runat="server" ID="btnPreviuos" OnClick="btnPreviuos_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
+                                            <asp:Button ID="btnsave" runat="server" Text="Save" OnClick="btnsave_Click" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                            <asp:Button ID="btnNext" Text="Next" runat="server" OnClick="btnNext_Click" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -228,13 +188,13 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-                    <ProgressTemplate>
-                        <div class="update">
-                        </div>
-                    </ProgressTemplate>
-                </asp:UpdateProgress>
+            </div>
+            <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                <ProgressTemplate>
+                    <div class="update">
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
