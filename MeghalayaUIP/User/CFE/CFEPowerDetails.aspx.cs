@@ -2,20 +2,21 @@
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
-using System.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Runtime.Remoting;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static AjaxControlToolkit.AsyncFileUpload.Constants;
-using Newtonsoft.Json;
-using System.Net.Http;
-using System.Text;
 
 namespace MeghalayaUIP.User.CFE
 {
@@ -213,7 +214,7 @@ namespace MeghalayaUIP.User.CFE
                 ds = objcfebal.GetPowerDetailsRetrive(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
 
                 if (ds.Tables[0].Rows.Count > 0)
-                {   
+                {
                     ddlSubDiv.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"].ToString();
                     ddlSubDiv_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlDist.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_DISTRICT"].ToString();
@@ -369,7 +370,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEPower.ElectricityCharge = txtEleChg.Text;
                     objCFEPower.SUBDIVISION = ddlSubDiv.SelectedValue;
                     objCFEPower.DISTRICT = ddlDist.SelectedValue;
-                   // objCFEPower.RESPONSEOUTPUT = RegNo;
+                    // objCFEPower.RESPONSEOUTPUT = RegNo;
                     objCFEPower.REGNO = hdnapiReg.Value;
 
 
@@ -383,14 +384,30 @@ namespace MeghalayaUIP.User.CFE
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                     DataSet dss = new DataSet();
-                    //dss = GetDataPower();
-                    if (dss.Tables.Count>0 && dss.Tables[0].Rows.Count > 0)
+                    dss = GetDataPower();
+                    if (dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
                     {
                         string RegNo = Post(dss);
-                        if (RegNo != "")
+                        if (RegNo != "" && RegNo.Contains(","))
                         {
-                            CFEDtls objcfeDtls = new CFEDtls();
-                            
+                            string[] param = RegNo.Split(',');
+                            if (param.Length > 0)
+                            {
+                                CFEDtls objcfeDtls = new CFEDtls();
+                                objcfeDtls.Unitid = Convert.ToString(Session["CFEUNITID"]);
+                                objcfeDtls.Investerid = hdnUserID.Value;
+                                objcfeDtls.Questionnaireid = Convert.ToString(Session["CFEQID"]);
+                                objcfeDtls.deptid = 4;
+                                objcfeDtls.ApprovalId = 14;
+                                objcfeDtls.Remarks = RegNo;
+                                objcfeDtls.IPAddress = getclientIP();
+                                objcfeDtls.ReferenceNumber = param[0];
+                                objcfeDtls.ViewStatus = "I";
+
+                                string final = objcfebal.UpdateCFEApplStatus(objcfeDtls);
+
+
+                            }
                         }
                     }
 
@@ -415,7 +432,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-              
+
                 if (ddlSubDiv.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please select Sub Division  \\n";
@@ -1294,7 +1311,7 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-       
+
         protected void btnOccProof_Click(object sender, EventArgs e)
         {
 
@@ -1315,6 +1332,11 @@ namespace MeghalayaUIP.User.CFE
         }
         private string Post(DataSet ds)
         {
+            var ObjUserInfo = new UserInfo();
+            if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+            {
+                ObjUserInfo = (UserInfo)Session["UserInfo"];
+            }
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
             using (var client = new HttpClient())
@@ -1336,32 +1358,37 @@ namespace MeghalayaUIP.User.CFE
                     Address_of_inst = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESS"]),
                     Owner_type = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]),
                     Purpose = Convert.ToInt32(ds.Tables[0].Rows[0]["PROPOSALFOR"]),
-                    AppliedLoad = Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
+                    //AppliedLoad = Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
                     Applicatent_Name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]),
                     Father_name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPSoWoDo"]),
                     MotherName = Convert.ToString(ds.Tables[0].Rows[0]["MOTHERNAME"]),
                     Mobile_number = Convert.ToString(ds.Tables[0].Rows[0]["Mobile_number"]),
                     Phone = Convert.ToString(ds.Tables[0].Rows[0]["Phone"]),
                     Email = Convert.ToString(ds.Tables[0].Rows[0]["Email"]),
-                    Door_no = Convert.ToInt32(ds.Tables[0].Rows[0]["DOORNO"]),
+                    Door_no = Convert.ToString(ds.Tables[0].Rows[0]["DOORNO"]),
                     Perm_Address = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESSED"]),
                     Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
                     IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
                     CreatedBy = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
-                    /*    lstDocuments = new[]
-                    {
-                    new {
-                        documantId = 2,
-                        documentName = "Proof of ownership/occupancy",
-                        document_path = "doc1.pdf"
-                    },
-                    new {
-                        documantId = 3,
-                        documentName = "Proof of Identification",
-                        document_path = "doc2.pdf"
-                    }
-                    }*/
-                };
+                    CreatorName = ObjUserInfo.Email,
+                    MIPA_ApplicationID = Convert.ToInt32(Session["CFEUNITID"]),
+
+                    //lstDocuments = new[]
+                    //{
+                       
+                    //new {
+                    //    documantId = 2,
+                    //    documentName = "Proof of ownership/occupancy",
+                    //    document_path = "doc1.pdf"
+                    //},
+                    //new {
+                    //    documantId = 3,
+                    //    documentName = "Proof of Identification",
+                    //    document_path = "doc2.pdf"
+                    //}
+                    //}
+                }
+            ;
                 var json = JsonConvert.SerializeObject(requestBody);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 

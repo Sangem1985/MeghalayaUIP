@@ -1550,7 +1550,7 @@ namespace MeghalayaUIP.User.CFE
                 CFEQuestionnaireDet objCFEQ = new CFEQuestionnaireDet();
 
                 DataTable dtApprReq = new DataTable();
-                DataTable dtPCB = new DataTable(); DataTable dtpower = new DataTable(); DataTable dtGenReq = new DataTable();
+                DataTable dtPCB = new DataTable(); DataTable dtPCBHaz = new DataTable(); DataTable dtpower = new DataTable(); DataTable dtGenReq = new DataTable();
                 DataTable dtfire = new DataTable(); DataTable dtFctry = new DataTable(); DataTable dtRSDS = new DataTable();
 
                 DataTable dtExplosivs = new DataTable(); DataTable dtPtrlsale = new DataTable(); DataTable dtElectric = new DataTable();
@@ -1575,6 +1575,12 @@ namespace MeghalayaUIP.User.CFE
                     dtPCB = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtPCB);
 
+                    objCFEQ.Investment = txtPMCost.Text;
+                    objCFEQ.PCBCategory = lblPCBCategory.Text;
+                    objCFEQ.ApprovalID = "2";
+                    dtPCBHaz = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtPCBHaz);
+
                 }
                 if (ddlPowerReq.SelectedValue != "")
                 {
@@ -1591,6 +1597,12 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQ.ApprovalID = "5";
                     dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtFctry);
+                }
+                if (rblGenerator.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "6";
+                    dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtGenReq);
                 }
                 if (Convert.ToDecimal(txtBuildingHeight.Text) != 0)
                 {
@@ -1678,12 +1690,7 @@ namespace MeghalayaUIP.User.CFE
                    NonMunicipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                    dtApprReq.Merge(NonMunicipal);
                }
-                if (rblGenerator.SelectedValue == "Y")
-                {
-                    objCFEQ.ApprovalID = "6";
-                    dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                    dtApprReq.Merge(dtGenReq);
-                }
+                
                */
 
                 if (rblNocGroundWater.SelectedValue == "Y")
