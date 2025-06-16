@@ -199,7 +199,6 @@ namespace MeghalayaUIP.User.Renewal
             try
             {
                 int slno = 1;
-              //  List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 string errormsg = "";
                 if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
                 {

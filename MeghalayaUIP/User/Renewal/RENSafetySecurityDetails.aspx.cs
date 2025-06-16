@@ -138,6 +138,7 @@ namespace MeghalayaUIP.User.Renewal
                     ObjRenSafteySecurity.NAMEESTEMP = txtNameEstEmp.Text;
                     ObjRenSafteySecurity.ADDRESSEST = txtAddressEst.Text;
                     ObjRenSafteySecurity.CONTACTNO = txtContactNo.Text;
+                    ObjRenSafteySecurity.FEE = lblFees.Text;
 
                     result = objRenbal.InsertRENSafteySecurityDetails(ObjRenSafteySecurity);
 

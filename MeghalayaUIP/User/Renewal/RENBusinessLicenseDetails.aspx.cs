@@ -52,8 +52,7 @@ namespace MeghalayaUIP.User.Renewal
                         string newurl = "~/User/Renewal/RENUserDashboard.aspx";
                         Response.Redirect(newurl);
                     }
-                    //Session["UNITID"] = "1001";
-                    //UnitID = Convert.ToString(Session["UNITID"]);
+                
 
                     Page.MaintainScrollPositionOnPostBack = true;
                     Failure.Visible = false;
@@ -83,6 +82,7 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     if (Convert.ToString(ds.Tables[0].Rows[0]["RENDA_APPROVALID"]) == "77")
                     {
+                        BindBusinessType();
                         Binddata();
                     }
                 }
@@ -107,7 +107,6 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-           // string Quesstionriids = "1001";
             try
             {
                 string result = "";
@@ -118,7 +117,6 @@ namespace MeghalayaUIP.User.Renewal
 
                     ObjRenBusinessLic.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenBusinessLic.CreatedBy = hdnUserID.Value;
-                  //  ObjRenBusinessLic.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenBusinessLic.IPAddress = getclientIP();
 
                     ObjRenBusinessLic.LICNO = txtLicNo.Text;
@@ -130,7 +128,7 @@ namespace MeghalayaUIP.User.Renewal
                     ObjRenBusinessLic.MOBILENO = txtMobileNo.Text;
                     ObjRenBusinessLic.EMAILID = txtEmailId.Text;
                     ObjRenBusinessLic.ADDRESS = txtAddress.Text;
-                    ObjRenBusinessLic.NATUREBUSINESS = txtNatureBusiness.Text;
+                    ObjRenBusinessLic.NATUREBUSINESS = ddlNature.SelectedValue;
                     ObjRenBusinessLic.TYPEOFEST = rblApplication.SelectedValue;
 
                     result = objRenbal.InsertRENBusinessLicDet(ObjRenBusinessLic);
@@ -270,7 +268,7 @@ namespace MeghalayaUIP.User.Renewal
                     errormsg = errormsg + slno + ". Please Enter Address\\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtNatureBusiness.Text) || txtNatureBusiness.Text == "" || txtNatureBusiness.Text == null)
+                if (ddlNature.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Enter Nature Business\\n";
                     slno = slno + 1;
@@ -353,7 +351,9 @@ namespace MeghalayaUIP.User.Renewal
                     txtMobileNo.Text = ds.Tables[0].Rows[0]["RENBD_MOBILENO"].ToString();
                     txtEmailId.Text = ds.Tables[0].Rows[0]["RENBD_EMAILID"].ToString();
                     txtAddress.Text = ds.Tables[0].Rows[0]["RENBD_ADDRESS"].ToString();
-                    txtNatureBusiness.Text = ds.Tables[0].Rows[0]["RENBD_NATUREBUSINESS"].ToString();
+                    ddlNature.SelectedValue = ds.Tables[0].Rows[0]["RENBD_NATUREBUSINESS"].ToString();
+
+
                     rblApplication.SelectedValue = ds.Tables[0].Rows[0]["RENBD_TYPEOFEST"].ToString();
 
                 }
@@ -365,7 +365,51 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        public void BindBusinessType()
+        {
+            try
+            {
+                ddlNature.Items.Clear();
+                List<MasterBusinessType> objBusinessTypeModel = new List<MasterBusinessType>();
+                objBusinessTypeModel = mstrBAL.GetBusinessType();
+                if (objBusinessTypeModel != null)
+                {
 
+                    ddlNature.DataSource = objBusinessTypeModel;
+                    ddlNature.DataValueField = "BUSINESSTYPEID";
+                    ddlNature.DataTextField = "BUSINESSTYPENAME";
+                    ddlNature.DataBind();
+                }
+                else
+                {
+                    ddlNature.DataSource = null;
+                    ddlNature.DataBind();
+                }
+                AddSelect(ddlNature);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public void AddSelect(DropDownList ddl)
+        {
+            try
+            {
+                System.Web.UI.WebControls.ListItem li = new System.Web.UI.WebControls.ListItem();
+                li.Text = "--Select--";
+                li.Value = "0";
+                ddl.Items.Insert(0, li);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void btndpr_Click(object sender, EventArgs e)
         {
             try
