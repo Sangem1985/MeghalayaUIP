@@ -64,7 +64,7 @@ namespace MeghalayaUIP.User.Renewal
                     //}
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -442,7 +442,7 @@ namespace MeghalayaUIP.User.Renewal
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
-           // string Quesstionriids = "1001";
+            // string Quesstionriids = "1001";
             try
             {
                 string result = "";
@@ -454,9 +454,9 @@ namespace MeghalayaUIP.User.Renewal
                     int count = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
                     for (int i = 0; i < GVDETAILS.Rows.Count; i++)
                     {
-                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]); 
+                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]);
                         ObjRenShopEst.CreatedBy = hdnUserID.Value;
-                      //  ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
+                        //  ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
                         ObjRenShopEst.IPAddress = getclientIP();
                         ObjRenShopEst.DISTICS = GVDETAILS.Rows[i].Cells[1].Text;
                         ObjRenShopEst.MANDALS = GVDETAILS.Rows[i].Cells[2].Text;
@@ -481,9 +481,9 @@ namespace MeghalayaUIP.User.Renewal
 
                     for (int i = 0; i < GVTEST.Rows.Count; i++)
                     {
-                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]); 
+                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]);
                         ObjRenShopEst.CreatedBy = hdnUserID.Value;
-                      //  ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
+                        //  ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
                         ObjRenShopEst.IPAddress = getclientIP();
                         ObjRenShopEst.NAMES = GVTEST.Rows[i].Cells[1].Text;
                         ObjRenShopEst.GENDER = GVTEST.Rows[i].Cells[2].Text;
@@ -506,9 +506,9 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     for (int i = 0; i < GVPROPERTIE.Rows.Count; i++)
                     {
-                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]); 
+                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]);
                         ObjRenShopEst.CreatedBy = hdnUserID.Value;
-                      //  ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
+                        //  ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
                         ObjRenShopEst.IPAddress = getclientIP();
                         ObjRenShopEst.NAME_PROPERTIE = GVPROPERTIE.Rows[i].Cells[1].Text;
                         ObjRenShopEst.COMMUNITIONADDRESS = GVPROPERTIE.Rows[i].Cells[2].Text;
@@ -528,9 +528,9 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     for (int i = 0; i < GVPATNER.Rows.Count; i++)
                     {
-                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]); 
+                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]);
                         ObjRenShopEst.CreatedBy = hdnUserID.Value;
-                       // ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
+                        // ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
                         ObjRenShopEst.IPAddress = getclientIP();
                         ObjRenShopEst.NAMEPATNER = GVPATNER.Rows[i].Cells[1].Text;
                         ObjRenShopEst.PATNERADDRESS = GVPATNER.Rows[i].Cells[2].Text;
@@ -549,9 +549,9 @@ namespace MeghalayaUIP.User.Renewal
                     }
                     for (int i = 0; i < GVLIMITED.Rows.Count; i++)
                     {
-                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]); 
+                        ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]);
                         ObjRenShopEst.CreatedBy = hdnUserID.Value;
-                       // ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
+                        // ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
                         ObjRenShopEst.IPAddress = getclientIP();
                         ObjRenShopEst.NAMEPATNER = GVLIMITED.Rows[i].Cells[1].Text;
                         ObjRenShopEst.PATNERADDRESS = GVLIMITED.Rows[i].Cells[2].Text;
@@ -570,9 +570,9 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
 
-                    ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]); 
+                    ObjRenShopEst.Questionnariid = Convert.ToString(Session["RENQID"]);
                     ObjRenShopEst.CreatedBy = hdnUserID.Value;
-                   // ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
+                    // ObjRenShopEst.UnitId = Convert.ToString(Session["RENUNITID"]);
                     ObjRenShopEst.IPAddress = getclientIP();
 
                     ObjRenShopEst.LICNO = txtLicNo.Text;
@@ -631,98 +631,12 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-
-        protected List<TextBox> FindEmptyTextboxes(Control container)
-        {
-
-            List<TextBox> emptyTextboxes = new List<TextBox>();
-            foreach (Control control in container.Controls)
-            {
-                if (control is TextBox)
-                {
-                    TextBox textbox = (TextBox)control;
-                    if (string.IsNullOrWhiteSpace(textbox.Text))
-                    {
-                        emptyTextboxes.Add(textbox);
-                        textbox.BorderColor = System.Drawing.Color.Red;
-                    }
-                }
-
-                if (control.HasControls())
-                {
-                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
-                }
-            }
-            return emptyTextboxes;
-        }
-        protected List<DropDownList> FindEmptyDropdowns(Control container)
-        {
-            List<DropDownList> emptyDropdowns = new List<DropDownList>();
-
-            foreach (Control control in container.Controls)
-            {
-                if (control is DropDownList)
-                {
-                    DropDownList dropdown = (DropDownList)control;
-                    if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
-                    {
-                        emptyDropdowns.Add(dropdown);
-                        dropdown.BorderColor = System.Drawing.Color.Red;
-                    }
-                }
-
-                if (control.HasControls())
-                {
-                    emptyDropdowns.AddRange(FindEmptyDropdowns(control));
-                }
-            }
-
-            return emptyDropdowns;
-        }
-
-        private List<RadioButtonList> FindEmptyRadioButtonLists(Control container)
-        {
-            List<RadioButtonList> emptyRadioButtonLists = new List<RadioButtonList>();
-
-            foreach (Control control in container.Controls)
-            {
-                if (control is RadioButtonList radioButtonList)
-                {
-                    if (string.IsNullOrWhiteSpace(radioButtonList.SelectedValue) || radioButtonList.SelectedIndex == -1)
-                    {
-                        emptyRadioButtonLists.Add(radioButtonList);
-
-                        radioButtonList.BorderColor = System.Drawing.Color.Red;
-                        radioButtonList.BorderWidth = Unit.Pixel(2);
-                        radioButtonList.BorderStyle = BorderStyle.Solid;
-                    }
-                    else
-                    {
-                        radioButtonList.BorderColor = System.Drawing.Color.Empty;
-                        radioButtonList.BorderWidth = Unit.Empty;
-                        radioButtonList.BorderStyle = BorderStyle.NotSet;
-                    }
-                }
-
-                if (control.HasControls())
-                {
-                    emptyRadioButtonLists.AddRange(FindEmptyRadioButtonLists(control));
-                }
-            }
-
-            return emptyRadioButtonLists;
-        }
-
-
-
         public string validations()
         {
             try
             {
                 int slno = 1;
-                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
-                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
-                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
+
                 string errormsg = "";
                 if (string.IsNullOrEmpty(txtLicNo.Text) || txtLicNo.Text == "" || txtLicNo.Text == null)
                 {
@@ -891,7 +805,7 @@ namespace MeghalayaUIP.User.Renewal
 
 
                         RenAttachments objRenAttachments = new RenAttachments();
-                       // objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
+                        // objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
                         objRenAttachments.Questionnareid = Convert.ToString(Session["RENQID"]);
                         objRenAttachments.MasterID = "135";
                         objRenAttachments.FilePath = serverpath + fupEmployeelist.PostedFile.FileName;
@@ -922,7 +836,7 @@ namespace MeghalayaUIP.User.Renewal
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
 
-                             
+
             }
             catch (Exception ex)
             {
@@ -949,7 +863,7 @@ namespace MeghalayaUIP.User.Renewal
             {
 
 
-                string Error = ""; string message = "";string result = "";
+                string Error = ""; string message = ""; string result = "";
                 if (fupEmployer.HasFile)
                 {
                     Error = validations(fupEmployer);
@@ -983,7 +897,7 @@ namespace MeghalayaUIP.User.Renewal
 
 
                         RenAttachments objRenAttachments = new RenAttachments();
-                      //  objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
+                        //  objRenAttachments.UNITID = Convert.ToString(Session["RENUNITID"]);
                         objRenAttachments.Questionnareid = Convert.ToString(Session["RENQID"]);
                         objRenAttachments.MasterID = "134";
                         objRenAttachments.FilePath = serverpath + fupEmployer.PostedFile.FileName;
@@ -1086,7 +1000,7 @@ namespace MeghalayaUIP.User.Renewal
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                      //  ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENSE_UNITID"]);
+                        //  ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["RENSE_UNITID"]);
                         txtLicNo.Text = ds.Tables[0].Rows[0]["RENSE_LICNO"].ToString();
                         txtLicIssueDate.Text = ds.Tables[0].Rows[0]["RENSE_LICISSUEDATE"].ToString();
                         txtLicValidDate.Text = ds.Tables[0].Rows[0]["RENSE_LICVALIDUP"].ToString();
@@ -1113,7 +1027,7 @@ namespace MeghalayaUIP.User.Renewal
                             txtEMPNo.Text = ds.Tables[0].Rows[0]["RENSE_NOOFEMPLOYEE"].ToString();
                         }
                         else { NumberEmp.Visible = false; }
-                       
+
                         ddlDistrict.SelectedValue = ds.Tables[0].Rows[0]["RENSE_DISTRIC"].ToString();
                         ddlDistrict_SelectedIndexChanged(null, EventArgs.Empty);
 
@@ -1146,39 +1060,39 @@ namespace MeghalayaUIP.User.Renewal
                     if (ds.Tables[1].Rows.Count > 0)
                     {
                         hdnUserID.Value = Convert.ToString(ds.Tables[1].Rows[0]["RENWP_RENQDID"]);
-                        ViewState["DETAILS"]= ds.Tables[1];
+                        ViewState["DETAILS"] = ds.Tables[1];
                         GVDETAILS.DataSource = ds.Tables[1];
                         GVDETAILS.DataBind();
                         GVDETAILS.Visible = true;
                     }
                     if (ds.Tables[2].Rows.Count > 0)
                     {
-                      //  hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["RENED_RENQDID"]);
-                        ViewState["EMPLOYEES"]= ds.Tables[2];
+                        //  hdnUserID.Value = Convert.ToString(ds.Tables[2].Rows[0]["RENED_RENQDID"]);
+                        ViewState["EMPLOYEES"] = ds.Tables[2];
                         GVTEST.DataSource = ds.Tables[2];
                         GVTEST.DataBind();
                         GVTEST.Visible = true;
                     }
                     if (ds.Tables[3].Rows.Count > 0)
                     {
-                       // hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["RENP_RENQDID"]);
-                        ViewState["PROPERTIE"]= ds.Tables[3];
+                        // hdnUserID.Value = Convert.ToString(ds.Tables[3].Rows[0]["RENP_RENQDID"]);
+                        ViewState["PROPERTIE"] = ds.Tables[3];
                         GVPROPERTIE.DataSource = ds.Tables[3];
                         GVPROPERTIE.DataBind();
                         GVPROPERTIE.Visible = true;
                     }
                     if (ds.Tables[4].Rows.Count > 0)
                     {
-                       // hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["RENPS_RENQDID"]);
-                        ViewState["PATNER"]= ds.Tables[4];
+                        // hdnUserID.Value = Convert.ToString(ds.Tables[4].Rows[0]["RENPS_RENQDID"]);
+                        ViewState["PATNER"] = ds.Tables[4];
                         GVPATNER.DataSource = ds.Tables[4];
                         GVPATNER.DataBind();
                         GVPATNER.Visible = true;
                     }
                     if (ds.Tables[5].Rows.Count > 0)
                     {
-                      //  hdnUserID.Value = Convert.ToString(ds.Tables[5].Rows[0]["RENLC_RENQDID"]);
-                        ViewState["LIMITED"]= ds.Tables[5];
+                        //  hdnUserID.Value = Convert.ToString(ds.Tables[5].Rows[0]["RENLC_RENQDID"]);
+                        ViewState["LIMITED"] = ds.Tables[5];
                         GVLIMITED.DataSource = ds.Tables[5];
                         GVLIMITED.DataBind();
                         GVLIMITED.Visible = true;
@@ -1203,7 +1117,7 @@ namespace MeghalayaUIP.User.Renewal
                 }
                 else { NumberEmp.Visible = false; }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -1223,7 +1137,7 @@ namespace MeghalayaUIP.User.Renewal
                 }
                 else { TestGrid.Visible = false; }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -1241,7 +1155,7 @@ namespace MeghalayaUIP.User.Renewal
                 }
                 else { DETAILSGRID.Visible = false; }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -1261,7 +1175,7 @@ namespace MeghalayaUIP.User.Renewal
                 }
                 else { other.Visible = false; }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -1294,7 +1208,7 @@ namespace MeghalayaUIP.User.Renewal
                     Partnership.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -1318,8 +1232,8 @@ namespace MeghalayaUIP.User.Renewal
                     dt.Columns.Add("RENP_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENP_NAMEPROPERTIE", typeof(string));
                     dt.Columns.Add("RENP_COMMUNICATIONADDRESS", typeof(string));
-                    dt.Columns.Add("RENP_COMMUNITY", typeof(string));                  
-                    dt.Columns.Add("RENP_COMMUNITYOTHER", typeof(string));                   
+                    dt.Columns.Add("RENP_COMMUNITY", typeof(string));
+                    dt.Columns.Add("RENP_COMMUNITYOTHER", typeof(string));
 
 
                     if (ViewState["PROPERTIE"] != null)
@@ -1336,7 +1250,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (ddlcommunity.SelectedValue == "4")
                     {
                         other.Visible = true;
-                        
+
                         dr["RENP_COMMUNITYOTHER"] = txtOther.Text;
                     }
                     else { other.Visible = false; }
@@ -1369,7 +1283,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                   // dt.Columns.Add("RENPS_UNITID", typeof(string));
+                    // dt.Columns.Add("RENPS_UNITID", typeof(string));
                     dt.Columns.Add("RENPS_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENPS_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENPS_NAMEPATNER", typeof(string));
@@ -1383,7 +1297,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                   // dr["RENPS_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    // dr["RENPS_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["RENPS_CREATEDBY"] = hdnUserID.Value;
                     dr["RENPS_CREATEDBYIP"] = getclientIP();
                     dr["RENPS_NAMEPATNER"] = txtPartner.Text;
@@ -1418,7 +1332,7 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                  //  dt.Columns.Add("RENLC_UNITID", typeof(string));
+                    //  dt.Columns.Add("RENLC_UNITID", typeof(string));
                     dt.Columns.Add("RENLC_CREATEDBY", typeof(string));
                     dt.Columns.Add("RENLC_CREATEDBYIP", typeof(string));
                     dt.Columns.Add("RENLC_NAMEOFDIRECTOR", typeof(string));
@@ -1432,7 +1346,7 @@ namespace MeghalayaUIP.User.Renewal
                     }
 
                     DataRow dr = dt.NewRow();
-                   // dr["RENLC_UNITID"] = Convert.ToString(ViewState["UnitID"]);
+                    // dr["RENLC_UNITID"] = Convert.ToString(ViewState["UnitID"]);
                     dr["RENLC_CREATEDBY"] = hdnUserID.Value;
                     dr["RENLC_CREATEDBYIP"] = getclientIP();
                     dr["RENLC_NAMEOFDIRECTOR"] = txtNameDirect.Text;
@@ -1625,7 +1539,7 @@ namespace MeghalayaUIP.User.Renewal
             {
                 Label lblCommunity = (Label)e.Row.FindControl("lblCommunity");
                 string communityValue = DataBinder.Eval(e.Row.DataItem, "RENP_COMMUNITY")?.ToString();
-                if(lblCommunity.Text!="")
+                if (lblCommunity.Text != "")
                 { GVPROPERTIE.Columns[4].Visible = true; }
                 //lblCommunity.Visible = (communityValue == "4");
             }
@@ -1644,7 +1558,7 @@ namespace MeghalayaUIP.User.Renewal
                     lblRegvalid.Text = "Registration valid up to";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -1668,5 +1582,71 @@ namespace MeghalayaUIP.User.Renewal
             catch (Exception ex)
             { throw ex; }
         }
+        protected void txtLicValidDate_TextChanged(object sender, EventArgs e)
+        {
+            string fromDate = txtLicValidDate.Text;
+            string validUpto;
+            int years, penaltyDays, penalty, renewalFee;
+
+            int totalAmount = CalculateRenewalFee(fromDate, out validUpto, out years, out penaltyDays, out penalty, out renewalFee);
+
+            lblRegDate.Text = "Valid From: " + DateTime.Parse(fromDate).ToString("dd-MM-yyyy");
+            lblRegUptoDate.Text = "Valid Upto: " + validUpto;
+            lblYearRenewed.Text = "Years Renewed: " + years;
+            lblFees.Text = "Renewal Fees: ₹" + renewalFee;
+            lblPenalty.Text = $"Penalty: ₹{penalty} ({penaltyDays} days @ ₹5)";
+            lblTotalPaid.Text = "Total to be Paid: ₹" + totalAmount;
+        }
+        public int CalculateRenewalFee(string validFromText, out string validUptoDate, out int yearsRenewed, out int penaltyDays, out int penaltyAmount, out int renewalFee)
+        {
+            if (!DateTime.TryParse(validFromText, out DateTime validFrom))
+                throw new Exception("Invalid date format.");
+
+            DateTime today = DateTime.Today;
+            TimeSpan totalDuration = today - validFrom;
+
+            yearsRenewed = (int)(totalDuration.TotalDays / 365);
+            if (yearsRenewed < 1) yearsRenewed = 1;
+
+            renewalFee = yearsRenewed * 50;
+
+            DateTime validUpto = validFrom.AddYears(yearsRenewed);
+            validUptoDate = validUpto.ToString("dd-MM-yyyy");
+
+            penaltyDays = (today > validUpto) ? (today - validUpto).Days : 0;
+            penaltyAmount = penaltyDays * 5;
+
+            return renewalFee + penaltyAmount;
+        }
+
+
+        /* public int CalculateRenewalFee(string validFromText)
+         {
+             if (!DateTime.TryParse(validFromText, out DateTime validFrom))
+                 throw new Exception("Invalid date format.");
+
+             DateTime today = DateTime.Today;
+
+             int yearsGap = today.Year - validFrom.Year;
+             int Day = today.Day - validFrom.Year;
+
+             if (today < validFrom.AddYears(Day))
+                 Day--;
+
+             if (Day < 0) Day = 0;
+             int basefeed = 5;
+             int penality = Day * 5;
+
+             if (today < validFrom.AddYears(yearsGap))
+                 yearsGap--;
+
+             if (yearsGap < 0) yearsGap = 0;
+
+             int baseFee = 50;
+             int penaltyFee = yearsGap * 50;
+
+             return baseFee + penaltyFee + basefeed + penality;
+         }*/
+
     }
 }

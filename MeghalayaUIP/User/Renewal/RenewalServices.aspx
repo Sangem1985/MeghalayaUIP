@@ -62,7 +62,7 @@
                                 <HeaderStyle HorizontalAlign="Center" />
                                 <ItemStyle Width="90%" />
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Fee" Visible="false">
+                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Fee" Visible="true">
                                 <ItemTemplate>
                                     <asp:Label runat="server" ID="lblApprovalFee" Text='<%# Eval("FEE")%>'></asp:Label>
                                 </ItemTemplate>

@@ -80,7 +80,7 @@ namespace MeghalayaUIP.User.Renewal
                     if (Request.QueryString.Count > 0)
                     {
                         if (Convert.ToString(Request.QueryString[0]) == "N")
-                            Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails.aspx?Next=" + "N");
+                            Response.Redirect("~/User/Renewal/RENDrugsLicenseDetails1.aspx?Next=" + "N");
                         else if (Convert.ToString(Request.QueryString[0]) == "P")
                             Response.Redirect("~/User/Renewal/RenewalServices.aspx?Previous=" + "P");
                     }
