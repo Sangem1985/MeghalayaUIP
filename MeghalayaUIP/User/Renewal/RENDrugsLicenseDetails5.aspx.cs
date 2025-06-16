@@ -145,7 +145,7 @@ namespace MeghalayaUIP.User.Renewal
                         ddlprenatal.SelectedValue = ds.Tables[5].Rows[0]["RENPC_PRENATALDIAGNOSTIC"].ToString();
                         txtFciliites.Text = ds.Tables[5].Rows[0]["RENPC_FACILITIESCOUNSELL"].ToString();
                         rblequipments.SelectedValue = ds.Tables[5].Rows[0]["RENPC_EQUIPMENTSALREADY"].ToString();
-
+                        rblequipments_SelectedIndexChanged(null, EventArgs.Empty);
                         if (rblequipments.SelectedValue == "Y")
                         {
                             if (ds.Tables[6].Rows.Count > 0)
@@ -251,8 +251,8 @@ namespace MeghalayaUIP.User.Renewal
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("SERIALEQUIPMENT", typeof(string));
-                    dt.Columns.Add("MAKEEQUIPMENT", typeof(string));
+                    dt.Columns.Add("RENE_SERIALNO", typeof(string));
+                    dt.Columns.Add("RENE_MAKEMODEL", typeof(string));
 
                     if (ViewState["Equipment"] != null)
                     {
@@ -261,8 +261,8 @@ namespace MeghalayaUIP.User.Renewal
 
                     DataRow dr = dt.NewRow();
 
-                    dr["SERIALEQUIPMENT"] = txtEquipmentmake.Text.Trim();
-                    dr["MAKEEQUIPMENT"] = txtMakeEquipment.Text.Trim();
+                    dr["RENE_SERIALNO"] = txtEquipmentmake.Text.Trim();
+                    dr["RENE_MAKEMODEL"] = txtMakeEquipment.Text.Trim();
 
                     dt.Rows.Add(dr);
                     GVEquipment.Visible = true;

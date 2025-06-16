@@ -311,9 +311,9 @@ namespace MeghalayaUIP.User.Renewal
                     dr["RENDM_EXPERIENCE"] = txtexpered.Text;
 
                     dt.Rows.Add(dr);
-                    GVTEST.Visible = true;
-                    GVTEST.DataSource = dt;
-                    GVTEST.DataBind();
+                    GVSTAFF.Visible = true;
+                    GVSTAFF.DataSource = dt;
+                    GVSTAFF.DataBind();
                     ViewState["TESTING"] = dt;
 
 
@@ -358,9 +358,9 @@ namespace MeghalayaUIP.User.Renewal
                     dr["RENST_EXPERIENCE"] = txtExperiment.Text;
 
                     dt.Rows.Add(dr);
-                    GVSTAFF.Visible = true;
-                    GVSTAFF.DataSource = dt;
-                    GVSTAFF.DataBind();
+                    GVTEST.Visible = true;
+                    GVTEST.DataSource = dt;
+                    GVTEST.DataBind();
                     ViewState["StaffEmployed"] = dt;
 
 
