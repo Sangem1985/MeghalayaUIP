@@ -99,11 +99,10 @@ namespace MeghalayaUIP.User.Renewal
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void lbtnBack_Click(object sender, EventArgs e)
-        {
+        //protected void lbtnBack_Click(object sender, EventArgs e)
+        //{
            
-        }
-
+        //}
         protected void btnApplyRenewal_Click(object sender, EventArgs e)
         {
            

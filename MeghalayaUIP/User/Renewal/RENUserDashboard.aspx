@@ -38,9 +38,9 @@
                                 <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
                         </div>
 
-                        <div class="col-md-1">
+                       <%-- <div class="col-md-1">
                             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
-                        </div>
+                        </div>--%>
                     </div>
                     <%--<div class="justify-content-between justify-content-around">
                         <h4 class="card-title mb-0 mt-2">
