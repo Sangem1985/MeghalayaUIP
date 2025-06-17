@@ -61,7 +61,9 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCUploadEnclosures = "USP_GETUPLOADENCLOSURES";
         public static string GetSRVCApplStatus = "USP_GETSRVCAPPLSTATUS";
 
-
+        public static string InsertRegSocietiesDetails = "USP_SRVCMEMBERDETAILS";
+        public static string InsRegSocietiesDet = "USP_SRVCREGSOCIETIESEDETAILS";
+        public static string GetRegSocietiesDetails = "USP_GETREGSOCIETIESDET";
     }
 
     public class SvrcApplicationDetails
@@ -285,7 +287,30 @@ namespace MeghalayaUIP.Common
 
 
     }
+    public class SRVCRegSocietiesDetailos
+    {
+        public string SRVCQDID { get; set; }
+        public string Applicationassociation { get; set; }
+        public string District { get; set; }
+        public string SUBDIVISION { get; set; }
+        public string TypeApplication { get; set; }
+        public string OldRegNumber { get; set; }
+        public string RegDate { get; set; }
+        public string NameAssociation { get; set; }
+        public string AddressSociety { get; set; }
+        public string Dateest { get; set; }
+        public string ContactNo  { get; set; }
+        public string GeneralNo { get; set; }
+        public string Email { get; set; }
+        public string FullName { get; set; }
+        public string FullAddress { get; set; }
+        public string Policestation { get; set; }
+        public string Designation { get; set; }
+        public string MobileNo { get; set; }
+        public string createdby { get; set; }
+        public string createdbyip { get; set; }
 
+    }
 
     public class SRVCApprovaled
     {

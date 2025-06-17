@@ -856,6 +856,7 @@
     <Content Include="User\Services\PDCLDetails.aspx" />
     <Content Include="User\Services\PlasticWasteDetails.aspx" />
     <Content Include="User\Services\PWMCertificate.aspx" />
+    <Content Include="User\Services\RegSocieties.aspx" />
     <Content Include="User\Services\SrvcAckSlip.aspx" />
     <Content Include="User\Services\SRVCAnnualReturns.aspx" />
     <Content Include="User\Services\SRVCApplStatus.aspx" />
@@ -2789,6 +2790,13 @@
     </Compile>
     <Compile Include="User\Services\PWMCertificate.aspx.designer.cs">
       <DependentUpon>PWMCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\RegSocieties.aspx.cs">
+      <DependentUpon>RegSocieties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\RegSocieties.aspx.designer.cs">
+      <DependentUpon>RegSocieties.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SrvcAckSlip.aspx.cs">
       <DependentUpon>SrvcAckSlip.aspx</DependentUpon>

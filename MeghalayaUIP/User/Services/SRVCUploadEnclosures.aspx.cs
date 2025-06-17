@@ -389,7 +389,7 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                Response.Redirect("~/User/Services/PlasticWasteDetails.aspx?Previous=" + "P");
+                Response.Redirect("~/User/Services/RegSocieties.aspx?Previous=" + "P");
             }
             catch (Exception ex)
             {

@@ -1908,5 +1908,144 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
+        public string InsertRegSocietiesDetails(SRVCRegSocietiesDetailos ObjRegSocietiesDetails)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.InsertRegSocietiesDetails,
+                    Transaction = transaction,
+                    Connection = connection
+                };
+
+                com.Parameters.AddWithValue("@SRVCMD_SRVCQDID", Convert.ToInt32(ObjRegSocietiesDetails.SRVCQDID));
+                com.Parameters.AddWithValue("@SRVCMD_CREATEDBY", Convert.ToInt32(ObjRegSocietiesDetails.createdby));
+                com.Parameters.AddWithValue("@SRVCMD_FULLNAME", ObjRegSocietiesDetails.FullName);
+                com.Parameters.AddWithValue("@SRVCMD_FULLADDRESS", ObjRegSocietiesDetails.FullAddress);
+                com.Parameters.AddWithValue("@SRVCMD_POLICESTATION", ObjRegSocietiesDetails.Policestation);
+                com.Parameters.AddWithValue("@SRVCMD_DESIGNATION", ObjRegSocietiesDetails.Designation);
+                com.Parameters.AddWithValue("@SRVCMD_MOBILENO",Convert.ToInt32( ObjRegSocietiesDetails.MobileNo));
+                com.Parameters.AddWithValue("@SRVCMD_CREATEDBYIP", ObjRegSocietiesDetails.createdbyip);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+        public string SRVCRegSocietiesDet(SRVCRegSocietiesDetailos ObjRegSocietiesDetails)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.InsRegSocietiesDet,
+                    Transaction = transaction,
+                    Connection = connection
+                };
+
+                com.Parameters.AddWithValue("@SRVCRS_SRVCQDID", Convert.ToInt32(ObjRegSocietiesDetails.SRVCQDID));
+                com.Parameters.AddWithValue("@SRVCRS_CREATEDBY", ObjRegSocietiesDetails.createdby);
+                com.Parameters.AddWithValue("@SRVCRS_APPLICATIONSUBMISSION", ObjRegSocietiesDetails.Applicationassociation);
+                com.Parameters.AddWithValue("@SRVCRS_DISTRICT", Convert.ToInt32(ObjRegSocietiesDetails.District));
+                com.Parameters.AddWithValue("@SRVCRS_SUBDIVISION", Convert.ToInt32(ObjRegSocietiesDetails.SUBDIVISION));
+                com.Parameters.AddWithValue("@SRVCRS_TYPEAPPLICATION", ObjRegSocietiesDetails.TypeApplication);
+                com.Parameters.AddWithValue("@SRVCRS_OLDREGNO", ObjRegSocietiesDetails.OldRegNumber);
+                com.Parameters.AddWithValue("@SRVCRS_REGDATE", ObjRegSocietiesDetails.RegDate);
+                com.Parameters.AddWithValue("@SRVCRS_NAMEOFASSOCIATION", ObjRegSocietiesDetails.NameAssociation);
+                com.Parameters.AddWithValue("@SRVCRS_ADDRESSSOCIETY", ObjRegSocietiesDetails.AddressSociety);
+                com.Parameters.AddWithValue("@SRVCRS_DATEOFESTABLISHMENT", ObjRegSocietiesDetails.Dateest);
+                com.Parameters.AddWithValue("@SRVCRS_CONTACTNO", Convert.ToInt32(ObjRegSocietiesDetails.ContactNo));
+                com.Parameters.AddWithValue("@SRVCRS_GENERALSECRETYNO", Convert.ToInt32(ObjRegSocietiesDetails.GeneralNo));
+                com.Parameters.AddWithValue("@SRVCRS_EMAIL", ObjRegSocietiesDetails.Email);
+                
+
+
+                com.Parameters.AddWithValue("", ObjRegSocietiesDetails.createdbyip);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+        public DataSet GetRegSocietiesDet(string userid, String SRVCQID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetRegSocietiesDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetRegSocietiesDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
     }
 }
