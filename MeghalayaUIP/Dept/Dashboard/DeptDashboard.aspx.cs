@@ -233,5 +233,15 @@ namespace MeghalayaUIP.Dept.Dashboard
             }
         }
 
+        protected void lnkSrvcList_Click(object sender, EventArgs e)
+        {
+            if (ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
+            {
+                
+                string url = "~/Dept/DeptWiseServices.aspx";
+                Response.Redirect(url);
+            }
+
+        }
     }
 }

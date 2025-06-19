@@ -1332,6 +1332,110 @@ namespace MeghalayaUIP.User.CFE
         }
         private string Post(DataSet ds)
         {
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+            using (var client = new HttpClient())
+            {
+                var url = "https://uat.mepdcl.trm.ieasybill.com/api/registration/new";
+
+                var requestBody = new
+                {
+                    /*Subdivisonname = Convert.ToString(ds.Tables[0].Rows[0]["SUBDIVISIONNAME"]),
+                    Subdivison = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]),
+                    District = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]),
+                    DistrictName = Convert.ToString(ds.Tables[0].Rows[0]["DistName"]),
+                    //  Applicationfor = Convert.ToString(ds.Tables[0].Rows[0]["Applicationfor"]),
+                    //Applicationtype = Convert.ToString(ds.Tables[0].Rows[0]["Applicationtype"]),
+                    Applicationtype = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationtype"]),
+                    Applicationfor = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationfor"]),
+                    PinCode = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]),
+                    state = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_STATEID"]),
+                    Address_of_inst = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESS"]),
+                    Owner_type = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]),
+                    Purpose = Convert.ToInt32(ds.Tables[0].Rows[0]["PROPOSALFOR"]),
+                    AppliedLoad = Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
+                    Applicatent_Name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]),
+                    Father_name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPSoWoDo"]),
+                    MotherName = Convert.ToString(ds.Tables[0].Rows[0]["MOTHERNAME"]),
+                    Mobile_number = Convert.ToString(ds.Tables[0].Rows[0]["Mobile_number"]),
+                    Phone = Convert.ToString(ds.Tables[0].Rows[0]["Phone"]),
+                    Email = Convert.ToString(ds.Tables[0].Rows[0]["Email"]),
+                    Door_no = Convert.ToInt32(ds.Tables[0].Rows[0]["DOORNO"]),
+                    Perm_Address = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESSED"]),
+                    Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
+                    IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
+                    CreatedBy = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
+                    */
+                    Subdivisonname = Convert.ToString(ds.Tables[0].Rows[0]["SUBDIVISIONNAME"]),
+                    Subdivison = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]),
+                    District = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]),
+                    DistrictName = Convert.ToString(ds.Tables[0].Rows[0]["DistName"]),
+                    //  Applicationfor = Convert.ToString(ds.Tables[0].Rows[0]["Applicationfor"]),
+                    //Applicationtype = Convert.ToString(ds.Tables[0].Rows[0]["Applicationtype"]),
+                    Applicationtype = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationtype"]),
+                    Applicationfor = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationfor"]),
+                    PinCode = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]),
+                    state = 0,//Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_STATEID"]),
+                    Address_of_inst = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESS"]),
+                    Owner_type = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]),
+                    Purpose = Convert.ToInt32(ds.Tables[0].Rows[0]["PROPOSALFOR"]),
+                    AppliedLoad = 0,// Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
+                    Applicatent_Name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]),
+                    Father_name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPSoWoDo"]),
+                    MotherName = Convert.ToString(ds.Tables[0].Rows[0]["MOTHERNAME"]),
+                    Mobile_number = Convert.ToString(ds.Tables[0].Rows[0]["Mobile_number"]),
+                    Phone = Convert.ToString(ds.Tables[0].Rows[0]["Phone"]),
+                    Email = Convert.ToString(ds.Tables[0].Rows[0]["Email"]),
+                    Door_no =0,// Convert.ToString(ds.Tables[0].Rows[0]["DOORNO"]),
+                    Perm_Address = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESSED"]),
+                    Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
+                    IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
+                    CreatedBy = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
+                    CreatorName = "Sowjanya",// ObjUserInfo.Email,
+                    MIPA_ApplicationID = 1001,
+                    lstDocuments = new[]
+                    {
+
+                    new {
+                        DocumantId = 2,
+                        DocumentName = "Proof of ownership/occupancy",
+                        Document_path = "doc1.pdf"
+                    },
+
+                    }
+                    /*    lstDocuments = new[]
+                    {
+                    new {
+                        documantId = 2,
+                        documentName = "Proof of ownership/occupancy",
+                        document_path = "doc1.pdf"
+                    },
+                    new {
+                        documantId = 3,
+                        documentName = "Proof of Identification",
+                        document_path = "doc2.pdf"
+                    }
+                    }*/
+                };
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = client.PostAsync(url, content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var resultContent = response.Content.ReadAsStringAsync().Result;
+                    dynamic Response = JsonConvert.DeserializeObject(resultContent);
+                    string application_Reg_no = Response["application_Reg_no"]?.ToString();
+                    string message = Response["message"]?.ToString();
+                    hdnapiReg.Value = application_Reg_no;
+                    return application_Reg_no + "," + message;
+                }
+
+                throw new Exception("Failed  " + response.StatusCode);
+            }
+        }
+        private string PostNew(DataSet ds)
+        {
             var ObjUserInfo = new UserInfo();
             if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
             {
@@ -1346,19 +1450,19 @@ namespace MeghalayaUIP.User.CFE
                 var requestBody = new
                 {
                     Subdivisonname = Convert.ToString(ds.Tables[0].Rows[0]["SUBDIVISIONNAME"]),
-                    Subdivison = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]),
-                    District = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]),
+                    Subdivison = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]),
+                    District = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]),
                     DistrictName = Convert.ToString(ds.Tables[0].Rows[0]["DistName"]),
                     //  Applicationfor = Convert.ToString(ds.Tables[0].Rows[0]["Applicationfor"]),
                     //Applicationtype = Convert.ToString(ds.Tables[0].Rows[0]["Applicationtype"]),
                     Applicationtype = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationtype"]),
                     Applicationfor = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationfor"]),
                     PinCode = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]),
-                    state = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_STATEID"]),
+                    state = 0,//Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_STATEID"]),
                     Address_of_inst = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESS"]),
                     Owner_type = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]),
                     Purpose = Convert.ToInt32(ds.Tables[0].Rows[0]["PROPOSALFOR"]),
-                    //AppliedLoad = Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
+                    AppliedLoad = 0,// Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
                     Applicatent_Name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]),
                     Father_name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPSoWoDo"]),
                     MotherName = Convert.ToString(ds.Tables[0].Rows[0]["MOTHERNAME"]),
@@ -1369,24 +1473,20 @@ namespace MeghalayaUIP.User.CFE
                     Perm_Address = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESSED"]),
                     Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
                     IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
-                    CreatedBy = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
-                    CreatorName = ObjUserInfo.Email,
-                    MIPA_ApplicationID = Convert.ToInt32(Session["CFEUNITID"]),
+                    CreatedBy = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
+                    CreatorName = "Sowjanya",// ObjUserInfo.Email,
+                    MIPA_ApplicationID = Convert.ToInt32(Session["CFEQID"]),
 
-                    //lstDocuments = new[]
-                    //{
-                       
-                    //new {
-                    //    documantId = 2,
-                    //    documentName = "Proof of ownership/occupancy",
-                    //    document_path = "doc1.pdf"
-                    //},
-                    //new {
-                    //    documantId = 3,
-                    //    documentName = "Proof of Identification",
-                    //    document_path = "doc2.pdf"
-                    //}
-                    //}
+                    lstDocuments = new[]
+                    {
+
+                    new {
+                        DocumantId = 2,
+                        DocumentName = "Proof of ownership/occupancy",
+                        Document_path = "doc1.pdf"
+                    },
+                    
+                    }
                 }
             ;
                 var json = JsonConvert.SerializeObject(requestBody);

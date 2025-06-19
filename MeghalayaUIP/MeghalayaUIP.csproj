@@ -620,6 +620,7 @@
     <Content Include="Dept\Dashboard\DeptDashboard.aspx" />
     <Content Include="Dept\Demo.aspx" />
     <Content Include="Dept\DeptDashboard.aspx" />
+    <Content Include="Dept\DeptWiseServices.aspx" />
     <Content Include="Dept\Grievance\GrievanceDeptdashboarddrill.aspx" />
     <Content Include="Dept\Grievance\GrievanceDeptDashbord.aspx" />
     <Content Include="Dept\Grievance\GrievanceDeptProcess.aspx" />
@@ -1130,6 +1131,13 @@
     </Compile>
     <Compile Include="Dept\DeptDashboard.aspx.designer.cs">
       <DependentUpon>DeptDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\DeptWiseServices.aspx.cs">
+      <DependentUpon>DeptWiseServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\DeptWiseServices.aspx.designer.cs">
+      <DependentUpon>DeptWiseServices.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\Grievance\GrievanceDeptdashboarddrill.aspx.cs">
       <DependentUpon>GrievanceDeptdashboarddrill.aspx</DependentUpon>

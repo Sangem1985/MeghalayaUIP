@@ -3,11 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <nav aria-label="breadcrumb">
-										<ol class="breadcrumb">
-											<li class="breadcrumb-item active" aria-current="page">Dashboard_old</li>
-										</ol>
-									</nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Dashboard_old</li>
+        </ol>
+    </nav>
     <div class="page-wrapper">
 
         <div class="content container-fluid">
@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-md-3" id="Grievance" runat="server" visible="true">
                                 <div class="card-counter success">
-                                    <asp:LinkButton runat="server" ID="linkGrievance" OnClick="linkGrievance_Click" >
+                                    <asp:LinkButton runat="server" ID="linkGrievance" OnClick="linkGrievance_Click">
                                     <img src="../assets/admin/img/inc.png" alt="logo">
                                     <span class="count-numbers">Grievance</span>
                                     <span class="count-name"></span>
@@ -67,7 +67,7 @@
 
                             </div>
 
-                             <%-- <div class="col-md-3" id="divLand" runat="server" visible="false">
+                            <%-- <div class="col-md-3" id="divLand" runat="server" visible="false">
                                 <div class="card-counter primary">
                                     <asp:LinkButton runat="server" ID="lnkLandAllotment" OnClick="lnkLandAllotment_Click">
 									<img src="../assets/admin/img/prl.png" alt="logo">
@@ -80,7 +80,7 @@
 
 
 
-<%--                               <div class="col-md-3" id="divLand" runat="server" visible="true">
+                            <%--                               <div class="col-md-3" id="divLand" runat="server" visible="true">
                                 <div class="card-counter success">
                                     <asp:LinkButton runat="server" ID="LinkButton1" >
                                     <img src="../assets/admin/img/inc.png" alt="logo">
@@ -88,13 +88,12 @@
                                     <span class="count-name"></span>
                                     </asp:LinkButton>
                                 </div>--%>
-
-                            </div>
-
                         </div>
-                    </section>
-                    </div>
-            </div>
 
+                    </div>
+                </section>
+            </div>
         </div>
+
+    </div>
 </asp:Content>

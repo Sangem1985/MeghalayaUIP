@@ -3,11 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <nav aria-label="breadcrumb">
+    <%--<nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
         </ol>
-    </nav>
+    </nav>--%>
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="card">
@@ -43,6 +43,15 @@
                                     <i class="fi fi-tr-person-circle-question"></i>
                                     <span class="count-numbers">Grievance</span>
                                     <span class="count-name"></span>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-counter primary Reports">
+                                        <asp:LinkButton runat="server" ID="lnkSrvcList" OnClick="lnkSrvcList_Click">
+                                        <i class="fi fi-tr-newspaper"></i>
+                                        <span class="count-numbers">Resources</span>
+                                        <span class="count-name"></span>
                                         </asp:LinkButton>
                                     </div>
                                 </div>
@@ -126,7 +135,8 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="col-md-12 d-flex">
+                            </div>
                         </div>
                     </div>
                 </section>

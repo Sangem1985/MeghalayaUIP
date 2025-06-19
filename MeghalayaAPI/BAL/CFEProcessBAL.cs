@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 
 namespace MeghalayaAPI.BAL
 {   
@@ -15,6 +16,10 @@ namespace MeghalayaAPI.BAL
         public string CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility)
         {
             return _ObjCFEDAL.CFEFeasibilityReportInsert(_cfefeasibility);
+        }
+        public DataSet GetUnitIDBasedonQDID(int CFEQDID)
+        {
+            return _ObjCFEDAL.GetUnitIDBasedonQDID( CFEQDID);
         }
 
 

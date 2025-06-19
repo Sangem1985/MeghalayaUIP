@@ -8,5 +8,7 @@ namespace MeghalayaAPI.Models
     public class CFEProcConstants
     {
         public static string InsertCFEFeasibilityReport = "USP_INS_CFE_FEASIBILITY_DETAILS";
+        public static string GetUnitIDBasedonQDID = "USP_GET_CFEUNITIDBASEDONCFEQDID";
+
     }
 }
