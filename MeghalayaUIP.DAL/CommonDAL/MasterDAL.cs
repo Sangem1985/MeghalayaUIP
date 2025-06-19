@@ -3000,5 +3000,36 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstPincodemstr;
         }
+        public List<MasterBusinessType> GetBusinessType()
+        {
+            List<MasterBusinessType> lstBusinessTypeMstr = new List<MasterBusinessType>();
+            SqlDataReader drOptions = null;
+            try
+            {
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetBusinessType);
+                while (drOptions.Read())
+                {
+                    var BusinessType = new MasterBusinessType()
+                    {
+
+                        BUSINESSTYPEID = Convert.ToString(drOptions["ID"]),
+                        BUSINESSTYPENAME = Convert.ToString(drOptions["BUSINESSTYPE"])
+                    };
+                    lstBusinessTypeMstr.Add(BusinessType);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstBusinessTypeMstr;
+        }
     }
 }

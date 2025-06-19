@@ -86,5 +86,6 @@ namespace MeghalayaAPI.Models
         public int UserId { get; set; }
 
         public string UserIp { get; set; }
+        public int Feasible { get; set; }
     }
 }

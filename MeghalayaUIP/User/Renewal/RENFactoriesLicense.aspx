@@ -69,7 +69,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Full name of the factory *</label>
+                                                    <label class="col-lg-6 col-form-label">Full name of the factory <span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtFullName" runat="server" class="form-control" Type="text" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                                     </div>
@@ -77,7 +77,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Factory license Number *</label>
+                                                    <label class="col-lg-6 col-form-label">Factory license Number <span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtLicNo" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
@@ -85,7 +85,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">License Issued Date *</label>
+                                                    <label class="col-lg-6 col-form-label">License Issued Date <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <%-- <asp:TextBox ID="txtLICIssuedDate" runat="server" class="date form-control" Type="Text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
@@ -101,7 +101,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Latest Renewal No *</label>
+                                                    <label class="col-lg-6 col-form-label">Latest Renewal No <span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
                                                         <asp:TextBox ID="txtRenewalNo" runat="server" class="form-control" Type="text" onkeypress="return NumberOnly()" TabIndex="1"></asp:TextBox>
                                                     </div>
@@ -109,7 +109,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Latest Renewal Date *</label>
+                                                    <label class="col-lg-6 col-form-label">Latest Renewal Date <span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
                                                         <%--    <asp:TextBox ID="txtRenewaldate" runat="server" class="date form-control" Type="Text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
@@ -122,7 +122,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Lisence Valid Upto Year *</label>
+                                                    <label class="col-lg-6 col-form-label">Lisence Valid Upto Year <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtLICValidYear" runat="server" class="form-control" Type="text" onkeypress="return NumberOnly()" TabIndex="1"></asp:TextBox>
 
@@ -142,7 +142,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Carried on in the factory during the last 12 months (in the case of all factories already in existence) *</label>
+                                                    <label class="col-lg-6 col-form-label">Carried on in the factory during the last 12 months (in the case of all factories already in existence) <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txttradeLic12" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -151,7 +151,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">To be carried on the factory during the next 12 months (in the case of all factories)  *</label>
+                                                    <label class="col-lg-6 col-form-label">To be carried on the factory during the next 12 months (in the case of all factories)  <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtfactorymonths12" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -164,7 +164,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Names of the principal products manufactured during the last 12 months  *</label>
+                                                    <label class="col-lg-6 col-form-label">Names of the principal products manufactured during the last 12 months  <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtmanufacture12" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -173,7 +173,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Values of the principal products manufactured during the last 12 months *</label>
+                                                    <label class="col-lg-6 col-form-label">Values of the principal products manufactured during the last 12 months<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtproductManufacture12" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -190,7 +190,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Maximum numbers of workers proposed to be employed on any one day during the year. *</label>
+                                                    <label class="col-lg-6 col-form-label">Maximum numbers of workers proposed to be employed on any one day during the year. <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList runat="server" ID="ddlEmpday" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
@@ -201,7 +201,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Maximum number of workers employed on any one day during the last 12 months *</label>
+                                                    <label class="col-lg-6 col-form-label">Maximum number of workers employed on any one day during the last 12 months <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtMaxEmp12" runat="server" class="form-control" Type="text" onkeypress="return NumberOnly()" TabIndex="1"></asp:TextBox>
 
@@ -214,7 +214,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Number of workers to be ordinarily employed in the factory  *</label>
+                                                    <label class="col-lg-6 col-form-label">Number of workers to be ordinarily employed in the factory <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtFactoryEmpWorker" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -223,7 +223,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Whether the Unit is an Electricity/Power Generating Station? *</label>
+                                                    <label class="col-lg-6 col-form-label">Whether the Unit is an Electricity/Power Generating Station? <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex radio">
                                                         <asp:RadioButtonList ID="rblpowerGeneration" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblpowerGeneration_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -237,7 +237,7 @@
                                         <div class="col-md-12 d-flex" runat="server" visible="false">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Total installed capacity of Generating Station- KW *</label>
+                                                    <label class="col-lg-6 col-form-label">Total installed capacity of Generating Station- KW <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList runat="server" ID="ddlGenerating" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
@@ -250,7 +250,7 @@
                                         <div class="col-md-12 d-flex" id="DGSETKW" runat="server" visible="false">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Total installed capacity of DG Set/Standby Power- KW *</label>
+                                                    <label class="col-lg-6 col-form-label">Total installed capacity of DG Set/Standby Power- KW <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList runat="server" ID="ddlDGSet" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
@@ -260,7 +260,7 @@
                                             </div>
                                             <div class="col-md-6" id="Generating" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Maximum amount of power(K.W. installed or proposed to be installed) *</label>
+                                                    <label class="col-lg-6 col-form-label">Maximum amount of power(K.W. installed or proposed to be installed) <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList runat="server" ID="ddlPowerAmount" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
@@ -278,7 +278,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Full name of the person who shall be the manager of the factory for the purpose of the Act *</label>
+                                                    <label class="col-lg-6 col-form-label">Full name of the person who shall be the manager of the factory for the purpose of the Act <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtFullNamefactory" runat="server" class="form-control" Type="text" TabIndex="1" onkeypress="return Names(event)"></asp:TextBox>
 
@@ -287,7 +287,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Residential address of the person who shall be the manager of the factory for the purpose of the Act *</label>
+                                                    <label class="col-lg-6 col-form-label">Residential address of the person who shall be the manager of the factory for the purpose of the Act <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtaddress" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
@@ -300,7 +300,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Full name of the owner of the premises of the building (including the precincts thereof) refer to section 93 *</label>
+                                                    <label class="col-lg-6 col-form-label">Full name of the owner of the premises of the building (including the precincts thereof) refer to section 93 <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtsection93" runat="server" class="form-control" Type="text" TabIndex="1" onkeypress="return Names(event)"></asp:TextBox>
 
@@ -309,7 +309,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Residential address of the owner of the premises of the building (including the precincts thereof) refer to section 93 *</label>
+                                                    <label class="col-lg-6 col-form-label">Residential address of the owner of the premises of the building (including the precincts thereof) refer to section 93 <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtaddressdection93" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
@@ -321,7 +321,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Full name of the occupier *</label>
+                                                    <label class="col-lg-6 col-form-label">Full name of the occupier <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="NameOccupier" runat="server" class="form-control" Type="text" TabIndex="1" onkeypress="return Names(event)"></asp:TextBox>
 
@@ -330,7 +330,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Residential address of the occupier *</label>
+                                                    <label class="col-lg-6 col-form-label">Residential address of the occupier <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtAddressOccupier" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
 
@@ -343,7 +343,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Whether the factory is a private firm proprietor concern? *</label>
+                                                    <label class="col-lg-6 col-form-label">Whether the factory is a private firm proprietor concern? <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex radio">
                                                         <asp:RadioButtonList ID="rblfirmconcer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblfirmconcer_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -354,7 +354,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Whether the factory is a public firm proprietor concern? *</label>
+                                                    <label class="col-lg-6 col-form-label">Whether the factory is a public firm proprietor concern? <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex radio">
                                                         <asp:RadioButtonList ID="rblpublicfactory" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblpublicfactory_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -370,7 +370,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6" id="Proprietor" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Name of proprietor *</label>
+                                                    <label class="col-lg-6 col-form-label">Name of proprietor <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtproprietor" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -379,7 +379,7 @@
                                             </div>
                                             <div class="col-md-6" id="Director" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Name of Directors *</label>
+                                                    <label class="col-lg-6 col-form-label">Name of Directors <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtDirectors" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -390,7 +390,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Whether factory is Government or Local Fund Factory? *</label>
+                                                    <label class="col-lg-6 col-form-label">Whether factory is Government or Local Fund Factory? <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex radio">
                                                         <asp:RadioButtonList ID="rbllocalfactory" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rbllocalfactory_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -401,7 +401,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Whether Managing Agent has been appointed? *</label>
+                                                    <label class="col-lg-6 col-form-label">Whether Managing Agent has been appointed? <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex radio">
                                                         <asp:RadioButtonList ID="rblAgent" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblAgent_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
@@ -415,7 +415,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6" id="Administrative" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Name of Chief Administrative Head *</label>
+                                                    <label class="col-lg-6 col-form-label">Name of Chief Administrative Head <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtChiefHead" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -424,7 +424,7 @@
                                             </div>
                                             <div class="col-md-6" id="ManagingAgent" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Name of Managing Agents *</label>
+                                                    <label class="col-lg-6 col-form-label">Name of Managing Agents <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtMangingAgent" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -440,7 +440,7 @@
 
                                         <div class="col-md-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label">In the case of factory constructed or extended after the date of the commencement of the Rules *</label>
+                                                <label class="col-lg-6 col-form-label">In the case of factory constructed or extended after the date of the commencement of the Rules <span style="color: red">*</span></label>
                                                 <div class="col-lg-6 d-flex radio">
                                                     <asp:RadioButtonList ID="rblDateofRules" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblDateofRules_SelectedIndexChanged">
                                                         <asp:ListItem Text="Yes" Value="Y" />
@@ -452,7 +452,7 @@
                                         <div class="col-md-12 d-flex" id="Div1" runat="server" visible="false">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Reference number of approval of the plant for site whether for old or new building and for construction or extension of the factory by the state Government/Chief Inspector(1)  *</label>
+                                                    <label class="col-lg-6 col-form-label">Reference number of approval of the plant for site whether for old or new building and for construction or extension of the factory by the state Government/Chief Inspector(1)  <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtapprovalbuilding" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -461,7 +461,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Date of approval of the plant for site whether for old or new building and for construction or extension of the factory by the state Government/Chief Inspector(1) *</label>
+                                                    <label class="col-lg-6 col-form-label">Date of approval of the plant for site whether for old or new building and for construction or extension of the factory by the state Government/Chief Inspector(1) <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <%-- <asp:TextBox ID="txtsiteApproval" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
@@ -477,7 +477,7 @@
                                         <div class="col-md-12 d-flex" id="Div2" runat="server" visible="false">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Reference number of approval of the arrangements, if any , made for the disposal of trade waste and effluents and the name of the authority granting such approval.(2)  *</label>
+                                                    <label class="col-lg-6 col-form-label">Reference number of approval of the arrangements, if any , made for the disposal of trade waste and effluents and the name of the authority granting such approval.(2)  <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:TextBox ID="txtapprovalnumber" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
@@ -486,7 +486,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Date of approval of the arrangements, if any , made for the disposal of trade waste and effluents and the name of the authority granting such approval(2)  *</label>
+                                                    <label class="col-lg-6 col-form-label">Date of approval of the arrangements, if any , made for the disposal of trade waste and effluents and the name of the authority granting such approval(2) <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <%-- <asp:TextBox ID="txtArrangement" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
@@ -508,7 +508,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Final Fees *</label>
+                                                    <label class="col-lg-6 col-form-label">Final Fees <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex radio">
                                                         <%-- 73373837.00--%>
                                                         <asp:Label ID="Fees" runat="server"></asp:Label>
@@ -518,7 +518,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Penalty *</label>
+                                                    <label class="col-lg-6 col-form-label">Penalty <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex radio">
                                                         <%-- 1000.00--%>
                                                         <asp:Label ID="Penalty" runat="server"></asp:Label>
@@ -529,7 +529,7 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">License Valid Upto *</label>
+                                                    <label class="col-lg-6 col-form-label">License Valid Upto <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex radio">
                                                         <%--  07-Jun-2024--%>
                                                         <asp:Label ID="LicValidUpto" runat="server"></asp:Label>
@@ -539,7 +539,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Total Amount to be Paid *</label>
+                                                    <label class="col-lg-6 col-form-label">Total Amount to be Paid <span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex radio">
                                                         <%--  10000000.00--%>
                                                         <asp:Label ID="totalamount" runat="server"></asp:Label>

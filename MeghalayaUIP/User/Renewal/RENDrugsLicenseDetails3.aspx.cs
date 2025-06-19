@@ -126,7 +126,7 @@ namespace MeghalayaUIP.User.Renewal
                             if (rblCancelledLic.SelectedValue == "Y")
                             {
                                 LicNos.Visible = true;
-                                txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_LICNOSPECIFY"].ToString();
+                                txtSpecifyLicNo.Text = ds.Tables[0].Rows[0]["RENDL_SPECIFYLICNO"].ToString();
                             }
                             else { LicNos.Visible = false; }
 

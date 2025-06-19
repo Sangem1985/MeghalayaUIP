@@ -1645,6 +1645,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENSD_NAMEESTEMP", ObjRenSafteySecurity.NAMEESTEMP);
                 com.Parameters.AddWithValue("@RENSD_ADDRESSEST", ObjRenSafteySecurity.ADDRESSEST);
                 com.Parameters.AddWithValue("@RENSD_CONTACTNO", Convert.ToInt64(ObjRenSafteySecurity.CONTACTNO));
+                com.Parameters.AddWithValue("@RENDA_APPROVALFEE", Convert.ToDecimal(ObjRenSafteySecurity.FEE));
 
 
 

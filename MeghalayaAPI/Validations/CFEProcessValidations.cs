@@ -76,8 +76,8 @@ namespace MeghalayaAPI.Validations
             string ErrorMsg = "";
             if (model.NearestConsumerId == "" || model.NearestConsumerId == null)
             {
-                ErrorMsg = ErrorMsg + slno + ".Nearest Consumer Id should not be empty \\n";
-                slno = slno + 1;
+                ErrorMsg = ErrorMsg + slno + ".NearestConsumerId should not be empty \\n";
+                slno = slno + 1;;
             }
             return ErrorMsg;
         }

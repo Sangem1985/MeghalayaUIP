@@ -181,5 +181,17 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetBOPlasticWasteDetails(hdnUserID, srvcQdId);
         }
+        public string InsertRegSocietiesDetails(SRVCRegSocietiesDetailos ObjRegSocietiesDetails)
+        {
+            return SvrcDal.InsertRegSocietiesDetails(ObjRegSocietiesDetails);
+        }
+        public string SRVCRegSocietiesDet(SRVCRegSocietiesDetailos ObjRegSocietiesDetails)
+        {
+            return SvrcDal.SRVCRegSocietiesDet(ObjRegSocietiesDetails);
+        }
+        public DataSet GetRegSocietiesDet(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetRegSocietiesDet(userid, SRVCQID);
+        }
     }
 }

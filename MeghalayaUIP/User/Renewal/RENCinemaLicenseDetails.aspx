@@ -7,48 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    //let originalValue = "";
-    function handleKeyUp(input)
-    {
-        if (input.value.trim() === "") {
-            input.style.border = "2px solid red";
-        }
-        else {
-            input.style.border = "1px solid #767575b5";
-        }
-        }
-        function validateDropdown(dropdown) {
-
-            if (dropdown.value === "0") {
-                dropdown.style.border = "2px solid red";
-                dropdown.focus();
-            } else {
-                dropdown.style.border = "1px solid #767575b5";
-            }
-        }
-
-
-        function validateRadioButtonList(radioGroupContainer) {
-            // Find all radio buttons inside the container
-            const radioButtons = radioGroupContainer.querySelectorAll('input[type="radio"]');
-
-            // Check if any radio button is selected
-            const isSelected = Array.from(radioButtons).some(radio => radio.checked);
-
-            if (!isSelected) {
-                // If none are selected, apply red border
-                radioGroupContainer.style.border = "2px solid red";
-                radioGroupContainer.querySelector('input[type="radio"]').focus(); // Set focus to the first radio button
-            } else {
-                // Reset the border if an option is selected
-                var id = radioGroupContainer.id;
-                document.getElementById(id).style.border = "1px solid #767575b5";
-                return false;
-            }
-        }
-    </script>
-
+   
     <style>
         i.fi.fi-br-circle-camera {
             font-size: 32px;
@@ -103,20 +62,20 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Old Registration Number  *</label>
+                                                    <label class="col-lg-6 col-form-label">Old Registration Number<span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtOldRegNumber" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" onkeyup="handleKeyUp(this)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtOldRegNumber" runat="server" class="form-control" Type="text" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Registration Date *</label>
+                                                    <label class="col-lg-6 col-form-label">Registration Date<span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
                                                         <%--  <asp:TextBox ID="txtRegDate" runat="server" class="date form-control" Type="text"></asp:TextBox>
                                                         <i class="fi fi-rr-calendar-lines"></i>--%>
 
-                                                        <asp:TextBox runat="server" ID="txtRegDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" onkeyup="handleKeyUp(this)" TabIndex="1" AutoPostBack="true" />
+                                                        <asp:TextBox runat="server" ID="txtRegDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegDate" ></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
@@ -130,17 +89,17 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Name of the Establishment Cinema *</label>
+                                                    <label class="col-lg-6 col-form-label">Name of the Establishment Cinema<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtEstName" runat="server" class="form-control" Type="text" onkeyup="handleKeyUp(this)" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEstName" runat="server" class="form-control" Type="text" onkeypress="return Names(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">NOC issued no. with Issue Date *</label>
+                                                    <label class="col-lg-6 col-form-label">NOC issued no. with Issue Date<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtIssuedDate" runat="server" class="form-control" onkeyup="handleKeyUp(this)" Type="text"></asp:TextBox>
+                                                        <asp:TextBox ID="txtIssuedDate" runat="server" class="form-control" Type="text"></asp:TextBox>
                                                          <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtIssuedDate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
 
@@ -149,9 +108,9 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Number of seats *</label>
+                                                    <label class="col-lg-6 col-form-label">Number of seats<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtNumberseats" runat="server" class="form-control" onkeyup="handleKeyUp(this)" Type="text" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNumberseats" runat="server" class="form-control" Type="text" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -160,9 +119,9 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Details of the cinematography equipment's  *</label>
+                                                    <label class="col-lg-6 col-form-label">Details of the cinematography equipment's<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtCinematography" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtCinematography" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -170,9 +129,9 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Type of Business *</label>
+                                                    <label class="col-lg-6 col-form-label">Type of Business<span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblBusinesstype" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblBusinesstype" runat="server" RepeatDirection="Horizontal">
                                                             <asp:ListItem Text="Firm/Company" Value="Y" />
                                                             <asp:ListItem Text="Individual" Value="N" />
                                                         </asp:RadioButtonList>
@@ -181,9 +140,9 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Name of the Proprietor/ Managing Partner/ Kartha/ Managing Director *</label>
+                                                    <label class="col-lg-6 col-form-label">Name of the Proprietor/ Managing Partner/ Kartha/ Managing Director<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtProprietorname" runat="server" class="form-control" onkeyup="handleKeyUp(this)" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtProprietorname" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" TabIndex="1"></asp:TextBox>
 
                                                     </div>
                                                 </div>
@@ -192,18 +151,18 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">GSTIN number of the Business/ Establishment  *</label>
+                                                    <label class="col-lg-6 col-form-label">GSTIN number of the Business/ Establishment<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtGstinno" runat="server" class="form-control" onkeyup="handleKeyUp(this)" onblur="validateGST(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtGstinno" runat="server" class="form-control" onblur="validateGST(event)"></asp:TextBox>
 
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-7">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Ownership of Premises *</label>
+                                                    <label class="col-lg-4 col-form-label">Ownership of Premises<span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblOwned" onchange="validateRadioButtonList(this)" runat="server" RepeatDirection="Horizontal">
+                                                        <asp:RadioButtonList ID="rblOwned" runat="server" RepeatDirection="Horizontal">
                                                             <asp:ListItem Text="Owned" Value="1" />
                                                             <asp:ListItem Text="Rented" Value="2" />
                                                             <asp:ListItem Text="Leased" Value="3"></asp:ListItem>
@@ -216,7 +175,7 @@
                                          <div class="col-md-12 d-flex" id="Photography" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label">Photograph of the Proprietor/ Managing Partner/ Kartha/ Managing Director *</label>
+                                                    <label class="col-lg-4 col-form-label">Photograph of the Proprietor/ Managing Partner/ Kartha/ Managing Director<span style="color: red">*</span></label>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:FileUpload ID="fupDirector" runat="server" />
                                                     </div>
@@ -239,9 +198,9 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
-                                                        Distric</label>
+                                                        Distric<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlDistrict" runat="server" onchange="validateDropdown(this)" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlDistrict" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDistrict_SelectedIndexChanged">
                                                             <asp:ListItem Text="Select District" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -249,9 +208,9 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Mandal</label>
+                                                    <label class="col-lg-6 col-form-label">Mandal<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlMandal" runat="server" onchange="validateDropdown(this)" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
                                                             <asp:ListItem Text="Select Mandal" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -260,9 +219,9 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Village</label>
+                                                    <label class="col-lg-6 col-form-label">Village<span style="color: red">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlVillage" runat="server" onchange="validateDropdown(this)" class="form-control">
+                                                        <asp:DropDownList ID="ddlVillage" runat="server" class="form-control">
                                                             <asp:ListItem Text="Select Village" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -273,25 +232,25 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Locality *</label>
+                                                    <label class="col-lg-6 col-form-label">Locality<span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" Type="text" onkeyup="handleKeyUp(this)" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLocality" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Landmark *</label>
+                                                    <label class="col-lg-6 col-form-label">Landmark<span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtLandmark" runat="server" class="form-control" Type="text" onkeyup="handleKeyUp(this)" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLandmark" runat="server" class="form-control" Type="text" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">Pincode *</label>
+                                                    <label class="col-lg-6 col-form-label">Pincode<span style="color: red">*</span></label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtPincode" runat="server" class="form-control" Type="text" onkeyup="handleKeyUp(this)" onkeypress="return validatePincode(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPincode" runat="server" class="form-control" Type="text" onkeypress="return validatePincode(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>

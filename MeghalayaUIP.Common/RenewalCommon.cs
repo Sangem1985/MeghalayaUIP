@@ -508,6 +508,7 @@ namespace MeghalayaUIP.Common
         public string NAMEESTEMP { get; set; }
         public string ADDRESSEST { get; set; }
         public string CONTACTNO { get; set; }
+        public string FEE { get; set; }
 
     }
     public class RenMigrantwork

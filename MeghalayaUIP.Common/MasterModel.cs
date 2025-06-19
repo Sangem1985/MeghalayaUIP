@@ -105,7 +105,7 @@ namespace MeghalayaUIP.Common
         public static string GetSubDivMaster = "USP_GET_SUBDIVISIONS";
         public static string GetSubDivDistMaster = "USP_GET_SUBDIV_DISTRICTS";
         public static string GetPincodesMaster = "USP_GETPINCODES";
-
+        public static string GetBusinessType = "USP_BUSINESSTYPE";
     }
     public class MasterCountry
     {
@@ -266,6 +266,11 @@ namespace MeghalayaUIP.Common
     {
         public string VOLTAGEID { get; set; }
         public string VOLTAGERANGE { get; set; }
+    }
+    public class MasterBusinessType
+    {
+        public string BUSINESSTYPEID { get; set; }
+        public string BUSINESSTYPENAME { get; set; }
     }
     public class InvtentInvest
     {
