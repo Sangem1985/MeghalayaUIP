@@ -63,6 +63,7 @@ namespace MeghalayaAPI.DAL
                 com.Parameters.AddWithValue("@CFE_LOAD_KVA", Objcfedtls.LoadKva);
                 com.Parameters.AddWithValue("@CFE_CREATED_BY", Objcfedtls.UserId);
                 com.Parameters.AddWithValue("@CFE_CREATED_BY_IP", Objcfedtls.UserIp);
+                com.Parameters.AddWithValue("@CFE_FEASIBLE", Objcfedtls.Feasible);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
