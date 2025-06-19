@@ -163,7 +163,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                     com.Parameters.AddWithValue("@SRVCED_SRVCQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
                 }
 
-                if(ObjApplicationDetails.UnitId !=null && ObjApplicationDetails.UnitId != "")
+                if (ObjApplicationDetails.UnitId != null && ObjApplicationDetails.UnitId != "")
                 {
                     com.Parameters.AddWithValue("@SRVCED_UNITID", Convert.ToInt32(ObjApplicationDetails.UnitId));
                 }
@@ -200,7 +200,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCED_EMAIL", ObjApplicationDetails.Email);
                 com.Parameters.AddWithValue("@SRVCED_MOBILENUMBER", Convert.ToInt64(ObjApplicationDetails.MobileNumber));
                 com.Parameters.AddWithValue("@SRVCED_ALTERNUMBER", Convert.ToInt64(ObjApplicationDetails.ALTERNATIVAENO));
-                if (ObjApplicationDetails.LANDLINENO !=null && ObjApplicationDetails.LANDLINENO !="")
+                if (ObjApplicationDetails.LANDLINENO != null && ObjApplicationDetails.LANDLINENO != "")
                 {
                     com.Parameters.AddWithValue("@SRVCED_LANDLINENUMBER", ObjApplicationDetails.LANDLINENO);
                 }
@@ -392,7 +392,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@BMW_CREATEDBY", Convert.ToInt32(ObjBMWDetails.Createdby));
                 com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
-               // com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
+                // com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
                 com.Parameters.AddWithValue("@BMW_SERVICEQDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
                 com.Parameters.AddWithValue("@BMW_CATEGORY", ObjBMWDetails.Category);
                 com.Parameters.AddWithValue("@BMW_TYPEWASTE", ObjBMWDetails.Waste);
@@ -594,7 +594,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
-                if(SRVCQDID != null && SRVCQDID != "")
+                if (SRVCQDID != null && SRVCQDID != "")
                 {
                     da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQDID));
                 }
@@ -761,7 +761,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-               // com.Parameters.AddWithValue("@SRVCSWD_UNITID", Convert.ToInt32(ObjSWMDet.unitid));
+                // com.Parameters.AddWithValue("@SRVCSWD_UNITID", Convert.ToInt32(ObjSWMDet.unitid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBY", Convert.ToInt32(ObjSWMDet.createdby));
                 com.Parameters.AddWithValue("@SRVCSWD_SRVCQDID", Convert.ToInt32(ObjSWMDet.Questionnariid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBYIP", ObjSWMDet.createdbyip);
@@ -1238,7 +1238,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@EWD_SRVCQDID", Convert.ToInt32(serviceEWasteDetails.SrvcQdId));
                 com.Parameters.AddWithValue("@EWD_CREATEDBY", serviceEWasteDetails.CreatedBy);
-               // com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
+                // com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
                 // com.Parameters.AddWithValue("@EWD_UIDNO", serviceEWasteDetails.UidNo);
                 com.Parameters.AddWithValue("@EWD_CREATEDBYIP", serviceEWasteDetails.CreatedByIp);
                 com.Parameters.AddWithValue("@EWD_NAME", serviceEWasteDetails.Name);
@@ -1400,9 +1400,9 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCPWD_MULTILAYEREDPLASTIC", serviceProdPlasticsWasteDetails.MultilayeredPlastic);
                 com.Parameters.AddWithValue("@SRVCPWD_MANFCTRNGCAPACITY", serviceProdPlasticsWasteDetails.ManufacturingCapacity);
                 com.Parameters.AddWithValue("@SRVCPWD_PREVREGNO", serviceProdPlasticsWasteDetails.PreviousRegistration);
-               // com.Parameters.AddWithValue("@SRVCPWD_REGDATE", Convert.ToDateTime (serviceProdPlasticsWasteDetails.RegistrationDate).ToString());
+                // com.Parameters.AddWithValue("@SRVCPWD_REGDATE", Convert.ToDateTime (serviceProdPlasticsWasteDetails.RegistrationDate).ToString());
                 com.Parameters.AddWithValue("@SRVCPWD_REGDATE", DateTime.ParseExact(serviceProdPlasticsWasteDetails.RegistrationDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                                
+
 
                 com.Parameters.AddWithValue("@SRVCPWD_TOTCAPTLINV", serviceProdPlasticsWasteDetails.TotalCapitalInvestment);
                 com.Parameters.AddWithValue("@SRVCPWD_YEAROFCMNCEMNT", serviceProdPlasticsWasteDetails.YearOfCommencement);
@@ -1933,7 +1933,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCMD_FULLADDRESS", ObjRegSocietiesDetails.FullAddress);
                 com.Parameters.AddWithValue("@SRVCMD_POLICESTATION", ObjRegSocietiesDetails.Policestation);
                 com.Parameters.AddWithValue("@SRVCMD_DESIGNATION", ObjRegSocietiesDetails.Designation);
-                com.Parameters.AddWithValue("@SRVCMD_MOBILENO",Convert.ToInt32( ObjRegSocietiesDetails.MobileNo));
+                com.Parameters.AddWithValue("@SRVCMD_MOBILENO", Convert.ToInt64(ObjRegSocietiesDetails.MobileNo));
                 com.Parameters.AddWithValue("@SRVCMD_CREATEDBYIP", ObjRegSocietiesDetails.createdbyip);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
@@ -1977,21 +1977,36 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCRS_SRVCQDID", Convert.ToInt32(ObjRegSocietiesDetails.SRVCQDID));
                 com.Parameters.AddWithValue("@SRVCRS_CREATEDBY", ObjRegSocietiesDetails.createdby);
                 com.Parameters.AddWithValue("@SRVCRS_APPLICATIONSUBMISSION", ObjRegSocietiesDetails.Applicationassociation);
-                com.Parameters.AddWithValue("@SRVCRS_DISTRICT", Convert.ToInt32(ObjRegSocietiesDetails.District));
-                com.Parameters.AddWithValue("@SRVCRS_SUBDIVISION", Convert.ToInt32(ObjRegSocietiesDetails.SUBDIVISION));
+                if (ObjRegSocietiesDetails.District != "" && ObjRegSocietiesDetails.District != null)
+                {
+                    com.Parameters.AddWithValue("@SRVCRS_DISTRICT", Convert.ToInt32(ObjRegSocietiesDetails.District));
+                }
+                if (ObjRegSocietiesDetails.SUBDIVISION != "" && ObjRegSocietiesDetails.SUBDIVISION != null)
+                {
+                    com.Parameters.AddWithValue("@SRVCRS_SUBDIVISION", Convert.ToInt32(ObjRegSocietiesDetails.SUBDIVISION));
+                }
                 com.Parameters.AddWithValue("@SRVCRS_TYPEAPPLICATION", ObjRegSocietiesDetails.TypeApplication);
-                com.Parameters.AddWithValue("@SRVCRS_OLDREGNO", ObjRegSocietiesDetails.OldRegNumber);
-                com.Parameters.AddWithValue("@SRVCRS_REGDATE", ObjRegSocietiesDetails.RegDate);
+                if (ObjRegSocietiesDetails.OldRegNumber != "" && ObjRegSocietiesDetails.OldRegNumber != null)
+                {
+                    com.Parameters.AddWithValue("@SRVCRS_OLDREGNO", ObjRegSocietiesDetails.OldRegNumber);
+                }
+                if (ObjRegSocietiesDetails.RegDate != "" && ObjRegSocietiesDetails.RegDate != null)
+                {
+                    com.Parameters.AddWithValue("@SRVCRS_REGDATE", DateTime.ParseExact(ObjRegSocietiesDetails.RegDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                // com.Parameters.AddWithValue("@SRVCRS_REGDATE", ObjRegSocietiesDetails.RegDate);
                 com.Parameters.AddWithValue("@SRVCRS_NAMEOFASSOCIATION", ObjRegSocietiesDetails.NameAssociation);
                 com.Parameters.AddWithValue("@SRVCRS_ADDRESSSOCIETY", ObjRegSocietiesDetails.AddressSociety);
-                com.Parameters.AddWithValue("@SRVCRS_DATEOFESTABLISHMENT", ObjRegSocietiesDetails.Dateest);
-                com.Parameters.AddWithValue("@SRVCRS_CONTACTNO", Convert.ToInt32(ObjRegSocietiesDetails.ContactNo));
-                com.Parameters.AddWithValue("@SRVCRS_GENERALSECRETYNO", Convert.ToInt32(ObjRegSocietiesDetails.GeneralNo));
+                if (ObjRegSocietiesDetails.Dateest != "" && ObjRegSocietiesDetails.Dateest != null)
+                {
+                    com.Parameters.AddWithValue("@SRVCRS_DATEOFESTABLISHMENT", DateTime.ParseExact(ObjRegSocietiesDetails.Dateest, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                // com.Parameters.AddWithValue("@SRVCRS_DATEOFESTABLISHMENT", ObjRegSocietiesDetails.Dateest);
+                com.Parameters.AddWithValue("@SRVCRS_CONTACTNO", Convert.ToInt64(ObjRegSocietiesDetails.ContactNo));
+                com.Parameters.AddWithValue("@SRVCRS_GENERALSECRETYNO", Convert.ToInt64(ObjRegSocietiesDetails.GeneralNo));
                 com.Parameters.AddWithValue("@SRVCRS_EMAIL", ObjRegSocietiesDetails.Email);
-                
 
-
-                com.Parameters.AddWithValue("", ObjRegSocietiesDetails.createdbyip);
+                com.Parameters.AddWithValue("@SRVCRS_CREATEDBYIP", ObjRegSocietiesDetails.createdbyip);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();

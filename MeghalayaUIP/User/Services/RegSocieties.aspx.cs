@@ -273,11 +273,11 @@ namespace MeghalayaUIP.User.Services
                 else
                 {
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("NAME", typeof(string));
-                    dt.Columns.Add("ADDRESS", typeof(string));
-                    dt.Columns.Add("POLICESTATION", typeof(string));
-                    dt.Columns.Add("DESIGNATION", typeof(string));
-                    dt.Columns.Add("MOBILENO", typeof(string));
+                    dt.Columns.Add("SRVCMD_FULLNAME", typeof(string));
+                    dt.Columns.Add("SRVCMD_FULLADDRESS", typeof(string));
+                    dt.Columns.Add("SRVCMD_POLICESTATION", typeof(string));
+                    dt.Columns.Add("SRVCMD_DESIGNATION", typeof(string));
+                    dt.Columns.Add("SRVCMD_MOBILENO", typeof(string));
 
                     if (ViewState["RegSocieties"] != null)
                     {
@@ -285,11 +285,11 @@ namespace MeghalayaUIP.User.Services
                     }
 
                     DataRow dr = dt.NewRow();
-                    dr["NAME"] = txtFullName.Text;
-                    dr["ADDRESS"] = txtAddress.Text;
-                    dr["POLICESTATION"] = txtPoliceStation.Text;
-                    dr["DESIGNATION"] = txtDesignation.Text;
-                    dr["MOBILENO"] = txtMobileno.Text;
+                    dr["SRVCMD_FULLNAME"] = txtFullName.Text;
+                    dr["SRVCMD_FULLADDRESS"] = txtAddress.Text;
+                    dr["SRVCMD_POLICESTATION"] = txtPoliceStation.Text;
+                    dr["SRVCMD_DESIGNATION"] = txtDesignation.Text;
+                    dr["SRVCMD_MOBILENO"] = txtMobileno.Text;
 
                     dt.Rows.Add(dr);
                     GVRegSocieties.Visible = true;
@@ -342,7 +342,7 @@ namespace MeghalayaUIP.User.Services
 
                     for (int i = 0; i < GVRegSocieties.Rows.Count; i++)
                     {
-                        ObjRegSocietiesDetails.SRVCQDID = Convert.ToString(Session[""]);
+                        ObjRegSocietiesDetails.SRVCQDID = Convert.ToString(Session["SRVCQID"]);
                         ObjRegSocietiesDetails.createdby = hdnUserID.Value;
                         ObjRegSocietiesDetails.createdbyip = getclientIP();
                         ObjRegSocietiesDetails.FullName = GVRegSocieties.Rows[i].Cells[1].Text;
@@ -417,6 +417,33 @@ namespace MeghalayaUIP.User.Services
                 btnsave_Click(sender, e);
                 if (ErrorMsg == "")
                     Response.Redirect("~/User/Services/SRVCUploadEnclosures.aspx?Next=" + "N");
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void GVRegSocieties_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVRegSocieties.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["RegSocieties"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVRegSocieties.DataSource = ((DataTable)ViewState["RegSocieties"]).DefaultView;
+                    this.GVRegSocieties.DataBind();
+                    GVRegSocieties.Visible = true;
+                    GVRegSocieties.Focus();
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
             }
             catch (Exception ex)
             {

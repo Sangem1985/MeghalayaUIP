@@ -115,7 +115,7 @@
                                                         Old Registration Number
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtSoWoDo" runat="server" class="form-control" onkeypress="return validateNames(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSoWoDo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" MaxLength="25"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,7 +137,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of the Association</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtNameAssoci" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameAssoci" runat="server" class="form-control" onkeypress="return validateName(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -145,7 +145,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Address of the association/society</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtAddressSociety" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAddressSociety" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -166,7 +166,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">President Contact Number </label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtPresidentNo" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPresidentNo" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -174,7 +174,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">General Secretary Mobile Number</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtGeneralMobileNo" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtGeneralMobileNo" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,7 +182,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">E-Mail</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtEmail" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEmail" runat="server" class="form-control" onblur="validateEmail(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -195,7 +195,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Full Name</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtFullName" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFullName" runat="server" class="form-control" onkeypress="return validateName(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -203,7 +203,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Full Address</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtAddress" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAddress" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,7 +211,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Police Station</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtPoliceStation" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtPoliceStation" runat="server" class="form-control" onkeypress="return Address(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -221,7 +221,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Designation(In the society)</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtDesignation" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDesignation" runat="server" class="form-control" onkeypress="return validateName(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,7 +229,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Mobile Number</label>
                                                     <div class="col-lg-6">
-                                                        <asp:TextBox ID="txtMobileno" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMobileno" runat="server" class="form-control" onkeypress="return PhoneNumberOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -244,15 +244,15 @@
                                         <div class="col-12 d-flex justify-content-center">
                                             <asp:GridView ID="GVRegSocieties" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                GridLines="None" Width="100%" EnableModelValidation="True" Visible="false">
+                                                GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVRegSocieties_RowDeleting">
                                                 <RowStyle BackColor="#ffffff" BorderWidth="1px" />
                                                 <Columns>
                                                     <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Full Name" DataField="NAME" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Full Address" DataField="ADDRESS" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Police Station" DataField="POLICESTATION" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Designation(In the society)" DataField="DESIGNATION" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                    <asp:BoundField HeaderText="Mobile Number" DataField="MOBILENO" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Full Name" DataField="SRVCMD_FULLNAME" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Full Address" DataField="SRVCMD_FULLADDRESS" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Police Station" DataField="SRVCMD_POLICESTATION" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Designation(In the society)" DataField="SRVCMD_DESIGNATION" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                    <asp:BoundField HeaderText="Mobile Number" DataField="SRVCMD_MOBILENO" ItemStyle-Width="330px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="left" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
                                                 </Columns>
                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
