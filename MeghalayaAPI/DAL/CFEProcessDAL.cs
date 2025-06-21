@@ -83,38 +83,5 @@ namespace MeghalayaAPI.DAL
             return valid;
 
         }
-        public DataSet GetDetailsByQstnryId(string Questionary, string Feasibility)
-        {
-            DataSet ds = new DataSet();
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
-            connection.Open();
-            transaction = connection.BeginTransaction();
-            try
-            {
-                SqlDataAdapter da;
-                da = new SqlDataAdapter(CFEConstants.GetUnitDetailsforPayment, connection);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CFEProcConstants.GetDetailsByQstnryId;
-
-                da.SelectCommand.Transaction = transaction;
-                da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@QUESTIONARYID", Convert.ToInt32(Questionary));
-                da.SelectCommand.Parameters.AddWithValue("@FEASIBILITYID", Convert.ToInt32(Feasibility));
-                da.Fill(ds);
-                transaction.Commit();
-                return ds;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-        }
     }
 }

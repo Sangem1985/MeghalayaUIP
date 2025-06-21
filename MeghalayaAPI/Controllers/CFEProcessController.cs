@@ -59,6 +59,14 @@ namespace MeghalayaAPI.Controllers
                 {
                     return BadRequest("Invalid data.");
                 }
+                else
+                {
+                    int UnitID = GetUnitID(Convert.ToInt32(model.Questionnaireid));
+                    if (UnitID > 0)
+                    {
+                        model.Unitid = Convert.ToString(UnitID);
+                    }
+                }
                 string errormsg = validations.ValidateFields(model);
                 if (errormsg.Trim().TrimStart() != "")
                 {
@@ -66,6 +74,7 @@ namespace MeghalayaAPI.Controllers
                 }
                 else
                 {
+
                     string valid = objcfeDtls.UpdateCFEDepartmentProcess(model);
                     return Ok("Application Processed Successfully.");
                 }
@@ -96,8 +105,8 @@ namespace MeghalayaAPI.Controllers
                    .Select(err =>
                    !string.IsNullOrWhiteSpace(err.ErrorMessage)
                        ? err.ErrorMessage
-                       : err.Exception?.Message 
-                       )           
+                       : err.Exception?.Message
+                       )
                        .Where(msg => !string.IsNullOrWhiteSpace(msg))
                        .ToList();
 
@@ -110,6 +119,7 @@ namespace MeghalayaAPI.Controllers
                 }
                 else
                 {
+
                     string valid = _cfeprocessbal.CFEFeasibilityReportInsert(model);
                     if (Convert.ToInt32(valid) > 0)
                     {
@@ -151,6 +161,24 @@ namespace MeghalayaAPI.Controllers
                 return InternalServerError(ex);
             }
         }
+        public int GetUnitID(int CFEQDID)
+        {
+            try
+            {
+                int UnitID = 0;
+                DataSet ds = new DataSet();
+                ds = _cfeprocessbal.GetUnitIDBasedonQDID(CFEQDID);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+
+                }
+                return UnitID;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataSet GetDataPower()
         {
             try
@@ -167,8 +195,6 @@ namespace MeghalayaAPI.Controllers
         private string SendCFEAppStatus(DataSet ds)
         {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
-
 
             using (var client = new HttpClient())
             {
