@@ -18,6 +18,14 @@ namespace MeghalayaAPI.BAL
         {
             return _ObjCFEDAL.CFEFeasibilityReportInsert(_cfefeasibility);
         }
+        public DataSet GetDetailsByQstnryId(string Questionary, string Feasibility)
+        {
+            return _ObjCFEDAL.GetDetailsByQstnryId(Questionary, Feasibility);
+        }
+        public DataSet GetUnitIDBasedonQDID(int CFEQDID)
+        {
+            return _ObjCFEDAL.GetUnitIDBasedonQDID(CFEQDID);
+        }
 
     }
 }
