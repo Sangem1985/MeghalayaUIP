@@ -14,6 +14,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Web.Configuration;
 using System.Web.Http;
 using System.Web.UI;
 
@@ -87,7 +88,7 @@ namespace MeghalayaAPI.Controllers
                 {
                     return BadRequest("Invalid data.");
                 }
-                if (!ModelState.IsValid)
+               /*if (!ModelState.IsValid)
                 {
                     var customErrors = ModelState
                    .Where(ms => ms.Value.Errors.Count > 0)
@@ -101,20 +102,45 @@ namespace MeghalayaAPI.Controllers
                        .ToList();
 
                     return Content(HttpStatusCode.BadRequest, new { status = "failed", errors = customErrors });
-                }
+                }*/
                 string errormsg = validations.ValidateFeasibilityFields(model);
                 if (errormsg.Trim().TrimStart() != "")
                 {
-                    return BadRequest(errormsg);
+                    return Content(HttpStatusCode.BadRequest, new {status=400, desc = "failed", errors = errormsg });
                 }
                 else
                 {
                     string valid = _cfeprocessbal.CFEFeasibilityReportInsert(model);
-                    return Ok(new
+                    if (Convert.ToInt32(valid) > 0)
                     {
-                        status = "success",
-                        message = valid
-                    });
+                        if (Convert.ToInt32(valid) == 25)
+                        {
+                            return Ok(new
+                            {
+                                status = 400,
+                                desc = "Already Exists",
+                                message = valid
+                            });
+                        }
+                        else
+                        {
+                            return Ok(new
+                            {
+                                status = 200,
+                                desc = "success",
+                                message = valid
+                            });
+                        }
+                    }
+                    else 
+                    {
+                        return Ok(new
+                        {
+                            status = 400,
+                            desc = "failed",
+                            message = valid
+                        });
+                    }
                 }
             }
             catch (Exception ex)

@@ -12,6 +12,7 @@ namespace MeghalayaAPI.Models
     }
     public class CFE_FEASIBILITY
     {
+        [Required]
         public string QuestionaryId { get; set; }
 
         public string ApplicationRegNo { get; set; }
@@ -64,7 +65,7 @@ namespace MeghalayaAPI.Models
         [Range(1, int.MaxValue, ErrorMessage = "BillingType must be a positive integer.")]
         public int BillingType { get; set; }
 
-        [Range(0, int.MaxValue)]
+        [Range(1, int.MaxValue)]
         public int AreaType { get; set; }
 
         public string Remarks { get; set; }
@@ -86,6 +87,7 @@ namespace MeghalayaAPI.Models
         public int UserId { get; set; }
 
         public string UserIp { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "UserId must be a positive integer.")]
         public int Feasible { get; set; }
     }
 }

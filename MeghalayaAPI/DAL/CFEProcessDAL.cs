@@ -38,37 +38,33 @@ namespace MeghalayaAPI.DAL
                 com.Parameters.AddWithValue("@CFE_POLE_NO", Objcfedtls.PoleNumber);
                 com.Parameters.AddWithValue("@CFE_PRODUCT", Objcfedtls.Product);
                 com.Parameters.AddWithValue("@CFE_CONNECTION_TYPE", Objcfedtls.ConnectionType);
-                com.Parameters.AddWithValue("@CFE_LOAD_KW", Objcfedtls.Loadkw);
+                com.Parameters.AddWithValue("@CFE_LOAD_KW", Objcfedtls.Loadkw == 0 ? DBNull.Value : (object)Objcfedtls.Loadkw);
                 com.Parameters.AddWithValue("@CFE_NO_OF_PREMISES", Objcfedtls.NoofPremises);
-
-                com.Parameters.AddWithValue("@CFE_SITE_DIMENSION_SFT", Objcfedtls.SiteDimensionSft);
-                com.Parameters.AddWithValue("@CFE_BUILTUP_AREA", Objcfedtls.BuiltupArea);
-                com.Parameters.AddWithValue("@CFE_NO_OF_FLOORS", Objcfedtls.NoofFloors);
+                com.Parameters.AddWithValue("@CFE_SITE_DIMENSION_SFT", Objcfedtls.SiteDimensionSft == 0 ? DBNull.Value : (object)Objcfedtls.SiteDimensionSft);
+                com.Parameters.AddWithValue("@CFE_BUILTUP_AREA", Objcfedtls.BuiltupArea == 0 ? DBNull.Value : (object)Objcfedtls.BuiltupArea);
+                com.Parameters.AddWithValue("@CFE_NO_OF_FLOORS", Objcfedtls.NoofFloors == 0 ? DBNull.Value : (object)Objcfedtls.NoofFloors);
                 com.Parameters.AddWithValue("@CFE_CONNECTION_PHASE", Objcfedtls.ConnectionPhase);
                 com.Parameters.AddWithValue("@CFE_BUILDING", Objcfedtls.Building);
                 com.Parameters.AddWithValue("@CFE_REQUESTED_UG_CABLE_SIZE", Objcfedtls.RequestedUgCableSize);
                 com.Parameters.AddWithValue("@CFE_REQUESTED_OH_CABLE_SIZE", Objcfedtls.RequestedOhCableSize);
                 com.Parameters.AddWithValue("@CFE_LATITUDE", Objcfedtls.Latitude);
                 com.Parameters.AddWithValue("@CFE_LONGITUDE", Objcfedtls.Longitude);
-                com.Parameters.AddWithValue("@CFE_SERVICE_TYPE", Objcfedtls.ServiceType);
-
-                com.Parameters.AddWithValue("@CFE_BILLING_TYPE", Objcfedtls.BillingType);
-                com.Parameters.AddWithValue("@CFE_AREA_TYPE", Objcfedtls.AreaType);
+                com.Parameters.AddWithValue("@CFE_SERVICE_TYPE", Objcfedtls.ServiceType == 0 ? DBNull.Value : (object)Objcfedtls.ServiceType);
+                com.Parameters.AddWithValue("@CFE_BILLING_TYPE", Objcfedtls.BillingType == 0 ? DBNull.Value : (object)Objcfedtls.BillingType);
+                com.Parameters.AddWithValue("@CFE_AREA_TYPE", Objcfedtls.AreaType == 0 ? DBNull.Value : (object)Objcfedtls.AreaType);
                 com.Parameters.AddWithValue("@CFE_REMARKS", Objcfedtls.Remarks);
                 com.Parameters.AddWithValue("@CFE_DOCUMENT_ID", Objcfedtls.DocumentId);
                 com.Parameters.AddWithValue("@CFE_DOCUMENT_NAME", Objcfedtls.DocumentName);
                 com.Parameters.AddWithValue("@CFE_DOCUMENT_PATH", Objcfedtls.DocumentPath);
                 com.Parameters.AddWithValue("@CFE_METER_TYPE", Objcfedtls.MeterType);
                 com.Parameters.AddWithValue("@CFE_METERED_SIDE", Objcfedtls.MeteredSide);
-                com.Parameters.AddWithValue("@CFE_LOAD_KVA", Objcfedtls.LoadKva);
-                com.Parameters.AddWithValue("@CFE_CREATED_BY", Objcfedtls.UserId);
+                com.Parameters.AddWithValue("@CFE_LOAD_KVA", Objcfedtls.LoadKva == 0 ? DBNull.Value : (object)Objcfedtls.LoadKva);
+                com.Parameters.AddWithValue("@CFE_CREATED_BY", Objcfedtls.UserId == 0 ? DBNull.Value : (object)Objcfedtls.UserId);
                 com.Parameters.AddWithValue("@CFE_CREATED_BY_IP", Objcfedtls.UserIp);
-                com.Parameters.AddWithValue("@CFE_FEASIBLE", Objcfedtls.Feasible);
-
+                com.Parameters.AddWithValue("@CFE_FEASIBLE", Objcfedtls.Feasible == 0 ? DBNull.Value : (object)Objcfedtls.Feasible);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
-
                 valid = com.Parameters["@RESULT"].Value.ToString();
                 transaction.Commit();
                 connection.Close();
@@ -86,6 +82,39 @@ namespace MeghalayaAPI.DAL
             }
             return valid;
 
+        }
+        public DataSet GetDetailsByQstnryId(string Questionary, string Feasibility)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetUnitDetailsforPayment, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEProcConstants.GetDetailsByQstnryId;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@QUESTIONARYID", Convert.ToInt32(Questionary));
+                da.SelectCommand.Parameters.AddWithValue("@FEASIBILITYID", Convert.ToInt32(Feasibility));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
         }
     }
 }

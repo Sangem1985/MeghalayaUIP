@@ -1,0 +1,71 @@
+Time: 21/06/2025 12:24:01 PM
+-----------------------------------------------------------
+Message: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model) in D:\Projects\Meghalaya\MeghalayaAPI\Controllers\CFEProcessController.cs:line 114
+Source: mscorlib
+TargetSite: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+-----------------------------------------------------------
+
+Time: 21/06/2025 12:26:05 PM
+-----------------------------------------------------------
+Message: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model) in D:\Projects\Meghalaya\MeghalayaAPI\Controllers\CFEProcessController.cs:line 114
+Source: mscorlib
+TargetSite: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean)
+-----------------------------------------------------------
+
+Time: 21/06/2025 12:48:39 PM
+-----------------------------------------------------------
+Message: Procedure or function USP_INS_CFE_FEASIBILITY_DETAILS has too many arguments specified.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls)
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility)
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model)
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 21/06/2025 12:49:50 PM
+-----------------------------------------------------------
+Message: Procedure or function USP_INS_CFE_FEASIBILITY_DETAILS has too many arguments specified.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls)
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility)
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model)
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 21/06/2025 12:51:46 PM
+-----------------------------------------------------------
+Message: Procedure or function 'USP_INS_CFE_FEASIBILITY_DETAILS' expects parameter '@CFE_REMARKS', which was not supplied.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls)
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility)
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model)
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 21/06/2025 12:52:35 PM
+-----------------------------------------------------------
+Message: Procedure or function 'USP_INS_CFE_FEASIBILITY_DETAILS' expects parameter '@CFE_REMARKS', which was not supplied.
+StackTrace:    at MeghalayaAPI.DAL.CFEProcessDAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY Objcfedtls)
+   at MeghalayaAPI.BAL.CFEProcessBAL.CFEFeasibilityReportInsert(CFE_FEASIBILITY _cfefeasibility)
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model)
+Source: .Net SqlClient Data Provider
+TargetSite: System.String CFEFeasibilityReportInsert(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+
+Time: 21/06/2025 01:17:44 PM
+-----------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at MeghalayaAPI.Validations.CFEProcessValidations.ValidateFeasibilityFields(CFE_FEASIBILITY model) in D:\Projects\Meghalaya\MeghalayaAPI\Validations\CFEProcessValidations.cs:line 106
+   at MeghalayaAPI.Controllers.CFEProcessController.InsertCFEFeasibilityReport(CFE_FEASIBILITY model) in D:\Projects\Meghalaya\MeghalayaAPI\Controllers\CFEProcessController.cs:line 106
+Source: MeghalayaAPI
+TargetSite: System.String ValidateFeasibilityFields(MeghalayaAPI.Models.CFE_FEASIBILITY)
+-----------------------------------------------------------
+

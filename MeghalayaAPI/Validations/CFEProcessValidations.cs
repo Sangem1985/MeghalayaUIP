@@ -74,10 +74,67 @@ namespace MeghalayaAPI.Validations
         {
             int slno = 1;
             string ErrorMsg = "";
-            if (model.NearestConsumerId == "" || model.NearestConsumerId == null)
+
+            if (model.QuestionaryId.Trim() == "" || model.QuestionaryId == null || model.QuestionaryId.Trim() == "0")
             {
-                ErrorMsg = ErrorMsg + slno + ".NearestConsumerId should not be empty \\n";
-                slno = slno + 1;;
+                ErrorMsg = ErrorMsg + slno + ".Please provide a valid QuestionaryId. \\n";
+                slno = slno + 1;
+            }
+            if (model.Feasible == 0)
+            {
+                ErrorMsg = ErrorMsg + slno + ".Please provide a valid Feasible. \\n";
+                slno = slno + 1;
+            }
+            if (model.UserId == 0)
+            {
+                ErrorMsg = ErrorMsg + slno + ".Please provide a valid UserId. \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.UserIp) || model.UserIp == "" || model.UserIp == "0")
+            {
+                ErrorMsg = ErrorMsg + slno + ".Please provide a valid UserIp address. \\n";
+                slno = slno + 1;
+            }
+            if (model.Product.Trim() == "HT")
+            {
+                if (string.IsNullOrWhiteSpace(model.MeteredSide) || model.MeteredSide == "" || model.MeteredSide == "0")
+                {
+                    ErrorMsg = ErrorMsg + slno + ".Please provide a valid MeteredSide. \\n";
+                    slno = slno + 1;
+                }
+            }
+            if (model.MeteredSide != null)
+            {
+                if (model.MeteredSide.Trim().ToUpper() == "LT SIDE")
+                {
+                    if (string.IsNullOrWhiteSpace(model.MeterType) || model.MeterType == "" || model.MeterType == "0")
+                    {
+                        ErrorMsg = ErrorMsg + slno + ".Please provide a valid MeteredSide. \\n";
+                        slno = slno + 1;
+                    }
+                }
+            }
+            if (model.MeterType != null)
+            {
+                if (model.MeterType.Trim().ToUpper() == "KVA")
+                {
+                    if (model.LoadKva == 0)
+                    {
+                        ErrorMsg = ErrorMsg + slno + ".Please provide a valid LoadKva. \\n";
+                        slno = slno + 1;
+                    }
+                }
+            }
+            if (model.MeterType != null)
+            {
+                if (model.MeterType.Trim().ToUpper() == "KW")
+                {
+                    if (model.Loadkw == 0)
+                    {
+                        ErrorMsg = ErrorMsg + slno + ".Please provide a valid Loadkw. \\n";
+                        slno = slno + 1;
+                    }
+                }
             }
             return ErrorMsg;
         }
