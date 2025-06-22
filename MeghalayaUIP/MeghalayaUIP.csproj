@@ -423,6 +423,7 @@
     <Content Include="assets\assetsnew\images\background\bg5.gif" />
     <Content Include="assets\assetsnew\images\bg-whatsnew.png" />
     <Content Include="assets\assetsnew\images\bghead1.jpg" />
+    <Content Include="assets\assetsnew\images\Brap.jpg" />
     <Content Include="assets\assetsnew\images\cm1.png" />
     <Content Include="assets\assetsnew\images\cm2.png" />
     <Content Include="assets\assetsnew\images\collagebg.png" />
@@ -437,6 +438,7 @@
     <Content Include="assets\assetsnew\images\easy\rightleft.jpg" />
     <Content Include="assets\assetsnew\images\favicon.png" />
     <Content Include="assets\assetsnew\images\form.gif" />
+    <Content Include="assets\assetsnew\images\golas.jpg" />
     <Content Include="assets\assetsnew\images\growrth.png" />
     <Content Include="assets\assetsnew\images\headerbg.gif" />
     <Content Include="assets\assetsnew\images\helpImage4.png" />

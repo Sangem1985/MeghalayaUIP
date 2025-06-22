@@ -107,6 +107,14 @@
     width: 27%;
 }
 }
+
+
+        .mobileapp {
+    transition: transform 0.3s ease;
+}
+        .mobileapp:hover {
+    transform: scale(1.02);
+}
     </style>
     <section class="innerpages">
         <div class="container">
@@ -181,6 +189,17 @@
                         <li>3.	2022: 211 reforms successfully implemented by the State.</li>
                     </ul>--%>
                      <h4>Meghalaya's Transformation in BRAP</h4>
+
+                    <section class="project-section case-page-3 eodb2 p-0 pt-2 mb-5">
+                        <div class="large-container">
+                           
+                            <div class="row">
+                                <div class="col-lg-12 col-md-6 col-sm-12 project-block mobileapp" style="text-align: center;">
+                                    <img src="assets/assetsnew/images/Brap.jpg"  alt="Meghalaya's Transformation in BRAP" class="single-item wow fadeInUp animated animated animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;""/>
+                                </div>
+                                </div>
+                            </div>
+                        </section>
                     <%--<section class="project-section case-page-3 eodb2 p-0 pt-2 mb-5">
                         <div class="large-container">
                            
@@ -212,7 +231,7 @@
                             </div>
                         </div>
                     </section>--%>
-                    <section class="project-section case-page-3 eodb2 p-0 pt-2 mb-5">
+                   <%-- <section class="project-section case-page-3 eodb2 p-0 pt-2 mb-5">
                         <div class="large-container">
                            
                             <div class="row">
@@ -250,7 +269,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section>--%>
 
                    <%-- <p><b>c. Proactive Steps in Meghalaya: </b></p>
                     <ul>
@@ -471,8 +490,17 @@ animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                     </section>--%>
 
                     <h4>Meghalaya-Centralized Inspection System Goals</h4>
-
-                    <section class="project-section case-page-3 eodb p-0 pt-2 mb-5">
+                    <section class="project-section case-page-3 eodb2 p-0 pt-2 mb-5">
+    <div class="large-container">
+       
+        <div class="row">
+            <div class="col-lg-12 col-md-6 col-sm-12 project-block mobileapp" style="text-align: center;">
+                <img src="assets/assetsnew/images/golas.jpg"  alt="Meghalaya-Centralized Inspection System Goals" class="single-item wow fadeInUp animated animated animated" data-wow-delay="600ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;""/>
+            </div>
+            </div>
+        </div>
+    </section>
+                    <%--<section class="project-section case-page-3 eodb p-0 pt-2 mb-5">
                         <div class="large-container">
                             <div class="row">
                                 <img src="assets/assetsnew/images/info/cis.jpg" />
@@ -502,7 +530,7 @@ animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                                 </div>
                             </div>
                             </div>
-                        </section>
+                        </section>--%>
                     <%--<section class="project-section case-page-3 eodb p-0 pt-2 mb-5">
                         <div class="large-container">
                             <div class="row">

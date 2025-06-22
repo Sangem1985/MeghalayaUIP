@@ -341,17 +341,17 @@ img {
   padding: 154px 0px 120px 0px;
 }
 
-.preloader{
-  position: fixed; 
-  left:0px;
-  top:0px;
-  height:100%;
-  width: 100%;
-  z-index:999999;
-  background-color:#ffffff;
-  background-position:center center;
-  background-repeat:no-repeat;
-  background-image:url(../images/icons/preloader.gif);
+.preloader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 999999;
+    background-color: #6f88ad;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons/preloader.gif);
 }
 
 .scroll-top {
