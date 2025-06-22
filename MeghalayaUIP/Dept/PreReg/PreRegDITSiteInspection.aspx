@@ -133,7 +133,7 @@
                                     <div class="form-group d-flex">
                                         <label class="col-lg-6 col-form-label">2. Designation/ Department: *</label>
                                         <div class="col-lg-6 d-flex">
-                                            <asp:TextBox ID="txtDepartment" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox></td>
+                                            <asp:TextBox ID="txtDepartment" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
