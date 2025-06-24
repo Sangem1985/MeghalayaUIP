@@ -51,10 +51,7 @@
                                         <div class="panel-body">
 
                                             <div class="card-body justify-content-center " align="justify">
-                                                <div class="panel panel-default">                                                 
-                                                  
-                                                  
-
+                                                <div class="panel panel-default">  
                                                     <div>
                                                         <asp:GridView ID="gvDptpg" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"

@@ -183,10 +183,8 @@ namespace MeghalayaUIP.Dept.PreReg
         {
             try
             {
-                if (lblReceivedDEPT.Text != "0")
-                {
-                    Response.Redirect("~Dept/Dashboard/DeptDashboard.aspx");
-                }
+                Response.Redirect("Dept/Dashboard/DeptDashBoard.aspx");
+
             }
             catch (Exception ex)
             {

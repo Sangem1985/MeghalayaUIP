@@ -81,7 +81,7 @@ namespace MeghalayaUIP.Dept.Dashboard
                         prereg.Visible = true;
                     if (ObjUserInfo.Roleid == "8")
                     {
-                        Ammendments.Visible = true; lnkResources.Visible = true;
+                        Ammendments.Visible = true; Resources.Visible = true;
                     }
                     else if (ObjUserInfo.Roleid == "10" || ObjUserInfo.Roleid == "11")
                     {
@@ -93,7 +93,7 @@ namespace MeghalayaUIP.Dept.Dashboard
 
 
             }
-
+        }
         protected void linkPreReg_Click(object sender, EventArgs e)
         {
             if (ObjUserInfo.Roleid == "1")
@@ -206,7 +206,7 @@ namespace MeghalayaUIP.Dept.Dashboard
             if (ObjUserInfo.Roleid == "8")
             {
 
-                string url = "~/Dept/Resources/ResourcesDeptDashboard.aspx";
+                string url = "~/Dept/DeptWiseServices.aspx";
                 Response.Redirect(url);
             }
         }
