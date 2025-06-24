@@ -17,16 +17,6 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-12 d-flex">
-                                <div class="col-md-3" id="Ammendments" runat="server" visible="false">
-                                    <div class="card-counter primary first">
-                                        <asp:LinkButton runat="server" ID="lblAmmendment" OnClick="lblAmmendment_Click">
-									<i class="fi fi-tr-file-edit"></i>
-									<span class="count-numbers">Ammendments</span>
-									<span class="count-name"></span>
-                                        </asp:LinkButton>
-                                    </div>
-                                </div>
-
                                 <div class="col-md-3" id="intenttoinvest" runat="server" visible="false">
                                     <div class="card-counter danger First">
                                         <asp:LinkButton ID="lnkIntent" runat="server" OnClick="lnkIntent_Click">
@@ -36,8 +26,26 @@
                                         </asp:LinkButton>
                                     </div>
                                 </div>
+                                <div class="col-md-3" id="prereg" runat="server" visible="false">
+                                    <div class="card-counter info">
+                                        <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
+				                        <i class="fi fi-tr-clipboard-list"></i>
+				                        <span class="count-numbers">Registration under<br /> MIIPP 2024</span>
+				                        <span class="count-name">(Principle approval)</span>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
 
-                                <div class="col-md-3" id="Grievance" runat="server" visible="true">
+                                <div class="col-md-3" id="Land" runat="server" visible="false">
+                                    <div class="card-counter primary">
+                                        <asp:LinkButton ID="lnkLandAllotment" runat="server" OnClick="lnkLandAllotment_Click">
+				                        <i class="fi fi-tr-land-layer-location"></i>
+				                        <span class="count-numbers">Land Allotment</span>
+				                        <span class="count-name"></span>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="Grievance" runat="server" visible="false">
                                     <div class="card-counter success">
                                         <asp:LinkButton runat="server" ID="linkGrievance" OnClick="linkGrievance_Click">
                                     <i class="fi fi-tr-person-circle-question"></i>
@@ -46,7 +54,24 @@
                                         </asp:LinkButton>
                                     </div>
                                 </div>
-
+                                <div class="col-md-3" id="Ammendments" runat="server" visible="false">
+                                    <div class="card-counter primary first">
+                                        <asp:LinkButton runat="server" ID="lblAmmendment" OnClick="lblAmmendment_Click">
+					                <i class="fi fi-tr-file-edit"></i>
+					                <span class="count-numbers">Ammendments</span>
+					                <span class="count-name"></span>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="Resources" runat="server" visible="false">
+                                    <div class="card-counter primary Reports">
+                                        <asp:LinkButton runat="server" ID="lnkResources" OnClick="lnkResources_Click">
+                                          <i class="fi fi-tr-newspaper"></i>
+                                          <span class="count-numbers">Resources</span>
+                                          <span class="count-name"></span>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-3" id="Preestablishment" runat="server" visible="false">
@@ -89,33 +114,9 @@
 					                    <span class="count-name"></span>
                                         </asp:LinkButton>
                                     </div>
-
                                 </div>
-
-
-
                             </div>
                             <div class="col-md-12 d-flex">
-                                <div class="col-md-3" id="prereg" runat="server" visible="false">
-                                    <div class="card-counter info">
-                                        <asp:LinkButton ID="linkPreReg" runat="server" OnClick="linkPreReg_Click">
-									<i class="fi fi-tr-clipboard-list"></i>
-									<span class="count-numbers">Registration under<br /> MIIPP 2024</span>
-									<span class="count-name">(Principle approval)</span>
-                                        </asp:LinkButton>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3" id="Land" runat="server" visible="false">
-                                    <div class="card-counter primary">
-                                        <asp:LinkButton ID="lnkLandAllotment" runat="server" OnClick="lnkLandAllotment_Click">
-									<i class="fi fi-tr-land-layer-location"></i>
-									<span class="count-numbers">Land Allotment</span>
-									<span class="count-name"></span>
-                                        </asp:LinkButton>
-                                    </div>
-                                </div>
-
                                 <div class="col-md-3" id="Report" runat="server" visible="false">
                                     <div class="card-counter primary Reports">
                                         <asp:LinkButton runat="server" ID="lnkReport" OnClick="lnkReport_Click">

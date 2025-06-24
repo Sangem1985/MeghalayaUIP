@@ -25,135 +25,109 @@ namespace MeghalayaUIP.Dept.Dashboard
                     intenttoinvest.Visible = true;
                     prereg.Visible = true;
                     Land.Visible = true;
-                    Preestablishment.Visible = false;
                     Ammendments.Visible = true;
                     Report.Visible = true;
+
+                    //Preestablishment.Visible = false;
+                    //PreOperational.Visible = false;
+                    //Renewal.Visible = false;
+                    //Services.Visible = false;
 
                 }
                 else if (ObjUserInfo.Roleid == "3")
                 {
-                    Land.Visible = false;
-                    intenttoinvest.Visible = false;
                     prereg.Visible = true;
-                    Preestablishment.Visible = false;
-                    Ammendments.Visible = false;
-                    Report.Visible = false;
-                    Grievance.Visible = false;
+
+                    //intenttoinvest.Visible = false; Land.Visible = false;
+                    //Ammendments.Visible = false; Report.Visible = false; Grievance.Visible = false;
+                    //Preestablishment.Visible = false; PreOperational.Visible = false;
+                    //Renewal.Visible = false; Services.Visible = false;
                 }
                 else if (ObjUserInfo.Roleid == "4")
                 {
-                    if (ObjUserInfo.UserID == "1030")
-                    {
-                        intenttoinvest.Visible = false;
-                        prereg.Visible = true;
-                        Land.Visible = false;
-                        Preestablishment.Visible = false;
-                        Ammendments.Visible = false;
-                        Report.Visible = false;
-                        Grievance.Visible = false;
-                    }
-                    else
-                    {
-                        intenttoinvest.Visible = false;
-                        prereg.Visible = true;
-                        Land.Visible = true;
-                        Preestablishment.Visible = false;
-                        Ammendments.Visible = true;
-                        Report.Visible = true;
-                    }
-                   
+                    prereg.Visible = true;
+                    //if (ObjUserInfo.UserID == "1030") 
+                    //{
+                    //    intenttoinvest.Visible = false;//DPRCELL                       
+                    //    Land.Visible = false;
+                    //    Preestablishment.Visible = false;
+                    //    Ammendments.Visible = false;
+                    //    Report.Visible = false;
+                    //    Grievance.Visible = false;
+                    //}
+                    //else
+                    //{
+                    //    intenttoinvest.Visible = false;                       
+                    //    Land.Visible = true;
+                    //    Preestablishment.Visible = false;
+                    //    Ammendments.Visible = true;
+                    //    Report.Visible = true; Grievance.Visible = false;
+                    //}
                 }
                 else if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
                 {
-                    intenttoinvest.Visible = false;
                     prereg.Visible = true;
-                    Preestablishment.Visible = false;
-                    Land.Visible = false;
-                    Ammendments.Visible = false;
-                    Report.Visible = false;
+                    //intenttoinvest.Visible = false;                
+                    //Preestablishment.Visible = false;
+                    //Land.Visible = false;
+                    //Ammendments.Visible = false;
+                    //Report.Visible = false;
                 }
-                else if (ObjUserInfo.Roleid == "8"|| ObjUserInfo.Roleid == "9")
+                else if (ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
                 {
-                    intenttoinvest.Visible = false;
-                    prereg.Visible = false;
-                    Preestablishment.Visible = true;
-                    PreOperational.Visible = true;
-                    Renewal.Visible = true;
-                    Land.Visible = false;
-                    Report.Visible = false;
-                    Services.Visible = true;
-
+                    Preestablishment.Visible = true; PreOperational.Visible = true; Renewal.Visible = true; Services.Visible = true;
+                    Report.Visible = true; Grievance.Visible = true; Ammendments.Visible = true;
+                    if (ObjUserInfo.PreRegRoleid == "4")
+                        prereg.Visible = true;
                     if (ObjUserInfo.Roleid == "8")
                     {
-                        Ammendments.Visible = true;
+                        Ammendments.Visible = true; lnkResources.Visible = true;
                     }
-                    
-                    
-                }
-                else if (ObjUserInfo.Roleid == "10" || ObjUserInfo.Roleid=="11")
-                {
-                    intenttoinvest.Visible = false;
-                    prereg.Visible = false;
-                    Preestablishment.Visible = false;
-                    Land.Visible = true;
-                    Ammendments.Visible = false;
-                    Report.Visible = false;
+                    else if (ObjUserInfo.Roleid == "10" || ObjUserInfo.Roleid == "11")
+                    {
+                        Land.Visible = true;
+                    }
                 }
                 else
-                {
-                    intenttoinvest.Visible = false;
-                }
+                { Response.Redirect("~/DeptLogin.aspx"); }
+
+
             }
-            else
-            { Response.Redirect("~/DeptLogin.aspx"); }
-
-
-        }
 
         protected void linkPreReg_Click(object sender, EventArgs e)
         {
-            if (ObjUserInfo.Roleid == "4")
+            if (ObjUserInfo.Roleid == "1")
             {
-                prereg.Visible = false;
-                string url = "~/Dept/PreReg/PreRegApplDeptDashBoard.aspx";
-                Response.Redirect(url);
-                if(ObjUserInfo.UserID=="")
-                {
-                    prereg.Visible = false;
-                    string url1 = "~/Dept/PreReg/PreRegDITDashBoard.aspx";
-                    Response.Redirect(url1);
-                }
-            }
-            else if (ObjUserInfo.Roleid == "1")
-            {
-                prereg.Visible = false;
                 string url = "~/Dept/PreReg/PreRegApplIMADashBoard.aspx";
-                Response.Redirect(url);
-            }
-            else if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
-            {
-                prereg.Visible = false;
-                string url = "~/Dept/PreReg/PreRegApplCommitteeDashBoard.aspx";
                 Response.Redirect(url);
             }
             else if (ObjUserInfo.Roleid == "3")
             {
-                prereg.Visible = false;
                 string url = "~/Dept/PreReg/PreRegDITDashBoard.aspx";
                 Response.Redirect(url);
             }
-            else if(ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
+            else if (ObjUserInfo.Roleid == "4" || ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
             {
-                prereg.Visible = false;
-                string url = "~/Dept/Services/SrvcDeptDashboard.aspx";
+                string url = "~/Dept/PreReg/PreRegApplDeptDashBoard.aspx";
+                Response.Redirect(url);
             }
+
+            else if (ObjUserInfo.Roleid == "5" || ObjUserInfo.Roleid == "6" || ObjUserInfo.Roleid == "7")
+            {
+                string url = "~/Dept/PreReg/PreRegApplCommitteeDashBoard.aspx";
+                Response.Redirect(url);
+            }
+            //else if (ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
+            //{
+            //    string url = "~/Dept/PreReg/PreRegApplDeptDashBoard.aspx";
+            //    Response.Redirect(url);
+            //}
         }
 
         protected void linkCFE_Click(object sender, EventArgs e)
         {
-            if (ObjUserInfo.Roleid == "8"|| ObjUserInfo.Roleid == "9")
+            if (ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
             {
-                Preestablishment.Visible = true;
                 string url = "~/Dept/CFE/CFEDeptDashboard.aspx";
                 Response.Redirect(url);
             }
@@ -164,7 +138,6 @@ namespace MeghalayaUIP.Dept.Dashboard
         {
             if (ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
             {
-                PreOperational.Visible = true;
                 string url = "~/Dept/CFO/CFODeptDashboard.aspx";
                 Response.Redirect(url);
             }
@@ -172,7 +145,6 @@ namespace MeghalayaUIP.Dept.Dashboard
 
         protected void linkGrievance_Click(object sender, EventArgs e)
         {
-            //Dept.Grievance.GrievanceDeptDashbord
             string url = "~/Dept/Grievance/GrievanceDeptDashbord.aspx";
             Response.Redirect(url);
 
@@ -185,10 +157,9 @@ namespace MeghalayaUIP.Dept.Dashboard
         }
 
         protected void lnkrenewal_Click(object sender, EventArgs e)
-        {          
+        {
             if (ObjUserInfo.Roleid == "8" || ObjUserInfo.Roleid == "9")
             {
-                Renewal.Visible = true;
                 string url = "~/Dept/Renewal/RENDeptDashboard.aspx";
                 Response.Redirect(url);
             }
@@ -196,17 +167,15 @@ namespace MeghalayaUIP.Dept.Dashboard
 
         protected void lnkLandAllotment_Click(object sender, EventArgs e)
         {
-            if (ObjUserInfo.Roleid == "10" || ObjUserInfo.Roleid=="11")
-            {
-                Land.Visible = true;
-                string url = "~/Dept/LA/LADeptdashboard.aspx";
-                Response.Redirect(url);
-            }
+
+            string url = "~/Dept/LA/LADeptdashboard.aspx";
+            Response.Redirect(url);
+
         }
 
         protected void lblAmmendment_Click(object sender, EventArgs e)
         {
-            if(ObjUserInfo.Roleid=="1" || ObjUserInfo.Roleid == "4" ||  ObjUserInfo.Roleid == "8")
+            if (ObjUserInfo.Roleid == "1" || ObjUserInfo.Roleid == "4" || ObjUserInfo.Roleid == "8")
             {
                 Ammendments.Visible = true;
                 string url = "~/Dept/Ammendments.aspx";
@@ -216,7 +185,7 @@ namespace MeghalayaUIP.Dept.Dashboard
 
         protected void lnkReport_Click(object sender, EventArgs e)
         {
-            if (ObjUserInfo.Roleid=="4" || ObjUserInfo.Roleid=="1")
+            if (ObjUserInfo.Roleid == "4" || ObjUserInfo.Roleid == "1")
             {
                 Report.Visible = true;
                 string url = "~/Dept/Reports/ReportsAbstract.aspx";
@@ -232,6 +201,14 @@ namespace MeghalayaUIP.Dept.Dashboard
                 Response.Redirect(url);
             }
         }
+        protected void lnkResources_Click(object sender, EventArgs e)
+        {
+            if (ObjUserInfo.Roleid == "8")
+            {
 
+                string url = "~/Dept/Resources/ResourcesDeptDashboard.aspx";
+                Response.Redirect(url);
+            }
+        }
     }
 }

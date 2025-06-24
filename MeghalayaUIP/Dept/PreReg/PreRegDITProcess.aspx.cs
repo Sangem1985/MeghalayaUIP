@@ -224,12 +224,14 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
                         {
+                            //divQueryAttachment.Visible = true;
                             grdQryAttachments.DataSource = ds.Tables[5];
                             grdQryAttachments.DataBind();
 
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
                         {
+                            divApplstatus.Visible = true;
                             grdApplStatus.DataSource = ds.Tables[6];
                             grdApplStatus.DataBind();
                         }

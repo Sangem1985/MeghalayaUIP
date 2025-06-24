@@ -84,7 +84,7 @@ namespace MeghalayaUIP.DAL.CommonDAL
                         ObjDeptUserInfo.UserStatus = objSqlDataReader["USERSTATUS"] == null ? "" : Convert.ToString(objSqlDataReader["USERSTATUS"]);
                         ObjDeptUserInfo.Roleid = objSqlDataReader["Roleid"] == null ? "" : Convert.ToString(objSqlDataReader["Roleid"]);
                         ObjDeptUserInfo.Deptid = objSqlDataReader["Deptid"] == null ? "" : Convert.ToString(objSqlDataReader["Deptid"]);
-                        //ObjDeptUserInfo.EntityName = objSqlDataReader["EntityName"] == null ? "" : Convert.ToString(objSqlDataReader["EntityName"]);
+                        ObjDeptUserInfo.PreRegRoleid = objSqlDataReader["PreRegRoleid"] == null ? "" : Convert.ToString(objSqlDataReader["PreRegRoleid"]);
                     }
                 }
             }
