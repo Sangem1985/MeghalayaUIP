@@ -198,7 +198,14 @@ namespace MeghalayaUIP
                                 if (ObjUserInfo != null && ObjUserInfo.Userid != null)
                                 {
                                     Session["UserInfo"] = ObjUserInfo;
-                                    Response.Redirect("~/User/Dashboard/MainDashboard.aspx", false);
+                                    if (txtUsername.Text.Trim().ToLower() == "admin@gmail.com")
+                                    {
+                                        Response.Redirect("~/Admin/AdminDashboard.aspx");
+                                    }
+                                    else
+                                    {
+                                        Response.Redirect("~/User/Dashboard/MainDashboard.aspx", false);
+                                    }
                                 }
                                 else
                                 {

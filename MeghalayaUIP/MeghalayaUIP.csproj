@@ -215,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AckSlip.aspx" />
+    <Content Include="Admin\AdminDashboard.aspx" />
     <Content Include="Admin\ApplicationsView.aspx" />
     <Content Include="Admin\HelpdeskDrilldown.aspx" />
     <Content Include="Admin\HelpdeskReport.aspx" />
@@ -889,6 +890,20 @@
     </Compile>
     <Compile Include="AckSlip.aspx.designer.cs">
       <DependentUpon>AckSlip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ApplicationsView.aspx.cs">
       <DependentUpon>ApplicationsView.aspx</DependentUpon>
@@ -3009,6 +3024,7 @@
     <Content Include="Documents\Decriminalizationlist.xlsx" />
     <Content Include="Documents\Decriminalization list %281%29 %281%29.pdf" />
     <Content Include="CaptchaHandler.ashx" />
+    <Content Include="Admin\Admin.Master" />
     <None Include="packages.config" />
     <Content Include="User\user.Master" />
     <Content Include="User\Dashboard\ServePdfFile.ashx" />
