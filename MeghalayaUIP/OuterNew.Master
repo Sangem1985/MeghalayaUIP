@@ -24,7 +24,7 @@
     <link href="assets/assetsnew/css/fonts/uicons-regular-straight.css" rel="stylesheet" />
     <link href="assets/assetsnew/css/fonts/uicons-solid-rounded.css" rel="stylesheet" />
     <link href="assets/assetsnew/css/fonts/uicons-thin-rounded.css" rel="stylesheet" />
-
+    <link href="assets/assetsnew/css/Mobile.css" rel="stylesheet" />
     
     <style>
         .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
@@ -329,7 +329,13 @@
         ul.ODOP {
             left: -125% !important;
         }
+        ul.listofpoints li {
+    padding: 3px 0px;
+    margin-left: 23px;
+    text-indent: -35px;
+}
     </style>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
 </head>
 <body class="boxed_wrapper" id="content">
     <form id="form1" runat="server">

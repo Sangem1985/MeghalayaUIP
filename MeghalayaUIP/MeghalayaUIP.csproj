@@ -409,6 +409,7 @@
     <Content Include="assets\assetsnew\css\jquery.bootstrap-touchspin.css" />
     <Content Include="assets\assetsnew\css\jquery.fancybox.min.css" />
     <Content Include="assets\assetsnew\css\login.css" />
+    <Content Include="assets\assetsnew\css\mobile.css" />
     <Content Include="assets\assetsnew\css\owl.css" />
     <Content Include="assets\assetsnew\css\owl.video.play.html" />
     <Content Include="assets\assetsnew\css\responsive.css" />
@@ -423,6 +424,7 @@
     <Content Include="assets\assetsnew\images\background\bg5.gif" />
     <Content Include="assets\assetsnew\images\bg-whatsnew.png" />
     <Content Include="assets\assetsnew\images\bghead1.jpg" />
+    <Content Include="assets\assetsnew\images\Brap.jpg" />
     <Content Include="assets\assetsnew\images\cm1.png" />
     <Content Include="assets\assetsnew\images\cm2.png" />
     <Content Include="assets\assetsnew\images\collagebg.png" />
@@ -437,6 +439,7 @@
     <Content Include="assets\assetsnew\images\easy\rightleft.jpg" />
     <Content Include="assets\assetsnew\images\favicon.png" />
     <Content Include="assets\assetsnew\images\form.gif" />
+    <Content Include="assets\assetsnew\images\golas.jpg" />
     <Content Include="assets\assetsnew\images\growrth.png" />
     <Content Include="assets\assetsnew\images\headerbg.gif" />
     <Content Include="assets\assetsnew\images\helpImage4.png" />
@@ -620,6 +623,7 @@
     <Content Include="Dept\Dashboard\DeptDashboard.aspx" />
     <Content Include="Dept\Demo.aspx" />
     <Content Include="Dept\DeptDashboard.aspx" />
+    <Content Include="Dept\DeptWiseServices.aspx" />
     <Content Include="Dept\Grievance\GrievanceDeptdashboarddrill.aspx" />
     <Content Include="Dept\Grievance\GrievanceDeptDashbord.aspx" />
     <Content Include="Dept\Grievance\GrievanceDeptProcess.aspx" />
@@ -1131,6 +1135,13 @@
     </Compile>
     <Compile Include="Dept\DeptDashboard.aspx.designer.cs">
       <DependentUpon>DeptDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dept\DeptWiseServices.aspx.cs">
+      <DependentUpon>DeptWiseServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dept\DeptWiseServices.aspx.designer.cs">
+      <DependentUpon>DeptWiseServices.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dept\Grievance\GrievanceDeptdashboarddrill.aspx.cs">
       <DependentUpon>GrievanceDeptdashboarddrill.aspx</DependentUpon>

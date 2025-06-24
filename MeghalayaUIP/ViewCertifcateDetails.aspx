@@ -40,7 +40,7 @@
                                         <div class="card-header">
                                             <h4 class="card-title">View Certificate Details</h4>
                                         </div>
-                                        <div class="card-body">
+                                        <div class="card-body mobile">
                                             <div class="col-md-12 ">
                                                 <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                                     <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
@@ -58,8 +58,8 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         <label class="col-lg-6 col-form-label">Type of Application</label>
                                                         <div class="col-lg-12 d-flex">
@@ -75,7 +75,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         <label class="col-lg-12 col-form-label">Enter UID Number</label>
                                                         <div class="col-lg-12 d-flex">
@@ -83,7 +83,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         <label class="col-lg-12 col-form-label">Enter Name of Unit</label>
                                                         <div class="col-lg-12 d-flex">

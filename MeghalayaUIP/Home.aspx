@@ -72,7 +72,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
     <section class="about-us-section2">
         <div class="container">
             <div class="row">
-                <div class="col col-xs-12 text-center bgview1">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center bgview1">
 
                     <div class="text" style="margin-top: 21px;">
                         <p class="wow zoomOut animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInDown;">
@@ -211,7 +211,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
 
                     <img src="assets/assetsnew/images/easy/rightleft.jpg" alt="images" class="imgleft" />
                     <img src="assets/assetsnew/images/easy/rightleft.jpg" alt="images" class="imgright" />
-                    <div class="col-md-2 mt-3">
+                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 mt-3">
 
                         <div class="iconimage">
                             <div class="icontext">
@@ -230,7 +230,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
 
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
@@ -249,7 +249,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
 
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
@@ -267,7 +267,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
 
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
@@ -289,7 +289,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
 
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
@@ -307,7 +307,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
 
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">
@@ -327,7 +327,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
 
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                         <div class="iconimage">
                             <div class="icontext">
                                 <div class="arrowpng">

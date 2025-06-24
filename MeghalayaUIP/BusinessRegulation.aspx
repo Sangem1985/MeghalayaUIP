@@ -34,7 +34,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4><b>BUSINESS REGULATIONS (ACT/POLICY/RULES/REGULATIONS/ORDERS)</b></h4>
+                            <h4 class="mobile1"><b>BUSINESS REGULATIONS (ACT/POLICY/RULES/REGULATIONS/ORDERS)</b></h4>
                             <div class="card">
                                 <div class="card-body justify-content-center " align="justify">
                                     <div class="col-md-12 ">
@@ -57,7 +57,7 @@
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <div class="row">
 
-                                        <table cellspacing="0" border="1" width="120%">
+                                        <table cellspacing="0" border="1" width="120%" class="table-responsive">
                                             <tr>
                                                 <td style="text-align: center; font-size: 20px"><b>Draft Regulations</b></td>
                                                 <td style="text-align: center; font-size: 20px"><b>Final Regulations</b>
@@ -112,7 +112,7 @@
                                                         </Columns>
                                                     </asp:GridView>
                                                 </td>
-                                                <td width="700px" style="border: solid; vertical-align: top">
+                                                <td width="700px" style="border: solid; vertical-align: top" class="table-responsive">
                                                     <asp:GridView ID="grdFinal" runat="server" AutoGenerateColumns="False" CellPadding="4"
                                                         ForeColor="#333333" Width="100%" ShowFooter="false" CssClass="grid-style" GridLines="Both" BorderStyle="Solid" BorderWidth="1px">
                                                         <RowStyle Height="40px" />
@@ -167,7 +167,7 @@
                                     </div>
                                     <div id="DivFooter" runat="server">
                                         <div>
-                                            <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
+                                            <div style="font-size: 16px;text-align:center; font-weight: 600; color: black;">
                                                 <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
                                             </div>
                                         </div>

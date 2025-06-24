@@ -4,10 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        .table-responsive {
-            min-height: .01%;
-            overflow-x: hidden;
-        }
+       
 
         table#servicestable th {
             vertical-align: middle;
@@ -32,7 +29,7 @@
 
                                     <div class="row dt-row">
                                         <div class="col-sm-12">
-                                            <table id="servicestable" class="table table-striped table-hover dataTable no-footer" style="width: 100%;" aria-describedby="servicestable_info">
+                                            <table id="servicestable" class="table table-striped table-hover dataTable no-footer table-responsive" aria-describedby="servicestable_info">
                                                 <thead style="background-color: #247BA0; color: white;">
                                                     <tr>
                                                         <th class="sorting" tabindex="0" aria-controls="servicestable" rowspan="1" colspan="1" aria-label="Service Name: activate to sort column ascending" style="width: 236px;">Service Name</th>

@@ -37,7 +37,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
                                     <li class="breadcrumb-item">Services</li>
-                                    <li class="breadcrumb-item active" aria-current="page">CENTRAL INSPECTION SYSTEM</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Central Inspection System</li>
                                 </ol>
                             </nav>
                             <section class="innerpages">
@@ -46,12 +46,12 @@
                                         <div class="col-md-12">
 
 
-                                            <h3>CENTRAL INSPECTION SYSTEM</h3>
-                                            <div class="card">
+                                            <h3>Central Inspection System</h3>
+                                            <div class="card mobile">
                                                 <div class="card-body justify-content-center " align="justify">
                                                     <div class="row">
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">YEAR :</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -59,7 +59,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">MONTH : </label>
                                                                     <div class="col-lg-12 d-flex">
@@ -67,7 +67,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Inspection Date :</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -157,7 +157,7 @@
                                                     </div>
                                                     <div id="DivFooter" runat="server">
                                                         <div>
-                                                            <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
+                                                            <div style="font-size: 16px;font-weight: 600; color: black;text-align:center;">
                                                                 <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
                                                             </div>
                                                         </div>

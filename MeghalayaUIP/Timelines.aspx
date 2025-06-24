@@ -16,10 +16,10 @@
 
                     <h3>Timelines</h3>
 
-                    <ul>
-                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PRIME Timeline PLR44-2020-Pt-463 dated 14th February2025_0001.pdf">Entrepreneurship Registration - PRIME ID timeline</a></li>
-                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Timelines/CommerceIndustries_Timeline_LandAllotmentIncentives.pdf">Commerce & Industries Department - Timeline for Land Allotment and Incentives</a></li>
-                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Timelines/InvestMeghalayaFacilitationCentre_Grievance_Timeline.pdf">Invest Meghalaya Facilitation Centre - Grievance Timelines</a></li>
+                    <ul  class="listofpoints">
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Notifications/PRIME Timeline PLR44-2020-Pt-463 dated 14th February2025_0001.pdf"><i class="fi fi-tr-location-crosshairs"></i> Entrepreneurship Registration - PRIME ID timeline</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Timelines/CommerceIndustries_Timeline_LandAllotmentIncentives.pdf"><i class="fi fi-tr-location-crosshairs"></i> Commerce & Industries Department - Timeline for Land Allotment and Incentives</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="Documents/Timelines/InvestMeghalayaFacilitationCentre_Grievance_Timeline.pdf"><i class="fi fi-tr-location-crosshairs"></i> Invest Meghalaya Facilitation Centre - Grievance Timelines</a></li>
                        
                     </ul>
 

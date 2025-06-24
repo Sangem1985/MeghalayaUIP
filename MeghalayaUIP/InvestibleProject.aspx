@@ -27,7 +27,7 @@
                     <h5>Projects under Public Private Partnership (PPP)</h5>
                     <p><b>RFP for Re-Development, Operation and Maintenance of Orchid Hotel, located at Shillong City under Design, Build, Finance, Operate and Transfer (DBFOT) Mode on Public Private Partnership (PPP)</b></p>
                     <p>RFP link: <a href="https://www.meghalayatourism.in/re-tendered-rfp-for-polo-orchid/" target="_blank">Extension of date for publishing of tender documents (meghalayatourism.in)</a></p>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                             </tr>
@@ -91,7 +91,7 @@ a. The Government is inviting bids from Private sector for undertaking this proj
                     <p>RFP link: <a href="https://www.meghalayatourism.in/rfp-for-luxury-tented-accommodation/" target="_blank">Extension of date for publishing of tender documents (meghalayatourism.in)</a></p>
 
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                                 <th scope="col">Sl. No</th>
@@ -182,7 +182,7 @@ Nartiang</td>
                     <img src="assets/assetsnew/images/IP/Jaintia.jpg" alt="img"  style="width: 45%;" />
                       <h3><br />Other Investible Projects:</h3>
                     
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                             </tr>
@@ -251,7 +251,7 @@ project on PPP Mode.</li>
                         </tbody>
                     </table>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                             </tr>
@@ -318,7 +318,7 @@ project on PPP Mode.</li>
                     </table>
 
                    
-                   <table class="table table-bordered">
+                   <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                             </tr>
@@ -384,7 +384,7 @@ project on PPP Mode.</li>
                         </tbody>
                     </table>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                             </tr>
@@ -451,7 +451,7 @@ project on PPP Mode.</li>
                     </table>
 
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                             </tr>
@@ -518,7 +518,7 @@ project on PPP Mode.</li>
                     </table>
 
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                             </tr>
