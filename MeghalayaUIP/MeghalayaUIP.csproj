@@ -409,6 +409,7 @@
     <Content Include="assets\assetsnew\css\jquery.bootstrap-touchspin.css" />
     <Content Include="assets\assetsnew\css\jquery.fancybox.min.css" />
     <Content Include="assets\assetsnew\css\login.css" />
+    <Content Include="assets\assetsnew\css\mobile.css" />
     <Content Include="assets\assetsnew\css\owl.css" />
     <Content Include="assets\assetsnew\css\owl.video.play.html" />
     <Content Include="assets\assetsnew\css\responsive.css" />

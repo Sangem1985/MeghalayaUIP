@@ -70,7 +70,7 @@
 
 
 </script>
-    <section class="innerpages">
+    <section class="innerpages mobile">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -87,9 +87,9 @@
                             </nav>
 
 
-                            <h3>Grievance/Feedback/General Query</h3>
-                            <div class="col-md-12 d-flex" style="margin-bottom: 8px;">
-                                <div class="col-md-3" runat="server" visible="false">
+                            <h3 class="mobile1">Grievance/Feedback/General Query</h3>
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" style="margin-bottom: 8px;">
+                                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12" runat="server" visible="false">
                                     <div class="form-group row">
                                         <label class="col-md-5 col-form-label" style="text-align: right;">
                                             From Date :</label>
@@ -100,7 +100,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3" runat="server" visible="false">
+                                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12" runat="server" visible="false">
                                     <div class="form-group row">
                                         <label class="col-md-5 col-form-label" style="text-align: right;">
                                             To Date :</label>
@@ -220,9 +220,9 @@
                             </div>
                         </div>
                     </div>
-                    <div id="DivFooter" runat="server">
+                    <div id="DivFooter" runat="server" style="width:100%;">
                         <div>
-                            <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
+                            <div style="font-size: 16px; text-align:center; font-weight: 600; color: black;">
                                 <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
                             </div>
                         </div>

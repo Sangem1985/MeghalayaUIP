@@ -1,0 +1,65 @@
+@media screen and (max-width: 768px) {
+    figure.logo-box img, ul.header-info.pull-left, .copyright.pull-left {
+        width: 90% !important;
+    }
+
+    .login-left {
+        display: none !important;
+    }
+
+    .login-wrapper_reg .col-md-12.col-xs-12.col-sm-12.col-lg-12 {
+        display: block !important;
+    }
+
+    .table-responsive, .card-body.mobile .col-md-12.col-lg-12.col-sm-12.col-xs-12.d-flex,
+    .tab-content .col-md-12.col-lg-12.col-sm-12.col-xs-12.d-flex, section.innerpages .col-md-12.col-lg-12.col-sm-12.col-sx-12.d-flex,
+    .card.mobile .col-md-12.col-lg-12.col-sm-12.col-xs-12.d-flex,
+    section.innerpages.mobile .col-md-12.col-lg-12.col-sm-12.col-xs-12.d-flex, .mobile .col-md-12.col-lg-12.col-sm-12.col-xs-12.d-flex {
+        display: block !important;
+    }
+
+    h4.mobile1 b, h3.mobile1 {
+        font-size: 16px !important;
+    }
+    /*home page*/
+    .testimonial-style-five .owl-carousel{
+        margin-left:0px !important;
+    }
+    p.wow.zoomOut.animated {
+        display: contents;
+    }
+    section.counter-style-two .col-md-12 {
+        margin-left: -8px !important;
+    }
+    section.about-section-two1.\32 .easy.active {
+        display: none;
+    }
+    .glow-on-hover {
+        height: 90% !important;
+        padding: 10px 24px;
+    }
+    div#bottombox a, div#bottombox1 a {
+        font-size: 14px !important;
+        line-height: 16px;
+    }
+    video#myVideo {
+        margin-top: -50px !important;
+    }
+    .col.col-xs-12.text-center.bgview {
+        border-radius: 0px;
+    }
+    section.about-us-section1 {
+        margin-top: 0px;
+    }
+    h3.wow.zoomOut.animated {
+        display: contents;
+        font-size: 22px !important;
+    }
+    
+}
+
+
+
+.table-responsive {
+    display: inline-table;
+}

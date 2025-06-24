@@ -44,7 +44,7 @@
                     <h3>ODOP Approval Dashboard :</h3>
 
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         
                         <tbody>
                             <tr class="colorblue">
@@ -97,7 +97,7 @@
                     <h3>ODOP Registered Business Dashboard :</h3>
 
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                             </tr>
@@ -152,7 +152,7 @@
                     <h3>ODOP Event Dashboard :</h3>
 
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                             </tr>

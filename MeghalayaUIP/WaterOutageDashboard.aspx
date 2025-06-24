@@ -101,8 +101,9 @@
 
                         <h4>Planned Outage Water Supply</h4>
                         <br />
-                        <div class="col-md-12 d-flex" style="margin-bottom: 8px;">
-                            <div class="col-md-3" runat="server" visible="false">
+                        <div class="mobile">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" style="margin-bottom: 8px;">
+                            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12" runat="server" visible="false">
                                 <div class="form-group row">
                                     <label class="col-md-5 col-form-label" style="text-align: right;">
                                         From Date :</label>
@@ -113,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3" runat="server" visible="false">
+                            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12" runat="server" visible="false">
                                 <div class="form-group row">
                                     <label class="col-md-5 col-form-label" style="text-align: right;">
                                         To Date :</label>
@@ -123,7 +124,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex">
+                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 d-flex">
                                 <div class="col-md-6" style="margin-top: 4px;">
                                     Municipal Board:
                                 </div>
@@ -136,7 +137,7 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
                                 <div class="form-group row">
 
                                     <div class="col-lg-6 d-flex">
@@ -144,10 +145,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                       
+                        </div>  
+                            </div>
                         <div class="swpd">
 
-                            <asp:GridView ID="GVWater" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid"
+                            <asp:GridView ID="GVWater" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid table table-responsive"
                                 EmptyDataText="No Data Found" EmptyDataRowStyle-ForeColor="Black" EmptyDataRowStyle-Font-Bold="true" BackColor="#e9ecf5"
                                 BorderStyle="None" BorderWidth="1px" ShowHeaderWhenEmpty="true">
                                 <HeaderStyle HorizontalAlign="Center" />
@@ -180,9 +182,9 @@
 
                     </div>
                 </div>
-                <div id="DivFooter" runat="server">
+                <div id="DivFooter" runat="server" style="width:100%;">
                     <div>
-                        <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
+                        <div style="font-size: 16px;font-weight: 600; text-align:center; color: black;">
                             <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
                         </div>
                     </div>

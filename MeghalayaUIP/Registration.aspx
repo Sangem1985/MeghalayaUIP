@@ -83,23 +83,23 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12" style="display: flex;">
-                                            <div class="col-md-2">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" style="display: flex;">
+                                            <div class="col-md-2 col-xs-12 col-sm-12 col-lg-2">
                                                 <div class="form-group">
                                                     PAN No.
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
                                                 <div class="form-group">
                                                     <asp:TextBox runat="server" class="form-control" ID="txtPAN" MaxLength="10" onkeypress="validateCharandNumberinput();" onblur="fnValidatePAN(this);"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 col-xs-12 col-sm-12 col-lg-2">
                                                 <div class="form-group">
                                                     Company Name as per PAN
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
                                                 <div class="form-group">
                                                     <asp:TextBox runat="server" class="form-control" ID="txtcompanyname" onkeypress="return Names(this)" minlength="6"></asp:TextBox>
                                                 </div>
@@ -107,24 +107,24 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12" style="display: flex;">
-                                            <div class="col-md-2">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" style="display: flex;">
+                                            <div class="col-md-2 col-xs-12 col-sm-12 col-lg-2">
                                                 <div class="form-group">
                                                     Full Name
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
                                                 <div class="form-group">
                                                     <asp:TextBox runat="server" class="form-control" ID="txtName" onkeypress="return Names(this)" minlength="4"></asp:TextBox>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 col-xs-12 col-sm-12 col-lg-2">
                                                 <div class="form-group">
                                                     Mobile No
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
                                                 <div class="form-group">
                                                     <asp:TextBox runat="server" ID="txtMobileNo" class="form-control" onkeypress="return PhoneNumberOnly(event)" MaxLength="10" onblur="validateIndianMobileNumber(this);"></asp:TextBox>
                                                 </div>
@@ -132,24 +132,24 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12" style="display: flex;">
-                                            <div class="col-md-2">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" style="display: flex;">
+                                            <div class="col-md-2 col-xs-12 col-sm-12 col-lg-2">
                                                 <div class="form-group">
                                                     Email Id
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
                                                 <div class="form-group">
                                                     <asp:TextBox runat="server" class="form-control" ID="txtEmail" TextMode="Email" AutoCompleteType="None" AutoComplete="Off" onkeypress="return validateEmailInput(event)" Onblur="validateEmail(this);"></asp:TextBox>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 col-xs-12 col-sm-12 col-lg-2">
                                                 <div class="form-group">
                                                     Password
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
                                                 <div class="form-group"><%--onblur="return fnEncryption();"--%>
                                                     <asp:TextBox runat="server" class="form-control" ID="txtPswd" TextMode="Password"  MaxLength="12"  
                                                         AutoComplete="off" AutoCompleteType="None" ToolTip="Password must have minimum 8 length, atleast one upper case letter, one lower case letter, one numer and one special character"></asp:TextBox>
@@ -158,13 +158,13 @@
                                         </div>
                                     </div>
                                     <div class="row" >
-                                        <div class="col-md-12" style="display: flex;">
-                                            <div class="col-md-2">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" style="display: flex;">
+                                            <div class="col-md-2 col-xs-12 col-sm-12 col-lg-2">
                                                 <div class="form-group">
                                                     <label>Enter Captcha</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 col-xs-12 col-sm-12 col-lg-2">
                                                 <div class="form-group">
                                                     <asp:TextBox runat="server" ID="txtCaptcha" class="form-control"></asp:TextBox>
                                                 </div>
@@ -174,7 +174,7 @@
                                                     <label>Captcha <span class="text-Danger">*</span></label>
                                                 </div>
                                             </div>--%>
-                                            <div class="col-md-4" style="display: flex; align-items: center;margin-left: -20px;">
+                                            <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4" style="display: flex; align-items: center;margin-left: -20px;">
                                                 <div class="form-group" style="margin-bottom: 20px;">
                                                     <asp:Image ID="imgCaptcha" runat="server" draggable="false" />
                                                 </div>

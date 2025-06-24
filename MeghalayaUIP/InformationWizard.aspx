@@ -53,8 +53,8 @@
                                             <div class="card">
                                                 <div class="card-body justify-content-center " align="justify">
                                                     <div class="row">
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-sx-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-sx-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Application Category :</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -69,7 +69,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-sx-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Department : </label>
                                                                     <div class="col-lg-12 d-flex">
@@ -79,7 +79,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-sx-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Sector :</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -90,9 +90,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-sx-12 d-flex">
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-sx-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Location:</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -104,7 +104,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-sx-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Nature of Activity: </label>
                                                                     <div class="col-lg-12 d-flex">
@@ -117,7 +117,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-sx-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Size of Firm:</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -134,8 +134,8 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-sx-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-sx-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Risk Category:</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -150,7 +150,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-sx-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Investor Type:</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -162,7 +162,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-sx-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">No of Employee:</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -183,9 +183,9 @@
                                                                 <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" ValidationGroup="Search" class="btn btn-rounded btn-success btn-lg" Width="150px" />
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-sx-12 d-flex">
                                                             <asp:GridView ID="gvInfoWiz" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                                BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
+                                                                BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover table-responsive" ForeColor="#333333"
                                                                 GridLines="Both" Width="100%" EnableModelValidation="True" 
                                                                 ShowFooter="true">
                                                                 <RowStyle />

@@ -81,8 +81,8 @@
                                                             <h4 class="card-title" style="background: #abbd07; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Project Details</h4>
 
                                                             <div class="row">
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Name of Unit</label>
@@ -91,7 +91,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 2.Company Type</label>
@@ -101,7 +101,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 3. Proposal For</label>
@@ -116,8 +116,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 4. Nature of
@@ -132,8 +132,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <h6 class="fs-20">Unit Location</h6>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1.District
@@ -145,7 +145,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Mandal</label>
                                                                             <div class="col-lg-6 d-flex">
@@ -156,7 +156,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Village</label>
                                                                             <div class="col-lg-6 d-flex">
@@ -167,8 +167,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 4. Total
@@ -179,7 +179,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 5. Built up
@@ -189,7 +189,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">6. Sector</label>
                                                                             <div class="col-lg-6 d-flex">
@@ -201,8 +201,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 7. Line of
@@ -214,7 +214,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 8. Pollution
@@ -225,7 +225,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 9. Whether land purchased from MIDCL</label>
@@ -241,8 +241,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 10. Location
@@ -283,8 +283,8 @@
                                                             <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Project Financials</h4>
                                                             <%--<form action="#">--%>
                                                             <div class="row">
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Proposed
@@ -294,7 +294,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Value of Land as per saleDeed(In INR)</label>
                                                                             <div class="col-lg-4">
@@ -303,8 +303,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Value of Building(In INR)</label>
                                                                             <div class="col-lg-4">
@@ -312,7 +312,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)</label>
                                                                             <div class="col-lg-4">
@@ -427,8 +427,8 @@
                                                                     </table>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex mt-2">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)</label>
                                                                             <div class="col-lg-4">
@@ -436,7 +436,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">6. Total Project Cost(in Crores)</label>
                                                                             <div class="col-lg-4">
@@ -445,8 +445,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex mt-2">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 7. Enterprise Category
@@ -506,8 +506,8 @@
                                                             <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
                                                             <div class="row">
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Do you require Registration of Migrant Workers under The Meghalaya Identification, Registration of
@@ -521,7 +521,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 2. Do you require Registration of Manufacturers / Repairers/Erectors of Boilers?</label>
@@ -534,8 +534,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 3. Do you require Registration of Contractors for Works and services and Renewal?
@@ -548,7 +548,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 4. Do you require Registration of Boiler?</label>
@@ -561,8 +561,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 5. Do you require License to Work as a Factory?
@@ -575,7 +575,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 6. Do you require License for contractors under the Interstate Migrant Workmen Act 1979?</label>
@@ -588,8 +588,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 7. Do you require License for Contractors under the Contract Labour Act 1970?
@@ -602,7 +602,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 8. Do you require Licence for Retail and Wholesale Drug Licence?</label>
@@ -615,8 +615,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 9. Do you require Licence as Repairers of Weights & Measures?
@@ -629,7 +629,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 10. Do you require Licence as Manufacturer of Weights & Measures?</label>
@@ -642,8 +642,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 11. Do you require Licence as Dealers in Weights & Measures?
@@ -656,7 +656,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 12. Do you require Initial Verification And Stamping of Weighing and Measuring Instrument?</label>
@@ -669,8 +669,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 13. Do you require Fire Safety Certificate?
@@ -683,7 +683,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 14. Do you require Excise License for Wholesale, Retail, Bottling, Distillery Plant?</label>
@@ -696,8 +696,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 15. Do you require Change of Constitution of Licence for Retail and Wholesale Drug licence?
@@ -710,7 +710,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 16. Do you require Brand and Label Registration?</label>
@@ -723,8 +723,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 17. Do you require Application For The Grant/Renewal Of License To Manufacture Drugs For Purpose Of Examination, Test Or Analysis?
@@ -737,7 +737,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 18. Do you require Application For The Grant Of Loan License To Manufacture For Sale Or For Distribution Of 
@@ -751,8 +751,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 19. Do you require Application For The Grant Of A Loan License To Manufacture For Sale Or For 
@@ -766,7 +766,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 20. Do you require Application For The Grant /Renewal Of License To Repack For Sale Or For Distribution Of Drugs Other
@@ -780,8 +780,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 21. Do you require Application For The Grant /Renewal Of License To Manufacture For Sale Or For
@@ -795,7 +795,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 22. Do you require Application for Certificate of Enrollment of Professional Tax under the Meghalaya Professions
@@ -809,8 +809,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 23. Do you require CFO from pollution contorl board?
@@ -823,7 +823,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 24. Do you require Occupancy certificate?
@@ -837,8 +837,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 25. Do you require Boilers steam Pipeline Erection Permission Certificate from Boilers Department?
@@ -851,7 +851,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 26. Do you require Boilers steam pipeline registration number certificate?
@@ -865,8 +865,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 27. Do you require Registration of Shops and Establishment - FORM - A?
@@ -879,7 +879,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 28. Do you require Application for grant of Business License?
@@ -893,8 +893,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 29. Do you require License for local sale, Import and export permit of Spirit and Indian-made foreign liquor (IMFL)?
@@ -907,7 +907,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 30. Do you require State Excise - Excise Verification Certificate ?

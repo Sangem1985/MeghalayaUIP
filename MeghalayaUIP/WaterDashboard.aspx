@@ -100,8 +100,9 @@
 
 
                         <h4>Water Quality Monitoring Dashboard</h4><br />
-                        <div class="col-md-12 d-flex" style="margin-bottom: 8px;">
-                            <div class="col-md-3" runat="server" visible="false">
+                        <div class="mobile">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" style="margin-bottom: 8px;">
+                            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 " runat="server" visible="false">
                                 <div class="form-group row">
                                     <label class="col-md-5 col-form-label" style="text-align: right;">
                                         From Date :</label>
@@ -112,7 +113,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3" runat="server" visible="false">
+                            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 " runat="server" visible="false">
                                 <div class="form-group row">
                                     <label class="col-md-5 col-form-label" style="text-align: right;">
                                         To Date :</label>
@@ -122,11 +123,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex">
+                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12  d-flex">
                                 <div class="col-md-6" style="margin-top: 4px;">
                                     Municipal Board:
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 ">
                                     <asp:DropDownList ID="ddlMunicipalBoard" runat="server" class=" form-control" AutoPostBack="true" OnSelectedIndexChanged="btnSearch_Click">
                                         <asp:ListItem Value="0">---Select---</asp:ListItem>
                                         <asp:ListItem Value="1">Shillong Municipal Board</asp:ListItem>
@@ -144,9 +145,10 @@
                                 </div>
                             </div>
                         </div>
+                            </div>
                         <div class="swpd">
 
-                            <asp:GridView ID="gvWaterQuality" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid" 
+                            <asp:GridView ID="gvWaterQuality" runat="server" AutoGenerateColumns="False" ShowHeader="True" CssClass="water-grid table table-responsive" 
                                 EmptyDataText="No Data Found" EmptyDataRowStyle-ForeColor="Black" EmptyDataRowStyle-Font-Bold="true" BackColor="#e9ecf5"
                                 BorderStyle="None" BorderWidth="1px" OnRowCreated="gvWaterQuality_RowCreated" ShowHeaderWhenEmpty="true">
                                 <HeaderStyle HorizontalAlign="Center" />

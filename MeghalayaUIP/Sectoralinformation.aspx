@@ -43,11 +43,11 @@
                                         <div class="col-md-12">
 
                                             <h3>Sectoral Information</h3>
-                                            <div class="card">
+                                            <div class="card mobile">
                                                 <div class="card-body justify-content-center " align="justify">
                                                     <div class="row">
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Department :</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -56,7 +56,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Approval Name :</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -65,7 +65,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">State/Center Level Approval : </label>
                                                                     <div class="col-lg-12 d-flex">
@@ -80,9 +80,9 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Sector:</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -92,7 +92,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Stage: </label>
                                                                     <div class="col-lg-12 d-flex">
@@ -107,7 +107,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4" id="divproducts" runat="server" visible="false">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" id="divproducts" runat="server" visible="false">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Products:</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -128,9 +128,9 @@
 
 
 
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                             <asp:GridView ID="GVSector" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                                BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
+                                                                BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover table-responsive" ForeColor="#333333"
                                                                 GridLines="Both" Width="100%" EnableModelValidation="True"
                                                                 ShowFooter="true">
                                                                 <RowStyle />

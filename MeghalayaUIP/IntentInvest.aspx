@@ -49,7 +49,7 @@
                                         <div class="card-header">
                                             <h4 class="card-title">Intent to Invest</h4>
                                         </div>
-                                        <div class="card-body">
+                                        <div class="card-body mobile">
                                             <div class="col-md-12 ">
                                                 <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                                     <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
@@ -74,8 +74,8 @@
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Company Details</span></label>
 
                                                 </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Name of Company  *</label>
                                                             <div class="col-lg-6 d-flex">
@@ -83,7 +83,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">PAN*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -97,8 +97,8 @@
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Registered Office Address</span></label>
 
                                                 </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Address Line - 1   *</label>
                                                             <div class="col-lg-6 d-flex">
@@ -106,7 +106,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Country*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -116,7 +116,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4" id="state" runat="server" visible="false">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" id="state" runat="server" visible="false">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">State*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -126,7 +126,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                      <div class="col-md-4" id="InState" runat="server" visible="false">
+                                                      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" id="InState" runat="server" visible="false">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">State*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -135,8 +135,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 d-flex" id="dist" runat="server" visible="false">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" id="dist" runat="server" visible="false">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">District*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -146,7 +146,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Mandal*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -156,7 +156,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Village*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -167,8 +167,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 d-flex" runat="server" id="trotherstate" visible="false">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" runat="server" id="trotherstate" visible="false">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">District *</label>
                                                             <div class="col-lg-6 d-flex">
@@ -177,7 +177,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Mandal *</label>
                                                             <div class="col-lg-6 d-flex">
@@ -187,7 +187,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Village *</label>
                                                             <div class="col-lg-6 d-flex">
@@ -197,8 +197,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Phone No*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -206,7 +206,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Pin/Zip Code*    </label>
                                                             <div class="col-lg-6 d-flex">
@@ -214,7 +214,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Email ID*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -223,8 +223,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Fax No</label>
                                                             <div class="col-lg-6 d-flex">
@@ -232,7 +232,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Website    </label>
                                                             <div class="col-lg-6 d-flex">
@@ -246,8 +246,8 @@
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Contact Details</span></label>
 
                                                 </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Name*    </label>
                                                             <div class="col-lg-6 d-flex">
@@ -255,7 +255,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Designation*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -263,7 +263,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Email ID *</label>
                                                             <div class="col-lg-6 d-flex">
@@ -272,8 +272,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Mobile No *  </label>
                                                             <div class="col-lg-6 d-flex">
@@ -286,8 +286,8 @@
                                                     <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Project Details</span></label>
 
                                                 </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-5 col-form-label">Project Proposal *</label>
                                                             <div class="col-lg-7 d-flex">
@@ -298,7 +298,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Have you signed the MoU/Investment Intention in previous events *</label>
                                                             <div class="col-lg-6 d-flex">
@@ -311,8 +311,8 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">
@@ -329,7 +329,7 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores."
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Sectors*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -339,7 +339,7 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores."
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">
                                                                 Proposed Investment
@@ -351,8 +351,8 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores."
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 d-flex">
-                                                    <div class="col-md-4">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Proposed Employment *</label>
                                                             <div class="col-lg-6 d-flex">
@@ -360,7 +360,7 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores."
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Proposed Project Location*</label>
                                                             <div class="col-lg-6 d-flex">
@@ -368,7 +368,7 @@ Large - Investment in Plant and Machinery or Equipment exceeds Rs 50 crores."
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">Expected Year of Commencement of Production *</label>
                                                             <div class="col-lg-6 d-flex">

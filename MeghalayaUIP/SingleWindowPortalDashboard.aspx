@@ -66,7 +66,7 @@
     </style>
 
 
-    <section class="innerpages">
+    <section class="innerpages mobile">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -83,35 +83,41 @@
 
 
                             <h3>Single Window Portal Dashboard</h3>
-                            <div class="col-md-12 d-flex" style="margin-bottom: 8px;">
-                                <div class="col-md-3">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" style="margin-bottom: 8px;">
+                                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                                     <div class="form-group row">
-                                        <label class="col-md-5 col-form-label" style="text-align: right;">
+                                        <label class="col-md-5 col-form-label" style="text-align: center;">
                                             From Date :</label>
-                                        <div class="col-lg-7 d-flex" style="text-align: left; margin-left: -20px;">
+                                        <div class="col-lg-7 d-flex" style="text-align: left;">
 
                                             <input type="date" id="txtFDate" runat="server" class="date form-control" />
 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                                     <div class="form-group row">
-                                        <label class="col-md-5 col-form-label" style="text-align: right;">
+                                        <label class="col-md-5 col-form-label" style="text-align: center;">
                                             To Date :</label>
-                                        <div class="col-lg-7 d-flex" style="text-align: left; margin-left: -20px;">
+                                        <div class="col-lg-7 d-flex" style="text-align: left;">
                                             <%--<asp:TextBox ID="txtTDate" runat="server" class="date form-control"></asp:TextBox>--%>
                                             <input type="date" id="txtTDate" runat="server" class="date form-control" />
 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 d-flex">
-                                    <div class="col-md-6" style="margin-top: 4px;">Department Name :</div>
-                                    <div class="col-md-6">
-                                        <asp:DropDownList ID="ddlDept" runat="server" class=" form-control">
-                                        </asp:DropDownList>
+                                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-6 col-form-label" style="text-align: center;">
+    Department Name :</label>
+                                        <div class="col-lg-6 d-flex" style="text-align: left;">
+    <asp:DropDownList ID="ddlDept" runat="server" class=" form-control">
+</asp:DropDownList>
+
+</div>
                                     </div>
+
+                                    
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group row">
@@ -202,9 +208,9 @@
                             </div>
 
                         </div>
-                        <div id="DivFooter" runat="server">
-                            <div>
-                                <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
+                        <div id="DivFooter" runat="server" style="width:100%;">
+                            <div class="col-md-12">
+                                <div style="font-size: 16px; text-align:center; font-weight: 600; color: black;">
                                     <asp:Label ID="LBLDATETEXT" runat="server" Text="The Dashboard is updated on a real time or updated regularly (daily/weekly/fortnightly/monthly)."></asp:Label><asp:Label ID="LBLDATETIME" Visible="false" runat="server"></asp:Label>
 
                                 </div>

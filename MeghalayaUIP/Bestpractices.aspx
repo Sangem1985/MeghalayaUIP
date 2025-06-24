@@ -111,11 +111,11 @@
                  </nav>--%>
 
                                             <h3>Best Practices</h3>
-                                            <div class="card">
+                                            <div class="card mobile">
                                                 <div class="card-body justify-content-center " align="justify">
                                                     <div class="row">
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Department Name :</label>
                                                                     <%--<select class="form-control" aria-label="Default select example">
@@ -129,7 +129,7 @@
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Sub-Department Name : </label>
                                                                     <div class="col-lg-12 d-flex">
@@ -145,7 +145,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label class="col-lg-12 col-form-label">Sector :</label>
                                                                     <div class="col-lg-12 d-flex">
@@ -172,9 +172,9 @@
                                                         </div>
 
 
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                             <asp:GridView ID="GvBestPractices" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                                                BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
+                                                                BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover table-responsive" ForeColor="#333333"
                                                                 GridLines="Both" Width="100%" EnableModelValidation="True" 
                                                                 ShowFooter="false">
                                                                 <EmptyDataRowStyle Width="100%"  />

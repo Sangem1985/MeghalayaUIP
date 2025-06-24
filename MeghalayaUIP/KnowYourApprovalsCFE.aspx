@@ -26,7 +26,7 @@
                 <div class="content container-fluid">
                     <section class="comp-section">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4 class="card-title"><b>Questionnaire (Know Your Approvals) - For Pre Establishment</b></h4>
@@ -79,8 +79,8 @@
                                                             <h4 class="card-title" style="background: #abbd07; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Project Details</h4>
 
                                                             <div class="row">
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Name of Unit<span class="star">*</span></label>
@@ -89,7 +89,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 2. Company Type<span class="star">*</span></label>
@@ -99,7 +99,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 3. Nature of
@@ -114,8 +114,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Company Proposal <span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -130,8 +130,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <h6 class="fs-20">Unit Location</h6>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1.District
@@ -143,7 +143,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Mandal<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -154,7 +154,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Village<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -165,8 +165,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 4. Total
@@ -177,7 +177,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 5. Built up Area
@@ -188,7 +188,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">6. Sector<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -200,8 +200,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 7. Line of
@@ -213,7 +213,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 8. Pollution
@@ -223,7 +223,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 9. Whether land
@@ -241,8 +241,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 10. Location of the unit<span class="star">*</span></label>
@@ -282,18 +282,18 @@
                                                             <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Project Financials</h4>
                                                             <%--<form action="#">--%>
                                                             <div class="row">
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Proposed
 																		Employment<span class="star">*</span></label>
-                                                                            <div class="col-lg-4">
+                                                                            <div class="col-lg-6">
                                                                                 <asp:TextBox ID="txtPropEmp" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Value of Land as per sale Deed(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -302,8 +302,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Value of Building(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -311,7 +311,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -324,8 +324,8 @@
 
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex mt-2">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -333,7 +333,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">6. Total Project Cost(INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -342,8 +342,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex mt-2">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2">
+                                                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 7. Enterprise Category
@@ -355,7 +355,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">&nbsp;</div>
+                                                                    
                                                                 </div>
                                                                 <div class="table-responsive" id="Mention_Zero" runat="server" visible="false">
                                                                     <table class="table table-bordered mb-0">

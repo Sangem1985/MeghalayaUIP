@@ -71,7 +71,7 @@
 
 
 </script>
-    <section class="innerpages">
+    <section class="innerpages mobile">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -89,10 +89,10 @@
 
 
                             <h3>Grievance Handled Dashboard</h3>
-                            <div class="col-md-12 d-flex" style="margin-bottom: 8px;">
-                                <div class="col-md-3" runat="server">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" style="margin-bottom: 8px;">
+                                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 " runat="server">
                                     <div class="form-group row">
-                                        <label class="col-md-5 col-form-label" style="text-align: right;">
+                                        <label class="col-md-5 col-form-label" style="text-align: center;">
                                             From Date :</label>
                                         <div class="col-lg-7 d-flex" style="text-align: left; margin-left: -20px;">
 
@@ -101,9 +101,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3" runat="server">
+                                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 " runat="server">
                                     <div class="form-group row">
-                                        <label class="col-md-5 col-form-label" style="text-align: right;">
+                                        <label class="col-md-5 col-form-label" style="text-align: center;">
                                             To Date :</label>
                                         <div class="col-lg-7 d-flex" style="text-align: left; margin-left: -20px;">
                                             <%--<asp:TextBox ID="txtTDate" runat="server" class="date form-control"></asp:TextBox>--%>
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-2">
+                                <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 ">
                                     <div class="form-group row">
 
                                         <div class="col-lg-6 d-flex">
@@ -141,9 +141,9 @@
 
                         </div>
                     </div>
-                    <div id="DivFooter" runat="server">
+                    <div id="DivFooter" runat="server" style="width:100%;">
                         <div>
-                            <div style="font-size: 16px; margin-left: 190px; font-weight: 600; color: black;">
+                            <div style="font-size: 16px;font-weight: 600; color: black;text-align:center;">
                                 <asp:Label ID="LBLDATETEXT" runat="server" Text="The Data in the Dashboard is updated on a real time basis. Last update:"></asp:Label><asp:Label ID="LBLDATETIME" runat="server"></asp:Label>
                             </div>
                         </div>
