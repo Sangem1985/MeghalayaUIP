@@ -3037,10 +3037,10 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEHWD_CFEQDID", Convert.ToInt32(ObjCFEhazardous.Questionnareid));
                 com.Parameters.AddWithValue("@CFEHWD_UNITID", Convert.ToInt32(ObjCFEhazardous.UnitId));
                 com.Parameters.AddWithValue("@CFEHWD_AUTHORIZATIONREQ", ObjCFEhazardous.AUTHORIZATIONREQ);
-                com.Parameters.AddWithValue("@CFEHWD_WASTEHANDLEANNUM", Convert.ToDecimal(ObjCFEhazardous.WASTEHANDLEANNUM));
-                com.Parameters.AddWithValue("@CFEHWD_WASTESTOREDTIME", Convert.ToDecimal(ObjCFEhazardous.WASTESTOREDTIME));
-                com.Parameters.AddWithValue("@CFEHWD_QUANTITYWASTEANNUM", Convert.ToDecimal(ObjCFEhazardous.QUANTITYWASTEANNUM));
-                com.Parameters.AddWithValue("@CFEHWD_QUANTITYSTOREDTIME", Convert.ToDecimal(ObjCFEhazardous.QUANTITYSTOREDTIME));
+                com.Parameters.AddWithValue("@CFEHWD_WASTEHANDLEANNUM", ObjCFEhazardous.WASTEHANDLEANNUM);
+                com.Parameters.AddWithValue("@CFEHWD_WASTESTOREDTIME", ObjCFEhazardous.WASTESTOREDTIME);
+                com.Parameters.AddWithValue("@CFEHWD_QUANTITYWASTEANNUM", ObjCFEhazardous.QUANTITYWASTEANNUM);
+                com.Parameters.AddWithValue("@CFEHWD_QUANTITYSTOREDTIME",ObjCFEhazardous.QUANTITYSTOREDTIME);
                 com.Parameters.AddWithValue("@CFEHWD_YEAROFPRODUCTION", ObjCFEhazardous.YEAROFPRODUCTION);
                 com.Parameters.AddWithValue("@CFEHWD_INDUSTRYWORK", ObjCFEhazardous.INDUSTRYWORK);
 

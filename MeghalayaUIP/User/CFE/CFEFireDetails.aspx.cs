@@ -487,11 +487,11 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Category of Building \\n";
                     slno = slno + 1;
                 }
-                if (string.IsNullOrEmpty(txtAmount.Text) || txtAmount.Text == "" || txtAmount.Text == null || txtAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAmount.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Fee amount RS \\n";
-                    slno = slno + 1;
-                }
+                //if (string.IsNullOrEmpty(txtAmount.Text) || txtAmount.Text == "" || txtAmount.Text == null || txtAmount.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtAmount.Text, @"^0+(\.0+)?$"))
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Fee amount RS \\n";
+                //    slno = slno + 1;
+                //}
                 if (string.IsNullOrEmpty(txtEast.Text) || txtEast.Text == "" || txtEast.Text == null || txtEast.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtEast.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter EAST \\n";
