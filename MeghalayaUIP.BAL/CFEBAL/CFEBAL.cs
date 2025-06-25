@@ -247,7 +247,14 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetCFEQueryDashBoard(Unitid, Queryid);
         }
-
+        public string InsertCFECLU(CFECLU objCFECLU)
+        {
+            return objCFEDAL.InsertCFECLU(objCFECLU);
+        }
+        public DataSet GetCFECLUDETAILS(string userid, string UnitID)
+        {
+            return objCFEDAL.GetCFECLUDETAILS(userid, UnitID);
+        }
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 
         public DataTable GetCFEDashBoard(CFEDtls objCFE)
