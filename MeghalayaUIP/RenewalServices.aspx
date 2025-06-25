@@ -15,34 +15,16 @@
                         </ol>
                     </nav>
 
-                    <ul>
-                        <li><i class="fi fi-br-star-shooting"></i>
-                            <a style="color: #007bff" target="_blank" href="login.aspx">Auto Renewal - Licence as Dealers in
-                  Weights &amp; Measures under the Legal Metrology Act, 2009</a></li>
-                        <li><i class="fi fi-br-star-shooting"></i>
-                            <a style="color: #007bff" target="_blank" href="login.aspx">Auto Renewal - Licence as Repairers of
-                  Weights &amp; Measures under the Legal Metrology Act, 2009</a></li>
-                        <li><i class="fi fi-br-star-shooting"></i>
-                            <a style="color: #007bff" target="_blank" href="login.aspx">Auto Renewal - Licence as Manufacturer
-                  of Weights &amp; Measures under the Legal Metrology Act, 2009</a></li>
-                        <li><i class="fi fi-br-star-shooting"></i>
-                            <a style="color: #007bff" target="_blank" href="login.aspx">Auto Renewal - Licensing of
-                  Contractors under the Contract Labour (Regulation and Abolition) Act, 1970</a></li>
-                        <li><i class="fi fi-br-star-shooting"></i>
-                            <a style="color: #007bff" target="_blank" href="login.aspx">Auto Renewal - Certificate of
-                  Registration under the Meghalaya Shops &amp; Establishments Act, 2003</a></li>
-                        <li><i class="fi fi-br-star-shooting"></i>
-                            <a style="color: #007bff" target="_blank" href="login.aspx">Auto Renewal - License to work as a
-                  Factory</a></li>
-                        <li><i class="fi fi-br-star-shooting"></i>
-                            <a style="color: #007bff" target="_blank" href="login.aspx">Auto Renewal - Licensing of
-                  Contractors under the Inter-State Migrant Workmen (Regulation of Employment and Conditions of Service
-                  ) Act, 1979</a></li>
-                        <li><i class="fi fi-br-star-shooting"></i>
-                            <a style="color: #007bff" target="_blank" href="login.aspx">Auto Retention - Licence to Sell Stock
-                  Exhibit or Offer for Sale or Distribute Drugs specified in Schedule X Form - 19C</a></li>
-                        <li><i class="fi fi-br-star-shooting"></i>
-                            <a style="color: #007bff" target="_blank" href="login.aspx">Auto Renewal - Business License by Municipal Board</a></li>
+                    <ul class="listofpoints">  <%--i class="fi fi-br-star-shooting"--%>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="login.aspx"><i class="fi fi-tr-location-crosshairs"></i>Auto Renewal - Licence as Dealers in Weights &amp; Measures under the Legal Metrology Act, 2009</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="login.aspx"><i class="fi fi-tr-location-crosshairs"></i>Auto Renewal - Licence as Repairers of Weights &amp; Measures under the Legal Metrology Act, 2009</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="login.aspx"><i class="fi fi-tr-location-crosshairs"></i>Auto Renewal - Licence as Manufacturer of Weights &amp; Measures under the Legal Metrology Act, 2009</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="login.aspx"><i class="fi fi-tr-location-crosshairs"></i>Auto Renewal - Licensing of Contractors under the Contract Labour (Regulation and Abolition) Act, 1970</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="login.aspx"><i class="fi fi-tr-location-crosshairs"></i>Auto Renewal - Certificate of Registration under the Meghalaya Shops &amp; Establishments Act, 2003</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="login.aspx"><i class="fi fi-tr-location-crosshairs"></i>Auto Renewal - License to work as a Factory</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="login.aspx"><i class="fi fi-tr-location-crosshairs"></i>Auto Renewal - Licensing of Contractors under the Inter-State Migrant Workmen (Regulation of Employment and Conditions of Service) Act, 1979</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="login.aspx"><i class="fi fi-tr-location-crosshairs"></i>Auto Retention - Licence to Sell Stock Exhibit or Offer for Sale or Distribute Drugs specified in Schedule X Form - 19C</a></li>
+                        <li><i class="fi fi-br-arrow-up-right-from-square"></i><a style="color: #007bff" target="_blank" href="login.aspx"><i class="fi fi-tr-location-crosshairs"></i>Auto Renewal - Business License by Municipal Board</a></li>
 
                     </ul>
                 </div>

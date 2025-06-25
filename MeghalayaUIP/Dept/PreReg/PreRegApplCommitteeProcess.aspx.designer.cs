@@ -744,6 +744,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.GridView grdAttachments;
 
         /// <summary>
+        /// divQueryes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divQueryes;
+
+        /// <summary>
         /// grdQueries control.
         /// </summary>
         /// <remarks>
@@ -753,6 +762,15 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.GridView grdQueries;
 
         /// <summary>
+        /// divQueryAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divQueryAttachment;
+
+        /// <summary>
         /// grdQryAttachments control.
         /// </summary>
         /// <remarks>
@@ -760,6 +778,15 @@ namespace MeghalayaUIP.Dept.PreReg
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdQryAttachments;
+
+        /// <summary>
+        /// divstatusApplication control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divstatusApplication;
 
         /// <summary>
         /// grdApplStatus control.
