@@ -77,29 +77,29 @@ namespace MeghalayaAPI.Validations
 
             if (model.QuestionaryId.Trim() == "" || model.QuestionaryId == null || model.QuestionaryId.Trim() == "0")
             {
-                ErrorMsg = ErrorMsg + slno + ".Please provide a valid QuestionaryId. \\n";
+                ErrorMsg = ErrorMsg + slno + ".Please provide valid QuestionaryId. \\n";
                 slno = slno + 1;
             }
             if (model.Feasible == 0)
             {
-                ErrorMsg = ErrorMsg + slno + ".Please provide a valid Feasible. \\n";
+                ErrorMsg = ErrorMsg + slno + ".Please provide valid Feasible. \\n";
                 slno = slno + 1;
             }
             if (model.UserId == 0)
             {
-                ErrorMsg = ErrorMsg + slno + ".Please provide a valid UserId. \\n";
+                ErrorMsg = ErrorMsg + slno + ".Please provide valid UserId. \\n";
                 slno = slno + 1;
             }
             if (string.IsNullOrWhiteSpace(model.UserIp) || model.UserIp == "" || model.UserIp == "0")
             {
-                ErrorMsg = ErrorMsg + slno + ".Please provide a valid UserIp address. \\n";
+                ErrorMsg = ErrorMsg + slno + ".Please provide valid UserIp address. \\n";
                 slno = slno + 1;
             }
             if (model.Product.Trim() == "HT")
             {
                 if (string.IsNullOrWhiteSpace(model.MeteredSide) || model.MeteredSide == "" || model.MeteredSide == "0")
                 {
-                    ErrorMsg = ErrorMsg + slno + ".Please provide a valid MeteredSide. \\n";
+                    ErrorMsg = ErrorMsg + slno + ".Please provide valid MeteredSide. \\n";
                     slno = slno + 1;
                 }
             }
@@ -109,7 +109,7 @@ namespace MeghalayaAPI.Validations
                 {
                     if (string.IsNullOrWhiteSpace(model.MeterType) || model.MeterType == "" || model.MeterType == "0")
                     {
-                        ErrorMsg = ErrorMsg + slno + ".Please provide a valid MeteredSide. \\n";
+                        ErrorMsg = ErrorMsg + slno + ".Please provide valid MeteredSide. \\n";
                         slno = slno + 1;
                     }
                 }
@@ -120,7 +120,7 @@ namespace MeghalayaAPI.Validations
                 {
                     if (model.LoadKva == 0)
                     {
-                        ErrorMsg = ErrorMsg + slno + ".Please provide a valid LoadKva. \\n";
+                        ErrorMsg = ErrorMsg + slno + ".Please provide valid LoadKva. \\n";
                         slno = slno + 1;
                     }
                 }
@@ -131,12 +131,102 @@ namespace MeghalayaAPI.Validations
                 {
                     if (model.Loadkw == 0)
                     {
-                        ErrorMsg = ErrorMsg + slno + ".Please provide a valid Loadkw. \\n";
+                        ErrorMsg = ErrorMsg + slno + ".Please provide valid Loadkw. \\n";
                         slno = slno + 1;
                     }
                 }
             }
             return ErrorMsg;
+        }
+
+        public string ValidateCFEFields(CFEDtls model)
+        {
+            int slno = 1;
+            string ErrorMsg = "";
+            if (model.Unitid == "" || model.Unitid == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid Unitid \\n";
+                slno = slno + 1;
+            }
+            if (model.ReferenceNo == "" || model.ReferenceNo == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid ReferenceNo \\n";
+                slno = slno + 1;
+            }
+            if (model.Questionnaireid == "" || model.Questionnaireid == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid Questionnaireid \\n";
+                slno = slno + 1;
+            }
+            if (model.status == null || model.status == 0)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid status \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.UserID) || model.UserID == "" || model.UserID == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid UserID \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.IPAddress) || model.IPAddress == "" || model.IPAddress == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid IPAddress \\n";
+                slno = slno + 1;
+            }
+            if (model.deptid == null || model.deptid == 0)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid deptid \\n";
+                slno = slno + 1;
+            }
+            if (model.ApprovalId == null || model.ApprovalId == 0)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid ApprovalId \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.Questionnaireid) || model.Questionnaireid == "" || model.Questionnaireid == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid Questionnaireid \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.FilePath) || model.FilePath == "" || model.FilePath == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid FilePath \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.FileName) || model.FileName == "" || model.FileName == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid FileName \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.FileType) || model.FileType == "" || model.FileType == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid FileType \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.FileDesc) || model.FileDesc == "" || model.FileDesc == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid FileDesc \\n";
+                slno = slno + 1;
+            }
+            foreach (var doc in model.lstComponents)
+            {
+                if (string.IsNullOrWhiteSpace(doc.Order) || doc.Order == "" || doc.Order == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please provide valid Order \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrWhiteSpace(doc.Amount) || doc.Amount == "" || doc.Amount == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please provide valid Amount \\n";
+                    slno = slno + 1;
+                }
+                if (string.IsNullOrWhiteSpace(doc.Component) || doc.Component == "" || doc.Component == null)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please provide valid Component \\n";
+                    slno = slno + 1;
+                }
+            }
+                return ErrorMsg;
         }
     }
 }

@@ -26,6 +26,10 @@ namespace MeghalayaAPI.BAL
         {
             return _ObjCFEDAL.GetUnitIDBasedonQDID(CFEQDID);
         }
+        public string UpdateEstimationDetails(CFEDtls _cfestimation)
+        {
+            return _ObjCFEDAL.UpdateEstimationDetails(_cfestimation);
+        }
 
     }
 }

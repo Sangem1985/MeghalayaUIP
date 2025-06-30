@@ -1,4 +1,5 @@
-﻿using MeghalayaAPI.Models;
+﻿using Dapper;
+using MeghalayaAPI.Models;
 using MeghalayaUIP.Common;
 using System;
 using System.Collections.Generic;
@@ -125,9 +126,9 @@ namespace MeghalayaAPI.DAL
             try
             {
                 SqlDataAdapter da;
-                da = new SqlDataAdapter(CFEConstants.GetPREREGandCFEapplications, connection);
+                da = new SqlDataAdapter(CFEProcConstants.GetUnitIDBasedonQDID, connection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CFEConstants.GetPREREGandCFEapplications;
+                da.SelectCommand.CommandText = CFEProcConstants.GetUnitIDBasedonQDID;
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
@@ -149,5 +150,47 @@ namespace MeghalayaAPI.DAL
                 connection.Dispose();
             }
         }
+        public string UpdateEstimationDetails(CFEDtls Objest)
+        {
+            string valid = "0";
+            using (SqlConnection connection = new SqlConnection(connstr))
+            {
+                connection.Open();
+                var transaction = connection.BeginTransaction();
+                try
+                {
+                    foreach (var doc in Objest.lstComponents)
+                    {
+                        var CompParams = new DynamicParameters();
+                        CompParams.Add("@CFE_QDID", Objest.Questionnaireid);
+                        CompParams.Add("@REFERENCE_NO", Objest.ReferenceNo);
+                        CompParams.Add("@ORDERID", doc.Order);
+                        CompParams.Add("@COMPONENT", doc.Component);
+                        CompParams.Add("@AMOUNT", doc.Amount);
+                        CompParams.Add("@CREATED_BY", Objest.UserID);
+                        CompParams.Add("@CREATED_IP", Objest.IPAddress);
+                        CompParams.Add("@RESULT", dbType: DbType.Int32, direction: ParameterDirection.Output);
+                        connection.Execute(
+                            "USP_INS_CFE_COMPONENTS",
+                            CompParams,
+                            transaction,
+                            commandType: CommandType.StoredProcedure
+                        );
+                        var CompResult = CompParams.Get<int>("@RESULT");
+                        if (CompResult == 0)
+                            throw new Exception("Component Insert Failed");
+                    }
+                    transaction.Commit();
+                    valid = "1";
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+            return valid;
+        }
+
     }
 }

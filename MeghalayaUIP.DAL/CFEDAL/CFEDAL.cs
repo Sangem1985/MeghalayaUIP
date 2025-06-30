@@ -3316,6 +3316,13 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 com.Parameters.AddWithValue("@IPADDRESS", Objcfedtls.IPAddress);
                 com.Parameters.AddWithValue("@CREATEDBY", Objcfedtls.UserID);
+
+                com.Parameters.AddWithValue("@FILEPATH", Objcfedtls.FilePath);
+                com.Parameters.AddWithValue("@FILENAME", Objcfedtls.FileName);
+                com.Parameters.AddWithValue("@FILETYPE", Objcfedtls.FileType);
+                com.Parameters.AddWithValue("@FILEDESC", Objcfedtls.FileDesc);
+                com.Parameters.AddWithValue("@REFERENCENO", Objcfedtls.ReferenceNo);
+
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();

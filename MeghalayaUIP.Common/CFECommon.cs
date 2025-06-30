@@ -129,6 +129,19 @@ namespace MeghalayaUIP.Common
         public string DeptDesc { get; set; }
         public string ReferenceNumber { get; set; }
         public string IPAddress { get; set; }
+        public string FilePath { get; set; }
+        public string FileName { get; set; }
+        public string FileType { get; set; }
+        public string FileDesc { get; set; }
+        public string ReferenceNo { get; set; }
+        public List<Components> lstComponents { get; set; }
+
+    }
+    public class Components
+    {
+        public string Order { get; set; }
+        public string Component { get; set; }
+        public string Amount { get; set; }
     }
     public class CFEQuestionnaireDet
     {
