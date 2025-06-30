@@ -37,17 +37,18 @@ namespace MeghalayaUIP.User.CFE
                     {
                         UnitID = Convert.ToString(Session["CFEUNITID"]);
                     }
-                    else
-                    {
-                        string newurl = "~/User/CFE/CFEUserDashboard.aspx";
-                        Response.Redirect(newurl);
-                    }
+                    //else
+                    //{
+                    //    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
+                    //    Response.Redirect(newurl);
+                    //}
 
                     Page.MaintainScrollPositionOnPostBack = true;
 
                     if (!IsPostBack)
                     {
                         BindDistricts();
+                        BindData();
                     }
                 }
             }
@@ -66,29 +67,31 @@ namespace MeghalayaUIP.User.CFE
                 ds = objcfebal.GetCFECLUDETAILS(hdnUserID.Value, UnitID);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEHWD_UNITID"]);
-                    if (ds.Tables[0].Rows[0][""].ToString().Contains("Sale Deed"))
+                    ViewState["UnitID"] = Convert.ToString(ds.Tables[0].Rows[0]["CFEUNITID"]);
+                    if (ds.Tables[0].Rows[0]["CFECL_OWNERSHIPPROOF"].ToString().Contains("Sale Deed"))
                         CHKAuthorized.Items[0].Selected = true;
-                    if (ds.Tables[0].Rows[0][""].ToString().Contains("Patta"))
+                    if (ds.Tables[0].Rows[0]["CFECL_OWNERSHIPPROOF"].ToString().Contains("Patta"))
                         CHKAuthorized.Items[1].Selected = true;
-                    if (ds.Tables[0].Rows[0][""].ToString().Contains("Land Holding Certificate"))
+                    if (ds.Tables[0].Rows[0]["CFECL_OWNERSHIPPROOF"].ToString().Contains("Land Holding Certificate"))
                         CHKAuthorized.Items[2].Selected = true;
 
-                    ddlDistric.SelectedValue = ds.Tables[0].Rows[0][""].ToString();
-                    ddlMandal.Text = ds.Tables[0].Rows[0][""].ToString();
-                    ddlVillage.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtLand.Text = ds.Tables[0].Rows[0][""].ToString();
-                    ddlownership.SelectedValue = ds.Tables[0].Rows[0][""].ToString();
+                    ddlDistric.SelectedValue = ds.Tables[0].Rows[0]["CFECL_DISTRIC"].ToString();
+                    ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlMandal.Text = ds.Tables[0].Rows[0]["CFECL_MANDAL"].ToString();
+                    ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                    ddlVillage.Text = ds.Tables[0].Rows[0]["CFECL_VILLAGE"].ToString();
+                    txtLand.Text = ds.Tables[0].Rows[0]["CFECL_EXTENTLAND"].ToString();
+                    ddlownership.SelectedValue = ds.Tables[0].Rows[0]["CFECL_TYPEOWNERSHIP"].ToString();
 
-                    ddlCurrentLand.SelectedValue = ds.Tables[0].Rows[0][""].ToString();
+                    ddlCurrentLand.SelectedValue = ds.Tables[0].Rows[0]["CFECL_CURRENTLANDUSE"].ToString();
 
-                    if (ddlCurrentLand.SelectedValue=="4")
+                    if (ddlCurrentLand.SelectedValue == "4")
                     {
                         divOther.Visible = true;
-                        txtOther.Text = ds.Tables[0].Rows[0][""].ToString();
+                        txtOther.Text = ds.Tables[0].Rows[0]["CFECL_OTHERS"].ToString();
                     }
 
-                    ddlLandProposed.SelectedValue = ds.Tables[0].Rows[0][""].ToString();
+                    ddlLandProposed.SelectedValue = ds.Tables[0].Rows[0]["CFECL_PROPOSEDLANDUSE"].ToString();
 
 
                 }
@@ -331,9 +334,9 @@ namespace MeghalayaUIP.User.CFE
 
                     string selectedActivities = string.Join(", ", selectedItems);
 
-                    objCFECLU.Questionnariid = Convert.ToString(Session["CFEQID"]);
+                    objCFECLU.Questionnariid = "1001"; //Convert.ToString(Session["CFEQID"]);
                     objCFECLU.Createdby = hdnUserID.Value;
-                    objCFECLU.UnitId = Convert.ToString(Session["CFEUNITID"]);
+                    objCFECLU.UnitId = "1001"; //Convert.ToString(Session["CFEUNITID"]);
                     objCFECLU.IPAddress = getclientIP();
                     objCFECLU.District = ddlDistric.SelectedValue;
                     objCFECLU.Mandal = ddlMandal.SelectedValue;
@@ -374,7 +377,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-              
+
 
                 if (ddlDistric.SelectedIndex == -1)
                 {
@@ -411,7 +414,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Current Land Use \\n";
                     slno = slno + 1;
                 }
-                if (ddlCurrentLand.SelectedValue=="4")
+                if (ddlCurrentLand.SelectedValue == "4")
                 {
                     if (string.IsNullOrEmpty(txtOther.Text) || txtOther.Text == "" || txtOther.Text == null)
                     {

@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="../assets/admin/plugins/morris/morris.css">
 
     <!-- Main CSS -->
+     <link href="../assets/assetsnew/css/Mobile.css" rel="stylesheet" />
+    
     <link rel="stylesheet" href="../assets/admin/css/style.css">
     <link rel="stylesheet" href="../assets/admin/css/menustyle.css">
     <link rel="stylesheet" href="../assets/admin/css/dashboard.css">

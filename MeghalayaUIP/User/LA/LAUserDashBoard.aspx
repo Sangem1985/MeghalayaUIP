@@ -7,19 +7,19 @@
         <div class="content container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <div class="col-md-12 d-flex">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                         <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                         </div>
                     </div>
-                    <div class="col-md-12 d-flex">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                         <div id="Failure" runat="server" visible="false" class="alert alert-danger" align="Center">
                             <strong>Warning!</strong>
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <div class="col-md-12 d-flex">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                         <div class="col-md-11">
                             <h4 style="margin-left: -10px;">Land Allotment with Meghalaya Investment Promotion Authority (MIPA)/MIIPP</h4>
                         </div>
@@ -31,7 +31,7 @@
                     <div class="table-responsive CFEUSERDASHBOARD">
 
                         <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False"  ShowHeaderWhenEmpty="true"
-                            BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
+                            BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-responsive mb-0 table-hover" ForeColor="#333333"
                             GridLines="None" Width="100%" EnableModelValidation="True" ShowFooter="false" OnRowDataBound="gvPreRegApproved_RowDataBound" OnRowCreated="gvPreRegApproved_RowCreated">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" BorderColor="White" />

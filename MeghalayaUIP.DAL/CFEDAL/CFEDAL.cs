@@ -2534,7 +2534,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFECD_TELEPHONE", Convert.ToInt64(ObjCFECEIG.TELEPHOPNE));
                 com.Parameters.AddWithValue("@CFECD_NEARTELEPHONENO", Convert.ToInt64(ObjCFECEIG.NEARESTPHONENO));
                 */
-                
+
                 com.Parameters.AddWithValue("@CFECD_DATE", DateTime.ParseExact(ObjCFECEIG.DATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -3040,7 +3040,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEHWD_WASTEHANDLEANNUM", ObjCFEhazardous.WASTEHANDLEANNUM);
                 com.Parameters.AddWithValue("@CFEHWD_WASTESTOREDTIME", ObjCFEhazardous.WASTESTOREDTIME);
                 com.Parameters.AddWithValue("@CFEHWD_QUANTITYWASTEANNUM", ObjCFEhazardous.QUANTITYWASTEANNUM);
-                com.Parameters.AddWithValue("@CFEHWD_QUANTITYSTOREDTIME",ObjCFEhazardous.QUANTITYSTOREDTIME);
+                com.Parameters.AddWithValue("@CFEHWD_QUANTITYSTOREDTIME", ObjCFEhazardous.QUANTITYSTOREDTIME);
                 com.Parameters.AddWithValue("@CFEHWD_YEAROFPRODUCTION", ObjCFEhazardous.YEAROFPRODUCTION);
                 com.Parameters.AddWithValue("@CFEHWD_INDUSTRYWORK", ObjCFEhazardous.INDUSTRYWORK);
 
@@ -3162,19 +3162,22 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
 
 
-                com.Parameters.AddWithValue("", Convert.ToInt32(objCFECLU.Createdby));
-                com.Parameters.AddWithValue("", objCFECLU.IPAddress);
-                com.Parameters.AddWithValue("", Convert.ToInt32(objCFECLU.Questionnariid));
-                com.Parameters.AddWithValue("", Convert.ToInt32(objCFECLU.UnitId));
-                com.Parameters.AddWithValue("", objCFECLU.District);
-                com.Parameters.AddWithValue("", objCFECLU.Mandal);
-                com.Parameters.AddWithValue("", objCFECLU.Village);
-                com.Parameters.AddWithValue("", objCFECLU.ExtendLand);
-                com.Parameters.AddWithValue("", objCFECLU.TypeOwnership);
-                com.Parameters.AddWithValue("", objCFECLU.OwnershipProof);
-                com.Parameters.AddWithValue("", objCFECLU.CurrentLand);
-                com.Parameters.AddWithValue("", objCFECLU.LandUse);
-                com.Parameters.AddWithValue("", objCFECLU.Others);
+                com.Parameters.AddWithValue("@CFECL_CREATEDBY", Convert.ToInt32(objCFECLU.Createdby));
+                com.Parameters.AddWithValue("@CFECL_CREATEDBYIP", objCFECLU.IPAddress);
+                com.Parameters.AddWithValue("@CFECL_CFEQDID", Convert.ToInt32(objCFECLU.Questionnariid));
+                com.Parameters.AddWithValue("@CFECL_CFEUNITID", Convert.ToInt32(objCFECLU.UnitId));
+                com.Parameters.AddWithValue("@CFECL_DISTRIC", Convert.ToInt32(objCFECLU.District));
+                com.Parameters.AddWithValue("@CFECL_MANDAL", Convert.ToInt32(objCFECLU.Mandal));
+                com.Parameters.AddWithValue("@CFECL_VILLAGE", Convert.ToInt32(objCFECLU.Village));
+                com.Parameters.AddWithValue("@CFECL_EXTENTLAND", objCFECLU.ExtendLand);
+                com.Parameters.AddWithValue("@CFECL_TYPEOWNERSHIP", objCFECLU.TypeOwnership);
+                com.Parameters.AddWithValue("@CFECL_OWNERSHIPPROOF", objCFECLU.OwnershipProof);
+                com.Parameters.AddWithValue("@CFECL_CURRENTLANDUSE", objCFECLU.CurrentLand);
+                com.Parameters.AddWithValue("@CFECL_PROPOSEDLANDUSE", objCFECLU.LandUse);
+                if (objCFECLU.Others != null && objCFECLU.Others != "")
+                {
+                    com.Parameters.AddWithValue("@CFECL_OTHERS", objCFECLU.Others);
+                }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

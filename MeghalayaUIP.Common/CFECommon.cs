@@ -92,8 +92,8 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEPDCLDetails = "USP_INSCFEDRAWINGAPPDETAILS";
 
         public static string GetPowerDetailsAPI = "UPS_GETPOWERAPIDETAILS";
-        public static string InsertCFECLUDETAILS = "";
-        public static string GetChangeofLandDetails = "";
+        public static string InsertCFECLUDETAILS = "USP_INSCFECHANGELANDDETAILS";
+        public static string GetChangeofLandDetails = "USP_GETCFECHANGELANDDETAILS";
         /// <summary>
         /// DEPARTMENT STARTED
         /// </summary>

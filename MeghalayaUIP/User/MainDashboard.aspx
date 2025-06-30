@@ -15,7 +15,7 @@
                     </h4>
                 </div>
                 <div>
-                    <div class="col-md-12 ">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                             <asp:Label ID="Label1" runat="server"></asp:Label>
@@ -23,7 +23,7 @@
                                 <span aria-hidden="true">×</span></button>
                         </div>
                     </div>
-                    <div class="col-md-12 ">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                             <strong>Warning!</strong>
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
@@ -40,7 +40,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <asp:GridView ID="gvUserDashboard" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD table-striped table-hover" ForeColor="#333333"
+                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-responsive mb-0 GRD table-striped table-hover" ForeColor="#333333"
                                 GridLines="None" Width="100%" EnableModelValidation="True" OnRowDataBound="gvUserDashboard_RowDataBound">
                                 <RowStyle />
                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" Height="30px" />

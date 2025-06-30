@@ -88,7 +88,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Extent of Land<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLand" runat="server" class="form-control" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLand" runat="server" class="form-control"  onkeypress="return validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -157,7 +157,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Others<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtOther" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtOther" runat="server" class="form-control" MaxLength="7" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
