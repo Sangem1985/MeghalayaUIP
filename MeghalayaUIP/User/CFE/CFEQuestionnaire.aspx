@@ -21,8 +21,8 @@
                 <div class="content container-fluid">
                     <section class="comp-section">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <div class="card mobile">
                                     <div class="card-header">
                                         <h4 class="card-title"><b>Questionnaire (Know Your Approvals) - For Pre Establishment</b></h4>
                                         <p style="position: absolute; right: 10px; top: 6px; color: red;">
@@ -31,7 +31,7 @@
                                         </p>
                                     </div>
 
-                                    <div class="card-body">
+                                    <div class="card-body mobile">
 
                                         <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                         <asp:HiddenField ID="hdnPreRegUID" runat="server" />
@@ -47,7 +47,7 @@
                                                 <asp:LinkButton ID="Link3" class="nav-link" runat="server" OnClick="Link3_Click" Enabled="false" Style="padding-right: 10px; font-size: 18px !important; margin-top: -8px !important; padding: 10px 10px 12px !important;">
                                                 3. Project Requirements</asp:LinkButton></li>
                                         </ul>
-                                        <div class="col-md-12 ">
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                             <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                                                 <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                                                 <asp:Label ID="Label1" runat="server"></asp:Label>
@@ -55,7 +55,7 @@
                                                     <span aria-hidden="true">×</span></button>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 ">
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                             <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                                                 <strong>Warning!</strong>
                                                 <asp:Label ID="lblmsg0" runat="server"></asp:Label>
@@ -73,8 +73,8 @@
                                                             <h4 class="card-title" style="background: #abbd07; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Project Details</h4>
 
                                                             <div class="row">
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Name of Unit<span class="star">*</span></label>
@@ -83,7 +83,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 2. Firm Type<span class="star">*</span></label>
@@ -93,7 +93,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 3. Nature of
@@ -108,8 +108,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Firm Proposal <span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -124,8 +124,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <h6 class="fs-20">Unit Location</h6>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1.District
@@ -138,7 +138,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Mandal<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -149,7 +149,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Village<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -160,8 +160,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 4. Total
@@ -172,7 +172,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 5. Built up Area
@@ -184,7 +184,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">6. Sector<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -196,8 +196,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 7. Line of
@@ -209,7 +209,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 8. Pollution
@@ -219,7 +219,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 9. Whether land
@@ -238,8 +238,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-4">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 10. Location of the unit<span class="star">*</span></label>
@@ -253,7 +253,7 @@
                                                             </div>
 
 
-                                                            <div class="col-md-12 d-flex mt-2 mb-2" id="padding">
+                                                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2 mb-2" id="padding">
                                                                 <div class="col-md-2">
                                                                 </div>
                                                                 <div class="col-md-10 text-right">
@@ -279,8 +279,8 @@
                                                             <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Project Financials</h4>
                                                             <%--<form action="#">--%>
                                                             <div class="row">
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Proposed
@@ -290,7 +290,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Value of Land as per sale Deed(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -299,8 +299,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Value of Building(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -308,7 +308,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -321,8 +321,8 @@
 
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex mt-2">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2">
+                                                                    <div class="col-md-6 col-lg-12 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">5. Expected Annual Turnover(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -330,7 +330,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-12 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">6. Total Project Cost(INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -339,8 +339,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex mt-2">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 7. Enterprise Category
@@ -457,7 +457,7 @@
                                                                     </table>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex mt-2" id="padding">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2" id="padding">
                                                                     <div class="col-md-2">
                                                                     </div>
                                                                     <div class="col-md-10 text-right mb-2">
@@ -480,8 +480,8 @@
                                                             <span class="icon3"><i class="fi fi-br-caret-down"></i></span>
                                                             <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Project Requirements</h4>
                                                             <div class="row">
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Power
@@ -495,7 +495,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 2. Generator
@@ -510,8 +510,8 @@
                                                                     </div>
 
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-6 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 3. Height of the building(in Meters)<span class="star">*</span></label>
@@ -520,7 +520,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 4. Do you Use (High Tension)
@@ -535,7 +535,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6" runat="server" visible="false">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Do you store RS, DS<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -547,9 +547,9 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex" runat="server" id="divHTMeter" visible="false">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" runat="server" id="divHTMeter" visible="false">
 
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-12 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4a. Select Regulation<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
@@ -560,7 +560,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6" runat="server" visible="false" id="divvoltages">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" runat="server" visible="false" id="divvoltages">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4b. Select Voltage<span class="star">*</span></label>
                                                                             <div class="col-lg-4 d-flex">
@@ -570,7 +570,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6" runat="server" visible="false" id="divpowerplants1">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" runat="server" visible="false" id="divpowerplants1">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4b. Select Power Plant<span class="star">*</span></label>
                                                                             <div class="col-lg-4 d-flex">
@@ -590,8 +590,8 @@
                                                                     <div class="col-md-6" runat="server" visible="false" id="divpowerplants2">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 5. Do you manufacture, store, sale,
@@ -606,7 +606,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 6. Do you Manufacture, store, sale,<br />
@@ -620,8 +620,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 7. Do you require Road Cutting
@@ -636,7 +636,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 8. Do you require Non-Encumbrance
@@ -653,8 +653,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 9. Do you require approval from
@@ -669,7 +669,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 10. Do You require Letter for distance
@@ -687,10 +687,10 @@
                                                                 </div>
 
 
-                                                                <div class="col-md-12 d-flex">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
 
 
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 11. Do you require Non-Forest Land
@@ -705,7 +705,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 12. Do you require Permission to Fell Isolated Trees/Lopping of Branches 
@@ -721,9 +721,9 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
 
-                                                                    <div class="col-md-6" runat="server" visible="false" id="divtrees">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" runat="server" visible="false" id="divtrees">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 12a. Number of trees to be felled
@@ -737,8 +737,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex" runat="server" visible="false">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" runat="server" visible="false">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 14. Does the unit Location fall within 
@@ -753,7 +753,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 15. Do you have Existing borewell in 
@@ -770,8 +770,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 13. Do You Require NoC for Ground 
@@ -787,7 +787,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 14. Do You Require Certificate for 
@@ -807,8 +807,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 15. Do You Require Permission to 
@@ -824,7 +824,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 16. Do You Require Water Connection 
@@ -840,8 +840,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 17. Do You Required Grant of Water 
@@ -859,7 +859,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6" id="MunicipalArea" runat="server" visible="false">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="MunicipalArea" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 16a. Water Connection for the Municipal Area <span class="text-danger">*</span></label>
@@ -872,8 +872,8 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-md-12 d-flex" runat="server" visible="false">
-                                                                    <div class="col-md-6">
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" runat="server" visible="false">
+                                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 21. Do You Required Drawing Plan Approval<span class="text-danger">*</span></label>

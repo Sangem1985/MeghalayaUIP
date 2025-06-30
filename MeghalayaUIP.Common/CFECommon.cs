@@ -92,6 +92,8 @@ namespace MeghalayaUIP.Common
         public static string InsertCFEPDCLDetails = "USP_INSCFEDRAWINGAPPDETAILS";
 
         public static string GetPowerDetailsAPI = "UPS_GETPOWERAPIDETAILS";
+        public static string InsertCFECLUDETAILS = "USP_INSCFECHANGELANDDETAILS";
+        public static string GetChangeofLandDetails = "USP_GETCFECHANGELANDDETAILS";
         /// <summary>
         /// DEPARTMENT STARTED
         /// </summary>
@@ -312,6 +314,22 @@ namespace MeghalayaUIP.Common
         public string Village { get; set; }
 
 
+    }
+    public class CFECLU
+    {
+        public string UnitId { get; set; }
+        public string Questionnariid { get; set; }
+        public string District { get; set; }
+        public string Mandal { get; set; }
+        public string Village { get; set; }
+        public string ExtendLand { get; set; }
+        public string TypeOwnership { get; set; }
+        public string OwnershipProof { get; set; }
+        public string CurrentLand { get; set; }
+        public string LandUse { get; set; }
+        public string Others { get; set; }
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
     }
     public class CFEEntrepreneur
     {
