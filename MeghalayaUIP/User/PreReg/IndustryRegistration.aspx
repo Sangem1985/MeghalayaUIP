@@ -222,14 +222,14 @@
                 <div class="content container-fluid">
                     <%--<section class="comp-section">--%>
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="card mobile">
                                 <div class="card-header">
 
                                     <h4 class="card-title"><b>Industry Registration with Meghalaya Investment Promotion Authority (MIPA)/MIIPP 2024</b></h4>
 
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body mobile">
 
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <asp:HiddenField ID="hdnResultTab2" runat="server" />
@@ -275,8 +275,8 @@
                                                     <h4 class="card-title" style="background: #abbd07; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">1. Basic Details</h4>
 
                                                     <div class="row">
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Firm PAN card No <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -284,7 +284,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Firm Name as per PAN <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -292,7 +292,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Firm Type <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -304,8 +304,8 @@
 
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">GSTIN Number <span class="star">*</span> </label>
                                                                     <div class="col-lg-6 d-flex">
@@ -313,7 +313,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Firm Proposal <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -329,8 +329,8 @@
 
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex" runat="server" visible="false">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12  col-lg-12 col-sm-12 col-xs-12 d-flex" runat="server" visible="false">
+                                                            <div class="col-md-4  col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
                                                                         Category of Registration<span class="star">*</span></label>
@@ -341,7 +341,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4  col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label" id="lblregntype" runat="server">Registration No <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -350,7 +350,7 @@
                                                                 </div>
                                                             </div>
                                                             <%--    <link href="CSS.css" rel="stylesheet" type="text/css" />--%> <%--CssClass="disable_future_dates" --%>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4  col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Firm Registration / Incorporation Date<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -362,11 +362,11 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Correspondence Details of Authorised Representative</span></label>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Name <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -374,7 +374,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Mobile <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -382,7 +382,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">E-mail <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -391,8 +391,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Locality <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -400,7 +400,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Door No. <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -408,7 +408,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">
                                                                         State <span class="star">*</span>
@@ -423,8 +423,8 @@
 
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex" id="divMeghaState" runat="server" visible="false">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" id="divMeghaState" runat="server" visible="false">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
                                                                     <div class="col-lg-6">
@@ -435,7 +435,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Mandal/Taluka <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -447,7 +447,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Village <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -460,8 +460,8 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex" id="divOtherState" runat="server" visible="false">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" id="divOtherState" runat="server" visible="false">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -469,7 +469,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Mandal/Taluka <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -477,7 +477,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Village <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -486,8 +486,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Pincode <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -498,11 +498,11 @@
                                                         </div>
 
 
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Location of Unit</span></label>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-6">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-4 col-form-label">Is Land Required <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -514,8 +514,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Door No.</label>
                                                                     <div class="col-lg-6 d-flex">
@@ -523,7 +523,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Locality <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -531,7 +531,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -543,8 +543,8 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Taluka <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -554,7 +554,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Village <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -564,7 +564,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Pin Code <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -574,12 +574,12 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Project Details</span></label>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -589,7 +589,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-5 col-form-label">Nature of Activity<span class="star">*</span></label>
                                                                     <div class="col-lg-7 d-flex">
@@ -603,8 +603,8 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex" id="divManf" runat="server" visible="false">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" id="divManf" runat="server" visible="false">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Main Manufacturing Activity<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -613,7 +613,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Main Raw Materials for the Project<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -622,7 +622,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label ">(If Existing) Production No.<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -631,8 +631,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex" id="divManf1" runat="server" visible="false">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" id="divManf1" runat="server" visible="false">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Product to be Manufactured </label>
                                                                     <div class="col-lg-6 d-flex">
@@ -640,7 +640,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Annual Capacity of Manufacturing Product <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -648,7 +648,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Unit of Measurement of Annual Capacity<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -657,8 +657,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex" id="divservc" runat="server" visible="false">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" id="divservc" runat="server" visible="false">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Main Service Activity<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -666,7 +666,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Service to be Provided <span class="star">*</span> </label>
                                                                     <div class="col-lg-6 d-flex">
@@ -674,7 +674,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label ">(If Existing) Service No.</label>
                                                                     <div class="col-lg-6 d-flex">
@@ -683,8 +683,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Sector<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -694,7 +694,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Line Of Activity<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -704,7 +704,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Pollution Category<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -714,9 +714,9 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Details of Waste / Effluent to be generated<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -724,7 +724,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Details of Hazardous Waste to be generated<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -732,7 +732,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Estimated Project Cost (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -744,8 +744,8 @@
 
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Plant & Machinery (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -753,7 +753,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Investment in Fixed Capital (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -761,7 +761,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Durable Fixed Assets (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -771,8 +771,8 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Working Capital (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -780,7 +780,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Land Area (in Sq. m) <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -788,7 +788,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Value of Land (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -797,8 +797,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Area of Building / Shed (Sq. m)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -806,7 +806,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Value of Building / Shed (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -814,7 +814,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Civil Construction (Sqm)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -825,9 +825,9 @@
 
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Power Required (KV)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -835,7 +835,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4" visible="false" runat="server">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" visible="false" runat="server">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Value of Power (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -843,7 +843,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Water required (KL/D)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -852,8 +852,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex" visible="false" runat="server">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" visible="false" runat="server">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Value of Water (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -864,11 +864,11 @@
                                                         </div>
 
 
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Finance Details</span></label>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4" runat="server" visible="false">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" runat="server" visible="false">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Promoter’s and Contributors (INR) <span class="star">*</span> </label>
                                                                     <div class="col-lg-6 d-flex">
@@ -876,7 +876,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Equity Amount (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -884,7 +884,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Term/ Working loan (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -892,7 +892,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Unsecured Loan (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -901,8 +901,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">State Scheme (INR) <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -910,7 +910,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Central Scheme  (INR) <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -919,8 +919,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex" runat="server" visible="false">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" runat="server" visible="false">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Capital Subsidy (INR) <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -928,7 +928,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Benefit from UNNATI (INR) <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -936,7 +936,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Internal Resources (INR)<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -947,8 +947,8 @@
                                                         </div>
                                                     </div>
                                                     <br />
-                                                    <div class="col-md-12 d-flex" id="eligible" runat="server" visible="false">
-                                                        <div class="col-md-12">
+                                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" id="eligible" runat="server" visible="false">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                             <div class="form-group row">
                                                                 <p style="color: red; font-family: sans-serif;">
                                                                     <b>
@@ -969,15 +969,15 @@
                                         <asp:View ID="viewRevenue" runat="server">
                                             <div class="tab-pane active  " id="basictab2">
 
-                                                <div class="card-body" runat="server" id="divRevenue">
+                                                <div class="card-body mobile" runat="server" id="divRevenue">
                                                     <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
                                                     <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Revenue Projections</h4>
                                                     <%--<form action="#">--%>
-                                                    <div class="row">
+                                                    <div class="row"> <%--GridviewScrollC1HeaderWrap--%>
 
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                             <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="false" OnRowDataBound="grdRevenueProj_RowDataBound">
-                                                                <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
+                                                                <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="table-bordered table-responsive mb-0 GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                                 <RowStyle CssClass="GridviewScrollC1Item" />
                                                                 <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
 
@@ -1036,7 +1036,7 @@
                                                         <br />
 
 
-                                                        <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2 mb-3" id="padding">
                                                             <div class="col-md-2">
 
 
@@ -1064,8 +1064,8 @@
                                                     <h4 class="card-title" style="background: #4db6ac; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">3. Details of the Applicant / Promoter(s) /
 													Partner(s) / Director(s) / Members</h4>
                                                     <div class="row">
-                                                        <div class="col-md-12 d-flex" id="padding">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" id="padding">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">First Name <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1073,7 +1073,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Last Name <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1081,7 +1081,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">AADHAR No. <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1090,9 +1090,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">PAN <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1100,7 +1100,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">DIN No. (if available) </label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1108,7 +1108,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Nationality <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1125,8 +1125,8 @@
 
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Door No. <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1134,7 +1134,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Street <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1142,7 +1142,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">E-mail ID <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1152,8 +1152,8 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-12 d-flex" runat="server">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" runat="server">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Pin Code <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1162,7 +1162,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Country <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1172,7 +1172,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">State <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1185,8 +1185,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex" runat="server" id="traddredddropdowns">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" runat="server" id="traddredddropdowns">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1198,7 +1198,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Taluka <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1210,7 +1210,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">City / Town / Village <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1225,9 +1225,9 @@
 
 
 
-                                                        <div class="col-md-12 d-flex" runat="server" id="trothercountry" visible="false">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex" runat="server" id="trothercountry" visible="false">
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">District <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1236,7 +1236,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Taluka <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1246,7 +1246,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">City / Town / Village <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1258,8 +1258,8 @@
                                                         </div>
 
 
-                                                        <div class="col-md-12 d-flex">
-                                                            <div class="col-md-4">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Phone <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1269,7 +1269,7 @@
 
                                                                 <%--<button type="button" class="btn btn-successgreen btn-sm mb-3 float-right"><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; Add New</button>--%>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label"></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -1279,10 +1279,10 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                             <div class="table-responsive">
                                                                 <asp:GridView ID="gvPromoters" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="5" CssClass="GRD table-bordered table-striped table-sm" ForeColor="#333333"
+                                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="5" CssClass="table-responsive mb-0 GRD table-bordered table-striped table-sm" ForeColor="#333333"
                                                                     GridLines="None" OnRowDeleting="gvPromoters_RowDeleting" OnRowDataBound="gvPromoters_RowDataBound"
                                                                     AlternatingRowStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-Wrap="true"
                                                                     Width="140%" EnableModelValidation="True" Visible="false">
@@ -1326,7 +1326,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2 mb-3" id="padding">
                                                             <div class="col-md-2">
 
 
@@ -1355,64 +1355,64 @@
 
                                                     <div class="row">
 
-                                                        <div class="col-md-12" style="padding-top: 10px">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="padding-top: 10px">
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">1. Sole Prop. Declaration/ Partnership Deed/ Society Registration Certificate/ Director resolution/ Trust Deed or relevant document to provide proof of business	Required <span class="star">*</span></label>
-                                                                <div class="col-lg-3 d-flex">
+                                                                <label class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">1. Sole Prop. Declaration/ Partnership Deed/ Society Registration Certificate/ Director resolution/ Trust Deed or relevant document to provide proof of business	Required <span class="star">*</span></label>
+                                                                <div class="col-lg-3 col-lg-3 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:FileUpload ID="fupcompanyregistration" runat="server" />
                                                                 </div>
-                                                                <div class="col-lg-1 d-flex">
+                                                                <div class="col-lg-1 col-lg-1 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:Button Text="Upload" Height="35px" runat="server" ID="btnregistration" class="btn btn-rounded btn-dark mb-4" OnClick="btnregistration_Click" />
                                                                 </div>
-                                                                <div class="col-lg-4 d-flex">
+                                                                <div class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:HyperLink  ID="hplcompanyregistration" runat="server" Target="_blank"></asp:HyperLink>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">2. Udyam/IEM Document </label>
-                                                                <div class="col-lg-3 d-flex">
+                                                                <label class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">2. Udyam/IEM Document </label>
+                                                                <div class="col-lg-3 col-lg-3 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:FileUpload ID="fupUdyam" runat="server" />
                                                                 </div>
-                                                                <div class="col-lg-1 d-flex">
+                                                                <div class="col-lg-1 col-lg-1 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:Button Text="Upload" runat="server" ID="btnUdyam" class="btn btn-rounded btn-dark mb-4" OnClick="btnUdyam_Click" />
                                                                 </div>
-                                                                <div class="col-lg-4 d-flex">
+                                                                <div class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:HyperLink ID="hplUdyam" runat="server" Target="_blank"></asp:HyperLink>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">3. PAN Document <span class="star">*</span></label>
-                                                                <div class="col-lg-3 d-flex">
+                                                                <label class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">3. PAN Document <span class="star">*</span></label>
+                                                                <div class="col-lg-3 col-lg-3 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:FileUpload ID="fupPAN" runat="server" />
                                                                 </div>
-                                                                <div class="col-lg-1 d-flex">
+                                                                <div class="col-lg-1 col-lg-1 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:Button Text="Upload" runat="server" ID="btnPAN" class="btn btn-rounded btn-dark mb-4" OnClick="btnPAN_Click" />
                                                                 </div>
-                                                                <div class="col-lg-4 d-flex">
+                                                                <div class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:HyperLink ID="hplPAN" runat="server" Target="_blank"></asp:HyperLink>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">4. GST Certificate </label>
-                                                                <div class="col-lg-3 d-flex">
+                                                                <label class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">4. GST Certificate </label>
+                                                                <div class="col-lg-3 col-lg-3 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:FileUpload ID="fupGSTIN" runat="server" />
                                                                 </div>
-                                                                <div class="col-lg-1 d-flex">
+                                                                <div class="col-lg-1 col-lg-1 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:Button Text="Upload" runat="server" ID="btnGSTIN" class="btn btn-rounded btn-dark mb-4" OnClick="btnGSTIN_Click" />
                                                                 </div>
-                                                                <div class="col-lg-4 d-flex">
+                                                                <div class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:HyperLink ID="hplGSTIN" runat="server" Target="_blank"></asp:HyperLink>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label">5. CIN Document </label>
-                                                                <div class="col-lg-3 d-flex">
+                                                                <label class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">5. CIN Document </label>
+                                                                <div class="col-lg-3 col-lg-3 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:FileUpload ID="fupCIN" runat="server" />
                                                                 </div>
-                                                                <div class="col-lg-1 d-flex">
+                                                                <div class="col-lg-1 col-lg-1 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:Button Text="Upload" runat="server" ID="btnCIN" class="btn btn-rounded btn-dark mb-4" OnClick="btnCIN_Click" />
                                                                 </div>
-                                                                <div class="col-lg-4 d-flex">
+                                                                <div class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:HyperLink ID="hplCIN" runat="server" Target="_blank"></asp:HyperLink>
                                                                 </div>
                                                             </div>
@@ -1436,15 +1436,15 @@ Components of DPR-
 * Projected requirement of Water 
 
 Note: Micro Enterprises- Investment in plant and machinery or equipment not exceeding ₹2.5 crore 
-  and annual turnover not exceeding ₹10 crore." class="col-lg-4 col-form-label">6. Upload Detailed Project Report (DPR) Summary of DPR for Micro Industry<span class="star">*</span></asp:Label>
+  and annual turnover not exceeding ₹10 crore." class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">6. Upload Detailed Project Report (DPR) Summary of DPR for Micro Industry<span class="star">*</span></asp:Label>
                                                                 <%--<div class="col-lg-8 d-flex">--%>
-                                                                <div class="col-lg-3 d-flex">
+                                                                <div class="col-lg-3 col-lg-3 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:FileUpload ID="fupDPR" runat="server" />
                                                                 </div>
-                                                                <div class="col-lg-1 d-flex">
+                                                                <div class="col-lg-1 col-lg-1 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:Button Text="Upload" runat="server" ID="btndpr" class="btn btn-rounded btn-dark mb-4" OnClick="btndpr_Click" />
                                                                 </div>
-                                                                <div class="col-lg-4 d-flex">
+                                                                <div class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:HyperLink ID="hypdpr" runat="server" Target="_blank"></asp:HyperLink>
                                                                     <asp:Label ID="lbldpr" runat="server" Visible="false" />
                                                                 </div>
@@ -1452,20 +1452,20 @@ Note: Micro Enterprises- Investment in plant and machinery or equipment not exce
                                                                 <%--</div>--%>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-form-label" >7. Bank Appraisal Document </label>
-                                                                <div class="col-lg-3 d-flex">
+                                                                <label class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label" >7. Bank Appraisal Document </label>
+                                                                <div class="col-lg-3 col-lg-3 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:FileUpload ID="fupBankAppraisal" runat="server" />
                                                                 </div>
-                                                                <div class="col-lg-1 d-flex">
+                                                                <div class="col-lg-1 col-lg-1 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:Button Text="Upload" runat="server" ID="btnBankAppraisal" class="btn btn-rounded btn-dark mb-4" OnClick="btnBankAppraisal_Click" />
                                                                 </div>
-                                                                <div class="col-lg-4 d-flex">
+                                                                <div class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:HyperLink ID="hplBankAppraisal" runat="server" Target="_blank"></asp:HyperLink>
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2 mb-3" id="padding">
 
                                                             <div class="col-md-10 text-right">
                                                                 <asp:Button Text="Previous" runat="server" ID="BtnPrevious4" class="btn btn-rounded btn-info btn-lg" OnClick="BtnPrevious4_Click" Width="150px" />

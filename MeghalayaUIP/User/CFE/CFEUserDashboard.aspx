@@ -14,7 +14,7 @@
         <div class="content container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <div class="col-md-12 ">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div id="success" runat="server" visible="false" class="alert alert-success alert-dismissible fade show" align="Center">
                             <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                             <asp:Label ID="Label1" runat="server"></asp:Label>
@@ -22,7 +22,7 @@
                                 <span aria-hidden="true">×</span></button>
                         </div>
                     </div>
-                    <div class="col-md-12 ">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div id="Failure" runat="server" visible="false" class="alert alert-danger alert-dismissible fade show" align="Center">
                             <strong>Warning!</strong>
                             <asp:Label ID="lblmsg0" runat="server"></asp:Label>
@@ -32,13 +32,13 @@
                         </div>
                     </div>
                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                    <div class="col-md-12 d-flex">
-                        <div class="col-md-11">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                        <div class="col-md-11 col-lg-11 col-sm-12 col-xs-12">
                             <h4 style="margin-left: -10px;">Pre-Establishment Approvals :
                                 <asp:Label runat="server" ID="lblHdng"></asp:Label></h4>
                         </div>
 
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12">
                             <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" OnClick="lbtnBack_Click" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="table-responsive CFEUSERDASHBOARD">
 
                         <asp:GridView ID="gvPreRegApproved" runat="server" AutoGenerateColumns="False"  ShowHeaderWhenEmpty="true"
-                            BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
+                            BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-responsive mb-0 table-hover" ForeColor="#333333"
                             GridLines="Both" Width="100%" EnableModelValidation="True" OnRowDataBound="gvPreRegApproved_RowDataBound" OnRowCreated="gvPreRegApproved_RowCreated" ShowFooter="true">
                             <RowStyle />
                             <HeaderStyle BackColor="#013161" Font-Bold="True"  BorderColor="White" ForeColor="White" HorizontalAlign="Center" />
@@ -163,7 +163,7 @@
 
                     </div>
                     <asp:GridView ID="gvCFEApplied" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
-                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
+                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered table-responsive mb-0 GRD" ForeColor="#333333"
                         GridLines="None" Width="100%" EnableModelValidation="True">
                         <RowStyle />
                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />

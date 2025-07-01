@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="../assets/admin/plugins/morris/morris.css">
 
     <!-- Main CSS -->
+     <link href="../assets/assetsnew/css/Mobile.css" rel="stylesheet" />
+    
     <link rel="stylesheet" href="../assets/admin/css/style.css">
     <link rel="stylesheet" href="../assets/admin/css/menustyle.css">
     <link rel="stylesheet" href="../assets/admin/css/dashboard.css">
@@ -261,7 +263,7 @@ font-style: italic;font-weight: bold;">"State Single<br /> Window System for<br 
                                     <asp:LinkButton ID="LinkCFODashBoard" runat="server" OnClick="LinkCFODashBoard_Click" class="nav-link"><i class="fi fi-br-operation"></i> Pre-Operational </asp:LinkButton>
                                 </li>
                                 <li class="nav-item">
-                                    <asp:LinkButton ID="linkINC" runat="server" class="nav-link"><i class="fi fi-br-tools"></i> Incentives </asp:LinkButton>
+                                    <asp:LinkButton ID="linkINC" runat="server" OnClick="linkINC_Click" class="nav-link"><i class="fi fi-br-tools"></i> Incentives </asp:LinkButton>
                                 </li>
                                 <li class="nav-item">
                                     <asp:LinkButton ID="LinkRENDashBoard" runat="server" OnClick="LinkRENDashBoard_Click" class="nav-link"><i class="fi fi-br-function-process"></i> Renewals </asp:LinkButton>

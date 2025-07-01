@@ -90,4 +90,38 @@ namespace MeghalayaAPI.Models
         [Range(1, int.MaxValue, ErrorMessage = "UserId must be a positive integer.")]
         public int Feasible { get; set; }
     }
+    public class Estimation
+    {
+        public string QuestionaryId { get; set; }
+        public string ApplicationRegNo { get; set; }
+        public string TotalAmount { get; set; }
+        public int? UserId { get; set; }
+        public string UserIp { get; set; }
+        public int? Status { get; set; }
+        public string Unitid { get; set; }
+        public string Investerid { get; set; }
+        public string Questionnaireid { get; set; }
+        public int Stage { get; set; }
+        public string ViewStatus { get; set; }
+        public string Remarks { get; set; }
+        public int? DeptId { get; set; }
+        public int? ApprovalId { get; set; }
+        public string AdditionalAmount { get; set; }
+        public string PrescrutinyRejectionFlag { get; set; }
+        public string DeptDesc { get; set; }
+        public string IPAddress { get; set; }
+        public string FilePath { get; set; }
+        public string FileName { get; set; }
+        public string FileType { get; set; }
+        public string FileDesc { get; set; }
+        public List<Components> lstComponents { get; set; }
+    }
+
+    public class Components
+    {
+        public string Order { get; set; }
+        public string Component { get; set; }
+        public string Amount { get; set; }
+    }
+
 }

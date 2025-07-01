@@ -254,5 +254,10 @@ namespace MeghalayaUIP.User
         {
             Response.Redirect("~/User/Services/SRVCAnnualReturns.aspx");
         }
+
+        protected void linkINC_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User/INCENTIVE/INCApplStatus.aspx");
+        }
     }
 }

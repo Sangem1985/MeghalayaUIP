@@ -50,8 +50,8 @@ namespace MeghalayaAPI.Controllers
          }*/
 
         [HttpPost]
-        [Route("UpdateCFEDepartmentProcess")]
-        public IHttpActionResult CFEDepartmentProcessUpdate([FromBody] CFEDtls model)
+        [Route("UpdateCFEDepartmentProcessDup")]
+        public IHttpActionResult CFEDepartmentProcessUpdateDup([FromBody] CFEDtls model)
         {
             try
             {
@@ -61,8 +61,8 @@ namespace MeghalayaAPI.Controllers
                 }
                 else
                 {
-                    int UnitID = GetUnitID(Convert.ToInt32(model.Questionnaireid));
-                    if (UnitID > 0)
+                    string UnitID = GetUnitID(Convert.ToInt32(model.Questionnaireid));
+                    if (Convert.ToInt32(UnitID) > 0)
                     {
                         model.Unitid = Convert.ToString(UnitID);
                     }
@@ -76,7 +76,13 @@ namespace MeghalayaAPI.Controllers
                 {
 
                     string valid = objcfeDtls.UpdateCFEDepartmentProcess(model);
-                    return Ok("Application Processed Successfully.");
+                    /*return Ok("Application Processed Successfully.");*/
+                    return Ok(new
+                    {
+                        status = 200,
+                        desc = "success",
+                        message = valid
+                    });
                 }
             }
             catch (Exception ex)
@@ -161,16 +167,16 @@ namespace MeghalayaAPI.Controllers
                 return InternalServerError(ex);
             }
         }
-        public int GetUnitID(int CFEQDID)
+        public string GetUnitID(int CFEQDID)
         {
             try
             {
-                int UnitID = 0;
+                string UnitID = "";
                 DataSet ds = new DataSet();
                 ds = _cfeprocessbal.GetUnitIDBasedonQDID(CFEQDID);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-
+                    UnitID = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNITID"]);
                 }
                 return UnitID;
             }
@@ -256,6 +262,84 @@ namespace MeghalayaAPI.Controllers
                 }
 
                 throw new Exception("Failed  " + response.StatusCode);
+            }
+        }
+        [HttpPost]
+        [Route("UpdateCFEDepartmentProcess")]
+        public IHttpActionResult CFEDepartmentProcessUpdate([FromBody] CFEDtls model)
+        {
+            try
+            {
+                string errormsg = "";
+                if (model == null)
+                {
+                    errormsg = "Invalid Data";
+                    return Content(HttpStatusCode.BadRequest, new { status = 400, desc = "failed", errors = errormsg });
+                }
+                else
+                {
+                    if (model.Questionnaireid != "")
+                    {
+                        model.status = 13;
+                        string UnitID = GetUnitID(Convert.ToInt32(model.Questionnaireid));
+                        if (Convert.ToInt32(UnitID) > 0)
+                        {
+                            model.Unitid = UnitID;
+                        }
+                        else
+                        {
+                            model.Unitid = "";
+                        }
+                    }
+                }
+                errormsg = validations.ValidateCFEFields(model);
+                if (errormsg.Trim().TrimStart() != "")
+                {
+                    return Content(HttpStatusCode.BadRequest, new { status = 400, desc = "failed", errors = errormsg });
+                }
+                else
+                {
+                    
+                    string Cfevalid = objcfeDtls.UpdateCFEDepartmentProcess(model);
+                    if (Convert.ToInt32(Cfevalid) > 0)
+                    {
+                        string valid = _cfeprocessbal.UpdateEstimationDetails(model);
+                        if (Convert.ToInt32(valid) > 0)
+                        {
+                            return Ok(new
+                            {
+                                status = 200,
+                                desc = "success",
+                                message = valid
+                            });
+                        }
+                        else
+                        {
+                            return Ok(new
+                            {
+                                status = 400,
+                                desc = "failed",
+                                message = valid
+                            });
+                        }
+                    }
+                    else
+                    {
+                        return Ok(new
+                        {
+                            status = 400,
+                            desc = "failed",
+                            message = "failed"
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.LogError(ex);
+                ErrorLog.LogData(Convert.ToString(ex), "UpdateCFEDepartmentProcess");
+                ErrorLog.LogerrorDB(ex, "UpdateCFEDepartmentProcess");
+                return InternalServerError(ex);
             }
         }
     }

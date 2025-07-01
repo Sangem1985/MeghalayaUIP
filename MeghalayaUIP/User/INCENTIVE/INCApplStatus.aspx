@@ -52,13 +52,13 @@
                             <br>
 
 
-                            <div class="table-responsive">
+                            <%--   <div class="table-responsive">
                                 <table class="table table-bordered text-center">
                                     <thead class="table-dark">
                                         <tr>
                                             <th>S.No</th>
                                             <%--  <th>Name of Approval</th>--%>
-                                            <th>Application No</th>
+                            <%--  <th>Application No</th>
                                             <th>Unit Name</th>
                                             <th>Applied Date</th>
                                             <th>View Application</th>
@@ -73,7 +73,7 @@
                                         <tr>
                                             <td>1</td>
                                             <%-- <td>Online single window system-Incentives</td>--%>
-                                            <td>INC/2025/102</td>
+                            <%-- <td>INC/2025/102</td>
                                             <td>TEST</td>
                                             <td>14-03-2025</td>
                                             <td><a href="#" target="_blank" style="color: blue; text-decoration: none;">View</a></td>
@@ -92,7 +92,12 @@
                                TabIndex="10" Text="Apply Again" Width="150px" />
                         </div>
                     </div>
-                            </div>
+                            </div>--%>
+                            <emptydatatemplate>
+                                <div align="center" style="text-align: center; padding: 20px;">
+                                    <b>There are no Registered Units Under MIPA, Please  <a href="../PreReg/IndustryRegistration.aspx" style="font-size: 20px; font-family: 'Bookman Old Style'">Click Here </a>to start Industry Registration.</b>
+                                </div>
+                            </emptydatatemplate>
                         </div>
                     </section>
                 </div>

@@ -715,6 +715,7 @@
     <Content Include="Timelines.aspx" />
     <Content Include="Tourism.aspx" />
     <Content Include="User\CFE\CFEApplDetails.aspx" />
+    <Content Include="User\CFE\CFECLUDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEDGSetDetails.aspx" />
     <Content Include="User\CFE\CFEDrawingPlanDetails.aspx" />
@@ -1794,6 +1795,13 @@
     </Compile>
     <Compile Include="User\CFE\CFEApplDetails.aspx.designer.cs">
       <DependentUpon>CFEApplDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFECLUDetails.aspx.cs">
+      <DependentUpon>CFECLUDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFECLUDetails.aspx.designer.cs">
+      <DependentUpon>CFECLUDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFECommonApplication.aspx.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
