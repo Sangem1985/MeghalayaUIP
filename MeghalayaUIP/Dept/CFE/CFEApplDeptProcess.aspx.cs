@@ -110,80 +110,50 @@ namespace MeghalayaUIP.Dept.CFE
                     Offlineverifypanel.Visible = false;
                 }
 
-                //Session["Questionnaireid"] = CFEQDID;
-                // Session["INVESTERID"] = InvesterID;
-                //Session["stage"] = stage;
-                // Session["UNITID"] = UnitID;
                 if (Session["UNITID"] != null && Session["INVESTERID"] != null)
                 {
                     DataSet ds = new DataSet();
-                    ds = objcfebal.GetCFEApplicationDetails(Session["UNITID"].ToString(), Session["INVESTERID"].ToString());
+                    ds = objcfebal.GetCFEApplicationDetails(Session["UNITID"].ToString(), Session["INVESTERID"].ToString(), ObjUserInfo.Deptid);
 
-                    if (ObjUserInfo.Deptid == "10") //Labour Details
-                    {
-                        LabourDet.Visible = true;
-                    }
-                    else { LabourDet.Visible = false; }
-
-                    if (ObjUserInfo.Deptid == "14") //POWER DETAILS
-                    {
-                        PowerDetails.Visible = true;
-                    }
-                    else { PowerDetails.Visible = false; }
-
-                    if (ObjUserInfo.Deptid == "9") //FIRE DETAILS
-                    {
-                        Fires.Visible = true;
-                    }
-                    else { Fires.Visible = false; }
 
                     if (ObjUserInfo.Deptid == "4") //FOREST DETAILS
                     {
                         ForestDet.Visible = true;
                     }
-                    else { ForestDet.Visible = false; }
-
-                    if (ObjUserInfo.Deptid == "12") //HAZARADOUS DETAILS
-                    {
-                        HazradousWaterDetails.Visible = true;
-                    }
-                    else { HazradousWaterDetails.Visible = false; }
-
-                    if (ObjUserInfo.Deptid == "13") //EXPLOSIVE DETAILS
-                    {
-                        Explosive.Visible = true;
-                    }
-                    else { Explosive.Visible = false; }
-
-                    if (ObjUserInfo.Deptid == "13") //FUEL DETAILS
-                    {
-                        FuelDet.Visible = true;
-                    }
-                    else { FuelDet.Visible = false; }
-
-                    if (ObjUserInfo.Deptid == "14") //DGSET DETAILS
-                    {
-                        DGSETDET.Visible = true;
-                    }
-                    else { DGSETDET.Visible = false; }
-
-                    if (ObjUserInfo.Deptid == "18") //CEIG DETAILS
-                    {
-                        CEIGDET.Visible = true;
-                    }
-                    else { CEIGDET.Visible = false; }
-
-                    if (ObjUserInfo.Deptid == "6") //TAX PROFESSIONAL DETAILS
-                    {
-                        TaxDet.Visible = true;
-                    }
-                    else { TaxDet.Visible = false; }
-
                     if (ObjUserInfo.Deptid == "5") //WATER DETAILS
                     {
                         waterConn.Visible = true;
                     }
-                    else { waterConn.Visible = false; }
+                    if (ObjUserInfo.Deptid == "6") //TAX PROFESSIONAL DETAILS
+                    {
+                        TaxDet.Visible = true;
+                    }
+                    if (ObjUserInfo.Deptid == "9") //FIRE DETAILS
+                    {
+                        Fires.Visible = true;
+                    }
+                    if (ObjUserInfo.Deptid == "10") //Labour Details
+                    {
+                        LabourDet.Visible = true;
+                    }
+                    if (ObjUserInfo.Deptid == "12") //HAZARADOUS DETAILS
+                    {
+                        HazradousWaterDetails.Visible = true;
+                    }
+                    if (ObjUserInfo.Deptid == "13")
+                    {
+                        Explosive.Visible = true;//EXPLOSIVE DETAILS
+                        FuelDet.Visible = true;//FUEL DETAILS
+                    }
+                    if (ObjUserInfo.Deptid == "14") //DGSET DETAILS
+                    {
+                        DGSETDET.Visible = true;
+                        PowerDetails.Visible = true; //POWER DETAILS
+                    }
+                    if (ObjUserInfo.Deptid == "18") //CEIG DETAILS
+                    {
+                        CEIGDET.Visible = true;
+                    }
 
 
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -381,33 +351,18 @@ namespace MeghalayaUIP.Dept.CFE
                         else { LabourDet.Visible = false; }
 
                     }
-
-                    if (LabourDet.Visible == true)
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
                     {
+                        GVLabour.DataSource = ds.Tables[5];
+                        GVLabour.DataBind();
                         divContrLabr.Visible = true;
-                        if (divContrLabr.Visible == true)
-                        {
-                            if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
-                            {
-                                GVLabour.DataSource = ds.Tables[5];
-                                GVLabour.DataBind();
-                            }
-                        }
-                        else { divContrLabr.Visible = false; }
-
-                        divMigrLabr.Visible = true;
-                        if (divMigrLabr.Visible == true)
-                        {
-                            if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
-                            {
-                                GVMigrant.DataSource = ds.Tables[6];
-                                GVMigrant.DataBind();
-                            }
-                        }
-                        else { divMigrLabr.Visible = false; }
                     }
-                    else { LabourDet.Visible = false; }
-
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
+                    {
+                        GVMigrant.DataSource = ds.Tables[6];
+                        GVMigrant.DataBind();
+                        divMigrLabr.Visible = true;
+                    }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
                     {
                         // PowerDetails.Visible = true;
@@ -430,12 +385,9 @@ namespace MeghalayaUIP.Dept.CFE
                             lblQuantum.Text = Convert.ToString(ds.Tables[7].Rows[0]["CFEPD_REQLOAD"]);
                             //   lblEngeryLaod.Text = Convert.ToString(ds.Tables[7].Rows[0]["ENERGYLOAD_NAME"]);
                         }
-                        else { PowerDetails.Visible = false; }
-
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
                     {
-                        //  Fires.Visible = true;
                         if (Fires.Visible == true)
                         {
                             //lblDistrics.Text = Convert.ToString(ds.Tables[8].Rows[0]["DistrictName"]);
@@ -460,16 +412,10 @@ namespace MeghalayaUIP.Dept.CFE
                             lblSouth.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_South"]);
                             lblbuildProp.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_DISTANCESOUTH"]);
                             lblFireStation.Text = Convert.ToString(ds.Tables[8].Rows[0]["CFEFD_FIRESTATION"]);
-
                         }
-                        else { Fires.Visible = false; }
-
-
-
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[9].Rows.Count > 0)
                     {
-                        // ForestDet.Visible = true;
                         if (ForestDet.Visible == true)
                         {
                             lblspice.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_SPECIES"]);
@@ -495,17 +441,10 @@ namespace MeghalayaUIP.Dept.CFE
                             lblApplication.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_PURPOSEAPPLICATION"]);
                             lblDivision.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_FORESTDIVISION"]);
                             lblinformation.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_INFORMATION"]);
-                        }
-                        else { ForestDet.Visible = false; }
-
-
-
-                        // 
-
+                        }                     
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[10].Rows.Count > 0)
                     {
-                        //  HazradousWaterDetails.Visible = true;
                         if (HazradousWaterDetails.Visible == true)
                         {
                             lblReqtrick.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_AUTHORIZATIONREQ"]);
@@ -515,14 +454,10 @@ namespace MeghalayaUIP.Dept.CFE
                             lblWastestored.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_QUANTITYSTOREDTIME"]);
                             lblYearProduct.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_YEAROFPRODUCTION"]);
                             lblindustrywork.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_INDUSTRYWORK"]);
-
-                        }
-                        else { HazradousWaterDetails.Visible = false; }
-
+                        }                       
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[11].Rows.Count > 0)
                     {
-                        // Explosive.Visible = true;
                         if (Explosive.Visible == true)
                         {
                             lblExplosive.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_EXPLOSIVESITE"]);
@@ -547,25 +482,18 @@ namespace MeghalayaUIP.Dept.CFE
                                 lblapprovalDet.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_APPROVALDETAILS"]);
                             }
                             lblRelevant.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_ANYINFORMATION"]);
-                        }
-                        else { Explosive.Visible = false; }
-
+                        }                       
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[12].Rows.Count > 0)
                     {
-                        //  Explosive.Visible = true;
                         if (Explosive.Visible == true)
                         {
                             GVEXPLOSIVE.DataSource = ds.Tables[12];
                             GVEXPLOSIVE.DataBind();
                         }
-                        else { Explosive.Visible = false; }
-
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[13].Rows.Count > 0)
                     {
-                        // FuelDet.Visible = true;
-
                         if (FuelDet.Visible == true)
                         {
                             lblPetrolNoc.Text = Convert.ToString(ds.Tables[13].Rows[0]["CFEPD_NOCPETROLPUMP"]);
@@ -591,7 +519,6 @@ namespace MeghalayaUIP.Dept.CFE
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[14].Rows.Count > 0)
                     {
-                        // DGSETDET.Visible = true;
                         if (DGSETDET.Visible == true)
                         {
                             lblDGSurveyNo.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_LOCDOORNO"]);
@@ -637,16 +564,10 @@ namespace MeghalayaUIP.Dept.CFE
                             lblMeggerNo.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MEGGERNO"]);
                             lblMake.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MEGGERMAKE"]);
                             lblRange.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MEGGERRANGE"]);
-                        }
-                        else { DGSETDET.Visible = false; }
-
-
-
-
+                        }                       
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[15].Rows.Count > 0)
                     {
-                        //  CEIGDET.Visible = true;
                         if (CEIGDET.Visible == true)
                         {
                             lblAlreadyInstall.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_ALREADYINSTALLED"]);
@@ -670,7 +591,6 @@ namespace MeghalayaUIP.Dept.CFE
                                 lblATC.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_CAPACITY"]);
                             }
 
-
                             lblLocatFactory.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_FACTORYLOCATION"]);
                             lblSurveyNo.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_SURVEYNO"]);
                             lblExtent.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_EXTENT"]);
@@ -683,15 +603,10 @@ namespace MeghalayaUIP.Dept.CFE
                             lblNaerest.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_NEARTELEPHONENO"]);
                             lblDateCommence.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_DATE"]);
 
-                        }
-                        else { CEIGDET.Visible = false; }
-
-
-
+                        }                       
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[16].Rows.Count > 0)
                     {
-                        //  TaxDet.Visible = true;
                         if (TaxDet.Visible == true)
                         {
                             lblTaxApplyAs.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_APPLYAS"]);
@@ -713,14 +628,10 @@ namespace MeghalayaUIP.Dept.CFE
                                 RegNo.Visible = true;
                                 lblTaxReNo.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_REGNO"]);
                             }
-                        }
-                        else { TaxDet.Visible = false; }
-
+                        }                       
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[17].Rows.Count > 0)
-                    {
-                        //  TaxDet.Visible = true;
-
+                    {                        
                         if (TaxDet.Visible == true)
                         {
                             GVState.DataSource = ds.Tables[17];
@@ -731,7 +642,6 @@ namespace MeghalayaUIP.Dept.CFE
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[18].Rows.Count > 0)
                     {
-                        // waterConn.Visible = true;
                         if (waterConn.Visible == true)
                         {
                             lblDrink.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_WATERDRINK"]);
@@ -782,8 +692,6 @@ namespace MeghalayaUIP.Dept.CFE
 
 
                             }
-                            else { CommercialWater.Visible = false; }
-
                         }
                     }
                     DataTable dt = new DataTable();
@@ -792,14 +700,15 @@ namespace MeghalayaUIP.Dept.CFE
                     {
                         dt.Merge(ds.Tables[19]);
                     }
-
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[20].Rows.Count > 0)
                     {
                         dt.Merge(ds.Tables[20]);
                     }
-                    grdcfeattachment.DataSource = dt;
-                    grdcfeattachment.DataBind();
-
+                    if (dt.Rows.Count > 0)
+                    {
+                        grdcfeattachment.DataSource = dt;
+                        grdcfeattachment.DataBind();
+                    }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[21].Rows.Count > 0)
                     {
                         grdApplStatus.DataSource = ds.Tables[21];
@@ -817,9 +726,7 @@ namespace MeghalayaUIP.Dept.CFE
                         grdQryAttachments.DataSource = ds.Tables[23];
                         grdQryAttachments.DataBind();
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
