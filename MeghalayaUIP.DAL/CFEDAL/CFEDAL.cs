@@ -3335,7 +3335,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
             return dt;
         }
 
-        public DataSet GetCFEApplicationDetails(string UnitID, string InvesterID)
+        public DataSet GetCFEApplicationDetails(string UnitID, string InvesterID, string DeptID)
         {
             DataSet ds = new DataSet();
             SqlConnection connection = new SqlConnection(connstr);
@@ -3353,6 +3353,9 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                if(DeptID!="")
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(DeptID));
+
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;

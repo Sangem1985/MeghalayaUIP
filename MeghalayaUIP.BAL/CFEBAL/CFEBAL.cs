@@ -265,9 +265,9 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetCFEDashBoardView(objCFE);
         }
-        public DataSet GetCFEApplicationDetails(string UnitID, string InvesterID)
+        public DataSet GetCFEApplicationDetails(string UnitID, string InvesterID, string DeptID)
         {
-            return objCFEDAL.GetCFEApplicationDetails(UnitID, InvesterID);
+            return objCFEDAL.GetCFEApplicationDetails(UnitID, InvesterID, DeptID);
         }
         public string UpdateCFEDepartmentProcess(CFEDtls Objcfedtls)
         {

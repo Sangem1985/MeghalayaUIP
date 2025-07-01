@@ -68,7 +68,7 @@ namespace MeghalayaUIP.User.CFE
                 if (Session["CFEUNITID"] != null && hdnUserID.Value != null)
                 {
                     DataSet ds = new DataSet();
-                    ds = objcfebal.GetCFEApplicationDetails(Convert.ToString(Session["CFEUNITID"]), hdnUserID.Value);
+                    ds = objcfebal.GetCFEApplicationDetails(Convert.ToString(Session["CFEUNITID"]), hdnUserID.Value, "");
                     if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
                         DataRow row = ds.Tables[0].Rows[0];
