@@ -204,7 +204,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">8. Fee Amount in Rs (Note: This is an aprrox. value. The amount may change tentatively)</label>
                                                     <div class="col-lg-2 d-flex">
-                                                        <asp:TextBox ID="txtAmount" runat="server" class="form-control" onkeypress="return validateAmount(event)" MaxLength="9" TabIndex="1" ></asp:TextBox>
+                                                        <asp:TextBox ID="txtAmount" runat="server" Text="0" class="form-control" onkeypress="return validateAmount(event)" MaxLength="9" TabIndex="1" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
