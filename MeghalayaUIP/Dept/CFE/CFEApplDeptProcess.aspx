@@ -41,7 +41,7 @@
             </div>
             <div class="card flex-fill">
 
-                <h4 class="mt-2 ml-4">View Details</h4>
+                <h4 class="mt-2 ml-4">View Details- Application ID: <asp:Label runat="server" ID="lblUID"></asp:Label></h4>
                 <div class="col-md-12 d-flex">
                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
@@ -3138,7 +3138,7 @@
                                     <div class="card-header">
                                         <h3>Attachments in Response to Query Raised</h3>
                                     </div>
-                                   <section id="dashboardQueryattachmnts">
+                                    <section id="dashboardQueryattachmnts">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
                                                 <div class="col-md-12">
@@ -3204,12 +3204,13 @@
 
                                                     <div class="table-responsive">
                                                         <asp:GridView ID="grdApplStatus" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-hover" ForeColor="#333333"
+                                                            BorderStyle="Solid" BorderWidth="1px" CellPadding="4"  ForeColor="#333333"
                                                             GridLines="Both" Width="100%" EnableModelValidation="True">
                                                             <RowStyle />
+                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
 
                                                             <Columns>
-                                                                <asp:TemplateField HeaderText="SI.No" ItemStyle-Width="3%">
+                                                                <asp:TemplateField HeaderText="Sl.No" ControlStyle-Width="10px" >
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <ItemStyle HorizontalAlign="Center" />
                                                                     <ItemTemplate>
@@ -3217,14 +3218,18 @@
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
 
-                                                                <asp:BoundField HeaderText="Department ID" DataField="Dept_Id" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                                <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" Visible="false" />
-                                                                <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Approval Name" DataField="ApprovalName" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Department ID" DataField="Dept_Id"   Visible="false" />
+                                                                <asp:BoundField HeaderText="Unit ID" DataField="PRDA_UNITID"  Visible="false" />
+                                                                <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME"  />
+                                                                <asp:BoundField HeaderText="Approval Name" DataField="ApprovalName"  />
+                                                                <asp:BoundField HeaderText="Application Date" DataField="CFEDA_DATEOFPAYMENT"   />
+                                                                <asp:BoundField HeaderText="Query Raised Date" DataField="CFDA_QUERYRAISEDATE"   />
+                                                                <asp:BoundField HeaderText="Query Responded Date" DataField="CFDA_QUERYRRESPONSEDATE"   />
+                                                                <asp:BoundField HeaderText="Additional Amount Paid Date" DataField="CFDA_DATEOFADDITIONALPAYMNET"   />
+                                                                <asp:BoundField HeaderText="Scrutiny Date" DataField="CFDA_SCRUTINYCMPLTDDATE"   />
+                                                                <asp:BoundField HeaderText="Approve/Rejection Date" DataField="CFDA_APPROVALCMPLTDDATE"   />
+                                                                <asp:BoundField HeaderText="Process Status" DataField="STATUSDESCRIPTION"  />
                                                             </Columns>
-                                                            <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                         </asp:GridView>
                                                     </div>
                                                 </div>
@@ -3316,12 +3321,6 @@
                                                 <td><b>Application No</b></td>
                                                 <td style="width: 150px"><b>Application Date</b></td>
                                                 <td style="width: 200px"><b>Select Action</b></td>
-                                                <td id="tdapproverejection" runat="server" visible="false"><b>
-                                                    <asp:Label runat="server" Text="Please Enter RejectionReason" ID="Label1"></asp:Label></b>
-                                                </td>
-                                                <td id="tdapprovalAction" runat="server" visible="false">
-                                                    <b>Submit Action</b>
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <%--  <td>
@@ -3338,21 +3337,15 @@
                                                     <asp:DropDownList ID="ddlapproval" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlapproval_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Text="Approve" Value="13"></asp:ListItem>
-                                                        <asp:ListItem Text="Rejected" Value="16"></asp:ListItem>
+                                                        <asp:ListItem Text="Reject" Value="16"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>
-                                                <td style="vertical-align: central" id="trrejection" runat="server" visible="false">
-                                                    <asp:TextBox ID="txtRejection" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                </td>
-                                                <td id="tdbtnreject" runat="server" visible="false">
-                                                    <asp:Button ID="btnreject" runat="server" Text="Submit" OnClick="btnreject_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
-                                                </td>
+
                                             </tr>
-                                            <tr id="trapproval" runat="server" visible="false">
+                                            <tr id="trApproval" runat="server" visible="false">
                                                 <td>
                                                     <label class="mt-2">Reference No :</label>
                                                 </td>
-
                                                 <td>
                                                     <asp:TextBox runat="server" ID="txtreferenceno" class="form-control mt-2" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                 </td>
@@ -3360,13 +3353,24 @@
                                                     <asp:FileUpload runat="server" ID="fuApproval" Width="300px" Font-Italic="true" Height="45px" CssClass="mt-2" />
                                                     <asp:Button runat="server" ID="btnUpldapproval" OnClick="btnUpldapproval_Click" Text="Upload" class="btn btn-rounded btn-dark btn-sm mt-2" Width="110px" />
                                                 </td>
-                                               <%-- <td colspan="2"></td>--%>
-                                                <td runat="server" id="tdhyperlink" visible="false">
+                                                <td>
                                                     <asp:HyperLink ID="hplApproval" runat="server" Target="_blank"></asp:HyperLink>
                                                 </td>
                                             </tr>
-                                            <tr id="trapprovalupload" runat="server" visible="false">
-                                                <%--<td>
+                                            <tr id="trRejection" runat="server" visible="false">
+                                                <td><b>
+                                                    <asp:Label runat="server" Text="Please Enter Rejection Reason"></asp:Label></b>
+                                                </td>
+                                                <td style="vertical-align: central">
+                                                    <asp:TextBox ID="txtRejection" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                </td>
+
+                                            </tr>
+                                            <%--<tr id="trapprovalupload" runat="server" visible="false">
+                                                <td id="tdbtnreject" runat="server" visible="false">
+                                                    <asp:Button ID="btnreject" runat="server" Text="Submit" OnClick="btnreject_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+                                                </td>   
+                                                <td>
                                                     <asp:FileUpload runat="server" ID="fuApproval" Width="300px" Font-Italic="true" Height="45px" />
                                                 </td>
                                                 <td>
@@ -3374,9 +3378,9 @@
                                                 </td>
                                                 <td runat="server" id="tdhyperlink" visible="false">
                                                     <asp:HyperLink ID="hplApproval" runat="server" Target="_blank"></asp:HyperLink>
-                                                </td>--%>
-                                            </tr>
-                                            <tr runat="server" id="TRAPPROVE" visible="false">
+                                                </td>
+                                            </tr>--%>
+                                            <tr runat="server" id="trSubmit" visible="false">
                                                 <td colspan="5">
                                                     <asp:Button ID="btnApprove" runat="server" Text="Submit" OnClick="btnApprove_Click" class="btn btn-rounded btn-submit btn-lg m-2" Width="150px" />
                                                 </td>

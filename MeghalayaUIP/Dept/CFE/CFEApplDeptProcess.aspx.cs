@@ -159,7 +159,7 @@ namespace MeghalayaUIP.Dept.CFE
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
                         lblnameUnit.Text = lblunitname1.Text = lblunitname1Approval.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_COMPANYNAME"]);
-                        lblApplNo.Text = lblApplNoApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CFEUIDNO"]);
+                        lblApplNo.Text= lblUID.Text = lblApplNoApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CFEUIDNO"]);
                         lblapplDate.Text = lblapplDateApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_CREATEDDATE"]);
 
                         lblconstitution.Text = Convert.ToString(ds.Tables[0].Rows[0]["CONST_TYPE"]);
@@ -441,7 +441,7 @@ namespace MeghalayaUIP.Dept.CFE
                             lblApplication.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_PURPOSEAPPLICATION"]);
                             lblDivision.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_FORESTDIVISION"]);
                             lblinformation.Text = Convert.ToString(ds.Tables[9].Rows[0]["CFEFD_INFORMATION"]);
-                        }                     
+                        }
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[10].Rows.Count > 0)
                     {
@@ -454,7 +454,7 @@ namespace MeghalayaUIP.Dept.CFE
                             lblWastestored.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_QUANTITYSTOREDTIME"]);
                             lblYearProduct.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_YEAROFPRODUCTION"]);
                             lblindustrywork.Text = Convert.ToString(ds.Tables[10].Rows[0]["CFEHWD_INDUSTRYWORK"]);
-                        }                       
+                        }
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[11].Rows.Count > 0)
                     {
@@ -482,7 +482,7 @@ namespace MeghalayaUIP.Dept.CFE
                                 lblapprovalDet.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_APPROVALDETAILS"]);
                             }
                             lblRelevant.Text = Convert.ToString(ds.Tables[11].Rows[0]["CFEED_ANYINFORMATION"]);
-                        }                       
+                        }
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[12].Rows.Count > 0)
                     {
@@ -564,7 +564,7 @@ namespace MeghalayaUIP.Dept.CFE
                             lblMeggerNo.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MEGGERNO"]);
                             lblMake.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MEGGERMAKE"]);
                             lblRange.Text = Convert.ToString(ds.Tables[14].Rows[0]["CFEDG_MEGGERRANGE"]);
-                        }                       
+                        }
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[15].Rows.Count > 0)
                     {
@@ -603,7 +603,7 @@ namespace MeghalayaUIP.Dept.CFE
                             lblNaerest.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_NEARTELEPHONENO"]);
                             lblDateCommence.Text = Convert.ToString(ds.Tables[15].Rows[0]["CFECD_DATE"]);
 
-                        }                       
+                        }
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[16].Rows.Count > 0)
                     {
@@ -628,10 +628,10 @@ namespace MeghalayaUIP.Dept.CFE
                                 RegNo.Visible = true;
                                 lblTaxReNo.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_REGNO"]);
                             }
-                        }                       
+                        }
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[17].Rows.Count > 0)
-                    {                        
+                    {
                         if (TaxDet.Visible == true)
                         {
                             GVState.DataSource = ds.Tables[17];
@@ -1023,33 +1023,28 @@ namespace MeghalayaUIP.Dept.CFE
                     }
                     // username = ObjUserInfo.UserName;
                 }
-                if (ddlapproval.SelectedValue == "16")
+                if (ddlapproval.SelectedValue != "0")
                 {
-                    tdbtnreject.Visible = true;
-                    tdapprovalAction.Visible = true;
-                    trapproval.Visible = false;
-                    trrejection.Visible = true;
-                    txtRejection.Visible = true;
-                    tdapproverejection.Visible = true;
-                    lblremarks.Text = "Please Enter Rejection Reason";
-                    tdapprovalAction.Visible = true;
-                    btnreject.Visible = true;
-                    btnApprove.Visible = false;
-                    TRAPPROVE.Visible = false;
+                    trSubmit.Visible = true;
+                    if (ddlapproval.SelectedValue == "16")
+                    {
+
+                        trApproval.Visible = false; txtreferenceno.Text = "";
+                        trRejection.Visible = true;
+
+                    }
+                    else
+                    {
+                        trApproval.Visible = true; txtRejection.Text = "";
+                        trRejection.Visible = false;
+                    }
                 }
                 else
                 {
-                    trapproval.Visible = true;
-                    trrejection.Visible = false;
-                    txtRejection.Visible = false;
-                    tdapproverejection.Visible = false;
-                    tdapprovalAction.Visible = false;
-                    btnreject.Visible = false;
-                    btnApprove.Visible = true;
-                    TRAPPROVE.Visible = true;
-                    tdbtnreject.Visible = false;
+                    trSubmit.Visible = false;
+                    trRejection.Visible = false; txtRejection.Text = "";
+                    trApproval.Visible = false; txtreferenceno.Text = "";
                 }
-
             }
             catch (Exception ex)
             {
@@ -1094,7 +1089,7 @@ namespace MeghalayaUIP.Dept.CFE
                         result = objcfebal.InsertCFEAttachments(objBldngPlan);
                         if (result != "")
                         {
-                            tdhyperlink.Visible = true;
+
                             hplApproval.Text = fuApproval.PostedFile.FileName;
                             hplApproval.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objBldngPlan.FilePath);
                             hplApproval.Target = "blank";
@@ -1188,22 +1183,13 @@ namespace MeghalayaUIP.Dept.CFE
                 }
                 if (ddlapproval.SelectedValue != "")
                 {
-                    if (ddlapproval.SelectedValue == "16")
+
+                    if ((ddlapproval.SelectedValue == "16") && (string.IsNullOrWhiteSpace(txtRejection.Text) || txtRejection.Text == "" || txtRejection.Text == null))
                     {
+                        string message = "alert('" + "Please Enter Rejection Reason" + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
 
-                        if ((ddlapproval.SelectedValue == "16") && (string.IsNullOrWhiteSpace(txtRejection.Text) || txtRejection.Text == "" || txtRejection.Text == null))
-                        {
-                            if (ddlapproval.SelectedValue == "16")
-                            {
-                                // lblmsg0.Text = "Please Enter Rejection Reason";
-                                //Failure.Visible = true;
-                                string message = "alert('" + "Please Enter Rejection Reason" + "')";
-                                ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-
-                                return;
-                            }
-
-                        }
+                        return;
                     }
                     else if (ddlapproval.SelectedValue == "13" && (hplApproval.Text == "" || txtreferenceno.Text.Trim() == ""))
                     {

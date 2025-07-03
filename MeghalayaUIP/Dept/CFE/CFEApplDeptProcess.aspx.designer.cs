@@ -33,6 +33,15 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.LinkButton lbtnBack;
 
         /// <summary>
+        /// lblUID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUID;
+
+        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -3507,33 +3516,6 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Approval;
 
         /// <summary>
-        /// tdapproverejection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdapproverejection;
-
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// tdapprovalAction control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdapprovalAction;
-
-        /// <summary>
         /// lblunitname1Approval control.
         /// </summary>
         /// <remarks>
@@ -3570,49 +3552,13 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.DropDownList ddlapproval;
 
         /// <summary>
-        /// trrejection control.
+        /// trApproval control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell trrejection;
-
-        /// <summary>
-        /// txtRejection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRejection;
-
-        /// <summary>
-        /// tdbtnreject control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdbtnreject;
-
-        /// <summary>
-        /// btnreject control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnreject;
-
-        /// <summary>
-        /// trapproval control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trapproval;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trApproval;
 
         /// <summary>
         /// txtreferenceno control.
@@ -3642,15 +3588,6 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.Button btnUpldapproval;
 
         /// <summary>
-        /// tdhyperlink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdhyperlink;
-
-        /// <summary>
         /// hplApproval control.
         /// </summary>
         /// <remarks>
@@ -3660,22 +3597,31 @@ namespace MeghalayaUIP.Dept.CFE
         protected global::System.Web.UI.WebControls.HyperLink hplApproval;
 
         /// <summary>
-        /// trapprovalupload control.
+        /// trRejection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trapprovalupload;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trRejection;
 
         /// <summary>
-        /// TRAPPROVE control.
+        /// txtRejection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow TRAPPROVE;
+        protected global::System.Web.UI.WebControls.TextBox txtRejection;
+
+        /// <summary>
+        /// trSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trSubmit;
 
         /// <summary>
         /// btnApprove control.
