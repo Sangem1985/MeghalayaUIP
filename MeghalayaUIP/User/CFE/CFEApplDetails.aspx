@@ -11,6 +11,12 @@
             padding: 3px 15px;
             margin: 0px 0px;
         }
+    
+span {
+    FONT-WEIGHT: 900 !important;
+}
+
+
     </style>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -95,7 +101,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4 d-flex">
-                                                                <div class="col-md-6">Mandalr</div>
+                                                                <div class="col-mdr-6">Mandal</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblMandal" runat="server"></asp:Label>
                                                                 </div>
@@ -553,6 +559,7 @@
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding1">
                                                             Road Cutting Details
+                                                       
                                                         </div>
                                                         <div class="col-md-12 mb-4 d-flex tablepadding1">
                                                             <div class="col-md-6">Length of road to be cut:(in mtrs)</div>
@@ -708,9 +715,9 @@
                                         </div>
 
 
-                                        <div class="row">
-                                            <div id="PowerDetails" runat="server" visible="false">
-                                                <div class="col-xl-8 col-sm-12 col-12">
+                                        <div class="row d-flex">
+                                            <div style="display: contents;">
+                                                <div class="col-xl-6 col-sm-12 col-12" id="PowerDetails" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -795,60 +802,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-xl-4 col-sm-12 col-12">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="col-md-12">
-                                                            <h5></h5>
-                                                            <hr />
-                                                        </div>
-
-                                                        <div class="col-md-12 d-flex tablepadding1">
-                                                            <div class="col-md-6"></div>
-                                                            <div class="col-md-6">
-                                                                <asp:Label ID="Label1" runat="server"></asp:Label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex tablepadding1">
-                                                            <div class="col-md-6"></div>
-                                                            <div class="col-md-6">
-                                                                <asp:Label ID="Label2" runat="server"></asp:Label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex tablepadding1">
-                                                            <div class="col-md-6"></div>
-                                                            <div class="col-md-6">
-                                                                <asp:Label ID="Label3" runat="server"></asp:Label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex tablepadding1">
-                                                            <div class="col-md-6"></div>
-                                                            <div class="col-md-6">
-                                                                <asp:Label ID="Label4" runat="server"></asp:Label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex tablepadding1">
-                                                            <div class="col-md-6"></div>
-                                                            <div class="col-md-6">
-                                                                <asp:Label ID="Label5" runat="server"></asp:Label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 d-flex tablepadding1">
-                                                            <div class="col-md-6"></div>
-                                                            <div class="col-md-6">
-                                                                <asp:Label ID="Label6" runat="server"></asp:Label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div id="waterConn" runat="server" visible="false">
-                                                <div class="col-xl-8 col-sm-12 col-12">
+                                                <div class="col-xl-6 col-sm-12 col-12" id="waterConn" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -905,6 +859,7 @@
                                                                     <div class="col-md-6 d-flex">
                                                                         <div class="col-md-6">
                                                                             Choose Available Tanker Capacity[In litres]										
+                                                                       
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <asp:Label ID="lblTankerCap" runat="server"></asp:Label>
@@ -1049,8 +1004,60 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="Pollutioncontrol" runat="server" visible="false">
-                                                <div class="col-xl-4 col-sm-12 col-12">
+
+                                            <%--  <div class="col-xl-4 col-sm-12 col-12">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="col-md-12">
+                                                            <h5></h5>
+                                                            <hr />
+                                                        </div>
+
+                                                        <div class="col-md-12 d-flex tablepadding1">
+                                                            <div class="col-md-6"></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="Label1" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex tablepadding1">
+                                                            <div class="col-md-6"></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="Label2" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex tablepadding1">
+                                                            <div class="col-md-6"></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="Label3" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex tablepadding1">
+                                                            <div class="col-md-6"></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="Label4" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex tablepadding1">
+                                                            <div class="col-md-6"></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="Label5" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 d-flex tablepadding1">
+                                                            <div class="col-md-6"></div>
+                                                            <div class="col-md-6">
+                                                                <asp:Label ID="Label6" runat="server"></asp:Label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>--%>
+                                        </div>
+
+
+                                        <div class="row d-flex">
+                                            <div style="display: contents;">
+                                                <div class="col-xl-6 col-sm-12 col-12" id="Pollutioncontrol" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -1093,6 +1100,7 @@
                                                             <div class="col-md-12 mb-5 d-flex tablepadding1">
                                                                 <div class="col-md-6">
                                                                     Year of commissioning and commence of production
+                                                               
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblYearProduct" runat="server"></asp:Label>
@@ -1107,13 +1115,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
 
-
-                                        <div class="row">
-                                            <div id="Fires" runat="server" visible="false">
-                                                <div class="col-xl-8 col-sm-12 col-12">
+                                                <div class="col-xl-6 col-sm-12 col-12" id="Fires" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -1243,6 +1246,7 @@
                                                                 <div class="col-md-6 d-flex">
                                                                     <div class="col-md-6">
                                                                         Distance from proposed Building (in meters) 
+                                                                   
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <asp:Label ID="lblDistanceprop" runat="server"></asp:Label>
@@ -1305,8 +1309,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="ForestDet" runat="server" visible="false">
-                                                <div class="col-xl-4 col-sm-12 col-12">
+                                        </div>
+
+                                        <div class="row d-flex">
+                                            <div style="display: contents;">
+                                                <div class="col-xl-6 col-sm-12 col-12" id="ForestDet" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -1465,12 +1472,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div id="LabourDet" runat="server" visible="false">
-                                                <div class="col-xl-12 col-sm-12 col-12">
+                                                <div class="col-xl-6 col-sm-12 col-12" id="LabourDet" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -1968,9 +1971,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div id="Explosive" runat="server" visible="false">
-                                                <div class="col-xl-8 col-sm-12 col-12">
+                                        <div class="row d-flex">
+                                            <div style="display: contents;">
+                                                <div class="col-xl-6 col-sm-12 col-12" id="Explosive" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -2080,9 +2083,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div id="FuelDet" runat="server" visible="false">
-                                                <div class="col-xl-4 col-sm-12 col-12">
+                                                <div class="col-xl-6 col-sm-12 col-12" id="FuelDet" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -2249,9 +2250,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div id="DGSETDET" runat="server" visible="false">
-                                                <div class="col-xl-8 col-sm-12 col-12">
+                                        <div class="row d-flex">
+                                            <div style="display: contents;">
+                                                <div class="col-xl-6 col-sm-12 col-12" id="DGSETDET" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -2395,6 +2396,7 @@
                                                                 <div class="col-md-6 d-flex">
                                                                     <div class="col-md-6">
                                                                         Expected Date of Completion of work
+                                                                   
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <asp:Label ID="lblExpectedCompletion" runat="server"></asp:Label>
@@ -2602,9 +2604,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row" style="padding-left: 20px" id="CEIGDET" runat="server" visible="false">
-                                                <div class="col-xl-4 col-sm-12 col-12">
+
+                                                <div class="col-xl-6 col-sm-12 col-12" id="CEIGDET" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -2757,8 +2758,8 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="row" style="padding-left: 20px" id="TaxDet" runat="server" visible="false">
-                                                <div class="col-xl-12 col-sm-12 col-12">
+                                            <div style="display: contents;">
+                                                <div class="col-xl-12 col-sm-12 col-12" id="TaxDet" runat="server" visiblefalsese">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">
@@ -2841,7 +2842,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-xl-8 col-sm-12 col-12">
+                                                                <div class="col-xl-12 col-sm-12 col-12">
                                                                     <div class="card">
                                                                         <div class="card-body">
                                                                             <div align="center">

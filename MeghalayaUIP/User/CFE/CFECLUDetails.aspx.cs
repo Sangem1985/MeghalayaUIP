@@ -107,7 +107,7 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (ddlCurrentLand.SelectedValue == "4")
+                if (ddlCurrentLand.SelectedValue == "10")
                 {
                     divOther.Visible = true;
                 }
