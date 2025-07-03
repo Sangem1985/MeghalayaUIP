@@ -508,7 +508,7 @@ namespace MeghalayaUIP.User.CFE
 
                     if (ds.Tables.Count > 0 && ds.Tables[16].Rows.Count > 0)
                     {
-                        TaxDet.Visible = true;
+                      //  TaxDet.Visible = true;
                         lblPTApplyAs.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_APPLYAS"]);
                         lblPTEstbAddress.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_ADDRESSEST"]);
                         lbPTEstbName.Text = Convert.ToString(ds.Tables[16].Rows[0]["CFEPT_NAMEEST"]);

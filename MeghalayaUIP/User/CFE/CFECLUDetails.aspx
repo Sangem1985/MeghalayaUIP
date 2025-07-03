@@ -130,10 +130,16 @@
                                                     <div class="col-lg-6">
                                                         <asp:DropDownList ID="ddlCurrentLand" runat="server" class="form-control" OnSelectedIndexChanged="ddlCurrentLand_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="--Select--" Value="0" />
-                                                            <asp:ListItem Text="Agricultural" Value="1" />
-                                                            <asp:ListItem Text="Residential" Value="2" />
-                                                            <asp:ListItem Text="Industrial" Value="3" />
-                                                            <asp:ListItem Text="Others" Value="4" />
+                                                            <asp:ListItem Text="Residential Building" Value="1" />
+                                                            <asp:ListItem Text="Residential Apartments" Value="2" />
+                                                            <asp:ListItem Text="Institutional buildings" Value="3" />
+                                                            <asp:ListItem Text="Commercial Building" Value="4" />
+                                                             <asp:ListItem Text="Public and Semi-Public Building" Value="5" />
+                                                             <asp:ListItem Text="Assembly Building" Value="6" />
+                                                             <asp:ListItem Text="Industrial Building" Value="7" />
+                                                             <asp:ListItem Text="Storage Building" Value="8" />
+                                                             <asp:ListItem Text="Hazardous Building" Value="9" />
+                                                            <asp:ListItem Text="Others" Value="10" />
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -145,10 +151,15 @@
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlLandProposed" runat="server" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0" />
-                                                            <asp:ListItem Text="Residential" Value="1" />
-                                                            <asp:ListItem Text="Commercial" Value="2" />
-                                                            <asp:ListItem Text="Industrial" Value="3" />
-                                                            <asp:ListItem Text="Institutional" Value="4" />
+                                                              <asp:ListItem Text="Residential Building" Value="1" />
+                                                            <asp:ListItem Text="Residential Apartments" Value="2" />
+                                                            <asp:ListItem Text="Institutional buildings" Value="3" />
+                                                            <asp:ListItem Text="Commercial Building" Value="4" />
+                                                             <asp:ListItem Text="Public and Semi-Public Building" Value="5" />
+                                                             <asp:ListItem Text="Assembly Building" Value="6" />
+                                                             <asp:ListItem Text="Industrial Building" Value="7" />
+                                                             <asp:ListItem Text="Storage Building" Value="8" />
+                                                             <asp:ListItem Text="Hazardous Building" Value="9" />
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
