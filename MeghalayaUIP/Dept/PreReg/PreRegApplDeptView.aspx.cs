@@ -50,7 +50,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 {
                     prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
                 }
-                prd.Role = Convert.ToInt32(ObjUserInfo.PreRegRoleid == null ? ObjUserInfo.Roleid : ObjUserInfo.PreRegRoleid);
+                prd.Role = Convert.ToInt32(ObjUserInfo.PreRegRoleid == "" ? ObjUserInfo.Roleid : ObjUserInfo.PreRegRoleid);
                 //Convert.ToInt32(ObjUserInfo.Roleid);
                 prd.UserID = ObjUserInfo.UserID;
                 dt = PreBAL.GetPreRegDashBoardView(prd);
