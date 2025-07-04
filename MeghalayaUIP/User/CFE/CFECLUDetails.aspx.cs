@@ -98,6 +98,54 @@ namespace MeghalayaUIP.User.CFE
 
 
                 }
+                if (ds.Tables[1].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                    {
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 55)
+                        {
+                            hypSaledeed.Visible = true;
+                            hypSaledeed.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                            hypSaledeed.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 56)
+                        {
+                            hypPatta.Visible = true;
+                            hypPatta.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                            hypPatta.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 57)
+                        {
+                            hypLand.Visible = true;
+                            hypLand.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                            hypLand.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 58)
+                        {
+                            hypLocation.Visible = true;
+                            hypLocation.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                            hypLocation.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 59)
+                        {
+                            hypAffidavit.Visible = true;
+                            hypAffidavit.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                            hypAffidavit.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 60)
+                        {
+                            hypNOC.Visible = true;
+                            hypNOC.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                            hypNOC.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 184)
+                        {
+                            hypLatitude.Visible = true;
+                            hypLatitude.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                            hypLatitude.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {

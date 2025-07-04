@@ -325,5 +325,14 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnLatitude" />
+            <asp:PostBackTrigger ControlID="btnNOC" />
+            <asp:PostBackTrigger ControlID="btnAffidavit" />
+            <asp:PostBackTrigger ControlID="btnLocation" />
+            <asp:PostBackTrigger ControlID="btnLand" />
+            <asp:PostBackTrigger ControlID="btnPatta" />
+            <asp:PostBackTrigger ControlID="btnSaledeed" />            
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>
