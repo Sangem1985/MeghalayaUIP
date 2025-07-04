@@ -636,7 +636,6 @@ namespace MeghalayaUIP.User.CFE
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
                 int slno = 1; string Error = "";
-                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
                 //if (Attachment.PostedFile.ContentType != "application/pdf"
                 //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
@@ -821,10 +820,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 int slno = 1;
-                string errormsg = "";
-                List<TextBox> emptyTextboxes = FindEmptyTextboxes(divText);
-                List<DropDownList> emptyDropdowns = FindEmptyDropdowns(divText);
-                List<RadioButtonList> emptyRadioButtonLists = FindEmptyRadioButtonLists(divText);
+                string errormsg = "";              
 
                 if (ddlForest.SelectedValue == "0" || ddlForest.SelectedValue == "--Select--")
                 {
@@ -1024,84 +1020,6 @@ namespace MeghalayaUIP.User.CFE
                 }
             }
         }
-        protected List<TextBox> FindEmptyTextboxes(Control container)
-        {
-
-            List<TextBox> emptyTextboxes = new List<TextBox>();
-            foreach (Control control in container.Controls)
-            {
-                if (control is TextBox)
-                {
-                    TextBox textbox = (TextBox)control;
-                    if (string.IsNullOrWhiteSpace(textbox.Text))
-                    {
-                        emptyTextboxes.Add(textbox);
-                        textbox.BorderColor = System.Drawing.Color.Red;
-                    }
-                }
-
-                if (control.HasControls())
-                {
-                    emptyTextboxes.AddRange(FindEmptyTextboxes(control));
-                }
-            }
-            return emptyTextboxes;
-        }
-        protected List<DropDownList> FindEmptyDropdowns(Control container)
-        {
-            List<DropDownList> emptyDropdowns = new List<DropDownList>();
-
-            foreach (Control control in container.Controls)
-            {
-                if (control is DropDownList)
-                {
-                    DropDownList dropdown = (DropDownList)control;
-                    if (string.IsNullOrWhiteSpace(dropdown.SelectedValue) || dropdown.SelectedValue == "" || dropdown.SelectedItem.Text == "--Select--" || dropdown.SelectedIndex == -1)
-                    {
-                        emptyDropdowns.Add(dropdown);
-                        dropdown.BorderColor = System.Drawing.Color.Red;
-                    }
-                }
-
-                if (control.HasControls())
-                {
-                    emptyDropdowns.AddRange(FindEmptyDropdowns(control));
-                }
-            }
-
-            return emptyDropdowns;
-        }
-        private List<RadioButtonList> FindEmptyRadioButtonLists(Control container)
-        {
-            List<RadioButtonList> emptyRadioButtonLists = new List<RadioButtonList>();
-
-            foreach (Control control in container.Controls)
-            {
-                if (control is RadioButtonList radioButtonList)
-                {
-                    if (string.IsNullOrWhiteSpace(radioButtonList.SelectedValue) || radioButtonList.SelectedIndex == -1)
-                    {
-                        emptyRadioButtonLists.Add(radioButtonList);
-
-                        radioButtonList.BorderColor = System.Drawing.Color.Red;
-                        radioButtonList.BorderWidth = Unit.Pixel(2);
-                        radioButtonList.BorderStyle = BorderStyle.Solid;
-                    }
-                    else
-                    {
-                        radioButtonList.BorderColor = System.Drawing.Color.Empty;
-                        radioButtonList.BorderWidth = Unit.Empty;
-                        radioButtonList.BorderStyle = BorderStyle.NotSet;
-                    }
-                }
-
-                if (control.HasControls())
-                {
-                    emptyRadioButtonLists.AddRange(FindEmptyRadioButtonLists(control));
-                }
-            }
-
-            return emptyRadioButtonLists;
-        }
+     
     }
 }

@@ -100,12 +100,12 @@ span {
                                                                     <asp:Label ID="lblLocation" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4 d-flex">
-                                                                <div class="col-mdr-6">Mandal</div>
+                                                              <div class="col-md-4 d-flex">
+                                                                <div class="col-md-6">Mandal</div>
                                                                 <div class="col-md-6">
                                                                     <asp:Label ID="lblMandal" runat="server"></asp:Label>
                                                                 </div>
-                                                            </div>
+                                                            </div>                                                       
                                                             <div class="col-md-4 d-flex">
                                                                 <div class="col-md-6">Village</div>
                                                                 <div class="col-md-6">
@@ -140,6 +140,7 @@ span {
                                                                     <asp:Label ID="lblActivity" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
+
                                                         </div>
                                                         <div class="col-md-12 d-flex tablepadding">
                                                             <div class="col-md-6 d-flex">
@@ -2759,7 +2760,7 @@ span {
 
                                         <div class="row">
                                             <div style="display: contents;">
-                                                <div class="col-xl-12 col-sm-12 col-12" id="TaxDet" runat="server" visiblefalsese">
+                                                <div class="col-xl-12 col-sm-12 col-12" id="TaxDet" runat="server" visible="false">
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="col-md-12">

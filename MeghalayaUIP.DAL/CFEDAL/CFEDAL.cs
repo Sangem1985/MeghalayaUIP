@@ -2518,13 +2518,34 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFECD_ALREADTINSTALL", ObjCFECEIG.INSTALLED);
                 com.Parameters.AddWithValue("@CFECD_PROPSE", ObjCFECEIG.PROPOSE);
                 com.Parameters.AddWithValue("@CFECD_TOTALS", Convert.ToInt32(ObjCFECEIG.TOTALS));
-                com.Parameters.AddWithValue("@CFECD_REGULATION", Convert.ToInt32(ObjCFECEIG.REGULATION));
-                com.Parameters.AddWithValue("@CFECD_VOLTAGE", Convert.ToInt32(ObjCFECEIG.voltage));
-                com.Parameters.AddWithValue("@CFECD_PLANT", Convert.ToInt32(ObjCFECEIG.Plant));
-                com.Parameters.AddWithValue("@CFECD_CAPACITY", Convert.ToDecimal(ObjCFECEIG.CAPACITY));
-                com.Parameters.AddWithValue("@CFECD_FACTORYLOCATION", ObjCFECEIG.LOCATIONFACTORY);
-                com.Parameters.AddWithValue("@CFECD_SURVEYNO", ObjCFECEIG.SURVEYNO);
-                com.Parameters.AddWithValue("@CFECD_EXTENT", Convert.ToDecimal(ObjCFECEIG.EXTENT));
+                if (ObjCFECEIG.REGULATION != null && ObjCFECEIG.REGULATION != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_REGULATION", Convert.ToInt32(ObjCFECEIG.REGULATION));
+                }
+                if (ObjCFECEIG.voltage != null && ObjCFECEIG.voltage != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_VOLTAGE", Convert.ToInt32(ObjCFECEIG.voltage));
+                }
+                if (ObjCFECEIG.Plant != null && ObjCFECEIG.Plant != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_PLANT", Convert.ToInt32(ObjCFECEIG.Plant));
+                }
+                if (ObjCFECEIG.CAPACITY != null && ObjCFECEIG.CAPACITY != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_CAPACITY", Convert.ToDecimal(ObjCFECEIG.CAPACITY));
+                }
+                if(ObjCFECEIG.LOCATIONFACTORY != null && ObjCFECEIG.LOCATIONFACTORY != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_FACTORYLOCATION", ObjCFECEIG.LOCATIONFACTORY);
+                }
+                if (ObjCFECEIG.SURVEYNO != null && ObjCFECEIG.SURVEYNO != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_SURVEYNO", ObjCFECEIG.SURVEYNO);
+                }
+                if (ObjCFECEIG.EXTENT != null && ObjCFECEIG.EXTENT != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_EXTENT", Convert.ToDecimal(ObjCFECEIG.EXTENT));
+                }
                 /*
                 com.Parameters.AddWithValue("@CFECD_DISTRIC", Convert.ToInt32(ObjCFECEIG.DISTRIC));
                 com.Parameters.AddWithValue("@CFECD_MANDAL ", Convert.ToInt32(ObjCFECEIG.MANDAL));
