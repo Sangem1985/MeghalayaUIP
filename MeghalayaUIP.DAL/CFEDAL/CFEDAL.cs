@@ -3415,23 +3415,26 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-                com.Parameters.AddWithValue("@UNITID", Objcfedtls.Unitid);
-                com.Parameters.AddWithValue("@CFEQDID", Objcfedtls.Questionnaireid);
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Objcfedtls.Unitid));
+                com.Parameters.AddWithValue("@CFEQDID", Convert.ToInt32(Objcfedtls.Questionnaireid));
                 if (Objcfedtls.deptid != null && Objcfedtls.deptid != 0)
                 {
-                    com.Parameters.AddWithValue("@DEPTID", Objcfedtls.deptid);
+                    com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(Objcfedtls.deptid));
                 }
-                com.Parameters.AddWithValue("@APPROVALID", Objcfedtls.ApprovalId);
-                com.Parameters.AddWithValue("@ACTIONID", Objcfedtls.status);
-                com.Parameters.AddWithValue("@REMARKS", Objcfedtls.Remarks);
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(Objcfedtls.ApprovalId));
+                com.Parameters.AddWithValue("@ACTIONID", Convert.ToInt32(Objcfedtls.status));
+                if (Objcfedtls.Remarks != null && Objcfedtls.Remarks != "")
+                {
+                    com.Parameters.AddWithValue("@REMARKS", Objcfedtls.Remarks);
+                }
                 com.Parameters.AddWithValue("@CFDA_SCRUTINYREJECTIONFLAG", Objcfedtls.PrescrutinyRejectionFlag);
                 if (Objcfedtls.AdditionalAmount != null && Objcfedtls.AdditionalAmount != "")
                 {
-                    com.Parameters.AddWithValue("@ADDLAMOUNT", Objcfedtls.AdditionalAmount);
+                    com.Parameters.AddWithValue("@ADDLAMOUNT", Convert.ToDecimal(Objcfedtls.AdditionalAmount));
                 }
 
                 com.Parameters.AddWithValue("@IPADDRESS", Objcfedtls.IPAddress);
-                com.Parameters.AddWithValue("@CREATEDBY", Objcfedtls.UserID);
+                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(Objcfedtls.UserID));
 
                 com.Parameters.AddWithValue("@FILEPATH", Objcfedtls.FilePath);
                 com.Parameters.AddWithValue("@FILENAME", Objcfedtls.FileName);

@@ -3294,7 +3294,7 @@
                                                 </td>
                                                 <td style="vertical-align: central" id="tdquryorrejTxtbx" runat="server" visible="false">
                                                     <asp:TextBox ID="txtRequest" runat="server" TextMode="MultiLine" Rows="3" Columns="50" Visible="false" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                    <asp:TextBox runat="server" ID="txtAdditionalAmount" Height="50px" Width="150px" onkeypress="return validateAmount(event)" Visible="false" onkeyup="handleKeyUp(this)" />
+                                                    <asp:TextBox runat="server" ID="txtAdditionalAmount" Height="50px" Width="150px" onkeypress="return validateNumberAndDot(event)" Visible="false" onkeyup="handleKeyUp(this)" />
                                                 </td>
                                                 <td id="tdInspReport1" runat="server" visible="false">
 
@@ -3461,6 +3461,6 @@
 
     <!-- /Main Wrapper -->
 
-    <!-- jQuery -->
-
+    <!-- jQuery -->    
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 </asp:Content>
