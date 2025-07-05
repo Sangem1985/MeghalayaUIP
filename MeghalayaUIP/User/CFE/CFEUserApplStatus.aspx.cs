@@ -136,7 +136,7 @@ namespace MeghalayaUIP.User.CFE
         {
             if (lblAddlPaymentReq.Text != "0")
             {
-                newurl = "~/User/Dashboard/Dashboardstatus.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=AddlPayment";
+                newurl = "~/User/CFE/CFEAddlPayment.aspx?UnitID=" + Convert.ToString(Session["CFEUNITID"]) + "&Type=AddlPayment";
                 Response.Redirect(newurl);
             }
         }

@@ -21,7 +21,8 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <h4 class="card-title">Pre-Establishment Applications
-                        <asp:Label ID="lblType" runat="server"></asp:Label></h4>
+                       
+                                <asp:Label ID="lblType" runat="server"></asp:Label></h4>
                             <h4 class="card-title">
                                 <label id="unitname" runat="server"></label>
                             </h4>
@@ -77,13 +78,16 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 d-flex">
-                                                    <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" EnableModelValidation="True" Width="100%">
+                                                    <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" EnableModelValidation="True" Width="100%" OnRowDataBound="grdTrackerDetails_RowDataBound">
                                                         <HeaderStyle BackColor="#3b4474" ForeColor="White" />
                                                         <AlternatingRowStyle />
                                                         <Columns>
                                                             <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="S.No">
                                                                 <ItemTemplate>
                                                                     <%# Container.DataItemIndex +1 %>
+                                                                    <asp:HiddenField ID="HdfQueid" runat="server" />
+                                                                    <asp:HiddenField ID="HdfApprovalid" runat="server" />
+                                                                    <asp:HiddenField ID="HdfDeptid" runat="server" />
                                                                 </ItemTemplate>
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
@@ -94,7 +98,7 @@
                                                                 <HeaderTemplate>
                                                                     <div style="text-align: center">
                                                                         Select All<br />
-                                                                        <asp:CheckBox ID="chkHeader" runat="server" />
+                                                                        <asp:CheckBox ID="chkHeader" runat="server" onclick="myheadcheck(this)" />
                                                                     </div>
                                                                 </HeaderTemplate>
                                                                 <ItemTemplate>
@@ -110,7 +114,20 @@
                                                                     <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("CFDA_ADDITONALFEE") %>'></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:BoundField HeaderText="Date of Application" DataField="DATEOFAPPLICATION" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Date of Additional Raise" DataField="ADDLRAISEDATE" ItemStyle-HorizontalAlign="Center" />
+
+                                                            <asp:TemplateField HeaderText="Department" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label runat="server" ID="lblDeptId" Text='<%#Eval("CFEDA_DEPTID")%>' Visible="false"></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+
+                                                            <asp:TemplateField HeaderText="Approval" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label runat="server" ID="lblApprovalId" Text='<%#Eval("CFEDA_APPROVALID")%>' Visible="false"></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+
 
 
 
@@ -133,6 +150,10 @@
                                                     </asp:GridView>
 
                                                 </div>
+                                                <div class="col-md-6">
+                                                    &nbsp;
+ 
+                                                </div>
                                                 <div class="col-md-6 mt-3">
                                                     <!-- <div class="col-md-12 mt-3 d-flex" id="padding"> -->
 
@@ -145,6 +166,7 @@
                                                                 <label class="form-check-label" id="lblPaymentAmount" runat="server">
                                                                     0
                  
+                                                               
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -164,7 +186,7 @@
                                                 </div>
                                                 <br />
                                                 <div class="col-md-12 text-center">
-                                                    <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                                    <asp:Button ID="btnPay" runat="server" Text="Pay" OnClick="btnPay_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
                                                 </div>
 
                                             </div>
@@ -176,6 +198,20 @@
                     </div>
                 </div>
             </div>
+            <script>
+
+                function myheadcheck(btn) {
+
+                    var bolChecked = $(btn).is(':checked')
+
+                    MyTable = $('#<%= grdTrackerDetails.ClientID %>')
+                    MyCheckBoxs = MyTable.find('input:checkbox')
+                    MyCheckBoxs.each(function () {
+                        $(this).prop('checked', bolChecked)
+                    })
+                }
+
+  </script>
             <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
                 <ProgressTemplate>
                     <div class="update">
@@ -185,4 +221,5 @@
         </ContentTemplate>
 
     </asp:UpdatePanel>
+
 </asp:Content>
