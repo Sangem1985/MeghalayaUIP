@@ -303,24 +303,36 @@ namespace MeghalayaAPI.Controllers
                     string Cfevalid = objcfeDtls.UpdateCFEDepartmentProcess(model);
                     if (Convert.ToInt32(Cfevalid) > 0)
                     {
-                        string valid = _cfeprocessbal.UpdateEstimationDetails(model);
-                        if (Convert.ToInt32(valid) > 0)
-                        {
-                            return Ok(new
-                            {
-                                status = 200,
-                                desc = "success",
-                                message = valid
-                            });
-                        }
-                        else
+                        if (Convert.ToInt32(Cfevalid) == 2)
                         {
                             return Ok(new
                             {
                                 status = 400,
                                 desc = "failed",
-                                message = valid
+                                message = "Duplicate Request"
                             });
+                        }
+                        else
+                        {
+                            string valid = _cfeprocessbal.UpdateEstimationDetails(model);
+                            if (Convert.ToInt32(valid) > 0)
+                            {
+                                return Ok(new
+                                {
+                                    status = 200,
+                                    desc = "success",
+                                    message = valid
+                                });
+                            }
+                            else
+                            {
+                                return Ok(new
+                                {
+                                    status = 400,
+                                    desc = "failed",
+                                    message = valid
+                                });
+                            }
                         }
                     }
                     else
