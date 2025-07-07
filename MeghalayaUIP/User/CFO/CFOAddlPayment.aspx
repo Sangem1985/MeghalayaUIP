@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOTracker.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOTracker" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOAddlPayment.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOAddlPayment" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,6 +10,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title">Pre-Operational Applications 
+                       
                         <asp:Label ID="lblType" runat="server"></asp:Label></h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>
@@ -39,7 +40,7 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="col-md-12 row mt-4">
+                                        <div class="col-md-12 row mt-4" runat="server" visible="false">
                                             <div class="col-md-2">1. Unit ID</div>
 
                                             <div class="col-md-3 fw-bold text-info">
@@ -52,7 +53,7 @@
                                                 <spna class="dots">:</spna><asp:Label ID="lblDOA" runat="server"></asp:Label>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 row mt-2 mb-4">
+                                        <div class="col-md-12 row mt-2 mb-4" runat="server" visible="false">
                                             <div class="col-md-2">2. Unit Name</div>
 
                                             <div class="col-md-3 fw-bold text-info">
@@ -68,8 +69,8 @@
 
 
                                         <div class="col-md-12 d-flex">
-                                            <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTrackerDetails_RowDataBound"
-                                                OnRowCreated="grdTrackerDetails_RowCreated" EnableModelValidation="True" Width="100%">
+                                            <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False"
+                                                EnableModelValidation="True" Width="100%">
                                                 <HeaderStyle BackColor="#3b4474" ForeColor="White" />
                                                 <AlternatingRowStyle />
                                                 <Columns>
@@ -78,6 +79,19 @@
                                                             <%# Container.DataItemIndex +1 %>
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Center" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField
+                                                        ItemStyle-HorizontalAlign="Center"
+                                                        HeaderStyle-Width="70px">
+                                                        <HeaderTemplate>
+                                                            <div style="text-align: center">
+                                                                Select All<br />
+                                                                <asp:CheckBox ID="chkHeader" runat="server" onclick="myheadcheck(this)" />
+                                                            </div>
+                                                        </HeaderTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:CheckBox ID="chkSel" AutoPostBack="true" runat="server" />
+                                                        </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:BoundField HeaderText="Name of Approval" DataField="ApprovalName" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                                                     <asp:BoundField HeaderText="Date of Application" DataField="DATEOFAPPLICATION" ItemStyle-HorizontalAlign="Center" />
@@ -133,6 +147,13 @@
                     </div>
                 </section>
             </div>
+
+
         </div>
+
+
+
+
+
     </div>
 </asp:Content>

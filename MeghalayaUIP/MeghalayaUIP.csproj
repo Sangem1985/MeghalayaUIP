@@ -748,6 +748,7 @@
     <Content Include="User\CFE\CFEUserDashboard.aspx" />
     <Content Include="User\CFE\CFEWaterDetails.aspx" />
     <Content Include="User\CFE\demo.aspx" />
+    <Content Include="User\CFO\CFOAddlPayment.aspx" />
     <Content Include="User\CFO\CFOApplDetails.aspx" />
     <Content Include="User\CFO\CFOBusinessLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOCombinedApplication.aspx" />
@@ -2027,6 +2028,13 @@
     </Compile>
     <Compile Include="User\CFE\demo.aspx.designer.cs">
       <DependentUpon>demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOAddlPayment.aspx.cs">
+      <DependentUpon>CFOAddlPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOAddlPayment.aspx.designer.cs">
+      <DependentUpon>CFOAddlPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFOApplDetails.aspx.cs">
       <DependentUpon>CFOApplDetails.aspx</DependentUpon>

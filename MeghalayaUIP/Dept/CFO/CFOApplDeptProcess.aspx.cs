@@ -228,6 +228,7 @@ namespace MeghalayaUIP.Dept.CFO
                         if (lblAffected.Text == "Yes")
                         {
                             divAffectArea.Visible = true;
+                          //  divAffectArea1.Visible = true;
                             lblExtend.Text = ds.Tables[1].Rows[0]["CFOID_AFFECTEDRDAREA"].ToString();
                         }
 
