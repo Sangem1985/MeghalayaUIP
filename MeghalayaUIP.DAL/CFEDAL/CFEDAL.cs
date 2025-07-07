@@ -3256,6 +3256,57 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
+        public string InsAddlPaymentDetails(CFEPayments objpay)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.INSADDLPaymentDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFEPD_UNITID", Convert.ToInt32(objpay.UNITID));
+                com.Parameters.AddWithValue("@CFEPD_CFEQDID", Convert.ToInt32(objpay.Questionnareid));
+                com.Parameters.AddWithValue("@CFEPD_UIDNO", objpay.CFEUID);
+                com.Parameters.AddWithValue("@CFEPD_DEPTID", objpay.DeptID);
+                com.Parameters.AddWithValue("@CFEPD_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
+                com.Parameters.AddWithValue("@CFEPD_ONLINEORDERNO", objpay.OnlineOrderNo);
+                com.Parameters.AddWithValue("@CFEPD_ONLINEAMOUNT", Convert.ToDecimal(objpay.OnlineOrderAmount));
+                com.Parameters.AddWithValue("@CFEPD_PAYMENTFLAG", objpay.PaymentFlag);
+                com.Parameters.AddWithValue("@CFEPD_TRANSACTIONNO", objpay.TransactionNo);
+                com.Parameters.AddWithValue("@CFEPD_BANKNAME", objpay.BankName);
+                com.Parameters.AddWithValue("@CFEPD_TRANSACTIONDATE", objpay.TransactionDate);
+                com.Parameters.AddWithValue("@CFEPD_CRETAEDBY", Convert.ToInt32(objpay.CreatedBy));
+                com.Parameters.AddWithValue("@CFEPD_CRETAEDBYIP", objpay.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
         //-------------------------- DEPARTMENT STARTED HERE -------------------//
 
         public DataTable GetCFEDashBoard(CFEDtls objCFE)

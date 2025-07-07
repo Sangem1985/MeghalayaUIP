@@ -714,6 +714,7 @@
     <Content Include="ThirdPartyVerificationAckSlip.aspx" />
     <Content Include="Timelines.aspx" />
     <Content Include="Tourism.aspx" />
+    <Content Include="User\CFE\CFEAddlPayment.aspx" />
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECLUDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
@@ -1788,6 +1789,13 @@
     </Compile>
     <Compile Include="Tourism.aspx.designer.cs">
       <DependentUpon>Tourism.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEAddlPayment.aspx.cs">
+      <DependentUpon>CFEAddlPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEAddlPayment.aspx.designer.cs">
+      <DependentUpon>CFEAddlPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEApplDetails.aspx.cs">
       <DependentUpon>CFEApplDetails.aspx</DependentUpon>
