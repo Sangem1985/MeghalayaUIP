@@ -565,6 +565,7 @@ namespace MeghalayaUIP.Common
         public string TransactionNo { get; set; }
         public string TransactionDate { get; set; }
         public string BankName { get; set; }
+        public string CFOAdditionalFlag { get; set; }
 
     }
     public class CFODtls

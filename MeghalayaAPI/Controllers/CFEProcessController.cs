@@ -138,6 +138,15 @@ namespace MeghalayaAPI.Controllers
                                 message = valid
                             });
                         }
+                        if (Convert.ToInt32(valid) == 26)
+                        {
+                            return Ok(new
+                            {
+                                status = 400,
+                                desc = "Invalid QuestionaryId",
+                                message = valid
+                            });
+                        }
                         else
                         {
                             return Ok(new
@@ -176,7 +185,7 @@ namespace MeghalayaAPI.Controllers
                 ds = _cfeprocessbal.GetUnitIDBasedonQDID(CFEQDID);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    UnitID = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_UNITID"]);
+                    UnitID = Convert.ToString(ds.Tables[0].Rows[0]["CFEDA_UNITID"]);
                 }
                 return UnitID;
             }
@@ -282,13 +291,15 @@ namespace MeghalayaAPI.Controllers
                     {
                         model.status = 13;
                         string UnitID = GetUnitID(Convert.ToInt32(model.Questionnaireid));
-                        if (Convert.ToInt32(UnitID) > 0)
+
+                        if (UnitID != "" && UnitID != null)
                         {
                             model.Unitid = UnitID;
                         }
                         else
                         {
-                            model.Unitid = "";
+                            errormsg = "Invalid Questionnaireid";
+                            return Content(HttpStatusCode.BadRequest, new { status = 400, desc = "failed", errors = errormsg });
                         }
                     }
                 }
@@ -303,24 +314,36 @@ namespace MeghalayaAPI.Controllers
                     string Cfevalid = objcfeDtls.UpdateCFEDepartmentProcess(model);
                     if (Convert.ToInt32(Cfevalid) > 0)
                     {
-                        string valid = _cfeprocessbal.UpdateEstimationDetails(model);
-                        if (Convert.ToInt32(valid) > 0)
-                        {
-                            return Ok(new
-                            {
-                                status = 200,
-                                desc = "success",
-                                message = valid
-                            });
-                        }
-                        else
+                        if (Convert.ToInt32(Cfevalid) == 2)
                         {
                             return Ok(new
                             {
                                 status = 400,
                                 desc = "failed",
-                                message = valid
+                                message = "Duplicate Request"
                             });
+                        }
+                        else
+                        {
+                            string valid = _cfeprocessbal.UpdateEstimationDetails(model);
+                            if (Convert.ToInt32(valid) > 0)
+                            {
+                                return Ok(new
+                                {
+                                    status = 200,
+                                    desc = "success",
+                                    message = valid
+                                });
+                            }
+                            else
+                            {
+                                return Ok(new
+                                {
+                                    status = 400,
+                                    desc = "failed",
+                                    message = valid
+                                });
+                            }
                         }
                     }
                     else

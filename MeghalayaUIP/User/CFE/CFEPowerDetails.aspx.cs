@@ -383,7 +383,7 @@ namespace MeghalayaUIP.User.CFE
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                     DataSet dss = new DataSet();
-                    //dss = GetDataPower();
+                    dss = GetDataPower();
                     if (dss.Tables.Count>0 && dss.Tables[0].Rows.Count > 0)
                     {
                         string RegNo = Post(dss);
@@ -1348,7 +1348,9 @@ namespace MeghalayaUIP.User.CFE
                     Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
                     IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
                     CreatedBy = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
-                    /*    lstDocuments = new[]
+                    CreatorName= Convert.ToString(ds.Tables[0].Rows[0]["CFEID_COMPANYNAME"]),
+                    MIPA_ApplicationID= Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_CFEQDID"]),
+                    lstDocuments = new[]
                     {
                     new {
                         documantId = 2,
@@ -1360,7 +1362,7 @@ namespace MeghalayaUIP.User.CFE
                         documentName = "Proof of Identification",
                         document_path = "doc2.pdf"
                     }
-                    }*/
+                    }
                 };
                 var json = JsonConvert.SerializeObject(requestBody);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");

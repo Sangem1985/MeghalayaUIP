@@ -260,6 +260,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetCFECLUDETAILS(userid, UnitID);
         }
+        public string InsAddlPaymentDetails(CFEPayments objpay)
+        {
+            return objCFEDAL.InsAddlPaymentDetails(objpay);
+        }
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 
         public DataTable GetCFEDashBoard(CFEDtls objCFE)

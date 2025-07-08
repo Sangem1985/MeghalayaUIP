@@ -184,7 +184,7 @@
                                                         <asp:FileUpload ID="fupSaledeed" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnSaledeed" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnSaledeed" OnClick="btnSaledeed_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:HyperLink ID="hypSaledeed" runat="server" Target="_blank"></asp:HyperLink>
@@ -202,7 +202,7 @@
                                                         <asp:FileUpload ID="fupPatta" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnPatta" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnPatta" OnClick="btnPatta_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:HyperLink ID="hypPatta" runat="server" Target="_blank"></asp:HyperLink>
@@ -220,7 +220,7 @@
                                                         <asp:FileUpload ID="fupLand" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnLand" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnLand" OnClick="btnLand_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:HyperLink ID="hypLand" runat="server" Target="_blank"></asp:HyperLink>
@@ -239,7 +239,7 @@
                                                         <asp:FileUpload ID="fupLocation" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnLocation" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnLocation" OnClick="btnLocation_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:HyperLink ID="hypLocation" runat="server" Target="_blank"></asp:HyperLink>
@@ -257,7 +257,7 @@
                                                         <asp:FileUpload ID="fupAffidavit" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnAffidavit" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnAffidavit" OnClick="btnAffidavit_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:HyperLink ID="hypAffidavit" runat="server" Target="_blank"></asp:HyperLink>
@@ -275,7 +275,7 @@
                                                         <asp:FileUpload ID="fupNOC" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnNOC" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnNOC" OnClick="btnNOC_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:HyperLink ID="hypNOC" runat="server" Target="_blank"></asp:HyperLink>
@@ -293,7 +293,7 @@
                                                         <asp:FileUpload ID="fupLatitude" runat="server" />
                                                     </div>
                                                     <div class="col-lg-1 d-flex">
-                                                        <asp:Button Text="Upload" runat="server" ID="btnLatitude" class="btn btn-rounded btn-dark mb-4" Width="150px" />
+                                                        <asp:Button Text="Upload" runat="server" ID="btnLatitude" OnClick="btnLatitude_Click" class="btn btn-rounded btn-dark mb-4" Width="150px" />
                                                     </div>
                                                     <div class="col-lg-3 d-flex">
                                                         <asp:HyperLink ID="hypLatitude" runat="server" Target="_blank"></asp:HyperLink>
@@ -325,5 +325,14 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnLatitude" />
+            <asp:PostBackTrigger ControlID="btnNOC" />
+            <asp:PostBackTrigger ControlID="btnAffidavit" />
+            <asp:PostBackTrigger ControlID="btnLocation" />
+            <asp:PostBackTrigger ControlID="btnLand" />
+            <asp:PostBackTrigger ControlID="btnPatta" />
+            <asp:PostBackTrigger ControlID="btnSaledeed" />            
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

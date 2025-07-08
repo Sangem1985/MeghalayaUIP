@@ -134,6 +134,8 @@ namespace MeghalayaAPI.DAL
                 da.SelectCommand.Connection = connection;
 
                 da.SelectCommand.Parameters.AddWithValue("@CFEQDID", Convert.ToInt32(CFEQDID));
+                da.SelectCommand.Parameters.AddWithValue("@APPROVALID", 4);
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", 14);
 
                 da.Fill(ds);
                 transaction.Commit();

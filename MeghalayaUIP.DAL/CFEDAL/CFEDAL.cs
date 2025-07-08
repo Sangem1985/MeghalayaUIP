@@ -2565,13 +2565,34 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFECD_ALREADTINSTALL", ObjCFECEIG.INSTALLED);
                 com.Parameters.AddWithValue("@CFECD_PROPSE", ObjCFECEIG.PROPOSE);
                 com.Parameters.AddWithValue("@CFECD_TOTALS", Convert.ToInt32(ObjCFECEIG.TOTALS));
-                com.Parameters.AddWithValue("@CFECD_REGULATION", Convert.ToInt32(ObjCFECEIG.REGULATION));
-                com.Parameters.AddWithValue("@CFECD_VOLTAGE", Convert.ToInt32(ObjCFECEIG.voltage));
-                com.Parameters.AddWithValue("@CFECD_PLANT", Convert.ToInt32(ObjCFECEIG.Plant));
-                com.Parameters.AddWithValue("@CFECD_CAPACITY", Convert.ToDecimal(ObjCFECEIG.CAPACITY));
-                com.Parameters.AddWithValue("@CFECD_FACTORYLOCATION", ObjCFECEIG.LOCATIONFACTORY);
-                com.Parameters.AddWithValue("@CFECD_SURVEYNO", ObjCFECEIG.SURVEYNO);
-                com.Parameters.AddWithValue("@CFECD_EXTENT", Convert.ToDecimal(ObjCFECEIG.EXTENT));
+                if (ObjCFECEIG.REGULATION != null && ObjCFECEIG.REGULATION != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_REGULATION", Convert.ToInt32(ObjCFECEIG.REGULATION));
+                }
+                if (ObjCFECEIG.voltage != null && ObjCFECEIG.voltage != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_VOLTAGE", Convert.ToInt32(ObjCFECEIG.voltage));
+                }
+                if (ObjCFECEIG.Plant != null && ObjCFECEIG.Plant != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_PLANT", Convert.ToInt32(ObjCFECEIG.Plant));
+                }
+                if (ObjCFECEIG.CAPACITY != null && ObjCFECEIG.CAPACITY != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_CAPACITY", Convert.ToDecimal(ObjCFECEIG.CAPACITY));
+                }
+                if(ObjCFECEIG.LOCATIONFACTORY != null && ObjCFECEIG.LOCATIONFACTORY != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_FACTORYLOCATION", ObjCFECEIG.LOCATIONFACTORY);
+                }
+                if (ObjCFECEIG.SURVEYNO != null && ObjCFECEIG.SURVEYNO != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_SURVEYNO", ObjCFECEIG.SURVEYNO);
+                }
+                if (ObjCFECEIG.EXTENT != null && ObjCFECEIG.EXTENT != "")
+                {
+                    com.Parameters.AddWithValue("@CFECD_EXTENT", Convert.ToDecimal(ObjCFECEIG.EXTENT));
+                }
                 /*
                 com.Parameters.AddWithValue("@CFECD_DISTRIC", Convert.ToInt32(ObjCFECEIG.DISTRIC));
                 com.Parameters.AddWithValue("@CFECD_MANDAL ", Convert.ToInt32(ObjCFECEIG.MANDAL));
@@ -3282,6 +3303,57 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
+        public string InsAddlPaymentDetails(CFEPayments objpay)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.INSADDLPaymentDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFEPD_UNITID", Convert.ToInt32(objpay.UNITID));
+                com.Parameters.AddWithValue("@CFEPD_CFEQDID", Convert.ToInt32(objpay.Questionnareid));
+                com.Parameters.AddWithValue("@CFEPD_UIDNO", objpay.CFEUID);
+                com.Parameters.AddWithValue("@CFEPD_DEPTID", objpay.DeptID);
+                com.Parameters.AddWithValue("@CFEPD_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
+                com.Parameters.AddWithValue("@CFEPD_ONLINEORDERNO", objpay.OnlineOrderNo);
+                com.Parameters.AddWithValue("@CFEPD_ONLINEAMOUNT", Convert.ToDecimal(objpay.OnlineOrderAmount));
+                com.Parameters.AddWithValue("@CFEPD_PAYMENTFLAG", objpay.PaymentFlag);
+                com.Parameters.AddWithValue("@CFEPD_TRANSACTIONNO", objpay.TransactionNo);
+                com.Parameters.AddWithValue("@CFEPD_BANKNAME", objpay.BankName);
+                com.Parameters.AddWithValue("@CFEPD_TRANSACTIONDATE", objpay.TransactionDate);
+                com.Parameters.AddWithValue("@CFEPD_CRETAEDBY", Convert.ToInt32(objpay.CreatedBy));
+                com.Parameters.AddWithValue("@CFEPD_CRETAEDBYIP", objpay.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
         //-------------------------- DEPARTMENT STARTED HERE -------------------//
 
         public DataTable GetCFEDashBoard(CFEDtls objCFE)
@@ -3441,23 +3513,26 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-                com.Parameters.AddWithValue("@UNITID", Objcfedtls.Unitid);
-                com.Parameters.AddWithValue("@CFEQDID", Objcfedtls.Questionnaireid);
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Objcfedtls.Unitid));
+                com.Parameters.AddWithValue("@CFEQDID", Convert.ToInt32(Objcfedtls.Questionnaireid));
                 if (Objcfedtls.deptid != null && Objcfedtls.deptid != 0)
                 {
-                    com.Parameters.AddWithValue("@DEPTID", Objcfedtls.deptid);
+                    com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(Objcfedtls.deptid));
                 }
-                com.Parameters.AddWithValue("@APPROVALID", Objcfedtls.ApprovalId);
-                com.Parameters.AddWithValue("@ACTIONID", Objcfedtls.status);
-                com.Parameters.AddWithValue("@REMARKS", Objcfedtls.Remarks);
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(Objcfedtls.ApprovalId));
+                com.Parameters.AddWithValue("@ACTIONID", Convert.ToInt32(Objcfedtls.status));
+                if (Objcfedtls.Remarks != null && Objcfedtls.Remarks != "")
+                {
+                    com.Parameters.AddWithValue("@REMARKS", Objcfedtls.Remarks);
+                }
                 com.Parameters.AddWithValue("@CFDA_SCRUTINYREJECTIONFLAG", Objcfedtls.PrescrutinyRejectionFlag);
                 if (Objcfedtls.AdditionalAmount != null && Objcfedtls.AdditionalAmount != "")
                 {
-                    com.Parameters.AddWithValue("@ADDLAMOUNT", Objcfedtls.AdditionalAmount);
+                    com.Parameters.AddWithValue("@ADDLAMOUNT", Convert.ToDecimal(Objcfedtls.AdditionalAmount));
                 }
 
                 com.Parameters.AddWithValue("@IPADDRESS", Objcfedtls.IPAddress);
-                com.Parameters.AddWithValue("@CREATEDBY", Objcfedtls.UserID);
+                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(Objcfedtls.UserID));
 
                 com.Parameters.AddWithValue("@FILEPATH", Objcfedtls.FilePath);
                 com.Parameters.AddWithValue("@FILENAME", Objcfedtls.FileName);

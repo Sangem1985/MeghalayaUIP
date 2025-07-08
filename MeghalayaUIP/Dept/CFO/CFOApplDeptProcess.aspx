@@ -601,7 +601,7 @@
                                                             <asp:Label ID="lblAffected" runat="server"></asp:Label>
                                                         </div>
 
-                                                        <div runat="server" id="divAffectArea" visible="false">
+                                                        <div class="col-md-6 d-flex" runat="server" id="divAffectArea" visible="false">
                                                             <div class="col-md-2">
                                                                 <label>11. Extend of affected area in sq.mts</label>
                                                             </div>
@@ -834,7 +834,7 @@
                                                                 <spna class="dots">:</spna><asp:Label ID="lblBoiler1950" runat="server"></asp:Label>
                                                             </div>
 
-                                                            <div id="Approved" runat="server" visible="false" class="col-md-4">
+                                                            <div class="col-md-6 d-flex" id="Approved" runat="server" visible="false">
                                                                 <div class="col-md-2">
                                                                     <label>14. Provide Details</label>
                                                                 </div>
@@ -971,7 +971,7 @@
                                                             <div class="col-md-2">
                                                                 <spna class="dots">:</spna><asp:Label ID="lblOwnership" runat="server"></asp:Label>
                                                             </div>
-                                                            <div id="RemarkTransfer" runat="server" visible="false" class="col-md-4">
+                                                            <div class="col-md-4 d-flex" id="RemarkTransfer" runat="server" visible="false">
                                                                 <div class="col-md-2">
                                                                     <label>Remarks (Transfers etc.) </label>
                                                                 </div>
@@ -2599,7 +2599,7 @@
 
                                                             <asp:TemplateField HeaderText="View">
                                                                 <ItemTemplate>
-                                                                    <asp:HyperLink runat="server" ID="hplApplied" Target="_blank" Text='<%#Eval("CFEA_FILENAME")%>' NavigateUrl='<%#Eval("FILENAME")%>' />
+                                                                    <asp:HyperLink runat="server" ID="hplApplied" Target="_blank" Text='<%#Eval("CFOA_FILENAME")%>' NavigateUrl='<%#Eval("FILENAME")%>' />
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
@@ -2823,7 +2823,7 @@
                                                     <asp:Label ID="lblapplDate" runat="server"></asp:Label>
                                                 </td>
                                                 <td style="width: 200px">
-                                                    <asp:DropDownList ID="ddlStatus" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                                                    <asp:DropDownList ID="ddlStatus" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged" onchange="validateDropdown(this)">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Text="Completed" Value="12"></asp:ListItem>
                                                         <asp:ListItem Text="Completed with Payment Request" Value="11"></asp:ListItem>
@@ -3002,5 +3002,5 @@
     <!-- /Main Wrapper -->
 
     <!-- jQuery -->
-
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 </asp:Content>

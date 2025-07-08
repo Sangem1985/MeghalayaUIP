@@ -2,25 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script type="text/javascript">
-        function handleKeyUp(input) {
-            if (input.value.trim() === "") {
-                input.style.border = "2px solid red";
-            } else {
-                input.style.border = "1px solid #767575b5";
-            }
-        }
-        function validateDropdown(dropdown) {
-
-            if (dropdown.value === "0") {
-                dropdown.style.border = "2px solid red";
-                dropdown.focus();
-            } else {
-                dropdown.style.border = "1px solid #767575b5";
-            }
-        }
-    </script>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
         div#ContentPlaceHolder1_divManf {
@@ -76,7 +58,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Line of Activity<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlLineOfActivity" runat="server" class="form-control" Enabled="false" onchange="validateDropdown(this)">
+                                                        <asp:DropDownList ID="ddlLineOfActivity" runat="server" class="form-control" Enabled="false">
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -90,7 +72,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. Name of Product <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtManfItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtManfItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -98,7 +80,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. Annual Manufacturing Capacity (in Tons)<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtManfAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtManfAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -106,7 +88,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">3. Approx. Value in Lakhs<span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtManfValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            <asp:TextBox ID="txtManfValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -122,7 +104,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 text-center">
-                                                    <asp:Button ID="btnAddLOM" Text="Add Details" runat="server" OnClick="btnAddLOM_Click" class="btn btn-rounded btn-green" Width="110px" />
+                                                    <asp:Button ID="btnAddLOM" Text="Add Details" runat="server" OnClick="btnAddLOM_Click" class="btn btn-rounded btn-green" Width="110px"/>
                                                 </div>
                                             </div>
                                             <br />
@@ -154,7 +136,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">1. Name of major raw material  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRMItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRMItemName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" ></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -162,7 +144,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">2. Annual Manufacturing Capacity (in Tons)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRMAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRMAnnualCapacity" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -173,7 +155,7 @@
                                                     <label class="col-lg-6 col-form-label">
                                                         3. Appox. value (₹ in lakhs) <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRMValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="9" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRMValue" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="9"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -181,13 +163,13 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">4. Source(s) of supply<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtRMSource" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRMSource" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200" ></asp:TextBox>
                                                     </div>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <asp:Button ID="btnaddRM" Text="Add Details" runat="server" OnClick="btnaddRM_Click" class="btn btn-rounded btn-green" Width="110px" />
+                                                <asp:Button ID="btnaddRM" Text="Add Details" runat="server" OnClick="btnaddRM_Click" class="btn btn-rounded btn-green" Width="110px"/>
                                             </div>
                                         </div>
 

@@ -220,6 +220,16 @@ namespace MeghalayaAPI.Validations
                     ErrorMsg = ErrorMsg + slno + ". Please provide valid Amount \\n";
                     slno = slno + 1;
                 }
+                decimal result;
+                if (decimal.TryParse(doc.Amount, out result))
+                {
+
+                }
+                else
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please provide valid Amount in Decimal or Int only \\n";
+                    slno = slno + 1;
+                }
                 if (string.IsNullOrWhiteSpace(doc.Component) || doc.Component == "" || doc.Component == null)
                 {
                     ErrorMsg = ErrorMsg + slno + ". Please provide valid Component \\n";

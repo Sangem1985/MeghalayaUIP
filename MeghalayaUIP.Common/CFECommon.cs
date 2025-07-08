@@ -95,6 +95,7 @@ namespace MeghalayaUIP.Common
         public static string GetPowerDetailsAPI = "UPS_GETPOWERAPIDETAILS";
         public static string InsertCFECLUDETAILS = "USP_INSCFECHANGELANDDETAILS";
         public static string GetChangeofLandDetails = "USP_GETCFECHANGELANDDETAILS";
+        public static string INSADDLPaymentDetails = "USP_INSCFEPAYMENTDETAILS_ADDLRAISE";
         /// <summary>
         /// DEPARTMENT STARTED
         /// </summary>
@@ -725,7 +726,7 @@ namespace MeghalayaUIP.Common
         public string PaymentFlag { get; set; }
         public string TransactionNo { get; set; }
         public string TransactionDate { get; set; }
-        public string BankName { get; set; }
+        public string BankName { get; set; }      
 
     }
     public class CFEAttachments
