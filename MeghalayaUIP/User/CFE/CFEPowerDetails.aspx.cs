@@ -387,7 +387,7 @@ namespace MeghalayaUIP.User.CFE
                     dss = GetDataPower();
                     if (dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
                     {
-                        string RegNo = Post(dss);
+                        string RegNo =   Post(dss);//="113207250008,Application Submitted Successfully";
                         if (RegNo != "")
                         {
                             string[] Appstatus = RegNo.Split(',');
