@@ -138,6 +138,15 @@ namespace MeghalayaAPI.Controllers
                                 message = valid
                             });
                         }
+                        if (Convert.ToInt32(valid) == 26)
+                        {
+                            return Ok(new
+                            {
+                                status = 400,
+                                desc = "Invalid QuestionaryId",
+                                message = valid
+                            });
+                        }
                         else
                         {
                             return Ok(new
