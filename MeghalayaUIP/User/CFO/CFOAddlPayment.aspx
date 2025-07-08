@@ -11,6 +11,8 @@
                 <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title">Pre-Operational Applications 
                        
+                       
+
                         <asp:Label ID="lblType" runat="server"></asp:Label></h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>
@@ -37,6 +39,8 @@
                                 </div>
                             </div>
                             <asp:HiddenField ID="hdnUserID" runat="server" />
+                            <asp:HiddenField ID="hdnQuesID" runat="server" />
+                            <asp:HiddenField ID="hdnUIDNo" runat="server" />
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
@@ -69,7 +73,7 @@
 
 
                                         <div class="col-md-12 d-flex">
-                                            <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False"
+                                            <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTrackerDetails_RowDataBound"
                                                 EnableModelValidation="True" Width="100%">
                                                 <HeaderStyle BackColor="#3b4474" ForeColor="White" />
                                                 <AlternatingRowStyle />
@@ -90,55 +94,85 @@
                                                             </div>
                                                         </HeaderTemplate>
                                                         <ItemTemplate>
-                                                            <asp:CheckBox ID="chkSel" AutoPostBack="true" runat="server" />
+                                                            <asp:CheckBox ID="chkSel" AutoPostBack="true" OnCheckedChanged="chkSel_CheckedChanged" runat="server" />
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:BoundField HeaderText="Name of Approval" DataField="ApprovalName" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
-                                                    <asp:BoundField HeaderText="Date of Application" DataField="DATEOFAPPLICATION" ItemStyle-HorizontalAlign="Center" />
-                                                    <asp:TemplateField HeaderText="Date of Payment" ItemStyle-HorizontalAlign="Center">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="hplPayment" Text='<%#Eval("DATEOFPAYMENT")%>' Target="_blank" runat="server" ItemStyle-HorizontalAlign="Center" />
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Query Raised Date" ItemStyle-HorizontalAlign="Center">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="hplQuery" Text='<%#Eval("DATEOFQUERY")%>' Target="_blank" runat="server" />
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Response to Query Date">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="hplQueryResponse" Text='<%#Eval("DATEOFQUERYRRESPONSE")%>' Target="_blank" runat="server" />
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Date of Scrutiny Completion ">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="lblScrutiny" Text='<%#Eval("DATEOFSCRUTINY")%>' runat="server" Visible="true" ItemStyle-HorizontalAlign="Center"></asp:HyperLink>
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Date of Additional Payment">
-                                                        <ItemTemplate>
-                                                            <asp:HyperLink ID="hplAddlPmntDate" Text='<%#Eval("DATEOFADDLPAYMENT")%>' Target="_blank" runat="server" />
-                                                        </ItemTemplate>
-                                                        <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>
 
-                                                    <asp:BoundField DataField="" HeaderText="Date of Receival For Approval" />
+                                                    <asp:BoundField HeaderText="Name of Approval" DataField="ApprovalName" ItemStyle-Width="40%" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
+                                                    <asp:BoundField HeaderText="Name of Department" DataField="CFO_DEPTNAME" ItemStyle-Width="20%" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
+                                                    <%--<asp:BoundField HeaderText="Addl Payment Amount" DataField="CFDA_ADDITONALFEE" ItemStyle-HorizontalAlign="Center" />--%>
+                                                    <asp:TemplateField HeaderText="Addl Payment Amount" ItemStyle-Width="30%">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("CFODA_ADDITONALFEE") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:BoundField HeaderText="Date of Additional Raise" DataField="ADDLRAISEDATE" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="30%" />
+
+                                                    <asp:TemplateField HeaderText="Department" Visible="false">
+                                                        <ItemTemplate>
+                                                            <asp:Label runat="server" ID="lblDeptId" Text='<%#Eval("CFODA_DEPTID")%>' Visible="false"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Approval" Visible="false">
+                                                        <ItemTemplate>
+                                                            <asp:Label runat="server" ID="lblApprovalId" Text='<%#Eval("CFODA_APPROVALID")%>' Visible="false"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+
+
+                                                    <%--<asp:BoundField DataField="" HeaderText="Date of Receival For Approval" />
                                                     <asp:BoundField DataField="DATEOFCOMPLETION" HeaderText="Date of Completion" ItemStyle-HorizontalAlign="Center" />
                                                     <asp:TemplateField HeaderText="Status">
                                                         <ItemTemplate>
                                                             <%--<asp:HyperLink ID="HyperLinkSubsidy" Text='<%#Eval("Status of Approval Approved Rejected")%>'
                                                         NavigateUrl='<%#Eval("ApprovalDocNEW")%>' Target="_blank" runat="server" />--%>
-                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' NavigateUrl='<%#Eval("ApprovalDoc")%>' Target="_blank" runat="server" Visible="true"></asp:HyperLink>
+                                                    <%-- <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' NavigateUrl='<%#Eval("ApprovalDoc")%>' Target="_blank" runat="server" Visible="true"></asp:HyperLink>
                                                         </ItemTemplate>
                                                         <ItemStyle HorizontalAlign="Center" Width="100px" />
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
                                                 </Columns>
                                             </asp:GridView>
 
+                                        </div>
+                                        <div class="col-md-6">
+                                            &nbsp;
+ 
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <!-- <div class="col-md-12 mt-3 d-flex" id="padding"> -->
+
+
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Total Payment Amount</label>
+                                                <div class="col-lg-8 d-flex">
+                                                    <div class="form-check form-check-inline">
+
+                                                        <label class="form-check-label" id="lblPaymentAmount" runat="server">
+                                                            0
+                 
+                                                               
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <label class="col-lg-3 col-form-label">Payment Type</label>
+                                                <div class="col-lg-8 d-flex">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="gender" id="gender_female" value="option1" checked="">
+                                                        <label class="form-check-label" for="gender_female">
+                                                            <b>HDFC Payment Gateway</b>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <!-- </div> -->
+
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="col-md-12 text-center">
+                                            <asp:Button ID="btnPay" runat="server" Text="Pay" OnClick="btnPay_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
                                         </div>
                                     </div>
                                 </div>
@@ -147,13 +181,20 @@
                     </div>
                 </section>
             </div>
-
-
         </div>
-
-
-
-
-
     </div>
+    <script>
+
+        function myheadcheck(btn) {
+
+            var bolChecked = $(btn).is(':checked')
+
+            MyTable = $('#<%= grdTrackerDetails.ClientID %>')
+            MyCheckBoxs = MyTable.find('input:checkbox')
+            MyCheckBoxs.each(function () {
+                $(this).prop('checked', bolChecked)
+            })
+        }
+
+  </script>
 </asp:Content>

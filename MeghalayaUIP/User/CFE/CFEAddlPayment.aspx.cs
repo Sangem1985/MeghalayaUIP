@@ -258,12 +258,12 @@ namespace MeghalayaUIP.User.CFE
         {
             CheckBox chkHeaderCheck = (CheckBox)sender;
 
-            foreach (GridViewRow gRow in grdTrackerDetails.Rows) 
+            foreach (GridViewRow gRow in grdTrackerDetails.Rows)
             {
                 CheckBox ckRowSel = (CheckBox)gRow.FindControl("chkSel");
                 ckRowSel.Checked = chkHeaderCheck.Checked;
             }
         }
 
-   }
+    }
 }

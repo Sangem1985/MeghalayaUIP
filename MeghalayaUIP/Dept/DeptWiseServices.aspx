@@ -55,7 +55,7 @@
                                                     <div>
                                                         <asp:GridView ID="gvDptpg" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                                                             BorderStyle="Solid" BorderWidth="1px" CssClass="table-bordered table-hover" ForeColor="#333333"
-                                                            GridLines="Both" Width="100%" EnableModelValidation="True"
+                                                            GridLines="Both" Width="100%" EnableModelValidation="True" OnRowDataBound="gvDptpg_RowDataBound"
                                                             ShowFooter="true" OnLoad="Page_Load">
                                                             <RowStyle />
                                                             <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />

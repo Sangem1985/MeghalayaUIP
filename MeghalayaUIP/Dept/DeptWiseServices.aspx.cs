@@ -73,5 +73,61 @@ namespace MeghalayaUIP.Dept
 
             }
         }
+
+        protected void gvDptpg_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DataRowView drv = (DataRowView)e.Row.DataItem;
+
+                // SOP
+                HyperLink hlSOP = (HyperLink)e.Row.FindControl("hplViewSOP");
+                string sopPath = Convert.ToString(drv["IW_SOP"]);
+                SetDocumentLink(hlSOP, sopPath);
+
+                // Rules and Regulations
+                HyperLink hlRules = (HyperLink)e.Row.FindControl("hplRulesandReg");
+                string rulesPath = Convert.ToString(drv["IW_RULESANDREGL"]);
+                SetDocumentLink(hlRules, rulesPath);
+
+                // Prerequisites
+                HyperLink hlPreReq = (HyperLink)e.Row.FindControl("hplPrerequisites");
+                string preReqPath = Convert.ToString(drv["IW_PREREQUISITES"]);
+                SetDocumentLink(hlPreReq, preReqPath);
+
+                // Application Form Format
+                HyperLink hlAppForm = (HyperLink)e.Row.FindControl("hplApplForm");
+                string appFormPath = Convert.ToString(drv["IW_APPLFORMAT"]);
+                SetDocumentLink(hlAppForm, appFormPath);
+            }
+        }
+        private void SetDocumentLink(HyperLink link, string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                link.Text = "Not Available";
+                link.NavigateUrl = "";
+                link.Style["color"] = "gray";
+                link.Enabled = false;
+            }
+            else
+            {
+                string cleanPath = path.StartsWith("Dept/") ? path.Substring(5) : path;
+
+                string fullPath = Server.MapPath("~/" + cleanPath);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    link.NavigateUrl = "~/" + cleanPath;
+                }
+                else
+                {
+                    link.Text = "Not Available";
+                    link.NavigateUrl = "";
+                    link.Style["color"] = "gray";
+                    link.Enabled = false;
+                }
+            }
+        }
+
     }
 }

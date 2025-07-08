@@ -801,6 +801,11 @@ namespace MeghalayaUIP.Dept.CFO
                         lblremarks.Text = "Please Enter Query Details";
                         //Payment.Visible = false;
                         txtAdditionalAmount.Visible = false;
+                        tdInspReport.Visible = false;
+                        tdInspReport1.Visible = false;
+                        txtAdditionalAmount.Text = "";
+                        txtRequest.Text = "";
+
                     }
                     else if (ddlStatus.SelectedValue == "17")
                     {
@@ -810,6 +815,10 @@ namespace MeghalayaUIP.Dept.CFO
                         lblremarks.Text = "Please Enter Rejection Reason";
                         //Payment.Visible = false;
                         txtAdditionalAmount.Visible = false;
+                        tdInspReport1.Visible = false;
+                        tdInspReport.Visible = false;
+                        txtAdditionalAmount.Text = "";
+                        txtRequest.Text = "";
                     }
                     else if (ddlStatus.SelectedValue == "11")
                     {
@@ -819,6 +828,8 @@ namespace MeghalayaUIP.Dept.CFO
                         tdquryorrej.Visible = true;
                         tdquryorrejTxtbx.Visible = true;
                         txtRequest.Visible = false;
+                        txtRequest.Text = "";
+
                     }
                 }
                 else if (ddlStatus.SelectedValue == "12")
@@ -827,6 +838,9 @@ namespace MeghalayaUIP.Dept.CFO
                     tdquryorrejTxtbx.Visible = false; //td
                     tdInspReport.Visible = true;
                     tdInspReport1.Visible = true;
+                    txtRequest.Text = "";
+                    txtAdditionalAmount.Text = "";
+
                 }
                 else
                 {
