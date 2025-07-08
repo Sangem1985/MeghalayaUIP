@@ -144,7 +144,7 @@ namespace MeghalayaAPI.Controllers
                             {
                                 status = 400,
                                 desc = "Invalid QuestionaryId",
-                                message = valid
+                                message = "failed"
                             });
                         }
                         else
