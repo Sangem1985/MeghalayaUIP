@@ -172,6 +172,10 @@ namespace MeghalayaUIP.BAL.CFOBAL
         }
         public DataSet GetUserCFOApplStatus(string Userid, string UNITID)
         { return objCFODAL.GetUserCFOApplStatus(Userid, UNITID); }
+        public string INSPaymentDetailsCFOAddl(CFOPayments objpay)
+        {
+            return objCFODAL.INSPaymentDetailsCFOAddl(objpay);
+        }
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
 
         public DataTable GetCFODashBoard(CFODtls objCFO)

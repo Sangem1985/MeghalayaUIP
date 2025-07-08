@@ -72,7 +72,7 @@
                                         </div>
 
 
-                                        <div class="col-md-12 d-flex">
+                                        <div class="col-md-12 d-flex justify-content-center">
                                             <asp:GridView ID="grdTrackerDetails" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTrackerDetails_RowDataBound"
                                                 EnableModelValidation="True" Width="100%">
                                                 <HeaderStyle BackColor="#3b4474" ForeColor="White" />
@@ -86,7 +86,7 @@
                                                     </asp:TemplateField>
                                                     <asp:TemplateField
                                                         ItemStyle-HorizontalAlign="Center"
-                                                        HeaderStyle-Width="70px">
+                                                        HeaderStyle-Width="100px">
                                                         <HeaderTemplate>
                                                             <div style="text-align: center">
                                                                 Select All<br />
@@ -106,17 +106,17 @@
                                                             <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("CFODA_ADDITONALFEE") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:BoundField HeaderText="Date of Additional Raise" DataField="ADDLRAISEDATE" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="30%" />
+                                                    <asp:BoundField HeaderText="Date of Additional Raise" DataField="ADDLRAISEDATE" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="40%" />
 
                                                     <asp:TemplateField HeaderText="Department" Visible="false">
                                                         <ItemTemplate>
-                                                            <asp:Label runat="server" ID="lblDeptId" Text='<%#Eval("CFODA_DEPTID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("CFODA_DEPTID")%>' Visible="false"></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
                                                     <asp:TemplateField HeaderText="Approval" Visible="false">
                                                         <ItemTemplate>
-                                                            <asp:Label runat="server" ID="lblApprovalId" Text='<%#Eval("CFODA_APPROVALID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblApprID" Text='<%#Eval("CFODA_APPROVALID")%>' Visible="false"></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
@@ -142,8 +142,6 @@
                                         </div>
                                         <div class="col-md-6 mt-3">
                                             <!-- <div class="col-md-12 mt-3 d-flex" id="padding"> -->
-
-
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label">Total Payment Amount</label>
                                                 <div class="col-lg-8 d-flex">

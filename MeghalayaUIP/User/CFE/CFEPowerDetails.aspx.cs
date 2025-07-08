@@ -370,7 +370,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEPower.SUBDIVISION = ddlSubDiv.SelectedValue;
                     objCFEPower.DISTRICT = ddlDist.SelectedValue;
                    // objCFEPower.RESPONSEOUTPUT = RegNo;
-                    objCFEPower.REGNO = hdnapiReg.Value;
+                    //objCFEPower.REGNO = hdnapiReg.Value;
 
 
                     result = objcfebal.InsertCFEPowerDetails(objCFEPower);

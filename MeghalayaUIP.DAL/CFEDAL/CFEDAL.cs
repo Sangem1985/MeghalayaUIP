@@ -888,8 +888,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPD_ELECHARGE", objCFEPower.ElectricityCharge);
                 com.Parameters.AddWithValue("@CFEPD_SUBDIVISION", Convert.ToInt32(objCFEPower.SUBDIVISION));
                 com.Parameters.AddWithValue("@CFEPD_DISTRICT", Convert.ToInt32(objCFEPower.DISTRICT));
-                com.Parameters.AddWithValue("@CFDA_RESPONSEOUTPUT", objCFEPower.RESPONSEOUTPUT);
-                com.Parameters.AddWithValue("@CFDA_REGNO", objCFEPower.REGNO);
+               // com.Parameters.AddWithValue("@CFDA_RESPONSEOUTPUT", objCFEPower.RESPONSEOUTPUT);
+               // com.Parameters.AddWithValue("@CFDA_REGNO", objCFEPower.REGNO);
                 com.Parameters.AddWithValue("@CFDA_PINCODEID", objCFEPower.Pincode);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);

@@ -136,7 +136,7 @@ namespace MeghalayaUIP.User.CFO
         {
             if (lblAddlPaymentReq.Text != "0")
             {
-                newurl = "~/User/CFO/CFOTracker.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=AddlPayment";
+                newurl = "~/User/CFO/CFOAddlPayment.aspx?UnitID=" + Convert.ToString(Session["CFOUNITID"]) + "&Type=AddlPayment";
                 Response.Redirect(newurl);
             }
         }

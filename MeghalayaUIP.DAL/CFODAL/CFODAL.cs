@@ -2584,6 +2584,57 @@ namespace MeghalayaUIP.DAL.CFODAL
                 connection.Dispose();
             }
         }
+        public string INSPaymentDetailsCFOAddl(CFOPayments objpay)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.INSCFOADDLPaymentDetails;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFOPD_UNITID", Convert.ToInt32(objpay.UNITID));
+                com.Parameters.AddWithValue("@CFOPD_CFOQDID", Convert.ToInt32(objpay.Questionnareid));
+                com.Parameters.AddWithValue("@CFOPD_UIDNO", objpay.CFEUID);
+                com.Parameters.AddWithValue("@CFOPD_DEPTID", objpay.DeptID);
+                com.Parameters.AddWithValue("@CFOPD_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
+                com.Parameters.AddWithValue("@CFOPD_ONLINEORDERNO", objpay.OnlineOrderNo);
+                com.Parameters.AddWithValue("@CFOPD_ONLINEAMOUNT", objpay.OnlineOrderAmount);
+                com.Parameters.AddWithValue("@CFOPD_PAYMENTFLAG", objpay.PaymentFlag);
+                com.Parameters.AddWithValue("@CFOPD_TRANSACTIONNO", objpay.TransactionNo);
+                com.Parameters.AddWithValue("@CFOPD_BANKNAME", objpay.BankName);
+                com.Parameters.AddWithValue("@CFOPD_TRANSACTIONDATE", objpay.TransactionDate);
+                com.Parameters.AddWithValue("@CFOPD_CRETAEDBY", Convert.ToInt32(objpay.CreatedBy));
+                com.Parameters.AddWithValue("@CFOPD_CRETAEDBYIP", objpay.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
 
         //-------------------------- DEPARTMENT STARTED HERE -------------------//
 
