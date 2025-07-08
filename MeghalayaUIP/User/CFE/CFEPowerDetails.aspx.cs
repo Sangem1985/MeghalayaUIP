@@ -2,20 +2,21 @@
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
-using System.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Runtime.Remoting;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static AjaxControlToolkit.AsyncFileUpload.Constants;
-using Newtonsoft.Json;
-using System.Net.Http;
-using System.Text;
 
 namespace MeghalayaUIP.User.CFE
 {
@@ -213,7 +214,7 @@ namespace MeghalayaUIP.User.CFE
                 ds = objcfebal.GetPowerDetailsRetrive(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
 
                 if (ds.Tables[0].Rows.Count > 0)
-                {   
+                {
                     ddlSubDiv.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"].ToString();
                     ddlSubDiv_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlDist.SelectedValue = ds.Tables[0].Rows[0]["CFEPD_DISTRICT"].ToString();
@@ -369,7 +370,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEPower.ElectricityCharge = txtEleChg.Text;
                     objCFEPower.SUBDIVISION = ddlSubDiv.SelectedValue;
                     objCFEPower.DISTRICT = ddlDist.SelectedValue;
-                   // objCFEPower.RESPONSEOUTPUT = RegNo;
+                    // objCFEPower.RESPONSEOUTPUT = RegNo;
                     //objCFEPower.REGNO = hdnapiReg.Value;
 
 
@@ -384,13 +385,26 @@ namespace MeghalayaUIP.User.CFE
                     }
                     DataSet dss = new DataSet();
                     dss = GetDataPower();
-                    if (dss.Tables.Count>0 && dss.Tables[0].Rows.Count > 0)
+                    if (dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
                     {
                         string RegNo = Post(dss);
                         if (RegNo != "")
                         {
+                            string[] Appstatus = RegNo.Split(',');
+
                             CFEDtls objcfeDtls = new CFEDtls();
-                            
+                            objcfeDtls.Unitid = Convert.ToString(Session["CFEUNITID"]);
+                            objcfeDtls.Investerid = hdnUserID.Value;
+                            objcfeDtls.Questionnaireid = Convert.ToString(Session["CFEQID"]);
+                            objcfeDtls.deptid = 14;
+                            objcfeDtls.ApprovalId = 4;
+                            objcfeDtls.Remarks = Appstatus[1];
+                            objcfeDtls.IPAddress = getclientIP();
+                            objcfeDtls.ReferenceNumber = Appstatus[0];
+                            objcfeDtls.ViewStatus = "I";
+                            objcfebal.UpdateCFEApplStatus(objcfeDtls);
+
+
                         }
                     }
 
@@ -415,7 +429,7 @@ namespace MeghalayaUIP.User.CFE
             {
                 int slno = 1;
                 string errormsg = "";
-              
+
                 if (ddlSubDiv.SelectedIndex == 0)
                 {
                     errormsg = errormsg + slno + ". Please select Sub Division  \\n";
@@ -1294,7 +1308,7 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-       
+
         protected void btnOccProof_Click(object sender, EventArgs e)
         {
 
@@ -1348,8 +1362,8 @@ namespace MeghalayaUIP.User.CFE
                     Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
                     IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
                     CreatedBy = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
-                    CreatorName= Convert.ToString(ds.Tables[0].Rows[0]["CFEID_COMPANYNAME"]),
-                    MIPA_ApplicationID= Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_CFEQDID"]),
+                    CreatorName = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_COMPANYNAME"]),
+                    MIPA_ApplicationID = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_CFEQDID"]),
                     lstDocuments = new[]
                     {
                     new {
