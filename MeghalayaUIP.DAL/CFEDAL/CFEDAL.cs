@@ -1688,6 +1688,53 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
+
+        public string SubmitCFEApplication(CFEPayments objpay)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.SubmitCFEApplication;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                
+                com.Parameters.AddWithValue("@CFEDA_UNITID", Convert.ToInt32(objpay.UNITID));
+                com.Parameters.AddWithValue("@CFEDA_CFEQDID", Convert.ToInt32(objpay.Questionnareid));
+                com.Parameters.AddWithValue("@CFEDA_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
+                com.Parameters.AddWithValue("@CFEDA_DEPTID", objpay.DeptID);
+                
+                com.Parameters.AddWithValue("@CFDA_CREATEDBY", Convert.ToInt32(objpay.CreatedBy));
+                com.Parameters.AddWithValue("@IPARRDESS", objpay.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
         public string InsertCFEAttachments(CFEAttachments objAttachments)
         {
             string Result = "";

@@ -132,12 +132,17 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.InsertPaymentDetails(objpay);
         }
+        public string SubmitCFEApplication(CFEPayments objpay)
+        {
+            return objCFEDAL.SubmitCFEApplication(objpay);
+        }
         public string InsertCFEAttachments(CFEAttachments objAttach)
         {
             return objCFEDAL.InsertCFEAttachments(objAttach);
         }
         public DataSet GetCFEAttachmentsData(string userid, string UNITID)
-        { return objCFEDAL.GetCFEAttachmentsData(userid, UNITID); }
+        { 
+            return objCFEDAL.GetCFEAttachmentsData(userid, UNITID); }
         public DataSet GetUserCFEApplStatus(string Userid, string UNITID)
         { return objCFEDAL.GetUserCFEApplStatus(Userid, UNITID); }
         public DataSet GetUserCFEApplStatusView(string Userid, string UNITID, string Status)

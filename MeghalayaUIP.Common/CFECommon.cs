@@ -88,6 +88,7 @@ namespace MeghalayaUIP.Common
         public static string InsertPaymentRequest = "USP_INS_PAYMENT_REQUEST";
         public static string UpdatePaymentResponse = "USP_UPD_PAYMENT_RESPONSE";
         public static string UpdatePaymentErrorResponse = "USP_UPD_PAYMENT_ERROR_RESPONSE";
+        public static string SubmitCFEApplication = "USP_SUBMITCFEAPPLICATION";
         public static string InsertCFEQueryResponse = "USP_UPDATECFEAPPLQUERYRESPONSE";
         public static string InsertCFEPDCLDetails = "USP_INSCFEDRAWINGAPPDETAILS";
 

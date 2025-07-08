@@ -154,6 +154,7 @@
 
                             <asp:Button ID="btnPay" runat="server" Text="Pay" OnClick="btnPay_Click" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
 
+                            <asp:Button ID="btnSubmit" runat="server" Text="Submit Application" OnClick="btnSubmit_Click"  class="btn btn-rounded btn-submit btn-lg" Width="200px" Visible="false" />
 
 
 

@@ -19,7 +19,7 @@ namespace MeghalayaUIP.User.CFE
         MasterBAL mstrBAL = new MasterBAL();
         CFEBAL objcfebal = new CFEBAL();
         string UnitID; Decimal TotFee;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -76,10 +76,21 @@ namespace MeghalayaUIP.User.CFE
                         {
                             //PE1001MEG15520241007
                             hdnQuesID.Value = Convert.ToString(Session["CFEQID"]);
-                            hdnUIDNo.Value= Convert.ToString(ds.Tables[0].Rows[0]["UIDNO"]);
+                            hdnUIDNo.Value = Convert.ToString(ds.Tables[0].Rows[0]["UIDNO"]);
                             grdApprovals.DataSource = ds.Tables[0];
                             grdApprovals.DataBind();
                             grdApprovals.Visible = true;
+                            if (TotFee == 0)
+                            { 
+                                btnSubmit.Visible = true;
+                                btnPay.Visible = false;
+                            }
+                            else
+                            {
+                                btnSubmit.Visible = false;
+                                btnPay.Visible = true;
+                            }
+
                         }
                     }
                 }
@@ -91,7 +102,7 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-       
+
         protected void grdApprovals_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             try
@@ -116,10 +127,10 @@ namespace MeghalayaUIP.User.CFE
                     decimal PrvAmount = Convert.ToDecimal(ViewState["Amount"].ToString());
                     decimal TotalPaymentAmount;
 
-                    
-                        TotalPaymentAmount = PrvAmount + Convert.ToDecimal(lblAmount.Text);
-                    
-                    
+
+                    TotalPaymentAmount = PrvAmount + Convert.ToDecimal(lblAmount.Text);
+
+
                     lblPaymentAmount.InnerText = TotalPaymentAmount.ToString();
                     ViewState["Amount"] = TotalPaymentAmount.ToString();
                 }
@@ -148,7 +159,7 @@ namespace MeghalayaUIP.User.CFE
                 Session["OrderNo"] = receipt;
                 string result;
                 int count = 0;
-                
+
                 CFEPayments objpay = new CFEPayments();
                 foreach (GridViewRow row in grdApprovals.Rows)
                 {
@@ -183,8 +194,10 @@ namespace MeghalayaUIP.User.CFE
                     Session["PaymentAmount"] = ((int?)TotalAmount).ToString();
                     Response.Redirect("~/User/Payments/RazorPaymentPage.aspx?receipt=" + receipt + "&Amount=" + PaymentAmount + "&Module=CFE");
                 }
-                else 
+                else
                 {
+                    btnSubmit.Visible = true;
+                    btnPay.Visible = false;
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please select atleast one Approval')", true);
                     return;
                 }
@@ -251,7 +264,7 @@ namespace MeghalayaUIP.User.CFE
         {
             int selRowIndex = ((GridViewRow)(((CheckBox)sender).Parent.Parent)).RowIndex;
             CheckBox cb = (CheckBox)grdApprovals.Rows[selRowIndex].FindControl("chkSel");
-            Label lblAmount= (Label)grdApprovals.Rows[selRowIndex].FindControl("lblAmount");
+            Label lblAmount = (Label)grdApprovals.Rows[selRowIndex].FindControl("lblAmount");
             if (ViewState["Amount"] == null)
             {
                 ViewState["Amount"] = 0;
@@ -262,14 +275,104 @@ namespace MeghalayaUIP.User.CFE
             if (cb.Checked)
             {
                 TotalPaymentAmount = PrvAmount + Convert.ToDecimal(lblAmount.Text);
-                
+
             }
-            else 
+            else
             {
-                TotalPaymentAmount= PrvAmount - Convert.ToDecimal(lblAmount.Text);
+                TotalPaymentAmount = PrvAmount - Convert.ToDecimal(lblAmount.Text);
             }
             lblPaymentAmount.InnerText = TotalPaymentAmount.ToString();
             ViewState["Amount"] = TotalPaymentAmount.ToString();
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal TotalAmount = 0;
+                string PaymentAmount = "";
+                string receipt = "MIP_" + DateTime.Now.Year + DateTime.Now.Month +
+                    DateTime.Now.Day + DateTime.Now.Minute + DateTime.Now.Year + DateTime.Now.Second + DateTime.Now.Millisecond;
+                Session["OrderNo"] = receipt;
+                string result;
+                int count = 0, ZeroFeecount = 0, UpdatedCount = 0;
+
+                CFEPayments objpay = new CFEPayments();
+                foreach (GridViewRow row in grdApprovals.Rows)
+                {
+                    CheckBox ChkSelect = (CheckBox)row.FindControl("chkSel");
+                    if (ChkSelect.Checked == true)
+                    {
+                        Label ApprovalID = (Label)row.FindControl("lblApprID");
+                        Label DeptID = (Label)row.FindControl("lblDeptID");
+
+                        objpay.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                        objpay.Questionnareid = Convert.ToString(Session["CFEQID"]);
+                        objpay.CFEUID = hdnUIDNo.Value;
+                        objpay.DeptID = DeptID.Text;
+                        objpay.ApprovalID = ApprovalID.Text;
+                        objpay.OnlineOrderNo = receipt;
+                        objpay.OnlineOrderAmount = row.Cells[4].Text;
+                        objpay.PaymentFlag = "";
+                        objpay.TransactionNo = "";
+                        objpay.TransactionDate = DateTime.Now.ToString("yyyy-MM-dd");
+                        objpay.BankName = "";
+                        objpay.CreatedBy = hdnUserID.Value;
+                        objpay.IPAddress = getclientIP();
+                        TotalAmount = TotalAmount + Convert.ToDecimal(row.Cells[4].Text);
+                        string A = objcfebal.InsertPaymentDetails(objpay);
+                        if (A != "")
+                        { count = count + 1; }
+                    }
+                }
+                if (TotalAmount == 0)
+                {
+                    foreach (GridViewRow row in grdApprovals.Rows)
+                    {
+                        CheckBox ChkSelect = (CheckBox)row.FindControl("chkSel");
+                        Label ApprovalID = (Label)row.FindControl("lblApprID");
+                        Label DeptID = (Label)row.FindControl("lblDeptID");
+                        Label lblAmount = (Label)row.FindControl("lblAmount");
+                        if (ChkSelect.Checked == true)
+                        {
+                            if (Convert.ToInt32(Convert.ToDecimal(lblAmount.Text)) == 0)
+                            {
+                                ZeroFeecount = ZeroFeecount + 1;
+                                objpay.UNITID = Convert.ToString(Session["CFEUNITID"]);
+                                objpay.Questionnareid = Convert.ToString(Session["CFEQID"]);                             
+                                objpay.DeptID = DeptID.Text;
+                                objpay.ApprovalID = ApprovalID.Text;                             
+                                objpay.OnlineOrderAmount = row.Cells[4].Text;                             
+                                objpay.CreatedBy = hdnUserID.Value;
+                                objpay.IPAddress = getclientIP();
+                                TotalAmount = TotalAmount + Convert.ToDecimal(row.Cells[4].Text);
+                                string A = objcfebal.SubmitCFEApplication(objpay);
+                                if (A != "0")
+                                { UpdatedCount = UpdatedCount + 1; }
+                            }
+                        }
+                    }
+                    if (ZeroFeecount == UpdatedCount)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Application Submitted Successfully')", true);
+                    }
+                }
+                else
+                {
+                    btnSubmit.Visible = true;
+                    btnPay.Visible = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please select atleast one Approval')", true);
+                    return;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
     }
 }
