@@ -448,6 +448,36 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void BindSubVillages(DropDownList ddlsubvlg, string VillageId)
+        {
+            try
+            {
+                List<MasterSubVillages> objSubVillage = new List<MasterSubVillages>();
+                string strmode = string.Empty;
+
+                objSubVillage = mstrBAL.GetSubVillages(VillageId);
+
+                if (objSubVillage != null)
+                {
+                    ddlsubvlg.DataSource = objSubVillage;
+                    ddlsubvlg.DataValueField = "SubVillageId";
+                    ddlsubvlg.DataTextField = "SubVillageName";
+                    ddlsubvlg.DataBind();
+                }
+                else
+                {
+                    ddlsubvlg.DataSource = null;
+                    ddlsubvlg.DataBind();
+                }
+                AddSelect(ddlsubvlg);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void BindPowerReq()
         {
             try
@@ -1962,6 +1992,47 @@ namespace MeghalayaUIP.User.CFE
 
 
         }
+
+        protected void ddlVillage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddldivision.ClearSelection();
+                ddldivision.Items.Clear();
+                AddSelect(ddldivision);
+                if (ddlVillage.SelectedItem.Text != "--Select--")
+                {
+
+                    BindSubVillages(ddldivision, ddlVillage.SelectedValue);
+                    SubVillages();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public void SubVillages()
+        {
+            try
+            {
+                if (ddlVillage.SelectedValue == "277282")
+                {
+                    divsubVillage.Visible = true;
+                }
+                else { divsubVillage.Visible = false; }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
         protected List<TextBox> FindEmptyTextboxes(Control container)
         {
 

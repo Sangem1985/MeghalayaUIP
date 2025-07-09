@@ -329,6 +329,6 @@ namespace MeghalayaUIP.BAL.CFEBLL
         { 
             return objCFEDAL.UpdateCFEApplStatus(ObjCfe);
         }
-
+        
     }
 }

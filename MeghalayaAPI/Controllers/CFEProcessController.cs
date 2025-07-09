@@ -194,7 +194,7 @@ namespace MeghalayaAPI.Controllers
                 throw ex;
             }
         }
-        
+        [HttpGet]
         [Route("api/SendPowerDetails")]
         public IHttpActionResult SendPowerApplication(string InvesterID, string CFEUnitID)
         {

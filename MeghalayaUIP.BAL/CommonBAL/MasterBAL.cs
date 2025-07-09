@@ -35,6 +35,10 @@ namespace MeghalayaUIP.BAL.CommonBAL
         {
             return objMasterDAL.GetVillages(MandalId);
         }
+        public List<MasterSubVillages> GetSubVillages(string VillageId)
+        {
+            return objMasterDAL.GetSubVillages(VillageId);
+        }
 
         public List<MasterLineOfActivity> GetLineOfActivity(string Sector)
         {

@@ -196,6 +196,44 @@ namespace MeghalayaUIP.DAL.CommonDAL
             }
             return lstVillagesMstr;
         }
+        public List<MasterSubVillages> GetSubVillages(string VillageId)
+        {
+            List<MasterSubVillages> lstSubVillagesMstr = new List<MasterSubVillages>();
+            SqlDataReader drOptions = null;
+            try
+            {
+
+                SqlParameter[] param = new SqlParameter[]
+                {
+                    new SqlParameter("",Convert.ToInt32(VillageId))
+                };
+                drOptions = SqlHelper.ExecuteReader(connstr, MasterConstants.GetSubVillagesmaster, param);
+                if (drOptions != null && drOptions.HasRows)
+                {
+                    while (drOptions.Read())
+                    {
+                        var SubVillage = new MasterSubVillages()
+                        {
+                            SubVillageId = Convert.ToString(drOptions["SUBVILLAGECODE"]),
+                            SubVillageName = Convert.ToString(drOptions["SUBVILLAGENAME"])
+                        };
+                        lstSubVillagesMstr.Add(SubVillage);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (drOptions != null)
+                {
+                    drOptions.Close();
+                }
+            }
+            return lstSubVillagesMstr;
+        }
         public List<MasterDepartment> GetDepartment(string ModuleType)
         {
             List<MasterDepartment> lstDeptMstr = new List<MasterDepartment>();

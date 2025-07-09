@@ -13,6 +13,7 @@ namespace MeghalayaUIP.Common
         public static string GetDistrcitsmaster = "USP_GET_DISTRICT";
         public static string GetMandalsmaster = "USP_GET_MANDALS";
         public static string GetVillagesmaster = "USP_GET_VILLAGE";
+        public static string GetSubVillagesmaster = "USP_GET_SUBVILLAGE";
         public static string GetDeptmaster = "USP_GET_MASTER_DEPT_LIST";
         public static string GetSectormaster = "USP_GET_Sector";  //USP_GET_Sector
 
@@ -138,6 +139,12 @@ namespace MeghalayaUIP.Common
     {
         public string VillageId { get; set; }
         public string VillageName { get; set; }
+
+    }
+    public class MasterSubVillages
+    {
+        public string SubVillageId { get; set; }
+        public string SubVillageName { get; set; }
 
     }
 

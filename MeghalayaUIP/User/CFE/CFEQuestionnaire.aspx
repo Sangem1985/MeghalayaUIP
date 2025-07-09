@@ -156,7 +156,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Village<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
-                                                                                <asp:DropDownList ID="ddlVillage" runat="server" class="form-control" TabIndex="1">
+                                                                                <asp:DropDownList ID="ddlVillage" runat="server" class="form-control" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="ddlVillage_SelectedIndexChanged">
                                                                                     <asp:ListItem Text="Select Village" Value="0" />
                                                                                 </asp:DropDownList>
                                                                             </div>
@@ -164,6 +164,18 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" runat="server" visible="false" id="divsubVillage">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-6 col-form-label">3(a).Sub Village<span class="star">*</span></label>
+                                                                            <div class="col-lg-6 d-flex">
+                                                                                <asp:DropDownList ID="ddldivision" runat="server" class="form-control" TabIndex="1">
+                                                                                    <asp:ListItem Text="Select SubVillage" Value="0" />
+                                                                                </asp:DropDownList>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
@@ -178,10 +190,8 @@
                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                5. Built up Area
+                                                                                5. Built up Area                                                                             
                                                                                
-                                                                               
-
                                                                                 <br />
                                                                                 (In Sq.m)<span class="star">*</span></label>
                                                                             <div class="col-lg-6">
@@ -189,6 +199,10 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    
+                                                                </div>
+
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">6. Sector<span class="star">*</span></label>
@@ -199,9 +213,6 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-
-                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
@@ -224,13 +235,14 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                                                   
+                                                                </div>
+
+                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                9. Whether land
-                                                                               
-                                                                               
-
+                                                                                9. Whether land  
                                                                                 <br />
                                                                                 purchased from MIDCL<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -243,9 +255,6 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-
-                                                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">

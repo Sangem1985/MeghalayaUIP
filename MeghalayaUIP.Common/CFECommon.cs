@@ -112,6 +112,8 @@ namespace MeghalayaUIP.Common
         public static string UpdateCFEApplStatus = "USP_UPDATECFEAPPLSTATUS";
 
         ///END///
+        ///////API//////
+
 
     }
     public class CFEDtls
