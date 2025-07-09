@@ -354,7 +354,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Firm Registration / Incorporation Date<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" AutoPostBack="true" />
+                                                                        <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged"  />
                                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtCompnyRegDt"></cc1:CalendarExtender>
                                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                                     </div>
@@ -501,8 +501,8 @@
                                                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
                                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900; font-size: 20px;">Location of Unit</span></label>
                                                         </div>
-                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
-                                                            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                                        <div class="col-md-12 d-flex">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-4 col-form-label">Is Land Required <span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
@@ -583,7 +583,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" OnTextChanged="txtDCPorOperation_TextChanged" AutoPostBack="true" MaxLength="10" />
+                                                                        <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" OnTextChanged="txtDCPorOperation_TextChanged"  MaxLength="10" />
                                                                         <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDCPorOperation"></cc1:CalendarExtender>
                                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                                     </div>

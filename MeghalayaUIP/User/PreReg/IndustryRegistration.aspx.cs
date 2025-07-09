@@ -109,8 +109,8 @@ namespace MeghalayaUIP.User.PreReg
                             txtPANno.Text = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPANNO"]);
                             ddlcompanytype.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYTYPE"]);
                             ddlproposal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYPRAPOSAL"]);
-                            if (Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]) != "")
-                                txtCompnyRegDt.Text = ds.Tables[0].Rows[0]["REGISTRATIONDATE"].ToString();
+                            //if (Convert.ToString(ds.Tables[0].Rows[0]["REGISTRATIONDATE"]) != "")
+                            //    txtCompnyRegDt.Text = ds.Tables[0].Rows[0]["REGISTRATIONDATE"].ToString();
                             txtGSTNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["GSTNNO"]);
                             ddlRegType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["COMPANYREGTYPE"]);
                             ddlRegType_SelectedIndexChanged(null, EventArgs.Empty);
