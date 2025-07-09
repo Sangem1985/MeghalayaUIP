@@ -103,25 +103,25 @@ namespace MeghalayaAPI.Controllers
                 {
                     return BadRequest("Invalid data.");
                 }
-               /*if (!ModelState.IsValid)
-                {
-                    var customErrors = ModelState
-                   .Where(ms => ms.Value.Errors.Count > 0)
-                   .SelectMany(ms => ms.Value.Errors)
-                   .Select(err =>
-                   !string.IsNullOrWhiteSpace(err.ErrorMessage)
-                       ? err.ErrorMessage
-                       : err.Exception?.Message
-                       )
-                       .Where(msg => !string.IsNullOrWhiteSpace(msg))
-                       .ToList();
+                /*if (!ModelState.IsValid)
+                 {
+                     var customErrors = ModelState
+                    .Where(ms => ms.Value.Errors.Count > 0)
+                    .SelectMany(ms => ms.Value.Errors)
+                    .Select(err =>
+                    !string.IsNullOrWhiteSpace(err.ErrorMessage)
+                        ? err.ErrorMessage
+                        : err.Exception?.Message
+                        )
+                        .Where(msg => !string.IsNullOrWhiteSpace(msg))
+                        .ToList();
 
-                    return Content(HttpStatusCode.BadRequest, new { status = "failed", errors = customErrors });
-                }*/
+                     return Content(HttpStatusCode.BadRequest, new { status = "failed", errors = customErrors });
+                 }*/
                 string errormsg = validations.ValidateFeasibilityFields(model);
                 if (errormsg.Trim().TrimStart() != "")
                 {
-                    return Content(HttpStatusCode.BadRequest, new {status=400, desc = "failed", errors = errormsg });
+                    return Content(HttpStatusCode.BadRequest, new { status = 400, desc = "failed", errors = errormsg });
                 }
                 else
                 {
@@ -157,7 +157,7 @@ namespace MeghalayaAPI.Controllers
                             });
                         }
                     }
-                    else 
+                    else
                     {
                         return Ok(new
                         {
@@ -194,85 +194,90 @@ namespace MeghalayaAPI.Controllers
                 throw ex;
             }
         }
-        public DataSet GetDataPower()
+        
+        [Route("api/SendPowerDetails")]
+        public IHttpActionResult SendPowerApplication(string InvesterID, string CFEUnitID)
         {
             try
             {
                 DataSet ds = new DataSet();
-                //ds = objcfebal.GetPowerDetailsAPI(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
-                return ds;
+                ds = objcfeDtls.GetPowerDetailsAPI(InvesterID, CFEUnitID);
+                //return ds;
+
+                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+                using (var client = new HttpClient())
+                {
+                    var url = "https://uat.mepdcl.trm.ieasybill.com/api/registration/new";
+
+                    var requestBody = new
+                    {
+                        Subdivisonname = Convert.ToString(ds.Tables[0].Rows[0]["SUBDIVISIONNAME"]),
+                        Subdivison = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]),
+                        District = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]),
+                        DistrictName = Convert.ToString(ds.Tables[0].Rows[0]["DistName"]),
+                        //  Applicationfor = Convert.ToString(ds.Tables[0].Rows[0]["Applicationfor"]),
+                        //Applicationtype = Convert.ToString(ds.Tables[0].Rows[0]["Applicationtype"]),
+                        Applicationtype = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationtype"]),
+                        Applicationfor = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationfor"]),
+                        PinCode = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]),
+                        state = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_STATEID"]),
+                        Address_of_inst = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESS"]),
+                        Owner_type = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]),
+                        Purpose = Convert.ToInt32(ds.Tables[0].Rows[0]["PROPOSALFOR"]),
+                        AppliedLoad = Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
+                        Applicatent_Name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]),
+                        Father_name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPSoWoDo"]),
+                        MotherName = Convert.ToString(ds.Tables[0].Rows[0]["MOTHERNAME"]),
+                        Mobile_number = Convert.ToString(ds.Tables[0].Rows[0]["Mobile_number"]),
+                        Phone = Convert.ToString(ds.Tables[0].Rows[0]["Phone"]),
+                        Email = Convert.ToString(ds.Tables[0].Rows[0]["Email"]),
+                        Door_no = Convert.ToInt32(ds.Tables[0].Rows[0]["DOORNO"]),
+                        Perm_Address = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESSED"]),
+                        Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
+                        IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
+                        CreatedBy = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
+                        /*    lstDocuments = new[]
+                        {
+                        new {
+                            documantId = 2,
+                            documentName = "Proof of ownership/occupancy",
+                            document_path = "doc1.pdf"
+                        },
+                        new {
+                            documantId = 3,
+                            documentName = "Proof of Identification",
+                            document_path = "doc2.pdf"
+                        }
+                        }*/
+                    };
+                    var json = JsonConvert.SerializeObject(requestBody);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    var response = client.PostAsync(url, content).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var resultContent = response.Content.ReadAsStringAsync().Result;
+                        dynamic Response = JsonConvert.DeserializeObject(resultContent);
+                        string application_Reg_no = Response["application_Reg_no"]?.ToString();
+                        string message = Response["message"]?.ToString();
+                        //hdnapiReg.Value = application_Reg_no;
+                        return  Ok(application_Reg_no + "," + message);
+                    }
+
+                    throw new Exception("Failed  " + response.StatusCode);
+                }
+
+
+
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        private string SendCFEAppStatus(DataSet ds)
-        {
-            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
-            using (var client = new HttpClient())
-            {
-                var url = "https://uat.mepdcl.trm.ieasybill.com/api/registration/new";
-
-                var requestBody = new
-                {
-                    Subdivisonname = Convert.ToString(ds.Tables[0].Rows[0]["SUBDIVISIONNAME"]),
-                    Subdivison = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_SUBDIVISION"]),
-                    District = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_DISTRICT"]),
-                    DistrictName = Convert.ToString(ds.Tables[0].Rows[0]["DistName"]),
-                    //  Applicationfor = Convert.ToString(ds.Tables[0].Rows[0]["Applicationfor"]),
-                    //Applicationtype = Convert.ToString(ds.Tables[0].Rows[0]["Applicationtype"]),
-                    Applicationtype = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationtype"]),
-                    Applicationfor = Convert.ToInt32(ds.Tables[0].Rows[0]["Applicationfor"]),
-                    PinCode = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_REPPINCODE"]),
-                    state = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEID_STATEID"]),
-                    Address_of_inst = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESS"]),
-                    Owner_type = Convert.ToInt32(ds.Tables[0].Rows[0]["CFEQD_COMPANYTYPE"]),
-                    Purpose = Convert.ToInt32(ds.Tables[0].Rows[0]["PROPOSALFOR"]),
-                    AppliedLoad = Convert.ToInt32(ds.Tables[0].Rows[0]["AppliedLoad"]),
-                    Applicatent_Name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPNAME"]),
-                    Father_name = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_REPSoWoDo"]),
-                    MotherName = Convert.ToString(ds.Tables[0].Rows[0]["MOTHERNAME"]),
-                    Mobile_number = Convert.ToString(ds.Tables[0].Rows[0]["Mobile_number"]),
-                    Phone = Convert.ToString(ds.Tables[0].Rows[0]["Phone"]),
-                    Email = Convert.ToString(ds.Tables[0].Rows[0]["Email"]),
-                    Door_no = Convert.ToInt32(ds.Tables[0].Rows[0]["DOORNO"]),
-                    Perm_Address = Convert.ToString(ds.Tables[0].Rows[0]["ADDRESSED"]),
-                    Cast = Convert.ToString(ds.Tables[0].Rows[0]["CATEGORY"]),
-                    IdentityProof = Convert.ToString(ds.Tables[0].Rows[0]["PROOF"]),
-                    CreatedBy = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_CREATEDBY"]),
-                    /*    lstDocuments = new[]
-                    {
-                    new {
-                        documantId = 2,
-                        documentName = "Proof of ownership/occupancy",
-                        document_path = "doc1.pdf"
-                    },
-                    new {
-                        documantId = 3,
-                        documentName = "Proof of Identification",
-                        document_path = "doc2.pdf"
-                    }
-                    }*/
-                };
-                var json = JsonConvert.SerializeObject(requestBody);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                var response = client.PostAsync(url, content).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var resultContent = response.Content.ReadAsStringAsync().Result;
-                    dynamic Response = JsonConvert.DeserializeObject(resultContent);
-                    string application_Reg_no = Response["application_Reg_no"]?.ToString();
-                    string message = Response["message"]?.ToString();
-                    //hdnapiReg.Value = application_Reg_no;
-                    return application_Reg_no + "," + message;
-                }
-
-                throw new Exception("Failed  " + response.StatusCode);
-            }
-        }
         [HttpPost]
         [Route("UpdateCFEDepartmentProcess")]
         public IHttpActionResult CFEDepartmentProcessUpdate([FromBody] CFEDtls model)
@@ -310,7 +315,7 @@ namespace MeghalayaAPI.Controllers
                 }
                 else
                 {
-                    
+
                     string Cfevalid = objcfeDtls.UpdateCFEDepartmentProcess(model);
                     if (Convert.ToInt32(Cfevalid) > 0)
                     {

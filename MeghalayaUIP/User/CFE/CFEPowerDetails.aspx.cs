@@ -16,6 +16,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using static AjaxControlToolkit.AsyncFileUpload.Constants;
 
 namespace MeghalayaUIP.User.CFE
@@ -380,31 +381,59 @@ namespace MeghalayaUIP.User.CFE
                     {
                         success.Visible = true;
                         lblmsg.Text = "POWER Details Submitted Successfully";
+                        string RegNo = SendPowerApplication(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));//="113207250008,Application Submitted Successfully";
+                        string[] Appstatus = RegNo.Split(',');
+                        if (Appstatus.Length > 0)
+                        {
+                            if (RegNo != "" && int.TryParse(Appstatus[0], out int result))
+                            {
+                                //string[] Appstatus = RegNo.Split(',');
+
+                                CFEDtls objcfeDtls = new CFEDtls();
+                                objcfeDtls.Unitid = Convert.ToString(Session["CFEUNITID"]);
+                                objcfeDtls.Investerid = hdnUserID.Value;
+                                objcfeDtls.Questionnaireid = Convert.ToString(Session["CFEQID"]);
+                                objcfeDtls.deptid = 14;
+                                objcfeDtls.ApprovalId = 4;
+                                objcfeDtls.Remarks = Appstatus[1];
+                                objcfeDtls.IPAddress = getclientIP();
+                                objcfeDtls.ReferenceNumber = Appstatus[0];
+                                objcfeDtls.ViewStatus = "I";
+                                objcfebal.UpdateCFEApplStatus(objcfeDtls);
+
+
+                            }
+                        }
+
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
                     DataSet dss = new DataSet();
-                    dss = GetDataPower();
+                    //dss = GetDataPower();
                     if (dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
                     {
-                        string RegNo =   Post(dss);//="113207250008,Application Submitted Successfully";
-                        if (RegNo != "")
+                        string RegNo = Post(dss);//="113207250008,Application Submitted Successfully";
+                        string[] Appstatus = RegNo.Split(',');
+                        if (Appstatus.Length > 0)
                         {
-                            string[] Appstatus = RegNo.Split(',');
+                            if (RegNo != "" && int.TryParse(Appstatus[0], out int result))
+                            {
+                                //string[] Appstatus = RegNo.Split(',');
 
-                            CFEDtls objcfeDtls = new CFEDtls();
-                            objcfeDtls.Unitid = Convert.ToString(Session["CFEUNITID"]);
-                            objcfeDtls.Investerid = hdnUserID.Value;
-                            objcfeDtls.Questionnaireid = Convert.ToString(Session["CFEQID"]);
-                            objcfeDtls.deptid = 14;
-                            objcfeDtls.ApprovalId = 4;
-                            objcfeDtls.Remarks = Appstatus[1];
-                            objcfeDtls.IPAddress = getclientIP();
-                            objcfeDtls.ReferenceNumber = Appstatus[0];
-                            objcfeDtls.ViewStatus = "I";
-                            objcfebal.UpdateCFEApplStatus(objcfeDtls);
+                                CFEDtls objcfeDtls = new CFEDtls();
+                                objcfeDtls.Unitid = Convert.ToString(Session["CFEUNITID"]);
+                                objcfeDtls.Investerid = hdnUserID.Value;
+                                objcfeDtls.Questionnaireid = Convert.ToString(Session["CFEQID"]);
+                                objcfeDtls.deptid = 14;
+                                objcfeDtls.ApprovalId = 4;
+                                objcfeDtls.Remarks = Appstatus[1];
+                                objcfeDtls.IPAddress = getclientIP();
+                                objcfeDtls.ReferenceNumber = Appstatus[0];
+                                objcfeDtls.ViewStatus = "I";
+                                objcfebal.UpdateCFEApplStatus(objcfeDtls);
 
 
+                            }
                         }
                     }
 
