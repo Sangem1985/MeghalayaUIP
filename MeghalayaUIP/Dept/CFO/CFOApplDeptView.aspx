@@ -3,11 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../Dashboard/DeptDashBoard.aspx">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="../../Dept/CFO/CFODeptDashboard.aspx">Pre-Opearational</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Applications Details</li>
+        </ol>
+    </nav>
     <div class="page-wrapper" style="">
         <div class="content container-fluid">
             <div class="card flex-fill">
-
-                <h4 class="mt-2 ml-4">View Details</h4>
+                <%--  <h4 class="mt-2 ml-4">View Details</h4>--%>
                 <div class="col-md-12 d-flex">
                     <div id="success" runat="server" visible="false" class="alert alert-success" align="Center">
                         <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
@@ -24,9 +30,15 @@
                     </div>
                 </div>
                 <asp:HiddenField ID="hdnUserID" runat="server" />
+                <div class="card-header d-flex justify-content-between">
+                    <h4 class="card-title mt-1"><b>Pre-Opearational Applications</b></h4>
+                    <div class="col-md-1">
+                        <asp:LinkButton ID="lbtnBack" runat="server" Text="Back" CssClass="btn btn-sm btn-dark"><i class="fi fi-br-angle-double-small-left" style="position: absolute;margin-left: 32px;margin-top: 3px;"></i> Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</asp:LinkButton>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-body">
-                        <h4>Pre-Opearational Applications</h4>
+                        <h4></h4>
                         <asp:GridView ID="gvCFODtls" runat="server" AutoGenerateColumns="False" BorderColor="#003399" ShowHeaderWhenEmpty="true"
                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333"
                             GridLines="None" OnRowCommand="gvCFODtls_RowCommand"
