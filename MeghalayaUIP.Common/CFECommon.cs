@@ -229,6 +229,7 @@ namespace MeghalayaUIP.Common
         public string Investment { get; set; }
         public string MunicipalArea { get; set; }
         public string DrawingPlan { get; set; }
+        public string SubVillage { get; set; }
     }
     public class CFEPDCLD
     {

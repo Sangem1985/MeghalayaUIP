@@ -94,6 +94,14 @@ namespace MeghalayaUIP.User.CFE
                     ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPMANDALID"]);
                     ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPVILLAGEID"]);
+                    ddlVillage_SelectedIndexChanged(null, EventArgs.Empty);
+                    if (ddlVillage.SelectedValue == "277282")
+                    {
+                        divsubVillage.Visible = true;
+                        ddldivision.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPSUBVILLAGE"]);
+                    }
+                    else { divsubVillage.Visible = false; }
+
                     txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
 
                     txtBuiltArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILTUPAREA"]);
@@ -1079,7 +1087,7 @@ namespace MeghalayaUIP.User.CFE
                     objCFEQsnaire.NonMuncipalAreaUrban = rblGrantwater.SelectedValue;
                     objCFEQsnaire.MunicipalArea = ddlMunicipal.SelectedValue;
                     objCFEQsnaire.DrawingPlan = rblDrawing.SelectedValue;
-
+                    objCFEQsnaire.SubVillage = ddldivision.SelectedItem.Text;
 
 
                     int count = 0;

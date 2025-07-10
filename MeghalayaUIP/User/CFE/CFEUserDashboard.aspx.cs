@@ -203,12 +203,12 @@ namespace MeghalayaUIP.User.CFE
                 }
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {
-                    e.Row.Cells[6].Text = "Total";
-                    e.Row.Cells[7].Text = TotApplied.ToString();
-                    e.Row.Cells[8].Text = TotApproved.ToString();
-                    e.Row.Cells[9].Text = TotUnderProcess.ToString();
-                    e.Row.Cells[10].Text = TotRejected.ToString();
-                    e.Row.Cells[11].Text = TotQueryRaised.ToString();
+                    e.Row.Cells[7].Text = "Total";
+                    e.Row.Cells[8].Text = TotApplied.ToString();
+                    e.Row.Cells[9].Text = TotApproved.ToString();
+                    e.Row.Cells[10].Text = TotUnderProcess.ToString();
+                    e.Row.Cells[11].Text = TotRejected.ToString();
+                    e.Row.Cells[12].Text = TotQueryRaised.ToString();
                 }
             }
             catch (Exception ex)

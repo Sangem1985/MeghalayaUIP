@@ -293,6 +293,10 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEQD_WATERCONNONMUNICIPALURBAN", objCFEQsnaire.NonMuncipalAreaUrban);
                 com.Parameters.AddWithValue("@CFEQD_WATERMUNICIPALAREA", objCFEQsnaire.MunicipalArea);
                 com.Parameters.AddWithValue("@CFEQD_DRAWINGPLANAPPROVAL", objCFEQsnaire.DrawingPlan);
+                if (objCFEQsnaire.SubVillage != "" || objCFEQsnaire.SubVillage != null)
+                {
+                    com.Parameters.AddWithValue("@CFEQD_PROPSUBVILLAGE", objCFEQsnaire.SubVillage);
+                }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
