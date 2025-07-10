@@ -821,6 +821,7 @@
     <Content Include="User\PreReg\IndustryRegistrationQueryDetails.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationUserDashboard.aspx" />
     <Content Include="User\PreReg\IndustryRegistrationViewDetails.aspx" />
+    <Content Include="User\Renewal\RENAddlPayment.aspx" />
     <Content Include="User\Renewal\RENApplDetails.aspx" />
     <Content Include="User\Renewal\RENApplStatus.aspx" />
     <Content Include="User\Renewal\RENContractorMigrantWork.aspx" />
@@ -2539,6 +2540,13 @@
     </Compile>
     <Compile Include="User\PreReg\IndustryRegistrationViewDetails.aspx.designer.cs">
       <DependentUpon>IndustryRegistrationViewDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Renewal\RENAddlPayment.aspx.cs">
+      <DependentUpon>RENAddlPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Renewal\RENAddlPayment.aspx.designer.cs">
+      <DependentUpon>RENAddlPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Renewal\RENApplDetails.aspx.cs">
       <DependentUpon>RENApplDetails.aspx</DependentUpon>

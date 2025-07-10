@@ -304,5 +304,10 @@ namespace MeghalayaUIP.BAL.RenewalBAL
         {
             return objRENDAL.GetFactoryFees(ObjRenFactoryLic);
         }
+
+        public string INSAddtionalPaymentDetails(RENPayments objpay)
+        {
+            return objRENDAL.INSAddtionalPaymentDetails(objpay);
+        }
     }
 }

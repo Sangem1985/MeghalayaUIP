@@ -37,7 +37,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENWC_CREATEDBY", Convert.ToInt32(ObjRenPublicWork.CreatedBy));
                 com.Parameters.AddWithValue("@RENWC_CREATEDBYIP", ObjRenPublicWork.IPAddress);
                 com.Parameters.AddWithValue("@RENWC_CFOQDID", Convert.ToInt32(ObjRenPublicWork.Questionnariid));
-               // com.Parameters.AddWithValue("@RENWC_UNITID", Convert.ToInt32(ObjRenPublicWork.UnitId));
+                // com.Parameters.AddWithValue("@RENWC_UNITID", Convert.ToInt32(ObjRenPublicWork.UnitId));
                 com.Parameters.AddWithValue("@RENWC_APPLTYPE", ObjRenPublicWork.ApplicantType);
                 com.Parameters.AddWithValue("@RENWC_APPLPURPOSE", ObjRenPublicWork.PurposeApplicant);
                 com.Parameters.AddWithValue("@RENWC_CONTRREGCLASS", ObjRenPublicWork.ContractorReg);
@@ -158,7 +158,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 {
                     com.Parameters.AddWithValue("@RENDL_LICNO", ObjRenDrugLic.Licnumber);
                 }
-             
+
                 if (ObjRenDrugLic.ExpiryDate != null && ObjRenDrugLic.ExpiryDate != "")
                 {
                     com.Parameters.AddWithValue("@RENDL_EXPIRYDATE", DateTime.ParseExact(ObjRenDrugLic.ExpiryDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
@@ -458,7 +458,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENBD_CREATEDBY", Convert.ToInt32(ObjRenBusinessLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENBD_CREATEDBYIP", ObjRenBusinessLic.IPAddress);
                 com.Parameters.AddWithValue("@RENBD_RENQDID", Convert.ToInt32(ObjRenBusinessLic.Questionnariid));
-              //  com.Parameters.AddWithValue("@RENBD_UNITID", Convert.ToInt32(ObjRenBusinessLic.UnitId));
+                //  com.Parameters.AddWithValue("@RENBD_UNITID", Convert.ToInt32(ObjRenBusinessLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENBD_LICNUMBER", ObjRenBusinessLic.LICNO);
                 //com.Parameters.AddWithValue("@RENBD_LICISSUEDT", ObjRenBusinessLic.LICISSUEDT);
@@ -551,7 +551,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCD_CREATEDBY", Convert.ToInt32(ObjRenCinemaLicDet.CreatedBy));
                 com.Parameters.AddWithValue("@RENCD_CREATEDBYIP", ObjRenCinemaLicDet.IPAddress);
                 com.Parameters.AddWithValue("@RENCD_RENQDID", Convert.ToInt32(ObjRenCinemaLicDet.Questionnariid));
-               // com.Parameters.AddWithValue("@RENCD_UNITID", Convert.ToInt32(ObjRenCinemaLicDet.UnitId));
+                // com.Parameters.AddWithValue("@RENCD_UNITID", Convert.ToInt32(ObjRenCinemaLicDet.UnitId));
 
                 com.Parameters.AddWithValue("@RENCD_OLDREGNO", ObjRenCinemaLicDet.OLDREGNO);
                 //com.Parameters.AddWithValue("@RENCD_REGDATE", ObjRenCinemaLicDet.REGDATE);
@@ -649,7 +649,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCLD_CREATEDBY", Convert.ToInt32(ObjRenContractLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENCLD_CREATEDBYIP", ObjRenContractLic.IPAddress);
                 com.Parameters.AddWithValue("@RENCLD_RENQDID", Convert.ToInt32(ObjRenContractLic.Questionnariid));
-               // com.Parameters.AddWithValue("@RENCLD_UNITID", Convert.ToInt32(ObjRenContractLic.UnitId));
+                // com.Parameters.AddWithValue("@RENCLD_UNITID", Convert.ToInt32(ObjRenContractLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENCLD_LICRENEWAL", ObjRenContractLic.LICRENEWAL);
                 //com.Parameters.AddWithValue("@RENCLD_LICISSUEDATE", ObjRenContractLic.LICISSUEDATE);
@@ -684,7 +684,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCLD_DETAILS", ObjRenContractLic.DETAILS);
                 com.Parameters.AddWithValue("@RENCLD_REVOKINGLIC", ObjRenContractLic.REVOKINGLIC);
                 // com.Parameters.AddWithValue("@RENCLD_ORDERDATE", ObjRenContractLic.ORDERDATE);
-                if(ObjRenContractLic.ORDERDATE !=null && ObjRenContractLic.ORDERDATE != "")
+                if (ObjRenContractLic.ORDERDATE != null && ObjRenContractLic.ORDERDATE != "")
                 {
                     com.Parameters.AddWithValue("@RENCLD_ORDERDATE", DateTime.ParseExact(ObjRenContractLic.ORDERDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
@@ -737,7 +737,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENMD_CREATEDBY", Convert.ToInt32(ObjRenContractLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENMD_CREATEDBYIP", ObjRenContractLic.IPAddress);
                 com.Parameters.AddWithValue("@RENMD_RENQDID", Convert.ToInt32(ObjRenContractLic.Questionnariid));
-               // com.Parameters.AddWithValue("@RENMD_UNITID", Convert.ToInt32(ObjRenContractLic.UnitId));
+                // com.Parameters.AddWithValue("@RENMD_UNITID", Convert.ToInt32(ObjRenContractLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENMD_TITLE", ObjRenContractLic.FULLTITLE);
                 com.Parameters.AddWithValue("@RENMD_FULLNAME", ObjRenContractLic.FULLNAME);
@@ -821,7 +821,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENBD_CREATEDBY", Convert.ToInt32(ObjRenBoilerDetails.CreatedBy));
                 com.Parameters.AddWithValue("@RENBD_CREATEDBYIP", ObjRenBoilerDetails.IPAddress);
                 com.Parameters.AddWithValue("@RENBD_RENQDID", Convert.ToInt32(ObjRenBoilerDetails.Questionnariid));
-               // com.Parameters.AddWithValue("@RENBD_UNITID", Convert.ToInt32(ObjRenBoilerDetails.UnitId));
+                // com.Parameters.AddWithValue("@RENBD_UNITID", Convert.ToInt32(ObjRenBoilerDetails.UnitId));
 
                 com.Parameters.AddWithValue("@RENBD_LICNO", ObjRenBoilerDetails.LICNO);
                 // com.Parameters.AddWithValue("@RENBD_LICISSUEDATE", ObjRenBoilerDetails.LICISSUEDDATE);
@@ -958,7 +958,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENSE_CREATEDBY", Convert.ToInt32(ObjRenShopEst.CreatedBy));
                 com.Parameters.AddWithValue("@RENSE_CREATEDBYIP", ObjRenShopEst.IPAddress);
                 com.Parameters.AddWithValue("@RENSE_RENQDID", Convert.ToInt32(ObjRenShopEst.Questionnariid));
-              //  com.Parameters.AddWithValue("@RENSE_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
+                //  com.Parameters.AddWithValue("@RENSE_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
 
                 com.Parameters.AddWithValue("@RENSE_LICNO", ObjRenShopEst.LICNO);
                 //com.Parameters.AddWithValue("@RENSE_LICISSUEDATE", ObjRenShopEst.LICISSUEDATE);
@@ -1039,7 +1039,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENWP_CREATEDBY", Convert.ToInt32(ObjRenShopEst.CreatedBy));
                 com.Parameters.AddWithValue("@RENWP_CREATEDBYIP", ObjRenShopEst.IPAddress);
                 com.Parameters.AddWithValue("@RENWP_RENQDID", Convert.ToInt32(ObjRenShopEst.Questionnariid));
-               // com.Parameters.AddWithValue("@RENWP_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
+                // com.Parameters.AddWithValue("@RENWP_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
 
                 com.Parameters.AddWithValue("@RENWP_DISTRIC", Convert.ToInt32(ObjRenShopEst.DISTICS));
                 com.Parameters.AddWithValue("@RENWP_MANDAL", Convert.ToInt32(ObjRenShopEst.MANDALS));
@@ -1092,7 +1092,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENED_CREATEDBY", Convert.ToInt32(ObjRenShopEst.CreatedBy));
                 com.Parameters.AddWithValue("@RENED_CREATEDBYIP", ObjRenShopEst.IPAddress);
                 com.Parameters.AddWithValue("@RENED_RENQDID", Convert.ToInt32(ObjRenShopEst.Questionnariid));
-               // com.Parameters.AddWithValue("@RENED_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
+                // com.Parameters.AddWithValue("@RENED_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
 
                 com.Parameters.AddWithValue("@RENED_NAME", ObjRenShopEst.NAMES);
                 com.Parameters.AddWithValue("@RENED_GENDER", ObjRenShopEst.GENDER);
@@ -1137,7 +1137,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-             //   com.Parameters.AddWithValue("@REN_UNITID", Convert.ToInt32(objRenAttachments.UNITID));
+                //   com.Parameters.AddWithValue("@REN_UNITID", Convert.ToInt32(objRenAttachments.UNITID));
                 com.Parameters.AddWithValue("@RENA_RENQID", Convert.ToInt32(objRenAttachments.Questionnareid));
                 com.Parameters.AddWithValue("@RENA_DEPTID", objRenAttachments.DeptID);
                 com.Parameters.AddWithValue("@RENA_APPROVALID", objRenAttachments.ApprovalID);
@@ -1147,7 +1147,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENA_FILETYPE", objRenAttachments.FileType);
                 com.Parameters.AddWithValue("@RENA_FILEDESCRIPTION", objRenAttachments.FileDescription);
                 com.Parameters.AddWithValue("@RENA_QUERYID", objRenAttachments.QueryID);
-                if (objRenAttachments.UploadBy !="" && objRenAttachments.UploadBy != null)
+                if (objRenAttachments.UploadBy != "" && objRenAttachments.UploadBy != null)
                 {
                     com.Parameters.AddWithValue("@REN_UPLOADBY", objRenAttachments.UploadBy);
                 }
@@ -1155,8 +1155,8 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 {
                     com.Parameters.AddWithValue("@REN_UPLOADBYID", objRenAttachments.UploadByID);
                 }
-                          
-              
+
+
                 com.Parameters.AddWithValue("@RENA_CREATEDBY", Convert.ToInt32(objRenAttachments.CreatedBy));
                 com.Parameters.AddWithValue("@RENA_CREATEDBYIP", objRenAttachments.IPAddress);
 
@@ -1337,7 +1337,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENPS_CREATEDBY", Convert.ToInt32(ObjRenShopEst.CreatedBy));
                 com.Parameters.AddWithValue("@RENPS_CREATEDBYIP", ObjRenShopEst.IPAddress);
                 com.Parameters.AddWithValue("@RENPS_RENQDID", Convert.ToInt32(ObjRenShopEst.Questionnariid));
-              //  com.Parameters.AddWithValue("@RENPS_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
+                //  com.Parameters.AddWithValue("@RENPS_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
 
                 com.Parameters.AddWithValue("@RENPS_NAMEPATNER", ObjRenShopEst.NAMEPATNER);
                 com.Parameters.AddWithValue("@RENPS_COMMUNICATIONADDRESS", ObjRenShopEst.PATNERADDRESS);
@@ -1387,7 +1387,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENLC_CREATEDBY", Convert.ToInt32(ObjRenShopEst.CreatedBy));
                 com.Parameters.AddWithValue("@RENLC_CREATEDBYIP", ObjRenShopEst.IPAddress);
                 com.Parameters.AddWithValue("@RENLC_RENQDID", Convert.ToInt32(ObjRenShopEst.Questionnariid));
-               // com.Parameters.AddWithValue("@RENLC_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
+                // com.Parameters.AddWithValue("@RENLC_UNITID", Convert.ToInt32(ObjRenShopEst.UnitId));
 
                 com.Parameters.AddWithValue("@RENLC_NAMEOFDIRECTOR", ObjRenShopEst.NAMEDIRECTOR);
                 com.Parameters.AddWithValue("@RENLC_COMMUNICATIONADDRESS", ObjRenShopEst.LIMITEDADDRESS);
@@ -1619,7 +1619,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENSD_CREATEDBY", Convert.ToInt32(ObjRenSafteySecurity.CreatedBy));
                 com.Parameters.AddWithValue("@RENSD_CREATEDBYIP", ObjRenSafteySecurity.IPAddress);
                 com.Parameters.AddWithValue("@RENSD_RENQDID", Convert.ToInt32(ObjRenSafteySecurity.Questionnariid));
-              //  com.Parameters.AddWithValue("@RENSD_UNITID", Convert.ToInt32(ObjRenSafteySecurity.UnitId));
+                //  com.Parameters.AddWithValue("@RENSD_UNITID", Convert.ToInt32(ObjRenSafteySecurity.UnitId));
 
                 com.Parameters.AddWithValue("@RENSD_MIGRANTREGNO", Convert.ToInt32(ObjRenSafteySecurity.MIGRANTREGNO));
                 com.Parameters.AddWithValue("@RENSD_DISTRICREGISSUED", ObjRenSafteySecurity.DISTRICREGISSUED);
@@ -1726,7 +1726,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENMW_CREATEDBY", Convert.ToInt32(ObjRenMigrant.CreatedBy));
                 com.Parameters.AddWithValue("@RENMW_CREATEDBYIP", ObjRenMigrant.IPAddress);
                 com.Parameters.AddWithValue("@RENMW_RENQDID", Convert.ToInt32(ObjRenMigrant.Questionnariid));
-               // com.Parameters.AddWithValue("@RENMW_UNITID", Convert.ToInt32(ObjRenMigrant.UnitId));
+                // com.Parameters.AddWithValue("@RENMW_UNITID", Convert.ToInt32(ObjRenMigrant.UnitId));
 
                 com.Parameters.AddWithValue("@RENMW_TITLE", ObjRenMigrant.TITLESS);
                 com.Parameters.AddWithValue("@RENMW_NAME", ObjRenMigrant.NAMES);
@@ -1776,7 +1776,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENCM_CREATEDBY", Convert.ToInt32(ObjRenMigrant.CreatedBy));
                 com.Parameters.AddWithValue("@RENCM_CREATEDBYIP", ObjRenMigrant.IPAddress);
                 com.Parameters.AddWithValue("@RENCM_RENQDID", Convert.ToInt32(ObjRenMigrant.Questionnariid));
-               // com.Parameters.AddWithValue("@RENCM_UNITID", Convert.ToInt32(ObjRenMigrant.UnitId));
+                // com.Parameters.AddWithValue("@RENCM_UNITID", Convert.ToInt32(ObjRenMigrant.UnitId));
 
                 com.Parameters.AddWithValue("@RENCM_LICRENO", ObjRenMigrant.LICRENO);
                 // com.Parameters.AddWithValue("@RENCM_LICISSUEDDATE", ObjRenMigrant.LICISSUEDDATE);
@@ -1834,7 +1834,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                     com.Parameters.AddWithValue("@RENCM_VALIDDATE", DateTime.ParseExact(ObjRenMigrant.VALIDDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
 
-                    com.Parameters.AddWithValue("@RENCM_TRIBAL ", ObjRenMigrant.TRIBAL);
+                com.Parameters.AddWithValue("@RENCM_TRIBAL ", ObjRenMigrant.TRIBAL);
                 com.Parameters.AddWithValue("@RENCM_REMARK ", ObjRenMigrant.REMARK);
                 com.Parameters.AddWithValue("@RENCM_NAMEEST", ObjRenMigrant.NAMEEST);
                 com.Parameters.AddWithValue("@RENCM_STATED ", Convert.ToInt32(ObjRenMigrant.STATED));
@@ -1898,7 +1898,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 {
                     com.Parameters.AddWithValue("@RENCM_ORDERDATE", DateTime.ParseExact(ObjRenMigrant.ORDERDATE, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
-                    com.Parameters.AddWithValue("@RENCM_WORKESTPAST5YEARS", ObjRenMigrant.WORKESTPAST5YEARS);
+                com.Parameters.AddWithValue("@RENCM_WORKESTPAST5YEARS", ObjRenMigrant.WORKESTPAST5YEARS);
                 if (ObjRenMigrant.ESTDETAILS != null && ObjRenMigrant.ESTDETAILS != "")
                 {
                     com.Parameters.AddWithValue("@RENCM_ESTDETAILS", ObjRenMigrant.ESTDETAILS);
@@ -1996,7 +1996,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENFL_CREATEDBY", Convert.ToInt32(ObjRenFactoryLic.CreatedBy));
                 com.Parameters.AddWithValue("@RENFL_CREATEDBYIP", ObjRenFactoryLic.IPAddress);
                 com.Parameters.AddWithValue("@RENFL_RENQDID", Convert.ToInt32(ObjRenFactoryLic.Questionnariid));
-              //  com.Parameters.AddWithValue("@RENFL_UNITID", Convert.ToInt32(ObjRenFactoryLic.UnitId));
+                //  com.Parameters.AddWithValue("@RENFL_UNITID", Convert.ToInt32(ObjRenFactoryLic.UnitId));
 
                 com.Parameters.AddWithValue("@RENFL_FULLNAME", ObjRenFactoryLic.FULLNAME);
                 com.Parameters.AddWithValue("@RENFL_LICNO", ObjRenFactoryLic.LICNO);
@@ -2198,7 +2198,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
                 com.Parameters.AddWithValue("@RENAPPROVALSXML", ObjApplicationDetails.RenApprovalsXml);
-                com.Parameters.AddWithValue("@APPROVALS", ObjApplicationDetails.ApprovalID);               
+                com.Parameters.AddWithValue("@APPROVALS", ObjApplicationDetails.ApprovalID);
                 com.Parameters.AddWithValue("@RENQDID", ObjApplicationDetails.Questionnariid);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -2454,7 +2454,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
 
-               // da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
+                // da.SelectCommand.Parameters.AddWithValue("@UNITID", UNITID);
                 da.SelectCommand.Parameters.AddWithValue("@USERID", userid);
                 da.SelectCommand.Parameters.AddWithValue("@RENQID", QusestionnaireID);
                 da.SelectCommand.Parameters.AddWithValue("@DEPTID", DeptID);
@@ -2503,7 +2503,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@REN_RENQDID", Convert.ToInt32(objRenLegal.Questionnariid));
                 // com.Parameters.AddWithValue("@RENLM_UNITID", Convert.ToInt32(objRenLegal.UnitId));
 
-                if (objRenLegal.LICNO !=null && objRenLegal.LICNO !="")
+                if (objRenLegal.LICNO != null && objRenLegal.LICNO != "")
                 { com.Parameters.AddWithValue("@REN_LICNO", objRenLegal.LICNO); }
 
                 if (objRenLegal.LicenseIssuedManufacture != null && objRenLegal.LicenseIssuedManufacture != "")
@@ -2635,7 +2635,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-               // com.Parameters.AddWithValue("@RENPD_UNITID", Convert.ToInt32(objpay.UNITID));
+                // com.Parameters.AddWithValue("@RENPD_UNITID", Convert.ToInt32(objpay.UNITID));
                 com.Parameters.AddWithValue("@RENPD_RENQDID", Convert.ToInt32(objpay.Questionnareid));
                 com.Parameters.AddWithValue("@RENPD_UIDNO", objpay.RENUID);
                 com.Parameters.AddWithValue("@RENPD_DEPTID", objpay.DeptID);
@@ -2825,7 +2825,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-             
+
                 com.Parameters.AddWithValue("@RENQDID", objrenDtls.Questionnaireid);
                 if (objrenDtls.deptid != null && objrenDtls.deptid != 0)
                 {
@@ -3182,7 +3182,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 if (ObjRenDrugLic.SpecifyLicno != null && ObjRenDrugLic.SpecifyLicno != "")
                 {
                     com.Parameters.AddWithValue("@RENDL_SPECIFYLICNO", ObjRenDrugLic.SpecifyLicno);
-                }                
+                }
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -3541,7 +3541,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 com.Parameters.AddWithValue("@RENR_CREATEDBYIP", ObjRenDrugLic.IPAddress);
                 com.Parameters.AddWithValue("@RENR_RENQDID", Convert.ToInt32(ObjRenDrugLic.Questionnariid));
 
-                if (ObjRenDrugLic.RADIOLOGIST !=null && ObjRenDrugLic.RADIOLOGIST != "")
+                if (ObjRenDrugLic.RADIOLOGIST != null && ObjRenDrugLic.RADIOLOGIST != "")
                 {
                     com.Parameters.AddWithValue("@RENR_RADIONAME", ObjRenDrugLic.RADIOLOGIST);
                 }
@@ -3845,7 +3845,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-               
+
                 com.Parameters.AddWithValue("@RENDL_RENQDID", ObjRenDrugLic3.Questionnariid);
                 com.Parameters.AddWithValue("@RENDL_SERVICETO", ObjRenDrugLic3.Serviceto);
                 com.Parameters.AddWithValue("@RENDL_SPECIFYAPPLICATION", ObjRenDrugLic3.ApplicationPurpose);
@@ -3915,7 +3915,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 da.SelectCommand.Connection = connection;
 
 
-                if(ObjRenFactoryLic.EnterpriseCategory!=null && ObjRenFactoryLic.EnterpriseCategory != "")
+                if (ObjRenFactoryLic.EnterpriseCategory != null && ObjRenFactoryLic.EnterpriseCategory != "")
                 {
                     da.SelectCommand.Parameters.AddWithValue("@ENTPRISETYPE", ObjRenFactoryLic.EnterpriseCategory);
                 }
@@ -3927,7 +3927,7 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@POWERKW_ID", ObjRenFactoryLic.POWERKW);
                 }
-                if(ObjRenFactoryLic.EMPLOYEES != null && ObjRenFactoryLic.EMPLOYEES != "")
+                if (ObjRenFactoryLic.EMPLOYEES != null && ObjRenFactoryLic.EMPLOYEES != "")
                 {
                     da.SelectCommand.Parameters.AddWithValue("@EMPLOYEES", Convert.ToInt32(ObjRenFactoryLic.EMPLOYEES));
                 }
@@ -3956,6 +3956,59 @@ namespace MeghalayaUIP.DAL.RenewalDAL
                 connection.Close();
                 connection.Dispose();
             }
+        }
+        public string INSAddtionalPaymentDetails(RENPayments objpay)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = RENConstants.InsAddtionalPaymentDet;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@RENPD_RENQDID", Convert.ToInt32(objpay.Questionnareid));
+                if (objpay.RENUID != "" && objpay.RENUID != null)
+                {
+                    com.Parameters.AddWithValue("@RENPD_UIDNO", objpay.RENUID);
+                }
+                com.Parameters.AddWithValue("@RENPD_DEPTID", objpay.DeptID);
+                com.Parameters.AddWithValue("@RENPD_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
+                com.Parameters.AddWithValue("@RENPD_ONLINEORDERNO", objpay.OnlineOrderNo);
+                com.Parameters.AddWithValue("@RENPD_ONLINEAMOUNT", objpay.OnlineOrderAmount);
+                com.Parameters.AddWithValue("@RENPD_PAYMENTFLAG", objpay.PaymentFlag);
+                com.Parameters.AddWithValue("@RENPD_TRANSACTIONNO", objpay.TransactionNo);
+                com.Parameters.AddWithValue("@RENPD_BANKNAME", objpay.BankName);
+                com.Parameters.AddWithValue("@RENPD_TRANSACTIONDATE", objpay.TransactionDate);
+                com.Parameters.AddWithValue("@RENPD_CRETAEDBY", Convert.ToInt32(objpay.CreatedBy));
+                com.Parameters.AddWithValue("@RENPD_CRETAEDBYIP", objpay.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
     }
 

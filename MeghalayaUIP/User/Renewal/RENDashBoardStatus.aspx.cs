@@ -101,7 +101,7 @@ namespace MeghalayaUIP.User.Renewal
         {
             if (lblAddlPaymentReq.Text != "0")
             {
-                newurl = "~/User/Renewal/RENApplStatus.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=AddlPayment";
+                newurl = "~/User/Renewal/RENAddlPayment.aspx?UnitID=" + Convert.ToString(Session["RENUNITID"]) + "&Type=AddlPayment";
                 Response.Redirect(newurl);
             }
         }
