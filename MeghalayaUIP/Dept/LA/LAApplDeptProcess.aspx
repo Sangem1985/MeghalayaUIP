@@ -354,7 +354,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="divAttachment" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingTwo">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -728,4 +728,5 @@
         </div>
     </div>
     <!-- /Page Wrapper -->
+        <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 </asp:Content>

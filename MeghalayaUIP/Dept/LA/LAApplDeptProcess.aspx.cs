@@ -135,6 +135,7 @@ namespace MeghalayaUIP.Dept.LA
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[6].Rows.Count > 0)
                     {
+                        divAttachment.Visible = true;
                         grdAttachments.DataSource = ds.Tables[6];
                         grdAttachments.DataBind();
                     }
@@ -145,7 +146,7 @@ namespace MeghalayaUIP.Dept.LA
                         lblApplNo.Text = Convert.ToString(ds.Tables[7].Rows[0]["ISD_LAUIDNO"]);
                         lblapplDate.Text = Convert.ToString(ds.Tables[7].Rows[0]["APPLICATIONDATE"]);
                     }
-                    else if(Convert.ToString(ds.Tables[7].Rows[0]["STAGEID"]) == "7")
+                    else if (Convert.ToString(ds.Tables[7].Rows[0]["STAGEID"]) == "7" && objDtls.Role == 11)
                     {
                         Indverifypanel.Visible = false;
                         divLandAllotmentPanel.Visible = true;
@@ -180,6 +181,7 @@ namespace MeghalayaUIP.Dept.LA
 
                     if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
                     {
+                        hplAttachment.Text = "View";
                         hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
                         hplAttachment.Target = "blank";
                     }
@@ -209,7 +211,7 @@ namespace MeghalayaUIP.Dept.LA
                         string sFileDir = ConfigurationManager.AppSettings["LANDAttachments"];
 
                         string serverpath = sFileDir + Session["INVESTERID"].ToString() + "\\"
-                         + Convert.ToString(Session["UNITID"])+"\\" + "RESPONSEATTACHMENTS"+"\\";
+                         + Convert.ToString(Session["UNITID"]) + "\\" + "RESPONSEATTACHMENTS" + "\\";
                         if (!Directory.Exists(serverpath))
                         {
                             Directory.CreateDirectory(serverpath);
@@ -244,7 +246,7 @@ namespace MeghalayaUIP.Dept.LA
                         objAadhar.DeptID = Convert.ToString(ViewState["DEPTID"]);
                         objAadhar.ApprovalID = "0";
                         objAadhar.IPAddress = getclientIP();
-                       string result = Objland.InsertLAAttachments(objAadhar);
+                        string result = Objland.InsertLAAttachments(objAadhar);
                         if (result != "")
                         {
                             lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
@@ -311,10 +313,10 @@ namespace MeghalayaUIP.Dept.LA
                     //    return;
                     //}
                     else
-                    {                      
+                    {
 
                         LANDALLOTMENTIND land = new LANDALLOTMENTIND();
-                      
+
                         land.UNITID = Session["UNITID"].ToString();
                         land.Investerid = Session["INVESTERID"].ToString();
 
@@ -378,7 +380,7 @@ namespace MeghalayaUIP.Dept.LA
             try
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
-                int slno = 1; string Error = "";             
+                int slno = 1; string Error = "";
                 //if (Attachment.PostedFile.ContentType != "application/pdf"
                 //|| !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
@@ -470,7 +472,7 @@ namespace MeghalayaUIP.Dept.LA
                         {
                             Directory.CreateDirectory(serverpath);
                         }
-                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);                      
+                        System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(serverpath);
 
                         LAAttachments objAadhar = new LAAttachments();
                         objAadhar.UNITID = Convert.ToString(Session["UNITID"]);
@@ -524,7 +526,7 @@ namespace MeghalayaUIP.Dept.LA
         {
             try
             {
-                if (ddlLandAllotment.SelectedValue=="8")
+                if (ddlLandAllotment.SelectedValue == "8")
                 {
                     PPPayment.Visible = true;
                     txtPayment.Visible = true;
@@ -538,7 +540,7 @@ namespace MeghalayaUIP.Dept.LA
                     divUpload.InnerText = "Upload File Rejected : ";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -561,14 +563,14 @@ namespace MeghalayaUIP.Dept.LA
                     hdnUserID.Value = ObjUserInfo.UserID;
                     ViewState["DEPTID"] = ObjUserInfo.Deptid;
                 }
-                if (ddlLandAllotment.SelectedValue == "8"|| ddlLandAllotment.SelectedValue=="9")
+                if (ddlLandAllotment.SelectedValue == "8" || ddlLandAllotment.SelectedValue == "9")
                 {
                     if (string.IsNullOrWhiteSpace(txtLandRemarks.Text) || txtLandRemarks.Text == "" || txtLandRemarks.Text == null)
                     {
                         lblmsg0.Text = "Please Enter Remarks";
                         Failure.Visible = true;
                         return;
-                    }                   
+                    }
                     else
                     {
 
@@ -621,7 +623,7 @@ namespace MeghalayaUIP.Dept.LA
             {
                 Response.Redirect("~/Dept/LA/LAApplView.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Failure.Visible = true;
                 lblmsg0.Text = ex.Message;
