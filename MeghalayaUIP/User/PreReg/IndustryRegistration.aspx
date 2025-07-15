@@ -166,6 +166,7 @@
                         </p>
                         <p>
                             <b><i class="fi fi-br-triangle-warning"></i>Disclaimer!</b> : Incomplete application and irrelevant documents will be returned to the applicant.
+                       
                         </p>
                         <p>
                         </p>
@@ -354,7 +355,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Firm Registration / Incorporation Date<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged"  />
+                                                                        <asp:TextBox runat="server" ID="txtCompnyRegDt" class="form-control" TabIndex="1" OnTextChanged="txtCompnyRegDt_TextChanged" />
                                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtCompnyRegDt"></cc1:CalendarExtender>
                                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                                     </div>
@@ -583,7 +584,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-6 col-form-label">Date of Commencement of Production /Operation<span class="star">*</span></label>
                                                                     <div class="col-lg-6 d-flex">
-                                                                        <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" OnTextChanged="txtDCPorOperation_TextChanged"  MaxLength="10" />
+                                                                        <asp:TextBox runat="server" ID="txtDCPorOperation" class="form-control" TabIndex="1" OnTextChanged="txtDCPorOperation_TextChanged" MaxLength="10" />
                                                                         <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDCPorOperation"></cc1:CalendarExtender>
                                                                         <i class="fi fi-rr-calendar-lines"></i>
                                                                     </div>
@@ -969,15 +970,15 @@
                                         <asp:View ID="viewRevenue" runat="server">
                                             <div class="tab-pane active  " id="basictab2">
 
-                                                <div class="card-body mobile" runat="server" id="divRevenue">
+                                                <div class="card-body" runat="server" id="divRevenue">
                                                     <span class="icon2"><i class="fi fi-br-caret-down"></i></span>
                                                     <h4 class="card-title" style="background: #67bf02; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">2. Revenue Projections</h4>
                                                     <%--<form action="#">--%>
-                                                    <div class="row"> <%--GridviewScrollC1HeaderWrap--%>
+                                                    <div class="row">
 
-                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
+                                                        <div class="col-md-12">
                                                             <asp:GridView ID="grdRevenueProj" runat="server" AutoGenerateColumns="false" OnRowDataBound="grdRevenueProj_RowDataBound">
-                                                                <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="table-bordered table-responsive mb-0 GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
+                                                                <HeaderStyle VerticalAlign="Middle" Height="40px" CssClass="GridviewScrollC1HeaderWrap" HorizontalAlign="Center" />
                                                                 <RowStyle CssClass="GridviewScrollC1Item" />
                                                                 <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
 
@@ -1003,8 +1004,8 @@
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
                                                                     <%-- <asp:BoundField DataField="MRP_DESECRIPTION" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" HeaderText="Item Description " ItemStyle-Width="250px">
-                                                                    <ItemStyle HorizontalAlign="Center" />
-                                                                </asp:BoundField>--%>
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:BoundField>--%>
                                                                     <asp:TemplateField HeaderText="Year 1" ItemStyle-Width="150px">
                                                                         <ItemTemplate>
                                                                             <asp:TextBox ID="txtYear1" CssClass="form-control" TabIndex="1" runat="server" onkeypress="return validateNumberAndDot(event)" MaxLength="13" onpaste="return false;"></asp:TextBox>
@@ -1036,7 +1037,7 @@
                                                         <br />
 
 
-                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex mt-2 mb-3" id="padding">
+                                                        <div class="col-md-12 d-flex mt-2 mb-3" id="padding">
                                                             <div class="col-md-2">
 
 
@@ -1297,7 +1298,7 @@
                                                                         <asp:BoundField HeaderText="First Name" DataField="IDD_FIRSTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
                                                                         <asp:BoundField HeaderText="Last Name" DataField="IDD_LASTNAME" ItemStyle-Width="250px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="White" ItemStyle-ForeColor="WindowText" />
 
-                                                                        <asp:TemplateField HeaderText="Year 5" ItemStyle-Width="150px">
+                                                                        <asp:TemplateField HeaderText="Aadhar" ItemStyle-Width="150px">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblAadhar" runat="server" Text='<%# Eval("IDD_ADNO") %>'></asp:Label>
                                                                             </ItemTemplate>
@@ -1365,7 +1366,7 @@
                                                                     <asp:Button Text="Upload" Height="35px" runat="server" ID="btnregistration" class="btn btn-rounded btn-dark mb-4" OnClick="btnregistration_Click" />
                                                                 </div>
                                                                 <div class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 d-flex">
-                                                                    <asp:HyperLink  ID="hplcompanyregistration" runat="server" Target="_blank"></asp:HyperLink>
+                                                                    <asp:HyperLink ID="hplcompanyregistration" runat="server" Target="_blank"></asp:HyperLink>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
@@ -1436,7 +1437,8 @@ Components of DPR-
 * Projected requirement of Water 
 
 Note: Micro Enterprises- Investment in plant and machinery or equipment not exceeding ₹2.5 crore 
-  and annual turnover not exceeding ₹10 crore." class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">6. Upload Detailed Project Report (DPR) Summary of DPR for Micro Industry<span class="star">*</span></asp:Label>
+  and annual turnover not exceeding ₹10 crore."
+                                                                    class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">6. Upload Detailed Project Report (DPR) Summary of DPR for Micro Industry<span class="star">*</span></asp:Label>
                                                                 <%--<div class="col-lg-8 d-flex">--%>
                                                                 <div class="col-lg-3 col-lg-3 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:FileUpload ID="fupDPR" runat="server" />
@@ -1452,7 +1454,7 @@ Note: Micro Enterprises- Investment in plant and machinery or equipment not exce
                                                                 <%--</div>--%>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label" >7. Bank Appraisal Document </label>
+                                                                <label class="col-lg-4 col-lg-4 col-sm-12 col-xs-12 col-form-label">7. Bank Appraisal Document </label>
                                                                 <div class="col-lg-3 col-lg-3 col-sm-12 col-xs-12 d-flex">
                                                                     <asp:FileUpload ID="fupBankAppraisal" runat="server" />
                                                                 </div>

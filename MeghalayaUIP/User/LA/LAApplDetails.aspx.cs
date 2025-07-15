@@ -65,8 +65,30 @@ namespace MeghalayaUIP.User.LA
         {
             try
             {
+               
                 if (Session["LANDUNITID"] != null && hdnUserID.Value != null)
                 {
+                    var ObjUserInfo = new DeptUserInfo();
+                    if (Session["DeptUserInfo"] != null)
+                    {
+
+                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                        {
+                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                        }
+                        // username = ObjUserInfo.UserName;
+                    }
+
+                    objDtls.Unitid = Session["LANDUNITID"].ToString();
+                    objDtls.Investerid = hdnUserID.Value;
+                    objDtls.UserID = ObjUserInfo.UserID;
+                    objDtls.Role = Convert.ToInt32(ObjUserInfo.Roleid);
+                    objDtls.Stage = Convert.ToInt32(Session["stage"]);
+                    if (ObjUserInfo.Deptid != null && ObjUserInfo.Deptid != "")
+                    {
+                        objDtls.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                    }
+
                     DataSet ds = new DataSet();
                     ds = Objland.GetLandApplicationDetails(objDtls);
 

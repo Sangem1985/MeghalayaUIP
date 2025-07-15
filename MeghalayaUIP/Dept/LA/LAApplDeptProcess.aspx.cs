@@ -58,21 +58,20 @@ namespace MeghalayaUIP.Dept.LA
         public void BindLandApplicationDetails()
         {
             try
-            {
-
-                var ObjUserInfo = new DeptUserInfo();
-                if (Session["DeptUserInfo"] != null)
-                {
-
-                    if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
-                    {
-                        ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
-                    }
-                    // username = ObjUserInfo.UserName;
-                }
+            {               
 
                 if (Session["UNITID"] != null && Session["INVESTERID"] != null && Session["stage"] != null)
                 {
+                    var ObjUserInfo = new DeptUserInfo();
+                    if (Session["DeptUserInfo"] != null)
+                    {
+
+                        if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                        {
+                            ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                        }
+                        // username = ObjUserInfo.UserName;
+                    }
 
                     objDtls.Unitid = Session["UNITID"].ToString();
                     objDtls.Investerid = Session["INVESTERID"].ToString();
