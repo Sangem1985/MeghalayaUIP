@@ -874,8 +874,22 @@
     <Content Include="User\Services\SRVCARMBAct.aspx" />
     <Content Include="User\Services\SRVCARMinWagesAct.aspx" />
     <Content Include="User\Services\SRVCARPECLAct.aspx" />
+    <Content Include="User\Services\SRVCBusinessLicenseDetails.aspx" />
     <Content Include="User\Services\SRVCDashBoardStatus.aspx" />
+    <Content Include="User\Services\SRVCDGSetDetails.aspx" />
+    <Content Include="User\Services\SRVCDrugLicenseDetails.aspx" />
+    <Content Include="User\Services\SRVCExcise.aspx" />
+    <Content Include="User\Services\SRVCForest.aspx" />
+    <Content Include="User\Services\SRVCLabour7.aspx" />
+    <Content Include="User\Services\SRVCLabourContractor5.aspx" />
+    <Content Include="User\Services\SRVCLabourInterState4.aspx" />
+    <Content Include="User\Services\SRVCLabourMigrantWork3.aspx" />
+    <Content Include="User\Services\SRVCLabourMotorTransport2.aspx" />
+    <Content Include="User\Services\SRVCLABOURPE1970.aspx" />
+    <Content Include="User\Services\SRVCLabourWorkmen6.aspx" />
     <Content Include="User\Services\SRVCLegalMeterology.aspx" />
+    <Content Include="User\Services\SRVCNonEncumbrance.aspx" />
+    <Content Include="User\Services\SRVCTourOperatorDetails.aspx" />
     <Content Include="User\Services\SRVCUploadEnclosures.aspx" />
     <Content Include="User\Services\SRVCUserDashboard.aspx" />
     <Content Include="User\Services\SVRCPaymentPage.aspx" />
@@ -2913,6 +2927,13 @@
     <Compile Include="User\Services\SRVCARPECLAct.aspx.designer.cs">
       <DependentUpon>SRVCARPECLAct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Services\SRVCBusinessLicenseDetails.aspx.cs">
+      <DependentUpon>SRVCBusinessLicenseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCBusinessLicenseDetails.aspx.designer.cs">
+      <DependentUpon>SRVCBusinessLicenseDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Services\SRVCDashBoardStatus.aspx.cs">
       <DependentUpon>SRVCDashBoardStatus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2920,12 +2941,103 @@
     <Compile Include="User\Services\SRVCDashBoardStatus.aspx.designer.cs">
       <DependentUpon>SRVCDashBoardStatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Services\SRVCDGSetDetails.aspx.cs">
+      <DependentUpon>SRVCDGSetDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCDGSetDetails.aspx.designer.cs">
+      <DependentUpon>SRVCDGSetDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCDrugLicenseDetails.aspx.cs">
+      <DependentUpon>SRVCDrugLicenseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCDrugLicenseDetails.aspx.designer.cs">
+      <DependentUpon>SRVCDrugLicenseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCExcise.aspx.cs">
+      <DependentUpon>SRVCExcise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCExcise.aspx.designer.cs">
+      <DependentUpon>SRVCExcise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCForest.aspx.cs">
+      <DependentUpon>SRVCForest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCForest.aspx.designer.cs">
+      <DependentUpon>SRVCForest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabour7.aspx.cs">
+      <DependentUpon>SRVCLabour7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabour7.aspx.designer.cs">
+      <DependentUpon>SRVCLabour7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourContractor5.aspx.cs">
+      <DependentUpon>SRVCLabourContractor5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourContractor5.aspx.designer.cs">
+      <DependentUpon>SRVCLabourContractor5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourInterState4.aspx.cs">
+      <DependentUpon>SRVCLabourInterState4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourInterState4.aspx.designer.cs">
+      <DependentUpon>SRVCLabourInterState4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourMigrantWork3.aspx.cs">
+      <DependentUpon>SRVCLabourMigrantWork3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourMigrantWork3.aspx.designer.cs">
+      <DependentUpon>SRVCLabourMigrantWork3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourMotorTransport2.aspx.cs">
+      <DependentUpon>SRVCLabourMotorTransport2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourMotorTransport2.aspx.designer.cs">
+      <DependentUpon>SRVCLabourMotorTransport2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCLABOURPE1970.aspx.cs">
+      <DependentUpon>SRVCLABOURPE1970.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCLABOURPE1970.aspx.designer.cs">
+      <DependentUpon>SRVCLABOURPE1970.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourWorkmen6.aspx.cs">
+      <DependentUpon>SRVCLabourWorkmen6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCLabourWorkmen6.aspx.designer.cs">
+      <DependentUpon>SRVCLabourWorkmen6.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Services\SRVCLegalMeterology.aspx.cs">
       <DependentUpon>SRVCLegalMeterology.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Services\SRVCLegalMeterology.aspx.designer.cs">
       <DependentUpon>SRVCLegalMeterology.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCNonEncumbrance.aspx.cs">
+      <DependentUpon>SRVCNonEncumbrance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCNonEncumbrance.aspx.designer.cs">
+      <DependentUpon>SRVCNonEncumbrance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCTourOperatorDetails.aspx.cs">
+      <DependentUpon>SRVCTourOperatorDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCTourOperatorDetails.aspx.designer.cs">
+      <DependentUpon>SRVCTourOperatorDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCUploadEnclosures.aspx.cs">
       <DependentUpon>SRVCUploadEnclosures.aspx</DependentUpon>

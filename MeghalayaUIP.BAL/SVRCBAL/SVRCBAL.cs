@@ -193,5 +193,17 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetRegSocietiesDet(userid, SRVCQID);
         }
+        public DataSet RetrieveSRVCDGSETDetails(string userid, string UnitID)
+        {
+            return SvrcDal.RetrieveSRVCDGSETDetails(userid, UnitID);
+        }
+        public string INSERTSRVCDGSET(SRVCDGset ObjSRVCDGset)
+        {
+            return SvrcDal.INSERTSRVCDGSET(ObjSRVCDGset);
+        }
+        public string InsertLabourConWorkDetails(LabourConstructionwork objCDWMDet)
+        {
+            return SvrcDal.InsertLabourConWorkDetails(objCDWMDet);
+        }
     }
 }

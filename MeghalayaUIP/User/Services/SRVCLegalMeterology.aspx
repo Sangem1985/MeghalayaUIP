@@ -591,6 +591,116 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                           <%-- APPROVAL ID 42--%>
+                                             <div class="col-md-12 d-flex">
+                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Manufacturing Details</span></label>
+                                            </div>
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">1. Weights: *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="TextBox10" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">2. Measures:  *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="TextBox11" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="8"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">3. Weighting Instruments: *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="TextBox12" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="8"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">4. Professional Tax Reg No: *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="TextBox13" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="8"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">5. GST Reg No:  *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="TextBox14" runat="server" class="form-control" onblur="validateGST(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">6.IT Number: *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="TextBox15" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                             <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Do you intend to import weights, etc. from places outside the State/Country?   *</label>
+                                                        <div class="col-lg-6">
+                                                            <asp:RadioButtonList ID="rblState" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" id="State" runat="server" visible="false">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Licence number: *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtLICNumber" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" MaxLength="20"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                  <div class="col-md-4" id="Country" runat="server" visible="false">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Registration of Importer of Weights and Measures : *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtRegWeight" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="9"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Have you applied previously for a dealer's licence,either in this State or elsewhere ?   *</label>
+                                                        <div class="col-lg-4">
+                                                            <asp:RadioButtonList ID="rblDealer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" id="DealerLic" runat="server" visible="false">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Give details : *</label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtGiveDetails" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                             <div class="col-md-12 text-right mt-2 mb-2">
 
                                                 <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" />
