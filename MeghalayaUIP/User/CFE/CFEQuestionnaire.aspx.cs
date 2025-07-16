@@ -112,11 +112,12 @@ namespace MeghalayaUIP.User.CFE
                     rblMIDCL.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MIDCLLAND"]);
 
                     txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPEMP"]);
+                    
                     txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LANDVALUE"]);
                     txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILDINGVALUE"]);
                     txtPMCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PMCOST"]);
                     txtAnnualTurnOver.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_EXPECTEDTURNOVER"]);
-                    lblTotProjCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALPROJCOST"]);
+                    lblTotProjCost.Text =  Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
                     lblEntCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_ENTERPRISETYPE"]);
 
                     ddlPowerReq.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_POWERREQKW"]);
@@ -1622,7 +1623,13 @@ namespace MeghalayaUIP.User.CFE
                     dtFctry = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtFctry);
                 }
-                if (Convert.ToDecimal(txtBuildingHeight.Text) != 0)
+                if (rblGenerator.SelectedValue == "Y")
+                {
+                    objCFEQ.ApprovalID = "6";
+                    dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
+                    dtApprReq.Merge(dtGenReq);
+                }
+                if (Convert.ToDecimal(txtBuildingHeight.Text) != 0 && Convert.ToDecimal(txtBuildingHeight.Text)>14)
                 {
                     objCFEQ.BuildingHeight = txtBuildingHeight.Text;
                     objCFEQ.ApprovalID = "7";
@@ -1707,14 +1714,9 @@ namespace MeghalayaUIP.User.CFE
                    objCFEQ.ApprovalID = "107";
                    NonMunicipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                    dtApprReq.Merge(NonMunicipal);
-               }
-                if (rblGenerator.SelectedValue == "Y")
-                {
-                    objCFEQ.ApprovalID = "6";
-                    dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
-                    dtApprReq.Merge(dtGenReq);
-                }
-               */
+               } */
+               
+              
 
                 if (rblNocGroundWater.SelectedValue == "Y")
                 {
@@ -1915,8 +1917,10 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (txtAnnualTurnOver.Text != "" && txtPMCost.Text != "")
+                if (txtAnnualTurnOver.Text != "" && txtPMCost.Text != "" && txtBuildingValue.Text != "" && txtLandValue.Text != "" )
                 {
+                    lblTotProjCost.Text = Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
+
                     string Res = objcfebal.GETANNUALTURNOVER(txtPMCost.Text.ToString(), txtAnnualTurnOver.Text.ToString());
                     if (Res != "")
                     {

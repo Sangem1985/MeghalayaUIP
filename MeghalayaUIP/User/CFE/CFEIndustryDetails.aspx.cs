@@ -313,7 +313,7 @@ namespace MeghalayaUIP.User.CFE
                         txtRdCutlenght.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLENGTH"]);
                         txtRdCutLocations.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEID_RDCUTLOCATIONS"]);
 
-                        if (txtRdCutlenght.Text != "")
+                        if (Convert.ToString(ds.Tables[1].Rows[0]["CFEQD_RDCTNGREQ"]) == "Y")
                         { divRDctng.Visible = true; hdngRdCtng.Visible = true; }
                     }
                     else
@@ -828,12 +828,12 @@ namespace MeghalayaUIP.User.CFE
                 {
                     if (string.IsNullOrEmpty(txtRdCutlenght.Text) || txtRdCutlenght.Text == "" || txtRdCutlenght.Text == null || txtRdCutlenght.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtRdCutlenght.Text, @"^0+(\.0+)?$"))
                     {
-                        errormsg = errormsg + slno + ". Please Enter Indirect Other Employee\\n";
+                        errormsg = errormsg + slno + ". Please Enter Length of road to be cut \\n";
                         slno = slno + 1;
                     }
                     if (string.IsNullOrEmpty(txtRdCutLocations.Text) || txtRdCutLocations.Text == "" || txtRdCutLocations.Text == null || txtRdCutLocations.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtRdCutLocations.Text, @"^0+(\.0+)?$"))
                     {
-                        errormsg = errormsg + slno + ". Please Enter Indirect Other Employee\\n";
+                        errormsg = errormsg + slno + ". Please Enter  Number of locations\\n";
                         slno = slno + 1;
                     }
                 }

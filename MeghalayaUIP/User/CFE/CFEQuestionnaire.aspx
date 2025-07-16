@@ -17,7 +17,6 @@
                 </ol>
             </nav>
             <div class="page-wrapper tabs cfequestionnaire">
-
                 <div class="content container-fluid">
                     <section class="comp-section">
                         <div class="row">
@@ -26,14 +25,11 @@
                                     <div class="card-header">
                                         <h4 class="card-title"><b>Questionnaire (Know Your Approvals) - For Pre Establishment</b></h4>
                                         <p style="position: absolute; right: 10px; top: 6px; color: red;">
-                                            *All Fields Are	Mandatory
-                                       
-                                       
+                                            *All Fields Are	Mandatory 
                                         </p>
                                     </div>
 
                                     <div class="card-body mobile">
-
                                         <asp:HiddenField ID="hdnPreRegUNITID" runat="server" />
                                         <asp:HiddenField ID="hdnPreRegUID" runat="server" />
                                         <asp:HiddenField ID="hdnUserID" runat="server" />
@@ -309,7 +305,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">2. Value of Land as per sale Deed(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtLandValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtLandValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="18"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -319,7 +315,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3. Value of Building(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBuildingValue" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="18"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -327,7 +323,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">4. Value of Plant & Machinery(In INR)<span class="star">*</span></label>
                                                                             <div class="col-lg-4">
-                                                                                <asp:TextBox ID="txtPMCost" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="8"
+                                                                                <asp:TextBox ID="txtPMCost" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" MaxLength="18"
                                                                                     AutoPostBack="true" OnTextChanged="txtPMCost_TextChanged"></asp:TextBox>
                                                                             </div>
                                                                         </div>
@@ -502,7 +498,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 1. Power
-															requirement in KW<span
+															                    requirement in KW<span
                                                                                     class="text-danger">*</span></label>
                                                                             <div class="col-lg-4">
                                                                                 <asp:DropDownList ID="ddlPowerReq" runat="server" class="form-control" TabIndex="1">
@@ -516,7 +512,7 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 2. Generator
-															Requirement<span class="star">*</span></label>
+															                    Requirement<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex ">
                                                                                 <asp:RadioButtonList ID="rblGenerator" runat="server" RepeatDirection="Horizontal" TabIndex="1">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
@@ -540,10 +536,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                4. Do you Use (High Tension)
-                                  
-                                  
-
+                                                                                4. Do you Use (High Tension) 
                                                                                 <br />
                                                                                 HT meter Above 70KVA (Drawing Plan Approval)<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -954,7 +947,7 @@
                                                                                 <td>18 a.</td>
                                                                                 <td>Does your Establishment employ 05 or more contract Labour as defined in the
                           
-                       Contract Labour(Regulation and Abolition)Act, 1970? <span class="text-danger">*</span></td>
+                       Contract Labour(Regulation & Abolition)Act, 1970? <span class="text-danger">*</span></td>
                                                                                 <td>
                                                                                     <asp:RadioButtonList ID="rblLbrAct1970" runat="server" RepeatDirection="Horizontal" TabIndex="1" AutoPostBack="true" OnSelectedIndexChanged="rblLbrAct1970_SelectedIndexChanged">
                                                                                         <asp:ListItem Text="Yes" Value="Y" />
