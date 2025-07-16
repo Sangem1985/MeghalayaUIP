@@ -2046,6 +2046,202 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
+        public DataSet RetrieveSRVCDGSETDetails(string userid, string UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GETSRVCGSETDETAILS, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GETSRVCGSETDETAILS;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string INSERTSRVCDGSET(SRVCDGset ObjSRVCDGset)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = SvrcConstants.INSERTSRVCDGSETDETAILS;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@CFEDG_CREATEDBY", Convert.ToInt32(ObjSRVCDGset.CreatedBy));
+                com.Parameters.AddWithValue("@CFEDG_CREATEDBYIP", ObjSRVCDGset.IPAddress);
+                com.Parameters.AddWithValue("@CFEDG_CFEQDID", Convert.ToInt32(ObjSRVCDGset.Questionnaireid));
+                com.Parameters.AddWithValue("@CFEDG_UNITID", Convert.ToInt32(ObjSRVCDGset.UnitId));
+
+                com.Parameters.AddWithValue("@CFEDG_LOCDOORNO", ObjSRVCDGset.LocDoorno);
+                com.Parameters.AddWithValue("@CFEDG_LOCALITY", ObjSRVCDGset.Locality);
+                com.Parameters.AddWithValue("@CFEDG_LANDMARK", ObjSRVCDGset.Landamark);
+                com.Parameters.AddWithValue("@CFEDG_LOCDISTRICTID", Convert.ToInt32(ObjSRVCDGset.LocDistrictID));
+                com.Parameters.AddWithValue("@CFEDG_LOCMANDALID", Convert.ToInt32(ObjSRVCDGset.LocMandalID));
+                com.Parameters.AddWithValue("@CFEDG_LOCVILLAGEID", Convert.ToInt32(Convert.ToInt64(ObjSRVCDGset.LocVillageID)));
+                if (ObjSRVCDGset.LocPincode != null && ObjSRVCDGset.LocPincode != "")
+                {
+                    com.Parameters.AddWithValue("@CFEDG_LOCPINCODE", Convert.ToInt64(ObjSRVCDGset.LocPincode));
+                }
+
+                com.Parameters.AddWithValue("@CFEDG_SUPPLIERNAME", ObjSRVCDGset.SupplierName);
+                com.Parameters.AddWithValue("@CFEDG_TOTLCONNECTEDLOAD", ObjSRVCDGset.TotalConnectedLoad);
+                com.Parameters.AddWithValue("@CFEDG_TOTLPROPDGSETLOAD", ObjSRVCDGset.PropLoadfromDGSet);
+                com.Parameters.AddWithValue("@CFEDG_INTERLOCKPROVIDED", ObjSRVCDGset.InterlockProvided);
+                com.Parameters.AddWithValue("@CFEDG_MOTORLOAD", ObjSRVCDGset.MotorLoad);
+                com.Parameters.AddWithValue("@CFEDG_LIGHTSFANSLOAD", ObjSRVCDGset.LightsandFansLoad);
+                com.Parameters.AddWithValue("@CFEDG_OTHERLOAD", ObjSRVCDGset.OtherlLoad);
+                com.Parameters.AddWithValue("@CFEDG_GENRUNNINGMODE", ObjSRVCDGset.GenRunningMode);
+
+                com.Parameters.AddWithValue("@CFEDG_WRKCOMPLETIONDATE", DateTime.ParseExact(ObjSRVCDGset.WorkCompletionDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFEDG_INSTLATIONSTARTDATE", DateTime.ParseExact(ObjSRVCDGset.WorkStartingDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@CFEDG_COMMISSIONINGDATE", DateTime.ParseExact(ObjSRVCDGset.CommissioningDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyy-MM-dd"));
+
+                com.Parameters.AddWithValue("@CFEDG_SUPERVISORNAME", ObjSRVCDGset.SupervisorName);
+                com.Parameters.AddWithValue("@CFEDG_SUPERVISORLICNO", ObjSRVCDGset.SupervisorLicNo);
+                com.Parameters.AddWithValue("@CFEDG_CONTRACTORNAME", ObjSRVCDGset.ContractorName);
+                com.Parameters.AddWithValue("@CFEDG_CONTRACTORLICNO", ObjSRVCDGset.ContractorLicNo);
+                com.Parameters.AddWithValue("@CFEDG_DGSETOPERATORNAME", ObjSRVCDGset.DGSetOperatorNmae);
+                com.Parameters.AddWithValue("@CFEDG_DGSETCAPACITY", ObjSRVCDGset.DGSetCapacity);
+                com.Parameters.AddWithValue("@CFEDG_DGSETCAPACITYIN", ObjSRVCDGset.DGSetCapacityin);
+                com.Parameters.AddWithValue("@CFEDG_DGSETPOWERFACTOR", ObjSRVCDGset.DGSetPowerFactor);
+                com.Parameters.AddWithValue("@CFEDG_DGSETRATEDVOLTAGE", ObjSRVCDGset.DGSetRatedVoltage);
+                com.Parameters.AddWithValue("@CFEDG_DGSETENGINEDTLS", ObjSRVCDGset.DGSetEngineDetails);
+                com.Parameters.AddWithValue("@CFEDG_DGSETALTERNATORDTLS", ObjSRVCDGset.DGSetAlternatorDetails);
+
+                com.Parameters.AddWithValue("@CFEDG_EQUIPMENTTYPE", ObjSRVCDGset.EquipmentType);
+                com.Parameters.AddWithValue("@CFEDG_EARTHCONDCTRDTLS", ObjSRVCDGset.EarthingCondctrDtls);
+                com.Parameters.AddWithValue("@CFEDG_CONDUCTORPATHS", ObjSRVCDGset.ConductrPaths);
+                com.Parameters.AddWithValue("@CFEDG_ELECTRODEDTLS", ObjSRVCDGset.ElectrodeDtls);
+
+                com.Parameters.AddWithValue("@CFEDG_IMPEDANCE", ObjSRVCDGset.Impedance);
+                com.Parameters.AddWithValue("@CFEDG_TOTALIMPEDANCE", ObjSRVCDGset.TotalImpedance);
+                com.Parameters.AddWithValue("@CFEDG_LIGHTINGTYPE", ObjSRVCDGset.LighingType);
+                com.Parameters.AddWithValue("@CFEDG_ALTERNATORTESTDTLS", ObjSRVCDGset.AlternatorTestDtls);
+                com.Parameters.AddWithValue("@CFEDG_EARTHTESTERNO", ObjSRVCDGset.EarthTesterNo);
+                com.Parameters.AddWithValue("@CFEDG_EARTHTESTERMAKE", ObjSRVCDGset.EarthTesterMake);
+                com.Parameters.AddWithValue("@CFEDG_EARTHTESTERRANGE", ObjSRVCDGset.EarthTesterRange);
+                com.Parameters.AddWithValue("@CFEDG_MEGGERNO", ObjSRVCDGset.MeggerNo);
+                com.Parameters.AddWithValue("@CFEDG_MEGGERMAKE", ObjSRVCDGset.MeggerMake);
+                com.Parameters.AddWithValue("@CFEDG_MEGGERRANGE", ObjSRVCDGset.MeggerRange);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertLabourConWorkDetails(LabourConstructionwork objCDWMDet)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.InsertLabourContractorDetails,
+                    Transaction = transaction,
+                    Connection = connection
+                };
+
+                com.Parameters.AddWithValue("", Convert.ToInt32(objCDWMDet.Questionnariid));
+                com.Parameters.AddWithValue("", objCDWMDet.Createdby);
+                com.Parameters.AddWithValue("", objCDWMDet.FullNamePE);
+                com.Parameters.AddWithValue("", objCDWMDet.AddressPE);
+                com.Parameters.AddWithValue("", Convert.ToInt32(objCDWMDet.StatePE));
+                com.Parameters.AddWithValue("", Convert.ToInt32(objCDWMDet.DistrictPE));
+                com.Parameters.AddWithValue("", Convert.ToInt32(objCDWMDet.MandalPE));
+                com.Parameters.AddWithValue("", Convert.ToInt32(objCDWMDet.VillagePE));
+                com.Parameters.AddWithValue("", objCDWMDet.DistPE);
+                com.Parameters.AddWithValue("", objCDWMDet.MandalesPE);
+                com.Parameters.AddWithValue("", objCDWMDet.VillagesPE);
+                com.Parameters.AddWithValue("", objCDWMDet.PostOfficePE);
+                com.Parameters.AddWithValue("", objCDWMDet.PincodePE);
+                com.Parameters.AddWithValue("", objCDWMDet.NameManager);
+                com.Parameters.AddWithValue("", objCDWMDet.AddressManager);
+                com.Parameters.AddWithValue("", objCDWMDet.DistrictManager);
+                com.Parameters.AddWithValue("", objCDWMDet.MandalManager);
+                com.Parameters.AddWithValue("", objCDWMDet.VillageManager);
+                com.Parameters.AddWithValue("", objCDWMDet.PoliceStationManager);
+                com.Parameters.AddWithValue("", objCDWMDet.PostOfficeManager);
+                com.Parameters.AddWithValue("", objCDWMDet.PincodeManager);
+                com.Parameters.AddWithValue("", objCDWMDet.NatureofBuilding);
+                com.Parameters.AddWithValue("", objCDWMDet.NoofWorkEmpDay);
+                com.Parameters.AddWithValue("", objCDWMDet.EstConDate);
+                com.Parameters.AddWithValue("", objCDWMDet.EstConworkDate);                
+                com.Parameters.AddWithValue("", objCDWMDet.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+
+
 
     }
 }
