@@ -82,11 +82,11 @@ namespace MeghalayaUIP.Dept.Dashboard
                     if (ObjUserInfo.Roleid == "8")
                     {
                         Ammendments.Visible = true; Resources.Visible = true;
-                    }
-                    else if (ObjUserInfo.Roleid == "10" || ObjUserInfo.Roleid == "11")
-                    {
-                        Land.Visible = true;
-                    }
+                    }                   
+                }
+                else if (ObjUserInfo.Roleid == "10" || ObjUserInfo.Roleid == "11")
+                {
+                    Land.Visible = true;
                 }
                 else
                 { Response.Redirect("~/DeptLogin.aspx"); }

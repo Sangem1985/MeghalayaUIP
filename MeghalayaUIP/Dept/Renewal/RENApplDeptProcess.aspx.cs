@@ -146,14 +146,20 @@ namespace MeghalayaUIP.Dept.Renewal
                     if (ObjUserInfo.Deptid == "8")
                     {
                         Drug.Visible = true;
+                        
                     }
                     else { Drug.Visible = false; }
 
                     if (ObjUserInfo.Deptid == "10")
                     {
-
+                        BoilerDet.Visible = true;
+                        LabourDet.Visible = true;
+                        ContractorMigrant.Visible = true;
+                        Factories.Visible = true;
+                        Saftey.Visible = true;
+                        ShopEst.Visible = true;
                     }
-                    else { }
+                    else { BoilerDet.Visible = false; }
 
                     if (ObjUserInfo.Deptid == "11")
                     {
@@ -163,9 +169,9 @@ namespace MeghalayaUIP.Dept.Renewal
 
                     if (ObjUserInfo.Deptid == "13")
                     {
-
+                        CinemaLicense.Visible = true;
                     }
-                    else { }
+                    else { CinemaLicense.Visible = false; }
 
                     if (ObjUserInfo.Deptid == "16")
                     {
@@ -288,8 +294,8 @@ namespace MeghalayaUIP.Dept.Renewal
                             lblPeriodDate.Text = ds.Tables[1].Rows[0]["RENBD_PERIODDATE"].ToString();
                             lblToDateH.Text = ds.Tables[1].Rows[0]["RENBD_TODATE"].ToString();
                             lblRemarked.Text = ds.Tables[1].Rows[0]["RENBD_REMARK"].ToString();
-                            lblRegFees.Text = ds.Tables[1].Rows[0]["RENBD_REGFEES"].ToString();
-                            lblTotalAmount.Text = ds.Tables[1].Rows[0]["RENBD_TOTALAMOUNT"].ToString();
+                            //lblRegFees.Text = ds.Tables[1].Rows[0]["RENBD_REGFEES"].ToString();
+                           // lblTotalAmount.Text = ds.Tables[1].Rows[0]["RENBD_TOTALAMOUNT"].ToString();
                         }
                     }
                     if (ds.Tables[2].Rows.Count > 0)
@@ -575,7 +581,7 @@ namespace MeghalayaUIP.Dept.Renewal
                             if (lblMultiple.Text == "Yes")
                             {
                                 LicNos.Visible = true;
-                                lblTaxPayer.Text = ds.Tables[12].Rows[0]["RENDL_LICNOSPECIFY"].ToString();
+                                lblTaxPayer.Text = ds.Tables[12].Rows[0]["RENDL_SPECIFYLICNO"].ToString();
                             }
 
                             lblExise.Text = ds.Tables[12].Rows[0]["RENDL_PREMISEINSPECTION"].ToString();
@@ -585,11 +591,11 @@ namespace MeghalayaUIP.Dept.Renewal
                                 lblProvideDet.Text = ds.Tables[12].Rows[0]["RENDL_INSPECTIONDATE"].ToString();
                             }
 
-                            lblPunished.Text = ds.Tables[12].Rows[0]["RENDL_TOTALAMOUNT"].ToString();
-                            lbllawRule.Text = ds.Tables[12].Rows[0]["RENDL_ADDITIONALFEES"].ToString();
-                            lblapplicant.Text = ds.Tables[12].Rows[0]["RENDL_LATEFEES"].ToString();
-                            lblbailable.Text = ds.Tables[12].Rows[0]["RENDL_REGFEES"].ToString();
-                            lblTotalAmountPaid.Text = ds.Tables[12].Rows[0]["RENDL_TOTALPAIDAMOUNT"].ToString();
+                            //lblPunished.Text = ds.Tables[12].Rows[0]["RENDL_TOTALAMOUNT"].ToString();
+                            //lbllawRule.Text = ds.Tables[12].Rows[0]["RENDL_ADDITIONALFEES"].ToString();
+                            //lblapplicant.Text = ds.Tables[12].Rows[0]["RENDL_LATEFEES"].ToString();
+                            //lblbailable.Text = ds.Tables[12].Rows[0]["RENDL_REGFEES"].ToString();
+                            //lblTotalAmountPaid.Text = ds.Tables[12].Rows[0]["RENDL_TOTALPAIDAMOUNT"].ToString();
 
                         }
                         else { Drug.Visible = false; }
@@ -821,6 +827,7 @@ namespace MeghalayaUIP.Dept.Renewal
                         else { ShopEst.Visible = false; }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[22].Rows.Count > 0)
                         {
+                            divAttachment.Visible = true;
                             grdRenattachment.DataSource = ds.Tables[22];
                             grdRenattachment.DataBind();
                         }
@@ -1057,6 +1064,7 @@ namespace MeghalayaUIP.Dept.Renewal
                         objrenDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
                         objrenDtls.Questionnaireid = Session["Questionnaireid"].ToString();
                         objrenDtls.Remarks = txtRequest.Text;
+                        objrenDtls.AdditionalAmount = txtAdditionalAmount.Text; 
                         if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
                         {
                             if (ddlStatus.SelectedValue == "17")

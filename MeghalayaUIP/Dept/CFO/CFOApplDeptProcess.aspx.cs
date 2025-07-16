@@ -907,6 +907,7 @@ namespace MeghalayaUIP.Dept.CFO
                         objcfoDtls.ApprovalId = Convert.ToInt32(Session["ApprovalID"].ToString());
                         objcfoDtls.Questionnaireid = Session["Questionnaireid"].ToString();
                         objcfoDtls.Remarks = txtRequest.Text;
+                        objcfoDtls.AdditionalAmount = txtAdditionalAmount.Text;
                         if (Request.QueryString["status"].ToString() == "PRESCRUTINYPENDING")
                         {
                             if (ddlStatus.SelectedValue == "17")

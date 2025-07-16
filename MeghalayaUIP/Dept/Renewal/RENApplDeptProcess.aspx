@@ -506,378 +506,374 @@
                                                         </div>
 
                                                         <div id="BoilerDet" runat="server" visible="false">
-                                                            <h4 class="card-title1 col-lg-12">Boiler Details</h4>
-                                                            <b>Existing License Details</b>
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>License No for which renewal is required</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblLineOfActivity" runat="server"></asp:Label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <label>License Issued Date </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerLicIssue" runat="server"></asp:Label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <label>License/ Renewal valid up to Date </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblLcValidupto" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
+                                                            <%--<h4 class="card-title1 col-lg-12"></h4>--%>
 
-                                                            <b>Boiler Location Details</b>
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Work or Plant where Boiler situated </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerSituatedPlant" runat="server"></asp:Label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <label>Factory/Establishment Name </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblFactoryEstName" runat="server"></asp:Label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <label>Address of Factory/Establishment </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblFactoryAddress" runat="server"></asp:Label>
-                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-12 col-sm-12 col-12">
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                            <div class="col-md-12">
+                                                                                <h5>Boiler Details</h5>
+                                                                                <hr />
+                                                                            </div>
 
-                                                            </div>
+                                                                            <b>Existing License Details</b>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>License No for which renewal is required</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblLineOfActivity" runat="server"></asp:Label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>License Issued Date </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerLicIssue" runat="server"></asp:Label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>License/ Renewal valid up to Date </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblLcValidupto" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
 
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Distric</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblDirectorate" runat="server"></asp:Label>
-                                                                </div>
+                                                                            <b>Boiler Location Details</b>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Work or Plant where Boiler situated </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerSituatedPlant" runat="server"></asp:Label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Factory/Establishment Name </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblFactoryEstName" runat="server"></asp:Label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Address of Factory/Establishment </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblFactoryAddress" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Mandal</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblApplied" runat="server"></asp:Label>
-                                                                </div>
+                                                                            </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Village</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblYearEst" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Distric</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblDirectorate" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Locality(B) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblDocumenteryEvidence" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Mandal</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblApplied" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Pin code (B) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblPincodes" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-                                                            <h4>Boiler Technical Details</h4>
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Name of the Manufacturer </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblPersonnelDesig" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Village</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblYearEst" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Year of Manufacture </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblSite" runat="server"></asp:Label>
-                                                                </div>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Locality(B) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblDocumenteryEvidence" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Place of Manufacture</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblStrictly81" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Pin code (B) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblPincodes" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <h4>Boiler Technical Details</h4>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Name of the Manufacturer </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblPersonnelDesig" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Boiler Maker's Number </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblHighStanded" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Year of Manufacture </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblSite" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Intended Working Pressure</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblFirmMaterial" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Place of Manufacture</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblStrictly81" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Fuel use</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblInternalOwn" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Boiler Maker's Number </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblHighStanded" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Super Heater Rating(kg/cm²/lbs) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoiler1950" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Intended Working Pressure</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblFirmMaterial" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Economiser Rating</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblProvide" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Fuel use</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblInternalOwn" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Maximum Continuous Evaporation(Tonnes/Hour) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblEvaporationMax" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Re-Heater Rating </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblReheater" runat="server"></asp:Label>
-                                                                </div>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Super Heater Rating(kg/cm²/lbs) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoiler1950" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Working Season</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblWorkingSeason" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Economiser Rating</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblProvide" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Working Pressure (In Kg/cm-sq or PSI) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblPSI" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Name of the owner</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblOwner" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Maximum Continuous Evaporation(Tonnes/Hour) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblEvaporationMax" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Re-Heater Rating </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblReheater" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Type of Boiler </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblTypeBoiler" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Working Season</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblWorkingSeason" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>Description of Boiler </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerDesc" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>BoilerRating </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerRating" runat="server"></asp:Label>
-                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Working Pressure (In Kg/cm-sq or PSI) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblPSI" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Name of the owner</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblOwner" runat="server"></asp:Label>
+                                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <label>In case of Boiler ownership being transfer</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblOwnership" runat="server"></asp:Label>
-                                                                </div>
-                                                                <div id="RemarkTransfer" runat="server" visible="false">
-                                                                    <div class="col-md-2">
-                                                                        <label>Remarks (Transfers etc.) </label>
+                                                                                <div class="col-md-2">
+                                                                                    <label>Type of Boiler </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblTypeBoiler" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Description of Boiler </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerDesc" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>BoilerRating </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerRating" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>In case of Boiler ownership being transfer</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblOwnership" runat="server"></asp:Label>
+                                                                                </div>
+                                                                                <div id="RemarkTransfer" runat="server" visible="false">
+                                                                                    <div class="col-md-2">
+                                                                                        <label>Remarks (Transfers etc.) </label>
+                                                                                    </div>
+                                                                                    <div class="col-md-4">
+                                                                                        <spna class="dots">:</spna><asp:Label ID="lblRemark" runat="server"></asp:Label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <h4 class="card-title1 col-lg-12">Existing Lisence Details</h4>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Registry No  </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblRegNos" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Type of Boiler(H)</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerType" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Boiler Rating(H)</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerRateManu" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Work of Plant where Boiler situated(H)  </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerSituated" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Place of manufacture(H) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblPlaceManu" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Year of manufacture(H) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblYearManu" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Name of the owner(H)  </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblOwners" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Max. Cont. Evaporation (Tonnes/Hour)(H) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblEvaporation" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Maximum pressure(Lbs)(H) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblPressure" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>Repairs(H) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblRepairs" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Hydraulically Tested ON(H)  </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblHydraulically" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Upto(H)</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblUptoH" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>The Loading of the(H) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblLoading" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Safety valve is not to exceed(H) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblSafetyExceed" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Period from Date(H) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblPeriodDate" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                                <div class="col-md-2">
+                                                                                    <label>To Date(H) </label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblToDateH" runat="server"></asp:Label>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
+                                                                                    <label>Remark</label>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <spna class="dots">:</spna><asp:Label ID="lblRemarked" runat="server"></asp:Label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
-                                                                        <spna class="dots">:</spna><asp:Label ID="lblRemark" runat="server"></asp:Label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <h4 class="card-title1 col-lg-12">Existing Lisence Details</h4>
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Registry No  </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblRegNos" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Type of Boiler(H)</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerType" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Boiler Rating(H)</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerRateManu" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Work of Plant where Boiler situated(H)  </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblBoilerSituated" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Place of manufacture(H) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblPlaceManu" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Year of manufacture(H) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblYearManu" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Name of the owner(H)  </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblOwners" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Max. Cont. Evaporation (Tonnes/Hour)(H) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblEvaporation" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Maximum pressure(Lbs)(H) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblPressure" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Repairs(H) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblRepairs" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Hydraulically Tested ON(H)  </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblHydraulically" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Upto(H)</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblUptoH" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>The Loading of the(H) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblLoading" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Safety valve is not to exceed(H) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblSafetyExceed" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Period from Date(H) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblPeriodDate" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>To Date(H) </label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblToDateH" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Remark</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblRemarked" runat="server"></asp:Label>
-                                                                </div>
-                                                            </div>
-
-                                                            <b>Fees Details</b>
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                <div class="col-md-2">
-                                                                    <label>Registration Fees to be Paid (Rs)</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblRegFees" runat="server"></asp:Label>
-                                                                </div>
-
-                                                                <div class="col-md-2">
-                                                                    <label>Total Amount to be paid (in Rs)</label>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <spna class="dots">:</spna><asp:Label ID="lblTotalAmount" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
-
 
                                                         <div id="Pollution" runat="server" visible="false">
                                                             <h4 class="card-title1 col-lg-12">RENBusinessLicense Details</h4>
@@ -926,32 +922,32 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                               
-                                                                    <div class="col-md-2">
-                                                                        <label>Mobile Number</label>
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                        <spna class="dots">:</spna><asp:Label ID="lblMobile" runat="server"></asp:Label>
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                        <label>E-Mail Id  </label>
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                        <spna class="dots">:</spna><asp:Label ID="lblEmail" runat="server"></asp:Label>
-                                                                    </div>
-                                                              
+                                                            <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
+                                                                <div class="col-md-2">
+                                                                    <label>Mobile Number</label>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <spna class="dots">:</spna><asp:Label ID="lblMobile" runat="server"></asp:Label>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <label>E-Mail Id  </label>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <spna class="dots">:</spna><asp:Label ID="lblEmail" runat="server"></asp:Label>
+                                                                </div>
+
                                                             </div>
 
                                                             <b>Establishment Address</b>
                                                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                              
-                                                                    <div class="col-md-2">
-                                                                        <label>Address of the establishment</label>
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                        <spna class="dots">:</spna><asp:Label ID="lblAddressEST" runat="server"></asp:Label>
-                                                                    </div>
-                                                              
+
+                                                                <div class="col-md-2">
+                                                                    <label>Address of the establishment</label>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <spna class="dots">:</spna><asp:Label ID="lblAddressEST" runat="server"></asp:Label>
+                                                                </div>
+
                                                                 <div class="col-md-2">
                                                                     <label>Nature of Business   </label>
                                                                 </div>
@@ -974,7 +970,7 @@
 
 
 
-                                                <div id="CinemaLicense" runat="server" visible="true">
+                                                <div id="CinemaLicense" runat="server" visible="false">
                                                     <div class="row">
                                                         <div class="col-xl-12 col-sm-12 col-12">
                                                             <div class="card">
@@ -1118,7 +1114,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="LabourDet" runat="server" visible="true">
+                                                <div id="LabourDet" runat="server" visible="false">
 
                                                     <div class="row">
                                                         <div class="col-xl-12 col-sm-12 col-12">
@@ -1128,10 +1124,6 @@
                                                                         <h5>Contract Labour Deatils</h5>
                                                                         <hr />
                                                                     </div>
-
-
-
-
 
                                                                     <%--   <h4 class="card-title1 col-lg-12"></h4>--%>
                                                                     <b>Existing License Details</b>
@@ -1454,7 +1446,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div id="ContractorMigrant" runat="server" visible="true">
+                                                <div id="ContractorMigrant" runat="server" visible="false">
                                                     <div class="row">
                                                         <div class="col-xl-12 col-sm-12 col-12">
                                                             <div class="card">
@@ -2054,14 +2046,12 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                        <div id="LicNos" runat="server" visible="false" class="col-md-4">
-                                                                            <div class="col-md-2">
-                                                                                <label>Please specify license no </label>
-                                                                            </div>
-                                                                            <div class="col-md-2">
-                                                                                <spna class="dots">:</spna><asp:Label ID="lblTaxPayer" runat="server"></asp:Label>
-                                                                            </div>
+                                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;" id="LicNos" runat="server" visible="false">
+                                                                        <div class="col-md-2">
+                                                                            <label>Please specify license no </label>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <spna class="dots">:</spna><asp:Label ID="lblTaxPayer" runat="server"></asp:Label>
                                                                         </div>
                                                                     </div>
 
@@ -2598,7 +2588,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div id="Saftey" runat="server" visible="true">
+                                                <div id="Saftey" runat="server" visible="false">
                                                     <div class="row">
                                                         <div class="col-xl-12 col-sm-12 col-12">
                                                             <div class="card">
@@ -2786,7 +2776,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div id="ShopEst" runat="server" visible="true">
+                                                <div id="ShopEst" runat="server" visible="false">
                                                     <div class="row">
                                                         <div class="col-xl-12 col-sm-12 col-12">
                                                             <div class="card">
@@ -2908,14 +2898,12 @@
                                                                             <spna class="dots">:</spna><asp:Label ID="lblEmpEstablish" runat="server"></asp:Label>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                                        <div id="NumberEmp" runat="server" visible="false">
-                                                                            <div class="col-md-2">
-                                                                                <label>Number of employees  </label>
-                                                                            </div>
-                                                                            <div class="col-md-2">
-                                                                                <spna class="dots">:</spna><asp:Label ID="lblNumberEmp" runat="server"></asp:Label>
-                                                                            </div>
+                                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;" id="NumberEmp" runat="server" visible="false">
+                                                                        <div class="col-md-2">
+                                                                            <label>Number of employees  </label>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <spna class="dots">:</spna><asp:Label ID="lblNumberEmp" runat="server"></asp:Label>
                                                                         </div>
                                                                     </div>
 
@@ -3216,7 +3204,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" id="divAttachment" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingTwo">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -3656,4 +3644,5 @@
             </div>
         </div>
     </div>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
 </asp:Content>

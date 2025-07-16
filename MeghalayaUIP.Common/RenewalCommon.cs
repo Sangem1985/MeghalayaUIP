@@ -104,6 +104,7 @@ namespace MeghalayaUIP.Common
         public static string UpdateRENDepartmentProcess = "USP_UPDATERENSCRUTINYACTION";
 
         public static string GetRENFactoryFee = "USP_GETRENAPPROVALWITHFEE";
+        public static string InsAddtionalPaymentDet = "USP_INSRENPAYMENTDETAILS_ADDLRAISE";
     }
 
     public class RenPublicWorK

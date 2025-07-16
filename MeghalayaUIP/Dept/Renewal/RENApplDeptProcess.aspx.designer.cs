@@ -969,24 +969,6 @@ namespace MeghalayaUIP.Dept.Renewal
         protected global::System.Web.UI.WebControls.Label lblRemarked;
 
         /// <summary>
-        /// lblRegFees control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRegFees;
-
-        /// <summary>
-        /// lblTotalAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalAmount;
-
-        /// <summary>
         /// Pollution control.
         /// </summary>
         /// <remarks>
@@ -3460,6 +3442,15 @@ namespace MeghalayaUIP.Dept.Renewal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAmountpaid;
+
+        /// <summary>
+        /// divAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAttachment;
 
         /// <summary>
         /// grdRenattachment control.
