@@ -140,6 +140,9 @@ namespace MeghalayaUIP.Common
         public string FileType { get; set; }
         public string FileDesc { get; set; }
         public string ReferenceNo { get; set; }
+        public string ConnectionId { get; set; }
+        public string EstimationId { get; set; }
+        public string Category { get; set; }
         public List<Components> lstComponents { get; set; }
 
     }

@@ -170,6 +170,9 @@ namespace MeghalayaAPI.DAL
                         CompParams.Add("@COMPONENT", doc.Component);
                         CompParams.Add("@AMOUNT", doc.Amount);
                         CompParams.Add("@CREATED_BY", Objest.UserID);
+                        CompParams.Add("@EstimationId", Objest.EstimationId);
+                        CompParams.Add("@ConnectionId", Objest.ConnectionId);
+                        CompParams.Add("@Category", Objest.Category);
                         CompParams.Add("@CREATED_IP", Objest.IPAddress);
                         CompParams.Add("@RESULT", dbType: DbType.Int32, direction: ParameterDirection.Output);
                         connection.Execute(

@@ -208,6 +208,21 @@ namespace MeghalayaAPI.Validations
                 ErrorMsg = ErrorMsg + slno + ". Please provide valid FileDesc \\n";
                 slno = slno + 1;
             }
+            if (string.IsNullOrWhiteSpace(model.ConnectionId) || model.ConnectionId == "" || model.ConnectionId == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid Connection Id \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.EstimationId) || model.EstimationId == "" || model.EstimationId == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid Estimation Id \\n";
+                slno = slno + 1;
+            }
+            if (string.IsNullOrWhiteSpace(model.Category) || model.Category == "" || model.Category == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please provide valid Category \\n";
+                slno = slno + 1;
+            }
             foreach (var doc in model.lstComponents)
             {
                 if (string.IsNullOrWhiteSpace(doc.Order) || doc.Order == "" || doc.Order == null)
