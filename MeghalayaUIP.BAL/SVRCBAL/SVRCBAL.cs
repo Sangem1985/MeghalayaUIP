@@ -3,6 +3,7 @@ using MeghalayaUIP.DAL.SVRCDAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -117,8 +118,6 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSrvcPDCLDetails(userid, UNITID);
         }
-
-
         public string InsertEWasteDetails(ServiceEWasteDetails serviceEWasteDetails)
         {
             return SvrcDal.InsertEWasteDetails(serviceEWasteDetails);
@@ -135,12 +134,10 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetEWasteDetails(srvcQdId, Createdby);
         }
-
         public string InsertSrvHazardous(SRVCHAZZARDOUSDETAILS objSrvHazardous)
         {
             return SvrcDal.InsertSrvHazardous(objSrvHazardous);
         }
-
         public DataSet GetSRVCHAZARDOUSDETAILS(string srvcQdId, string Createdby)
         {
             return SvrcDal.GetSRVCHAZARDOUSDETAILS(srvcQdId, Createdby);
@@ -204,6 +201,92 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         public string InsertLabourConWorkDetails(LabourConstructionwork objCDWMDet)
         {
             return SvrcDal.InsertLabourConWorkDetails(objCDWMDet);
+        }
+        public DataSet GetSRVCLabourDETAILS(string userid, string UnitID)
+        {
+            return SvrcDal.GetSRVCLabourDETAILS(userid, UnitID);
+        }
+        public string InsertTourismDetails(SRVCTourism ObjTourismDet)
+        {
+            return SvrcDal.InsertTourismDetails(ObjTourismDet);
+        }
+        public string InsertEncumbranceDetails(SRVCEncumbrance ObjEncumbrance)
+        {
+            return SvrcDal.InsertEncumbranceDetails(ObjEncumbrance);
+        }
+        public string InsertLabourWorkmenDetails(Labourworkme6 ObjCDWMDet)
+        {
+            return SvrcDal.InsertLabourWorkmenDetails(ObjCDWMDet);
+        }
+        //public void SaveMigrantDataToDB(DataTable dt)
+        //{
+        //    string xmlData = ConvertDataTableToXML(dt);
+        //    SvrcDal.SaveMigrantXml(xmlData);
+        //}
+        //private string ConvertDataTableToXML(DataTable dt)
+        //{
+        //    using (StringWriter sw = new StringWriter())
+        //    {
+        //        dt.WriteXml(sw, XmlWriteMode.WriteSchema);
+        //        return sw.ToString();
+        //    }
+        //}
+        public string InsertLabour1970Details(Labour1970 objLabour)
+        {
+            return SvrcDal.InsertLabour1970Details(objLabour);
+        }
+        public string InsertSRVCLabourMotorDetails(SRVCLabourMotor objLabour)
+        {
+            return SvrcDal.InsertSRVCLabourMotorDetails(objLabour);
+        }
+        public string SaveDirectorListToDB(DataTable dt, int srvcqdid, int createdBy, string ip)
+        {
+            string xml = ConvertDataTableToXml(dt);
+
+            DirectorXmlDTO dto = new DirectorXmlDTO
+            {
+                XmlData = xml,
+                SRVCQDID = srvcqdid,
+                CreatedBy = createdBy,
+                CreatedByIP = ip
+            };
+
+            return SvrcDal.InsertDirectorsFromXml(dto);
+        }
+
+        private string ConvertDataTableToXml(DataTable dt)
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                dt.WriteXml(sw, XmlWriteMode.WriteSchema);
+                return sw.ToString();
+            }
+        }
+        public string InsertPartners(SRVCLabourMotor objLabourPart)
+        {
+            int result = SvrcDal.InsertPartners(objLabourPart);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeletePartner(SRVCLabourMotor objLabour)
+        {
+            int result = SvrcDal.DeletePartner(objLabour);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertDirector(SRVCLabourMotor objLabour1)
+        {
+            int result = SvrcDal.InsertDirector(objLabour1);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteDirector(SRVCLabourMotor objLabour)
+        {
+            int result = SvrcDal.DeleteDirector(objLabour);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public DataSet GetSRVCLabourMotor(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetSRVCLabourMotor(userid, SRVCQID);
         }
     }
 }

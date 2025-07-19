@@ -33,15 +33,6 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// divText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divText;
-
-        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -159,6 +150,15 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.DropDownList ddlSates;
 
         /// <summary>
+        /// divdistrict1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divdistrict1;
+
+        /// <summary>
         /// ddlDistric control.
         /// </summary>
         /// <remarks>
@@ -166,6 +166,15 @@ namespace MeghalayaUIP.User.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDistric;
+
+        /// <summary>
+        /// divMandal1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMandal1;
 
         /// <summary>
         /// ddlMandal control.
@@ -177,6 +186,51 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.DropDownList ddlMandal;
 
         /// <summary>
+        /// divdistrict control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divdistrict;
+
+        /// <summary>
+        /// txtDistricted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDistricted;
+
+        /// <summary>
+        /// divMandal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMandal;
+
+        /// <summary>
+        /// txtMandaled control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMandaled;
+
+        /// <summary>
+        /// divVillage1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divVillage1;
+
+        /// <summary>
         /// ddlVillage control.
         /// </summary>
         /// <remarks>
@@ -184,6 +238,24 @@ namespace MeghalayaUIP.User.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlVillage;
+
+        /// <summary>
+        /// divVillage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divVillage;
+
+        /// <summary>
+        /// txtVillagede control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtVillagede;
 
         /// <summary>
         /// txtLocal control.
@@ -636,22 +708,22 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// ddlStates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStates;
 
         /// <summary>
-        /// DropDownList3 control.
+        /// ddlDistrictes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDistrictes;
 
         /// <summary>
         /// txtMigrantWorkmen control.

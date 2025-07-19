@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="SRVCNonEncumbrance.aspx.cs" Inherits="MeghalayaUIP.User.Services.SRVCNonEncumbrance" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
+    <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
         <ContentTemplate>
@@ -10,8 +13,7 @@
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="SRVCUserDashboard.aspx">Other Services</a></li>
-
-                    <li class="breadcrumb-item active" aria-current="page">Forest Details</li>
+                    <li class="breadcrumb-item active" aria-current="page">Non Encumbrance Certificate </li>
                 </ol>
             </nav>
             <div class="page-wrapper" id="divText" runat="server">
@@ -20,7 +22,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Forest Details</h3>
+                                    <h3 class="card-title">Non Encumbrance Certificate </h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="col-md-12 ">
@@ -42,22 +44,38 @@
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
                                     <div class="row">
+
+                                        <h4 class="card-title ml-3">Application Submission Details</h4>
                                         <div class="col-md-12 d-flex">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Apply service to<span class="text-danger">*</span></label>
+                                                    <label class="col-lg-4 col-form-label">Apply service to <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlForest" runat="server" class="form-control">
+                                                        <asp:RadioButtonList ID="rblApply" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblApply_SelectedIndexChanged">
+                                                            <asp:ListItem Text="District" Value="D" />
+                                                            <asp:ListItem Text="Sub-Divisional Office" Value="S" />
+                                                        </asp:RadioButtonList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-4" id="divDistrict" runat="server" visible="false">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Office of the Deputy Commissioner <span class="text-danger">*</span></label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:DropDownList ID="ddlService" runat="server" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4" id="divSubdivision" runat="server" visible="false">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">2.Sub-Divisional Office<span class="text-danger">*</span></label>
+                                                    <label class="col-lg-6 col-form-label">Office of the Sub-Divisional Officer (Civil)<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlLandType" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlSubDivision" runat="server" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                         </asp:DropDownList>
                                                     </div>
@@ -71,7 +89,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Search is to be made from which year<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox1" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSearh" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,7 +99,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Search is to be made to which year<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLatDegrees" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSearchFrom" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,7 +107,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Connection of the applicant with the document, whether  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="DropDownList1" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlDocument" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDocument_SelectedIndexChanged">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             <asp:ListItem Text="Executants" Value="1"></asp:ListItem>
                                                             <asp:ListItem Text="Agents" Value="2"></asp:ListItem>
@@ -103,7 +121,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Others<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLatSeconds" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtOthers" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,7 +131,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Search is necessary in whose names <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox2" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtnecessaryName" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,7 +140,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Nature of the document<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLongDegrees" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNatureDoc" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -130,7 +148,9 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Dated<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLongMinutes" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="txtDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" AutoPostBack="true" />
+                                                        <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate"></cc1:CalendarExtender>
+                                                        <i class="fi fi-rr-calendar-lines"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,11 +163,10 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Location  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandArea" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLocation" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
 
 
@@ -160,7 +179,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Direction <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLoppingPurpose" runat="server" class="form-control" TabIndex="1" Text="EAST" MaxLength="100"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDirection" runat="server" class="form-control" TabIndex="1" Text="EAST" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,7 +187,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Description <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLopScfName" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDescription" runat="server" class="form-control" TabIndex="1" onkeypress="return validateNameAndNumbers(event)" MaxLength="100"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,7 +195,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Distance <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLopTreeCount" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="10"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDistance" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="10"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,7 +246,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Area : In   <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:DropDownList ID="ddlArea" runat="server" class="form-control">
+                                                        <asp:DropDownList ID="ddlAreaIn" runat="server" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             <asp:ListItem Text="Sq Ft" Value="1"></asp:ListItem>
                                                             <asp:ListItem Text="Sqm" Value="2"></asp:ListItem>
@@ -241,7 +260,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Area <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox3" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+                                                        <asp:TextBox ID="txtArea" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -254,7 +273,7 @@
                                         <div class="col-md-12 text-right">
 
                                             <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-                                            <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                            <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnSave_Click" />
                                             <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                         </div>

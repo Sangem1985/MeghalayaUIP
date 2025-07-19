@@ -50,7 +50,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Nature of the Organization<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLatMinutes" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNature" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -58,7 +58,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Year Of Registration/Commencement of Business <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLatDegrees" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtYearReg" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -70,7 +70,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Proprietor/Director/Partner<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox1" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameProprietor" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,7 +78,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Details of their Interests, in other business may also be indicated<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLongDegrees" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDetIntrest" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -92,7 +92,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtinstrment" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameEmp" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,7 +100,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Designation   *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtClass" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtDesignationEmp" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Qualifications   *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtCapacity" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtQualificationsEmp" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -118,7 +118,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Experience *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtMake" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtExperienceEmp" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,7 +126,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Monthly Salary(in Rs.)   *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtModel" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtMonthlyEmp" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -134,7 +134,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Length Of Service  *</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtSerial" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLengthEmp" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,7 +182,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Space in sq.ft<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox2" runat="server" class="form-control" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSqft" runat="server" class="form-control" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -190,7 +190,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Location Area Commercial/Residential<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox3" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLocationArea" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -198,7 +198,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Reception Area<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox4" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtReception" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -209,7 +209,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Accessibility to toilets<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLongMinutes" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAccessibility" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="5" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -221,7 +221,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Bankers(please attach a reference letter on original letterhead from your bankers)  <span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtGPSCordinates" runat="server" class="form-control" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameBankers" runat="server" class="form-control" MaxLength="100" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -234,7 +234,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Auditors<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLandArea" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAuditors" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,7 +246,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Please indicate membership of International Travel Organization , if any<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox5" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtIndicate" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -258,7 +258,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Details of volume of tourist traffic handle</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox6" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txttourist" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -267,7 +267,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Clientele<span class="text-danger">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox7" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtClientele" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -275,7 +275,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Steps taken to promote domestic tourist traffic and details of the group handle, if any</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox8" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtpromote" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -287,7 +287,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Number of conferences handled, if any, and total number of passengers for such conferences with details of location etc</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="TextBox9" runat="server" class="form-control" MaxLength="50" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtnoConferences" runat="server" class="form-control" MaxLength="50" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -295,7 +295,7 @@
 
                                         <div class="col-md-12 text-right">
                                             <asp:Button ID="btnPrevious" runat="server" Text="Previous" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-                                            <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                            <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnSave_Click" />
                                             <asp:Button ID="btnNext" runat="server" Text="Next" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                         </div>

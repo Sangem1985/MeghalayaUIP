@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -237,7 +238,73 @@ namespace MeghalayaUIP.User.Services
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        public void BindData()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objSrvcbal.GetSRVCLabourDETAILS(Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
 
+                if (ds != null && ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+
+                        txtFullNameEst.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtAddressEst.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlSates.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlSates_SelectedIndexChanged(null, EventArgs.Empty);
+                        if (ddlSates.SelectedItem.Text == "Meghalaya")
+                        {
+                            divMeghaState.Visible = true;
+                            divOtherState.Visible = false;
+
+                            ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        }
+                        else
+                        {
+                            divOtherState.Visible = true;
+                            divMeghaState.Visible = false;
+                            txtDistricted.Text = ds.Tables[0].Rows[0][""].ToString();
+                            txtMandaled.Text = ds.Tables[0].Rows[0][""].ToString();
+                            txtVillagede.Text = ds.Tables[0].Rows[0][""].ToString();
+                        }
+
+
+
+                        txtPostEst.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtPincodeEst.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtNameManager.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtAddressManager.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+
+                        ddlDistrictManager.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlDistrictManager_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlMandalManager.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlMandalManager_SelectedIndexChanged(null, EventArgs.Empty);
+                        ddlVillageManager.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+
+                        txtPoliceManager.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtPostOfficeManager.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtPincodeManager.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtNatureConWork.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtWorkEmpDay.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtEmpDatework.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtEstConDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                       
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void btnsave_Click(object sender, EventArgs e)
         {
             try

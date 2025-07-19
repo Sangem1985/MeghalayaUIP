@@ -11,37 +11,24 @@ namespace MeghalayaUIP.Common
     {
         public static string GETANNUALTURNOVER = "USP_CHECK_ANNUALTURNOVER";
         public static string CFEENTERPRISETYPEDET = "USP_GETENTERPRISETYPEDET";
-
         public static string GetRENApplicantDetails = "USP_GETSRVCENTERPRISEDETAILS";
-
         public static string InsertRenApplicationDetails = "USP_INSSRVCENTERPRISEDETAILS";
-
         public static string GetBMWEquipment = "USP_GETBMW_WASTETYPE";
         public static string InsertBMWDetails = "USP_INSBMWDETAILS";
-
         public static string InsertWasteDetails = "USP_INSBMWWASTEDETAILS";
         public static string InsertBMWBIOMEDICALDET = "USP_INSBMWEQUIPMENT";
         public static string GetSrvcBMWDetails = "USP_GETBMWDETAILS";
-
         public static string InsertEWasteDetails = "USP_INSEWASTEDETAILS";
         public static string GetEWasteDetails = "USP_GETEWASTEDETAILS";
-
         public static string InsertProdPlasticsWasteDetails = "USP_INSSRVCPRODPLASTICWASTEDETAILS";
         public static string InsertBOPlasticsWasteDetails = "USP_INS_SRVCBOPLASTICWASTEDETAILS";
-
         public static string InsertHzrdsDetails = "USP_INSSRVCHAZZARDOUSDETAILS";
         public static string GetHzrdsDetails = "USP_GETHAZZARDOUSDETAILS";
-
         public static string InsertCDWMDetails = "USP_INSSRVCCDWMWASTEDETAILS";
         public static string GetSRVCCDWMDETAILS = "USP_GETSRVCCDWMDETAILS";
-
-
         public static string GetProdPlasticWasteDetails = "USP_GETPRODPLASTICWASTEDET";
         public static string GetBOPlasticWasteDetails = "USP_GETBOPLASTICWASTEDET";
-
-
         public static string InsertSVRCAttachments = "USP_INSSRVCATTACHMNETS";
-
         public static string GetSRVCapplications = "USP_GETSRVCUSERDASHBOARD";
 
         public static string GetSRVCApprovals = "USP_GETSRVCAPPROVALS";
@@ -67,6 +54,13 @@ namespace MeghalayaUIP.Common
         public static string GETSRVCGSETDETAILS = "";
         public static string INSERTSRVCDGSETDETAILS = "";
         public static string InsertLabourContractorDetails = "";
+        public static string GETSRVCLabour7DETAILS = "";
+        public static string InsertTourismDetails = "";
+        public static string InsertEncumberanceDetails = "";
+        public static string InsertLabourworkmenDetails = "USP_INSSRVCLABOURDETAILSCONTRACT1979";
+        public static string InsertLabour1970Details = "";
+        public static string InsertSrvcLabourMotorDetails = "USP_INSSRVCLABOURMOTORDETAILS";
+        public static string GetSrvcLabourMotorDet = "USP_GETLABOURMOTORDETAILS";
     }
 
     public class SvrcApplicationDetails
@@ -560,7 +554,187 @@ namespace MeghalayaUIP.Common
         public string MeggerNo { get; set; }
         public string MeggerMake { get; set; }
         public string MeggerRange { get; set; }
-
+    }
+    public class SRVCTourism
+    {
+        public string Questionnariid { get; set; }
+        public string NatureOrganization { get; set; }
+        public string YearRegComm { get; set; }
+        public string NameDirector { get; set; }
+        public string Interestsindicated { get; set; }
+        public string NameEmp { get; set; }
+        public string DesignationEmp { get; set; }
+        public string QualificationsEmp { get; set; }
+        public string ExperienceEmp { get; set; }
+        public string MonthlySalaryEmp { get; set; }
+        public string LengthEmp { get; set; }
+        public string SpaceSqft { get; set; }
+        public string LocationArea { get; set; }
+        public string ReceptionArea { get; set; }
+        public string AccessibilityToilet { get; set; }
+        public string NameBankers { get; set; }
+        public string NameAuditors { get; set; }
+        public string indicatemembership { get; set; }
+        public string PostOfficeManager { get; set; }
+        public string touristtraffic  { get; set; }
+        public string Clientele { get; set; }
+        public string domestictouristtraffic { get; set; }
+        public string Numberconferences { get; set; }     
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+    }
+    public class SRVCEncumbrance
+    {
+        public string Questionnariid { get; set; }
+        public string Applyservice { get; set; }
+        public string Depty { get; set; }
+        public string Division { get; set; }
+        public string Search { get; set; }
+        public string searchfrom { get; set; }
+        public string ApplicantDocument { get; set; }
+        public string others { get; set; }
+        public string SearchNecessary { get; set; }
+        public string NatureDocument { get; set; }
+        public string Dated { get; set; }
+        public string Location { get; set; }
+        public string Direction { get; set; }
+        public string Description { get; set; }
+        public string Distance { get; set; }
+        public string AreaIn { get; set; }
+        public string Area { get; set; }      
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+    }
+    public class Labourworkme6
+    {
+        public string Questionnariid { get; set; }
+        public string DateofBirth { get; set; }
+        public string Date { get; set; }
+        public string Age { get; set; }
+        public string State { get; set; }
+        public string Districtid { get; set; }
+        public string Mandaleid { get; set; }
+        public string Villageid { get; set; }
+        public string District { get; set; }
+        public string Mandal { get; set; }
+        public string Village { get; set; }
+        public string Locality { get; set; }
+        public string Landmark { get; set; }
+        public string Pincode { get; set; }
+        public string Artical5 { get; set; }
+        public string Criminalcase { get; set; }
+        public string ConvictedCrimecase { get; set; }
+        public string DistrictCouncil { get; set; }
+        public string License { get; set; }
+        public string Licenseno { get; set; }
+        public string DateofLicense { get; set; }
+        public string ValidDate { get; set; }
+        public string Trible { get; set; }
+        public string Reason { get; set; }
+        public string NameEst { get; set; }
+        public string TypeofBusiness { get; set; }
+        public string RegNoEst { get; set; }
+        public string DateofReg { get; set; }
+        public string DistrictEst { get; set; }
+        public string MandalEst { get; set; }
+        public string VillageEst { get; set; }
+        public string LocalityEst { get; set; }
+        public string LandMarkEst { get; set; }
+        public string PincodeEst { get; set; }
+        public string TitleEmpDet { get; set; }
+        public string NameEmpPrincipal { get; set; }
+        public string NameLocationNature { get; set; }
+        public string DurationWorkDay { get; set; }
+        public string CommencingDate { get; set; }
+        public string EndingDate { get; set; }
+        public string NameAgent { get; set; }
+        public string MaxMigrantWorkmenNo { get; set; }
+        public string MigrantState { get; set; }
+        public string MigrantDistrict { get; set; }
+        public string MigrantNameAddress { get; set; }
+        public string Convicted5Year { get; set; }
+        public string Details { get; set; }
+        public string suspendinglicense { get; set; }
+        public string OrderNo { get; set; }
+        public string OrderDate { get; set; }
+        public string ContractEst5Year { get; set; }
+        public string Establishment { get; set; }
+        public string PrincipalEmp{ get; set; }
+        public string NatureWork { get; set; }
+        public string PrincipalEmployer { get; set; }
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+    }
+    public class MigrantModel
+    {
+        public string Title { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+    }
+    public class DirectorXmlDTO
+    {
+        public string XmlData { get; set; }
+        public int SRVCQDID { get; set; }
+        public int CreatedBy { get; set; }
+        public string CreatedByIP { get; set; }
+    }
+    public class Labour1970
+    {
+        public string Questionnariid { get; set; }
+        public string EmpName { get; set; }
+        public string Father { get; set; }
+        public string EmpEMail { get; set; }
+        public string EmpMobileNo { get; set; }
+        public string State { get; set; }
+        public string DistrictId { get; set; }
+        public string MandalId { get; set; }
+        public string VillageId { get; set; }
+        public string District { get; set; }
+        public string Mandal { get; set; }
+        public string Village { get; set; }
+        public string Locality { get; set; }
+        public string Landmark { get; set; }
+        public string Station { get; set; }
+        public string PostOffice { get; set; }
+        public string Pincode { get; set; }
+        public string DirectorsTitle { get; set; }
+        public string DirectorsName { get; set; }
+        public string DirectorsAddress { get; set; }
+        public string ManagerTitle { get; set; }
+        public string ManagerName { get; set; }
+        public string ManagerAddress { get; set; }
+        public string LabourName { get; set; }
+        public string LabourLocation { get; set; }
+        public string LabourMaximumno { get; set; }
+        public string LabourDurationDay { get; set; }
+        public string LabourestDate { get; set; }
+        public string LabourEstDatework { get; set; }
+        public string LabourEmpContract { get; set; }
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+    }
+    public class SRVCLabourMotor
+    {
+        public string Questionnariid { get; set; }
+        public string NatureMotor { get; set; }
+        public string TotalNo { get; set; }
+        public string Totalroute { get; set; }
+        public string TotalNoVehicle { get; set; }
+        public string MaxNoMotor { get; set; }
+        public string TypeOfTransport { get; set; }
+        public string PartnershipName { get; set; }
+        public string PartnershipAddress { get; set; }
+        public string DirectorFullName { get; set; }
+        public string DirectorResAddress { get; set; }
+        public string ProprietorshipName { get; set; }
+        public string ProprietorshipAddress { get; set; }        
+        public string SectorName { get; set; }
+        public string SectorAddress { get; set; }
+        public string VehicleNo { get; set; }
+        public string TypeVehicle { get; set; }       
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+        public string XMLData { get; set; }
     }
 
 }
