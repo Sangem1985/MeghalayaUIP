@@ -359,5 +359,39 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCDRUGDet(userid, SRVCQID);
         }
+        public string INSSRVCForestDet(SRVCForestDetails objSRVCForest)
+        {
+            return SvrcDal.INSSRVCForestDet(objSRVCForest);
+        }
+        public DataSet GetSRVCFORESTDet(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetSRVCFORESTDet(userid, SRVCQID);
+        }
+        public string InsertLabourDirectorDetails(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            int result = SvrcDal.InsertLabourDirectorDetails(objLabour);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteDirector(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            int result = SvrcDal.DeleteDirector(objLabour);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertLabourManagerDetails(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            int result = SvrcDal.InsertLabourManagerDetails(objLabour);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteManager(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            int result = SvrcDal.DeleteManager(objLabour);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertSRVCLabour1970Details(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            return SvrcDal.InsertSRVCLabour1970Details(objLabour);
+        }
     }
 }

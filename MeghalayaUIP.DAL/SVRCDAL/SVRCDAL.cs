@@ -2990,9 +2990,9 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 }
 
                 com.Parameters.AddWithValue("@SRVCDD_VALIDTNT", DateTime.ParseExact(objDrug.ValidTNT, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                com.Parameters.AddWithValue("@SRVCDD_VALIDMUNICIPALLITYDATE", DateTime.ParseExact(objDrug.MunicipallityDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));               
+                com.Parameters.AddWithValue("@SRVCDD_VALIDMUNICIPALLITYDATE", DateTime.ParseExact(objDrug.MunicipallityDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 com.Parameters.AddWithValue("@SRVCDD_COLDSTORAGE", objDrug.ColdStorage);
-                com.Parameters.AddWithValue("@SRVCDD_DRUGCATEGORY", objDrug.DrugsCategory);                
+                com.Parameters.AddWithValue("@SRVCDD_DRUGCATEGORY", objDrug.DrugsCategory);
                 com.Parameters.AddWithValue("@SRVCDD_CREATEDBYIP", objDrug.IPAddress);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
@@ -3046,6 +3046,254 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Close();
                 connection.Dispose();
             }
+        }
+        public string INSSRVCForestDet(SRVCForestDetails objSRVCForest)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.INSERTSRVCFORESTDETAILS,
+                    Transaction = transaction,
+                    Connection = connection
+                };
+
+                com.Parameters.AddWithValue("@SRVCFD_SRVCQDID", Convert.ToInt32(objSRVCForest.Questionnariid));
+                com.Parameters.AddWithValue("@SRVCFD_CREATEDBY", Convert.ToInt32(objSRVCForest.CreatedBy));
+                com.Parameters.AddWithValue("@SRVCFD_FORESTDIVISION", Convert.ToInt32(objSRVCForest.ForestDivision));
+                com.Parameters.AddWithValue("@SRVCFD_TYPELAND", Convert.ToInt32(objSRVCForest.LandType));
+                com.Parameters.AddWithValue("@SRVCFD_LANDAREA", objSRVCForest.LandArea);
+                com.Parameters.AddWithValue("@SRVCFD_NONFORESTLAND", objSRVCForest.NonForest);
+                com.Parameters.AddWithValue("@SRVCFD_ADDRESS", objSRVCForest.Address);
+                com.Parameters.AddWithValue("@SRVCFD_DISTRICT", Convert.ToInt32(objSRVCForest.District));
+                com.Parameters.AddWithValue("@SRVCFD_MANDAL", Convert.ToInt32(objSRVCForest.Manadal));
+                com.Parameters.AddWithValue("@SRVCFD_VILLAGE", Convert.ToInt32(objSRVCForest.Village));
+                com.Parameters.AddWithValue("@SRVCFD_PINCODE", Convert.ToInt32(objSRVCForest.Pincode));
+                com.Parameters.AddWithValue("@SRVCFD_CREATEDBYIP", objSRVCForest.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+        public DataSet GetSRVCFORESTDet(string userid, String SRVCQID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCFORESTDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCFORESTDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public int InsertLabourDirectorDetails(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLabour.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objLabour.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objLabour.IPAddress);
+                cmd.Parameters.AddWithValue("", objLabour.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteDirector(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLabour.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objLabour.DirectorsName);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int InsertLabourManagerDetails(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLabour.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objLabour.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objLabour.IPAddress);
+                cmd.Parameters.AddWithValue("", objLabour.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteManager(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLabour.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objLabour.ManagerName);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public string InsertSRVCLabour1970Details(SRVCLABOURACT1970DETAILS objLabour)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.INSERTSRVCLabourAct1970DETAILS,
+                    Transaction = transaction,
+                    Connection = connection
+                };
+
+                com.Parameters.AddWithValue("", Convert.ToInt32(objLabour.Questionnariid));
+                com.Parameters.AddWithValue("", Convert.ToInt32(objLabour.Createdby));
+                com.Parameters.AddWithValue("", objLabour.Title);
+                com.Parameters.AddWithValue("", objLabour.PrincipalEMPNAME);
+                com.Parameters.AddWithValue("", Convert.ToInt32(objLabour.State));
+                if (objLabour.DISTRICTID != "" && objLabour.DISTRICTID != null)
+                {
+                    com.Parameters.AddWithValue("", Convert.ToInt32(objLabour.DISTRICTID));
+                }
+                if (objLabour.MANDALID != "" && objLabour.MANDALID != null)
+                {
+                    com.Parameters.AddWithValue("", Convert.ToInt32(objLabour.MANDALID));
+                }
+                if (objLabour.VILLAGEID != "" && objLabour.VILLAGEID != null)
+                {
+                    com.Parameters.AddWithValue("", Convert.ToInt32(objLabour.VILLAGEID));
+                }
+                if (objLabour.DISTRICT != "" && objLabour.DISTRICT != null)
+                {
+                    com.Parameters.AddWithValue("", objLabour.DISTRICT);
+                }
+                if (objLabour.MANDAL != "" && objLabour.MANDAL != null)
+                {
+                    com.Parameters.AddWithValue("", objLabour.MANDAL);
+                }
+                if (objLabour.VILLAGE != "" && objLabour.VILLAGE != null)
+                {
+                    com.Parameters.AddWithValue("", objLabour.VILLAGE);
+                }       
+                         
+               
+                com.Parameters.AddWithValue("", objLabour.Locality);
+                com.Parameters.AddWithValue("", objLabour.Landmark);
+                com.Parameters.AddWithValue("", objLabour.PoliceStation);
+                com.Parameters.AddWithValue("", objLabour.PostOffice);
+                com.Parameters.AddWithValue("", objLabour.PinCode);
+                com.Parameters.AddWithValue("", objLabour.TypeBusiness);
+                com.Parameters.AddWithValue("", objLabour.RegNo);
+                com.Parameters.AddWithValue("", objLabour.RegDate);
+                com.Parameters.AddWithValue("", objLabour.Nameagentmanager);
+                com.Parameters.AddWithValue("", objLabour.Addressagentmanager);
+                com.Parameters.AddWithValue("", objLabour.NameNatureEmp);
+                com.Parameters.AddWithValue("", objLabour.LabourNoDays);
+                com.Parameters.AddWithValue("", objLabour.EstDate);
+                com.Parameters.AddWithValue("", objLabour.EndingDate);
+                com.Parameters.AddWithValue("", objLabour.MaxnoLabourEmp);
+                com.Parameters.AddWithValue("", objLabour.Othersconvicted);
+                if (objLabour.Details != "" && objLabour.Details != null)
+                {
+                    com.Parameters.AddWithValue("", objLabour.Details);
+                }
+                com.Parameters.AddWithValue("", objLabour.Othersrevoking);
+                if (objLabour.OrderDate != "" && objLabour.OrderDate != null)
+                {
+                    com.Parameters.AddWithValue("", objLabour.OrderDate);
+                }
+                com.Parameters.AddWithValue("", objLabour.otherscontractorEst);
+                if (objLabour.PrincipalEmpDetails != "" && objLabour.PrincipalEmpDetails != null)
+                {
+                    com.Parameters.AddWithValue("", objLabour.PrincipalEmpDetails);
+                }
+                //com.Parameters.AddWithValue("", DateTime.ParseExact(objLabour.RegFromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                //com.Parameters.AddWithValue("", DateTime.ParseExact(objLabour.ToDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (objLabour.EstDetails != "" && objLabour.EstDetails != null)
+                {
+                    com.Parameters.AddWithValue("", objLabour.EstDetails);
+                }
+                if (objLabour.Naturework != "" && objLabour.Naturework != null)
+                {
+                    com.Parameters.AddWithValue("", objLabour.Naturework);
+
+                }
+
+                com.Parameters.AddWithValue("", objLabour.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
         }
     }
 }

@@ -65,6 +65,9 @@ namespace MeghalayaUIP.Common
         public static string GetSrvcExciseDet = "USP_GETEXCISEDET";
         public static string INSERTSRVCDRUGDETAILS = "USP_INSSRVCDRUGDETAILS";
         public static string GetSRVCDRUGDet = "USP_GETSRVCDRUGEDET";
+        public static string INSERTSRVCFORESTDETAILS = "USP_INSSRVCNONFORESTDETAILS";
+        public static string GetSRVCFORESTDet = "USP_GETSRVCNONFORESTDETAILS";
+        public static string INSERTSRVCLabourAct1970DETAILS = "";
     }
 
     public class SvrcApplicationDetails
@@ -787,6 +790,67 @@ namespace MeghalayaUIP.Common
         public string MunicipallityDate { get; set; }
         public string ColdStorage { get; set; }
         public string DrugsCategory { get; set; }       
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+        public string XMLData { get; set; }
+    }
+    public class SRVCForestDetails
+    {
+        public string Questionnariid { get; set; }
+        public string CreatedBy { get; set; }
+        public string IPAddress { get; set; }
+        public string ForestDivision { get; set; }
+        public string LandType { get; set; }
+        public string LandArea { get; set; }
+        public string NonForest { get; set; }
+        public string Address { get; set; }
+        public string District { get; set; }
+        public string Manadal { get; set; }
+        public string Village { get; set; }
+        public string Pincode { get; set; } 
+
+    }
+    public class SRVCLABOURACT1970DETAILS
+    {
+        public string Questionnariid { get; set; }
+        public string Title { get; set; }
+        public string PrincipalEMPNAME { get; set; }
+        public string State { get; set; }
+        public string DISTRICTID { get; set; }
+        public string MANDALID { get; set; }
+        public string VILLAGEID { get; set; }
+        public string DISTRICT { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string Locality { get; set; }
+        public string Landmark { get; set; }
+        public string PoliceStation { get; set; }
+        public string PostOffice { get; set; }
+        public string PinCode { get; set; }
+        public string TypeBusiness { get; set; }
+        public string RegNo { get; set; }
+        public string RegDate { get; set; }
+        public string DirectorsTitle { get; set; }
+        public string DirectorsName { get; set; }
+        public string DirectorsAddress { get; set; }
+        public string ManagerTitle { get; set; }
+        public string ManagerName { get; set; }
+        public string ManagerAddress { get; set; }
+        public string Nameagentmanager { get; set; }
+        public string Addressagentmanager { get; set; }
+        public string NameNatureEmp { get; set; }
+        public string LabourNoDays { get; set; }
+        public string EstDate { get; set; }
+        public string EndingDate { get; set; }
+        public string MaxnoLabourEmp { get; set; }
+        public string Othersconvicted { get; set; }
+        public string Details { get; set; }
+        public string Othersrevoking { get; set; }
+        public string OrderDate { get; set; }
+        public string otherscontractorEst { get; set; }
+        public string PrincipalEmpDetails { get; set; }
+        public string EstDetails { get; set; }
+        public string Naturework { get; set; }      
         public string Createdby { get; set; }
         public string IPAddress { get; set; }
         public string XMLData { get; set; }
