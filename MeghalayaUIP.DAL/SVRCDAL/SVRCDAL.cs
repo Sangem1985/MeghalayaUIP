@@ -163,7 +163,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                     com.Parameters.AddWithValue("@SRVCED_SRVCQDID", Convert.ToInt32(ObjApplicationDetails.Questionnariid));
                 }
 
-                if(ObjApplicationDetails.UnitId !=null && ObjApplicationDetails.UnitId != "")
+                if (ObjApplicationDetails.UnitId != null && ObjApplicationDetails.UnitId != "")
                 {
                     com.Parameters.AddWithValue("@SRVCED_UNITID", Convert.ToInt32(ObjApplicationDetails.UnitId));
                 }
@@ -200,7 +200,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCED_EMAIL", ObjApplicationDetails.Email);
                 com.Parameters.AddWithValue("@SRVCED_MOBILENUMBER", Convert.ToInt64(ObjApplicationDetails.MobileNumber));
                 com.Parameters.AddWithValue("@SRVCED_ALTERNUMBER", Convert.ToInt64(ObjApplicationDetails.ALTERNATIVAENO));
-                if (ObjApplicationDetails.LANDLINENO !=null && ObjApplicationDetails.LANDLINENO !="")
+                if (ObjApplicationDetails.LANDLINENO != null && ObjApplicationDetails.LANDLINENO != "")
                 {
                     com.Parameters.AddWithValue("@SRVCED_LANDLINENUMBER", ObjApplicationDetails.LANDLINENO);
                 }
@@ -392,7 +392,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@BMW_CREATEDBY", Convert.ToInt32(ObjBMWDetails.Createdby));
                 com.Parameters.AddWithValue("@BMW_CREATEDBYIP", ObjBMWDetails.IPAddress);
-               // com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
+                // com.Parameters.AddWithValue("@BMW_UNITID", Convert.ToInt32(ObjBMWDetails.UnitId));
                 com.Parameters.AddWithValue("@BMW_SERVICEQDID", Convert.ToInt32(ObjBMWDetails.Questionnariid));
                 com.Parameters.AddWithValue("@BMW_CATEGORY", ObjBMWDetails.Category);
                 com.Parameters.AddWithValue("@BMW_TYPEWASTE", ObjBMWDetails.Waste);
@@ -594,7 +594,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
-                if(SRVCQDID != null && SRVCQDID != "")
+                if (SRVCQDID != null && SRVCQDID != "")
                 {
                     da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQDID));
                 }
@@ -761,7 +761,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-               // com.Parameters.AddWithValue("@SRVCSWD_UNITID", Convert.ToInt32(ObjSWMDet.unitid));
+                // com.Parameters.AddWithValue("@SRVCSWD_UNITID", Convert.ToInt32(ObjSWMDet.unitid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBY", Convert.ToInt32(ObjSWMDet.createdby));
                 com.Parameters.AddWithValue("@SRVCSWD_SRVCQDID", Convert.ToInt32(ObjSWMDet.Questionnariid));
                 com.Parameters.AddWithValue("@SRVCSWD_CREATEDBYIP", ObjSWMDet.createdbyip);
@@ -1238,7 +1238,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
 
                 com.Parameters.AddWithValue("@EWD_SRVCQDID", Convert.ToInt32(serviceEWasteDetails.SrvcQdId));
                 com.Parameters.AddWithValue("@EWD_CREATEDBY", serviceEWasteDetails.CreatedBy);
-               // com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
+                // com.Parameters.AddWithValue("@EWD_UNITID", Convert.ToInt32(serviceEWasteDetails.UnitId));
                 // com.Parameters.AddWithValue("@EWD_UIDNO", serviceEWasteDetails.UidNo);
                 com.Parameters.AddWithValue("@EWD_CREATEDBYIP", serviceEWasteDetails.CreatedByIp);
                 com.Parameters.AddWithValue("@EWD_NAME", serviceEWasteDetails.Name);
@@ -1400,9 +1400,9 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCPWD_MULTILAYEREDPLASTIC", serviceProdPlasticsWasteDetails.MultilayeredPlastic);
                 com.Parameters.AddWithValue("@SRVCPWD_MANFCTRNGCAPACITY", serviceProdPlasticsWasteDetails.ManufacturingCapacity);
                 com.Parameters.AddWithValue("@SRVCPWD_PREVREGNO", serviceProdPlasticsWasteDetails.PreviousRegistration);
-               // com.Parameters.AddWithValue("@SRVCPWD_REGDATE", Convert.ToDateTime (serviceProdPlasticsWasteDetails.RegistrationDate).ToString());
+                // com.Parameters.AddWithValue("@SRVCPWD_REGDATE", Convert.ToDateTime (serviceProdPlasticsWasteDetails.RegistrationDate).ToString());
                 com.Parameters.AddWithValue("@SRVCPWD_REGDATE", DateTime.ParseExact(serviceProdPlasticsWasteDetails.RegistrationDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
-                                
+
 
                 com.Parameters.AddWithValue("@SRVCPWD_TOTCAPTLINV", serviceProdPlasticsWasteDetails.TotalCapitalInvestment);
                 com.Parameters.AddWithValue("@SRVCPWD_YEAROFCMNCEMNT", serviceProdPlasticsWasteDetails.YearOfCommencement);
@@ -1933,7 +1933,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCMD_FULLADDRESS", ObjRegSocietiesDetails.FullAddress);
                 com.Parameters.AddWithValue("@SRVCMD_POLICESTATION", ObjRegSocietiesDetails.Policestation);
                 com.Parameters.AddWithValue("@SRVCMD_DESIGNATION", ObjRegSocietiesDetails.Designation);
-                com.Parameters.AddWithValue("@SRVCMD_MOBILENO",Convert.ToInt32( ObjRegSocietiesDetails.MobileNo));
+                com.Parameters.AddWithValue("@SRVCMD_MOBILENO", Convert.ToInt32(ObjRegSocietiesDetails.MobileNo));
                 com.Parameters.AddWithValue("@SRVCMD_CREATEDBYIP", ObjRegSocietiesDetails.createdbyip);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
@@ -1988,7 +1988,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCRS_CONTACTNO", Convert.ToInt32(ObjRegSocietiesDetails.ContactNo));
                 com.Parameters.AddWithValue("@SRVCRS_GENERALSECRETYNO", Convert.ToInt32(ObjRegSocietiesDetails.GeneralNo));
                 com.Parameters.AddWithValue("@SRVCRS_EMAIL", ObjRegSocietiesDetails.Email);
-                
+
 
 
                 com.Parameters.AddWithValue("", ObjRegSocietiesDetails.createdbyip);
@@ -2218,7 +2218,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("", objCDWMDet.NatureofBuilding);
                 com.Parameters.AddWithValue("", objCDWMDet.NoofWorkEmpDay);
                 com.Parameters.AddWithValue("", objCDWMDet.EstConDate);
-                com.Parameters.AddWithValue("", objCDWMDet.EstConworkDate);                
+                com.Parameters.AddWithValue("", objCDWMDet.EstConworkDate);
                 com.Parameters.AddWithValue("", objCDWMDet.IPAddress);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
@@ -2297,7 +2297,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("", ObjTourismDet.Createdby);
                 com.Parameters.AddWithValue("", ObjTourismDet.NatureOrganization);
                 com.Parameters.AddWithValue("", ObjTourismDet.YearRegComm);
-              
+
                 com.Parameters.AddWithValue("", ObjTourismDet.NameDirector);
                 com.Parameters.AddWithValue("", ObjTourismDet.Interestsindicated);
                 com.Parameters.AddWithValue("", ObjTourismDet.SpaceSqft);
@@ -2310,7 +2310,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("", ObjTourismDet.touristtraffic);
                 com.Parameters.AddWithValue("", ObjTourismDet.Clientele);
                 com.Parameters.AddWithValue("", ObjTourismDet.domestictouristtraffic);
-                com.Parameters.AddWithValue("", ObjTourismDet.Numberconferences);               
+                com.Parameters.AddWithValue("", ObjTourismDet.Numberconferences);
                 com.Parameters.AddWithValue("", ObjTourismDet.IPAddress);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
@@ -2365,7 +2365,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("", ObjEncumbrance.NatureDocument);
                 com.Parameters.AddWithValue("", ObjEncumbrance.Dated);
                 com.Parameters.AddWithValue("", ObjEncumbrance.AreaIn);
-                com.Parameters.AddWithValue("", ObjEncumbrance.Area);             
+                com.Parameters.AddWithValue("", ObjEncumbrance.Area);
                 com.Parameters.AddWithValue("", ObjEncumbrance.IPAddress);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
@@ -2410,24 +2410,24 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCLD_CREATEDBY", ObjCDWMDet.Createdby);
                 com.Parameters.AddWithValue("@SRVCLD_DATEAGE", ObjCDWMDet.DateofBirth);
 
-                if(ObjCDWMDet.Date !=null && ObjCDWMDet.Date != "")
+                if (ObjCDWMDet.Date != null && ObjCDWMDet.Date != "")
                 {
                     com.Parameters.AddWithValue("@SRVCLD_DATE", DateTime.ParseExact(ObjCDWMDet.Date, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyy-MM-dd"));
                 }
 
-                if (ObjCDWMDet.Age!=null&& ObjCDWMDet.Age!="")
+                if (ObjCDWMDet.Age != null && ObjCDWMDet.Age != "")
                 {
                     com.Parameters.AddWithValue("@SRVCLD_AGE", Convert.ToInt32(ObjCDWMDet.Age));
                 }
-               
-                 com.Parameters.AddWithValue("@SRVCLD_STATEID", Convert.ToInt32(ObjCDWMDet.State)); 
+
+                com.Parameters.AddWithValue("@SRVCLD_STATEID", Convert.ToInt32(ObjCDWMDet.State));
                 if (ObjCDWMDet.Districtid != null && ObjCDWMDet.Districtid != "")
                 { com.Parameters.AddWithValue("@SRVCLD_DISTRICTID", Convert.ToInt32(ObjCDWMDet.Districtid)); }
                 if (ObjCDWMDet.Mandaleid != null && ObjCDWMDet.Mandaleid != "")
                 { com.Parameters.AddWithValue("@SRVCLD_MANDALID", Convert.ToInt32(ObjCDWMDet.Mandaleid)); }
                 if (ObjCDWMDet.Villageid != null && ObjCDWMDet.Villageid != "")
                 { com.Parameters.AddWithValue("@SRVCLD_VILLAGEID", Convert.ToInt32(ObjCDWMDet.Villageid)); }
-                if(ObjCDWMDet.District!=null&& ObjCDWMDet.District != "")
+                if (ObjCDWMDet.District != null && ObjCDWMDet.District != "")
                 {
                     com.Parameters.AddWithValue("@SRVCLD_DISTRICT", ObjCDWMDet.District);
                 }
@@ -2482,7 +2482,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCLD_MIGRANTESTABLISHMENT", ObjCDWMDet.Establishment);
                 com.Parameters.AddWithValue("@SRVCLD_MIGRANTPRINCIPALEMPLOYER", ObjCDWMDet.PrincipalEmp);
                 com.Parameters.AddWithValue("@SRVCLD_MIGRANTNATUREWORK", ObjCDWMDet.NatureWork);
-                com.Parameters.AddWithValue("@SRVCLD_MIGRANTEMP", ObjCDWMDet.PrincipalEmployer);               
+                com.Parameters.AddWithValue("@SRVCLD_MIGRANTEMP", ObjCDWMDet.PrincipalEmployer);
                 com.Parameters.AddWithValue("@SRVCLD_CREATEDBYIP", ObjCDWMDet.IPAddress);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
@@ -2541,7 +2541,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("", objLabour.Landmark);
                 com.Parameters.AddWithValue("", objLabour.Station);
                 com.Parameters.AddWithValue("", objLabour.PostOffice);
-                com.Parameters.AddWithValue("", Convert.ToInt32(objLabour.Pincode));               
+                com.Parameters.AddWithValue("", Convert.ToInt32(objLabour.Pincode));
                 com.Parameters.AddWithValue("", objLabour.IPAddress);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
@@ -2587,7 +2587,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 com.Parameters.AddWithValue("@SRVCLM_NATUREMOTORTRANSPORT", objLabour.NatureMotor);
                 com.Parameters.AddWithValue("@SRVCLM_TOTALNOROUTE", objLabour.TotalNo);
                 com.Parameters.AddWithValue("@SRVCLM_TOTALMILEAGE", objLabour.Totalroute);
-                com.Parameters.AddWithValue("@SRVCLM_TOTALNOVEHICLE", objLabour.TotalNoVehicle);                
+                com.Parameters.AddWithValue("@SRVCLM_TOTALNOVEHICLE", objLabour.TotalNoVehicle);
                 com.Parameters.AddWithValue("@SRVCLM_MAXNOEMPWORK", objLabour.MaxNoMotor);
                 com.Parameters.AddWithValue("@SRVCLM_TYPETRANSPORT", objLabour.TypeOfTransport);
                 com.Parameters.AddWithValue("@SRVCLM_PROPNAME", objLabour.ProprietorshipName);
@@ -2615,7 +2615,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
             return result;
-        }      
+        }
         public string InsertDirectorsFromXml(DirectorXmlDTO dto)
         {
             string result = "";
@@ -2740,7 +2740,312 @@ namespace MeghalayaUIP.DAL.SVRCDAL
                 connection.Dispose();
             }
         }
+        public int InsertBrand(SRVCEXICEBRAND objBrand)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("USP_INSSRVCEXCISEBRANDDETAILS_XML", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objBrand.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objBrand.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objBrand.IPAddress);
+                cmd.Parameters.AddWithValue("@BRANDXML", objBrand.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteBrand(SRVCEXICEBRAND objBrand)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("USP_DELETESRVCEXCISEBRANDDETAILS_BYNAME", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objBrand.Questionnariid));
+                cmd.Parameters.AddWithValue("@FullName", objBrand.NameBrand);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int InsertCountry(SRVCEXICEBRAND objBrand)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("USP_INSSRVCEXCISELIQUORDETAILS_XML", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objBrand.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objBrand.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objBrand.IPAddress);
+                cmd.Parameters.AddWithValue("@LIQUORXML", objBrand.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteCountry(SRVCEXICEBRAND objBrand)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("USP_DELETESRVCEXCISELIQUORDETAILS_BYNAME", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objBrand.Questionnariid));
+                cmd.Parameters.AddWithValue("@Country", objBrand.Country);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int InsertAimDetails(SRVCEXICEBRAND objBrand)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("USP_INSSRVCAIMDETAILS", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objBrand.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objBrand.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objBrand.IPAddress);
+                cmd.Parameters.AddWithValue("@AIMXML", objBrand.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteAIM(SRVCEXICEBRAND objBrand)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("USP_DELETESRVCAIMDETAILS_BYNAME", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objBrand.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objBrand.AIM);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int InsertMembersDetails(SRVCEXICEBRAND objBrand)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("USP_INSSRVCEXCISEMEMBERSDETAILS_XML", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objBrand.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objBrand.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objBrand.IPAddress);
+                cmd.Parameters.AddWithValue("@MEMBERSXML", objBrand.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteMemberDet(SRVCEXICEBRAND objBrand)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("USP_DELETESRVCEXCISEMEMBERSDETAILS_BYNAME", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objBrand.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objBrand.MemberName);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public string InsertSRVCExciseDetails(SRVCEXICEBRAND objBrand)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
 
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
 
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.INSERTSRVCEXCISEDETAILS,
+                    Transaction = transaction,
+                    Connection = connection
+                };
+
+                com.Parameters.AddWithValue("@SRVCED_SRVCQDID", Convert.ToInt32(objBrand.Questionnariid));
+                com.Parameters.AddWithValue("@SRVCED_CREATEDBY", Convert.ToInt32(objBrand.Createdby));
+                com.Parameters.AddWithValue("@SRVCED_APPLYREGBIOBRAND", objBrand.RENBIOBrand);
+                com.Parameters.AddWithValue("@SRVCED_FROMDATE", DateTime.ParseExact(objBrand.RegFromDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@SRVCED_TODATE", DateTime.ParseExact(objBrand.ToDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@SRVCED_NAMEADDRESS", objBrand.NameaddressFirm);
+                com.Parameters.AddWithValue("@SRVCED_CREATEDBYIP", objBrand.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+        public DataSet GetSRVCExciseDet(string userid, String SRVCQID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSrvcExciseDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSrvcExciseDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public int InsertDrugRetailsDet(SRVCDRUGDETAILS objDrug)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("USP_INSSRVCDRUGRETAILDETAILS_XML", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objDrug.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objDrug.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objDrug.IPAddress);
+                cmd.Parameters.AddWithValue("@DRUGRXML", objDrug.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteDrug(SRVCDRUGDETAILS objDrug)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objDrug.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objDrug.RetailName);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public string InsertSRVCDSrugDetails(SRVCDRUGDETAILS objDrug)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.INSERTSRVCDRUGDETAILS,
+                    Transaction = transaction,
+                    Connection = connection
+                };
+
+                com.Parameters.AddWithValue("@SRVCDD_SRVCQDID", Convert.ToInt32(objDrug.Questionnariid));
+                com.Parameters.AddWithValue("@SRVCDD_CREATEDBY", Convert.ToInt32(objDrug.Createdby));
+                com.Parameters.AddWithValue("@SRVCDD_APPLTYPE", objDrug.ApplicationType);
+                if (objDrug.Select != "" && objDrug.Select != null)
+                {
+                    com.Parameters.AddWithValue("@SRVCDD_NAMECOMPETENT", objDrug.Select);
+                }
+                if (objDrug.NameCompetent != "" && objDrug.NameCompetent != null)
+                {
+                    com.Parameters.AddWithValue("@SRVCDD_NAMEPHARMACIST", objDrug.NameCompetent);
+                }
+
+                if (objDrug.PharmacistDate != "" && objDrug.PharmacistDate != null)
+                {
+                    com.Parameters.AddWithValue("@SRVCDD_VALIDDATE", DateTime.ParseExact(objDrug.PharmacistDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                }
+                if (objDrug.PharmacistRegNo != "" && objDrug.PharmacistRegNo != null)
+                {
+                    com.Parameters.AddWithValue("@SRVCDD_REGNO", objDrug.PharmacistRegNo);
+                }
+
+                com.Parameters.AddWithValue("@SRVCDD_VALIDTNT", DateTime.ParseExact(objDrug.ValidTNT, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                com.Parameters.AddWithValue("@SRVCDD_VALIDMUNICIPALLITYDATE", DateTime.ParseExact(objDrug.MunicipallityDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));               
+                com.Parameters.AddWithValue("@SRVCDD_COLDSTORAGE", objDrug.ColdStorage);
+                com.Parameters.AddWithValue("@SRVCDD_DRUGCATEGORY", objDrug.DrugsCategory);                
+                com.Parameters.AddWithValue("@SRVCDD_CREATEDBYIP", objDrug.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+        public DataSet GetSRVCDRUGDet(string userid, String SRVCQID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCDRUGDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCDRUGDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
 }

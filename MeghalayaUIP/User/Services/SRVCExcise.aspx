@@ -53,7 +53,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Name of Brand*</label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                        <asp:TextBox ID="txtNameBrand" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,26 +120,26 @@
                                         </div>
                                         <div class="col-md-12 d-flex justify-content-center">
                                             <div class="col-md-2 text-center">
-                                                <asp:Button ID="btnAdd" Text="Add Brand Details" class="btn btn-rounded btn-green btn-sm" runat="server" Width="140px" />
+                                                <asp:Button ID="btnBrand" Text="Add Brand Details" OnClick="btnBrand_Click" class="btn btn-rounded btn-green btn-sm" runat="server" Width="140px" />
                                             </div>
                                         </div>
                                         <br />
 
                                         <div class="col-md-12 d-flex justify-content-center">
-                                            <asp:GridView ID="gvBrandDetails" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                            <asp:GridView ID="GVBrand" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered" ForeColor="#333333"
-                                                GridLines="None"
+                                                GridLines="None" OnRowDeleting="GVBrand_RowDeleting"
                                                 Width="100%" EnableModelValidation="True" Visible="false">
                                                 <RowStyle BackColor="#ffffff" />
                                                 <Columns>
-                                                    <asp:BoundField DataField="NameOfBrand" HeaderText="Name of Brand" />
-                                                    <asp:BoundField DataField="Strength" HeaderText="Strength(Alcohol Content)" />
-                                                    <asp:BoundField DataField="Size" HeaderText="Size" />
-                                                    <asp:BoundField DataField="NumberOfBottles" HeaderText="No. of bottles(in one case)" />
-                                                    <asp:BoundField DataField="MRPRs" HeaderText="MRP (Rs.)" />
-                                                    <asp:BoundField DataField="BulkLiter" HeaderText="Bulk liter (in one case)" />
-                                                    <asp:BoundField DataField="LandOnProof" HeaderText="London Proof liter (in one case)" />
-                                                    <asp:BoundField DataField="BottlePlant" HeaderText="Name & address of Distillery/ Brewery/Winery/Bottling Plant" />
+                                                    <asp:BoundField DataField="SRVCEBD_NAMEOFBRAND" HeaderText="Name of Brand" />
+                                                    <asp:BoundField DataField="SRVCEBD_STRENGTH" HeaderText="Strength(Alcohol Content)" />
+                                                    <asp:BoundField DataField="SRVCEBD_SIZE" HeaderText="Size" />
+                                                    <asp:BoundField DataField="SRVCEBD_NUMBEROFBOTTLES" HeaderText="No. of bottles(in one case)" />
+                                                    <asp:BoundField DataField="SRVCEBD_MRPRS" HeaderText="MRP (Rs.)" />
+                                                    <asp:BoundField DataField="SRVCEBD_BULKLITER" HeaderText="Bulk liter (in one case)" />
+                                                    <asp:BoundField DataField="SRVCEBD_LANDONPROOF" HeaderText="London Proof liter (in one case)" />
+                                                    <asp:BoundField DataField="SRVCEBD_BOTTLEPLANT" HeaderText="Name & address of Distillery/ Brewery/Winery/Bottling Plant" />
                                                     <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
                                                 </Columns>
                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -153,18 +153,16 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">The Country of Origin of the Liquor *</label>
                                                     <div class="col-lg-6 d-flex">
-
                                                         <asp:DropDownList runat="server" ID="ddlCountry" class="form-control">
                                                         </asp:DropDownList>
-
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">MRP (Rs.) *</label>
+                                                    <label class="col-lg-6 col-form-label">Applying for Registration for BIO Brand?  *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblMRPRS" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                        <asp:RadioButtonList ID="rblBIOBrand" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblMRPRS_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
@@ -181,10 +179,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="col-md-12 d-flex">
+                                        </div>
+
                                         <div class="col-md-12 d-flex justify-content-center">
                                             <div class="form-group row">
                                                 <div class="col-lg-12 d-flex">
-                                                    <asp:Button ID="AddBtn" Text="Add Details" class="btn btn-rounded btn-green btn-sm" runat="server" Width="110px" />
+                                                    <asp:Button ID="BtnCountry" Text="Add Details" OnClick="BtnCountry_Click" class="btn btn-rounded btn-green btn-sm" runat="server" Width="110px" />
                                                 </div>
                                             </div>
 
@@ -192,17 +193,13 @@
                                         <div class="col-md-12 d-flex justify-content-center">
                                             <asp:GridView ID="GvLiquor" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered" ForeColor="#333333"
-                                                GridLines="None" Width="100%" EnableModelValidation="True" Visible="false">
+                                                GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GvLiquor_RowDeleting">
                                                 <RowStyle BackColor="#ffffff" />
                                                 <Columns>
 
-                                                    <asp:BoundField DataField="CountryName" HeaderText="Country of Origin" />
-                                                    <asp:TemplateField HeaderText="MRP (Rs.)">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lblMRPSSelection" runat="server" Text='<%# Eval("MRPSSelection").ToString() == "Y" ? "Yes" : "No" %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:BoundField DataField="BrandName" HeaderText="Name of Brand" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
+                                                     <asp:BoundField DataField="SRVCELD_COUNTRYID" HeaderText="Country of Origin" />
+                                                    <asp:BoundField DataField="SRVCELD_APPLYREGBIOBRAND" HeaderText="Bio Brand" />
+                                                    <asp:BoundField DataField="SRVCELD_BRANDNAME" HeaderText="Name of Brand" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
                                                     <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" ControlStyle-CssClass="btn btn-danger" />
                                                 </Columns>
                                                 <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -214,14 +211,14 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Applying for Renewal of BIO Brands? *</label>
                                                     <div class="col-lg-6">
-                                                        <asp:RadioButtonList ID="rblBrand" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                        <asp:RadioButtonList ID="rblBrand" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblBrand_SelectedIndexChanged">
                                                             <asp:ListItem Text="Yes" Value="Y" />
                                                             <asp:ListItem Text="No" Value="N" />
                                                         </asp:RadioButtonList>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6" id="Brands" runat="server" visible="false">
+                                            <div class="col-md-6" id="divBrands" runat="server" visible="false">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">a. Original Year of Registration- From Date :</label>
                                                     <div class="col-lg-4 d-flex">
@@ -232,7 +229,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 d-flex" id="TodateReg" runat="server" visible="false">
+                                        <div class="col-md-12 d-flex" id="divTodateReg" runat="server" visible="false">
                                             <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">b. To Date :</label>
@@ -254,167 +251,159 @@
                                         </div>
 
 
-                                        <div id="divAimDetails" runat="server" visible="true">
-                                            <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Aim and Object Details</span></label>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">The aims and object must be Literally , Social , Cultural , Educational , Charitable and Scientific</span></label>
-                                            </div>
-
-
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Aim*</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox10" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Object *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox11" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Aim and Object Details</span></label>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">The aims and object must be Literally , Social , Cultural , Educational , Charitable and Scientific</span></label>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Aim*</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtAim" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
-
-
-                                            <div class="col-md-12 d-flex justify-content-center">
-                                                <div class="col-md-2 text-center">
-                                                    <asp:Button ID="btnAim" Text="Add" class="btn btn-rounded btn-green btn-sm" runat="server" Width="140px" />
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Object *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtObject" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <br />
-
-                                            <div class="col-md-12 d-flex justify-content-center">
-                                                <asp:GridView ID="GVAIM" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered" ForeColor="#333333"
-                                                    GridLines="None"
-                                                    Width="100%" EnableModelValidation="True" Visible="false">
-                                                    <RowStyle BackColor="#ffffff" />
-                                                    <Columns>
-                                                        <asp:BoundField DataField="Aim" HeaderText="Aim" />
-                                                        <asp:BoundField DataField="Object" HeaderText="Object" />
-                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
-                                                    </Columns>
-                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                    <AlternatingRowStyle BackColor="White" />
-                                                </asp:GridView>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <div class="col-md-2 text-center">
+                                                        <asp:Button ID="btnAim" Text="Add" OnClick="btnAim_Click" class="btn btn-rounded btn-green btn-sm" runat="server" Width="140px" />
+                                                    </div>
+                                                </div>
                                             </div>
+                                        </div>                                                                            
+
+                                        <div class="col-md-12 d-flex justify-content-center">
+                                            <asp:GridView ID="GVAIM" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered" ForeColor="#333333"
+                                                GridLines="None" OnRowDeleting="GVAIM_RowDeleting"
+                                                Width="100%" EnableModelValidation="True" Visible="false">
+                                                <RowStyle BackColor="#ffffff" />
+                                                <Columns>
+                                                    <asp:BoundField DataField="SRVCAD_AIM" HeaderText="Aim" />
+                                                    <asp:BoundField DataField="SRVCAD_OBJECT" HeaderText="Object" />
+                                                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
+                                                </Columns>
+                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                <AlternatingRowStyle BackColor="White" />
+                                            </asp:GridView>
                                         </div>
 
 
-                                        <div id="divMember" runat="server" visible="true">
-                                            <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Member Details</span></label>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Name *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox5" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Designation  *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox3" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Occupation (in real life) *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox4" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Member Details</span></label>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Name *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Designation  *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtDesignation" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Occupation (in real life) *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtOccupation" runat="server" class="form-control" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Address (as per EPIC) *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox6" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">State   *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox7" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">District  *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox8" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Address (as per EPIC) *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtAddressEPIC" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">State   *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtState" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">District  *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtDistrict" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Mobile No *</label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtMobileno" runat="server" class="form-control" onkeypress="return validateNumbersOnly(event)" TabIndex="1" MaxLength="10" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Mobile No *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox9" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        <div class="col-md-12 d-flex justify-content-center">
+                                            <div class="col-md-2 text-center">
+                                                <asp:Button ID="btnMembers" Text="Add" OnClick="btnMembers_Click" class="btn btn-rounded btn-green btn-sm" runat="server" Width="140px" />
                                             </div>
+                                        </div>
+                                        <br />
 
-                                            <div class="col-md-12 d-flex justify-content-center">
-                                                <div class="col-md-2 text-center">
-                                                    <asp:Button ID="btnAddDetails" Text="Add" class="btn btn-rounded btn-green btn-sm" runat="server" Width="140px" />
-                                                </div>
-                                            </div>
-                                            <br />
-
-                                            <div class="col-md-12 d-flex justify-content-center">
-                                                <asp:GridView ID="GVMember" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
-                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered" ForeColor="#333333"
-                                                    GridLines="None"
-                                                    Width="100%" EnableModelValidation="True" Visible="false">
-                                                    <RowStyle BackColor="#ffffff" />
-                                                    <Columns>
-                                                        <asp:BoundField DataField="Name" HeaderText="Name" />
-                                                        <asp:BoundField DataField="Designation" HeaderText="Designation" />
-                                                        <asp:BoundField DataField="Occupationl" HeaderText="Occupation (in real life)" />
-                                                        <asp:BoundField DataField="Address" HeaderText="Address (as per EPIC)" />
-                                                        <asp:BoundField DataField="State" HeaderText="State" />
-                                                        <asp:BoundField DataField="LandOnProof" HeaderText="London Proof liter (in one case)" />
-                                                        <asp:BoundField DataField="BottlePlant" HeaderText="Name & address of Distillery/ Brewery/Winery/Bottling Plant" />
-                                                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
-                                                    </Columns>
-                                                    <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
-                                                    <AlternatingRowStyle BackColor="White" />
-                                                </asp:GridView>
-                                            </div>
+                                        <div class="col-md-12 d-flex justify-content-center">
+                                            <asp:GridView ID="GVMember" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered" ForeColor="#333333"
+                                                GridLines="None" OnRowDeleting="GVMember_RowDeleting"
+                                                Width="100%" EnableModelValidation="True" Visible="false">
+                                                <RowStyle BackColor="#ffffff" />
+                                                <Columns>
+                                                    <asp:BoundField DataField="SRVCEMD_NAME" HeaderText="Name" />
+                                                    <asp:BoundField DataField="SRVCEMD_DESIGNATION" HeaderText="Designation" />
+                                                    <asp:BoundField DataField="SRVCEMD_OCCUPATION" HeaderText="Occupation (in real life)" />
+                                                    <asp:BoundField DataField="SRVCEMD_ADDRESS" HeaderText="Address (as per EPIC)" />
+                                                    <asp:BoundField DataField="SRVCEMD_STATE" HeaderText="State" />
+                                                    <asp:BoundField DataField="SRVCEMD_DISTRICT" HeaderText="District" />
+                                                    <asp:BoundField DataField="SRVCEMD_MOBILENO" HeaderText="Mobile" />
+                                                    <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
+                                                </Columns>
+                                                <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                <AlternatingRowStyle BackColor="White" />
+                                            </asp:GridView>
                                         </div>
 
 
                                         <div class="col-md-12 d-flex mt-2 mb-2 justify-content-end">
                                             <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg mr-2" Width="150px" />
-                                            <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                            <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnsave_Click" />
                                             <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg ml-2" Width="150px" />
 
                                         </div>
                                     </div>
-            </div>
+                                </div>
 
                             </div>
                         </div>

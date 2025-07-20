@@ -19,7 +19,7 @@ namespace MeghalayaUIP.User.Services
     {
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, Questionnaire, ErrorMsg = "", result = "";
+        string ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -212,10 +212,8 @@ namespace MeghalayaUIP.User.Services
                     objLabour.Questionnariid = "101"; //Convert.ToString(Session["SRVCQID"]);
                     objLabour.PartnershipName = name;
                 };
-                // new objSrvcbal.DeletePartner(objLabour);
                 string result = objSrvcbal.DeletePartner(objLabour);
 
-                // Delete from ViewState
                 DataTable dt = PartnerDetails;
                 dt.Rows.RemoveAt(e.RowIndex);
                 PartnerDetails = dt;
@@ -274,8 +272,8 @@ namespace MeghalayaUIP.User.Services
                 GVDirector.DataSource = dt;
                 GVDirector.DataBind();
 
-                txtNameAddress.Text = "";
-                txtLocation.Text = "";
+                txtFullName.Text = "";
+                txtResAddress.Text = "";
             }
             catch (Exception ex)
             {
@@ -332,7 +330,6 @@ namespace MeghalayaUIP.User.Services
                 ErrorMsg = stepValidations();
                 if (ErrorMsg == "")
                 {
-
 
                     DataTable dt = PartnerDetails;
                     DataSet ds = new DataSet("Root");

@@ -71,13 +71,125 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Application Type(H) :   *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:RadioButtonList ID="rblApplication" runat="server" RepeatDirection="Horizontal">
-                                                                <asp:ListItem Text="Wholesale" Value="1" />
-                                                                <asp:ListItem Text="Retails" Value="2" />
+                                                            <asp:RadioButtonList ID="rblApplication" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblApplication_SelectedIndexChanged">
+                                                                <asp:ListItem Text="Wholesale" Value="W" />
+                                                                <asp:ListItem Text="Retails" Value="R" />
                                                             </asp:RadioButtonList>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+
+
+                                            <div id="divWholesale" runat="server" visible="false">
+                                                <div class="col-md-12 d-flex">
+                                                    <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Name of the Competent Person / Pharmacist</span></label>
+                                                </div>
+
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Please Select :   *</label>
+                                                            <div class="col-lg-6">
+                                                                <asp:RadioButtonList ID="rblSelect" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblSelect_SelectedIndexChanged">
+                                                                    <asp:ListItem Text="Competent Person" Value="1" />
+                                                                    <asp:ListItem Text="Pharmacist" Value="2" />
+                                                                </asp:RadioButtonList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6" id="divCompetent" runat="server" visible="false">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(i).Name of the Pharmacist/Competent Person </label>
+                                                            <div class="col-lg-4 d-flex">
+                                                                <asp:TextBox ID="txtCompetentName" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="500" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex" id="divPharmacist" runat="server" visible="false">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(iii).Valid up to date </label>
+                                                            <div class="col-lg-4 d-flex">
+                                                                <asp:TextBox runat="server" ID="txtValidate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                                <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtValidate"></cc1:CalendarExtender>
+                                                                <i class="fi fi-rr-calendar-lines"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(ii).Registration No </label>
+                                                            <div class="col-lg-4 d-flex">
+                                                                <asp:TextBox ID="txtRegNo" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="500" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="divRetail" runat="server" visible="false">
+                                                <div class="col-md-12 d-flex">
+                                                    <label class="col-lg-12 col-form-label fw-bold">
+                                                        <span style="font-weight: 900;">Name of Pharmacist</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(i).Name(s) Pharmacist  :</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtNamePharma" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(ii).Registration No :</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtRetailRegNo" runat="server" class="form-control" onkeypress="return Names(event)" MaxLength="200" onkeyup="handleKeyUp(this)"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">(iii).Valid up to date :</label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox runat="server" ID="txtDateValid" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                                <cc1:CalendarExtender ID="CalendarExtender4" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDateValid"></cc1:CalendarExtender>
+                                                                <i class="fi fi-rr-calendar-lines"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex justify-content-center">
+                                                    <div class="form-group row">
+                                                        <div class="col-lg-12 d-flex">
+                                                            <asp:Button ID="btnPharmacist" Text="Add Details" OnClick="btnPharmacist_Click" class="btn btn-rounded btn-green btn-sm" runat="server" Width="110px" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-12 d-flex justify-content-center">
+                                                    <asp:GridView ID="GVPharmacist" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table table-bordered" ForeColor="#333333"
+                                                        GridLines="None" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVPharmacist_RowDeleting">
+                                                        <RowStyle BackColor="#ffffff" />
+                                                        <Columns>
+
+                                                            <asp:BoundField DataField="SRVCDRD_NAMEPHARMACIST" HeaderText="Name Pharmacist" />
+                                                            <asp:BoundField DataField="SRVCDRD_REGISTRATIONNO" HeaderText="Registration No" />
+                                                            <asp:BoundField DataField="SRVCDRD_VALIDDATE" HeaderText="Valid up to date" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" />
+                                                            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="white" ItemStyle-ForeColor="WindowText" ControlStyle-CssClass="btn btn-danger" />
+                                                        </Columns>
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                        <AlternatingRowStyle BackColor="White" />
+                                                    </asp:GridView>
+                                                </div>
+
                                             </div>
 
 
@@ -89,9 +201,6 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">(i). Valid up to date Trading License(TNT)</label>
                                                         <div class="col-lg-4 d-flex">
-                                                            <%--<asp:TextBox ID="txttradeLic" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                    <i class="fi fi-rr-calendar-lines"></i>--%>
-
                                                             <asp:TextBox runat="server" ID="txttradeLic" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txttradeLic"></cc1:CalendarExtender>
                                                             <i class="fi fi-rr-calendar-lines"></i>
@@ -102,10 +211,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">(ii). Valid up to date permission from Municipallity/Contt.Board/Local Dorbar *</label>
                                                         <div class="col-lg-4 d-flex">
-                                                            <%-- <asp:TextBox ID="txtClass" runat="server" class="date form-control" Type="text"></asp:TextBox>
-                                                    <i class="fi fi-rr-calendar-lines"></i>--%>
-
-                                                            <asp:TextBox runat="server" ID="txtClass" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                            <asp:TextBox runat="server" ID="txtMunicipalDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                             <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtClass"></cc1:CalendarExtender>
                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                         </div>
@@ -119,7 +225,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Particulars of cold storage </label>
                                                         <div class="col-lg-4 d-flex">
-                                                            <asp:TextBox ID="txtCapacity" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" MaxLength="500" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtColdstorage" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNameAndNumbers(event)" MaxLength="500" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -130,7 +236,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-8 col-form-label">Drugs Categories(P) *</label>
                                                         <div class="col-lg-12 d-flex">
-                                                            <asp:CheckBoxList ID="CHKAuthorized" runat="server" RepeatDirection="Vertical" RepeatColumns="3" Style="padding: 20px">
+                                                            <asp:CheckBoxList ID="CHKAuthorized" runat="server" RepeatDirection="Vertical" RepeatColumns="3" Style="padding: 20px" AutoPostBack="true" OnSelectedIndexChanged="CHKAuthorized_SelectedIndexChanged">
                                                                 <asp:ListItem Text="Specified in Schedules C and C(1)" Value="1" style="padding-right: 20px"></asp:ListItem>
                                                                 <asp:ListItem Text="Specified in Schedule X" Value="2" style="padding-right: 20px"></asp:ListItem>
                                                                 <asp:ListItem Text="Other than those specified in Schedule C, C(I) and X" Value="3" style="padding-right: 20px"></asp:ListItem>
@@ -146,7 +252,7 @@
                                         <div class="col-md-12 text-right mt-2 mb-2">
 
                                             <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
-                                            <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                            <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnsave_Click" />
                                             <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded  btn-info btn-lg" Width="150px" />
 
                                         </div>
@@ -164,5 +270,5 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
-    </asp:UpdatePanel>
+    </asp:UpdatePanel>  
 </asp:Content>

@@ -61,6 +61,10 @@ namespace MeghalayaUIP.Common
         public static string InsertLabour1970Details = "";
         public static string InsertSrvcLabourMotorDetails = "USP_INSSRVCLABOURMOTORDETAILS";
         public static string GetSrvcLabourMotorDet = "USP_GETLABOURMOTORDETAILS";
+        public static string INSERTSRVCEXCISEDETAILS = "USP_INSSRVCEXCISEDETAILS";
+        public static string GetSrvcExciseDet = "USP_GETEXCISEDET";
+        public static string INSERTSRVCDRUGDETAILS = "USP_INSSRVCDRUGDETAILS";
+        public static string GetSRVCDRUGDet = "USP_GETSRVCDRUGEDET";
     }
 
     public class SvrcApplicationDetails
@@ -736,7 +740,57 @@ namespace MeghalayaUIP.Common
         public string IPAddress { get; set; }
         public string XMLData { get; set; }
     }
-
+    public class SRVCEXICEBRAND
+    {
+        public string Questionnariid { get; set; }
+        public string NameBrand { get; set; }
+        public string Strength { get; set; }
+        public string Size { get; set; }
+        public string Noofbottles { get; set; }
+        public string MRP { get; set; }
+        public string Bulkliter { get; set; }
+        public string PartnershipName { get; set; }
+        public string LondonProof { get; set; }
+        public string NameAddress { get; set; }
+        public string Country { get; set; }
+        public string RegBIOBrand { get; set; }
+        public string NameofBrand { get; set; }
+        public string RENBIOBrand { get; set; }
+        public string RegFromDate { get; set; }
+        public string ToDate { get; set; }
+        public string NameaddressFirm { get; set; }
+        public string AIM { get; set; }
+        public string Object { get; set; }
+        public string MemberName { get; set; }
+        public string MemberDesignation { get; set; }
+        public string MemberOccupation { get; set; }
+        public string MemberAddress { get; set; }
+        public string MemberState { get; set; }
+        public string MemberDistrict { get; set; }
+        public string MemberMobileno { get; set; }
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+        public string XMLData { get; set; }
+    }
+    public class SRVCDRUGDETAILS
+    {
+        public string Questionnariid { get; set; }
+        public string ApplicationType { get; set; }
+        public string Select { get; set; }
+        public string NameCompetent { get; set; }
+        public string PharmacistDate { get; set; }
+        public string PharmacistRegNo { get; set; }
+        public string RetailName { get; set; }
+        public string RetailRegNo { get; set; }
+        public string RetailValidDate { get; set; }
+        public string ValidTNT { get; set; }
+        public string MunicipallityDate { get; set; }
+        public string ColdStorage { get; set; }
+        public string DrugsCategory { get; set; }       
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+        public string XMLData { get; set; }
+    }
 }
 
 

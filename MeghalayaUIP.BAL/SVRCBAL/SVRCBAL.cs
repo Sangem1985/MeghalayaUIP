@@ -288,5 +288,76 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCLabourMotor(userid, SRVCQID);
         }
+
+        public string InsertBrand(SRVCEXICEBRAND objBrand)
+        {
+            int result = SvrcDal.InsertBrand(objBrand);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteBrand(SRVCEXICEBRAND objBrand)
+        {
+            int result = SvrcDal.DeleteBrand(objBrand);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertCountry(SRVCEXICEBRAND objBrand)
+        {
+            int result = SvrcDal.InsertCountry(objBrand);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteCountry(SRVCEXICEBRAND objBrand)
+        {
+            int result = SvrcDal.DeleteCountry(objBrand);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertAimDetails(SRVCEXICEBRAND objBrand)
+        {
+            int result = SvrcDal.InsertAimDetails(objBrand);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteAIM(SRVCEXICEBRAND objBrand)
+        {
+            int result = SvrcDal.DeleteAIM(objBrand);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertMembersDetails(SRVCEXICEBRAND objBrand)
+        {
+            int result = SvrcDal.InsertMembersDetails(objBrand);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteMemberDet(SRVCEXICEBRAND objBrand)
+        {
+            int result = SvrcDal.DeleteMemberDet(objBrand);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertSRVCExciseDetails(SRVCEXICEBRAND objBrand)
+        {
+            return SvrcDal.InsertSRVCExciseDetails(objBrand);
+        }
+        public DataSet GetSRVCExciseDet(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetSRVCExciseDet(userid, SRVCQID);
+        }
+        public string InsertDrugRetailsDet(SRVCDRUGDETAILS objDrug)
+        {
+            int result = SvrcDal.InsertDrugRetailsDet(objDrug);
+            return result > 0 ? "Success" : "Failed";
+        }
+        public string DeleteDrug(SRVCDRUGDETAILS objDrug)
+        {
+            int result = SvrcDal.DeleteDrug(objDrug);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertSRVCDSrugDetails(SRVCDRUGDETAILS objDrug)
+        {
+            return SvrcDal.InsertSRVCDSrugDetails(objDrug);
+        }
+        public DataSet GetSRVCDRUGDet(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetSRVCDRUGDet(userid, SRVCQID);
+        }
     }
 }
