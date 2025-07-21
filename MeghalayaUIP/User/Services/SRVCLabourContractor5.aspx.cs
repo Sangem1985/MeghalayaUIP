@@ -22,7 +22,99 @@ namespace MeghalayaUIP.User.Services
         {
 
         }
+        public void BindData()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objSrvcbal.GetSRVCLabourAct1970DETAILS(Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
 
+                if (ds != null && ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+
+                        ddlEmptitle.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtEMPName.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlSates.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlSates_SelectedIndexChanged(null, EventArgs.Empty);
+                        if (ddlSates.SelectedItem.Text == "Meghalaya")
+                        {
+                            divMeghaState.Visible = true;
+                            divOtherState.Visible = false;
+
+                            ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
+                            ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        }
+                        else
+                        {
+                            divOtherState.Visible = true;
+                            divMeghaState.Visible = false;
+                            txtDistricted.Text = ds.Tables[0].Rows[0][""].ToString();
+                            txtMandaled.Text = ds.Tables[0].Rows[0][""].ToString();
+                            txtVillagede.Text = ds.Tables[0].Rows[0][""].ToString();
+                        }
+
+
+
+                        txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtLandMark.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtPoliceStation.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtPostOffice.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+
+                        TXTPIN.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtBusiness.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtRegNo.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+
+                        txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtNameAgent.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtAddress.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtlocation.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtdayslabour.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtEStdate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtEndDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+
+                        txtMaximumnumber.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        rblConvicated.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+
+                        if (rblConvicated.SelectedValue == "Y")
+                        {
+                            divcontractor.Visible = true;
+                            txtDetails.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        }
+                        else { divcontractor.Visible = false; }
+                        rblrevoking.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        if (rblrevoking.SelectedValue == "Y")
+                        {
+                            divsuspend.Visible = true;
+                            txtOrderDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        }
+                        else { divsuspend.Visible = false; }
+                        rblcontractor.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        if (rblrevoking.SelectedValue == "Y")
+                        {
+                            divfiveyear.Visible = true;
+                            txtprinciple.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            txtEstablishment.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            txtNature.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        }
+                        else { divfiveyear.Visible = false; }
+
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
         protected void rblConvicated_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -542,7 +634,7 @@ namespace MeghalayaUIP.User.Services
                     objLabour.Questionnariid = "101";//Convert.ToString(Session["SRVCQID"]);
                     objLabour.Createdby = "1001"; //hdnUserID.Value;
                     objLabour.IPAddress = getclientIP();
-                    objLabour.Title = ddlEmptitle.SelectedValue;
+                    objLabour.Title = ddlEmptitle.SelectedItem.Text;
                     objLabour.PrincipalEMPNAME = txtEMPName.Text;
                     objLabour.State = ddlSates.SelectedValue;
                     objLabour.DISTRICTID = ddlDistric.SelectedValue;

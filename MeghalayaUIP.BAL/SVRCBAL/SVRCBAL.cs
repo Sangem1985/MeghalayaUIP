@@ -393,5 +393,9 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.InsertSRVCLabour1970Details(objLabour);
         }
+        public DataSet GetSRVCLabourAct1970DETAILS(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetSRVCLabourAct1970DETAILS(userid, SRVCQID);
+        }
     }
 }

@@ -68,6 +68,7 @@ namespace MeghalayaUIP.Common
         public static string INSERTSRVCFORESTDETAILS = "USP_INSSRVCNONFORESTDETAILS";
         public static string GetSRVCFORESTDet = "USP_GETSRVCNONFORESTDETAILS";
         public static string INSERTSRVCLabourAct1970DETAILS = "";
+        public static string GetSRVCLabourAct1970TDet = "";
     }
 
     public class SvrcApplicationDetails
