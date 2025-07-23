@@ -1106,6 +1106,9 @@ namespace MeghalayaUIP.DAL.CommonDAL
                 com.Parameters.AddWithValue("@DISTRICTNAME", objInvest.DISTRICTNAME);
                 com.Parameters.AddWithValue("@MANDALNAME", objInvest.MANDALNAME);
                 com.Parameters.AddWithValue("@VILLAGENAME", objInvest.VILLAGENAME);
+                com.Parameters.AddWithValue("@DPRFilePath", objInvest.DPRFilePath);
+                com.Parameters.AddWithValue("@DPRFileType", objInvest.DPRFileType);
+                com.Parameters.AddWithValue("@DPRFileName", objInvest.DPRFileName);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;

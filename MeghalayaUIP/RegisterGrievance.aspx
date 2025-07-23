@@ -233,8 +233,9 @@
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-12 float-end">
                                                 <div class="form-group row justify-content-end">
-                                                    <asp:Button ID="btnClear" Text="Clear" Visible="true" runat="server" class="btn btn-rounded btn-warning btn-lg" OnClick="btnClear_Click" Width="150px" />
                                                     <asp:Button runat="server" Text="Submit" ID="btnsave" OnClick="btnsave_Click" class="btn btn-rounded btn-submit btn-lg mr-2" Width="150px" />
+
+                                                    <asp:Button ID="btnClear" Text="Clear" Visible="true" runat="server" class="btn btn-rounded btn-warning btn-lg" OnClick="btnClear_Click" Width="150px" />
 
                                                 </div>
                                             </div>

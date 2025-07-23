@@ -15,6 +15,24 @@ namespace MeghalayaUIP
     {
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// success control.
         /// </summary>
         /// <remarks>
@@ -105,13 +123,13 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.DropDownList ddlcountry;
 
         /// <summary>
-        /// state control.
+        /// IndState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl state;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl IndState;
 
         /// <summary>
         /// ddlstate control.
@@ -123,13 +141,13 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.DropDownList ddlstate;
 
         /// <summary>
-        /// InState control.
+        /// State control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InState;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl State;
 
         /// <summary>
         /// txtstate control.
@@ -141,13 +159,13 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.TextBox txtstate;
 
         /// <summary>
-        /// dist control.
+        /// trMeghastate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dist;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trMeghastate;
 
         /// <summary>
         /// ddldistrict control.
@@ -303,15 +321,6 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.RadioButtonList rblproposal;
 
         /// <summary>
-        /// rblInvestments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblInvestments;
-
-        /// <summary>
         /// ddlPCB control.
         /// </summary>
         /// <remarks>
@@ -375,6 +384,24 @@ namespace MeghalayaUIP
         protected global::System.Web.UI.WebControls.TextBox txtExpectation;
 
         /// <summary>
+        /// rblInvestments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblInvestments;
+
+        /// <summary>
+        /// fupDPR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fupDPR;
+
+        /// <summary>
         /// BtnSave control.
         /// </summary>
         /// <remarks>
@@ -391,5 +418,14 @@ namespace MeghalayaUIP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClear;
+
+        /// <summary>
+        /// UpdateProgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress UpdateProgress;
     }
 }

@@ -4,17 +4,19 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 namespace MeghalayaUIP
 {
     public partial class IntentInvest : System.Web.UI.Page
     {
         MasterBAL mstrBAL = new MasterBAL();
-
+        string DPR_FilePath = "", DPR_FileType = "", DPR_FileName = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -27,10 +29,8 @@ namespace MeghalayaUIP
                     BindCountry();
                     BindStates();
                     BindDistricts();
-                    BindDate();
-                    BindDatatype();
-
-
+                    BindSectors();
+                    BindEnterpriseType();
                 }
             }
             catch (Exception ex)
@@ -41,115 +41,8 @@ namespace MeghalayaUIP
             }
 
         }
-        protected void BtnSave_Click(object sender, EventArgs e)
-        {
 
-            try
-            {
-                string ErrorMsg = "", result = "";
-                ErrorMsg = Stepvalidations();
-                if (ErrorMsg == "")
-                {
-                    InvtentInvest objInvest = new InvtentInvest();
-                    //if (Convert.ToString(ViewState["UnitID"]) != "")
-                    //{ objInvest.UNITID = Convert.ToString(ViewState["UnitID"]); }
-                    //objInvest.CreatedBy = hdnUserID.Value;
-                    objInvest.IPAddress = getclientIP();
-                    objInvest.CompanyName = txtName.Text;
-                    objInvest.PAN = txtPan.Text;
-                    objInvest.Address = txtAddress.Text;
-                    objInvest.Country = ddlcountry.SelectedValue;
-                    objInvest.Phoneno = txtPhone.Text;
-                    objInvest.Pincode = txtPinCode.Text;
-                    objInvest.Emailid = txtEmailIds.Text;
-                    objInvest.FaxNo = txtFax.Text;
-                    objInvest.Website = txtwebsite.Text;
-                    objInvest.Name = txtNames.Text;
-                    objInvest.Designation = txtDesignation.Text;
-                    objInvest.Email = txtEmail.Text;
-                    objInvest.Mobile = txtMobilesNo.Text;
-                    objInvest.ProjectProposal = rblproposal.SelectedValue;
-                    objInvest.InvestmentPrevious = rblInvestments.SelectedValue;
-                    objInvest.ProjectCategory = ddlPCB.SelectedValue;
-                    objInvest.Sector = ddlsector.SelectedValue;
-                    objInvest.Proposed_Investment = txtproposedInvest.Text;
-                    objInvest.Proposed_Employment = txtEmployments.Text;
-                    objInvest.Project_Location = txtProjectlocation.Text;
-                    objInvest.Expected_Year = txtExpectedYear.Text;
-                    objInvest.Expectationstate_Govt = txtExpectation.Text;
-                    objInvest.STATEID = ddlstate.SelectedValue;
-                    objInvest.DISTRICTID = ddldistrict.SelectedValue;
-                    objInvest.MANDALID = ddlMandal.SelectedValue;
-                    objInvest.VILLAGEID = ddlVillage.SelectedValue;
-
-                    if (ddlcountry.SelectedValue == "78")
-                    {
-                        objInvest.STATEID = ddlstate.SelectedValue;
-                        objInvest.STATENAME = ddlstate.SelectedItem.Text;
-                        if (ddlstate.SelectedValue == "23")
-                        {
-                            objInvest.DISTRICTNAME = ddldistrict.SelectedItem.Text;
-                            objInvest.MANDALNAME = ddlMandal.SelectedItem.Text;
-                            objInvest.VILLAGENAME = ddlVillage.SelectedItem.Text;
-
-                            objInvest.DISTRICTID = ddldistrict.SelectedValue;
-                            objInvest.MANDALID = ddlMandal.SelectedValue;
-                            objInvest.VILLAGEID = ddlVillage.SelectedValue;
-                        }
-                        else if (ddlstate.SelectedValue != "23")
-                        {
-                            objInvest.DISTRICTNAME = txtApplDist.Text.Trim();
-                            objInvest.MANDALNAME = txtApplTaluka.Text.Trim();
-                            objInvest.VILLAGENAME = txtApplVillage.Text.Trim();
-
-                            objInvest.DISTRICTID = "0";
-                            objInvest.MANDALID = "0";
-                            objInvest.VILLAGEID = "0";
-                        }
-                    }
-                    else if (ddlcountry.SelectedValue != "78")
-                    {
-                        objInvest.STATEID = "0";
-                        objInvest.STATENAME = txtstate.Text.Trim();
-                        objInvest.DISTRICTNAME = txtApplDist.Text.Trim();
-                        objInvest.MANDALNAME  = txtApplTaluka.Text.Trim();
-                        objInvest.VILLAGENAME = txtApplVillage.Text.Trim();
-                        objInvest.DISTRICTID = "0";
-                        objInvest.MANDALID = "0";
-                        objInvest.VILLAGEID = "0";
-                    }
-
-                    result = mstrBAL.InsertInvestment(objInvest);
-                    ViewState["UnitID"] = result;
-                    if (result != "")
-                    {
-                        result = "ITV" + "/" + DateTime.Now.Year.ToString() + "/" + result;
-                        success.Visible = true;
-                        lblmsg.Text = "IntentInvest Details Submitted Successfully";
-                        string message = "alert('" + lblmsg.Text + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        
-                      //  btnClear_Click(sender, e);
-                        Response.Redirect("AckSlip.aspx?UID="+result);
-
-                    }
-
-                }
-                else
-                {
-                    string message = "alert('" + ErrorMsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-        public void BindDate()
+        public void BindSectors()
         {
             try
             {
@@ -191,7 +84,7 @@ namespace MeghalayaUIP
                 throw ex;
             }
         }
-        public void BindDatatype()
+        public void BindEnterpriseType()
         {
             try
             {
@@ -381,6 +274,265 @@ namespace MeghalayaUIP
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+        protected void ddlcountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlcountry.SelectedItem.Text == "--Select--")
+                {
+                    State.Visible = false; txtstate.Text = "";
+                    IndState.Visible = false; ddlstate.ClearSelection();
+                    trotherstate.Visible = false; txtApplDist.Text = ""; txtApplTaluka.Text = ""; txtApplVillage.Text = "";
+                    trMeghastate.Visible = false; ddldistrict.ClearSelection(); ddlMandal.ClearSelection(); ddlVillage.ClearSelection();
+                }
+                else if (ddlcountry.SelectedItem.Text == "India")
+                {
+                    State.Visible = false; txtstate.Text = "";
+                    IndState.Visible = true;
+                    trotherstate.Visible = false; txtApplDist.Text = ""; txtApplTaluka.Text = ""; txtApplVillage.Text = "";
+                    trMeghastate.Visible = false; ddldistrict.ClearSelection(); ddlMandal.ClearSelection(); ddlVillage.ClearSelection();
+                }
+                else if (ddlcountry.SelectedItem.Text != "India")
+                {
+                    IndState.Visible = false; ddlstate.ClearSelection();
+                    State.Visible = true;
+                    trotherstate.Visible = true; txtApplDist.Text = ""; txtApplTaluka.Text = ""; txtApplVillage.Text = "";
+                    trMeghastate.Visible = false; ddldistrict.ClearSelection(); ddlMandal.ClearSelection(); ddlVillage.ClearSelection();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlstate.SelectedItem.Text == "--Select--")
+                {
+                    trotherstate.Visible = false; txtApplDist.Text = ""; txtApplTaluka.Text = ""; txtApplVillage.Text = "";
+                    trMeghastate.Visible = false; ddldistrict.ClearSelection(); ddlMandal.ClearSelection(); ddlVillage.ClearSelection();
+                }
+                else if (ddlstate.SelectedItem.Text == "Meghalaya")
+                {
+                    trMeghastate.Visible = true;
+                    trotherstate.Visible = false; txtApplDist.Text = ""; txtApplTaluka.Text = ""; txtApplVillage.Text = "";
+                }
+                else if (ddlstate.SelectedItem.Text != "Meghalaya")
+                {
+                    trotherstate.Visible = true;
+                    trMeghastate.Visible = false; ddldistrict.ClearSelection(); ddlMandal.ClearSelection(); ddlVillage.ClearSelection();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        protected void ddldistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ddlMandal.ClearSelection();
+                AddSelect(ddlMandal);
+                ddlVillage.ClearSelection();
+                AddSelect(ddlVillage);
+                if (ddldistrict.SelectedItem.Text != "--Select--")
+                {
+                    BindMandal(ddlMandal, ddldistrict.SelectedValue);
+                }
+                else return;
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ddlVillage.ClearSelection();
+                AddSelect(ddlVillage);
+                if (ddlMandal.SelectedItem.Text != "--Select--")
+                {
+                    BindVillages(ddlVillage, ddlMandal.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
+        }
+
+
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string ErrorMsg = "", result = "";
+                ErrorMsg = Stepvalidations();
+                if (ErrorMsg == "")
+                {                  
+                    string sFileDir = ConfigurationManager.AppSettings["IntentAttachments"];
+                    string newPath = System.IO.Path.Combine(sFileDir, System.DateTime.Now.ToString("ddMMyyyy"));
+                    if (fupDPR.HasFile)
+                    {
+                        if ((fupDPR.PostedFile != null) && (fupDPR.PostedFile.ContentLength > 0))
+                        { 
+                            try
+                            {                               
+                                DPR_FilePath = newPath + System.DateTime.Now.ToString("ddMMyyyyhhmmss");
+                                DPR_FileType = fupDPR.PostedFile.ContentType;
+                                DPR_FileName = fupDPR.PostedFile.FileName;
+
+                                if (!Directory.Exists(DPR_FilePath))
+                                    System.IO.Directory.CreateDirectory(DPR_FilePath);
+                                System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(DPR_FilePath);
+                                int count = dir.GetFiles().Length;
+                                if (count == 0)
+                                    fupDPR.PostedFile.SaveAs(DPR_FilePath + "\\" + DPR_FileName);
+                                else
+                                {
+                                    if (count == 1)
+                                    {
+                                        string[] Files = Directory.GetFiles(DPR_FilePath);
+
+                                        foreach (string file in Files)
+                                        {
+                                            File.Delete(file);
+                                        }
+                                        fupDPR.PostedFile.SaveAs(DPR_FilePath + "\\" + DPR_FileName);
+                                    }
+                                }
+                            }
+                            catch (Exception)//in case of an error
+                            {
+                                DeleteFile(newPath + "\\" + fupDPR.PostedFile.FileName);
+                            }
+                        }
+
+                    }
+                    InvtentInvest objInvest = new InvtentInvest();
+                    objInvest.IPAddress = getclientIP();
+                    objInvest.CompanyName = txtName.Text;
+                    objInvest.PAN = txtPan.Text;
+                    objInvest.Address = txtAddress.Text;
+                    objInvest.Country = ddlcountry.SelectedValue;
+                    objInvest.Phoneno = txtPhone.Text;
+                    objInvest.Pincode = txtPinCode.Text;
+                    objInvest.Emailid = txtEmailIds.Text;
+                    objInvest.FaxNo = txtFax.Text;
+                    objInvest.Website = txtwebsite.Text;
+                    objInvest.Name = txtNames.Text;
+                    objInvest.Designation = txtDesignation.Text;
+                    objInvest.Email = txtEmail.Text;
+                    objInvest.Mobile = txtMobilesNo.Text;
+                    objInvest.ProjectProposal = rblproposal.SelectedValue;
+                    objInvest.InvestmentPrevious = rblInvestments.SelectedValue;
+                    objInvest.ProjectCategory = ddlPCB.SelectedValue;
+                    objInvest.Sector = ddlsector.SelectedValue;
+                    objInvest.Proposed_Investment = txtproposedInvest.Text;
+                    objInvest.Proposed_Employment = txtEmployments.Text;
+                    objInvest.Project_Location = txtProjectlocation.Text;
+                    objInvest.Expected_Year = txtExpectedYear.Text;
+                    objInvest.Expectationstate_Govt = txtExpectation.Text;
+                    objInvest.STATEID = ddlstate.SelectedValue;
+                    objInvest.DISTRICTID = ddldistrict.SelectedValue;
+                    objInvest.MANDALID = ddlMandal.SelectedValue;
+                    objInvest.VILLAGEID = ddlVillage.SelectedValue;
+                    objInvest.DPRFilePath = DPR_FilePath + "\\" + DPR_FileName;
+                    objInvest.DPRFileName= DPR_FileName;
+                    objInvest.DPRFileType= DPR_FileType;
+                    if (ddlcountry.SelectedValue == "78")
+                    {
+                        objInvest.STATEID = ddlstate.SelectedValue;
+                        objInvest.STATENAME = ddlstate.SelectedItem.Text;
+                        if (ddlstate.SelectedValue == "23")
+                        {
+                            objInvest.DISTRICTNAME = ddldistrict.SelectedItem.Text;
+                            objInvest.MANDALNAME = ddlMandal.SelectedItem.Text;
+                            objInvest.VILLAGENAME = ddlVillage.SelectedItem.Text;
+
+                            objInvest.DISTRICTID = ddldistrict.SelectedValue;
+                            objInvest.MANDALID = ddlMandal.SelectedValue;
+                            objInvest.VILLAGEID = ddlVillage.SelectedValue;
+                        }
+                        else if (ddlstate.SelectedValue != "23")
+                        {
+                            objInvest.DISTRICTNAME = txtApplDist.Text.Trim();
+                            objInvest.MANDALNAME = txtApplTaluka.Text.Trim();
+                            objInvest.VILLAGENAME = txtApplVillage.Text.Trim();
+
+                            objInvest.DISTRICTID = "0";
+                            objInvest.MANDALID = "0";
+                            objInvest.VILLAGEID = "0";
+                        }
+                    }
+                    else if (ddlcountry.SelectedValue != "78")
+                    {
+                        objInvest.STATEID = "0";
+                        objInvest.STATENAME = txtstate.Text.Trim();
+                        objInvest.DISTRICTNAME = txtApplDist.Text.Trim();
+                        objInvest.MANDALNAME = txtApplTaluka.Text.Trim();
+                        objInvest.VILLAGENAME = txtApplVillage.Text.Trim();
+                        objInvest.DISTRICTID = "0";
+                        objInvest.MANDALID = "0";
+                        objInvest.VILLAGEID = "0";
+                    }
+
+                    result = mstrBAL.InsertInvestment(objInvest);
+                    ViewState["UnitID"] = result;
+                    if (result != "")
+                    {
+                        result = "ITV" + "/" + DateTime.Now.Year.ToString() + "/" + result;
+                        success.Visible = true;
+                        lblmsg.Text = "IntentInvest Details Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        Response.Redirect("AckSlip.aspx?UID=" + result);
+
+                    }
+
+                }
+                else
+                {
+                    string message = "alert('" + ErrorMsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+        public void DeleteFile(string strFileName)
+        {
+            if (strFileName.Trim().Length > 0)
+            {
+                FileInfo fi = new FileInfo(strFileName);
+                if (fi.Exists)//if file exists delete it
+                {
+                    fi.Delete();
+                }
+            }
+        }
         public string Stepvalidations()
         {
             try
@@ -538,6 +690,36 @@ namespace MeghalayaUIP
                         slno = slno + 1;
                     }
                 }
+                if (!fupDPR.HasFile)
+                {
+                    errormsg = errormsg + slno + ". Please Upload Project Document (DPR) \\n";
+                    slno = slno + 1;
+                }
+                else if (fupDPR.HasFile)
+                {
+                    string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
+                  
+                    if (fupDPR.PostedFile.ContentType != "application/pdf")
+                    {
+                        errormsg = errormsg + slno + ". Please Upload PDF Documents only \\n";
+                        slno = slno + 1;
+                    }
+                    if (fupDPR.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                    {
+                        errormsg = errormsg + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileName(fupDPR.PostedFile.FileName))
+                    {
+                        errormsg = errormsg + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                        slno = slno + 1;
+                    }
+                    if (!ValidateFileExtension(fupDPR))
+                    {
+                        errormsg = errormsg + slno + ". Invalid File Extension \\n";
+                        slno = slno + 1;
+                    }
+                }
 
                 return errormsg;
             }
@@ -545,6 +727,71 @@ namespace MeghalayaUIP
             {
                 throw ex;
             }
+        }
+        public string validations(FileUpload Attachment)
+        {
+            try
+            {
+                string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
+                int slno = 1; string Error = "";
+                //if (Attachment.PostedFile.ContentType != "application/pdf"
+                //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
+                //{
+
+                if (Attachment.PostedFile.ContentType != "application/pdf")
+                {
+                    Error = Error + slno + ". Please Upload PDF Documents only \\n";
+                    slno = slno + 1;
+                }
+                if (Attachment.PostedFile.ContentLength >= Convert.ToInt32(filesize))
+                {
+                    Error = Error + slno + ". Please Upload file size less than " + Convert.ToInt32(filesize) / 1000000 + "MB \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileName(Attachment.PostedFile.FileName))
+                {
+                    Error = Error + slno + ". Document name should not contain symbols like  <, >, %, $, @, &,=, / \\n";
+                    slno = slno + 1;
+                }
+                if (!ValidateFileExtension(Attachment))
+                {
+                    Error = Error + slno + ". Invalid File Extension \\n";
+                    slno = slno + 1;
+                }
+
+                // }
+                return Error;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileName(string fileName)
+        {
+            try
+            {
+                string pattern = @"[<>%$@&=!:*?|]";
+
+                if (Regex.IsMatch(fileName, pattern))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            { throw ex; }
+        }
+        public static bool ValidateFileExtension(FileUpload Attachment)
+        {
+
+            string Attachmentname = Attachment.PostedFile.FileName;
+            string[] fileType = Attachmentname.Split('.');
+            int i = fileType.Length;
+
+            if (i == 2 && fileType[i - 1].ToUpper().Trim() == "PDF")
+                return true;
+            else
+                return false;
+
         }
         public static string getclientIP()
         {
@@ -563,108 +810,6 @@ namespace MeghalayaUIP
 
             return result;
         }
-
-        protected void ddldistrict_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                ddlMandal.ClearSelection();
-                AddSelect(ddlMandal);
-                ddlVillage.ClearSelection();
-                AddSelect(ddlVillage);
-                if (ddldistrict.SelectedItem.Text != "--Select--")
-                {
-                    BindMandal(ddlMandal, ddldistrict.SelectedValue);
-                }
-                else return;
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-
-        protected void ddlMandal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlVillage.ClearSelection();
-                AddSelect(ddlVillage);
-                if (ddlMandal.SelectedItem.Text != "--Select--")
-                {
-                    BindVillages(ddlVillage, ddlMandal.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-
-        }
-
-        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlstate.SelectedItem.Text == "--Select--")
-                {
-                    dist.Visible = false;
-                    trotherstate.Visible = false;
-                }
-                else if (ddlstate.SelectedItem.Text == "Meghalaya")
-                {
-                    dist.Visible = true;
-                    trotherstate.Visible = false;
-                }
-                else if (ddlstate.SelectedItem.Text != "Meghalaya")
-                {
-                    trotherstate.Visible = true;
-                    dist.Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-
-        protected void ddlcountry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ddlcountry.SelectedItem.Text == "--Select--")
-                {
-                    state.Visible = false;
-                    InState.Visible = false;
-                }
-                else if (ddlcountry.SelectedItem.Text == "India")
-                {
-                    state.Visible = true;
-                    InState.Visible = false;
-                }
-                else if (ddlcountry.SelectedItem.Text != "India")
-                {
-                    InState.Visible = true;
-                    trotherstate.Visible = true;
-                    state.Visible = false;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-
         protected void btnClear_Click(object sender, EventArgs e)
         {
             try

@@ -316,6 +316,9 @@ namespace MeghalayaUIP.Common
         public string MANDALNAME { get; set; }
         public string VILLAGEID { get; set; }
         public string VILLAGENAME { get; set; }
+        public string DPRFilePath { get; set; }
+        public string DPRFileName { get; set; }
+       public string DPRFileType { get; set; }
 
     }
     public class MasterForestDivision

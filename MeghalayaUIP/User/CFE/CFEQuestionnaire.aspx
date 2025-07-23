@@ -74,7 +74,7 @@
                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                1. Name of Unit<span class="star">*</span></label>
+                                                                                1. Name of Unitc</label>
                                                                             <div class="col-lg-6">
                                                                                 <asp:TextBox ID="txtUnitName" runat="server" class="form-control" onkeypress="return Names()" Enabled="false" TabIndex="1"></asp:TextBox>
                                                                             </div>
