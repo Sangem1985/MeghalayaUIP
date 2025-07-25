@@ -44,8 +44,9 @@ namespace MeghalayaUIP
             MeghalayaNextVision2028 = masterball.EncryptFilePath("D:/Meghalaya/Documents/Meghalaya Next Vision 2028.pdf");
             MeghalayaTourism = masterball.EncryptFilePath("D:/Meghalaya/Documents/Meghalaya Tourism.pdf");
             ITPolicy2024 = masterball.EncryptFilePath("D:/Meghalaya/Documents/ITPolicy2024.pdf");
-            MeghalayaPowerPolicy = masterball.EncryptFilePath("D:/Meghalaya/Documents/MeghalayaPowerPolicy.pdf");
-          //  ConstructionandDemolitionWasterPolicy = masterball.EncryptFilePath("D:/Meghalaya/Documents/ConstructionandDemolitionWasterPolicy.pdf");
+            // MeghalayaPowerPolicy = masterball.EncryptFilePath("D:/Meghalaya/Documents/MeghalayaPowerPolicy.pdf");
+           // MeghalayaPowerPolicy = masterball.EncryptFilePath("D:/Meghalaya/Documents/Meghalaya Film Tourism Policy 2025 (16 July 2025) Final.pdf");
+            //  ConstructionandDemolitionWasterPolicy = masterball.EncryptFilePath("D:/Meghalaya/Documents/ConstructionandDemolitionWasterPolicy.pdf");
 
             MeghalayaStartupPolicy = masterball.EncryptFilePath("D:/Meghalaya/Documents/Meghalaya Startup Policy.pdf");
             MinesandMineralsPolicy = masterball.EncryptFilePath("D:/Meghalaya/Documents/Mines and Minerals Policy.pdf");

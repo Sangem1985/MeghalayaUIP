@@ -37,6 +37,7 @@ namespace MeghalayaUIP.Common
         //public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION"; 
         public static string PreRegUpdateQuery = "USP_UPDATEPREREGPROCESSQUERYACTION";
         public static string GetDeptMst = "USP_GET_MASTER_DEPT_LIST";
+        public static string GetDeptMst1 = "USP_GETDCMASTERDEPTLIST";
         public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";
 
         /*---------------------------------------------------------------------*/
@@ -201,6 +202,9 @@ namespace MeghalayaUIP.Common
         public string Remark { get; set; }
         public string Forward { get; set; }
         public string CreatedFlag { get; set; }
+        public string DCQUERYRESPONSE { get; set; }
+        public string DCREMARK { get; set; }
+        public string DCFORWARD { get; set; }
     }
     public class InvBasicDtls
     {

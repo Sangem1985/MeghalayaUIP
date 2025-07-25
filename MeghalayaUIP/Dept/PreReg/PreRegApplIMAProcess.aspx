@@ -195,8 +195,8 @@
                                                             <spna class="dots">:</spna><asp:Label ID="lblCompanyProposal" runat="server"></asp:Label>
                                                         </div>
 
-                                                         <div class="col-md-2" id="divCategory" runat="server" visible="false">
-                                                            <label> Category of Registration</label>
+                                                        <div class="col-md-2" id="divCategory" runat="server" visible="false">
+                                                            <label>Category of Registration</label>
                                                         </div>
                                                         <div class="col-md-2" id="divCategory1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblcatreg" runat="server"></asp:Label>
@@ -205,7 +205,7 @@
                                                     </div>
 
                                                     <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
-                                                       
+
                                                         <div class="col-md-2" id="divudyam" runat="server" visible="false">
                                                             <asp:Label runat="server" ID="lblregcategory"> </asp:Label>
                                                         </div>
@@ -214,7 +214,7 @@
                                                         </div>
 
                                                         <div class="col-md-2" id="divFirm" runat="server" visible="false">
-                                                            <label> Firm Registration /Incorporation Date</label>
+                                                            <label>Firm Registration /Incorporation Date</label>
                                                         </div>
                                                         <div class="col-md-2" id="divFirm1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblregdate" runat="server"></asp:Label>
@@ -579,7 +579,7 @@
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblWaterReq" runat="server"></asp:Label>
                                                         </div>
-                                                          <div class="col-md-2" id="divPowerwater" runat="server" visible="false">
+                                                        <div class="col-md-2" id="divPowerwater" runat="server" visible="false">
                                                             <label>Value of Power (INR)</label>
                                                         </div>
                                                         <div class="col-md-2" id="divPowerwater1" runat="server" visible="false">
@@ -587,7 +587,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                      
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2" id="divwater" runat="server" visible="false">
                                                             <label>Water Value (INR)</label>
                                                         </div>
@@ -636,17 +636,17 @@
                                                         <div class="col-md-2">
                                                             <spna class="dots">:</spna><asp:Label ID="lblcentralscheme" runat="server"></asp:Label>
                                                         </div>
-                                                         <div class="col-md-2" id="divResource" runat="server" visible="false">
-                                                            <label> Internal Resources (INR)</label>
+                                                        <div class="col-md-2" id="divResource" runat="server" visible="false">
+                                                            <label>Internal Resources (INR)</label>
                                                         </div>
                                                         <div class="col-md-2" id="divResource1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblinternalresources" runat="server"></asp:Label>
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">                                                       
+                                                    <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 13px; text-align: left;">
                                                         <div class="col-md-2" id="divUNNATI" runat="server" visible="false">
-                                                            <label> Benifit from UNNATI (INR)</label>
+                                                            <label>Benifit from UNNATI (INR)</label>
                                                         </div>
                                                         <div class="col-md-2" id="divUNNATI1" runat="server" visible="false">
                                                             <spna class="dots">:</spna><asp:Label ID="lblunnati" runat="server"></asp:Label>
@@ -1191,6 +1191,7 @@
                                                 <asp:TextBox TextMode="MultiLine" runat="server" ID="txtIMAResponse" Style="height: 50px; width: 600px; margin-top: 10px;" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
                                             </td>
                                             <td style="width: 180px">Upload File if any: 
+                                               
                                                 <br />
                                                 <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
 
@@ -1342,6 +1343,133 @@
                                                 </td>
                                                 <td>
                                                     <asp:Button ID="btnQuery" runat="server" Visible="false" Text="Forward" Enabled="false" OnClick="btnQuery_Click" class="btn btn-rounded btn-submit btn-lg" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>                    
+
+
+
+
+                            <div class="panel panel-default" id="divDCPanels" runat="server" visible="false">
+                            <div class="panel-heading" role="tab" id="Div2" runat="server">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapseNine" aria-expanded="false"
+                                        aria-controls="collapseNine">MiPA Query to Respond DC
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseNine" class="panel-collapse show" role="tabpanel"
+                                aria-labelledby="headingNine" aria-expanded="false">
+
+                                <div class="card">
+                                    <div class="table-responsive">
+                                        <table align="Center" style="width: 100%; align-content: center" class="table-bordered mb-10">
+                                            <tr id="tr1" runat="server">
+                                                <td><b>Name</b></td>
+                                                <td><b>Unit Name</b></td>
+                                                <td><b>Application ID</b></td>
+                                                <td style="width: 150px"><b>Application Date</b></td>
+                                                <td style="width: 200px"><b>Application Action</b></td>
+                                                <td id="tdRemarks1" runat="server" visible="false"><b>
+                                                    <asp:Label runat="server" Text="Please Enter Remarks if any"></asp:Label></b>
+                                                </td>
+                                                <td id="tdApplQuery2" runat="server" visible="false"><b>
+                                                    <asp:Label runat="server" Text="Please Enter Query Description"></asp:Label></b>
+                                                </td>
+                                               <%-- <td id="td3" runat="server" visible="true">
+                                                    <b>Submit Action</b>
+                                                </td>--%>
+                                            </tr>
+                                            <tr id="tr2" runat="server">
+                                                <td>
+                                                    <asp:Label runat="server" ID="lblName2"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblUnitName2" runat="server"></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="lblAppl2" runat="server"></asp:Label></td>
+                                                <td tyle="width: 100px">
+                                                    <asp:Label ID="lblDate2" runat="server"></asp:Label>
+                                                </td>
+                                                <td style="width: 200px">
+                                                    <asp:DropDownList ID="ddlDCQuery" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlDCQuery_SelectedIndexChanged">
+                                                        <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                        <asp:ListItem Text="MiPA Query Responce to DC" Value="6"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </td>                                             
+
+                                               <%-- <td>
+                                                    <asp:Button ID="Button1" runat="server" Text="Submit" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
+                                                </td>--%>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="vertical-align: central" id="tdDepartment" runat="server" visible="false" colspan="5">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Select Department to Forward</td>
+                                                            <td>
+                                                                <asp:DropDownList ID="ddlDeptForward" runat="server" class="form-control">
+                                                                    <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                            <td>Enter Remarks
+                                                            </td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtDCQuery" runat="server" TextMode="MultiLine" Rows="3" Columns="50" onkeypress="return Address(event)" onkeyup="handleKeyUp(this)"></asp:TextBox>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <asp:Button ID="btnDepartment" Text="Add Department" runat="server" OnClick="btnDepartment_Click" class="btn btn-rounded btn-submit btn-lg" Width="200px" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4">
+                                                                <asp:GridView ID="GVDeptDCQuery" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                                    BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="table-bordered mb-0 GRD" ForeColor="#333333" OnRowDeleting="GVDeptDCQuery_RowDeleting">
+                                                                    <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
+                                                                    <HeaderStyle BackColor="#013161" CssClass="GRDHEADER" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                                                                    <EditRowStyle BackColor="#B9D684" />
+                                                                    <AlternatingRowStyle BackColor="White" />
+                                                                    <Columns>
+                                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Sl. No">
+                                                                            <ItemTemplate>
+                                                                                <%# Container.DataItemIndex + 1%>
+                                                                            </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                                        </asp:TemplateField>
+                                                                        <asp:BoundField HeaderText="Department Name" DataField="DEPTNAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:TemplateField Visible="false">
+                                                                            <ItemTemplate>
+                                                                                <asp:Label ID="lblDEPTID" runat="server" Text='<%#Eval("DEPTID") %>' Visible="false"></asp:Label>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <%--<asp:BoundField HeaderText="Department ID" DataField="DEPTID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
+                                                                        <asp:BoundField HeaderText="Query Description" DataField="QUERYDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="INVESTER ID" DataField="INVESTERID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+
+                                                                        <%--<asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
+                                                                    </Columns>
+                                                                </asp:GridView>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+                                                </td>
+                                                <td>
+                                                    <asp:Button ID="btnForwardDept" runat="server" Visible="false" Text="Forward" OnClick="btnForwardDept_Click" Enabled="false" class="btn btn-rounded btn-submit btn-lg" />
                                                 </td>
                                             </tr>
                                         </table>

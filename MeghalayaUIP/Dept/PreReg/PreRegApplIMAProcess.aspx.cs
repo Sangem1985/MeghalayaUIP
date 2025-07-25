@@ -46,6 +46,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     {
                         BindaApplicatinDetails();
                         BindDepartments();
+                        BindDepartments2();
                     }
 
                 }
@@ -242,6 +243,12 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblApplNo.Text = Convert.ToString(row["PREREGUIDNO"]);
                         lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                         ViewDetails.Text = " Unit Name : " + lblCompanyName.Text + ",  Application No :  " + lblApplNo.Text;
+
+                        lblName2.Text = Convert.ToString(row["REP_NAME"]);
+                        lblUnitName2.Text = Convert.ToString(row["COMPANYNAME"]);
+                        lblAppl2.Text = Convert.ToString(row["PREREGUIDNO"]);
+
+
                         lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
                         if (Convert.ToString(row["DITREPORT_UPLOADFLAG"]) == "Y")
                         {
@@ -315,6 +322,14 @@ namespace MeghalayaUIP.Dept.PreReg
                             else
                             {
                                 QueryResondpanel.Visible = false;
+                            }
+                            if (Convert.ToString(ds.Tables[9].Rows[0]["PRDA_STAGEID"]) == "6")
+                            {
+                                divDCPanels.Visible = false;
+                            }
+                            else if(Convert.ToString(ds.Tables[9].Rows[0]["PRDA_STAGEID"]) == "20")
+                            {
+                                divDCPanels.Visible = true;
                             }
                         }
                         else if (Convert.ToString(Request.QueryString["status"]) == "ApplicationTracker")
@@ -1176,6 +1191,262 @@ namespace MeghalayaUIP.Dept.PreReg
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void ddlDCQuery_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlDCQuery.SelectedValue != "0")
+                {
+                   
+                    if (ddlDCQuery.SelectedValue == "6") //Raise Query to Departments
+                    {
+                        tdDepartment.Visible = true;
+                        btnForwardDept.Visible = true;
+
+                      
+                       // tdaction.Visible = false;
+
+                        tdApplQuery2.Visible = false;
+                       // tdApplQueryTxtbx.Visible = false; txtApplQuery.Text = "";
+
+                        tdRemarks1.Visible = false;
+                        // tdRemarksTxtbx.Visible = false; txtRemarks.Text = "";
+                        GVDeptDCQuery.DataSource = null; GVDeptDCQuery.DataBind();
+                    }
+                }
+                else
+                {
+                   // tdaction.Visible = true;
+
+                    tdRemarks1.Visible = false;
+                   // tdRemarksTxtbx.Visible = false; txtRemarks.Text = "";
+
+                    tdApplQuery2.Visible = false;
+                   // tdApplQueryTxtbx.Visible = false; txtApplQuery.Text = "";
+
+                    tdDepartment.Visible = false;
+                    btnForwardDept.Visible = false;
+                    ddldepartment.ClearSelection(); txtDeptQuery.Text = "";
+                    ViewState["QueryTable1"] = null;
+                    GVDeptDCQuery.DataSource = null; GVDeptDCQuery.DataBind(); btnForwardDept.Enabled = false;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        /*  protected void ddlDCQueryAction_SelectedIndexChanged(object sender, EventArgs e)
+          {
+              try
+              {
+                  DropDownList ddlDCQueryAction = (DropDownList)sender;
+                  GridViewRow row = (GridViewRow)ddlDCQueryAction.NamingContainer;
+                  Label lblCommQID = (Label)row.FindControl("lblDQID");
+                  Label lblDeptID = (Label)row.FindControl("lblDeptID");
+                  Label lblUNITID = (Label)row.FindControl("lblUNITID");
+                  ViewState["COMMQID"] = lblCommQID.Text;
+                  //ViewState["DEPTID"] = lblDeptID.Text;
+                  ViewState["UNITID"] = lblUNITID.Text;
+                  if (ddlDCQueryAction.SelectedValue != "0")
+                  {
+                      ViewState["ACTIONID"] = ddlDCQueryAction.SelectedValue;
+
+                      if (ddlDCQueryAction.SelectedValue == "6") //6	IMA Forwarded Committee Query to Department
+                      {
+                          divDCPanel.Visible = true;
+                          trResponse.Visible = true;
+                          tblDC.Visible = true;
+                          //headingSix.Visible = false;
+                          //trVrfyhdng.Visible = false;
+                          //trVrfydtls.Visible = false;
+
+                          //txtComQrytoAppl.Text = ""; txtIMAResponse.Text = ""; hplAttachment.Visible = false;
+                      }
+                  }
+                  else
+                  {
+
+                      tblDC.Visible = false; trResponse.Visible = false; txtDCResponse.Text = "";
+                      divDCPanel.Visible = false;
+
+                  }
+              }
+              catch (Exception ex)
+              {
+                  lblmsg0.Text = ex.Message;
+                  Failure.Visible = true;
+                  MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+              }
+          }*/
+        public void BindDepartments2()
+        {
+            try
+            {
+                DataSet dsdepartments = new DataSet();
+                dsdepartments = PreBAL.GetDeptMst1(Session["UNITID"].ToString(), hdnUserID.Value);
+                if (dsdepartments != null && dsdepartments.Tables.Count > 0 && dsdepartments.Tables[0].Rows.Count > 0)
+                {
+                    ddlDeptForward.DataSource = dsdepartments;
+                    ddlDeptForward.DataTextField = "MD_DEPT_NAME";
+                    ddlDeptForward.DataValueField = "MD_DEPTID";
+                    ddlDeptForward.DataBind();
+                    AddSelect(ddlDeptForward);
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnDepartment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlDeptForward.SelectedItem.Text == "--Select--" || (txtDCQuery.Text == "" || string.IsNullOrEmpty(txtDCQuery.Text) || txtDCQuery.Text == null))
+                {
+                    Failure.Visible = true; string Error = "";
+                    if (ddlDeptForward.SelectedItem.Text == "--Select--")
+                    {
+                        Error = "Please Select Department";
+                    }
+                    if (txtDCQuery.Text == "" || string.IsNullOrEmpty(txtDCQuery.Text) || txtDCQuery.Text == null)
+                    {
+                        lblmsg0.Text = Error + Environment.NewLine + " Please Enter Query Description";
+                        Error = Error + "\\n Please Enter Query Description";
+
+                    }
+                    string message = "alert('" + Error + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+                else
+                {
+                    DataTable dt = new DataTable();
+
+                    dt.Columns.Add("DEPTNAME", typeof(string));
+                    dt.Columns.Add("DEPTID", typeof(string));
+                    dt.Columns.Add("QUERYDESC", typeof(string));
+                    dt.Columns.Add("UNITID", typeof(string));
+                    dt.Columns.Add("INVESTERID", typeof(string));
+
+                    if (ViewState["QueryTable1"] != null)
+                    {
+                        dt = (DataTable)ViewState["QueryTable1"];
+                    }
+                    DataRow dr = dt.NewRow();
+
+                    dr["DEPTNAME"] = ddlDeptForward.SelectedItem.Text;
+                    dr["DEPTID"] = ddlDeptForward.SelectedValue;
+                    dr["QUERYDESC"] = txtDCQuery.Text;
+                    dr["UNITID"] = Session["UNITID"].ToString();
+                    dr["INVESTERID"] = Session["INVESTERID"].ToString();
+
+                    dt.Rows.Add(dr);
+                    GVDeptDCQuery.Visible = true;
+                    GVDeptDCQuery.DataSource = dt;
+                    GVDeptDCQuery.DataBind();
+                    ViewState["QueryTable1"] = dt;
+                    txtDCQuery.Text = "";
+                    if (ddlDeptForward.SelectedIndex != 0)
+                    {
+                        ddlDeptForward.Items.RemoveAt(ddlDeptForward.SelectedIndex);
+                    }
+                    if (GVDeptDCQuery.Rows.Count > 0)
+                        btnForwardDept.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void GVDeptDCQuery_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+
+                if (GVDeptDCQuery.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["QueryTable1"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVDeptDCQuery.DataSource = ((DataTable)ViewState["QueryTable1"]).DefaultView;
+                    this.GVDeptDCQuery.DataBind();
+                    GVDeptDCQuery.Visible = true;
+                    GVDeptDCQuery.Focus();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        protected void btnForwardDept_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GVDeptDCQuery.Rows.Count > 0)
+                {
+                    PreRegDtls PreRegDtlsVo = new PreRegDtls();
+                    foreach (GridViewRow gvrow in GVDeptDCQuery.Rows)
+                    {
+                        Label lblDeptID = (Label)gvrow.FindControl("lblDEPTID");
+                        //TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
+                        PreRegDtlsVo.DeptDesc = gvrow.Cells[1].Text;
+                        PreRegDtlsVo.QuerytoDeptID = lblDeptID.Text;
+
+                        //PreRegDtlsVo.QuerytoDeptID = gvrow.Cells[2].Text;
+
+                        PreRegDtlsVo.Remarks = gvrow.Cells[3].Text;
+                        PreRegDtlsVo.Unitid = Session["UNITID"].ToString();
+                        PreRegDtlsVo.Investerid = Session["INVESTERID"].ToString();
+
+                        PreRegDtlsVo.UserID = hdnUserID.Value;
+                        PreRegDtlsVo.IPAddress = getclientIP();
+                        //if (QueryResondpanel.Visible == true)
+                        //{
+                        //    PreRegDtlsVo.QueryID = Convert.ToString(ViewState["COMMQID"]);
+                        //    PreRegDtlsVo.status = 13;
+                        //}
+                        //else
+                        //{
+                            if (ddlStatus != null)
+                                PreRegDtlsVo.status = Convert.ToInt32(ddlDCQuery.SelectedValue);
+                       // }
+                        string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
+                    }
+                    btnQuery.Enabled = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                    return;
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Select Department and Enter Query Description, then click on Add Query";
+                    Failure.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "Oops, You have encountered an error!! please contact administrator.";
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }

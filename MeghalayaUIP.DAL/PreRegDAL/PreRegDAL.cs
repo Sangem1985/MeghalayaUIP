@@ -107,7 +107,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@REGISTRATIONDATE", DateTime.ParseExact(ID.CompnyRegDt, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
                 }
-                
+
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYNAME", ID.CompanyName);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYPANNO", ID.CompanyPAN);
                 da.SelectCommand.Parameters.AddWithValue("@COMPANYTYPE", ID.CompnyType);
@@ -1106,6 +1106,48 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return ds;
         }
+        public DataSet GetDeptMst1(string Unitid, string Userid)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetDeptMst1, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetDeptMst1;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Unitid);
+                da.SelectCommand.Parameters.AddWithValue("@USERID", Userid);
+
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+                    //   valid = Convert.ToString(dt.Rows[0]["UNITID"]);
+                    // IDno = valid;
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
         public DataTable GetIntentInvestDashBoard()
         {
             DataTable dt = new DataTable();
@@ -1235,7 +1277,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return dt;
         }
-       
+
         public string DPRDeptProcess(PreRegDtls prd)
         {
             string valid = "";
@@ -1253,7 +1295,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(prd.Unitid));                
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(prd.Unitid));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(prd.DPRCRETEDBY));
                 da.SelectCommand.Parameters.AddWithValue("@CHECKLISTID", Convert.ToInt32(prd.DPRCHECKLIST));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBYIP", prd.DPRBYIP);
@@ -1413,7 +1455,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(prd.DPRCRETEDBY));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDIP", prd.IPAddress);
                 da.SelectCommand.Parameters.AddWithValue("@REMARK", prd.Remark);
-              //  da.SelectCommand.Parameters.AddWithValue("@FORWARDTO", prd.Forward);
+                da.SelectCommand.Parameters.AddWithValue("@ACTION", Convert.ToInt32(prd.Forward));
 
 
                 da.SelectCommand.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -1457,6 +1499,10 @@ namespace MeghalayaUIP.DAL.PreRegDAL
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(prd.Unitid));
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(prd.Investerid));
                 da.SelectCommand.Parameters.AddWithValue("@DCDEPTID", Convert.ToInt32(prd.deptid));
+                if (prd.DCFORWARD != "" && prd.DCFORWARD != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@ACTION", Convert.ToInt32(prd.DCFORWARD));
+                }
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(prd.DPRCRETEDBY));
                 da.SelectCommand.Parameters.AddWithValue("@CREATEDIP", prd.IPAddress);
                 da.SelectCommand.Parameters.AddWithValue("@REMARK", prd.Remark);

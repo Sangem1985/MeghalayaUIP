@@ -92,6 +92,10 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.GetDeptMst(UnitID,Userid);
         }
+        public DataSet GetDeptMst1(string UnitID, string Userid)
+        {
+            return IRD.GetDeptMst1(UnitID, Userid);
+        }
         //public string InsertDeptDetails(DataTable dt)
         //{
         //    return IRD.InsertDeptDetails(dt);
