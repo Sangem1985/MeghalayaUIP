@@ -36,6 +36,7 @@ namespace MeghalayaUIP.Common
         public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESACTION";
         //public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION"; 
         public static string PreRegUpdateQuery = "USP_UPDATEPREREGPROCESSQUERYACTION";
+        public static string PreRegUpdateQueryDC = "USP_UPDATEMIPAQUERYDC";
         public static string GetDeptMst = "USP_GET_MASTER_DEPT_LIST";
         public static string GetDeptMst1 = "USP_GETDCMASTERDEPTLIST";
         public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";

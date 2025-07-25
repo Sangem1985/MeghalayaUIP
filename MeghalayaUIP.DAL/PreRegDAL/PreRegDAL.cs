@@ -981,7 +981,70 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             {
                 SqlCommand com = new SqlCommand();
                 com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = PreRegConstants.PreRegUpdateQuery;
+                com.CommandText = PreRegConstants.PreRegUpdateQueryDC;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@UNITID", PRD.Unitid);
+                com.Parameters.AddWithValue("@INVESTERID", PRD.Investerid);
+                if (PRD.deptid != null && PRD.deptid != 0)
+                {
+                    com.Parameters.AddWithValue("@DEPTID", PRD.deptid);
+                }
+                com.Parameters.AddWithValue("@ACTIONID", PRD.status);
+                com.Parameters.AddWithValue("@REMARKS", PRD.Remarks);
+                if (PRD.QuerytoDeptID != null && PRD.QuerytoDeptID != "0")
+                {
+                    com.Parameters.AddWithValue("@QUERYTODEPTID", PRD.QuerytoDeptID);
+                }
+                if (PRD.deptid != null && PRD.deptid != 0)
+                {
+                    com.Parameters.AddWithValue("@QUERYTODEPT", PRD.deptid);
+                }
+                if (PRD.QueryID != null && PRD.QueryID != "0")
+                {
+                    com.Parameters.AddWithValue("@QueryID", PRD.QueryID);
+                }
+                if (PRD.@QueryResponse != null && PRD.@QueryResponse != "")
+                {
+                    com.Parameters.AddWithValue("@QueryResponse", PRD.@QueryResponse);
+                }
+                com.Parameters.AddWithValue("@IPADDRESS", PRD.IPAddress);
+                com.Parameters.AddWithValue("@USERID", PRD.UserID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
+        public string PreRegUpdateQueryDC(PreRegDtls PRD)
+        {
+            string valid = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = PreRegConstants.PreRegUpdateQueryDC;
 
                 com.Transaction = transaction;
                 com.Connection = connection;

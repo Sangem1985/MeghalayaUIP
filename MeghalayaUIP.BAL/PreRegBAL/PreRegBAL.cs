@@ -88,6 +88,10 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.PreRegUpdateQuery(PRD);
         }
+        public string PreRegUpdateQueryDC(PreRegDtls PRD)
+        {
+            return IRD.PreRegUpdateQueryDC(PRD);
+        }
         public DataSet GetDeptMst(string UnitID, string Userid)
         {
             return IRD.GetDeptMst(UnitID,Userid);

@@ -247,7 +247,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblName2.Text = Convert.ToString(row["REP_NAME"]);
                         lblUnitName2.Text = Convert.ToString(row["COMPANYNAME"]);
                         lblAppl2.Text = Convert.ToString(row["PREREGUIDNO"]);
-
+                        
 
                         lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
                         if (Convert.ToString(row["DITREPORT_UPLOADFLAG"]) == "Y")
@@ -323,12 +323,13 @@ namespace MeghalayaUIP.Dept.PreReg
                             {
                                 QueryResondpanel.Visible = false;
                             }
-                            if (Convert.ToString(ds.Tables[9].Rows[0]["PRDA_STAGEID"]) == "6")
+                            if (Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == "6")
                             {
                                 divDCPanels.Visible = false;
                             }
-                            else if(Convert.ToString(ds.Tables[9].Rows[0]["PRDA_STAGEID"]) == "20")
+                            else if(Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == "20")
                             {
+                                lblDate2.Text = Convert.ToString(ds.Tables[9].Rows[0]["QUERYDATE"]);
                                 divDCPanels.Visible = true;
                             }
                         }
