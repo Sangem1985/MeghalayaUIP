@@ -119,10 +119,10 @@ namespace MeghalayaUIP.Dept.PreReg
                     {
                         lblHdng.Text = "DPR Applications - Received";
                     }
-                    //else if (Request.QueryString["status"].ToString() == "DICQUERYTODC")
-                    //{
-                    //    lblHdng.Text = "DPR Applications - DIC Query Raised DC";
-                    //}
+                    else if (Request.QueryString["status"].ToString() == "DISTRICTAPPLI")
+                    {
+                        lblHdng.Text = "DPR Applications - District";
+                    }
                 }
                 else
                 {

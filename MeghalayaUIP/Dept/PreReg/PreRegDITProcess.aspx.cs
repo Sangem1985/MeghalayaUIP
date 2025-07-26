@@ -240,20 +240,25 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
                         {
-                            QueryResondpanel.Visible = true;
+                            //if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "18")
+                            //{
+                            QueryResondpanel.Visible = false;
                             grdQueryRaised.DataSource = ds.Tables[7];
                             grdQueryRaised.DataBind();
+                            //}
+
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[8].Rows.Count > 0)
                         {
                             gvDITChecklist.DataSource = ds.Tables[8];
                             gvDITChecklist.DataBind();
                         }
-                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[10].Rows.Count > 0)
                         {
-                            QueryResondpanel1.Visible = true;
-                            grdResponcse.DataSource = ds.Tables[7];
+                            // QueryResondpanel1.Visible = true;
+                            grdResponcse.DataSource = ds.Tables[10];
                             grdResponcse.DataBind();
+
                         }
                         if (Convert.ToString(Request.QueryString["status"]) != "ApplicationTracker")
                         {
@@ -269,7 +274,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                         verifypanelAttachment.Visible = true;
                                         QueryResondpanel.Visible = false;
                                     }
-                                    else if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "19")
+                                    else if (Convert.ToString(ds.Tables[10].Rows[0]["PRDA_STAGEID"]) == "19")
                                     {
                                         QueryResondpanel1.Visible = true;
                                     }
@@ -1265,7 +1270,7 @@ namespace MeghalayaUIP.Dept.PreReg
 
                 string selectedValue = ddlDICQueryAction.SelectedValue;
 
-                TableCell responseCell = row.Cells[9]; 
+                TableCell responseCell = row.Cells[9];
                 TableCell approveCell = row.Cells[10];
                 TableCell response = row.Cells[11];
                 TableCell dicReply = row.Cells[12];
@@ -1319,8 +1324,8 @@ namespace MeghalayaUIP.Dept.PreReg
                 bool show7 = ViewState["ACTIONID"]?.ToString() == "7";
                 bool show17 = ViewState["ACTIONID"]?.ToString() == "17";
 
-                e.Row.Cells[9].Visible = show7; 
-                e.Row.Cells[10].Visible = show7; 
+                e.Row.Cells[9].Visible = show7;
+                e.Row.Cells[10].Visible = show7;
 
                 e.Row.Cells[11].Visible = show17;
                 e.Row.Cells[12].Visible = show17;
@@ -1328,8 +1333,8 @@ namespace MeghalayaUIP.Dept.PreReg
         }
 
         protected void btnsendresponsetoDIC_Click(object sender, EventArgs e)
-        {        
-                      
+        {
+
             try
             {
 
@@ -1371,13 +1376,13 @@ namespace MeghalayaUIP.Dept.PreReg
                     prd.DPRCRETEDBY = hdnUserID.Value;
                     prd.Remark = txtReply.Text.Trim();
                     prd.Forward = ddlDICQueryAction.SelectedValue;
-                    prd.IPAddress = getclientIP();                                     
+                    prd.IPAddress = getclientIP();
                     string valid = PreBAL.PreRegDITProcess(prd);
                     btn.Enabled = false;
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DITProcess Successfully...!');  window.location.href='PreRegDITDashBoard.aspx'", true);
                     return;
-                }                              
-              
+                }
+
             }
             catch (Exception ex)
             {

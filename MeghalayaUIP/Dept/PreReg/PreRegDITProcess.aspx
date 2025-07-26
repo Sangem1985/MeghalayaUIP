@@ -1069,7 +1069,7 @@
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseEight" aria-expanded="false"
-                                        aria-controls="collapseEight">Respond to Query
+                                        aria-controls="collapseEight">ACTION
                                     </a>
                                 </h4>
                             </div>
@@ -1093,12 +1093,12 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="DepQID" Visible="false">
                                                 <ItemTemplate>
-                                                    <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
+                                                    <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("PRDAID")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
                                                 <ItemTemplate>
-                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
+                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("PRDA_DEPTID")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="UNIT ID" Visible="false">
@@ -1109,16 +1109,16 @@
                                             </asp:TemplateField>
                                             <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
 
-                                            <asp:BoundField HeaderText="Query By (Dept.Name)" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:BoundField HeaderText="Query Raised on" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:BoundField HeaderText="Query Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
+                                            <asp:BoundField HeaderText="Dept.Name" DataField="DEPT" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="DATE" DataField="RASIEDDATE" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Description" DataField="REMARK" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
 
                                             <asp:TemplateField HeaderText="Select Action">
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="ddlDICQueryAction" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDICQueryAction_SelectedIndexChanged">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Text="APPROVE" Value="7"></asp:ListItem>
-                                                        <asp:ListItem Text="Forward Query to DIC" Value="17"></asp:ListItem>
+                                                        <asp:ListItem Text="Return to DIC" Value="17"></asp:ListItem>
                                                     </asp:DropDownList>
 
                                                 </ItemTemplate>
@@ -1158,7 +1158,7 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                             <asp:TemplateField HeaderText="DIC ReplyQuery"><%--Send Response to IMA--%>
+                                             <asp:TemplateField HeaderText="DIC ReplyQuery"><%--Send Response to DIC--%>
                                                 <ItemTemplate>
                                                     <asp:Button ID="btnsendresponsetoDIC" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnsendresponsetoDIC_Click" /><br />
                                                     <br />

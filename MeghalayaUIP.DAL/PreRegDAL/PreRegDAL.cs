@@ -981,7 +981,7 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             {
                 SqlCommand com = new SqlCommand();
                 com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = PreRegConstants.PreRegUpdateQueryDC;
+                com.CommandText = PreRegConstants.PreRegUpdateQuery;
 
                 com.Transaction = transaction;
                 com.Connection = connection;
@@ -1542,6 +1542,53 @@ namespace MeghalayaUIP.DAL.PreRegDAL
             }
             return valid;
         }
+       /* public string PreRegDITProcessDIC1(PreRegDtls prd)
+        {
+            string valid = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(PreRegConstants.GetPreRegDITProcessDICFORWARD, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = PreRegConstants.GetPreRegDITProcessDICFORWARD;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(prd.Unitid));
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(prd.Investerid));
+                da.SelectCommand.Parameters.AddWithValue("@DCDEPTID", Convert.ToInt32(prd.deptid));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(prd.DPRCRETEDBY));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDIP", prd.IPAddress);
+                da.SelectCommand.Parameters.AddWithValue("@REMARK", prd.Remark);
+                da.SelectCommand.Parameters.AddWithValue("@ACTION", Convert.ToInt32(prd.Forward));
+
+
+                da.SelectCommand.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                da.SelectCommand.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                da.SelectCommand.ExecuteNonQuery();
+                valid = da.SelectCommand.Parameters["@RESULT"].Value.ToString();
+
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }*/
         public string PreRegDICProcess(PreRegDtls prd)
         {
             string valid = "";

@@ -50,6 +50,7 @@ namespace MeghalayaUIP.Common
         public static string SaveDistrictSiteReport = "PREREG_DITSAVEREPORT";
         public static string InsertTeamMember = "PREREG_SAVE_DITOFFICER";
         public static string GetPreRegDITProcess = "USP_GETPREREGDITPROCESS";
+        //public static string GetPreRegDITProcessDICFORWARD = "USP_GETPREREGDITPROCESSDIC1";
         public static string GetPreRegDICProcess = "USP_INSPREREGDEPTPROCESS";
         public static string GetDitSiteReport = "GET_PREREG_DITSITEREPORT";
 

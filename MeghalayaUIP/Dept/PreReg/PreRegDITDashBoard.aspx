@@ -40,6 +40,30 @@
                     <section id="dashboardcount">
                         <div class="container-fluid">
                             <div class="row clearfix">
+
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+                                    <asp:LinkButton runat="server" ID="lnkAppliaction" OnClick="lnkAppliaction_Click" ForeColor="White">
+                                        <div class="info-box bg-red hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblTotal" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    Total Applications 
+                    
+                     <br />
+                                                    in the District
+                
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
                                     <asp:LinkButton runat="server" ID="linkTotal" OnClick="linkTotal_Click" ForeColor="White">
                                         <div class="info-box bg-orange hover-expand-effect">
@@ -149,7 +173,7 @@
                                     </asp:LinkButton>
                                 </div>
 
-                               <%-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="divDICQuery" runat="server" visible="false">
+                                <%-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="divDICQuery" runat="server" visible="false">
                                     <asp:LinkButton runat="server" ID="lnkDCQuery" OnClick="lnkDCQuery_Click" ForeColor="White">
                                         <div class="info-box bg-pink hover-expand-effect">
                                             <div class="icon">

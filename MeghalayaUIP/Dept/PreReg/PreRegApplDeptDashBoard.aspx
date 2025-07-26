@@ -179,6 +179,31 @@
                     <section id="dashboardcount IMAqueries">
                         <div class="container-fluid">
                             <div class="row clearfix">
+
+                                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="divDistrict" runat="server" Visible="false">
+                                    <asp:LinkButton runat="server" ID="lnkAppliaction" OnClick="lnkAppliaction_Click" ForeColor="White">
+                                        <div class="info-box bg-red hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblTotal" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    Total Applications                                                    
+                                                    <br />
+                                                    in the District
+                                               
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-ballot-check"></i>
+
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+
+                                </div>
+
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                     <asp:LinkButton runat="server" ID="linkTotal" OnClick="linkTotal_Click" ForeColor="White">
                                         <div class="info-box bg-orange hover-expand-effect">
@@ -189,7 +214,6 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    <%--<a href="PreRegApplDeptView.aspx?status=TOTAL" style="color: white"></a>--%>
                                                     Total<br />
                                                     Applications 
                                                 </div>
