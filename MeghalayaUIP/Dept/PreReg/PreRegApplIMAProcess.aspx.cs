@@ -315,23 +315,27 @@ namespace MeghalayaUIP.Dept.PreReg
                             {
                                 verifypanel.Visible = false;
                             }
-                            if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
+                            if (ds.Tables[0].Rows.Count > 0)
                             {
-                                QueryResondpanel.Visible = true;
+                                if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
+                                {
+                                    QueryResondpanel.Visible = true;
+                                }
+                                else
+                                {
+                                    QueryResondpanel.Visible = false;
+                                }
+                                if (Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == "6")
+                                {
+                                    divDCPanels.Visible = false;
+                                }
+                                else if (Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == "20")
+                                {
+                                    lblDate2.Text = Convert.ToString(ds.Tables[9].Rows[0]["QUERYDATE"]);
+                                    divDCPanels.Visible = true;
+                                }
                             }
-                            else
-                            {
-                                QueryResondpanel.Visible = false;
-                            }
-                            if (Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == "6")
-                            {
-                                divDCPanels.Visible = false;
-                            }
-                            else if(Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == "20")
-                            {
-                                lblDate2.Text = Convert.ToString(ds.Tables[9].Rows[0]["QUERYDATE"]);
-                                divDCPanels.Visible = true;
-                            }
+                           
                         }
                         else if (Convert.ToString(Request.QueryString["status"]) == "ApplicationTracker")
                         {
