@@ -85,7 +85,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblIMAQUERYREPLIEDBYAPPLICANT.Text = dt.Rows[0]["APPLCNTREPLIEDTOIMA"].ToString();
                 lblIMATODEPTQUERY.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
                 lblIMAQUERYREPLIEDBYDEPT.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
-
+                lblDCQueryRaised.Text = dt.Rows[0]["DICQUERYTOMiPA"].ToString();
 
 
                 lblCommitteeQuery.Text = dt.Rows[0]["COMMQUERYTOIMA"].ToString();
@@ -380,6 +380,22 @@ namespace MeghalayaUIP.Dept.PreReg
 
             }
 
+        }
+
+        protected void lnkDCQueryRaised_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblDCQueryRaised.Text != "0")
+                    Response.Redirect("PreRegApplIMAView.aspx?status=DICQUERYTOMiPA");
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+
+            }
         }
     }
 

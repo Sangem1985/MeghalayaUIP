@@ -36,7 +36,9 @@ namespace MeghalayaUIP.Common
         public static string GetPreRegApprovals = "USP_UPDATEPREREGPROCESACTION";
         //public static string PreRegUpdateQuery = "USP_UPDATEPREREGQUERYACTION"; 
         public static string PreRegUpdateQuery = "USP_UPDATEPREREGPROCESSQUERYACTION";
+        public static string PreRegUpdateQueryDC = "USP_UPDATEMIPAQUERYDC";
         public static string GetDeptMst = "USP_GET_MASTER_DEPT_LIST";
+        public static string GetDeptMst1 = "USP_GETDCMASTERDEPTLIST";
         public static string GetIntentInvestdash = "USP_GETINTENTTOINVESTAPPL";
 
         /*---------------------------------------------------------------------*/
@@ -48,6 +50,7 @@ namespace MeghalayaUIP.Common
         public static string SaveDistrictSiteReport = "PREREG_DITSAVEREPORT";
         public static string InsertTeamMember = "PREREG_SAVE_DITOFFICER";
         public static string GetPreRegDITProcess = "USP_GETPREREGDITPROCESS";
+        //public static string GetPreRegDITProcessDICFORWARD = "USP_GETPREREGDITPROCESSDIC1";
         public static string GetPreRegDICProcess = "USP_INSPREREGDEPTPROCESS";
         public static string GetDitSiteReport = "GET_PREREG_DITSITEREPORT";
 
@@ -201,6 +204,9 @@ namespace MeghalayaUIP.Common
         public string Remark { get; set; }
         public string Forward { get; set; }
         public string CreatedFlag { get; set; }
+        public string DCQUERYRESPONSE { get; set; }
+        public string DCREMARK { get; set; }
+        public string DCFORWARD { get; set; }
     }
     public class InvBasicDtls
     {

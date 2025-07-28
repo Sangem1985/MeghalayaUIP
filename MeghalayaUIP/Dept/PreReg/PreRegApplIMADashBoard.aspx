@@ -57,6 +57,7 @@
                                             <div class="content">
                                                 <div class="text">
                                                     Total Applications
+                                                   
                                                     <%-- <a href="PreRegApplIMAView.aspx?status=IMATOTAL" style="color: white">Total<br />
                                                     Application </a>--%>
                                                 </div>
@@ -79,6 +80,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMATOBEPROCESSED" style="color: white"></a>--%>
                                                         Applications to<br />
                                                     be Processed
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -98,6 +100,7 @@
                                                 <div class="text">
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMAPPROVED" style="color: white"></a>--%>
                                                     Approved 
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-memo-circle-check"></i>
@@ -118,6 +121,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=CommitteeQuery" style="color: white"></a>--%>
                                                      Query<br />
                                                     Raised 
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -163,6 +167,7 @@
                                                 <div class="text">
                                                     Queries Raised<br />
                                                     to Department
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -183,6 +188,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERYREPLIED" style="color: white"></a>--%>
                                                     Queries Redressed<br />
                                                     by Department
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -203,6 +209,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERY" style="color: white"></a>--%>
                                                         Query Raised<br />
                                                     to Applicant
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -223,6 +230,27 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=IMAQUERYREPLIED" style="color: white"></a>--%>
                                                     Query Redressed<br />
                                                     by Applicant
+                                               
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="lnkDCQueryRaised" OnClick="lnkDCQueryRaised_Click" ForeColor="White">
+                                        <div class="info-box bg-blue hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblDCQueryRaised" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                    DC Query<br />
+                                                    Raised 
+                
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -269,6 +297,7 @@
                                                 <div class="text">
                                                     Applications to<br />
                                                     be Processed by Committee
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -287,6 +316,7 @@
                                             <div class="content">
                                                 <div class="text">
                                                     Committee Approved 
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-memo-circle-check"></i>
@@ -324,6 +354,7 @@
                                                 <div class="text">
                                                     Committee Query<br />
                                                     Raised 
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -349,6 +380,7 @@
                                                 <div class="text">
                                                     Committee Query                                                    
                                                     Redressed by IMA  
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -370,6 +402,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=CommitteeQueryforwardedtoDept" style="color: white"></a>--%>
                          Committee Query<br />
                                                     Forwarded to Department
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-import"></i>
@@ -390,8 +423,10 @@
                                                 <div class="text">
                                                     <%--<a href="PreRegApplIMAView.aspx?status=DeptREPLIEDTOCommitteeQUERY" style="color: white"></a>--%>
                      Committee Query
-                     <br />
+                    
+                                                    <br />
                                                     Redressed by Department 
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-memo-circle-check"></i>
@@ -413,6 +448,7 @@
                                                     <%--<a href="PreRegApplIMAView.aspx?status=CommitteeQueryforwardedtoAppl" style="color: white"></a>--%>
                                                     Committee Query<br />
                                                     Forwarded to Applicant
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-import"></i>
@@ -434,8 +470,10 @@
                                                 <div class="text">
                                                     <%--<a href="PreRegApplIMAView.aspx?status=APPLREPLIEDTOCommitteeQUERY" style="color: white"></a>--%>
                                                     Committee Query
+                                                   
                                                     <br />
                                                     Redressed by Applicant 
+                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-memo-circle-check"></i>

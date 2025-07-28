@@ -117,6 +117,8 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblDPRPROCESSED.Text = dt.Rows[0]["PROCESSED"].ToString();
                 lblForwardedDEPTQUERY.Text = dt.Rows[0]["DCSENTBACK"].ToString();
                 lblReceivedDEPT.Text = dt.Rows[0]["DCRECEIVED"].ToString();
+                lblTotal.Text = dt.Rows[0]["DISTRICTAPPLI"].ToString();
+                // lblDICQuery.Text = dt.Rows[0]["DICQUERYTODC"].ToString();
 
                 //string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
                 //if (ObjUserInfo.Roleid == "4" || allowedUserIDs.Contains(ObjUserInfo.UserID))
@@ -132,7 +134,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 {
                     Received.Visible = true;
                     Sent.Visible = true;
-
+                  //  divDICQuery.Visible = true;
                 }
 
 
@@ -194,5 +196,39 @@ namespace MeghalayaUIP.Dept.PreReg
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
+
+        protected void lnkAppliaction_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblTotal.Text != "0")
+                {
+                    Response.Redirect("PreRegDITView.aspx?status=DISTRICTAPPLI");
+                }
+            }
+            catch (Exception ex)
+            {
+                Failure.Visible = true;
+                lblmsg0.Text = ex.Message;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+        //protected void lnkDCQuery_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (lblDICQuery.Text != "0")
+        //        {
+        //            Response.Redirect("PreRegDITView.aspx?status=DICQUERYTODC");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Failure.Visible = true;
+        //        lblmsg0.Text = ex.Message;
+        //        MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+        //    }
+        //}
     }
 }

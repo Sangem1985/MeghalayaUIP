@@ -18,7 +18,7 @@
 }
     </style>
     <!--Banner Video-->
-    <section id="marquee">
+    <section id="marquee" runat="server" visible="false">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">

@@ -258,6 +258,24 @@ namespace MeghalayaUIP.Dept.PreReg
         protected global::System.Web.UI.WebControls.Label lblIMAQUERYREPLIEDBYAPPLICANT;
 
         /// <summary>
+        /// lnkDCQueryRaised control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkDCQueryRaised;
+
+        /// <summary>
+        /// lblDCQueryRaised control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDCQueryRaised;
+
+        /// <summary>
         /// linkCOMMtobeProc control.
         /// </summary>
         /// <remarks>

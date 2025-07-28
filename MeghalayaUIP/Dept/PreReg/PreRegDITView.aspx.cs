@@ -56,7 +56,7 @@ namespace MeghalayaUIP.Dept.PreReg
                        Request.QueryString["status"].ToString() == "TOBEPROCESSED" ||
                        Request.QueryString["status"].ToString() == "PROCESSED" ||
                        Request.QueryString["status"].ToString() == "DCFORWARDED" ||
-                       Request.QueryString["status"].ToString() == "DCRECEIVED")
+                       Request.QueryString["status"].ToString() == "DCRECEIVED")  //||                       Request.QueryString["status"].ToString() == "DICQUERYTODC"
                         button.Text = "Process";
                     else
                         button.Text = "View";
@@ -118,6 +118,10 @@ namespace MeghalayaUIP.Dept.PreReg
                     else if (Request.QueryString["status"].ToString() == "DCRECEIVED")
                     {
                         lblHdng.Text = "DPR Applications - Received";
+                    }
+                    else if (Request.QueryString["status"].ToString() == "DISTRICTAPPLI")
+                    {
+                        lblHdng.Text = "DPR Applications - District";
                     }
                 }
                 else

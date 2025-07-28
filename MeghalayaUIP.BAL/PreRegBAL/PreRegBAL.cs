@@ -88,9 +88,17 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.PreRegUpdateQuery(PRD);
         }
+        public string PreRegUpdateQueryDC(PreRegDtls PRD)
+        {
+            return IRD.PreRegUpdateQueryDC(PRD);
+        }
         public DataSet GetDeptMst(string UnitID, string Userid)
         {
             return IRD.GetDeptMst(UnitID,Userid);
+        }
+        public DataSet GetDeptMst1(string UnitID, string Userid)
+        {
+            return IRD.GetDeptMst1(UnitID, Userid);
         }
         //public string InsertDeptDetails(DataTable dt)
         //{
@@ -131,6 +139,10 @@ namespace MeghalayaUIP.BAL.PreRegBAL
         {
             return IRD.PreRegDITProcess(prd);
         }
+        //public string PreRegDITProcessDIC1(PreRegDtls prd)
+        //{
+        //    return IRD.PreRegDITProcessDIC1(prd);
+        //}
         public string PreRegDICProcess(PreRegDtls prd)
         {
             return IRD.PreRegDICProcess(prd);
