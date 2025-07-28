@@ -2,10 +2,12 @@
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.EnterpriseServices.Internal;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -52,9 +54,7 @@ namespace MeghalayaUIP.User.CFE
                     if (!IsPostBack)
                     {
                         GetAppliedorNot();
-                        BindDistric();
-                        BindDistricEST();
-                        Binddata();
+                      
                     }
                 }
             }
@@ -71,19 +71,26 @@ namespace MeghalayaUIP.User.CFE
             {
                 DataSet ds = new DataSet(); DataSet ds1 = new DataSet(); DataSet ds2 = new DataSet();
                 ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "15", "20,21,23");
-                ds1 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "5", "19");
-                ds2 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "2", "22");
+                        //20  Certificate for non - availability of water supply from water supply agency
+                        //21  Permission to Draw Water from River/ Public Tanks
+                        //23  Grant of Water Connection to Non Municipal areas
+                ds1 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "5", "19"); //NoC for Ground Water Abstraction for Commercial Connection
+                ds2 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "2", "22"); //Water Connection for the Municipal Area 
 
                 if (ds.Tables[0].Rows.Count > 0 || ds1.Tables[0].Rows.Count > 0 || ds2.Tables[0].Rows.Count > 0)
                 {
+                    BindDistrics();
+                    Binddata();
+
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        divWaterDetails.Visible = true;
-                        divCommercialEst.Visible = true;
+                        //if(CFEDA_APPROVALID)
+                        divNoNMunicipalWaterConnection.Visible = true; //approval id 23
+                        divNonAvlbltyWaterCert.Visible = true; //approval id 20
                     }
                     if (ds2.Tables[0].Rows.Count > 0)
                     {
-                        divWaterConnection.Visible = true;
+                        divMunicipalWaterConnection.Visible = true;  //approval id 22
                     }
 
                 }
@@ -105,7 +112,7 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void BindDistricEST()
+        protected void BindDistrics()
         {
             try
             {
@@ -135,46 +142,7 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        protected void BindDistric()
-        {
-            try
-            {
-                ddldistric.Items.Clear();
-                ddlmandal.Items.Clear();
-                ddlvillage.Items.Clear();
-
-                List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
-                string strmode = string.Empty;
-
-                strmode = "";
-
-                objDistrictModel = mstrBAL.GetDistrcits();
-                if (objDistrictModel != null)
-                {
-                    ddldistric.DataSource = objDistrictModel;
-                    ddldistric.DataValueField = "DistrictId";
-                    ddldistric.DataTextField = "DistrictName";
-                    ddldistric.DataBind();
-                }
-                else
-                {
-                    ddldistric.DataSource = null;
-                    ddldistric.DataBind();
-
-                    ddldistric.DataSource = null;
-                    ddldistric.DataBind();
-                }
-                AddSelect(ddldistric);
-                AddSelect(ddlmandal);
-                AddSelect(ddlvillage);
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
+        
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -257,11 +225,39 @@ namespace MeghalayaUIP.User.CFE
                 ds = objcfebal.GetWaterDetailos(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]));
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    txtwater.Text = ds.Tables[0].Rows[0]["CFEWD_WATERDRINK"].ToString();
+                    /*txtwater.Text = ds.Tables[0].Rows[0]["CFEWD_WATERDRINK"].ToString();
                     txtIndustrial.Text = ds.Tables[0].Rows[0]["CFEWD_WATERPROCESS"].ToString();
                     txtQuantwater.Text = ds.Tables[0].Rows[0]["CFEWD_CONSUMPTIVEWATER"].ToString();
                     txtwaterReq.Text = ds.Tables[0].Rows[0]["CFEWD_NONCONSUMPTIVEWATER"].ToString();
                     rblwatercon.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_WATERCONN"].ToString();
+                    ObjCFEWater.Drinking_Water = txtwater.Text;
+                    ObjCFEWater.water_Industrial = txtIndustrial.Text;
+                    ObjCFEWater.Quantity_Water = txtQuantwater.Text;
+                    ObjCFEWater.Non_Consumptive_water = txtwaterReq.Text; 
+                    if (string.IsNullOrEmpty(txtwater.Text) || txtwater.Text == "" || txtwater.Text == null || txtwater.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtwater.Text, @"^0+(\.0+)?$"))
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Drinking Water (KL/Day) \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtIndustrial.Text) || txtIndustrial.Text == "" || txtIndustrial.Text == null || txtIndustrial.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtIndustrial.Text, @"^0+(\.0+)?$"))
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Water Industrial (KL/Day) \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtQuantwater.Text) || txtQuantwater.Text == "" || txtQuantwater.Text == null || txtQuantwater.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtQuantwater.Text, @"^0+(\.0+)?$"))
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Quantity of Water Required for Consumptive (KL/Day) \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtwaterReq.Text) || txtwaterReq.Text == "" || txtwaterReq.Text == null || txtwaterReq.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtwaterReq.Text, @"^0+(\.0+)?$"))
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Quantity of Water Required for Non-Consumptive (KL/Day) \\n";
+                        slno = slno + 1;
+                    }
+                    */
+
+
+
                     if (rblwatercon.SelectedValue == "3")
                     {
                         holdno.Visible = false;
@@ -276,14 +272,7 @@ namespace MeghalayaUIP.User.CFE
                     txtpremise.Text = ds.Tables[0].Rows[0]["CFEWD_NOOFPREMISE"].ToString();
                     txtdemand.Text = ds.Tables[0].Rows[0]["CFEWD_DEMANDPERDAY"].ToString();
                     txtinformation.Text = ds.Tables[0].Rows[0]["CFEWD_INFORMATION"].ToString();
-                    ddldistric.Text = ds.Tables[0].Rows[0]["CFEWD_DISTRIC"].ToString();
-                    ddldistric_SelectedIndexChanged(null, EventArgs.Empty);
-                    ddlmandal.Text = ds.Tables[0].Rows[0]["CFEWD_MANDAL"].ToString();
-                    ddlmandal_SelectedIndexChanged(null, EventArgs.Empty);
-                    ddlvillage.Text = ds.Tables[0].Rows[0]["CFEWD_VILLAGE"].ToString();
-                    txtlocality.Text = ds.Tables[0].Rows[0]["CFEWD_LOCALITY"].ToString();
-                    txtlandmark.Text = ds.Tables[0].Rows[0]["CFEWD_LANDMARK"].ToString();
-                    txtpincode.Text = ds.Tables[0].Rows[0]["CFEWD_PINCODE"].ToString();
+                   
                     txtconnection.Text = ds.Tables[0].Rows[0]["CFEWD_PURPOSECON"].ToString();
                     ddlconnection.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_TYPECONN"].ToString();
                     if (ddlconnection.SelectedValue == "Y")
@@ -367,50 +356,7 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-        protected void ddldistric_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlmandal.ClearSelection();
-                ddlmandal.Items.Clear();
-                AddSelect(ddlmandal);
-                ddlvillage.ClearSelection();
-                ddlvillage.Items.Clear();
-                AddSelect(ddlvillage);
-                if (ddldistric.SelectedItem.Text != "--Select--")
-                {
-                    BindMandal(ddlmandal, ddldistric.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-
-        protected void ddlmandal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlvillage.ClearSelection();
-                ddlvillage.Items.Clear();
-                AddSelect(ddlvillage);
-                if (ddlmandal.SelectedItem.Text != "--Select--")
-                {
-
-                    BindVillages(ddlvillage, ddlmandal.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                Failure.Visible = true;
-                lblmsg0.Text = ex.Message;
-                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
-            }
-        }
-
+      
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -424,10 +370,7 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFEWater.CreatedBy = hdnUserID.Value;
                     ObjCFEWater.UNITID = Convert.ToString(Session["CFEUNITID"]);
                     ObjCFEWater.IPAddress = getclientIP();
-                    ObjCFEWater.Drinking_Water = txtwater.Text;
-                    ObjCFEWater.water_Industrial = txtIndustrial.Text;
-                    ObjCFEWater.Quantity_Water = txtQuantwater.Text;
-                    ObjCFEWater.Non_Consumptive_water = txtwaterReq.Text;
+
                     //ObjCFEWater.OVERHEAD = txtoverhead.Text;
                     //ObjCFEWater.UNDERGROUND = txtunderground.Text;
                     //ObjCFEWater.TANKER_CAPACITY = ddlTanker.SelectedValue;
@@ -438,12 +381,7 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFEWater.PREMISENUMBER = txtpremise.Text;
                     ObjCFEWater.WATERDEMAND = txtdemand.Text;
                     ObjCFEWater.ANYOTHERINFORMATION = txtinformation.Text;
-                    ObjCFEWater.DISTRIC = ddldistric.SelectedValue;
-                    ObjCFEWater.MANDAL = ddlmandal.SelectedValue;
-                    ObjCFEWater.VILLAGE = ddlvillage.SelectedValue;
-                    ObjCFEWater.LOCALITY = txtlocality.Text;
-                    ObjCFEWater.LANDMARK = txtlandmark.Text;
-                    ObjCFEWater.PINCODE = txtpincode.Text;
+                 
                     ObjCFEWater.PURPOSECONN = txtconnection.Text;
                     ObjCFEWater.TYPECON = ddlconnection.SelectedValue;
                     ObjCFEWater.DOMESTIC = ddlDiameter.SelectedValue;
@@ -478,28 +416,9 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 int slno = 1;
-                string errormsg = "";            
+                string errormsg = "";
 
-                if (string.IsNullOrEmpty(txtwater.Text) || txtwater.Text == "" || txtwater.Text == null || txtwater.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtwater.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Drinking Water (KL/Day) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtIndustrial.Text) || txtIndustrial.Text == "" || txtIndustrial.Text == null || txtIndustrial.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtIndustrial.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Water Industrial (KL/Day) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtQuantwater.Text) || txtQuantwater.Text == "" || txtQuantwater.Text == null || txtQuantwater.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtQuantwater.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Quantity of Water Required for Consumptive (KL/Day) \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtwaterReq.Text) || txtwaterReq.Text == "" || txtwaterReq.Text == null || txtwaterReq.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtwaterReq.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Quantity of Water Required for Non-Consumptive (KL/Day) \\n";
-                    slno = slno + 1;
-                }
+
                 if (rblwatercon.SelectedIndex == -1 || rblwatercon.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select water connection \\n";
@@ -525,36 +444,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Any Information \\n";
                     slno = slno + 1;
                 }
-                if (ddldistric.SelectedIndex == -1 || ddldistric.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Distric \\n";
-                    slno = slno + 1;
-                }
-                if (ddlmandal.SelectedIndex == -1 || ddlmandal.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Mandal \\n";
-                    slno = slno + 1;
-                }
-                if (ddlvillage.SelectedIndex == -1 || ddlvillage.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Village \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtlocality.Text) || txtlocality.Text == "" || txtlocality.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter locality  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtlandmark.Text) || txtlandmark.Text == "" || txtlandmark.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Landmark \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtpincode.Text) || txtpincode.Text == "" || txtpincode.Text == null || txtpincode.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtpincode.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Picode \\n";
-                    slno = slno + 1;
-                }
+               
                 if (string.IsNullOrEmpty(txtconnection.Text) || txtconnection.Text == "" || txtconnection.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter  \\n";
@@ -777,13 +667,13 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (rblProperty.SelectedItem.Text== "Leased")
+                if (rblProperty.SelectedItem.Text == "Leased")
                 {
                     divProperty.Visible = true;
                 }
                 else { divProperty.Visible = false; }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }

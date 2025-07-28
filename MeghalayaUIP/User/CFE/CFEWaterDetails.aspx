@@ -37,7 +37,7 @@
                                     <!-- <h4 class="card-title">Personal Information</h4> -->
 
                                     <div class="row">
-                                        <h5 class="card-title ml-4 mt-3">Water Consumption</h5>
+                                        <%-- <h5 class="card-title ml-4 mt-3">Water Consumption</h5>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
@@ -73,7 +73,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>--%>
                                         <div id="tanker" runat="server" visible="false">
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-6">
@@ -116,18 +116,20 @@
                                             </div>
                                         </div>
 
-                                        <div id="divWaterConnection" runat="server" visible="false">
+                                        <div id="divMunicipalWaterConnection" runat="server" visible="false">
+                                            <h3 class="col-lg-2 col-form-label fw-bold"><span style="font-weight: 900;">Water Connection for the Municipal Area</span></h3>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-2 col-form-label fw-bold"><span style="font-weight: 900;">Type Of Water Connection<span class="text-danger">*</span> </span></label>
+                                                        <label >Type Of Water Connection<span class="text-danger">* </span></label>
                                                         <div class="col-lg-10">
-                                                            <asp:RadioButtonList ID="rblwatercon" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblwatercon_SelectedIndexChanged" AutoPostBack="true">
+                                                            <asp:DropDownList ID="rblwatercon" runat="server" class="form-control" CssClass OnSelectedIndexChanged="rblwatercon_SelectedIndexChanged" AutoPostBack="true">
+                                                                <asp:ListItem Text="--Select--" Value="0" />
                                                                 <asp:ListItem Text=" Permanent Water Connection" Value="1" />
                                                                 <asp:ListItem Text="Change Water Connection" Value="2" />
                                                                 <asp:ListItem Text="Temporary Water Connection" Value="3"></asp:ListItem>
                                                                 <asp:ListItem Text="Commercial Water Connection" Value="4"></asp:ListItem>
-                                                            </asp:RadioButtonList>
+                                                            </asp:DropDownList>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -153,8 +155,62 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="divCommercialEst" runat="server" visible="false">
-                                            <h5 class="card-title ml-4 mt-3">Commercial Establishment</h5>
+                                        <div id="divNoNMunicipalWaterConnection" runat="server" visible="false">
+                                            <h5 class="card-title ml-4 mt-3">Water Connection Details</h5>
+
+                                            <div class="col-md-12 d-flex">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Purpose for which connection is required  <span class="text-danger">*</span></label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:TextBox ID="txtconnection" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNames(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Type of connection <span class="text-danger">*</span></label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:DropDownList ID="ddlconnection" runat="server" class="form-control" OnSelectedIndexChanged="ddlconnection_SelectedIndexChanged" AutoPostBack="true">
+                                                                <asp:ListItem Text="--Select--" Value="0" />
+                                                                <asp:ListItem Text="Domestic" Value="Y"></asp:ListItem>
+                                                                <asp:ListItem Text="Bulk" Value="N"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" id="NominalDN" runat="server" visible="false">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Size of pipe connection for domestic(Diameter Nominal DN (mm))<span class="text-danger">*</span> </label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:DropDownList ID="ddlDiameter" runat="server" class="form-control">
+                                                                <asp:ListItem Text="15" Value="15"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" id="DiameterDN" runat="server" visible="false">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Size of pipe connection(Diameter Nominal DN (mm))<span class="text-danger">*</span> </label>
+                                                        <div class="col-lg-6 d-flex">
+                                                            <asp:DropDownList ID="ddlDN" runat="server" class="form-control">
+                                                                <asp:ListItem Text="--Select--" Value="0" />
+                                                                <asp:ListItem Text="15" Value="15"></asp:ListItem>
+                                                                <asp:ListItem Text="20" Value="20"></asp:ListItem>
+                                                                <asp:ListItem Text="25" Value="25"></asp:ListItem>
+                                                                <asp:ListItem Text="40" Value="40"></asp:ListItem>
+                                                                <asp:ListItem Text="50" Value="50"></asp:ListItem>
+                                                                <asp:ListItem Text="65" Value="65"></asp:ListItem>
+                                                                <asp:ListItem Text="80" Value="80"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="divNonAvlbltyWaterCert" runat="server" visible="false">
+                                            <h5 class="card-title ml-4 mt-3">Certificate for non-availability of water supply from water supply agency</h5>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-4">
                                                     <div class="form-group row">
@@ -192,118 +248,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="divWaterDetails" runat="server" visible="false">
-                                            <h5 class="card-title ml-4 mt-3">Water Connection Details</h5>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">District <span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddldistric" runat="server" class="form-control" OnSelectedIndexChanged="ddldistric_SelectedIndexChanged" AutoPostBack="true">
-                                                                <asp:ListItem Text="--Select--" Value="0" />
-                                                            </asp:DropDownList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Mandal<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlmandal" runat="server" class="form-control" OnSelectedIndexChanged="ddlmandal_SelectedIndexChanged" AutoPostBack="true">
-                                                                <asp:ListItem Text="--Select--" Value="0" />
-                                                            </asp:DropDownList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Village<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlvillage" runat="server" class="form-control">
-                                                                <asp:ListItem Text="--Select--" Value="0" />
-                                                            </asp:DropDownList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Locality <span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtlocality" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Nearest Landmark<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtlandmark" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Pincode<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtpincode" runat="server" class="form-control" MaxLength="6" onkeypress="return validatePincode(event)" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Purpose for which connection is required  <span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtconnection" runat="server" class="form-control" TextMode="MultiLine" onkeypress="return validateNames(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Type of connection <span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlconnection" runat="server" class="form-control" OnSelectedIndexChanged="ddlconnection_SelectedIndexChanged" AutoPostBack="true">
-                                                                <asp:ListItem Text="--Select--" Value="0" />
-                                                                <asp:ListItem Text="Domestic" Value="Y"></asp:ListItem>
-                                                                <asp:ListItem Text="Bulk" Value="N"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4" id="NominalDN" runat="server" visible="false">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Size of pipe connection for domestic(Diameter Nominal DN (mm))<span class="text-danger">*</span> </label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlDiameter" runat="server" class="form-control">
-                                                                <asp:ListItem Text="--Select--" Value="0" />
-                                                            </asp:DropDownList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 d-flex" id="DiameterDN" runat="server" visible="false">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Size of pipe connection(Diameter Nominal DN (mm))<span class="text-danger">*</span> </label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddlDN" runat="server" class="form-control">
-                                                                <asp:ListItem Text="--Select--" Value="0" />
-                                                                <asp:ListItem Text="15" Value="1"></asp:ListItem>
-                                                                <asp:ListItem Text="20" Value="2"></asp:ListItem>
-                                                                <asp:ListItem Text="25" Value="3"></asp:ListItem>
-                                                                <asp:ListItem Text="40" Value="4"></asp:ListItem>
-                                                                <asp:ListItem Text="50" Value="5"></asp:ListItem>
-                                                                <asp:ListItem Text="65" Value="6"></asp:ListItem>
-                                                                <asp:ListItem Text="80" Value="7"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
 
 
 
