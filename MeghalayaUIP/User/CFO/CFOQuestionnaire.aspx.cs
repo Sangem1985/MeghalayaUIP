@@ -646,6 +646,7 @@ namespace MeghalayaUIP.User.CFO
                     objCFOQsnaire.PowerReqKW = ddlPowerReq.SelectedValue;
                     objCFOQsnaire.GrantManufacture = ddlManufacture.SelectedValue;
                     objCFOQsnaire.ForestTransit = rblforesttransit.SelectedValue;
+                    objCFOQsnaire.PowerConn = ddlPowerConnection.SelectedValue;
                     objCFOQsnaire.CreatedBy = hdnUserID.Value;
                     int count = 0;
                     result = objcfobal.InsertQuestionnaireCFO(objCFOQsnaire);
@@ -920,7 +921,10 @@ namespace MeghalayaUIP.User.CFO
                 {
                     ApprovalIds = ApprovalIds + ",85";
                 }
-
+                if (ddlPowerConnection.SelectedValue == "Y")
+                {
+                    ApprovalIds = ApprovalIds + ",3";
+                }
 
                 objCFOQ.ApprovalID = ApprovalIds;
                 DataSet dsApprovals = new DataSet();
@@ -1059,6 +1063,13 @@ namespace MeghalayaUIP.User.CFO
                     rblLiquorLic.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_LIQUORLIC"].ToString();
                     rblExciseVerification.SelectedValue = ds.Tables[0].Rows[0]["CFOQD_STATEEXCISEVERFCERT"].ToString();
 
+                   // ddlPowerConnection.SelectedValue = ds.Tables[2].Rows[0]["CFOQD_POWERCONNECTION"].ToString();
+                    if(ds.Tables[2].Rows.Count>0)
+                    {
+                        divPowerConn.Visible = true;
+                    }
+
+
                     GetApprovals();
                 }
                 else
@@ -1098,6 +1109,11 @@ namespace MeghalayaUIP.User.CFO
                         txtPMCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["PROJECT_PMCOST"]);
                         lblTotProjCost.Text = Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
                         lblEntCategory.Text = "MEGA PROJECT";
+
+                        if (ds.Tables[1].Rows.Count > 0)
+                        {
+                            divPowerConn.Visible = true;
+                        }
                     }
                 }
 

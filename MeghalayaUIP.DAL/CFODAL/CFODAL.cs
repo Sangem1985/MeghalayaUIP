@@ -2058,6 +2058,10 @@ namespace MeghalayaUIP.DAL.CFODAL
                 com.Parameters.AddWithValue("@CFEQD_POWERREQKW", Convert.ToInt32(objCFOQsnaire.PowerReqKW));
                 com.Parameters.AddWithValue("@CFOQD_GRANTMANUFACTURE", objCFOQsnaire.GrantManufacture);
                 com.Parameters.AddWithValue("@CFOQD_FORESTTRANSIT", objCFOQsnaire.ForestTransit);
+                if (objCFOQsnaire.PowerConn != null && objCFOQsnaire.PowerConn != "")
+                {
+                    com.Parameters.AddWithValue("@CFOQD_POWERCONNECTION", objCFOQsnaire.PowerConn);
+                }
                 com.Parameters.AddWithValue("@CFOQD_CREATEDBY", Convert.ToInt32(objCFOQsnaire.CreatedBy));
                 com.Parameters.AddWithValue("@CFOQD_CREATEDBYIP", objCFOQsnaire.IPAddress);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
