@@ -886,12 +886,10 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                17. Do You Required Grant of Water 
+                                                                                17. Do You Required Grant of Water                                
                                   
-                                  
-
                                                                                 <br />
-                                                                                Connection to Non Municipal urban 
+                                                                                Connection to Non Municipal  
                                   
                                   
 
