@@ -507,7 +507,6 @@ namespace MeghalayaUIP.Common
         public string UnitLocation { get; set; }
         public string Investment { get; set; }
         public string Employment { get; set; }
-
         public string PropEmployment { get; set; }
         public string ProjectCost { get; set; }
         public string LandValue { get; set; }
@@ -550,6 +549,7 @@ namespace MeghalayaUIP.Common
         public string PowerReqKW { get; set; }
         public string GrantManufacture { get; set; }
         public string ForestTransit { get; set; }
+        public string PowerConn { get; set; }
     }
     public class CFOPayments
     {
