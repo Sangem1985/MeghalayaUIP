@@ -54,7 +54,7 @@ namespace MeghalayaUIP.User.CFE
                     if (!IsPostBack)
                     {
                         GetAppliedorNot();
-                      
+
                     }
                 }
             }
@@ -71,9 +71,9 @@ namespace MeghalayaUIP.User.CFE
             {
                 DataSet ds = new DataSet(); DataSet ds1 = new DataSet(); DataSet ds2 = new DataSet();
                 ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "15", "20,21,23");
-                        //20  Certificate for non - availability of water supply from water supply agency
-                        //21  Permission to Draw Water from River/ Public Tanks
-                        //23  Grant of Water Connection to Non Municipal areas
+                //20  Certificate for non - availability of water supply from water supply agency
+                //21  Permission to Draw Water from River/ Public Tanks
+                //23  Grant of Water Connection to Non Municipal areas
                 ds1 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "5", "19"); //NoC for Ground Water Abstraction for Commercial Connection
                 ds2 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "2", "22"); //Water Connection for the Municipal Area 
 
@@ -142,7 +142,7 @@ namespace MeghalayaUIP.User.CFE
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
         }
-        
+
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -272,7 +272,7 @@ namespace MeghalayaUIP.User.CFE
                     txtpremise.Text = ds.Tables[0].Rows[0]["CFEWD_NOOFPREMISE"].ToString();
                     txtdemand.Text = ds.Tables[0].Rows[0]["CFEWD_DEMANDPERDAY"].ToString();
                     txtinformation.Text = ds.Tables[0].Rows[0]["CFEWD_INFORMATION"].ToString();
-                   
+
                     txtconnection.Text = ds.Tables[0].Rows[0]["CFEWD_PURPOSECON"].ToString();
                     ddlconnection.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_TYPECONN"].ToString();
                     if (ddlconnection.SelectedValue == "Y")
@@ -315,13 +315,16 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (rblwatercon.SelectedValue == "3")
+                if (rblwatercon.SelectedValue != "0")
                 {
-                    holdno.Visible = false;
-                }
-                else
-                {
-                    holdno.Visible = true;
+                    if (rblwatercon.SelectedValue == "3")
+                    {
+                        holdno.Visible = false;
+                    }
+                    else
+                    {
+                        holdno.Visible = true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -356,7 +359,7 @@ namespace MeghalayaUIP.User.CFE
             }
         }
 
-      
+
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -381,7 +384,7 @@ namespace MeghalayaUIP.User.CFE
                     ObjCFEWater.PREMISENUMBER = txtpremise.Text;
                     ObjCFEWater.WATERDEMAND = txtdemand.Text;
                     ObjCFEWater.ANYOTHERINFORMATION = txtinformation.Text;
-                 
+
                     ObjCFEWater.PURPOSECONN = txtconnection.Text;
                     ObjCFEWater.TYPECON = ddlconnection.SelectedValue;
                     ObjCFEWater.DOMESTIC = ddlDiameter.SelectedValue;
@@ -444,7 +447,7 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Enter Any Information \\n";
                     slno = slno + 1;
                 }
-               
+
                 if (string.IsNullOrEmpty(txtconnection.Text) || txtconnection.Text == "" || txtconnection.Text == null)
                 {
                     errormsg = errormsg + slno + ". Please Enter  \\n";

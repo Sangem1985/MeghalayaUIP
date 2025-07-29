@@ -868,9 +868,6 @@
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 16. Do You Require Water Connection 
-                                  
-                                  
-
                                                                                 <br />
                                                                                 for the Municipal Area <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -886,13 +883,10 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                17. Do You Required Grant of Water                                
+                                                                                17. Do You Required Grant of Water                            
                                   
                                                                                 <br />
-                                                                                Connection to Non Municipal  
-                                  
-                                  
-
+                                                                                Connection to Non Municipal 
                                                                                 <br />
                                                                                 areas<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
