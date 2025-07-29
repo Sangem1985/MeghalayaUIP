@@ -102,27 +102,34 @@ namespace MeghalayaUIP.Dept.PreReg
                 if (Request.QueryString.Count > 0)
                 {
                     prd.ViewStatus = Request.QueryString["status"].ToString();
-
+                    if (Request.QueryString["status"].ToString() == "DISTRICTAPPLI")
+                    {
+                        lblHdng.Text = "Industry Registrations- Applications in District";
+                    }
                     if (Request.QueryString["status"].ToString() == "TOTAL")
-                    { lblHdng.Text = "DPR- Total Applications"; }
+                    {
+                        lblHdng.Text = "Industry Registrations- Applications from MIPA";
+                    }
                     else if (Request.QueryString["status"].ToString() == "TOBEPROCESSED")
-                    { lblHdng.Text = "DPR Applications - To be Processed"; }
+                    {
+                        lblHdng.Text = "Industry Registrations Applications - To be Processed";
+                    }
                     else if (Request.QueryString["status"].ToString() == "PROCESSED")
                     {
-                        lblHdng.Text = "DPR Applications - Processed";
+                        lblHdng.Text = "Industry Registrations Applications - Processed";
                     }
                     else if (Request.QueryString["status"].ToString() == "DCFORWARDED")
                     {
-                        lblHdng.Text = "DC Applications - Forwarded";
+                        lblHdng.Text = "Industry Registrations Applications - Forwarded to DIC";
                     }
                     else if (Request.QueryString["status"].ToString() == "DCRECEIVED")
                     {
-                        lblHdng.Text = "DPR Applications - Received";
+                        lblHdng.Text = "Industry Registrations Applications - Received from DIC";
                     }
-                    else if (Request.QueryString["status"].ToString() == "DISTRICTAPPLI")
-                    {
-                        lblHdng.Text = "DPR Applications - District";
-                    }
+                    //else if (Request.QueryString["status"].ToString() == "DISTRICTAPPLI")
+                    //{
+                    //    lblHdng.Text = "Industry Registrations Applications - District";
+                    //}
                 }
                 else
                 {

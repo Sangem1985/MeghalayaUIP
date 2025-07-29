@@ -1058,9 +1058,7 @@
                                             </td>
                                         </tr>
                                     </table>
-
                                 </div>
-
                             </div>
                         </div>
 
@@ -1069,7 +1067,7 @@
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                         data-parent="#accordion" href="#collapseEight" aria-expanded="false"
-                                        aria-controls="collapseEight">ACTION
+                                        aria-controls="collapseEight">Application Process
                                     </a>
                                 </h4>
                             </div>
@@ -1110,22 +1108,21 @@
                                             <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
 
                                             <asp:BoundField HeaderText="Dept.Name" DataField="DEPT" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:BoundField HeaderText="DATE" DataField="RASIEDDATE" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Date" DataField="RASIEDDATE" ItemStyle-HorizontalAlign="Center" />
                                             <asp:BoundField HeaderText="Description" DataField="REMARK" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
 
                                             <asp:TemplateField HeaderText="Select Action">
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="ddlDICQueryAction" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDICQueryAction_SelectedIndexChanged">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        <asp:ListItem Text="APPROVE" Value="7"></asp:ListItem>
+                                                        <asp:ListItem Text="Approve and Forward to MIPA" Value="7"></asp:ListItem>
                                                         <asp:ListItem Text="Return to DIC" Value="17"></asp:ListItem>
                                                     </asp:DropDownList>
-
                                                 </ItemTemplate>
-                                            </asp:TemplateField>                                         
+                                            </asp:TemplateField>
 
-
-                                            <asp:TemplateField HeaderText="Response">
+                                            <%--9--%>
+                                            <asp:TemplateField HeaderText="Enter Remarks">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtIMAQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server" onkeypress="return validateNameInput(event)"></asp:TextBox>
                                                     <br />
@@ -1137,15 +1134,16 @@
                                                     <asp:HyperLink ID="hplAttachment" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Approve"><%--Send Response to IMA--%>
+                                            <%-- 10 --%>
+                                            <asp:TemplateField HeaderText="Action"><%--Return to IMA--%>
                                                 <ItemTemplate>
-                                                    <asp:Button ID="btnsendresponsetoIMA" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnsendresponsetoIMA_Click" /><br />
+                                                    <asp:Button ID="btnReturntoIMA" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnReturntoIMA_Click" /><br />
                                                     <br />
                                                 </ItemTemplate>
-                                            </asp:TemplateField>                                           
+                                            </asp:TemplateField>
 
-
-                                             <asp:TemplateField HeaderText="Enter Response">
+                                            <%--11--%>
+                                            <asp:TemplateField HeaderText="Enter Remarks">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtDICQueryReply" TextMode="MultiLine" Height="70px" Width="250px" runat="server" onkeypress="return validateNameInput(event)"></asp:TextBox>
                                                     <br />
@@ -1157,13 +1155,13 @@
                                                     <asp:HyperLink ID="hplAttachmentDIC" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-
-                                             <asp:TemplateField HeaderText="DIC ReplyQuery"><%--Send Response to DIC--%>
+                                           <%-- 12--%>
+                                            <asp:TemplateField HeaderText="Action"><%--Send Response to DIC--%>
                                                 <ItemTemplate>
                                                     <asp:Button ID="btnsendresponsetoDIC" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnsendresponsetoDIC_Click" /><br />
                                                     <br />
                                                 </ItemTemplate>
-                                            </asp:TemplateField>   
+                                            </asp:TemplateField>
 
                                         </Columns>
                                     </asp:GridView>
@@ -1236,15 +1234,12 @@
                                                     </div>
                                                 </div>
                                                 <br />
-
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
                                                             <label class="col-lg-4 col-form-label">Forward to  </label>
                                                             <div class="col-lg-1 d-flex">
-                                                                :
-              
-              
+                                                                :   
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:DropDownList ID="ddlOfcr" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlOfcr_SelectedIndexChanged">
@@ -1256,7 +1251,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-12 d-flex" runat="server" id="divRemarks" visible="false">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
@@ -1295,8 +1289,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-12">
                                                         <label class="col-lg-4 col-form-label"></label>

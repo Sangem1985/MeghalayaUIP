@@ -248,9 +248,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    DC Query<br />
-                                                    Raised 
-                
+                                                    Returned <br />  From DC
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>

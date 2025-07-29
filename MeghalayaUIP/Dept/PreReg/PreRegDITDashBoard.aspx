@@ -51,11 +51,9 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    Total Applications 
-                    
-                     <br />
-                                                    in the District
-                
+                                                    Total Applications                     
+                                                        <br />
+                                                    in the District                
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -74,9 +72,9 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    Total Applications
-                                                  
-                                               
+                                                    Total Applications                                                 
+                                                   <br />
+                                                    From MIPA
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-ballot-check"></i>
@@ -94,8 +92,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    Application
-                                                   
+                                                    Application                                                   
                                                     <br />
                                                     Pending
                                                
@@ -116,8 +113,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    Application
-                                                   
+                                                    Application                                                   
                                                     <br />
                                                     Processed 
                                                
@@ -144,8 +140,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    DC Forwarded
-                                               
+                                                    DC Forwarded <br />to DIC                                               
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
                                                 <i class="fi fi-tr-file-edit"></i>
@@ -163,7 +158,7 @@
                                             </div>
                                             <div class="content">
                                                 <div class="text">
-                                                    DC Received
+                                                    DC Received <br />from DIC
                                                
                                                 </div>
                                                 <div style="font-size: 12px;"></div>
