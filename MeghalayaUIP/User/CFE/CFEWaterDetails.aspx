@@ -3,6 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        .form-control {
+    border: 1px solid #767575b5 !important;
+}
+    </style>
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always">
@@ -36,13 +41,15 @@
                                 <div class="card-body">
 
                                     <div class="row">
-                                        <div id="divMunicipalWaterConnection" runat="server" visible="false">
+
+                                        <div class="col-md-12">
+                                            <div id="divMunicipalWaterConnection" runat="server" visible="false">
                                             <h3 class="col-lg-12 col-form-label fw-bold">Water Connection for the Municipal Area-Details</h3>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">1. Type Of Water Connection<span class="text-danger">* </span></label>
-                                                    <div class="col-lg-6">
+                                                    <label class="col-lg-3 col-form-label">1. Type Of Water Connection<span class="text-danger">* </span></label>
+                                                    <div class="col-lg-3">
                                                         <asp:DropDownList ID="rblwatercon" runat="server" class="form-control" OnSelectedIndexChanged="rblwatercon_SelectedIndexChanged" AutoPostBack="true">
                                                             <asp:ListItem Text="--Select--" Value="0" />
                                                             <asp:ListItem Text=" Permanent Water Connection" Value="1" />
@@ -55,17 +62,17 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 d-flex" id="holdno" runat="server" visible="false">
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1a. Holding No<span class="text-danger">*</span></label>
+                                                        <label class="col-lg-6 col-form-label">1a. Holding No <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:TextBox ID="txtholding" runat="server" class="form-control" onkeypress="return NumberOnly()" MaxLength="100" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1b. Select Ward No<span class="text-danger">*</span></label>
+                                                        <label class="col-lg-6 col-form-label">1b. Select Ward No <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
                                                             <asp:DropDownList ID="ddlwardno" runat="server" class="form-control">
                                                                 <asp:ListItem Text="--Select--" Value="0" />
@@ -75,11 +82,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="divNoNMunicipalWaterConnection" runat="server" visible="false"> 
+                                        </div>
+                                        <div class="col-md-12"><div id="divNoNMunicipalWaterConnection" runat="server" visible="false"> 
                                             <h3 class="col-lg-12 col-form-label fw-bold">Grant of Water Connection to Non Municipal areas: Water Connection Details</h3>
 
                                             <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Purpose for which connection is required  <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
@@ -87,7 +95,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Type of connection <span class="text-danger">*</span></label>
                                                         <div class="col-lg-6 d-flex">
@@ -99,7 +107,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4" id="NominalDN" runat="server" visible="false">
+                                                <div class="col-md-6" id="NominalDN" runat="server" visible="false">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Size of pipe connection for domestic(Diameter Nominal DN (mm))<span class="text-danger">*</span> </label>
                                                         <div class="col-lg-6 d-flex">
@@ -109,7 +117,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4" id="DiameterDN" runat="server" visible="false">
+                                                <div class="col-md-6" id="DiameterDN" runat="server" visible="false">
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">Size of pipe connection(Diameter Nominal DN (mm))<span class="text-danger">*</span> </label>
                                                         <div class="col-lg-6 d-flex">
@@ -127,8 +135,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div id="divNonAvlbltyWaterCert" runat="server" visible="false">
+                                        </div></div>
+                                        
+                                        
+                                        <div class="col-md-12 mb-3">
+                                            <div id="divNonAvlbltyWaterCert" runat="server" visible="false">
                                             <h3 class="col-lg-12 col-form-label fw-bold">Certificate for non-availability of water supply from water supply agency</h3>
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-6">
@@ -167,6 +178,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         </div>
 
 
