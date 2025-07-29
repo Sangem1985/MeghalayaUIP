@@ -242,7 +242,6 @@ namespace MeghalayaUIP.Dept.PreReg
                         {
                             //if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "18")
                             //{
-                            QueryResondpanel.Visible = false;
                             grdQueryRaised.DataSource = ds.Tables[7];
                             grdQueryRaised.DataBind();
                             //}
@@ -253,10 +252,10 @@ namespace MeghalayaUIP.Dept.PreReg
                             gvDITChecklist.DataSource = ds.Tables[8];
                             gvDITChecklist.DataBind();
                         }
-                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[10].Rows.Count > 0)
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[7].Rows.Count > 0)
                         {
                             // QueryResondpanel1.Visible = true;
-                            grdResponcse.DataSource = ds.Tables[10];
+                            grdResponcse.DataSource = ds.Tables[7];
                             grdResponcse.DataBind();
 
                         }
@@ -274,7 +273,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                         verifypanelAttachment.Visible = true;
                                         QueryResondpanel.Visible = false;
                                     }
-                                    else if (Convert.ToString(ds.Tables[10].Rows[0]["PRDA_STAGEID"]) == "19")
+                                    else if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "19")
                                     {
                                         QueryResondpanel1.Visible = true;
                                     }

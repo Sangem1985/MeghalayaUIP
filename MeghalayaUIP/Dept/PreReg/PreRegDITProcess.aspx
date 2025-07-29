@@ -1091,12 +1091,13 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="DepQID" Visible="false">
                                                 <ItemTemplate>
-                                                    <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("PRDAID")%>'></asp:Label>
+                                                     <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
                                                 <ItemTemplate>
-                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("PRDA_DEPTID")%>'></asp:Label>
+                                                   <%-- <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("PRDA_DEPTID")%>'></asp:Label>--%>
+                                                     <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="UNIT ID" Visible="false">
@@ -1107,9 +1108,9 @@
                                             </asp:TemplateField>
                                             <asp:BoundField HeaderText="Application ID" DataField="PREREGUIDNO" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
 
-                                            <asp:BoundField HeaderText="Dept.Name" DataField="DEPT" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:BoundField HeaderText="Date" DataField="RASIEDDATE" ItemStyle-HorizontalAlign="Center" />
-                                            <asp:BoundField HeaderText="Description" DataField="REMARK" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
+                                            <asp:BoundField HeaderText="Dept.Name" DataField="QUERYBY" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Date" DataField="QUERYDATE" ItemStyle-HorizontalAlign="Center" />
+                                            <asp:BoundField HeaderText="Description" DataField="QUERYRAISEDESC" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="300px" />
 
                                             <asp:TemplateField HeaderText="Select Action">
                                                 <ItemTemplate>
