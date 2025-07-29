@@ -92,7 +92,7 @@
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-4">
                                     <div class="form-group d-flex">
-                                        <label class="col-lg-6 col-form-label">1. Unit Name:*</label>
+                                        <label class="col-lg-6 col-form-label">1. Unit Name:<span style="color: red;">*</span></label>
                                         <div class="col-lg-6">
                                             <asp:TextBox ID="txtUnit" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                         </div>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group d-flex">
-                                        <label class="col-lg-6 col-form-label">2. Place of Inspection: *</label>
+                                        <label class="col-lg-6 col-form-label">2. Place of Inspection: <span style="color: red;">*</span></label>
                                         <div class="col-lg-6 d-flex">
                                             <asp:TextBox ID="txtLocation" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                         </div>
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group d-flex">
-                                        <label class="col-lg-6 col-form-label">3. Date of Inspection:*</label>
+                                        <label class="col-lg-6 col-form-label">3. Date of Inspection:<span style="color: red;">*</span></label>
                                         <div class="col-lg-6 d-flex">
                                             <asp:TextBox ID="txtDate" runat="server" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1"></asp:TextBox>
                                             <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDate"></cc1:CalendarExtender>
@@ -123,7 +123,7 @@
                             <div class="col-md-12 d-flex">
                                 <div class="col-md-4">
                                     <div class="form-group d-flex">
-                                        <label class="col-lg-6 col-form-label">1. Site Inspection Team Member Name:*</label>
+                                        <label class="col-lg-6 col-form-label">1. Site Inspection Team Member Name:<span style="color: red;">*</span></label>
                                         <div class="col-lg-6 d-flex">
                                             <asp:TextBox ID="txtName" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                         </div>
@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group d-flex">
-                                        <label class="col-lg-6 col-form-label">2. Designation/ Department: *</label>
+                                        <label class="col-lg-6 col-form-label">2. Designation/ Department: <span style="color: red;">*</span></label>
                                         <div class="col-lg-6 d-flex">
                                             <asp:TextBox ID="txtDepartment" runat="server" class="form-control" onkeypress="return Names(this)" TabIndex="1"></asp:TextBox>
                                         </div>

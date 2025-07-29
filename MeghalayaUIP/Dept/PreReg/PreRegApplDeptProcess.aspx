@@ -8,28 +8,31 @@
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <style>
         .color-blink {
-        font-size: 24px;
-        font-weight: bold;
-        animation: colorBlink 1s infinite;
-      border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 4px 14px;
-    box-shadow: 1px 4px;
-    }
+            font-size: 24px;
+            font-weight: bold;
+            animation: colorBlink 1s infinite;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 4px 14px;
+            box-shadow: 1px 4px;
+        }
 
-    @keyframes colorBlink {
-        0%, 100% {
-            color: darkblue;
+        @keyframes colorBlink {
+            0%, 100% {
+                color: darkblue;
+            }
+
+            50% {
+                color: transparent;
+            }
         }
-        50% {
-            color: transparent;
-        }
-    }
+
         a#ContentPlaceHolder1_lnkbutton {
-    font-weight: 900;
-    color: #2b2a29;
-    font-size: 18px;
-}
+            font-weight: 900;
+            color: #2b2a29;
+            font-size: 18px;
+        }
+
         spna.dots {
             margin-right: 24px;
             color: #000;
@@ -70,6 +73,31 @@
 
         .dropdown-menu.show {
             transform: translate3d(-75px, 60px, 0px) !important;
+        }
+
+
+        .color-blink1 {
+            font-size: 24px;
+            font-weight: bold;
+            animation: colorBlink 1s infinite;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 4px 14px;
+            box-shadow: 1px 4px;
+        }
+
+        @keyframes colorBlink {
+            0% {
+                color: red;
+            }
+
+            50% {
+                color: green;
+            }
+
+            100% {
+                color: red;
+            }
         }
     </style>
 
@@ -937,7 +965,7 @@
                                                                 <asp:BoundField HeaderText="Unit Name" DataField="COMPANYNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Department Name" DataField="MD_DEPT_NAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Dept Process Status" DataField="STATUSDESCRIPTION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-                                                                 <asp:BoundField HeaderText="Remarks" DataField="REMARK" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                                                <asp:BoundField HeaderText="Remarks" DataField="REMARK" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:BoundField HeaderText="Dept Processed Date" DataField="PRDA_DEPTPROCESSDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                                 <asp:TemplateField HeaderText="Site Inspection Report" Visible="false">
                                                                     <ItemTemplate>
@@ -1068,7 +1096,8 @@
                                                                             <td>
                                                                                 <label>
                                                                                     Details of Hazardous 
-                                                                    <br />
+                                                                   
+                                                                                    <br />
                                                                                     waste to be generated</label>
                                                                             </td>
                                                                             <td>
@@ -1293,8 +1322,10 @@
                                                             <label class="col-lg-2 col-form-label">Remarks </label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :
+                                                           
                                                             </div>
-                                                            <div class="col-lg-4 d-flex"><asp:HiddenField runat="server" ID="hdnDPRQueryID" />
+                                                            <div class="col-lg-4 d-flex">
+                                                                <asp:HiddenField runat="server" ID="hdnDPRQueryID" />
                                                                 <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine"></asp:TextBox>
                                                             </div>
                                                         </div>
@@ -1305,9 +1336,11 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-2 col-form-label">
                                                                 Upload Document 
+                                                           
                                                             </label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :
+                                                           
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:FileUpload ID="FileUploadquery" runat="server" />
@@ -1326,6 +1359,7 @@
                                                             <label class="col-lg-2 col-form-label">Forward to  </label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :
+                                                           
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:DropDownList ID="ddlOfcr" runat="server" class="form-control">
@@ -1376,12 +1410,12 @@
                                     <section id="dashboardSiteInspection">
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                                <div class="col-md-12 d-flex" runat="server">
+                                                <div class="col-md-12 d-flex" runat="server" id="lnksiteinspectiontem" visible="true">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">
                                                                 <%--                                                                <asp:HyperLink ID="HypLnkFinancialInstidtutionFormat" runat="server" Visible="true" CssClass="LBLBLACK" Width="300px" Target="_blank" NavigateUrl="../../Documents/Site%20Inspection%20template.pdf">Click here for Site Inspection Template</asp:HyperLink>--%>
-                                                                <asp:LinkButton ID="lnkbutton" runat="server" OnClick="lnkbutton_Click" CssClass="color-blink">Click here for Site Inspection Template</asp:LinkButton>
+                                                                <asp:LinkButton ID="lnkbutton" runat="server" OnClick="lnkbutton_Click" CssClass="color-blink">Click here to Upload Site Inspection Report</asp:LinkButton>
                                                             </label>
                                                             <div class="col-lg-1 d-flex">
                                                             </div>
@@ -1390,15 +1424,31 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-12 d-flex justify-content-end" runat="server" id="divlnkSiteReport" visible="false">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group d-flex justify-content-end">
+                                                            <label class="col-form-label">
+                                                                <asp:LinkButton ID="lnkSiteView" OnClick="lnkSiteView_Click" runat="server" CssClass="color-blink1">Click here to View Site Inspection Report</asp:LinkButton>
+                                                            </label>
+                                                            <%-- <div class="col-lg-1 d-flex">
+                                                            </div>
+                                                            <div class="col-lg-2 d-flex">
+                                                            </div>--%>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
                                                 <div class="col-md-12 d-flex" runat="server">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">Remarks </label>
+                                                            <label class="col-lg-4 col-form-label">Remarks<span style="color: red;">*</span> </label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :                                                           
+                                                           
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
-                                                                <asp:TextBox ID="txtRemarks" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine"></asp:TextBox>
+                                                                <asp:TextBox ID="txtRemarks" runat="server" class="form-control" MaxLength="50" Height="70px" TextMode="MultiLine"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1409,10 +1459,12 @@
                                                             <label class="col-lg-4 col-form-label">
                                                                 Upload Document&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  
                                                                  
+                                                           
                                                             </label>
 
                                                             <div class="col-lg-1 d-flex">
                                                                 :
+                                                           
                                                            
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
@@ -1431,6 +1483,7 @@
                                                             <label class="col-lg-4 col-form-label">Forward to  </label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :
+                                                           
                                                            
                                                             </div>
                                                             <div class="col-lg-4 d-flex">

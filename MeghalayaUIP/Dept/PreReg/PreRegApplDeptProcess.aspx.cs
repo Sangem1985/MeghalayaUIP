@@ -190,6 +190,11 @@ namespace MeghalayaUIP.Dept.PreReg
                             lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                             lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
                             lblApplNo1.Text = Convert.ToString(row["DITREPORT_UPLOADFLAG"]);
+                            if (lblApplNo1.Text == "Y")
+                            {
+                                lnksiteinspectiontem.Visible = false;
+                                divlnkSiteReport.Visible = true;
+                            }
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
                         {
@@ -253,7 +258,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[4].Rows.Count > 0)
                                 {
                                     hdnDPRQueryID.Value = Convert.ToString(ds.Tables[4].Rows[0]["IRQID"]);
-                                   // txtRemark.Text = hdnDPRQueryID.Value;
+                                    // txtRemark.Text = hdnDPRQueryID.Value;
                                 }
                                 QueryResondpanel.Visible = false;
                             }
@@ -1105,11 +1110,11 @@ namespace MeghalayaUIP.Dept.PreReg
                                 if (result > 0)
                                 {
                                     lblmsg.Text = "<font color='green'>Attachment Successfully Uploaded..!</font>";
-                                    hplAttachment.Text = fupDCReport.FileName;
-                                    hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objattachments.Filepath);
+                                    HyperLink1.Text = fupDCReport.FileName;
+                                    HyperLink1.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(objattachments.Filepath);
 
                                     //hplAttachment.NavigateUrl = shortFileDir + "/" + Session["INVESTERID"].ToString() + "/" + ViewState["UNITID"].ToString() + "/" + "RESPONSEATTACHMENTS" + "/" + sFileName;
-                                    hplAttachment.Visible = true;
+                                    HyperLink1.Visible = true;
                                     success.Visible = true;
                                     Failure.Visible = false;
                                 }
@@ -1213,28 +1218,37 @@ namespace MeghalayaUIP.Dept.PreReg
                 {
                     if (lblApplNo1.Text == "Y")
                     {
-                        var ObjUserInfo = new DeptUserInfo();
-                        if (Session["DeptUserInfo"] != null)
+                        if (txtRemarks.Text == "" || string.IsNullOrEmpty(txtRemarks.Text) || txtRemarks.Text == null)
                         {
-
-                            if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                            lblmsg0.Text = ErrorMsg + Environment.NewLine + " Please Enter Query Description";
+                            ErrorMsg = ErrorMsg + "\\n Please Enter Query Description";
+                        }
+                        else
+                        {
+                            var ObjUserInfo = new DeptUserInfo();
+                            if (Session["DeptUserInfo"] != null)
                             {
-                                ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+
+                                if (Session["DeptUserInfo"] != null && Session["DeptUserInfo"].ToString() != "")
+                                {
+                                    ObjUserInfo = (DeptUserInfo)Session["DeptUserInfo"];
+                                }
                             }
+
+                            prd.Unitid = Session["UNITID"].ToString();
+                            prd.Investerid = Session["INVESTERID"].ToString();
+                            prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
+                            prd.Remark = txtRemarks.Text;
+                            prd.DPRCRETEDBY = hdnUserID.Value;
+                            prd.IPAddress = getclientIP();
+                            string valid = PreBAL.PreRegDICProcess(prd);
+
+
+                            // BindaApplicatinDetails();
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DICProcess Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                            return;
                         }
 
-                        prd.Unitid = Session["UNITID"].ToString();
-                        prd.Investerid = Session["INVESTERID"].ToString();
-                        prd.deptid = Convert.ToInt32(ObjUserInfo.Deptid);
-                        prd.Remark = txtRemarks.Text;
-                        prd.DPRCRETEDBY = hdnUserID.Value;
-                        prd.IPAddress = getclientIP();
-                        string valid = PreBAL.PreRegDICProcess(prd);
-
-
-                        // BindaApplicatinDetails();
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DICProcess Successfully...!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
-                        return;
                     }
                     else
                     {
@@ -1323,7 +1337,31 @@ namespace MeghalayaUIP.Dept.PreReg
                 prd.Investerid = Session["INVESTERID"].ToString();
 
 
-                Response.Redirect("~/Dept/PreReg/PreRegDITSiteInspection.aspx?Status=" + Request.QueryString["status"].ToString());
+                Response.Redirect("~/Dept/PreReg/PreRegDITSiteInspection.aspx?Status=" + Request.QueryString["status"].ToString() + "&UnitName=" + lblCompanyName.Text);
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+        }
+
+
+        protected void lnkSiteView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lblApplNo1.Text == "Y")
+                {
+                    lnksiteinspectiontem.Visible = false;
+                    Response.Redirect("~/Dept/PreReg/PreRegDITSitePrintPage.aspx?status=" + Convert.ToString(Request.QueryString["status"]));
+                }
+                else
+                {
+                    lblmsg0.Text = "Please Click here for Site Inspection Template And Fille All Details...!";
+                    Failure.Visible = true;
+                }
             }
             catch (Exception ex)
             {
