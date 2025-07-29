@@ -102,7 +102,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         if (lblcatreg.Text != "")
                         {
                             divCategory.Visible = true;
-                            divCategory1.Visible = true;                           
+                            divCategory1.Visible = true;
                         }
 
                         lblregcategory.Text = " " + lblcatreg.Text + " No.";
@@ -119,7 +119,7 @@ namespace MeghalayaUIP.Dept.PreReg
                             divFirm.Visible = true;
                             divFirm1.Visible = true;
                         }
-                        
+
 
                         lbldoorno_authrep.Text = Convert.ToString(row["REP_DOORNO"]);
                         lblisland.Text = Convert.ToString(row["UNIT_LANDTYPE"]);
@@ -229,14 +229,14 @@ namespace MeghalayaUIP.Dept.PreReg
                             divwater.Visible = true;
                             divwater1.Visible = true;
                         }
-                       
+
                         lblElectricityValue.Text = Convert.ToString(row["PROJECT_ELECTRICITYVALUE"]);
                         if (lblElectricityValue.Text != "")
                         {
                             divPowerwater.Visible = true;
                             divPowerwater1.Visible = true;
                         }
-                       
+
 
                         lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
                         lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);
@@ -247,7 +247,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         lblName2.Text = Convert.ToString(row["REP_NAME"]);
                         lblUnitName2.Text = Convert.ToString(row["COMPANYNAME"]);
                         lblAppl2.Text = Convert.ToString(row["PREREGUIDNO"]);
-                        
+
 
                         lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
                         if (Convert.ToString(row["DITREPORT_UPLOADFLAG"]) == "Y")
@@ -315,27 +315,30 @@ namespace MeghalayaUIP.Dept.PreReg
                             {
                                 verifypanel.Visible = false;
                             }
-                            if (ds.Tables[0].Rows.Count > 0)
+
+                            if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
                             {
-                                if (Convert.ToString(ds.Tables[0].Rows[0]["STATUS"]) == "9")
-                                {
-                                    QueryResondpanel.Visible = true;
-                                }
-                                else
-                                {
-                                    QueryResondpanel.Visible = false;
-                                }
-                                if (Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == "6")
-                                {
-                                    divDCPanels.Visible = false;
-                                }
-                                else if (Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == "20")
+                                QueryResondpanel.Visible = true;
+                            }
+                            else
+                            {
+                                QueryResondpanel.Visible = false;
+                            }
+                            if (ds.Tables[9].Rows.Count > 0)
+                            {
+                                //if (Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == ""||)
+                                //{
+                                //    divDCPanels.Visible = false;
+                                //}
+                                //else
+                                if (Convert.ToString(ds.Tables[9].Rows[0]["STAGEID"]) == "20")
                                 {
                                     lblDate2.Text = Convert.ToString(ds.Tables[9].Rows[0]["QUERYDATE"]);
                                     divDCPanels.Visible = true;
                                 }
+
                             }
-                           
+
                         }
                         else if (Convert.ToString(Request.QueryString["status"]) == "ApplicationTracker")
                         {
@@ -1207,17 +1210,17 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 if (ddlDCQuery.SelectedValue != "0")
                 {
-                   
-                    if (ddlDCQuery.SelectedValue == "6") //Raise Query to Departments
+
+                    if (ddlDCQuery.SelectedValue == "21") //IMA Query RESPONSE to Departments
                     {
                         tdDepartment.Visible = true;
                         btnForwardDept.Visible = true;
 
-                      
-                       // tdaction.Visible = false;
+
+                        // tdaction.Visible = false;
 
                         tdApplQuery2.Visible = false;
-                       // tdApplQueryTxtbx.Visible = false; txtApplQuery.Text = "";
+                        // tdApplQueryTxtbx.Visible = false; txtApplQuery.Text = "";
 
                         tdRemarks1.Visible = false;
                         // tdRemarksTxtbx.Visible = false; txtRemarks.Text = "";
@@ -1226,13 +1229,13 @@ namespace MeghalayaUIP.Dept.PreReg
                 }
                 else
                 {
-                   // tdaction.Visible = true;
+                    // tdaction.Visible = true;
 
                     tdRemarks1.Visible = false;
-                   // tdRemarksTxtbx.Visible = false; txtRemarks.Text = "";
+                    // tdRemarksTxtbx.Visible = false; txtRemarks.Text = "";
 
                     tdApplQuery2.Visible = false;
-                   // tdApplQueryTxtbx.Visible = false; txtApplQuery.Text = "";
+                    // tdApplQueryTxtbx.Visible = false; txtApplQuery.Text = "";
 
                     tdDepartment.Visible = false;
                     btnForwardDept.Visible = false;
@@ -1417,7 +1420,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         Label lblDeptID = (Label)gvrow.FindControl("lblDEPTID");
                         //TextBox txtquery = (TextBox)gvrow.FindControl("txtquery");
                         PreRegDtlsVo.DeptDesc = gvrow.Cells[1].Text;
-                        PreRegDtlsVo.QuerytoDeptID = lblDeptID.Text;
+                        PreRegDtlsVo.QuerytoDeptID = lblDeptID.Text; //dc dept id
 
                         //PreRegDtlsVo.QuerytoDeptID = gvrow.Cells[2].Text;
 
@@ -1434,13 +1437,13 @@ namespace MeghalayaUIP.Dept.PreReg
                         //}
                         //else
                         //{
-                            if (ddlStatus != null)
-                                PreRegDtlsVo.status = Convert.ToInt32(ddlDCQuery.SelectedValue);
-                       // }
-                        string valid = PreBAL.PreRegUpdateQuery(PreRegDtlsVo);
+                        if (ddlStatus != null)
+                            PreRegDtlsVo.status = Convert.ToInt32(ddlDCQuery.SelectedValue);
+                        // }
+                        string valid = PreBAL.PreRegUpdateQueryDC(PreRegDtlsVo);
                     }
                     btnQuery.Enabled = false;
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Query Raised Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Mipa Query Response Successfully!');  window.location.href='PreRegApplIMADashBoard.aspx'", true);
                     return;
                 }
                 else

@@ -1401,7 +1401,7 @@
                                                 <td style="width: 200px">
                                                     <asp:DropDownList ID="ddlDCQuery" AutoPostBack="true" runat="server" Class="form-control" OnSelectedIndexChanged="ddlDCQuery_SelectedIndexChanged">
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                        <asp:ListItem Text="MiPA Query Responce to DC" Value="6"></asp:ListItem>
+                                                        <asp:ListItem Text="MiPA Query Responce to DC" Value="21"></asp:ListItem>
                                                     </asp:DropDownList>
                                                 </td>                                             
 
@@ -1419,7 +1419,7 @@
                                                             <td>Select Department to Forward</td>
                                                             <td>
                                                                 <asp:DropDownList ID="ddlDeptForward" runat="server" class="form-control">
-                                                                    <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                   <%-- <asp:ListItem Value="0">--Select--</asp:ListItem>--%>
                                                                 </asp:DropDownList>
                                                             </td>
                                                             <td>Enter Remarks
@@ -1456,7 +1456,7 @@
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <%--<asp:BoundField HeaderText="Department ID" DataField="DEPTID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />--%>
-                                                                        <asp:BoundField HeaderText="Query Description" DataField="QUERYDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                                        <asp:BoundField HeaderText="Remarks Description" DataField="QUERYDESC" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                                         <asp:BoundField HeaderText="UNIT ID" DataField="UNITID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
                                                                         <asp:BoundField HeaderText="INVESTER ID" DataField="INVESTERID" Visible="false" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
