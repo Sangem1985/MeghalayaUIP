@@ -17,7 +17,7 @@ namespace MeghalayaUIP.Dept.PreReg
         DeptUserInfo ObjUserInfo = new DeptUserInfo();
         MGCommonBAL objcomBal = new MGCommonBAL();
         PreRegBAL PreBAL = new PreRegBAL();
-        string ErrorMsg = "";
+        string ErrorMsg = "",UnitName;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -39,6 +39,10 @@ namespace MeghalayaUIP.Dept.PreReg
                 else
                 {
                     Response.Redirect("~/DeptLogin.aspx");
+                }
+                if (Request.QueryString.Count > 0)
+                {
+                    txtUnit.Text=txtUnitName.Text = Convert.ToString(Request.QueryString[1]);
                 }
             }
             catch (Exception ex)
@@ -120,8 +124,8 @@ namespace MeghalayaUIP.Dept.PreReg
                     DistrictSiteReport report = new DistrictSiteReport();
 
                     report.UnitId = Session["UNITID"].ToString();
-                    report.UnitName = txtUnitName.Text;
-                    report.UnitLocation = txtUnitLocation.Text;
+                    report.UnitName = txtUnit.Text;
+                    report.UnitLocation = txtUnitName.Text;
                     report.GpsCoordinates = txtCoordinates.Text;
                     report.SiteArea = txtArea.Text;
                     report.Ownership = ddlOwnershipStatus.SelectedValue;
