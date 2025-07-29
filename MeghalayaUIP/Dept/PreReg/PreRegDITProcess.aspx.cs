@@ -928,7 +928,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     string valid = PreBAL.PreRegUpdateQuery(prd);
                     btn.Enabled = false;
                     BindaApplicatinDetails();
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Replied to IMA Query Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DC APPROVED Successfully!');  window.location.href='PreRegApplDeptDashBoard.aspx'", true);
                     return;
                 }
 

@@ -1309,7 +1309,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     ddlDeptForward.DataTextField = "MD_DEPT_NAME";
                     ddlDeptForward.DataValueField = "MD_DEPTID";
                     ddlDeptForward.DataBind();
-                    AddSelect(ddlDeptForward);
+                    //AddSelect(ddlDeptForward);
                 }
             }
             catch (Exception ex)
@@ -1374,6 +1374,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     }
                     if (GVDeptDCQuery.Rows.Count > 0)
                         btnForwardDept.Enabled = true;
+                    btnDepartment.Enabled = false;
                 }
             }
             catch (Exception ex)
