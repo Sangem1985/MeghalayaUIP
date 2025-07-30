@@ -33,7 +33,7 @@ namespace MeghalayaUIP.Common
         public static string InsertCFODrugLicenseDetails = "USP_INSCFODRUGLICDETAILS";
         public static string GetCFOObtainedOffline = "USP_GETCFOQUESTIONNAIREAPPROVALS";
         public static string GetApprovalsReqFromTable = "USP_GETCFOQUESTIONNAIREAPPROVALS";
-        public static string InsertCFOAttachments = "USP_INSCFOATTACHMENTS"; 
+        public static string InsertCFOAttachments = "USP_INSCFOATTACHMENTS";
         public static string InsertCFODepartmentapprovals = "USP_INSCFODEPARTMENTAPPROVALS";
         public static string GetCFEApprovedandCFOAppliedApplications = "USP_GETCFEAPPROVEDANDCFOAPPLIED";
         public static string GetRetriveExciseDet = "GetCFOExciseData";
@@ -70,7 +70,7 @@ namespace MeghalayaUIP.Common
         public static string GetCFOFireDet = "USP_GETCFOFIREDETAILS";
         public static string GetCFOBusinessLicDetails = "USP_GETCFOBUSINESSLICDETAILS";
         public static string GetCFOLINEOFACTIVITYDetails = "USP_GETCFOLINEOFACTIVITY";
-       // public static string InsertCFOLineOfActivityDetails = "USP_INSCFOLINEOFACTIVITYDETAILS";
+        // public static string InsertCFOLineOfActivityDetails = "USP_INSCFOLINEOFACTIVITYDETAILS";
         public static string GetCFOQueryDashBoard = "USP_GETCFOQUERYRAISEDDEPT";
         public static string InsertCFOQueryResponse = "USP_UPDATECFOAPPLQUERYRESPONSE";
 
@@ -119,8 +119,8 @@ namespace MeghalayaUIP.Common
         public string UpdatedIp { get; set; }
         public string Flag { get; set; }
         public List<CFOExciseBrandDetails> brandgridlist { get; set; }
-        public List<CFOExciseLiquorDetails> liquorgridlist { get; set; }        
-       // public List<CFOAttachments> CFOAttachment { get; set; }
+        public List<CFOExciseLiquorDetails> liquorgridlist { get; set; }
+        // public List<CFOAttachments> CFOAttachment { get; set; }
     }
     [Serializable]
     public class CFOExciseBrandDetails
@@ -588,6 +588,26 @@ namespace MeghalayaUIP.Common
         public string DeptDesc { get; set; }
         public string ReferenceNumber { get; set; }
         public string IPAddress { get; set; }
+        public string FilePath { get; set; }
+        public string FileName { get; set; }
+        public string FileType { get; set; }
+        public string FileDesc { get; set; }
+
+        /// <summary>
+        ///  CR CERTIFICATE POWER DEPARTMENT PARAMETERS
+        /// </summary>
+        public string Powersanctionletternumber { get; set; }
+        public string Powersanctiondate { get; set; }
+        public string Consumerid { get; set; }
+        public string Dateofservice { get; set; }
+        public string Sanctionedload { get; set; }
+        public string Metermake { get; set; }
+        public string Meterserialnumber { get; set; }
+        public string Metertype { get; set; }
+        public string Ctbyptratio { get; set; }
+        public string Meterconstant { get; set; }
+        public string Categoryapplicable { get; set; }
+
     }
     public class CFOCommonDet
     {
@@ -754,7 +774,7 @@ namespace MeghalayaUIP.Common
 
     public class ForestTransitLog
     {
-        
+
         public int TRANSITID { get; set; }
         public string CFOQDID { get; set; }
         public string UNITID { get; set; }
@@ -765,21 +785,21 @@ namespace MeghalayaUIP.Common
         public decimal VOLUMEORWEIGHT { get; set; }
         public string CREATEDBY { get; set; }
         public string CREATEDIP { get; set; }
-        
+
     }
 
     public class ForestTransitBarrier
     {
-        
+
         public int TRANSITID { get; set; }
         public string UNITID { get; set; }
         public string CFOQDID { get; set; }
         public string STATE { get; set; }
         public string BARRIERS { get; set; }
         public string CREATEDBY { get; set; }
-        
+
         public string CREATEDIP { get; set; }
-   
+
     }
 
 
