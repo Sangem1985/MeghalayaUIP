@@ -1039,8 +1039,8 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-6 col-form-label">Do Want Power Connection<span class="text-danger">*</span></label>
                                                                         <div class="col-lg-4">
-                                                                            <asp:RadioButtonList ID="ddlPowerConnection" runat="server" RepeatDirection="Horizontal">
-                                                                                <asp:ListItem Text="Yes" Value="Y" Selected="True" />
+                                                                            <asp:RadioButtonList ID="ddlPowerConnection" runat="server" RepeatDirection="Horizontal" Enabled="false">
+                                                                                <asp:ListItem Text="Yes" Value="Y"/>
                                                                             </asp:RadioButtonList>
                                                                         </div>
                                                                     </div>
