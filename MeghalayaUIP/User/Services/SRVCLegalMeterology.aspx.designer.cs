@@ -177,31 +177,31 @@ namespace MeghalayaUIP.User.Services
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
 
         /// <summary>
-        /// RadioButtonList1 control.
+        /// rblRegNoFactEst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblRegNoFactEst;
 
         /// <summary>
-        /// rblMunicipal control.
+        /// rblMunicipalADC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblMunicipal;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblMunicipalADC;
 
         /// <summary>
-        /// Registration control.
+        /// divRegistration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Registration;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRegistration;
 
         /// <summary>
         /// txtRegDate control.
@@ -231,13 +231,13 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.TextBox txtRegNumber;
 
         /// <summary>
-        /// ADCLicense control.
+        /// divADCLicense control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ADCLicense;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divADCLicense;
 
         /// <summary>
         /// txtDate control.
@@ -276,22 +276,22 @@ namespace MeghalayaUIP.User.Services
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender4;
 
         /// <summary>
-        /// RadioButtonList2 control.
+        /// rblpartnership control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList2;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblpartnership;
 
         /// <summary>
-        /// RadioButtonList3 control.
+        /// rblcompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList3;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblcompany;
 
         /// <summary>
         /// divpartnership control.
@@ -528,15 +528,6 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.RadioButtonList rblFinance;
 
         /// <summary>
-        /// rblInstitute control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblInstitute;
-
-        /// <summary>
         /// divFinanceBank control.
         /// </summary>
         /// <remarks>
@@ -553,6 +544,15 @@ namespace MeghalayaUIP.User.Services
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBanker;
+
+        /// <summary>
+        /// divGiveInstitute control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGiveInstitute;
 
         /// <summary>
         /// txtGetDetails control.
@@ -609,13 +609,13 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.RadioButtonList rblLicdealer;
 
         /// <summary>
-        /// applieddealer control.
+        /// divapplieddealer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl applieddealer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divapplieddealer;
 
         /// <summary>
         /// txtDetails control.
