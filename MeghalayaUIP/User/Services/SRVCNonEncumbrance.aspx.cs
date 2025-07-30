@@ -4,6 +4,7 @@ using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,16 +16,53 @@ namespace MeghalayaUIP.User.Services
     {
         MasterBAL mstrBAL = new MasterBAL();
         SVRCBAL objSrvcbal = new SVRCBAL();
-        string UnitID, Questionnaire, ErrorMsg = "", result = "";
+        string ErrorMsg = "", result = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        public void BindData()
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = objSrvcbal.GetSRVCNonEncumbranceDetails(Convert.ToString(Session["SRVCQID"]), hdnUserID.Value);
+
+                if (ds != null && ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        rblApply.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlService.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlSubDivision.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtSearh.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+
+                        txtSearchFrom.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlDocument.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtOthers.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtnecessaryName.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtNatureDoc.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlAreaIn.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtArea.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
         protected void rblApply_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                if (rblApply.SelectedValue=="D")
+                if (rblApply.SelectedValue == "D")
                 {
                     divDistrict.Visible = true;
                     divSubdivision.Visible = false;
@@ -35,7 +73,7 @@ namespace MeghalayaUIP.User.Services
                     divSubdivision.Visible = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -44,7 +82,7 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (ddlDocument.SelectedValue=="4")
+                if (ddlDocument.SelectedValue == "4")
                 {
                     divother.Visible = true;
                 }
@@ -84,7 +122,7 @@ namespace MeghalayaUIP.User.Services
                     //ObjEncumbrance.Distance = txtAddressManager.Text;
                     ObjEncumbrance.AreaIn = ddlAreaIn.SelectedValue;
                     ObjEncumbrance.Area = txtArea.Text;
-                   
+
 
                     result = objSrvcbal.InsertEncumbranceDetails(ObjEncumbrance);
 
@@ -126,7 +164,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     errormsg += slno + ". Please enter Search is to be made to which year...! \\n";
                     slno++;
-                }               
+                }
                 if (string.IsNullOrEmpty(txtnecessaryName.Text) || txtnecessaryName.Text.Trim() == "" || txtnecessaryName.Text == null)
                 {
                     errormsg += slno + ". Please enter Search is necessary in whose names...! \\n";

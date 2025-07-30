@@ -85,7 +85,7 @@ namespace MeghalayaUIP.User.Services
                 AddSelect(ddlPropLocDist);
                 AddSelect(ddlPropLocTaluka);
                 AddSelect(ddlPropLocVillage);
-               
+
             }
             catch (Exception ex)
             {
@@ -176,7 +176,7 @@ namespace MeghalayaUIP.User.Services
                 {
                     Labour1970 objLabour = new Labour1970();
 
-                    objLabour.Questionnariid= Convert.ToString(Session["SRVCQID"]);
+                    objLabour.Questionnariid = Convert.ToString(Session["SRVCQID"]);
                     objLabour.Createdby = hdnUserID.Value;
                     objLabour.IPAddress = getclientIP();
                     objLabour.EmpName = txtEmpName.Text;
@@ -197,10 +197,10 @@ namespace MeghalayaUIP.User.Services
                     objLabour.Pincode = txtEmpPincode.Text;
 
 
-                    result = objSrvcbal.InsertLabour1970Details(objLabour); 
+                    result = objSrvcbal.InsertLabour1970Details(objLabour);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;

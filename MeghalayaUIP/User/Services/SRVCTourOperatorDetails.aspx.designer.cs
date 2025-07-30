@@ -186,22 +186,22 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.TextBox txtLengthEmp;
 
         /// <summary>
-        /// btnAddDetails control.
+        /// btnParticulars control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddDetails;
+        protected global::System.Web.UI.WebControls.Button btnParticulars;
 
         /// <summary>
-        /// GVParticular control.
+        /// GVParticulars control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVParticular;
+        protected global::System.Web.UI.WebControls.GridView GVParticulars;
 
         /// <summary>
         /// txtSqft control.

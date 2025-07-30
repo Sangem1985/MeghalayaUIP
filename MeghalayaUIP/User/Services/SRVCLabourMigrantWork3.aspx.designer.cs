@@ -177,13 +177,13 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.WebControls.TextBox txtDetailsskill;
 
         /// <summary>
-        /// ddldistricwork control.
+        /// ddlDistric control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddldistricwork;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDistric;
 
         /// <summary>
         /// txtAreaWorkcomm control.

@@ -56,7 +56,9 @@ namespace MeghalayaUIP.Common
         public static string InsertLabourContractorDetails = "";
         public static string GETSRVCLabour7DETAILS = "";
         public static string InsertTourismDetails = "";
+        public static string GETSRVCTourismDetails = "";
         public static string InsertEncumberanceDetails = "";
+        public static string GETSRVCNonEncumbranceDetails = "";
         public static string InsertLabourworkmenDetails = "USP_INSSRVCLABOURDETAILSCONTRACT1979";
         public static string InsertLabour1970Details = "";
         public static string InsertSrvcLabourMotorDetails = "USP_INSSRVCLABOURMOTORDETAILS";
@@ -69,6 +71,11 @@ namespace MeghalayaUIP.Common
         public static string GetSRVCFORESTDet = "USP_GETSRVCNONFORESTDETAILS";
         public static string INSERTSRVCLabourAct1970DETAILS = "";
         public static string GetSRVCLabourAct1970TDet = "";
+        public static string GetSRVCLabourAct2020TDet = "";
+        public static string INSERTSRVCLABOURMIGRANTACT2020DET = "";
+        public static string GetSRVCLabourMigrantAct1979DET = "";
+        public static string INSERTSRVCLABOURMIGRANT1979DETAILS = "";
+
     }
 
     public class SvrcApplicationDetails
@@ -334,7 +341,7 @@ namespace MeghalayaUIP.Common
         public string NameAssociation { get; set; }
         public string AddressSociety { get; set; }
         public string Dateest { get; set; }
-        public string ContactNo  { get; set; }
+        public string ContactNo { get; set; }
         public string GeneralNo { get; set; }
         public string Email { get; set; }
         public string FullName { get; set; }
@@ -416,11 +423,11 @@ namespace MeghalayaUIP.Common
         public string CreatedBy { get; set; }
         public string Role { get; set; }
 
-        public string WaterAct {  get; set; }
+        public string WaterAct { get; set; }
 
-        public string SgUt {  get; set; }
+        public string SgUt { get; set; }
 
-        public string AirCont {  get; set; }
+        public string AirCont { get; set; }
 
     }
 
@@ -584,12 +591,13 @@ namespace MeghalayaUIP.Common
         public string NameAuditors { get; set; }
         public string indicatemembership { get; set; }
         public string PostOfficeManager { get; set; }
-        public string touristtraffic  { get; set; }
+        public string touristtraffic { get; set; }
         public string Clientele { get; set; }
         public string domestictouristtraffic { get; set; }
-        public string Numberconferences { get; set; }     
+        public string Numberconferences { get; set; }
         public string Createdby { get; set; }
         public string IPAddress { get; set; }
+        public string XMLData { get; set; }
     }
     public class SRVCEncumbrance
     {
@@ -609,7 +617,7 @@ namespace MeghalayaUIP.Common
         public string Description { get; set; }
         public string Distance { get; set; }
         public string AreaIn { get; set; }
-        public string Area { get; set; }      
+        public string Area { get; set; }
         public string Createdby { get; set; }
         public string IPAddress { get; set; }
     }
@@ -667,7 +675,7 @@ namespace MeghalayaUIP.Common
         public string OrderDate { get; set; }
         public string ContractEst5Year { get; set; }
         public string Establishment { get; set; }
-        public string PrincipalEmp{ get; set; }
+        public string PrincipalEmp { get; set; }
         public string NatureWork { get; set; }
         public string PrincipalEmployer { get; set; }
         public string Createdby { get; set; }
@@ -735,11 +743,11 @@ namespace MeghalayaUIP.Common
         public string DirectorFullName { get; set; }
         public string DirectorResAddress { get; set; }
         public string ProprietorshipName { get; set; }
-        public string ProprietorshipAddress { get; set; }        
+        public string ProprietorshipAddress { get; set; }
         public string SectorName { get; set; }
         public string SectorAddress { get; set; }
         public string VehicleNo { get; set; }
-        public string TypeVehicle { get; set; }       
+        public string TypeVehicle { get; set; }
         public string Createdby { get; set; }
         public string IPAddress { get; set; }
         public string XMLData { get; set; }
@@ -790,7 +798,7 @@ namespace MeghalayaUIP.Common
         public string ValidTNT { get; set; }
         public string MunicipallityDate { get; set; }
         public string ColdStorage { get; set; }
-        public string DrugsCategory { get; set; }       
+        public string DrugsCategory { get; set; }
         public string Createdby { get; set; }
         public string IPAddress { get; set; }
         public string XMLData { get; set; }
@@ -808,7 +816,7 @@ namespace MeghalayaUIP.Common
         public string District { get; set; }
         public string Manadal { get; set; }
         public string Village { get; set; }
-        public string Pincode { get; set; } 
+        public string Pincode { get; set; }
 
     }
     public class SRVCLABOURACT1970DETAILS
@@ -851,7 +859,64 @@ namespace MeghalayaUIP.Common
         public string otherscontractorEst { get; set; }
         public string PrincipalEmpDetails { get; set; }
         public string EstDetails { get; set; }
-        public string Naturework { get; set; }      
+        public string Naturework { get; set; }
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+        public string XMLData { get; set; }
+    }
+    public class SRVCLABOURAMIGRANTWORK2020
+    {
+        public string Questionnariid { get; set; }
+        public string Namekin { get; set; }
+        public string Address { get; set; }
+        public string convictedlaw { get; set; }
+        public string criminalCase { get; set; }
+        public string Declaration { get; set; }
+        public string EmpDesignation { get; set; }
+        public string Datecommencement { get; set; }
+        public string Expected { get; set; }
+        public string DetailsWork { get; set; }
+        public string District { get; set; }
+        public string Areawork { get; set; }
+        public string EstName { get; set; }
+        public string EstAddress { get; set; }
+        public string EstContact { get; set; }
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+    }
+    public class SRVCLABOURAMIGRANT1979DETAILS
+    {
+        public string Questionnariid { get; set; }
+        public string PrincipalEMPNAME { get; set; }
+        public string PrincipalFather { get; set; }
+        public string PrincipalEMAILID { get; set; }
+        public string PrincipalMOBILENO { get; set; }
+        public string State { get; set; }
+        public string DISTRICTID { get; set; }
+        public string MANDALID { get; set; }
+        public string VILLAGEID { get; set; }
+        public string DISTRICT { get; set; }
+        public string MANDAL { get; set; }
+        public string VILLAGE { get; set; }
+        public string Locality { get; set; }
+        public string Landmark { get; set; }
+        public string PoliceStation { get; set; }
+        public string PostOffice { get; set; }
+        public string PinCode { get; set; }
+        public string DirectorsTitle { get; set; }
+        public string DirectorsName { get; set; }
+        public string DirectorsAddress { get; set; }
+        public string ManagerTitle { get; set; }
+        public string ManagerName { get; set; }
+        public string ManagerAddress { get; set; }
+        public string NameContractor { get; set; }
+        public string ContractorAddress { get; set; }
+        public string ContractorNameEMP { get; set; }
+        public string ContractorMaximumNo { get; set; }
+        public string DurationProposedDay { get; set; }
+        public string EstDate { get; set; }
+        public string EstDatework { get; set; }
+        public string EstDateEmp { get; set; }
         public string Createdby { get; set; }
         public string IPAddress { get; set; }
         public string XMLData { get; set; }

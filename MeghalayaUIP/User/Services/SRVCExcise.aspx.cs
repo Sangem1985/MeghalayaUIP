@@ -37,11 +37,11 @@ namespace MeghalayaUIP.User.Services
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                       
+
                         rblBrand.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_APPLYREGBIOBRAND"]);
                         rblBrand_SelectedIndexChanged(null, EventArgs.Empty);
 
-                        if (rblBrand.SelectedValue=="Y")
+                        if (rblBrand.SelectedValue == "Y")
                         {
                             divBrands.Visible = true;
                             divTodateReg.Visible = true;
@@ -333,7 +333,7 @@ namespace MeghalayaUIP.User.Services
                     DataTable dt = new DataTable("Table2");
                     dt.Columns.Add("SRVCELD_COUNTRYID", typeof(string));
                     dt.Columns.Add("SRVCELD_APPLYREGBIOBRAND", typeof(string));
-                    dt.Columns.Add("SRVCELD_BRANDNAME", typeof(string));                   
+                    dt.Columns.Add("SRVCELD_BRANDNAME", typeof(string));
 
                     ViewState["CountryDetails"] = dt;
                 }
@@ -603,7 +603,7 @@ namespace MeghalayaUIP.User.Services
                         xmlData = sw.ToString();
                     }
 
-                   
+
                     {
                         objBrand.Questionnariid = "101";//Convert.ToString(Session["SRVCQID"]);
                         objBrand.Createdby = "1001"; //hdnUserID.Value;
@@ -684,7 +684,7 @@ namespace MeghalayaUIP.User.Services
                     objBrand.ToDate = txtTodate.Text;
                     objBrand.NameaddressFirm = txtAddress.Text;
 
-                     result = objSrvcbal.InsertSRVCExciseDetails(objBrand);
+                    result = objSrvcbal.InsertSRVCExciseDetails(objBrand);
 
                     if (result != "")
                     {
@@ -716,7 +716,7 @@ namespace MeghalayaUIP.User.Services
             {
                 int slno = 1;
                 string errormsg = "";
-               
+
                 if (rblBrand.SelectedIndex == -1)
                 {
                     errormsg = errormsg + slno + ". Please Select Applying for Renewal of BIO Brands?...! \\n";
@@ -740,7 +740,7 @@ namespace MeghalayaUIP.User.Services
                         slno = slno + 1;
                     }
                 }
-               
+
 
 
                 return errormsg;
@@ -767,6 +767,5 @@ namespace MeghalayaUIP.User.Services
 
             return result;
         }
-
     }
 }

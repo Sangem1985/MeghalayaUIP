@@ -34,77 +34,89 @@ namespace MeghalayaUIP.User.Services
                     if (ds.Tables[0].Rows.Count > 0)
                     {
 
-                        ddlEmptitle.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtEMPName.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        ddlSates.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        ddlEmptitle.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_TITLE"]);
+                        txtEMPName.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_EMPNAME"]);
+                        ddlSates.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_STATE"]);
                         ddlSates_SelectedIndexChanged(null, EventArgs.Empty);
                         if (ddlSates.SelectedItem.Text == "Meghalaya")
                         {
                             divMeghaState.Visible = true;
                             divOtherState.Visible = false;
 
-                            ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            ddlDistric.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_DISTRICTID"]);
                             ddlDistric_SelectedIndexChanged(null, EventArgs.Empty);
-                            ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            ddlMandal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_MANDALID"]);
                             ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
-                            ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_VILLAGEID"]);
                         }
                         else
                         {
                             divOtherState.Visible = true;
                             divMeghaState.Visible = false;
-                            txtDistricted.Text = ds.Tables[0].Rows[0][""].ToString();
-                            txtMandaled.Text = ds.Tables[0].Rows[0][""].ToString();
-                            txtVillagede.Text = ds.Tables[0].Rows[0][""].ToString();
+                            txtDistricted.Text = ds.Tables[0].Rows[0]["SRVCLD_DISTRICT"].ToString();
+                            txtMandaled.Text = ds.Tables[0].Rows[0]["SRVCLD_MANDAL"].ToString();
+                            txtVillagede.Text = ds.Tables[0].Rows[0]["SRVCLD_VILLAGE"].ToString();
                         }
 
 
 
-                        txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtLandMark.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtPoliceStation.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtPostOffice.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtLocality.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_LOCALITY"]);
+                        txtLandMark.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_LANDMARK"]);
+                        txtPoliceStation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_PSTATION"]);
+                        txtPostOffice.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_POFFICE"]);
 
-                        TXTPIN.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtBusiness.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtRegNo.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        TXTPIN.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_PINCODE"]);
+                        txtBusiness.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_TYPEBUSINESS"]);
+                        txtRegNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_REGNO"]);
 
-                        txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtNameAgent.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtAddress.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtlocation.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtdayslabour.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtEStdate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        txtEndDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtRegDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_REGDATE"]);
+                        txtNameAgent.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_AGENTNAME"]);
+                        txtAddress.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_AHENTMANAGERNAME"]);
+                        txtlocation.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_CONTACTLABOUREMP"]);
+                        txtdayslabour.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_NOOFDAYSLABOUR"]);
+                        txtEStdate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_ESTDATE"]);
+                        txtEndDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_ENDDATE"]);
 
-                        txtMaximumnumber.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        rblConvicated.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        txtMaximumnumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_MAXNOLABOUREMP"]);
+                        rblConvicated.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_CONTRACTORCONVICTED5"]);
 
                         if (rblConvicated.SelectedValue == "Y")
                         {
                             divcontractor.Visible = true;
-                            txtDetails.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            txtDetails.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_DETAILS"]);
                         }
                         else { divcontractor.Visible = false; }
-                        rblrevoking.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        rblrevoking.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_CONTRACTORREVOKINGLIC"]);
                         if (rblrevoking.SelectedValue == "Y")
                         {
                             divsuspend.Visible = true;
-                            txtOrderDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            txtOrderDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_ORDERDATE"]);
                         }
                         else { divsuspend.Visible = false; }
-                        rblcontractor.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        rblcontractor.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_CONTRACTOREST5"]);
                         if (rblrevoking.SelectedValue == "Y")
                         {
                             divfiveyear.Visible = true;
-                            txtprinciple.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                            txtEstablishment.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                            txtNature.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                            txtprinciple.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_PRINCIPALEMPDET"]);
+                            txtEstablishment.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_ESTDETAILS"]);
+                            txtNature.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLD_NATUREWORK"]);
                         }
                         else { divfiveyear.Visible = false; }
 
-
-
+                    }
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        GVDirector.DataSource = ds.Tables[1];
+                        GVDirector.DataBind();
+                        GVDirector.Visible = true;
+                        ViewState["DirectorDetails"] = ds.Tables[1];
+                    }
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        GVManager.DataSource = ds.Tables[2];
+                        GVManager.DataBind();
+                        GVManager.Visible = true;
+                        ViewState["ManagerDetails"] = ds.Tables[2];
                     }
                 }
             }
@@ -400,9 +412,9 @@ namespace MeghalayaUIP.User.Services
                 DataTable dt = DirectorDetails;
 
                 DataRow dr = dt.NewRow();
-                dr[""] = ddlTitle.SelectedValue;
-                dr[""] = txtDirectorName.Text.Trim();
-                dr[""] = txtDirectorAddress.Text.Trim();
+                dr["SRVCLDD_TITLE"] = ddlTitle.SelectedValue;
+                dr["SRVCLDD_FULLNAME"] = txtDirectorName.Text.Trim();
+                dr["SRVCLDD_ADDRESS"] = txtDirectorAddress.Text.Trim();
                 dt.Rows.Add(dr);
 
                 DirectorDetails = dt;
@@ -429,9 +441,9 @@ namespace MeghalayaUIP.User.Services
                 if (ViewState["DirectorDetails"] == null)
                 {
                     DataTable dt = new DataTable("Table1");
-                    dt.Columns.Add("", typeof(string));
-                    dt.Columns.Add("", typeof(string));
-                    dt.Columns.Add("", typeof(string));
+                    dt.Columns.Add("SRVCLDD_TITLE", typeof(string));
+                    dt.Columns.Add("SRVCLDD_FULLNAME", typeof(string));
+                    dt.Columns.Add("SRVCLDD_ADDRESS", typeof(string));
                     ViewState["DirectorDetails"] = dt;
                 }
                 return (DataTable)ViewState["DirectorDetails"];
@@ -495,9 +507,9 @@ namespace MeghalayaUIP.User.Services
                 DataTable dt = ManagerDetails;
 
                 DataRow dr = dt.NewRow();
-                dr[""] = ddlTitles.SelectedValue;
-                dr[""] = txtManagerName.Text.Trim();
-                dr[""] = txtManagerAddress.Text.Trim();
+                dr["SRVCLMD_TITLE"] = ddlTitles.SelectedValue;
+                dr["SRVCLMD_FULLNAME"] = txtManagerName.Text.Trim();
+                dr["SRVCLMD_ADDRESS"] = txtManagerAddress.Text.Trim();
                 dt.Rows.Add(dr);
 
                 ManagerDetails = dt;
@@ -524,9 +536,9 @@ namespace MeghalayaUIP.User.Services
                 if (ViewState["ManagerDetails"] == null)
                 {
                     DataTable dt = new DataTable("Table1");
-                    dt.Columns.Add("", typeof(string));
-                    dt.Columns.Add("", typeof(string));
-                    dt.Columns.Add("", typeof(string));
+                    dt.Columns.Add("SRVCLMD_TITLE", typeof(string));
+                    dt.Columns.Add("SRVCLMD_FULLNAME", typeof(string));
+                    dt.Columns.Add("SRVCLMD_ADDRESS", typeof(string));
                     ViewState["ManagerDetails"] = dt;
                 }
                 return (DataTable)ViewState["ManagerDetails"];
@@ -666,7 +678,7 @@ namespace MeghalayaUIP.User.Services
                     objLabour.PrincipalEmpDetails = txtprinciple.Text;
                     objLabour.EstDetails = txtEstablishment.Text;
                     objLabour.Naturework = txtNature.Text;
-                 
+
 
                     result = objSrvcbal.InsertSRVCLabour1970Details(objLabour);
 
@@ -710,7 +722,7 @@ namespace MeghalayaUIP.User.Services
                     errormsg += slno + ". Please enter Principal Employer's Name...! \\n";
                     slno++;
                 }
-             
+
                 if (ddlSates.SelectedValue == "0" || ddlSates.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select State \\n";

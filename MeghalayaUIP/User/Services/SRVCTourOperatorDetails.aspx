@@ -143,10 +143,9 @@
                                         <div class="col-md-12 d-flex justify-content-center">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-6 col-form-label">
-                                                    </label>
+                                                    <label class="col-lg-6 col-form-label"></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:Button ID="btnAddDetails" Text="Add Details" class="btn btn-green btn-rounded" runat="server" />
+                                                        <asp:Button ID="btnParticulars" Text="Add Details" OnClick="btnParticulars_Click" class="btn btn-green btn-rounded" runat="server" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -154,9 +153,9 @@
 
 
                                         <div class="col-md-12 d-flex justify-content-center">
-                                            <asp:GridView ID="GVParticular" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                            <asp:GridView ID="GVParticulars" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                 BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                GridLines="None"
+                                                GridLines="None" OnRowDeleting="GVParticulars_RowDeleting"
                                                 Width="100%" EnableModelValidation="True" Visible="false">
                                                 <RowStyle BackColor="#ffffff" />
                                                 <Columns>

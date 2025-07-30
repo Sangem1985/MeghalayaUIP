@@ -450,11 +450,7 @@
                                                 </asp:GridView>
                                             </div>
                                         </div>
-
-
                                     </div>
-
-
                                     <div class="col-md-12 text-right mb-2">
                                         <asp:Button Text="Previous" runat="server" ID="btnPrevious" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                         <asp:Button ID="Btnsave" runat="server" Text="Save" class="btn btn-rounded btn-success btn-lg" padding-right="10px" Width="150px" OnClick="Btnsave_Click" />
