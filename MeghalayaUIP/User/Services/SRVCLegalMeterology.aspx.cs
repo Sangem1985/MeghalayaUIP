@@ -20,7 +20,8 @@ namespace MeghalayaUIP.User.Services
             {
                 divRegistration.Visible = true;
             }
-            
+            else { divRegistration.Visible = false; }
+
         }
 
         protected void rblMunicipalADC_SelectedIndexChanged(object sender, EventArgs e)
@@ -29,6 +30,7 @@ namespace MeghalayaUIP.User.Services
             {
                 divADCLicense.Visible = true;
             }
+            else { divADCLicense.Visible = false; }
         }
 
         protected void rblpartnership_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,6 +39,7 @@ namespace MeghalayaUIP.User.Services
             {
                 divpartnership.Visible = true;
             }
+            else { divpartnership.Visible = false; }
         }
 
         protected void rblcompany_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,6 +48,7 @@ namespace MeghalayaUIP.User.Services
             {
                 divcompany.Visible = true;
             }
+            else { divcompany.Visible = false; }
         }
 
         protected void rblFinance_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,6 +58,11 @@ namespace MeghalayaUIP.User.Services
                 divFinanceBank.Visible = true;
                 divGiveInstitute.Visible = true;
             }
+            else 
+            { 
+                divFinanceBank.Visible = false;
+                divGiveInstitute.Visible = false;
+            }
         }
 
         protected void rblLicdealer_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,6 +71,7 @@ namespace MeghalayaUIP.User.Services
             {
                 divapplieddealer.Visible = true;
             }
+            else { divapplieddealer.Visible = false; }
         }
     }
 }

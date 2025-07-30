@@ -289,8 +289,6 @@
                                                 </div>
                                             </div>
 
-
-
                                             <div id="divcompany" runat="server" visible="false">
                                                 <h4 class="card-title ml-3">Managing Director Details: </h4>
 
@@ -590,6 +588,39 @@
                                                 </div>
                                             </div>
                                             <%-- APPROVAL ID 42--%>
+                                            <div class="col-md-12 d-flex">
+                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Other Details:</span></label>
+                                            </div>
+
+                                            <div class="col-md-12 d-flex" id="divPharmacist" runat="server" visible="false">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-6 col-form-label">Date of establishment </label>
+                                                        <div class="col-lg-4 d-flex">
+                                                            <asp:TextBox runat="server" ID="txtValidate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                            <cc1:CalendarExtender ID="CalendarExtender5" runat="server" Format="dd-MM-yyyy" TargetControlID="txtValidate"></cc1:CalendarExtender>
+                                                            <i class="fi fi-rr-calendar-lines"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-8 col-form-label">Have you obtain any current registration number of factory/ shop/ establishment?  *</label>
+                                                        <div class="col-lg-4">
+                                                            <asp:RadioButtonList ID="rblFactRegNo" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
+                                                            </asp:RadioButtonList>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
                                             <div class="col-md-12 d-flex">
                                                 <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Manufacturing Details</span></label>
                                             </div>

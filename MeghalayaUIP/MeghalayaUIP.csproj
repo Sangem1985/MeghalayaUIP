@@ -888,6 +888,7 @@
     <Content Include="User\Services\SRVCLABOURPE1970.aspx" />
     <Content Include="User\Services\SRVCLabourWorkmen6.aspx" />
     <Content Include="User\Services\SRVCLegalMeterology.aspx" />
+    <Content Include="User\Services\SRVCLegalMeterology42.aspx" />
     <Content Include="User\Services\SRVCNonEncumbrance.aspx" />
     <Content Include="User\Services\SRVCTourOperatorDetails.aspx" />
     <Content Include="User\Services\SRVCUploadEnclosures.aspx" />
@@ -3024,6 +3025,13 @@
     </Compile>
     <Compile Include="User\Services\SRVCLegalMeterology.aspx.designer.cs">
       <DependentUpon>SRVCLegalMeterology.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Services\SRVCLegalMeterology42.aspx.cs">
+      <DependentUpon>SRVCLegalMeterology42.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Services\SRVCLegalMeterology42.aspx.designer.cs">
+      <DependentUpon>SRVCLegalMeterology42.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Services\SRVCNonEncumbrance.aspx.cs">
       <DependentUpon>SRVCNonEncumbrance.aspx</DependentUpon>
