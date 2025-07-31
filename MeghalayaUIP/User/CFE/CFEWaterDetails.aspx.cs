@@ -340,15 +340,25 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                if (ddlconnection.SelectedValue != "N")
+                if (ddlconnection.SelectedValue != "0")
                 {
-                    NominalDN.Visible = true;
-                    DiameterDN.Visible = false;
+                    if (ddlconnection.SelectedValue != "Bulk")
+                    {
+                        NominalDN.Visible = true;
+                        DiameterDN.Visible = false;
+                    }
+                    else
+                    {
+                        NominalDN.Visible = false;
+                        DiameterDN.Visible = true;
+                        ddlDN.ClearSelection();
+                    }
                 }
                 else
                 {
                     NominalDN.Visible = false;
-                    DiameterDN.Visible = true;
+                    DiameterDN.Visible = false;
+                    ddlDN.ClearSelection();
                 }
             }
             catch (Exception ex)
@@ -421,48 +431,75 @@ namespace MeghalayaUIP.User.CFE
                 int slno = 1;
                 string errormsg = "";
 
+                if (divMunicipalWaterConnection.Visible)
+                {
+                    if (rblwatercon.SelectedIndex == -1 || rblwatercon.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select water connection \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtholding.Text) || txtholding.Text == "" || txtholding.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Holding Number \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlwardno.SelectedValue == "0" || ddlwardno.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Ward Number \\n";
+                        slno = slno + 1;
+                    }
+                }
+                if (divNoNMunicipalWaterConnection.Visible) 
+                {
+                    if (string.IsNullOrEmpty(txtconnection.Text) || txtconnection.Text == "" || txtconnection.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Purpose for which connection is required  \\n";
+                        slno = slno + 1;
+                    }
+                    if (ddlconnection.SelectedValue == "0" || ddlconnection.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select type connection \\n";
+                        slno = slno + 1;
+                    }
+                    if(ddlconnection.SelectedValue== "Bulk")
+                    {
+                        if (ddlDN.SelectedValue == "0" || ddlDN.SelectedItem.Text == "--Select--")
+                        {
+                            errormsg = errormsg + slno + ". Please Select Size of pipe connection(Diameter Nominal DN (mm)) \\n";
+                            slno = slno + 1;
+                        }
+                    }
+                }
+                if (divNonAvlbltyWaterCert.Visible)
+                {
+                    if (string.IsNullOrEmpty(txtsubdivision.Text) || txtsubdivision.Text == "" || txtsubdivision.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Sub Divisional Office for Application \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtpremise.Text) || txtpremise.Text == "" || txtpremise.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Number of persons working in the premise \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtdemand.Text) || txtdemand.Text == "" || txtdemand.Text == null || txtdemand.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtdemand.Text, @"^0+(\.0+)?$"))
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Water requirement per day demand \\n";
+                        slno = slno + 1;
+                    }
+                    if (string.IsNullOrEmpty(txtinformation.Text) || txtinformation.Text == "" || txtinformation.Text == null)
+                    {
+                        errormsg = errormsg + slno + ". Please Enter Any Information \\n";
+                        slno = slno + 1;
+                    }
+                }
 
-                if (rblwatercon.SelectedIndex == -1 || rblwatercon.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select water connection \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtsubdivision.Text) || txtsubdivision.Text == "" || txtsubdivision.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Sub Divisional Office for Application \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtpremise.Text) || txtpremise.Text == "" || txtpremise.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Number of persons working in the premise \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtdemand.Text) || txtdemand.Text == "" || txtdemand.Text == null || txtdemand.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtdemand.Text, @"^0+(\.0+)?$"))
-                {
-                    errormsg = errormsg + slno + ". Please Enter Water requirement per day demand \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtinformation.Text) || txtinformation.Text == "" || txtinformation.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Any Information \\n";
-                    slno = slno + 1;
-                }
-
-                if (string.IsNullOrEmpty(txtconnection.Text) || txtconnection.Text == "" || txtconnection.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter  \\n";
-                    slno = slno + 1;
-                }
-                if (ddlconnection.SelectedIndex == -1 || ddlconnection.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select type connection \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(hypSketch.Text) || hypSketch.Text == "" || hypSketch.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please upload Route Sketch Map \\n";
-                    slno = slno + 1;
-                }
+                
+                //if (string.IsNullOrEmpty(hypSketch.Text) || hypSketch.Text == "" || hypSketch.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please upload Route Sketch Map \\n";
+                //    slno = slno + 1;
+                //}
                 return errormsg;
             }
             catch (Exception ex)

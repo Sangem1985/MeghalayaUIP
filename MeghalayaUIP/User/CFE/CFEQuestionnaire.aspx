@@ -160,7 +160,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
-                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" runat="server" visible="false" id="divsubVillage">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" runat="server" visible="false" id="divsubVillage">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">3(a).Sub Village<span class="star">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
@@ -195,7 +195,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    
+
                                                                 </div>
 
                                                                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
@@ -231,11 +231,11 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                   
+
                                                                 </div>
 
                                                                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex">
-                                                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 9. Whether land  
@@ -864,7 +864,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6" id="divMunicipalWater" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
                                                                                 16. Do You Require Water Connection 
@@ -878,16 +878,13 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-md-12 d-flex">
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6" id="divNonMunicipalWater" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                17. Do You Required Grant of Water                            
-                                  
-                                                                                <br />
+                                                                                17. Do You Required Grant of Water                           
+                                                                                             <br />
                                                                                 Connection to Non Municipal 
-                                                                                <br />
+                                                                                    <br />
                                                                                 areas<span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
                                                                                 <asp:RadioButtonList ID="rblGrantwater" runat="server" RepeatDirection="Horizontal" TabIndex="1">
@@ -897,6 +894,9 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                </div>
+                                                                <div class="col-md-12 d-flex">
+
                                                                     <div class="col-md-6" id="MunicipalArea" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">

@@ -681,6 +681,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.RadioButtonList rblRiverTanks;
 
         /// <summary>
+        /// divMunicipalWater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMunicipalWater;
+
+        /// <summary>
         /// rblMunicipal control.
         /// </summary>
         /// <remarks>
@@ -688,6 +697,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblMunicipal;
+
+        /// <summary>
+        /// divNonMunicipalWater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNonMunicipalWater;
 
         /// <summary>
         /// rblGrantwater control.

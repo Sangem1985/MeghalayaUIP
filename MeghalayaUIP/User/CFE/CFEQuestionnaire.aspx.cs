@@ -95,12 +95,6 @@ namespace MeghalayaUIP.User.CFE
                     ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                     ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPVILLAGEID"]);
                     ddlVillage_SelectedIndexChanged(null, EventArgs.Empty);
-                    if (ddlVillage.SelectedValue == "277282")
-                    {
-                        divsubVillage.Visible = true;
-                        ddldivision.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPSUBVILLAGE"]);
-                    }
-                    else { divsubVillage.Visible = false; }
 
                     txtLandArea.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_TOTALEXTENTLAND"]);
 
@@ -120,12 +114,12 @@ namespace MeghalayaUIP.User.CFE
                     rblMIDCL.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MIDCLLAND"]);
 
                     txtPropEmp.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPEMP"]);
-                    
+
                     txtLandValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_LANDVALUE"]);
                     txtBuildingValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_BUILDINGVALUE"]);
                     txtPMCost.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PMCOST"]);
                     txtAnnualTurnOver.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_EXPECTEDTURNOVER"]);
-                    lblTotProjCost.Text =  Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
+                    lblTotProjCost.Text = Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
                     lblEntCategory.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_ENTERPRISETYPE"]);
 
                     ddlPowerReq.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_POWERREQKW"]);
@@ -155,14 +149,27 @@ namespace MeghalayaUIP.User.CFE
                     rblNocGroundWater.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NOCGROUNDWATER"]);
                     rblwatersupply.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_NONAVAILABILITYCERT"]);
                     rblRiverTanks.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PERRIVERPUBLICTANKERS"]);
-                    rblMunicipal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MUNICIPALAREAWATERCON"]);
-                    if (rblMunicipal.SelectedValue == "Y")
+
+                    if (ddlVillage.SelectedValue == "277282")
                     {
-                        MunicipalArea.Visible = true;
-                        ddlMunicipal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERMUNICIPALAREA"]);
+                        ddldivision.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_PROPSUBVILLAGE"]);
+                        rblMunicipal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_MUNICIPALAREAWATERCON"]);
+
+                        if (rblMunicipal.SelectedValue == "Y")
+                        {
+                            MunicipalArea.Visible = true;
+                            ddlMunicipal.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERMUNICIPALAREA"]);
+                        }
+                        else { MunicipalArea.Visible = false; }
+
                     }
-                    else { MunicipalArea.Visible = false; }
-                    rblGrantwater.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERCONNONMUNICIPALURBAN"]);
+                    else
+                    {
+                        rblGrantwater.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_WATERCONNONMUNICIPALURBAN"]);
+                        divsubVillage.Visible = false;
+                    }
+
+
                     //rblDrawing.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["CFEQD_DRAWINGPLANAPPROVAL"]);
 
 
@@ -1217,6 +1224,10 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Proposed Location Village \\n";
                     slno = slno + 1;
                 }
+                if (ddlVillage.SelectedValue == "277282")
+                { 
+                
+                }
                 if (string.IsNullOrEmpty(txtLandArea.Text) || txtLandArea.Text == "" || txtLandArea.Text == null || txtLandArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandArea.Text, @"^0+(\.0+)?$"))
                 {
                     errormsg = errormsg + slno + ". Please Enter Total Extend Land  \\n";
@@ -1441,23 +1452,29 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Require Permission to Draw Water from River/Public Tanks or not \\n";
                     slno = slno + 1;
                 }
-                if (rblMunicipal.SelectedIndex == -1)
+                if (ddlVillage.SelectedValue == "277282")
                 {
-                    errormsg = errormsg + slno + ". Please Select Require Water Connection for the Municipal Area or not \\n";
-                    slno = slno + 1;
-                }
-                if (rblMunicipal.SelectedValue == "Y")
-                {
-                    if (ddlMunicipal.SelectedIndex == -1)
+                    if (rblMunicipal.SelectedIndex == -1)
                     {
-                        errormsg = errormsg + slno + ". Please Select Water Connection for the Municipal Area  \\n";
+                        errormsg = errormsg + slno + ". Please Select Require Water Connection for the Municipal Area or not \\n";
                         slno = slno + 1;
                     }
+                    if (rblMunicipal.SelectedValue == "Y")
+                    {
+                        if (ddlMunicipal.SelectedIndex == -1)
+                        {
+                            errormsg = errormsg + slno + ". Please Select Water Connection for the Municipal Area  \\n";
+                            slno = slno + 1;
+                        }
+                    }
                 }
-                if (rblGrantwater.SelectedIndex == -1)
+                else
                 {
-                    errormsg = errormsg + slno + ". Please Select Required Grant of Water Connection to Non Municipal urban or not \\n";
-                    slno = slno + 1;
+                    if (rblGrantwater.SelectedIndex == -1)
+                    {
+                        errormsg = errormsg + slno + ". Please Select Required Grant of Water Connection to Non Municipal urban or not \\n";
+                        slno = slno + 1;
+                    }
                 }
                 //if (rblDrawing.SelectedIndex == -1)
                 //{
@@ -1637,7 +1654,7 @@ namespace MeghalayaUIP.User.CFE
                     dtGenReq = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(dtGenReq);
                 }
-                if (Convert.ToDecimal(txtBuildingHeight.Text) != 0 && Convert.ToDecimal(txtBuildingHeight.Text)>14)
+                if (Convert.ToDecimal(txtBuildingHeight.Text) != 0 && Convert.ToDecimal(txtBuildingHeight.Text) > 14)
                 {
                     objCFEQ.BuildingHeight = txtBuildingHeight.Text;
                     objCFEQ.ApprovalID = "7";
@@ -1723,8 +1740,8 @@ namespace MeghalayaUIP.User.CFE
                    NonMunicipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                    dtApprReq.Merge(NonMunicipal);
                } */
-               
-              
+
+
 
                 if (rblNocGroundWater.SelectedValue == "Y")
                 {
@@ -1744,14 +1761,14 @@ namespace MeghalayaUIP.User.CFE
                     rivertanker = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(rivertanker);
                 }
-                if (rblMunicipal.SelectedValue == "Y")
+                if (rblMunicipal.SelectedValue == "Y" && ddlVillage.SelectedValue == "277282")
                 {
                     objCFEQ.ApprovalID = "22";
                     objCFEQ.MunicipalArea = ddlMunicipal.SelectedValue;
                     Municipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(Municipal);
                 }
-                if (rblGrantwater.SelectedValue == "Y")
+                if (rblGrantwater.SelectedValue == "Y" && ddlVillage.SelectedValue != "277282")
                 {
                     objCFEQ.ApprovalID = "23";
                     NonMunicipal = objcfebal.GetApprovalsReqWithFee(objCFEQ);
@@ -1918,14 +1935,17 @@ namespace MeghalayaUIP.User.CFE
             {
                 MunicipalArea.Visible = true;
             }
-            else { MunicipalArea.Visible = false; }
+            else
+            {
+                MunicipalArea.Visible = false; ddlMunicipal.ClearSelection();
+            }
         }
 
         protected void txtAnnualTurnOver_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (txtAnnualTurnOver.Text != "" && txtPMCost.Text != "" && txtBuildingValue.Text != "" && txtLandValue.Text != "" )
+                if (txtAnnualTurnOver.Text != "" && txtPMCost.Text != "" && txtBuildingValue.Text != "" && txtLandValue.Text != "")
                 {
                     lblTotProjCost.Text = Convert.ToString(Convert.ToDecimal(txtLandValue.Text) + Convert.ToDecimal(txtBuildingValue.Text) + Convert.ToDecimal(txtPMCost.Text));
 
@@ -2014,9 +2034,30 @@ namespace MeghalayaUIP.User.CFE
                 AddSelect(ddldivision);
                 if (ddlVillage.SelectedItem.Text != "--Select--")
                 {
+                    if (ddlVillage.SelectedValue == "277282")
+                    {
+                        divsubVillage.Visible = true;
+                        divMunicipalWater.Visible = true;
 
-                    BindSubVillages(ddldivision, ddlVillage.SelectedValue);
-                    SubVillages();
+                        divNonMunicipalWater.Visible = false;
+                        rblGrantwater.ClearSelection();
+                        BindSubVillages(ddldivision, ddlVillage.SelectedValue);
+                    }
+                    else
+                    {
+                        divsubVillage.Visible = false;
+                        divNonMunicipalWater.Visible = true;
+
+                        divMunicipalWater.Visible = false;
+                        rblMunicipal.ClearSelection();
+                        rblMunicipal_SelectedIndexChanged(sender, e);
+                    }
+                }
+                else
+                {
+                    divMunicipalWater.Visible = false; rblMunicipal_SelectedIndexChanged(sender, e);
+                    divNonMunicipalWater.Visible = false;
+                    divsubVillage.Visible = false;
                 }
             }
             catch (Exception ex)
