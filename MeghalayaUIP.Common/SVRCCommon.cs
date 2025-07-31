@@ -921,6 +921,55 @@ namespace MeghalayaUIP.Common
         public string IPAddress { get; set; }
         public string XMLData { get; set; }
     }
+    public class SRVCLegalMetrology
+    {
+        public string Questionnariid { get; set; }
+        public string District { get; set; }
+        public string Mandal { get; set; }
+        public string Village { get; set; }
+        public string landmark { get; set; }
+        public string Station { get; set; }
+        public string PostOffice { get; set; }
+        public string DateOfEST { get; set; }
+        public string RegShopEst { get; set; }
+        public string RegADC { get; set; }
+        public string DateofReg { get; set; }
+        public string CurrentRegNo { get; set; }
+        public string DateOfRegADC { get; set; }
+        public string CurrentRegNoADC { get; set; }
+        public string partnershipfirm { get; set; }
+        public string limitedcompany { get; set; }
+        public string Namepartner { get; set; }
+        public string Addresspartner { get; set; }
+        public string Fatherpartner { get; set; }
+        public string NameManaging { get; set; }
+        public string AddressManaging { get; set; }
+        public string FatherManaging { get; set; }
+        public string NatureManu { get; set; }
+        public string Weights { get; set; }
+        public string Measures { get; set; }
+        public string WeightingInstrument { get; set; }
+        public string Skilled { get; set; }
+        public string Semiskilled { get; set; }
+        public string Unskilled { get; set; }
+        public string Specialisttrain { get; set; }
+        public string electricenergy { get; set; }
+        public string Detailsmachinery { get; set; }
+        public string Detailsworkshop { get; set; }
+        public string FacilitiesCasting { get; set; }
+        public string receivedloan { get; set; }
+        public string bankersName { get; set; }
+        public string GiveBankerDetails { get; set; }
+        public string GST { get; set; }
+        public string ProfessionalTaxReg { get; set; }
+        public string ITNumber { get; set; }
+        public string manufacturedSold { get; set; }
+        public string manufacturerLicense { get; set; }
+        public string GiveLicenseDetails { get; set; }     
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+        public string XMLData { get; set; }
+    }
 }
 
 

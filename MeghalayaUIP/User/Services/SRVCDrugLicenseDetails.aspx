@@ -270,5 +270,5 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
         </ContentTemplate>
-    </asp:UpdatePanel>  
+    </asp:UpdatePanel>
 </asp:Content>
