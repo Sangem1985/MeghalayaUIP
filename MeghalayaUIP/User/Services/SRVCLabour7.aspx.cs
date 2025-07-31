@@ -66,9 +66,9 @@ namespace MeghalayaUIP.User.Services
 
                 List<MasterDistrcits> objDistrictModel = new List<MasterDistrcits>();
                 string strmode = string.Empty;
-   
+
                 strmode = "";
-                
+
                 objDistrictModel = mstrBAL.GetDistrcits();
                 if (objDistrictModel != null)
                 {
@@ -294,7 +294,7 @@ namespace MeghalayaUIP.User.Services
                         txtWorkEmpDay.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         txtEmpDatework.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         txtEstConDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                       
+
                     }
                 }
             }
@@ -321,26 +321,26 @@ namespace MeghalayaUIP.User.Services
                     ObjCDWMDet.FullNamePE = txtFullNameEst.Text;
                     ObjCDWMDet.AddressPE = txtAddressEst.Text;
                     ObjCDWMDet.StatePE = ddlSates.SelectedValue;
-                    ObjCDWMDet.DistrictPE= ddlDistric.SelectedValue;
-                    ObjCDWMDet.MandalPE= ddlMandal.SelectedValue;
-                    ObjCDWMDet.VillagePE= ddlVillage.SelectedValue;
-                    ObjCDWMDet.DistPE= txtDistricted.Text;
+                    ObjCDWMDet.DistrictPE = ddlDistric.SelectedValue;
+                    ObjCDWMDet.MandalPE = ddlMandal.SelectedValue;
+                    ObjCDWMDet.VillagePE = ddlVillage.SelectedValue;
+                    ObjCDWMDet.DistPE = txtDistricted.Text;
                     ObjCDWMDet.MandalesPE = txtMandaled.Text;
-                    ObjCDWMDet.VillagesPE= txtVillagede.Text;
-                    ObjCDWMDet.PostOfficePE= txtPostEst.Text;
-                    ObjCDWMDet.PincodePE= txtPincodeEst.Text;
-                    ObjCDWMDet.NameManager= txtNameManager.Text;
-                    ObjCDWMDet.AddressManager= txtAddressManager.Text;
-                    ObjCDWMDet.DistrictManager= ddlDistrictManager.SelectedValue;
-                    ObjCDWMDet.MandalManager= ddlMandalManager.SelectedValue;
-                    ObjCDWMDet.VillageManager= ddlVillageManager.SelectedValue;
-                    ObjCDWMDet.PoliceStationManager= txtPoliceManager.Text;
-                    ObjCDWMDet.PostOfficeManager= txtPostOfficeManager.Text;
-                    ObjCDWMDet.PincodeManager= txtPincodeManager.Text;
-                    ObjCDWMDet.NatureofBuilding= txtNatureConWork.Text;
-                    ObjCDWMDet.NoofWorkEmpDay= txtWorkEmpDay.Text;
-                    ObjCDWMDet.EstConDate= txtEmpDatework.Text;
-                    ObjCDWMDet.EstConworkDate= txtEstConDate.Text;
+                    ObjCDWMDet.VillagesPE = txtVillagede.Text;
+                    ObjCDWMDet.PostOfficePE = txtPostEst.Text;
+                    ObjCDWMDet.PincodePE = txtPincodeEst.Text;
+                    ObjCDWMDet.NameManager = txtNameManager.Text;
+                    ObjCDWMDet.AddressManager = txtAddressManager.Text;
+                    ObjCDWMDet.DistrictManager = ddlDistrictManager.SelectedValue;
+                    ObjCDWMDet.MandalManager = ddlMandalManager.SelectedValue;
+                    ObjCDWMDet.VillageManager = ddlVillageManager.SelectedValue;
+                    ObjCDWMDet.PoliceStationManager = txtPoliceManager.Text;
+                    ObjCDWMDet.PostOfficeManager = txtPostOfficeManager.Text;
+                    ObjCDWMDet.PincodeManager = txtPincodeManager.Text;
+                    ObjCDWMDet.NatureofBuilding = txtNatureConWork.Text;
+                    ObjCDWMDet.NoofWorkEmpDay = txtWorkEmpDay.Text;
+                    ObjCDWMDet.EstConDate = txtEmpDatework.Text;
+                    ObjCDWMDet.EstConworkDate = txtEstConDate.Text;
 
                     result = objSrvcbal.InsertLabourConWorkDetails(ObjCDWMDet);
 
@@ -429,14 +429,14 @@ namespace MeghalayaUIP.User.Services
                 {
                     errormsg += slno + ". Please enter Post Office...! \\n";
                     slno++;
-                }               
+                }
                 if (string.IsNullOrEmpty(txtPincodeEst.Text) || txtPincodeEst.Text.Trim() == "" || txtPincodeEst.Text == null)
                 {
                     errormsg += slno + ". Please enter Pincode...! \\n";
                     slno++;
                 }
-              
-               
+
+
 
                 return errormsg;
             }

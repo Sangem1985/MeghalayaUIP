@@ -2119,7 +2119,11 @@ namespace MeghalayaUIP.DAL.CFODAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@TYPEID", objCFOQ.GrantManufacture);
                 }
-                da.Fill(ds);
+                if (objCFOQ.UNITID != null && objCFOQ.UNITID != "")
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@UNITID", objCFOQ.UNITID);
+                }
+                    da.Fill(ds);
                 transaction.Commit();
                 return ds;
             }

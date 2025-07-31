@@ -1,0 +1,57 @@
+Time: 30/07/2025 03:08:57 PM
+-----------------------------------------------------------
+Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+StackTrace:    at MeghalayaAPI.Controllers.CFOProcessController.GetCFOUnitIDBasedonQDID(Int32 CFEQDID) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 142
+   at MeghalayaAPI.Controllers.CFOProcessController.CFODepartmentProcessUpdate(CFODtls model) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 51
+Source: .Net SqlClient Data Provider
+TargetSite: System.String GetCFOUnitIDBasedonQDID(Int32)
+-----------------------------------------------------------
+
+Time: 30/07/2025 03:25:18 PM
+-----------------------------------------------------------
+Message: Column 'CFEDA_UNITID' does not belong to table Table.
+StackTrace:    at MeghalayaAPI.Controllers.CFOProcessController.GetCFOUnitIDBasedonQDID(Int32 CFEQDID) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 142
+   at MeghalayaAPI.Controllers.CFOProcessController.CFODepartmentProcessUpdate(CFODtls model) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 51
+Source: MeghalayaAPI
+TargetSite: System.String GetCFOUnitIDBasedonQDID(Int32)
+-----------------------------------------------------------
+
+Time: 30/07/2025 03:59:21 PM
+-----------------------------------------------------------
+Message: Procedure or function 'USP_UPDATECFOSCRUTINYACTION' expects parameter '@ACTIONID', which was not supplied.
+StackTrace:    at MeghalayaUIP.DAL.CFODAL.CFODAL.UpdateCFODepartmentProcess(CFODtls Objcfodtls) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaUIP.DAL\CFODAL\CFODAL.cs:line 2815
+   at MeghalayaAPI.Controllers.CFOProcessController.CFODepartmentProcessUpdate(CFODtls model) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 97
+Source: .Net SqlClient Data Provider
+TargetSite: System.String UpdateCFODepartmentProcess(MeghalayaUIP.Common.CFODtls)
+-----------------------------------------------------------
+
+Time: 30/07/2025 04:17:49 PM
+-----------------------------------------------------------
+Message: Procedure or function 'USP_INS_CRCERTIFICATE' expects parameter '@CFOQDID', which was not supplied.
+StackTrace:    at MeghalayaAPI.DAL.CFOProcessDAL.InsertCRCertificateDetails(CFODtls Objest) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\DAL\CFOProcessDAL.cs:line 96
+   at MeghalayaAPI.BAL.CFOProcessBAL.InsertCRCertificateDetails(CFODtls _cfocrcertificate) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\BAL\CFOProcessBAL.cs:line 22
+   at MeghalayaAPI.Controllers.CFOProcessController.CFODepartmentProcessUpdate(CFODtls model) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 111
+Source: .Net SqlClient Data Provider
+TargetSite: System.String InsertCRCertificateDetails(MeghalayaUIP.Common.CFODtls)
+-----------------------------------------------------------
+
+Time: 30/07/2025 04:27:41 PM
+-----------------------------------------------------------
+Message: Error converting data type nvarchar to datetime.
+StackTrace:    at MeghalayaAPI.DAL.CFOProcessDAL.InsertCRCertificateDetails(CFODtls Objest) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\DAL\CFOProcessDAL.cs:line 98
+   at MeghalayaAPI.BAL.CFOProcessBAL.InsertCRCertificateDetails(CFODtls _cfocrcertificate) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\BAL\CFOProcessBAL.cs:line 22
+   at MeghalayaAPI.Controllers.CFOProcessController.CFODepartmentProcessUpdate(CFODtls model) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 111
+Source: .Net SqlClient Data Provider
+TargetSite: System.String InsertCRCertificateDetails(MeghalayaUIP.Common.CFODtls)
+-----------------------------------------------------------
+
+Time: 30/07/2025 04:28:22 PM
+-----------------------------------------------------------
+Message: Error converting data type nvarchar to datetime.
+StackTrace:    at MeghalayaAPI.DAL.CFOProcessDAL.InsertCRCertificateDetails(CFODtls Objest) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\DAL\CFOProcessDAL.cs:line 98
+   at MeghalayaAPI.BAL.CFOProcessBAL.InsertCRCertificateDetails(CFODtls _cfocrcertificate) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\BAL\CFOProcessBAL.cs:line 22
+   at MeghalayaAPI.Controllers.CFOProcessController.CFODepartmentProcessUpdate(CFODtls model) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 111
+Source: .Net SqlClient Data Provider
+TargetSite: System.String InsertCRCertificateDetails(MeghalayaUIP.Common.CFODtls)
+-----------------------------------------------------------
+

@@ -43,7 +43,7 @@
                                         </div>
                                     </div>
                                     <asp:HiddenField ID="hdnUserID" runat="server" />
-                                    <div class="row">                                      
+                                    <div class="row">
                                         <div class="col-md-12 d-flex">
                                             <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Name and address of principal employer</span></label>
                                         </div>
@@ -82,7 +82,7 @@
                                             </div>
                                         </div>
 
-                                          <div class="col-md-12 d-flex" id="divMeghaState" runat="server" visible="false">
+                                        <div class="col-md-12 d-flex" id="divMeghaState" runat="server" visible="false">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">
@@ -197,8 +197,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                         <div class="col-md-12 d-flex">
-                                             <div class="col-md-4">
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Registration number</label>
                                                     <div class="col-lg-6 d-flex">
@@ -206,10 +206,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                              <div class="col-md-4">
+                                            <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Registration Date</label>
-                                                    <div class="col-lg-6 d-flex">                                                      
+                                                    <div class="col-lg-6 d-flex">
 
                                                         <asp:TextBox runat="server" ID="txtRegDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                         <cc1:CalendarExtender ID="CalendarExtender3" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegDate"></cc1:CalendarExtender>
@@ -218,7 +218,7 @@
                                                 </div>
                                             </div>
 
-                                             </div>
+                                        </div>
 
                                         <div class="row" style="padding-left: 20px" id="divContrLabr" runat="server" visible="true">
                                             <div class="col-md-12 d-flex">
@@ -277,9 +277,9 @@
                                                     <HeaderStyle HorizontalAlign="Center" BorderColor="White" />
                                                     <Columns>
                                                         <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                        <asp:BoundField HeaderText="Title" DataField="CFECL_CONTRACTORNAMEADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                        <asp:BoundField HeaderText="Name" DataField="CFECL_WORKNAMENATURELOCATION" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                        <asp:BoundField HeaderText="Address" DataField="CFECL_MAXCONTRACTLABOUR" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Title" DataField="SRVCLDD_TITLE" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Name" DataField="SRVCLDD_FULLNAME" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Address" DataField="SRVCLDD_ADDRESS" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
                                                     </Columns>
                                                     <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -345,9 +345,9 @@
                                                     <HeaderStyle HorizontalAlign="Center" BorderColor="White" />
                                                     <Columns>
                                                         <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                        <asp:BoundField HeaderText="Title" DataField="CFEMW_CONTRACTORNAMEADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                        <asp:BoundField HeaderText="Full Name" DataField="CFEMW_MIGRANTNAMENATURELOCATION" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
-                                                        <asp:BoundField HeaderText="Address" DataField="CFEMW_MAXCONTRACTMIGRANT" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Title" DataField="SRVCLMD_TITLE" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Full Name" DataField="SRVCLMD_FULLNAME" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
+                                                        <asp:BoundField HeaderText="Address" DataField="SRVCLMD_ADDRESS" ItemStyle-Width="200px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" />
 
                                                     </Columns>
                                                     <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
@@ -405,7 +405,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Estimated date of commencement *</label>
-                                                    <div class="col-lg-6 d-flex">                                                      
+                                                    <div class="col-lg-6 d-flex">
                                                         <asp:TextBox runat="server" ID="txtEStdate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtEStdate"></cc1:CalendarExtender>
                                                         <i class="fi fi-rr-calendar-lines"></i>
@@ -415,7 +415,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Ending Date    *</label>
-                                                    <div class="col-lg-6 d-flex">                                                 
+                                                    <div class="col-lg-6 d-flex">
 
                                                         <asp:TextBox runat="server" ID="txtEndDate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
                                                         <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtEndDate"></cc1:CalendarExtender>

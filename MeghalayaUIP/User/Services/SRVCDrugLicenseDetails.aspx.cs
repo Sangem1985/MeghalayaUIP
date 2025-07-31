@@ -78,7 +78,7 @@ namespace MeghalayaUIP.User.Services
                         GVPharmacist.Visible = true;
                         ViewState["PharmacistDetails"] = ds.Tables[1];
                     }
-                   
+
 
                 }
             }
@@ -93,18 +93,18 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (rblSelect.SelectedValue=="2")
+                if (rblSelect.SelectedValue == "2")
                 {
                     divPharmacist.Visible = true;
                     divCompetent.Visible = false;
                 }
-                else 
-                { 
+                else
+                {
                     divCompetent.Visible = true;
                     divPharmacist.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -114,18 +114,18 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (rblApplication.SelectedValue=="W")
+                if (rblApplication.SelectedValue == "W")
                 {
                     divWholesale.Visible = true;
                     divRetail.Visible = false;
                 }
-                else 
-                { 
+                else
+                {
                     divRetail.Visible = true;
-                    divWholesale.Visible =false;
+                    divWholesale.Visible = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -202,7 +202,7 @@ namespace MeghalayaUIP.User.Services
                     dt.Columns.Add("SRVCDRD_NAMEPHARMACIST", typeof(string));
                     dt.Columns.Add("SRVCDRD_REGISTRATIONNO", typeof(string));
                     dt.Columns.Add("SRVCDRD_VALIDDATE", typeof(string));
-                   
+
                     ViewState["PharmacistDetails"] = dt;
                 }
                 return (DataTable)ViewState["PharmacistDetails"];
@@ -300,7 +300,7 @@ namespace MeghalayaUIP.User.Services
                     objDrug.MunicipallityDate = txtMunicipalDate.Text;
                     objDrug.ColdStorage = txtColdstorage.Text;
                     objDrug.DrugsCategory = selectedActivities;
-                  
+
 
                     result = objSrvcbal.InsertSRVCDSrugDetails(objDrug);
 
@@ -347,7 +347,7 @@ namespace MeghalayaUIP.User.Services
                         errormsg = errormsg + slno + ". Please Enter Please Select...! \\n";
                         slno = slno + 1;
                     }
-                    if (rblSelect.SelectedValue=="1")
+                    if (rblSelect.SelectedValue == "1")
                     {
                         if (string.IsNullOrEmpty(txtCompetentName.Text) || txtCompetentName.Text == "" || txtCompetentName.Text == null)
                         {
@@ -368,7 +368,7 @@ namespace MeghalayaUIP.User.Services
                             slno = slno + 1;
                         }
                     }
-                   
+
                 }
                 else
                 {
@@ -420,6 +420,5 @@ namespace MeghalayaUIP.User.Services
 
             return result;
         }
-
     }
 }

@@ -924,6 +924,7 @@ namespace MeghalayaUIP.User.CFO
                 if (ddlPowerConnection.SelectedValue == "Y")
                 {
                     ApprovalIds = ApprovalIds + ",3";
+                    objCFOQ.UNITID= Convert.ToString(Session["CFOUNITID"]);
                 }
 
                 objCFOQ.ApprovalID = ApprovalIds;
@@ -1067,7 +1068,13 @@ namespace MeghalayaUIP.User.CFO
                     if(ds.Tables[2].Rows.Count>0)
                     {
                         divPowerConn.Visible = true;
+                        ddlPowerConnection.SelectedValue = "Y";
                     }
+                    else
+                    {
+                        ddlPowerConnection.ClearSelection();
+                    }
+                    
 
 
                     GetApprovals();
@@ -1113,6 +1120,11 @@ namespace MeghalayaUIP.User.CFO
                         if (ds.Tables[1].Rows.Count > 0)
                         {
                             divPowerConn.Visible = true;
+                            ddlPowerConnection.SelectedValue = "Y";
+                        }
+                        else
+                        {
+                            ddlPowerConnection.ClearSelection();
                         }
                     }
                 }

@@ -405,10 +405,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="BAL\CFEProcessBAL.cs" />
+    <Compile Include="BAL\CFOProcessBAL.cs" />
     <Compile Include="BAL\NSWSBAL.cs" />
     <Compile Include="BasicAuthentication.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Controllers\CFEProcessController.cs" />
+    <Compile Include="Controllers\CFOProcessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MeghalayaController.cs" />
@@ -416,6 +418,7 @@
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DAL\CFEProcessDAL.cs" />
+    <Compile Include="DAL\CFOProcessDAL.cs" />
     <Compile Include="DAL\CommonDAL.cs" />
     <Compile Include="DAL\NSWSDAL.cs" />
     <Compile Include="Global.asax.cs">
@@ -423,6 +426,7 @@
     </Compile>
     <Compile Include="Models\CFEProcConstants.cs" />
     <Compile Include="Models\CFEProcess.cs" />
+    <Compile Include="Models\CFOProcConstants.cs" />
     <Compile Include="Models\ErrorLog.cs" />
     <Compile Include="Models\NSWSCommon.cs" />
     <Compile Include="Models\PropertiesModel.cs" />
@@ -430,6 +434,7 @@
     <Compile Include="Services\CommonServices.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Validations\CFEProcessValidations.cs" />
+    <Compile Include="Validations\CFOProcessValidations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

@@ -46,7 +46,7 @@ namespace MeghalayaUIP.User.Services
                         ddlMandal_SelectedIndexChanged(null, EventArgs.Empty);
                         ddlVillage.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCFD_VILLAGE"]);
                         txtPincode.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCFD_PINCODE"]);
-                      
+
 
                     }
 

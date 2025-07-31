@@ -83,13 +83,13 @@ namespace MeghalayaUIP.User.Services
         {
             try
             {
-                if (rblContractor.SelectedValue=="Y")
+                if (rblContractor.SelectedValue == "Y")
                 {
                     Details.Visible = true;
                 }
                 else { Details.Visible = false; }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
@@ -364,69 +364,69 @@ namespace MeghalayaUIP.User.Services
                     }
 
 
-                  /*  Labourworkme6 ObjCDWMDet = new Labourworkme6();
+                    /*  Labourworkme6 ObjCDWMDet = new Labourworkme6();
 
-                    ObjCDWMDet.Questionnariid = Convert.ToString(Session["SRVCQID"]);
-                    ObjCDWMDet.Createdby = hdnUserID.Value;
-                    ObjCDWMDet.IPAddress = getclientIP();
+                      ObjCDWMDet.Questionnariid = Convert.ToString(Session["SRVCQID"]);
+                      ObjCDWMDet.Createdby = hdnUserID.Value;
+                      ObjCDWMDet.IPAddress = getclientIP();
 
-                    ObjCDWMDet.DateofBirth = rblDateofBirth.SelectedValue;
-                    ObjCDWMDet.Date = txtDateBirth.Text;
-                    ObjCDWMDet.Age = txtAges.Text;
-                    ObjCDWMDet.State = ddlSates.SelectedValue;
-                    ObjCDWMDet.Districtid = ddlDistric.SelectedValue;
-                    ObjCDWMDet.Mandaleid = ddlMandal.SelectedValue;
-                    ObjCDWMDet.Villageid = ddlVillage.SelectedValue;
-                    ObjCDWMDet.District = txtDistricted.Text;
-                    ObjCDWMDet.Mandal = txtMandaled.Text;
-                    ObjCDWMDet.Village = txtVillagede.Text;
-                    ObjCDWMDet.Locality = txtLocal.Text;
-                    ObjCDWMDet.Landmark = txtNearMark.Text;
-                    ObjCDWMDet.Pincode = txtPin.Text;
-                    ObjCDWMDet.Artical5 = rblArtical5.SelectedValue;
-                    ObjCDWMDet.Criminalcase = rblMakeApplicationCrime.SelectedValue;
-                    ObjCDWMDet.ConvictedCrimecase = rblCriminalCase.SelectedValue;
-                    ObjCDWMDet.DistrictCouncil = rblDistricCouncil.SelectedValue;
-                    ObjCDWMDet.License = ddlLic.Text;
-                    ObjCDWMDet.Licenseno = txtLicNo.Text;
-                    ObjCDWMDet.DateofLicense = txtDateLic.Text;
-                    ObjCDWMDet.ValidDate = txtValidDate.Text;
-                    ObjCDWMDet.Trible = rblTribal.SelectedValue;
-                    ObjCDWMDet.Reason = txtReasons.Text;
-                    ObjCDWMDet.NameEst = txtNameofEstablish.Text;
-                    ObjCDWMDet.TypeofBusiness = txtbusiness.Text;
-                    ObjCDWMDet.RegNoEst = txtRegNoEst.Text;
-                    ObjCDWMDet.DateofReg = txtDateRegCert.Text;
-                    ObjCDWMDet.DistrictEst = ddldist.SelectedValue;
-                    ObjCDWMDet.MandalEst = ddlmand.SelectedValue;
-                    ObjCDWMDet.VillageEst = ddlvilla.SelectedValue;
-                    ObjCDWMDet.LocalityEst = txtLocality.Text;
-                    ObjCDWMDet.LandMarkEst = txtLandmark.Text;
-                    ObjCDWMDet.PincodeEst = txtPincode.Text;
-                    ObjCDWMDet.TitleEmpDet = ddlTitles.SelectedValue;
-                    ObjCDWMDet.NameEmpPrincipal = txtNameEmp.Text;
-                    ObjCDWMDet.NameLocationNature = txtNameMigrantEmp.Text;
-                    ObjCDWMDet.DurationWorkDay = txtContractorMin.Text;
-                    ObjCDWMDet.CommencingDate = txtCommencingDate.Text;
-                    ObjCDWMDet.EndingDate = txtEnding.Text;
-                    ObjCDWMDet.NameAgent = txtSiteManager.Text;
-                    ObjCDWMDet.MaxMigrantWorkmenNo = txtMaxEstEmp.Text;
-                    ObjCDWMDet.MigrantState = ddlStates.SelectedValue;
-                    ObjCDWMDet.MigrantDistrict = ddlDistrictes.SelectedValue;
-                    ObjCDWMDet.MigrantNameAddress = txtMigrantWorkmen.Text;
-                    ObjCDWMDet.Convicted5Year = rblContractor.SelectedValue;
-                    ObjCDWMDet.Details = txtDetail.Text;
-                    ObjCDWMDet.suspendinglicense = rblLicSuspending.Text;
-                    ObjCDWMDet.OrderNo = txtOrderNo.Text;
-                    ObjCDWMDet.OrderDate = txtOrderDate.Text;
-                    ObjCDWMDet.ContractEst5Year = rblfiveyears.SelectedValue;
-                    ObjCDWMDet.Establishment = txtEstablishDetails.Text;
-                    ObjCDWMDet.PrincipalEmp = txtEmpDetails.Text;
-                    ObjCDWMDet.NatureWork = txtNature.Text;
-                    ObjCDWMDet.PrincipalEmployer = rblEmpClosed.Text;
-                   
+                      ObjCDWMDet.DateofBirth = rblDateofBirth.SelectedValue;
+                      ObjCDWMDet.Date = txtDateBirth.Text;
+                      ObjCDWMDet.Age = txtAges.Text;
+                      ObjCDWMDet.State = ddlSates.SelectedValue;
+                      ObjCDWMDet.Districtid = ddlDistric.SelectedValue;
+                      ObjCDWMDet.Mandaleid = ddlMandal.SelectedValue;
+                      ObjCDWMDet.Villageid = ddlVillage.SelectedValue;
+                      ObjCDWMDet.District = txtDistricted.Text;
+                      ObjCDWMDet.Mandal = txtMandaled.Text;
+                      ObjCDWMDet.Village = txtVillagede.Text;
+                      ObjCDWMDet.Locality = txtLocal.Text;
+                      ObjCDWMDet.Landmark = txtNearMark.Text;
+                      ObjCDWMDet.Pincode = txtPin.Text;
+                      ObjCDWMDet.Artical5 = rblArtical5.SelectedValue;
+                      ObjCDWMDet.Criminalcase = rblMakeApplicationCrime.SelectedValue;
+                      ObjCDWMDet.ConvictedCrimecase = rblCriminalCase.SelectedValue;
+                      ObjCDWMDet.DistrictCouncil = rblDistricCouncil.SelectedValue;
+                      ObjCDWMDet.License = ddlLic.Text;
+                      ObjCDWMDet.Licenseno = txtLicNo.Text;
+                      ObjCDWMDet.DateofLicense = txtDateLic.Text;
+                      ObjCDWMDet.ValidDate = txtValidDate.Text;
+                      ObjCDWMDet.Trible = rblTribal.SelectedValue;
+                      ObjCDWMDet.Reason = txtReasons.Text;
+                      ObjCDWMDet.NameEst = txtNameofEstablish.Text;
+                      ObjCDWMDet.TypeofBusiness = txtbusiness.Text;
+                      ObjCDWMDet.RegNoEst = txtRegNoEst.Text;
+                      ObjCDWMDet.DateofReg = txtDateRegCert.Text;
+                      ObjCDWMDet.DistrictEst = ddldist.SelectedValue;
+                      ObjCDWMDet.MandalEst = ddlmand.SelectedValue;
+                      ObjCDWMDet.VillageEst = ddlvilla.SelectedValue;
+                      ObjCDWMDet.LocalityEst = txtLocality.Text;
+                      ObjCDWMDet.LandMarkEst = txtLandmark.Text;
+                      ObjCDWMDet.PincodeEst = txtPincode.Text;
+                      ObjCDWMDet.TitleEmpDet = ddlTitles.SelectedValue;
+                      ObjCDWMDet.NameEmpPrincipal = txtNameEmp.Text;
+                      ObjCDWMDet.NameLocationNature = txtNameMigrantEmp.Text;
+                      ObjCDWMDet.DurationWorkDay = txtContractorMin.Text;
+                      ObjCDWMDet.CommencingDate = txtCommencingDate.Text;
+                      ObjCDWMDet.EndingDate = txtEnding.Text;
+                      ObjCDWMDet.NameAgent = txtSiteManager.Text;
+                      ObjCDWMDet.MaxMigrantWorkmenNo = txtMaxEstEmp.Text;
+                      ObjCDWMDet.MigrantState = ddlStates.SelectedValue;
+                      ObjCDWMDet.MigrantDistrict = ddlDistrictes.SelectedValue;
+                      ObjCDWMDet.MigrantNameAddress = txtMigrantWorkmen.Text;
+                      ObjCDWMDet.Convicted5Year = rblContractor.SelectedValue;
+                      ObjCDWMDet.Details = txtDetail.Text;
+                      ObjCDWMDet.suspendinglicense = rblLicSuspending.Text;
+                      ObjCDWMDet.OrderNo = txtOrderNo.Text;
+                      ObjCDWMDet.OrderDate = txtOrderDate.Text;
+                      ObjCDWMDet.ContractEst5Year = rblfiveyears.SelectedValue;
+                      ObjCDWMDet.Establishment = txtEstablishDetails.Text;
+                      ObjCDWMDet.PrincipalEmp = txtEmpDetails.Text;
+                      ObjCDWMDet.NatureWork = txtNature.Text;
+                      ObjCDWMDet.PrincipalEmployer = rblEmpClosed.Text;
 
-                    result = objSrvcbal.InsertLabourWorkmenDetails(ObjCDWMDet);*/
+
+                      result = objSrvcbal.InsertLabourWorkmenDetails(ObjCDWMDet);*/
 
                     if (result != "")
                     {
@@ -457,79 +457,79 @@ namespace MeghalayaUIP.User.Services
                 int slno = 1;
                 string errormsg = "";
 
-              /*  if (rblDateofBirth.SelectedIndex == -1 || rblDateofBirth.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Date of Birth or Age..! \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtDateBirth.Text) || txtDateBirth.Text.Trim() == "")
-                {
-                    errormsg += slno + ". Please enter Date of Birth...! \\n";
-                    slno++;
-                }
-                if (string.IsNullOrEmpty(txtAges.Text) || txtAges.Text.Trim() == "")
-                {
-                    errormsg += slno + ". Please enter Age...! \\n";
-                    slno++;
-                }
+                /*  if (rblDateofBirth.SelectedIndex == -1 || rblDateofBirth.SelectedItem.Text == "--Select--")
+                  {
+                      errormsg = errormsg + slno + ". Please Select Date of Birth or Age..! \\n";
+                      slno = slno + 1;
+                  }
+                  if (string.IsNullOrEmpty(txtDateBirth.Text) || txtDateBirth.Text.Trim() == "")
+                  {
+                      errormsg += slno + ". Please enter Date of Birth...! \\n";
+                      slno++;
+                  }
+                  if (string.IsNullOrEmpty(txtAges.Text) || txtAges.Text.Trim() == "")
+                  {
+                      errormsg += slno + ". Please enter Age...! \\n";
+                      slno++;
+                  }
 
-                if (ddlSates.SelectedValue == "0" || ddlSates.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select State \\n";
-                    slno = slno + 1;
-                }
-                if (ddlSates.SelectedValue == "23")
-                {
-                    if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
-                    {
-                        errormsg = errormsg + slno + ". Please Select District \\n";
-                        slno = slno + 1;
-                    }
-                    if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
-                    {
-                        errormsg = errormsg + slno + ". Please Select Mandal \\n";
-                        slno = slno + 1;
-                    }
-                    if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
-                    {
-                        errormsg = errormsg + slno + ". Please Select Village \\n";
-                        slno = slno + 1;
-                    }
-                }
-                else if (ddlSates.SelectedValue != "23" && ddlSates.SelectedValue != "0")
-                {
-                    if (string.IsNullOrEmpty(txtDistricted.Text) || txtDistricted.Text == "" || txtDistricted.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter District...! \\n";
-                        slno = slno + 1;
-                    }
-                    if (string.IsNullOrEmpty(txtMandaled.Text) || txtMandaled.Text == "" || txtMandaled.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Mandal...! \\n";
-                        slno = slno + 1;
-                    }
-                    if (string.IsNullOrEmpty(txtVillagede.Text) || txtVillagede.Text == "" || txtVillagede.Text == null)
-                    {
-                        errormsg = errormsg + slno + ". Please Enter Village...! \\n";
-                        slno = slno + 1;
-                    }
-                }
-                if (string.IsNullOrEmpty(txtLocal.Text) || txtLocal.Text.Trim() == "" || txtLocal.Text == null)
-                {
-                    errormsg += slno + ". Please enter Locality...! \\n";
-                    slno++;
-                }
-                if (string.IsNullOrEmpty(txtNearMark.Text) || txtNearMark.Text.Trim() == "" || txtNearMark.Text == null)
-                {
-                    errormsg += slno + ". Please enter Land Mark...! \\n";
-                    slno++;
-                }
-                if (string.IsNullOrEmpty(txtPin.Text) || txtPin.Text.Trim() == "" || txtPin.Text == null)
-                {
-                    errormsg += slno + ". Please enter Pincode...! \\n";
-                    slno++;
-                }
-              */
+                  if (ddlSates.SelectedValue == "0" || ddlSates.SelectedItem.Text == "--Select--")
+                  {
+                      errormsg = errormsg + slno + ". Please Select State \\n";
+                      slno = slno + 1;
+                  }
+                  if (ddlSates.SelectedValue == "23")
+                  {
+                      if (ddlDistric.SelectedIndex == -1 || ddlDistric.SelectedItem.Text == "--Select--")
+                      {
+                          errormsg = errormsg + slno + ". Please Select District \\n";
+                          slno = slno + 1;
+                      }
+                      if (ddlMandal.SelectedIndex == -1 || ddlMandal.SelectedItem.Text == "--Select--")
+                      {
+                          errormsg = errormsg + slno + ". Please Select Mandal \\n";
+                          slno = slno + 1;
+                      }
+                      if (ddlVillage.SelectedIndex == -1 || ddlVillage.SelectedItem.Text == "--Select--")
+                      {
+                          errormsg = errormsg + slno + ". Please Select Village \\n";
+                          slno = slno + 1;
+                      }
+                  }
+                  else if (ddlSates.SelectedValue != "23" && ddlSates.SelectedValue != "0")
+                  {
+                      if (string.IsNullOrEmpty(txtDistricted.Text) || txtDistricted.Text == "" || txtDistricted.Text == null)
+                      {
+                          errormsg = errormsg + slno + ". Please Enter District...! \\n";
+                          slno = slno + 1;
+                      }
+                      if (string.IsNullOrEmpty(txtMandaled.Text) || txtMandaled.Text == "" || txtMandaled.Text == null)
+                      {
+                          errormsg = errormsg + slno + ". Please Enter Mandal...! \\n";
+                          slno = slno + 1;
+                      }
+                      if (string.IsNullOrEmpty(txtVillagede.Text) || txtVillagede.Text == "" || txtVillagede.Text == null)
+                      {
+                          errormsg = errormsg + slno + ". Please Enter Village...! \\n";
+                          slno = slno + 1;
+                      }
+                  }
+                  if (string.IsNullOrEmpty(txtLocal.Text) || txtLocal.Text.Trim() == "" || txtLocal.Text == null)
+                  {
+                      errormsg += slno + ". Please enter Locality...! \\n";
+                      slno++;
+                  }
+                  if (string.IsNullOrEmpty(txtNearMark.Text) || txtNearMark.Text.Trim() == "" || txtNearMark.Text == null)
+                  {
+                      errormsg += slno + ". Please enter Land Mark...! \\n";
+                      slno++;
+                  }
+                  if (string.IsNullOrEmpty(txtPin.Text) || txtPin.Text.Trim() == "" || txtPin.Text == null)
+                  {
+                      errormsg += slno + ". Please enter Pincode...! \\n";
+                      slno++;
+                  }
+                */
 
 
                 return errormsg;
@@ -736,6 +736,7 @@ namespace MeghalayaUIP.User.Services
                 return sw.ToString();
             }
         }
+
 
 
     }

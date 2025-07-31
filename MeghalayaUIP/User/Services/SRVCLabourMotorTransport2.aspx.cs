@@ -43,7 +43,7 @@ namespace MeghalayaUIP.User.Services
                         rblTransport.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLM_TYPETRANSPORT"]);
                         rblTransport_SelectedIndexChanged(null, EventArgs.Empty);
 
-                        if (rblTransport.SelectedValue=="1")
+                        if (rblTransport.SelectedValue == "1")
                         {
                             divProprietorship.Visible = true;
                             txtProName.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLM_PROPNAME"]);
@@ -51,21 +51,21 @@ namespace MeghalayaUIP.User.Services
                         }
                         else if (rblTransport.SelectedValue == "2")
                         {
-                            divContrLabr.Visible = true;                           
+                            divContrLabr.Visible = true;
                         }
                         else if (rblTransport.SelectedValue == "3")
                         {
-                            divCompanies1956.Visible = true;                            
+                            divCompanies1956.Visible = true;
                         }
-                        else if(rblTransport.SelectedValue == "4")
+                        else if (rblTransport.SelectedValue == "4")
                         {
                             divUndertaking.Visible = true;
                             txtSectorName.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLM_SECTORNAME"]);
                             txtSectorAddress.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLM_SECTORADDRESS"]);
                         }
-                       
+
                         txtVehicleNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLM_VEHICLENO"]);
-                        txtTypeVehicle.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLM_TYPEVEHICLE"]);                         
+                        txtTypeVehicle.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCLM_TYPEVEHICLE"]);
 
                     }
                     if (ds.Tables[1].Rows.Count > 0)
@@ -83,8 +83,8 @@ namespace MeghalayaUIP.User.Services
                         GVDirector.DataSource = dt;
                         GVDirector.DataBind();
                     }
-                    
-                   
+
+
                 }
             }
             catch (Exception ex)
@@ -186,12 +186,12 @@ namespace MeghalayaUIP.User.Services
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
-          
+
         }
         private string GetPartnersXML()
         {
             DataTable dt = PartnerDetails;
-            DataSet ds = new DataSet("Root"); 
+            DataSet ds = new DataSet("Root");
             ds.Tables.Add(dt.Copy());
 
             using (StringWriter sw = new StringWriter())
@@ -399,7 +399,7 @@ namespace MeghalayaUIP.User.Services
                     result = objSrvcbal.InsertSRVCLabourMotorDetails(objLabour);
 
                     if (result != "")
-                    {                       
+                    {
                         success.Visible = true;
                         lblmsg.Text = " Labour Motor Transport Details Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
@@ -412,7 +412,7 @@ namespace MeghalayaUIP.User.Services
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     return;
                 }
-            }            
+            }
             catch (Exception ex)
             {
                 lblmsg0.Text = ex.Message;
@@ -457,7 +457,7 @@ namespace MeghalayaUIP.User.Services
                     errormsg = errormsg + slno + ". Please Select State \\n";
                     slno = slno + 1;
                 }
-                
+
 
 
                 return errormsg;

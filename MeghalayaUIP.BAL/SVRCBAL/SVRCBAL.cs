@@ -90,7 +90,7 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         }
         public DataSet GetSRVCApplicationDetails(string QusestionnaireID, string InvesterID, string ApprovalID)
         {
-            return SvrcDal.GetSRVCApplicationDetails(QusestionnaireID, InvesterID,  ApprovalID);
+            return SvrcDal.GetSRVCApplicationDetails(QusestionnaireID, InvesterID, ApprovalID);
         }
 
         public string InsertPaymentDetails(SRVCPayments objpay)
@@ -121,7 +121,7 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         public string InsertEWasteDetails(ServiceEWasteDetails serviceEWasteDetails)
         {
             return SvrcDal.InsertEWasteDetails(serviceEWasteDetails);
-        }   
+        }
         public string InsertProdPlasticsWasteDetails(ServiceProdPlasticsWasteDetails serviceProdPlasticsWasteDetails)
         {
             return SvrcDal.InsertProdPlasticsWasteDetails(serviceProdPlasticsWasteDetails);
@@ -160,7 +160,7 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.SRVCInsertPaymentDet(SRVCPayment);
         }
-        public DataSet GetSRVCUploadEnclosures(string Quid,string userid)
+        public DataSet GetSRVCUploadEnclosures(string Quid, string userid)
         {
             return SvrcDal.GetSRVCUploadEnclosures(Quid, userid);
         }
@@ -206,13 +206,17 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.GetSRVCLabourDETAILS(userid, UnitID);
         }
-        public string InsertTourismDetails(SRVCTourism ObjTourismDet)
-        {
-            return SvrcDal.InsertTourismDetails(ObjTourismDet);
-        }
+        //public string InsertTourismDetails(SRVCTourism ObjTourismDet)
+        //{
+        //    return SvrcDal.InsertTourismDetails(ObjTourismDet);
+        //}
         public string InsertEncumbranceDetails(SRVCEncumbrance ObjEncumbrance)
         {
             return SvrcDal.InsertEncumbranceDetails(ObjEncumbrance);
+        }
+        public DataSet GetSRVCNonEncumbranceDetails(string userid, string UnitID)
+        {
+            return SvrcDal.GetSRVCNonEncumbranceDetails(userid, UnitID);
         }
         public string InsertLabourWorkmenDetails(Labourworkme6 ObjCDWMDet)
         {
@@ -396,6 +400,74 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         public DataSet GetSRVCLabourAct1970DETAILS(string userid, string SRVCQID)
         {
             return SvrcDal.GetSRVCLabourAct1970DETAILS(userid, SRVCQID);
+        }
+        public string InsertTourismDetails(SRVCTourism ObjTourismDet)
+        {
+            return SvrcDal.InsertTourismDetails(ObjTourismDet);
+        }
+        public string InsertTourismParticularsDet(SRVCTourism ObjTourismDet)
+        {
+            int result = SvrcDal.InsertTourismParticularsDet(ObjTourismDet);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteParticulars(SRVCTourism ObjTourismDet)
+        {
+            int result = SvrcDal.DeleteParticulars(ObjTourismDet);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public DataSet GetSRVCTourismDetails(string userid, string UnitID)
+        {
+            return SvrcDal.GetSRVCTourismDetails(userid, UnitID);
+        }
+        public DataSet GetSRVCLabourAct2020DETAILS(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetSRVCLabourAct2020DETAILS(userid, SRVCQID);
+        }
+        public string InsertSRVCLabourMigrantWorkAct2020Details(SRVCLABOURAMIGRANTWORK2020 objLabour)
+        {
+            return SvrcDal.InsertSRVCLabourMigrantWorkAct2020Details(objLabour);
+        }
+        public DataSet GetSRVCLabourMigrantAct1979DETAILS(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetSRVCLabourMigrantAct1979DETAILS(userid, SRVCQID);
+        }
+        public string InsertLabourDirectorMigrantDetails(SRVCLABOURAMIGRANT1979DETAILS objLabour)
+        {
+            int result = SvrcDal.InsertLabourDirectorMigrantDetails(objLabour);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteDirectorMigrant(SRVCLABOURAMIGRANT1979DETAILS objLabour)
+        {
+            int result = SvrcDal.DeleteDirectorMigrant(objLabour);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertLabourManagerMigrantDetails(SRVCLABOURAMIGRANT1979DETAILS objLabour)
+        {
+            int result = SvrcDal.InsertLabourManagerMigrantDetails(objLabour);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteManagerMigrant(SRVCLABOURAMIGRANT1979DETAILS objLabour)
+        {
+            int result = SvrcDal.DeleteManagerMigrant(objLabour);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertLabourParticularsDetails(SRVCLABOURAMIGRANT1979DETAILS objLabour)
+        {
+            int result = SvrcDal.InsertLabourParticularsDetails(objLabour);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteParticulars(SRVCLABOURAMIGRANT1979DETAILS objLabour)
+        {
+            int result = SvrcDal.DeleteParticulars(objLabour);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertSRVCLabourMigrant1979Details(SRVCLABOURAMIGRANT1979DETAILS objLabour)
+        {
+            return SvrcDal.InsertSRVCLabourMigrant1979Details(objLabour);
         }
     }
 }
