@@ -37,28 +37,27 @@ namespace MeghalayaUIP.User.Services
                         rblApplication.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCDD_APPLTYPE"]);
                         rblApplication_SelectedIndexChanged(null, EventArgs.Empty);
 
-                        if (rblApplication.SelectedValue == "W")
-                        {
+                        //if (rblApplication.SelectedValue == "W")
+                        //{
                             divWholesale.Visible = true;
                             rblSelect.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCDD_NAMECOMPETENT"]);
-                            if (rblSelect.SelectedValue == "1")
-                            {
-                                divCompetent.Visible = true;
+                            rblSelect_SelectedIndexChanged(null, EventArgs.Empty);
+                            //if (rblSelect.SelectedValue == "1")
+                            //{
+                               // divCompetent.Visible = true;
                                 txtCompetentName.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCDD_NAMEPHARMACIST"]);
-                            }
-                            else
-                            {
-                                divPharmacist.Visible = true;
+                            //}
+                            //else
+                            //{
+                               // divPharmacist.Visible = true;
                                 txtValidate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCDD_VALIDDATE"]);
                                 txtRegNo.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCDD_REGNO"]);
-
-                            }
-
-                        }
-                        else
-                        {
-                            divRetail.Visible = true;
-                        }
+                            //}
+                        //}
+                        //else
+                        //{
+                        //    divRetail.Visible = true;
+                        //}
 
                         txttradeLic.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCDD_VALIDTNT"]);
                         txtMunicipalDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCDD_VALIDMUNICIPALLITYDATE"]);

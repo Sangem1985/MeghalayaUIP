@@ -180,7 +180,8 @@ namespace MeghalayaUIP.User.CFO
                 }
                 if (errormsg == "")
                 {
-
+                    string message = "alert('" + "Attachments Details saved Successfully" + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
                 else
                 {

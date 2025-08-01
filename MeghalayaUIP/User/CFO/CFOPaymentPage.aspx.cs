@@ -143,29 +143,31 @@ namespace MeghalayaUIP.User.CFO
                 CFOPayments objpay = new CFOPayments();
                 foreach (GridViewRow row in grdApprovals.Rows)
                 {
+                    CheckBox ChkSelect = (CheckBox)row.FindControl("chkSel");
+                    if (ChkSelect.Checked == true)
+                    {
+                        Label ApprovalID = (Label)row.FindControl("lblApprID");
+                        Label DeptID = (Label)row.FindControl("lblDeptID") as Label;
 
-                    Label ApprovalID = (Label)row.FindControl("lblApprID");
-                    Label DeptID = (Label)row.FindControl("lblDeptID") as Label;
+                        objpay.UNITID = Convert.ToString(Session["CFOUNITID"]);
+                        objpay.Questionnareid = hdnQuesID.Value;
+                        objpay.CFEUID = hdnUIDNo.Value;
+                        objpay.DeptID = DeptID.Text;
+                        objpay.ApprovalID = ApprovalID.Text;
+                        objpay.OnlineOrderNo = receipt;
+                        objpay.OnlineOrderAmount = row.Cells[4].Text;
+                        objpay.PaymentFlag = "";
+                        objpay.TransactionNo = "";
+                        objpay.TransactionDate = DateTime.Now.ToString("yyyy-MM-dd");
+                        objpay.BankName = "";
+                        objpay.CreatedBy = hdnUserID.Value;
+                        objpay.IPAddress = getclientIP();
+                        TotalAmount = TotalAmount + Convert.ToDecimal(row.Cells[4].Text);
 
-                    objpay.UNITID = Convert.ToString(Session["CFOUNITID"]);
-                    objpay.Questionnareid = hdnQuesID.Value;
-                    objpay.CFEUID = hdnUIDNo.Value;
-                    objpay.DeptID = DeptID.Text;
-                    objpay.ApprovalID = ApprovalID.Text;
-                    objpay.OnlineOrderNo = receipt;
-                    objpay.OnlineOrderAmount = row.Cells[4].Text;
-                    objpay.PaymentFlag = "";
-                    objpay.TransactionNo = "";
-                    objpay.TransactionDate = DateTime.Now.ToString("yyyy-MM-dd");
-                    objpay.BankName = "";
-                    objpay.CreatedBy = hdnUserID.Value;
-                    objpay.IPAddress = getclientIP();
-                    TotalAmount = TotalAmount + Convert.ToDecimal(row.Cells[4].Text);
-
-                    string A = objcfobal.InsertPaymentDetails(objpay);
-                    if (A != "")
-                    { count = count + 1; }
-
+                        string A = objcfobal.InsertPaymentDetails(objpay);
+                        if (A != "")
+                        { count = count + 1; }
+                    }
                 }
                 if (TotalAmount > 0)
                 {

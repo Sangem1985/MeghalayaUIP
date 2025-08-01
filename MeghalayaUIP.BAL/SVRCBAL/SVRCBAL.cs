@@ -469,5 +469,74 @@ namespace MeghalayaUIP.BAL.SVRCBAL
         {
             return SvrcDal.InsertSRVCLabourMigrant1979Details(objLabour);
         }
+
+        public string InsertLeaglPartnersDetails(SRVCLegalMetrology objLegal)
+        {
+            int result = SvrcDal.InsertLeaglPartnersDetails(objLegal);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeletePatner(SRVCLegalMetrology objLegal)
+        {
+            int result = SvrcDal.DeletePatner(objLegal);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertLegalManagerDetails(SRVCLegalMetrology objLegal)
+        {
+            int result = SvrcDal.InsertLegalManagerDetails(objLegal);
+            return result > 0 ? "Success" : "Failed";
+        }
+
+        public string DeleteLegalManagerDet(SRVCLegalMetrology objLegal)
+        {
+            int result = SvrcDal.DeleteLegalManagerDet(objLegal);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertSRVCLegalMetrologyDetails(SRVCLegalMetrology objLegal)
+        {
+            return SvrcDal.InsertSRVCLegalMetrologyDetails(objLegal);
+        }
+        public string InsertLeaglPartnersDet(SRVCLegalMetrology115 objLegal)
+        {
+            int result = SvrcDal.InsertLeaglPartnersDet(objLegal);
+            return result > 0 ? "Success" : "Failed";
+        }
+        public string DeletePatnerDet(SRVCLegalMetrology115 objLegal)
+        {
+            int result = SvrcDal.DeletePatnerDet(objLegal);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertLegalManagerDet(SRVCLegalMetrology115 objLegal)
+        {
+            int result = SvrcDal.InsertLegalManagerDet(objLegal);
+            return result > 0 ? "Success" : "Failed";
+        }
+        public string DeleteLegalManagerDetails(SRVCLegalMetrology115 objLegal)
+        {
+            int result = SvrcDal.DeleteLegalManagerDetails(objLegal);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string InsertLegalInstrumentDetails(SRVCLegalMetrology115 objLegal)
+        {
+            int result = SvrcDal.InsertLegalInstrumentDetails(objLegal);
+            return result > 0 ? "Success" : "Failed";
+        }
+        public string DeleteLegalInstrumentDetails(SRVCLegalMetrology115 objLegal)
+        {
+            int result = SvrcDal.DeleteLegalInstrumentDetails(objLegal);
+            return result > 0 ? "Deleted" : "Not Found";
+        }
+        public string INSSRVCLegalMetrologyDetails(SRVCLegalMetrology115 objLegal)
+        {
+            return SvrcDal.INSSRVCLegalMetrologyDetails(objLegal);
+        }
+        public DataSet GetSRVCLegalMetrologyDet115(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetSRVCLegalMetrologyDet115(userid, SRVCQID);
+        }
+        public DataSet GetSRVCLegalMetrologyDetails(string userid, string SRVCQID)
+        {
+            return SvrcDal.GetSRVCLegalMetrologyDetails(userid, SRVCQID);
+        }
     }
 }

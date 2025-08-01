@@ -2975,7 +2975,7 @@ namespace MeghalayaUIP.DAL.SVRCDAL
         {
             using (SqlConnection con = new SqlConnection(connstr))
             {
-                SqlCommand cmd = new SqlCommand("", con);
+                SqlCommand cmd = new SqlCommand("USP_DELETESRVCDRUGRETAILDETAILS_BYNAME", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objDrug.Questionnariid));
                 cmd.Parameters.AddWithValue("@NAME", objDrug.RetailName);
@@ -3761,6 +3761,355 @@ namespace MeghalayaUIP.DAL.SVRCDAL
             }
             return result;
         }
+        public int InsertLeaglPartnersDetails(SRVCLegalMetrology objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objLegal.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objLegal.IPAddress);
+                cmd.Parameters.AddWithValue("", objLegal.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeletePatner(SRVCLegalMetrology objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objLegal.Namepartner);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int InsertLegalManagerDetails(SRVCLegalMetrology objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objLegal.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objLegal.IPAddress);
+                cmd.Parameters.AddWithValue("", objLegal.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteLegalManagerDet(SRVCLegalMetrology objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objLegal.NameManaging);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public string InsertSRVCLegalMetrologyDetails(SRVCLegalMetrology objLegal)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
 
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.INSLegalMetrologyDet,
+                    Transaction = transaction,
+                    Connection = connection
+                };
+
+                com.Parameters.AddWithValue("", Convert.ToInt32(objLegal.Questionnariid));
+                com.Parameters.AddWithValue("", Convert.ToInt32(objLegal.Createdby));
+
+                if (objLegal.District != "" && objLegal.District != null)
+                {
+                    com.Parameters.AddWithValue("", Convert.ToInt32(objLegal.District));
+                }
+                if (objLegal.Mandal != "" && objLegal.Mandal != null)
+                {
+                    com.Parameters.AddWithValue("", Convert.ToInt32(objLegal.Mandal));
+                }
+                if (objLegal.Village != "" && objLegal.Village != null)
+                {
+                    com.Parameters.AddWithValue("", Convert.ToInt32(objLegal.Village));
+                }
+
+                com.Parameters.AddWithValue("", objLegal.landmark);
+                com.Parameters.AddWithValue("", objLegal.Station);
+                com.Parameters.AddWithValue("", objLegal.PostOffice);
+                com.Parameters.AddWithValue("", Convert.ToInt32(objLegal.Pincode));
+                com.Parameters.AddWithValue("", objLegal.DateOfEST);                 
+
+                com.Parameters.AddWithValue("", objLegal.RegShopEst);
+                com.Parameters.AddWithValue("", objLegal.RegADC);
+                com.Parameters.AddWithValue("", objLegal.DateofReg);
+                com.Parameters.AddWithValue("", objLegal.CurrentRegNo);
+                com.Parameters.AddWithValue("", objLegal.DateOfRegADC);
+                com.Parameters.AddWithValue("", objLegal.CurrentRegNoADC);
+                com.Parameters.AddWithValue("", objLegal.partnershipfirm);
+                com.Parameters.AddWithValue("", objLegal.limitedcompany);
+                com.Parameters.AddWithValue("", objLegal.NatureManu);
+                com.Parameters.AddWithValue("", objLegal.Weights);
+                com.Parameters.AddWithValue("", objLegal.Measures);
+                com.Parameters.AddWithValue("", objLegal.WeightingInstrument);
+                com.Parameters.AddWithValue("", objLegal.Skilled);
+                com.Parameters.AddWithValue("", objLegal.Semiskilled);
+                com.Parameters.AddWithValue("", objLegal.Unskilled);
+                com.Parameters.AddWithValue("", objLegal.Specialisttrain);
+                com.Parameters.AddWithValue("", objLegal.electricenergy);
+                com.Parameters.AddWithValue("", objLegal.Detailsmachinery);
+                com.Parameters.AddWithValue("", objLegal.Detailsworkshop);
+                com.Parameters.AddWithValue("", objLegal.FacilitiesCasting);
+                com.Parameters.AddWithValue("", objLegal.receivedloan);
+                com.Parameters.AddWithValue("", objLegal.bankersName);
+                com.Parameters.AddWithValue("", objLegal.GiveBankerDetails);
+                com.Parameters.AddWithValue("", objLegal.GST);
+                com.Parameters.AddWithValue("", objLegal.ProfessionalTaxReg);
+                com.Parameters.AddWithValue("", objLegal.ITNumber);
+                com.Parameters.AddWithValue("", objLegal.manufacturedSold);
+                com.Parameters.AddWithValue("", objLegal.manufacturerLicense);
+                com.Parameters.AddWithValue("", objLegal.GiveLicenseDetails); 
+                com.Parameters.AddWithValue("", objLegal.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+        public int InsertLeaglPartnersDet(SRVCLegalMetrology115 objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objLegal.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objLegal.IPAddress);
+                cmd.Parameters.AddWithValue("", objLegal.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeletePatnerDet(SRVCLegalMetrology115 objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objLegal.Namepartner);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int InsertLegalManagerDet(SRVCLegalMetrology115 objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objLegal.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objLegal.IPAddress);
+                cmd.Parameters.AddWithValue("", objLegal.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteLegalManagerDetails(SRVCLegalMetrology115 objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objLegal.NameManaging);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int InsertLegalInstrumentDetails(SRVCLegalMetrology115 objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objLegal.Createdby));
+                cmd.Parameters.AddWithValue("@IPADDRESS", objLegal.IPAddress);
+                cmd.Parameters.AddWithValue("", objLegal.XMLData);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public int DeleteLegalInstrumentDetails(SRVCLegalMetrology115 objLegal)
+        {
+            using (SqlConnection con = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
+                cmd.Parameters.AddWithValue("@NAME", objLegal.NameManaging);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public string INSSRVCLegalMetrologyDetails(SRVCLegalMetrology115 objLegal)
+        {
+            string result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = SvrcConstants.INSLegalMetrologyDetails115,
+                    Transaction = transaction,
+                    Connection = connection
+                };
+
+                com.Parameters.AddWithValue("", Convert.ToInt32(objLegal.Questionnariid));
+                com.Parameters.AddWithValue("", Convert.ToInt32(objLegal.Createdby));            
+
+                com.Parameters.AddWithValue("", objLegal.Dateestablishment);
+                com.Parameters.AddWithValue("", objLegal.RegFactoryEst);
+                com.Parameters.AddWithValue("", objLegal.ShopRegDate);
+                com.Parameters.AddWithValue("", objLegal.ShopCurrentRegNo);
+                com.Parameters.AddWithValue("", objLegal.RegNoADC);
+                com.Parameters.AddWithValue("", objLegal.ADCDateReg);
+                com.Parameters.AddWithValue("", objLegal.ADCCurrentRegNo);
+                com.Parameters.AddWithValue("", objLegal.partnershipfirm);
+                com.Parameters.AddWithValue("", objLegal.limitedcompany);
+                com.Parameters.AddWithValue("", objLegal.Weights);
+                com.Parameters.AddWithValue("", objLegal.Measures);
+                com.Parameters.AddWithValue("", objLegal.WeightingInstrument);
+                com.Parameters.AddWithValue("", objLegal.ProfessionalTaxReg);
+                com.Parameters.AddWithValue("", objLegal.GST);
+                com.Parameters.AddWithValue("", objLegal.ITNumber);
+                com.Parameters.AddWithValue("", objLegal.State);
+                com.Parameters.AddWithValue("", objLegal.LicNo);
+                com.Parameters.AddWithValue("", objLegal.RegWeightMeasure);
+                com.Parameters.AddWithValue("", objLegal.DealerLic);
+                com.Parameters.AddWithValue("", objLegal.GiveDetails);
+                com.Parameters.AddWithValue("", objLegal.IPAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return result;
+        }
+        public DataSet GetSRVCLegalMetrologyDet115(string userid, String SRVCQID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCLegalMetrologyDet115, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCLegalMetrologyDet115;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetSRVCLegalMetrologyDetails(string userid, String SRVCQID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(SvrcConstants.GetSRVCLegalMetrology, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = SvrcConstants.GetSRVCLegalMetrology;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(SRVCQID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(userid));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
     }
 }
