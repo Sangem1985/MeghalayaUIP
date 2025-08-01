@@ -53,7 +53,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">1. District </label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:DropDownList ID="ddldistrict" runat="server" class="form-control" TabIndex="1" onchange="validateDropdown(this)">
+                                                            <asp:DropDownList ID="ddldistrict" runat="server" class="form-control" TabIndex="1" OnSelectedIndexChanged="ddldistrict_SelectedIndexChanged">
                                                             </asp:DropDownList>
                                                         </div>
                                                     </div>
@@ -62,7 +62,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">2. Mandal *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" TabIndex="1">
+                                                            <asp:DropDownList ID="ddlMandal" runat="server" class="form-control" TabIndex="1" OnSelectedIndexChanged="ddlMandal_SelectedIndexChanged">
                                                             </asp:DropDownList>
                                                         </div>
                                                     </div>
@@ -82,7 +82,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">4. Nearest landmark: </label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtTaxReg" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="8"></asp:TextBox>
+                                                            <asp:TextBox ID="txtLandmark" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="8"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,7 +90,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">5. Police Station:  *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtGST" runat="server" class="form-control" onblur="validateGST(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtStation" runat="server" class="form-control" onblur="validateGST(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -98,7 +98,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">6.Post Office/Outpost: *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtITNmumber" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtPostOffice" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -109,7 +109,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">7.Pincode : *</label>
                                                         <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox1" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
+                                                            <asp:TextBox ID="txtPincode" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -124,8 +124,8 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-6 col-form-label">7. Date of Establishment of workshop/factory  *</label>
                                                         <div class="col-lg-6">
-                                                            <asp:TextBox runat="server" ID="TextBox2" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
-                                                            <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtRegDate"></cc1:CalendarExtender>
+                                                            <asp:TextBox runat="server" ID="txtDateWorkshop" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
+                                                            <cc1:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDateWorkshop"></cc1:CalendarExtender>
                                                             <i class="fi fi-rr-calendar-lines"></i>
                                                         </div>
                                                     </div>
@@ -586,148 +586,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <%-- APPROVAL ID 42--%>
-                                            <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Other Details:</span></label>
-                                            </div>
-
-                                            <div class="col-md-12 d-flex" id="divPharmacist" runat="server" visible="false">
-                                                <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Date of establishment </label>
-                                                        <div class="col-lg-4 d-flex">
-                                                            <asp:TextBox runat="server" ID="txtValidate" class="form-control" onkeypress="validateNumberAndHyphen(event);" MaxLength="10" onblur="validateDateFormat(this)" TabIndex="1" />
-                                                            <cc1:CalendarExtender ID="CalendarExtender5" runat="server" Format="dd-MM-yyyy" TargetControlID="txtValidate"></cc1:CalendarExtender>
-                                                            <i class="fi fi-rr-calendar-lines"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-8 col-form-label">Have you obtain any current registration number of factory/ shop/ establishment?  *</label>
-                                                        <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblFactRegNo" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
-                                                                <asp:ListItem Text="Yes" Value="Y" />
-                                                                <asp:ListItem Text="No" Value="N" />
-                                                            </asp:RadioButtonList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-
-
-
-
-                                            <div class="col-md-12 d-flex">
-                                                <label class="col-lg-12 col-form-label fw-bold"><span style="font-weight: 900;">Manufacturing Details</span></label>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">1. Weights: *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox10" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">2. Measures:  *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox11" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="8"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">3. Weighting Instruments: *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox12" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="8"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">4. Professional Tax Reg No: *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox13" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="8"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">5. GST Reg No:  *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox14" runat="server" class="form-control" onblur="validateGST(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">6.IT Number: *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox15" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="8" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Do you intend to import weights, etc. from places outside the State/Country?   *</label>
-                                                        <div class="col-lg-6">
-                                                            <asp:RadioButtonList ID="rblState" runat="server" onchange="validateRadioButtonList(this)" RepeatDirection="Horizontal" AutoPostBack="true">
-                                                                <asp:ListItem Text="Yes" Value="Y" />
-                                                                <asp:ListItem Text="No" Value="N" />
-                                                            </asp:RadioButtonList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4" id="State" runat="server" visible="false">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Licence number: *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtLICNumber" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" TabIndex="1" MaxLength="20"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4" id="Country" runat="server" visible="false">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Registration of Importer of Weights and Measures : *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtRegWeight" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1" MaxLength="9"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Have you applied previously for a dealer's licence,either in this State or elsewhere ?   *</label>
-                                                        <div class="col-lg-4">
-                                                            <asp:RadioButtonList ID="rblDealer" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
-                                                                <asp:ListItem Text="Yes" Value="Y" />
-                                                                <asp:ListItem Text="No" Value="N" />
-                                                            </asp:RadioButtonList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4" id="DealerLic" runat="server" visible="false">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Give details : *</label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="txtGiveDetails" runat="server" class="form-control" onkeypress="return validateNameAndNumbers(event)" MaxLength="100" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </div>                                        
 
 
                                             <div class="col-md-12 text-right mt-2 mb-2">
