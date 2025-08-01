@@ -2,6 +2,7 @@
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
+using MeghalayaUIP.Dept;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -69,30 +70,49 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                DataSet ds = new DataSet(); DataSet ds1 = new DataSet(); DataSet ds2 = new DataSet();
-                ds = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "15", "20,21,23");
-                //20  Certificate for non - availability of water supply from water supply agency
-                //21  Permission to Draw Water from River/ Public Tanks
-                //23  Grant of Water Connection to Non Municipal areas
-                ds1 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "5", "19"); //NoC for Ground Water Abstraction for Commercial Connection
-                ds2 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "2", "22"); //Water Connection for the Municipal Area 
+                //approval id=20, deptid=15  Certificate for non - availability of water supply from water supply agency
+                //approval id=23, deptid=15  Grant of Water Connection to Non Municipal areas
+                //approval id=21, deptid=5  Permission for Surface Water Abstarction 
+                //approval id=22, deptid=2 Water Connection for the Municipal Area 
+                //approval id=19, deptid=23 NoC for Ground Water Abstraction for Commercial Connection
 
-                if (ds.Tables[0].Rows.Count > 0 || ds1.Tables[0].Rows.Count > 0 || ds2.Tables[0].Rows.Count > 0)
+                DataSet dsdept15 = new DataSet(); DataSet dsdept23 = new DataSet(); DataSet dsdept2 = new DataSet(); DataSet dsdept5 = new DataSet();
+                dsdept2 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "2", "22");
+                dsdept5 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "5", "21");
+                dsdept15 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "15", "20,23");
+                dsdept23 = objcfebal.GetAppliedApprovalIDs(hdnUserID.Value, Convert.ToString(Session["CFEUNITID"]), Convert.ToString(Session["CFEQID"]), "23", "19");
+
+                if (dsdept2.Tables[0].Rows.Count > 0 || dsdept2.Tables[0].Rows.Count > 0 || dsdept15.Tables[0].Rows.Count > 0 || dsdept23.Tables[0].Rows.Count > 0)
                 {
                     BindDistrics();
                     Binddata();
 
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        //if(CFEDA_APPROVALID)
-                        divNoNMunicipalWaterConnection.Visible = true; //approval id 23
-                        divNonAvlbltyWaterCert.Visible = true; //approval id 20
-                    }
-                    if (ds2.Tables[0].Rows.Count > 0)
+                    if (dsdept2.Tables[0].Rows.Count > 0)
                     {
                         divMunicipalWaterConnection.Visible = true;  //approval id 22
                     }
-
+                    if (dsdept5.Tables[0].Rows.Count > 0)
+                    {
+                        divSurfaceWater.Visible = true;  //approval id 21
+                    }
+                    if (dsdept15.Tables[0].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dsdept15.Tables.Count; i++)
+                        {
+                            if (Convert.ToString(dsdept15.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "23")
+                            {
+                                divNoNMunicipalWaterConnection.Visible = true; //approval id 23 }
+                            }
+                            else if (Convert.ToString(dsdept15.Tables[0].Rows[i]["CFEDA_APPROVALID"]) == "20")
+                            {
+                                divNonAvlbltyWaterCert.Visible = true; //approval id 20
+                            }
+                        }
+                    }
+                    if (dsdept23.Tables[0].Rows.Count > 0)
+                    {
+                        divGroundWaterAbstraction.Visible = true;  //approval id 19
+                    }
                 }
                 else
                 {
@@ -229,7 +249,7 @@ namespace MeghalayaUIP.User.CFE
                     txtIndustrial.Text = ds.Tables[0].Rows[0]["CFEWD_WATERPROCESS"].ToString();
                     txtQuantwater.Text = ds.Tables[0].Rows[0]["CFEWD_CONSUMPTIVEWATER"].ToString();
                     txtwaterReq.Text = ds.Tables[0].Rows[0]["CFEWD_NONCONSUMPTIVEWATER"].ToString();
-                    rblwatercon.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_WATERCONN"].ToString();
+                   
                     ObjCFEWater.Drinking_Water = txtwater.Text;
                     ObjCFEWater.water_Industrial = txtIndustrial.Text;
                     ObjCFEWater.Quantity_Water = txtQuantwater.Text;
@@ -254,20 +274,27 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Enter Quantity of Water Required for Non-Consumptive (KL/Day) \\n";
                         slno = slno + 1;
                     }
+                    if (ds.Tables[1].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 48)//
+                            {
+                                hypSketch.Visible = true;
+                                hypSketch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
+                                hypSketch.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
+                            }
+
+                        }
+
+                    }
                     */
 
-
-
-                    if (rblwatercon.SelectedValue == "3")
-                    {
-                        holdno.Visible = false;
-                    }
-                    else
-                    {
-                        holdno.Visible = true;
-                    }
+                    rblwatercon.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_WATERCONN"].ToString();
                     txtholding.Text = ds.Tables[0].Rows[0]["CFEWD_HOLDINGNO"].ToString();
                     ddlwardno.Text = ds.Tables[0].Rows[0]["CFEWD_WARDNO"].ToString();
+                    rblwatercon_SelectedIndexChanged(null, EventArgs.Empty);
+
                     txtsubdivision.Text = ds.Tables[0].Rows[0]["CFEWD_DIVISIONAL"].ToString();
                     txtpremise.Text = ds.Tables[0].Rows[0]["CFEWD_NOOFPREMISE"].ToString();
                     txtdemand.Text = ds.Tables[0].Rows[0]["CFEWD_DEMANDPERDAY"].ToString();
@@ -275,34 +302,32 @@ namespace MeghalayaUIP.User.CFE
 
                     txtconnection.Text = ds.Tables[0].Rows[0]["CFEWD_PURPOSECON"].ToString();
                     ddlconnection.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_TYPECONN"].ToString();
-                    if (ddlconnection.SelectedValue == "Y")
-                    {
-                        NominalDN.Visible = true;
-                        DiameterDN.Visible = false;
-                    }
-                    else
-                    {
-                        NominalDN.Visible = false;
-                        DiameterDN.Visible = true;
-                    }
                     ddlDiameter.SelectedItem.Text = ds.Tables[0].Rows[0]["CFEWD_DOMESTIC"].ToString();
                     ddlDN.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_BULK"].ToString();
+                    ddlconnection_SelectedIndexChanged(null, EventArgs.Empty);
+
+                    txtGWPremisePeople.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtNaturalSpring.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtDrillingPurpose.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtDrillingAgencyName.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtDrillingAgencyEmail.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtGWreqPerDay.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtGWOtherInfo.Text = ds.Tables[0].Rows[0][""].ToString();
+
+                    txtRiverName.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtLocation.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtLatitude.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtLongitude.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtSiteDesc.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtMonsoon.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtLean.Text = ds.Tables[0].Rows[0][""].ToString();
+                    rblProperty.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtOwnerName.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtAgreementNo.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtAgreementDate.Text = ds.Tables[0].Rows[0][""].ToString();
+
                 }
-                if (ds.Tables[1].Rows.Count > 0)
-                {
-                    for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
-                    {
-                        if (Convert.ToInt32(ds.Tables[1].Rows[i]["CFEA_MASTERAID"]) == 48)//
-                        {
-                            hypSketch.Visible = true;
-                            hypSketch.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(Convert.ToString(ds.Tables[1].Rows[i]["FILELOCATION"]));
-                            hypSketch.Text = Convert.ToString(ds.Tables[1].Rows[i]["CFEA_FILENAME"]);
-                        }
 
-                    }
-
-
-                }
             }
             catch (Exception ex)
             {
@@ -320,12 +345,15 @@ namespace MeghalayaUIP.User.CFE
                     if (rblwatercon.SelectedValue == "3")
                     {
                         holdno.Visible = false;
+                        txtholding.Text = "";
+                        ddlwardno.ClearSelection();
                     }
                     else
                     {
                         holdno.Visible = true;
                     }
                 }
+                else { holdno.Visible = false; }
             }
             catch (Exception ex)
             {
@@ -387,19 +415,51 @@ namespace MeghalayaUIP.User.CFE
                     //ObjCFEWater.OVERHEAD = txtoverhead.Text;
                     //ObjCFEWater.UNDERGROUND = txtunderground.Text;
                     //ObjCFEWater.TANKER_CAPACITY = ddlTanker.SelectedValue;
-                    ObjCFEWater.WATERCONNECTION = rblwatercon.SelectedValue;
-                    ObjCFEWater.HOLDING = txtholding.Text;
-                    ObjCFEWater.WARDNO = ddlwardno.SelectedValue;
-                    ObjCFEWater.SUBDIVISION = txtsubdivision.Text;
-                    ObjCFEWater.PREMISENUMBER = txtpremise.Text;
-                    ObjCFEWater.WATERDEMAND = txtdemand.Text;
-                    ObjCFEWater.ANYOTHERINFORMATION = txtinformation.Text;
-
-                    ObjCFEWater.PURPOSECONN = txtconnection.Text;
-                    ObjCFEWater.TYPECON = ddlconnection.SelectedValue;
-                    ObjCFEWater.DOMESTIC = ddlDiameter.SelectedValue;
-                    ObjCFEWater.BULK = ddlDN.SelectedValue;
-
+                    if (divMunicipalWaterConnection.Visible)
+                    {
+                        ObjCFEWater.WATERCONNECTION = rblwatercon.SelectedValue;
+                        ObjCFEWater.HOLDING = txtholding.Text;
+                        ObjCFEWater.WARDNO = ddlwardno.SelectedValue;
+                    }
+                    if (divNonAvlbltyWaterCert.Visible)
+                    {
+                        ObjCFEWater.SUBDIVISION = txtsubdivision.Text;
+                        ObjCFEWater.PREMISENUMBER = txtpremise.Text;
+                        ObjCFEWater.WATERDEMAND = txtdemand.Text;
+                        ObjCFEWater.ANYOTHERINFORMATION = txtinformation.Text;
+                    }
+                    if (divNoNMunicipalWaterConnection.Visible)
+                    {
+                        ObjCFEWater.PURPOSECONN = txtconnection.Text;
+                        ObjCFEWater.TYPECON = ddlconnection.SelectedValue;
+                        if (ddlconnection.SelectedValue == "Domestic")
+                            ObjCFEWater.DOMESTIC = ddlDiameter.SelectedValue;
+                        ObjCFEWater.BULK = ddlDN.SelectedValue;
+                    }
+                    if (divGroundWaterAbstraction.Visible)
+                    {
+                        ObjCFEWater.GWPremisePeople = txtGWPremisePeople.Text;
+                        ObjCFEWater.NaturalSpring = txtNaturalSpring.Text;
+                        ObjCFEWater.DrillingPurpose = txtDrillingPurpose.Text;
+                        ObjCFEWater.DrillingAgencyName = txtDrillingAgencyName.Text;
+                        ObjCFEWater.DrillingAgencyEmail = txtDrillingAgencyEmail.Text;
+                        ObjCFEWater.GWreqPerDay = txtGWreqPerDay.Text;
+                        ObjCFEWater.GWOtherInfo = txtGWOtherInfo.Text;
+                    }
+                    if (divSurfaceWater.Visible == true)
+                    {
+                        ObjCFEWater.SWRiverName = txtRiverName.Text;
+                        ObjCFEWater.SWLocation = txtLocation.Text;
+                        ObjCFEWater.SWLatitude = txtLatitude.Text;
+                        ObjCFEWater.SWLongitude = txtLongitude.Text;
+                        ObjCFEWater.SWSiteDesc = txtSiteDesc.Text;
+                        ObjCFEWater.SWMonsoon = txtMonsoon.Text;
+                        ObjCFEWater.SWLean = txtLean.Text;
+                        ObjCFEWater.SWrblProperty = rblProperty.Text;
+                        ObjCFEWater.SWOwnerName = txtOwnerName.Text;
+                        ObjCFEWater.SWAgreementNo = txtAgreementNo.Text;
+                        ObjCFEWater.SWAgreementDate = txtAgreementDate.Text;
+                    }
                     result = objcfebal.InsertCFEWaterDetails(ObjCFEWater);
 
                     if (result != "")
@@ -449,7 +509,7 @@ namespace MeghalayaUIP.User.CFE
                         slno = slno + 1;
                     }
                 }
-                if (divNoNMunicipalWaterConnection.Visible) 
+                if (divNoNMunicipalWaterConnection.Visible)
                 {
                     if (string.IsNullOrEmpty(txtconnection.Text) || txtconnection.Text == "" || txtconnection.Text == null)
                     {
@@ -461,7 +521,7 @@ namespace MeghalayaUIP.User.CFE
                         errormsg = errormsg + slno + ". Please Select type connection \\n";
                         slno = slno + 1;
                     }
-                    if(ddlconnection.SelectedValue== "Bulk")
+                    if (ddlconnection.SelectedValue == "Bulk")
                     {
                         if (ddlDN.SelectedValue == "0" || ddlDN.SelectedItem.Text == "--Select--")
                         {
@@ -494,7 +554,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                 }
 
-                
+
                 //if (string.IsNullOrEmpty(hypSketch.Text) || hypSketch.Text == "" || hypSketch.Text == null)
                 //{
                 //    errormsg = errormsg + slno + ". Please upload Route Sketch Map \\n";
@@ -709,9 +769,13 @@ namespace MeghalayaUIP.User.CFE
             {
                 if (rblProperty.SelectedItem.Text == "Leased")
                 {
-                    divProperty.Visible = true;
+                    divLeased.Visible = true;
                 }
-                else { divProperty.Visible = false; }
+                else
+                {
+                    divLeased.Visible = false;
+                    txtOwner.Text = ""; txtAgreementDate.Text = ""; txtAgreementNo.Text = "";
+                }
             }
             catch (Exception ex)
             {

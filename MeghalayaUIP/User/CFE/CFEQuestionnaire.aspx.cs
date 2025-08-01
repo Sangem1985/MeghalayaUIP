@@ -1225,8 +1225,13 @@ namespace MeghalayaUIP.User.CFE
                     slno = slno + 1;
                 }
                 if (ddlVillage.SelectedValue == "277282")
-                { 
-                
+                {
+                    if (ddldivision.SelectedIndex == -1 || ddldivision.SelectedItem.Text == "--Select--")
+                    {
+                        errormsg = errormsg + slno + ". Please Select Village Sub Division \\n";
+                        slno = slno + 1;
+                    }
+
                 }
                 if (string.IsNullOrEmpty(txtLandArea.Text) || txtLandArea.Text == "" || txtLandArea.Text == null || txtLandArea.Text.All(c => c == '0') || System.Text.RegularExpressions.Regex.IsMatch(txtLandArea.Text, @"^0+(\.0+)?$"))
                 {
@@ -1461,7 +1466,7 @@ namespace MeghalayaUIP.User.CFE
                     }
                     if (rblMunicipal.SelectedValue == "Y")
                     {
-                        if (ddlMunicipal.SelectedIndex == -1)
+                        if (ddlMunicipal.SelectedValue =="0")
                         {
                             errormsg = errormsg + slno + ". Please Select Water Connection for the Municipal Area  \\n";
                             slno = slno + 1;
@@ -1755,7 +1760,7 @@ namespace MeghalayaUIP.User.CFE
                     watersupply = objcfebal.GetApprovalsReqWithFee(objCFEQ);
                     dtApprReq.Merge(watersupply);
                 }
-                if (rblRiverTanks.SelectedValue == "Y")
+                if (rblRiverTanks.SelectedValue == "Y")//surface water abstraction
                 {
                     objCFEQ.ApprovalID = "21";
                     rivertanker = objcfebal.GetApprovalsReqWithFee(objCFEQ);

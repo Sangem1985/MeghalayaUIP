@@ -644,10 +644,7 @@ namespace MeghalayaUIP.Dept.CFE
                     {
                         if (waterConn.Visible == true)
                         {
-                            lblDrink.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_WATERDRINK"]);
-                            lblWaterIndu.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_WATERPROCESS"]);
-                            lblReqWater.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_CONSUMPTIVEWATER"]);
-                            lblNonConsumptive.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_NONCONSUMPTIVEWATER"]);
+                            
                             lblConnection.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_WATERCONN"]);
 
                             if (lblConnection.Text == "3")
@@ -669,12 +666,7 @@ namespace MeghalayaUIP.Dept.CFE
                                 lblPremise.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_NOOFPREMISE"]);
                                 lblReqDemand.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_DEMANDPERDAY"]);
                                 lblInformations.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_INFORMATION"]);
-                                lblDistrictWater.Text = Convert.ToString(ds.Tables[18].Rows[0]["DistrictName"]);
-                                MandalWater.Text = Convert.ToString(ds.Tables[18].Rows[0]["Mandalname"]);
-                                lblVillageWater.Text = Convert.ToString(ds.Tables[18].Rows[0]["VillageName"]);
-                                lblLocalitywater.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_LOCALITY"]);
-                                lblNear.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_LANDMARK"]);
-                                lblPinNumber.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_PINCODE"]);
+                               
                                 lblReqConn.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_PURPOSECON"]);
                                 lblTypeCon.Text = Convert.ToString(ds.Tables[18].Rows[0]["CFEWD_TYPECONN"]);
                                 if (lblTypeCon.Text == "Yes")

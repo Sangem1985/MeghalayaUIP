@@ -85,7 +85,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div id="divNoNMunicipalWaterConnection" runat="server" visible="false">
-                                                <h3 class="col-lg-12 col-form-label fw-bold">Grant of Water Connection to Non Municipal areas: Water Connection Details</h3>
+                                                <h3 class="col-lg-12 col-form-label fw-bold">Grant of Water Connection to Non Municipal areas: Water Connection-Details</h3>
 
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-6">
@@ -145,7 +145,7 @@
 
                                         <div class="col-md-12 mb-3">
                                             <div id="divNonAvlbltyWaterCert" runat="server" visible="false">
-                                                <h3 class="col-lg-12 col-form-label fw-bold">Certificate for non-availability of water supply from water supply agency</h3>
+                                                <h3 class="col-lg-12 col-form-label fw-bold">Certificate for non-availability of water supply from water supply agency-Details</h3>
                                                 <div class="col-md-12 d-flex">
                                                     <div class="col-md-6">
                                                         <div class="form-group row">
@@ -186,127 +186,195 @@
                                             </div>
                                         </div>
 
+                                        <div class="col-md-12">
+                                            <div id="divGroundWaterAbstraction" runat="server" visible="false">
+                                                <h5 class="col-lg-12 col-form-label fw-bold">NoC for Ground Water Abstraction for Commercial Connection-Details:</h5>
 
-
-
-                                        <div id="divSurfaceWater" runat="server" visible="false">
-
-
-                                            <h5 class="card-title ml-4 mt-3">Surface Water Abstraction -Application Details:</h5>
-                                            <h3 class="card-title ml-4 mt-3">Extraction Point Location: </h3>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Name of Stream/River <span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox1" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Number of persons residing in the premises <span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtGWPremisePeople" runat="server" class="form-control" TabIndex="1" onkeypress="return NumberOnly()" ></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Presence of natural spring nearby<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtNaturalSpring" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Site/Location<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox2" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Purpose for drilling  <span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtDrillingPurpose" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Name of Registered Drilling Agency<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtDrillingAgencyName" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">GPS Coordinates(if known): Latitude<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox3" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">E-Mail of Registered Drilling Agency <span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtDrillingAgencyEmail" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Water requirement per day demand<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtGWreqPerDay" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Longitude <span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox4" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Site Description (please include a map/diagram)<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox5" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <h4 class="card-title ml-4 mt-3">Water Requirements</h4>
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Monsoon period <span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox6" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Lean period<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox7" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Any other information<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtGWOtherInfo" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <h4 class="card-title ml-4 mt-3">Property Details</h4>
-
-                                            <div class="col-md-12 d-flex">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Property Type <span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:RadioButtonList ID="rblProperty" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblProperty_SelectedIndexChanged" AutoPostBack="true">
-                                                                <asp:ListItem Text="Owned" Value="Owned" />
-                                                                <asp:ListItem Text="Leased" Value="Leased" />
-                                                            </asp:RadioButtonList>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-12 d-flex" id="divProperty" runat="server" visible="false">
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Owner Details<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox9" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Agreement NO<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox10" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-6 col-form-label">Agreement Date<span class="text-danger">*</span></label>
-                                                        <div class="col-lg-6 d-flex">
-                                                            <asp:TextBox ID="TextBox8" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
+                                        <div class="col-md-12">
+                                            <div id="divSurfaceWater" runat="server" visible="false">
+                                                <h5 class="col-lg-12 col-form-label fw-bold">Surface Water Abstraction -Details:</h5>
+                                                <h3 class="col-lg-12 col-form-label">Extraction Point Location: </h3>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Name of Stream/River <span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtRiverName" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Site/Location<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtLocation" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">GPS Coordinates(if known): Latitude<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtLatitude" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Longitude <span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtLongitude" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Site Description (please include a map/diagram)<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtSiteDesc" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <h4 class="col-lg-12 col-form-label">Water Requirements:</h4>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Monsoon period <span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtMonsoon" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Lean period<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtLean" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <%--<h4 class="col-lg-12 col-form-label">Property Details</h4>--%>
+                                                <div class="col-md-12 d-flex">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Property Details: Property Type <span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:RadioButtonList ID="rblProperty" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblProperty_SelectedIndexChanged" AutoPostBack="true">
+                                                                    <asp:ListItem Text="Owned" Value="Owned" />
+                                                                    <asp:ListItem Text="Leased" Value="Leased" />
+                                                                </asp:RadioButtonList>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-12 d-flex" id="divLeased" runat="server" visible="false">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Owner Details<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtOwnerName" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Agreement No<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtAgreementNo" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-6 col-form-label">Agreement Date<span class="text-danger">*</span></label>
+                                                            <div class="col-lg-6 d-flex">
+                                                                <asp:TextBox ID="txtAgreementDate" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                         <div id="tanker" runat="server" visible="false">
                                             <div class="col-md-12 d-flex">
                                                 <div class="col-md-6">

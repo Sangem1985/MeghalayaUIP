@@ -849,12 +849,11 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                15. Do You Require Permission to 
-                                  
-                                  
-
+                                                                                15. Do You Require Permission 
                                                                                 <br />
-                                                                                Draw Water from River/Public Tanks <span class="text-danger">*</span></label>
+                                                                                Surface Water Abstarction
+                                                                               <%-- Draw Water from River/Public Tanks--%> 
+                                                                                <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-6 d-flex">
                                                                                 <asp:RadioButtonList ID="rblRiverTanks" runat="server" RepeatDirection="Horizontal" TabIndex="1">
                                                                                     <asp:ListItem Text="Yes" Value="Y" />
@@ -900,7 +899,7 @@
                                                                     <div class="col-md-6" id="MunicipalArea" runat="server" visible="false">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-6 col-form-label">
-                                                                                16a. Water Connection for the Municipal Area <span class="text-danger">*</span></label>
+                                                                                16a. Water Connection Type for the Municipal Area <span class="text-danger">*</span></label>
                                                                             <div class="col-lg-4 d-flex">
                                                                                 <asp:DropDownList ID="ddlMunicipal" runat="server" class="form-control">
                                                                                     <asp:ListItem Text="--Select--" Value="0" />
@@ -1113,12 +1112,12 @@
                                                         <HeaderStyle HorizontalAlign="Right" />
                                                         <ItemStyle CssClass="GRDITEM2" Width="100px" HorizontalAlign="Left" />
                                                     </asp:BoundField>
-                                                    <asp:TemplateField HeaderText="Approval ID" Visible="false">
+                                                    <asp:TemplateField HeaderText="Approval ID" Visible="true">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblApprID" runat="server" Text='<%# Eval("ApprovalID") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText=" Dept ID" Visible="false">
+                                                    <asp:TemplateField HeaderText=" Dept ID" Visible="true">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblDeptID" runat="server" Text='<%# Eval("TMD_DEPTID") %>'></asp:Label>
                                                         </ItemTemplate>

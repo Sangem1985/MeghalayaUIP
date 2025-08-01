@@ -519,6 +519,26 @@ namespace MeghalayaUIP.Common
         public string TYPECON { get; set; }
         public string DOMESTIC { get; set; }
         public string BULK { get; set; }
+       
+        public string GWPremisePeople { get; set; }
+        public string NaturalSpring { get; set; }
+        public string DrillingPurpose { get; set; }
+        public string DrillingAgencyName { get; set; }
+        public string DrillingAgencyEmail { get; set; }
+        public string GWreqPerDay { get; set; }
+        public string GWOtherInfo { get; set; }
+
+        public string SWRiverName { get; set; }
+        public string SWLocation { get; set; }
+        public string SWLatitude { get; set; }
+        public string SWLongitude { get; set; }
+        public string SWSiteDesc { get; set; }
+        public string SWMonsoon { get; set; }
+        public string SWLean { get; set; }
+        public string SWrblProperty { get; set; }
+        public string SWOwnerName { get; set; }
+        public string SWAgreementNo { get; set; }
+        public string SWAgreementDate { get; set; }
 
     }
 

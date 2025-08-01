@@ -892,8 +892,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEPD_ELECHARGE", objCFEPower.ElectricityCharge);
                 com.Parameters.AddWithValue("@CFEPD_SUBDIVISION", Convert.ToInt32(objCFEPower.SUBDIVISION));
                 com.Parameters.AddWithValue("@CFEPD_DISTRICT", Convert.ToInt32(objCFEPower.DISTRICT));
-               // com.Parameters.AddWithValue("@CFDA_RESPONSEOUTPUT", objCFEPower.RESPONSEOUTPUT);
-               // com.Parameters.AddWithValue("@CFDA_REGNO", objCFEPower.REGNO);
+                // com.Parameters.AddWithValue("@CFDA_RESPONSEOUTPUT", objCFEPower.RESPONSEOUTPUT);
+                // com.Parameters.AddWithValue("@CFDA_REGNO", objCFEPower.REGNO);
                 com.Parameters.AddWithValue("@CFDA_PINCODEID", objCFEPower.Pincode);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -1447,43 +1447,60 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Transaction = transaction;
                 com.Connection = connection;
 
-                //DataTable dt = new DataTable();
-                //SqlDataAdapter da;
-                //da = new SqlDataAdapter(CFEConstants.INSERTCFEWaterDet, connection);
-                //da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                //da.SelectCommand.CommandText = CFEConstants.INSERTCFEWaterDet;
-                //da.SelectCommand.Transaction = transaction;
-                //da.SelectCommand.Connection = connection;
 
-                com.Parameters.AddWithValue("@CFEWD_CREATEDBY", Convert.ToInt32(ObjCFEWater.CreatedBy));
-                com.Parameters.AddWithValue("@CFEWD_CREATEDBYIP", ObjCFEWater.IPAddress);
-                com.Parameters.AddWithValue("@CFEWD_CFEQDID", Convert.ToInt32(ObjCFEWater.Questionnariid));
-                com.Parameters.AddWithValue("@CFEWD_UNITID", Convert.ToInt32(ObjCFEWater.UNITID));
-                com.Parameters.AddWithValue("@CFEWD_WATERDRINK", Convert.ToDecimal(ObjCFEWater.Drinking_Water));
-                com.Parameters.AddWithValue("@CFEWD_WATERPROCESS", Convert.ToDecimal(ObjCFEWater.water_Industrial));
-                com.Parameters.AddWithValue("@CFEWD_CONSUMPTIVEWATER", Convert.ToDecimal(ObjCFEWater.Quantity_Water));
-                com.Parameters.AddWithValue("@CFEWD_NONCONSUMPTIVEWATER", Convert.ToDecimal(ObjCFEWater.Non_Consumptive_water));
-                //com.Parameters.AddWithValue("@CFEWD_OVERHEAD", ObjCFEWater.OVERHEAD);
-                //com.Parameters.AddWithValue("@CFEWD_UNDERGROUND", ObjCFEWater.UNDERGROUND);
-                //com.Parameters.AddWithValue("@CFEWD_TANKER", ObjCFEWater.TANKER_CAPACITY);
-                com.Parameters.AddWithValue("@CFEWD_WATERCONN", ObjCFEWater.WATERCONNECTION);
-                com.Parameters.AddWithValue("@CFEWD_HOLDINGNO", ObjCFEWater.HOLDING);
-                com.Parameters.AddWithValue("@CFEWD_WARDNO", ObjCFEWater.WARDNO);
-                com.Parameters.AddWithValue("@CFEWD_DIVISIONAL", ObjCFEWater.SUBDIVISION);
-                com.Parameters.AddWithValue("@CFEWD_NOOFPREMISE", Convert.ToInt32(ObjCFEWater.PREMISENUMBER));
-                com.Parameters.AddWithValue("@CFEWD_DEMANDPERDAY", Convert.ToInt32(ObjCFEWater.WATERDEMAND));
-                com.Parameters.AddWithValue("@CFEWD_INFORMATION", ObjCFEWater.ANYOTHERINFORMATION);
-                com.Parameters.AddWithValue("@CFEWD_DISTRIC", Convert.ToInt32(ObjCFEWater.DISTRIC));
+                /*
+                 com.Parameters.AddWithValue("@CFEWD_WATERDRINK", Convert.ToDecimal(ObjCFEWater.Drinking_Water));
+                 com.Parameters.AddWithValue("@CFEWD_WATERPROCESS", Convert.ToDecimal(ObjCFEWater.water_Industrial));
+                 com.Parameters.AddWithValue("@CFEWD_CONSUMPTIVEWATER", Convert.ToDecimal(ObjCFEWater.Quantity_Water));
+                 com.Parameters.AddWithValue("@CFEWD_NONCONSUMPTIVEWATER", Convert.ToDecimal(ObjCFEWater.Non_Consumptive_water));
+                 com.Parameters.AddWithValue("@CFEWD_OVERHEAD", ObjCFEWater.OVERHEAD);
+                 com.Parameters.AddWithValue("@CFEWD_UNDERGROUND", ObjCFEWater.UNDERGROUND);
+                 com.Parameters.AddWithValue("@CFEWD_TANKER", ObjCFEWater.TANKER_CAPACITY);
+                 com.Parameters.AddWithValue("@CFEWD_DISTRIC", Convert.ToInt32(ObjCFEWater.DISTRIC));
                 com.Parameters.AddWithValue("@CFEWD_MANDAL ", Convert.ToInt32(ObjCFEWater.MANDAL));
                 com.Parameters.AddWithValue("@CFEWD_VILLAGE", Convert.ToInt32(ObjCFEWater.VILLAGE));
                 com.Parameters.AddWithValue("@CFEWD_LOCALITY", ObjCFEWater.LOCALITY);
                 com.Parameters.AddWithValue("@CFEWD_LANDMARK", ObjCFEWater.LANDMARK);
                 com.Parameters.AddWithValue("@CFEWD_PINCODE ", Convert.ToInt32(ObjCFEWater.PINCODE));
+                 */
+
+                com.Parameters.AddWithValue("@CFEWD_CREATEDBY", Convert.ToInt32(ObjCFEWater.CreatedBy));
+                com.Parameters.AddWithValue("@CFEWD_CREATEDBYIP", ObjCFEWater.IPAddress);
+                com.Parameters.AddWithValue("@CFEWD_CFEQDID", Convert.ToInt32(ObjCFEWater.Questionnariid));
+                com.Parameters.AddWithValue("@CFEWD_UNITID", Convert.ToInt32(ObjCFEWater.UNITID));
+
+                com.Parameters.AddWithValue("@CFEWD_WATERCONN", ObjCFEWater.WATERCONNECTION);
+                com.Parameters.AddWithValue("@CFEWD_HOLDINGNO", ObjCFEWater.HOLDING);
+                com.Parameters.AddWithValue("@CFEWD_WARDNO", ObjCFEWater.WARDNO);
+
+                com.Parameters.AddWithValue("@CFEWD_DIVISIONAL", ObjCFEWater.SUBDIVISION);
+                com.Parameters.AddWithValue("@CFEWD_NOOFPREMISE", ObjCFEWater.PREMISENUMBER);
+                com.Parameters.AddWithValue("@CFEWD_DEMANDPERDAY", ObjCFEWater.WATERDEMAND);
+                com.Parameters.AddWithValue("@CFEWD_INFORMATION", ObjCFEWater.ANYOTHERINFORMATION);
+
+
                 com.Parameters.AddWithValue("@CFEWD_PURPOSECON", ObjCFEWater.PURPOSECONN);
                 com.Parameters.AddWithValue("@CFEWD_TYPECONN", ObjCFEWater.TYPECON);
                 com.Parameters.AddWithValue("@CFEWD_DOMESTIC", ObjCFEWater.DOMESTIC);
                 com.Parameters.AddWithValue("@CFEWD_BULK", ObjCFEWater.BULK);
-
+                com.Parameters.AddWithValue("@CFEWD_GWPREMISEPERSONS", ObjCFEWater.GWPremisePeople);
+                com.Parameters.AddWithValue("@CFEWD_NATURALSPRING", ObjCFEWater.NaturalSpring);
+                com.Parameters.AddWithValue("@CFEWD_DRILLINGPURPOSE", ObjCFEWater.DrillingPurpose);
+                com.Parameters.AddWithValue("@CFEWD_DRILLINGAGENCYNAME", ObjCFEWater.DrillingAgencyName);
+                com.Parameters.AddWithValue("@CFEWD_DRILLINGAGENCYEMAIL", ObjCFEWater.DrillingAgencyEmail);
+                com.Parameters.AddWithValue("@CFEWD_GWREQPERDAY", ObjCFEWater.GWreqPerDay);
+                com.Parameters.AddWithValue("@CFEWD_GWOTHERINFO", ObjCFEWater.GWOtherInfo);
+                com.Parameters.AddWithValue("@CFEWD_SWRIVERNAME", ObjCFEWater.SWRiverName);
+                com.Parameters.AddWithValue("@CFEWD_SWLOCATION", ObjCFEWater.SWLocation);
+                com.Parameters.AddWithValue("@CFEWD_SWLATITUDE", ObjCFEWater.SWLatitude);
+                com.Parameters.AddWithValue("@CFEWD_SWLONGITUDE", ObjCFEWater.SWLongitude);
+                com.Parameters.AddWithValue("@CFEWD_SWSITEDESC", ObjCFEWater.SWSiteDesc);
+                com.Parameters.AddWithValue("@CFEWD_SWMONSOON", ObjCFEWater.SWMonsoon);
+                com.Parameters.AddWithValue("@CFEWD_SWLEAN", ObjCFEWater.SWLean);
+                com.Parameters.AddWithValue("@CFEWD_SWPROPERTYTYPE", ObjCFEWater.BULK);
+                com.Parameters.AddWithValue("@CFEWD_SWOWNERNAME", ObjCFEWater.SWOwnerName);
+                com.Parameters.AddWithValue("@CFEWD_SWAGREEMENTNO", ObjCFEWater.SWAgreementNo);
+                com.Parameters.AddWithValue("@CFEWD_SWAGREEMENTDATE", ObjCFEWater.SWAgreementDate);
 
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
@@ -1709,12 +1726,12 @@ namespace MeghalayaUIP.DAL.CFEDAL
 
                 com.Transaction = transaction;
                 com.Connection = connection;
-                
+
                 com.Parameters.AddWithValue("@CFEDA_UNITID", Convert.ToInt32(objpay.UNITID));
                 com.Parameters.AddWithValue("@CFEDA_CFEQDID", Convert.ToInt32(objpay.Questionnareid));
                 com.Parameters.AddWithValue("@CFEDA_APPROVALID", Convert.ToInt32(objpay.ApprovalID));
                 com.Parameters.AddWithValue("@CFEDA_DEPTID", objpay.DeptID);
-                
+
                 com.Parameters.AddWithValue("@CFDA_CREATEDBY", Convert.ToInt32(objpay.CreatedBy));
                 com.Parameters.AddWithValue("@IPARRDESS", objpay.IPAddress);
 
@@ -2585,7 +2602,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 {
                     com.Parameters.AddWithValue("@CFECD_CAPACITY", Convert.ToDecimal(ObjCFECEIG.CAPACITY));
                 }
-                if(ObjCFECEIG.LOCATIONFACTORY != null && ObjCFECEIG.LOCATIONFACTORY != "")
+                if (ObjCFECEIG.LOCATIONFACTORY != null && ObjCFECEIG.LOCATIONFACTORY != "")
                 {
                     com.Parameters.AddWithValue("@CFECD_FACTORYLOCATION", ObjCFECEIG.LOCATIONFACTORY);
                 }
@@ -3476,8 +3493,8 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 da.SelectCommand.Connection = connection;
                 da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
                 da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
-                if(DeptID!="")
-                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(DeptID));
+                if (DeptID != "")
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(DeptID));
 
                 da.Fill(ds);
                 transaction.Commit();
