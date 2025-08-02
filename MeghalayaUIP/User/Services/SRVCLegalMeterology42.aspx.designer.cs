@@ -240,31 +240,31 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divpartnership;
 
         /// <summary>
-        /// txtpartnersName control.
+        /// txtPartnermName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtpartnersName;
+        protected global::System.Web.UI.WebControls.TextBox txtPartnermName;
 
         /// <summary>
-        /// txtAddress control.
+        /// txtPartnerAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtPartnerAddress;
 
         /// <summary>
-        /// btnAddLOM control.
+        /// btnAddPartners control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddLOM;
+        protected global::System.Web.UI.WebControls.Button btnAddPartners;
 
         /// <summary>
         /// GVpartners control.
@@ -285,31 +285,31 @@ namespace MeghalayaUIP.User.Services
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divcompany;
 
         /// <summary>
-        /// txtManagName control.
+        /// txtManagerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtManagName;
+        protected global::System.Web.UI.WebControls.TextBox txtManagerName;
 
         /// <summary>
-        /// txtManagAddress control.
+        /// txtManagerAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtManagAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtManagerAddress;
 
         /// <summary>
-        /// btnManaging control.
+        /// btnManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnManaging;
+        protected global::System.Web.UI.WebControls.Button btnManager;
 
         /// <summary>
         /// GVManaging control.

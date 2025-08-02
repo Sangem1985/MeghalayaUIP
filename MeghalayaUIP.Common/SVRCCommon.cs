@@ -75,7 +75,10 @@ namespace MeghalayaUIP.Common
         public static string INSERTSRVCLABOURMIGRANTACT2020DET = "";
         public static string GetSRVCLabourMigrantAct1979DET = "";
         public static string INSERTSRVCLABOURMIGRANT1979DETAILS = "";
-
+        public static string INSLegalMetrologyDet = "";
+        public static string INSLegalMetrologyDetails115 = "";
+        public static string GetSRVCLegalMetrologyDet115 = "";
+        public static string GetSRVCLegalMetrology = "";
     }
 
     public class SvrcApplicationDetails
@@ -930,6 +933,7 @@ namespace MeghalayaUIP.Common
         public string landmark { get; set; }
         public string Station { get; set; }
         public string PostOffice { get; set; }
+        public string Pincode { get; set; }
         public string DateOfEST { get; set; }
         public string RegShopEst { get; set; }
         public string RegADC { get; set; }
@@ -966,6 +970,45 @@ namespace MeghalayaUIP.Common
         public string manufacturedSold { get; set; }
         public string manufacturerLicense { get; set; }
         public string GiveLicenseDetails { get; set; }     
+        public string Createdby { get; set; }
+        public string IPAddress { get; set; }
+        public string XMLData { get; set; }
+    }
+    public class SRVCLegalMetrology115
+    {
+        public string Questionnariid { get; set; }
+        public string Dateestablishment { get; set; }
+        public string RegFactoryEst { get; set; }
+        public string ShopRegDate { get; set; }
+        public string ShopCurrentRegNo { get; set; }
+        public string RegNoADC { get; set; }
+        public string ADCDateReg { get; set; }
+        public string ADCCurrentRegNo { get; set; }
+        public string partnershipfirm { get; set; }
+        public string limitedcompany { get; set; }
+        public string Namepartner { get; set; }
+        public string Addresspartner { get; set; }
+        public string NameManaging { get; set; }
+        public string AddressManaging { get; set; }
+        public string Weights { get; set; }
+        public string Measures { get; set; }
+        public string WeightingInstrument { get; set; }
+        public string ProfessionalTaxReg { get; set; }
+        public string GST { get; set; }
+        public string ITNumber { get; set; }
+        public string State { get; set; }
+        public string LicNo { get; set; }
+        public string RegWeightMeasure { get; set; }
+        public string DealerLic { get; set; }      
+        public string GiveDetails { get; set; }
+        public string Instrumenttype { get; set; }
+        public string Class { get; set; }
+        public string Capacity { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public string SerialNo { get; set; }
+        public string Product { get; set; }
+        public string Quantity { get; set; }       
         public string Createdby { get; set; }
         public string IPAddress { get; set; }
         public string XMLData { get; set; }

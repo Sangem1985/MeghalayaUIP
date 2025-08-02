@@ -41,19 +41,19 @@ namespace MeghalayaUIP.User.Services
                         rblBrand.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_APPLYREGBIOBRAND"]);
                         rblBrand_SelectedIndexChanged(null, EventArgs.Empty);
 
-                        if (rblBrand.SelectedValue == "Y")
-                        {
-                            divBrands.Visible = true;
-                            divTodateReg.Visible = true;
+                        //if (rblBrand.SelectedValue == "Y")
+                        //{
+                        //    divBrands.Visible = true;
+                        //    divTodateReg.Visible = true;
                             txtFromDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_FROMDATE"]);
                             txtTodate.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_TODATE"]);
                             txtAddress.Text = Convert.ToString(ds.Tables[0].Rows[0]["SRVCED_NAMEADDRESS"]);
-                        }
-                        else
-                        {
-                            divBrands.Visible = false;
-                            divTodateReg.Visible = false;
-                        }
+                        //}
+                        //else
+                        //{
+                        //    divBrands.Visible = false;
+                        //    divTodateReg.Visible = false;
+                        //}
 
 
                     }

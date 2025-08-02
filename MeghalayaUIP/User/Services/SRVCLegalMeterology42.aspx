@@ -12,7 +12,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="../Dashboard/Dashboarddrill.aspx">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="CFOUserDashboard.aspx">Other Services</a></li>
+                    <li class="breadcrumb-item"><a href="SRVCUserDashboard.aspx">Other Services</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Legal Metrology Details</li>
                 </ol>
             </nav>
@@ -160,7 +160,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">1. Name (s) <span class="text-danger">*</span></label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtpartnersName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200"></asp:TextBox>
+                                                                <asp:TextBox ID="txtPartnermName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -168,7 +168,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">2. Address (s)<span class="text-danger">*</span></label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtAddress" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
+                                                                <asp:TextBox ID="txtPartnerAddress" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -182,7 +182,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4 text-center">
-                                                        <asp:Button ID="btnAddLOM" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" />
+                                                        <asp:Button ID="btnAddPartners" Text="Add Details" OnClick="btnAddPartners_Click" runat="server" class="btn btn-rounded btn-green" Width="110px" />
                                                     </div>
                                                 </div>
                                                 <br />
@@ -191,7 +191,7 @@
                                                     <div class="col-md-8">
                                                         <asp:GridView ID="GVpartners" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                            GridLines="Both" Width="100%" EnableModelValidation="True" Visible="false">
+                                                            GridLines="Both" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVpartners_RowDeleting">
                                                             <RowStyle BackColor="#ffffff" />
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                             <Columns>
@@ -214,7 +214,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">1. Name (s) <span class="text-danger">*</span></label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtManagName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200"></asp:TextBox>
+                                                                <asp:TextBox ID="txtManagerName" runat="server" class="form-control" onkeypress="return Names()" MaxLength="200"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -222,7 +222,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-lg-6 col-form-label">2. Address (s)<span class="text-danger">*</span></label>
                                                             <div class="col-lg-6 d-flex">
-                                                                <asp:TextBox ID="txtManagAddress" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
+                                                                <asp:TextBox ID="txtManagerAddress" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" MaxLength="7"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -236,7 +236,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4 text-center">
-                                                        <asp:Button ID="btnManaging" Text="Add Details" runat="server" class="btn btn-rounded btn-green" Width="110px" />
+                                                        <asp:Button ID="btnManager" Text="Add Details" OnClick="btnManager_Click" runat="server" class="btn btn-rounded btn-green" Width="110px" />
                                                     </div>
                                                 </div>
                                                 <br />
@@ -245,7 +245,7 @@
                                                     <div class="col-md-8">
                                                         <asp:GridView ID="GVManaging" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                             BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                            GridLines="Both" Width="100%" EnableModelValidation="True" Visible="false">
+                                                            GridLines="Both" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="GVManaging_RowDeleting">
                                                             <RowStyle BackColor="#ffffff" />
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                             <Columns>
@@ -452,7 +452,7 @@
                                                         <label class="col-lg-6 col-form-label">
                                                         </label>
                                                         <div class="col-lg-4 d-flex">
-                                                            <asp:Button ID="btnAddDetails" Text="Add Details" class="btn btn-green btn-rounded" runat="server" />
+                                                            <asp:Button ID="btnAddDetails" Text="Add Details" OnClick="btnAddDetails_Click" class="btn btn-green btn-rounded" runat="server" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -470,7 +470,7 @@
                                             <div class="col-md-12 d-flex justify-content-center">
                                                 <asp:GridView ID="GVLegalDept" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
                                                     BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
-                                                    GridLines="None"
+                                                    GridLines="None" OnRowDeleting="GVLegalDept_RowDeleting"
                                                     Width="100%" EnableModelValidation="True" Visible="false">
                                                     <RowStyle BackColor="#ffffff" />
                                                     <Columns>
@@ -491,18 +491,16 @@
                                                 </asp:GridView>
                                             </div>
                                         </div>
-
                                     </div>
 
 
                                     <div class="col-md-12 text-right mt-2 mb-2">
 
                                         <asp:Button Text="Previous" runat="server" ID="btnPreviuos" class="btn btn-rounded btn-info btn-lg" Width="150px" />
-                                        <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" />
+                                        <asp:Button ID="btnsave" runat="server" Text="Save" class="btn btn-rounded btn-save btn-lg" Width="150px" OnClick="btnsave_Click" />
                                         <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" />
 
                                     </div>
-
                                 </div>
                             </div>
                         </div>
