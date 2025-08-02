@@ -329,6 +329,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         { 
             return objCFEDAL.UpdateCFEApplStatus(ObjCfe);
         }
-        
+        public DataSet GetComponentsDetails(int QDID, int CREATED_BY)
+        {
+            return objCFEDAL.GetComponentsDetails(QDID, CREATED_BY);
+        }
+
     }
 }

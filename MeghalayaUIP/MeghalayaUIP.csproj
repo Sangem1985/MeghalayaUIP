@@ -720,6 +720,7 @@
     <Content Include="User\CFE\CFECommonApplication.aspx" />
     <Content Include="User\CFE\CFEDGSetDetails.aspx" />
     <Content Include="User\CFE\CFEDrawingPlanDetails.aspx" />
+    <Content Include="User\CFE\CFEEstimationReport.aspx" />
     <Content Include="User\CFE\CFEExplosivesNOC.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
@@ -741,6 +742,7 @@
     <Content Include="User\CFE\CFEQuestionnaire.aspx" />
     <Content Include="User\CFE\CFEStateMigrantCertificate.aspx" />
     <Content Include="User\CFE\CFETFLCertificate.aspx" />
+    <Content Include="User\CFE\CFETrackerDetails.aspx" />
     <Content Include="User\CFE\CFETreeFelling.aspx" />
     <Content Include="User\CFE\CFEUploadEnclosures.aspx" />
     <Content Include="User\CFE\CFEUserApplStatus.aspx" />
@@ -1850,6 +1852,13 @@
     <Compile Include="User\CFE\CFEDrawingPlanDetails.aspx.designer.cs">
       <DependentUpon>CFEDrawingPlanDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFEEstimationReport.aspx.cs">
+      <DependentUpon>CFEEstimationReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEEstimationReport.aspx.designer.cs">
+      <DependentUpon>CFEEstimationReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFEExplosivesNOC.aspx.cs">
       <DependentUpon>CFEExplosivesNOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1996,6 +2005,13 @@
     </Compile>
     <Compile Include="User\CFE\CFETFLCertificate.aspx.designer.cs">
       <DependentUpon>CFETFLCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFETrackerDetails.aspx.cs">
+      <DependentUpon>CFETrackerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFETrackerDetails.aspx.designer.cs">
+      <DependentUpon>CFETrackerDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFETreeFelling.aspx.cs">
       <DependentUpon>CFETreeFelling.aspx</DependentUpon>
