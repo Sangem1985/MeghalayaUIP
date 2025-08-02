@@ -774,7 +774,7 @@ namespace MeghalayaUIP.User.CFE
                 else
                 {
                     divLeased.Visible = false;
-                    txtOwner.Text = ""; txtAgreementDate.Text = ""; txtAgreementNo.Text = "";
+                    txtOwnerName.Text = ""; txtAgreementDate.Text = ""; txtAgreementNo.Text = "";
                 }
             }
             catch (Exception ex)
