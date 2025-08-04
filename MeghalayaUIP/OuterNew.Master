@@ -5,16 +5,16 @@
 <html lang="en">
 
 <head runat="server">
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MIPA</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
 
-    
-    
+
+
     <!-- Stylesheets -->
     <link href="assets/assetsnew/css/style.css" rel="stylesheet" />
     <link href="assets/assetsnew/css/fonts/css2.css" rel="stylesheet" />
@@ -25,7 +25,7 @@
     <link href="assets/assetsnew/css/fonts/uicons-solid-rounded.css" rel="stylesheet" />
     <link href="assets/assetsnew/css/fonts/uicons-thin-rounded.css" rel="stylesheet" />
     <link href="assets/assetsnew/css/Mobile.css" rel="stylesheet" />
-    
+
     <style>
         .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
             display: none !important;
@@ -329,11 +329,12 @@
         ul.ODOP {
             left: -125% !important;
         }
+
         ul.listofpoints li {
-    padding: 3px 0px;
-    margin-left: 23px;
-    text-indent: -35px;
-}
+            padding: 3px 0px;
+            margin-left: 23px;
+            text-indent: -35px;
+        }
     </style>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
 </head>
@@ -400,7 +401,7 @@
                             <div class="left-content pull-left">
                                 <figure class="logo-box">
                                     <a href="Home.aspx">
-                                        <img src="assets/assetsnew/images/Logo_dark.png" title="Meghalaya Investment Promotion Authority (MIPA)" alt="Meghalaya Investment Promotion Authority (MIPA)" style="width: 29%; margin-top: 0px;"/>
+                                        <img src="assets/assetsnew/images/Logo_dark.png" title="Meghalaya Investment Promotion Authority (MIPA)" alt="Meghalaya Investment Promotion Authority (MIPA)" style="width: 29%; margin-top: 0px;" />
 
                                     </a>
                                 </figure>
@@ -451,9 +452,10 @@
                                                     <ul>
                                                         <%--<li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= MeghalayaNextVision2028 %>', '_blank'); return false;">Meghalaya Next Vision
                                                 2028</a></li>--%>
-                                                        <li><a href="InvestibleProject.aspx">Investible Projects </a></li>
-                                                       <%-- <li><a href="https://www.meghalayatourism.in/notices-and-updates/" target="_blank">Tourism notices & updates </a></li>--%>
-                                                          <li><a href="InvestibleProjectsTourism.aspx" target="_blank">Tourism notices & updates </a></li>
+                                                        <%-- <li><a href="InvestibleProject.aspx">Investible Projects </a></li>--%>
+                                                        <li><a href="InvestibleProjectsTourism.aspx" target="_blank">Investible Projects </a></li>
+                                                        <li><a href="https://www.meghalayatourism.in/notices-and-updates/" target="_blank">Tourism notices & updates </a></li>
+                                                        <%--   <li><a href="InvestibleProjectsTourism.aspx" target="_blank">Tourism notices & updates </a></li>--%>
                                                     </ul>
                                                 </li>
                                                 <li class="dropdown"><a href="#">Policy Framework <i class="fi fi-br-chevron-double-down"></i></a>
@@ -462,8 +464,8 @@
                                                         <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= MeghalayaTourism %>', '_blank'); return false;">Meghalaya Tourism Policy</a></li>
 
                                                         <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= ITPolicy2024 %>', '_blank'); return false;">IT/ITES Policy 2024</a></li>
-                                                     <%--   <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= MeghalayaPowerPolicy %>', '_blank'); return false;">Meghalaya Film Tourism Policy 2025</a></li>--%>  <%-- Meghalaya Power Policy, 2024--%>
-                                                         <li><a href="Documents/Meghalaya Film Tourism Policy 2025 (16 July 2025) Final.pdf" target="_blank">Meghalaya Film Tourism Policy 2025</a></li>
+                                                        <%--   <li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= MeghalayaPowerPolicy %>', '_blank'); return false;">Meghalaya Film Tourism Policy 2025</a></li>--%>  <%-- Meghalaya Power Policy, 2024--%>
+                                                        <li><a href="Documents/Meghalaya Film Tourism Policy 2025 (16 July 2025) Final.pdf" target="_blank">Meghalaya Film Tourism Policy 2025</a></li>
                                                         <%--<li><a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= ConstructionandDemolitionWasterPolicy %>', '_blank'); return false;">Construction and demolition waste 2024</a></li>--%>
                                                         <li><a href="Documents/ConstructionandDemolitionWasterPolicy.pdf" target="_blank">Construction and demolition waste 2024</a></li>
                                                         <li class="dropdown"><a href="#">Others</a>
@@ -663,12 +665,12 @@
                                                 Shillong - 793 001, East Khasi Hills District, Meghalaya.<br />
                                             </li>
 
-                                            <li><i class="fi fi-br-envelope"></i><span> Email:  meghalayaipa@gmail.com</span>
+                                            <li><i class="fi fi-br-envelope"></i><span>Email:  meghalayaipa@gmail.com</span>
                                                 <%--<a href="mailto:meghalayainvestmentpromotionauthority@gmail.com">meghalayainvestmentpromotionauthority[at]gmail[dot]com</a></li>--%>
-                                            <!--<li>meghalayainvestmentpromotionAuthority[at]gmail[dot]com</li>-->
-                                            <li><i class="fi fi-br-phone-call"></i><span> Call Us: +91 7085741695</span>
-                                                <%--<a href="tel:+91 7085741695">+91 7085741695</a></li>--%>
-                                            <!--<li>+91 7085741695</li>-->
+                                                <!--<li>meghalayainvestmentpromotionAuthority[at]gmail[dot]com</li>-->
+                                                <li><i class="fi fi-br-phone-call"></i><span>Call Us: +91 7085741695</span>
+                                                    <%--<a href="tel:+91 7085741695">+91 7085741695</a></li>--%>
+                                                    <!--<li>+91 7085741695</li>-->
 
                                         </ul>
                                     </div>
@@ -770,54 +772,54 @@
             <script src="assets/assetsnew/js/jquery.min.js"></script>
             <script src="assets/assetsnew/js/jquery-O.S.T.min.js"></script>
 
-              <script type="text/javascript">
-       document.addEventListener('DOMContentLoaded', function () {
-           document.querySelectorAll('input[type="text"], textarea, input[type="password"]').forEach(function (input) {
-               input.addEventListener('keypress', preventInvalidChars)
-               //input.addEventListener('paste', function (e) {
-               //    e.preventDefault();
-               //});
-           });
-       });
-       //document.addEventListener('DOMContentLoaded', function () {
-       //    document.querySelectorAll('input[type="text"]').forEach(function (input) {
-       //        input.addEventListener('keypress', preventInvalidChars)
-       //        input.addEventListener('paste', function (e) {
-       //            e.preventDefault();
-       //        });
-       //    });
-       //});
-       function preventInvalidChars(event) {
-           var charCode = event.charCode || event.keyCode;
-           var charStr = String.fromCharCode(charCode);
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function () {
+                    document.querySelectorAll('input[type="text"], textarea, input[type="password"]').forEach(function (input) {
+                        input.addEventListener('keypress', preventInvalidChars)
+                        //input.addEventListener('paste', function (e) {
+                        //    e.preventDefault();
+                        //});
+                    });
+                });
+                //document.addEventListener('DOMContentLoaded', function () {
+                //    document.querySelectorAll('input[type="text"]').forEach(function (input) {
+                //        input.addEventListener('keypress', preventInvalidChars)
+                //        input.addEventListener('paste', function (e) {
+                //            e.preventDefault();
+                //        });
+                //    });
+                //});
+                function preventInvalidChars(event) {
+                    var charCode = event.charCode || event.keyCode;
+                    var charStr = String.fromCharCode(charCode);
 
-           // Check if the character is < or >
-           if (charStr === '<' || charStr === '>') {
-               event.preventDefault();
-           }
-       }
+                    // Check if the character is < or >
+                    if (charStr === '<' || charStr === '>') {
+                        event.preventDefault();
+                    }
+                }
    </script>
-   <script type="text/javascript">
-       document.addEventListener('DOMContentLoaded', function () {
-           // Apply to input[type="text"], textarea, and input[type="password"]
-           document.querySelectorAll('input[type="textarea"], textarea').forEach(function (input) {
-               input.setAttribute('autocomplete', 'off'); // Disable autocomplete
-               input.addEventListener('keypress', preventInvalidChars); // Prevent invalid characters
-               input.addEventListener('paste', function (e) {
-                   e.preventDefault(); // Disable paste
-               });
-           });
-       });
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Apply to input[type="text"], textarea, and input[type="password"]
+                    document.querySelectorAll('input[type="textarea"], textarea').forEach(function (input) {
+                        input.setAttribute('autocomplete', 'off'); // Disable autocomplete
+                        input.addEventListener('keypress', preventInvalidChars); // Prevent invalid characters
+                        input.addEventListener('paste', function (e) {
+                            e.preventDefault(); // Disable paste
+                        });
+                    });
+                });
 
-       function preventInvalidChars(event) {
-           var charCode = event.charCode || event.keyCode;
-           var charStr = String.fromCharCode(charCode);
+                function preventInvalidChars(event) {
+                    var charCode = event.charCode || event.keyCode;
+                    var charStr = String.fromCharCode(charCode);
 
-           // Prevent the '<' and '>' characters from being typed
-           if (charStr === '<' || charStr === '>') {
-               event.preventDefault();
-           }
-       }
+                    // Prevent the '<' and '>' characters from being typed
+                    if (charStr === '<' || charStr === '>') {
+                        event.preventDefault();
+                    }
+                }
    </script>
 
             <%--<script type="text/javascript">
