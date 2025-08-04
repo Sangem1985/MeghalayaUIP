@@ -65,7 +65,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         //}
                         int[] GMDICs = { };
                         if (Request.Url.ToString().Contains("localhost"))
-                            GMDICs= new int[] { 1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1027 };
+                            GMDICs= new int[] { 1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1027,1028 };
                         else
                             GMDICs = new int[] { 1015, 1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1028 };
 
