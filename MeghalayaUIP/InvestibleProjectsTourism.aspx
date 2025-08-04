@@ -23,10 +23,10 @@
                         </ol>
                     </nav>
 
-                    <h3>Investible Projects in Tourism :</h3>
+                                      <h3>Investible Projects in Tourism :</h3>
                     <!--<h5>Projects under Public Private Partnership (PPP)</h5>
 <p><b>RFP for Re-Development, Operation and Maintenance of Orchid Hotel, located at Shillong City under Design, Build, Finance, Operate and Transfer (DBFOT) Mode on Public Private Partnership (PPP)</b></p>-->
-                    <p>RFP link: <a href="https://www.meghalayatourism.in/re-tendered-rfp-for-polo-orchid/" target="_blank">Extension of date for publishing of tender documents (meghalayatourism.in)</a></p>
+                    <p>See this link to check out updates on the projects : <a href="https://www.meghalayatourism.in/notices-and-updates/" target="_blank">meghalayatourism.in</a></p>
 
                     <table class="table table-bordered table-responsive">
                         <thead>
