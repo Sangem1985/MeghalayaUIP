@@ -306,25 +306,26 @@ namespace MeghalayaUIP.User.CFE
                     ddlDN.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_BULK"].ToString();
                     ddlconnection_SelectedIndexChanged(null, EventArgs.Empty);
 
-                    txtGWPremisePeople.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtNaturalSpring.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtDrillingPurpose.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtDrillingAgencyName.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtDrillingAgencyEmail.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtGWreqPerDay.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtGWOtherInfo.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtGWPremisePeople.Text = ds.Tables[0].Rows[0]["CFEWD_GWPREMISEPERSONS"].ToString();
+                    txtNaturalSpring.Text = ds.Tables[0].Rows[0]["CFEWD_NATURALSPRING"].ToString();
+                    txtDrillingPurpose.Text = ds.Tables[0].Rows[0]["CFEWD_DRILLINGPURPOSE"].ToString();
+                    txtDrillingAgencyName.Text = ds.Tables[0].Rows[0]["CFEWD_DRILLINGAGENCYNAME"].ToString();
+                    txtDrillingAgencyEmail.Text = ds.Tables[0].Rows[0]["CFEWD_DRILLINGAGENCYEMAIL"].ToString();
+                    txtGWreqPerDay.Text = ds.Tables[0].Rows[0]["CFEWD_GWREQPERDAY"].ToString();
+                    txtGWOtherInfo.Text = ds.Tables[0].Rows[0]["CFEWD_GWOTHERINFO"].ToString();
 
-                    txtRiverName.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtLocation.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtLatitude.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtLongitude.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtSiteDesc.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtMonsoon.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtLean.Text = ds.Tables[0].Rows[0][""].ToString();
-                    rblProperty.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtOwnerName.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtAgreementNo.Text = ds.Tables[0].Rows[0][""].ToString();
-                    txtAgreementDate.Text = ds.Tables[0].Rows[0][""].ToString();
+                    txtRiverName.Text = ds.Tables[0].Rows[0]["CFEWD_SWRIVERNAME"].ToString();
+                    txtLocation.Text = ds.Tables[0].Rows[0]["CFEWD_SWLOCATION"].ToString();
+                    txtLatitude.Text = ds.Tables[0].Rows[0]["CFEWD_SWLATITUDE"].ToString();
+                    txtLongitude.Text = ds.Tables[0].Rows[0]["CFEWD_SWLONGITUDE"].ToString();
+                    txtSiteDesc.Text = ds.Tables[0].Rows[0]["CFEWD_SWSITEDESC"].ToString();
+                    txtMonsoon.Text = ds.Tables[0].Rows[0]["CFEWD_SWMONSOON"].ToString();
+                    txtLean.Text = ds.Tables[0].Rows[0]["CFEWD_SWLEAN"].ToString();
+                    rblProperty.SelectedValue = ds.Tables[0].Rows[0]["CFEWD_SWPROPERTYTYPE"].ToString();
+                    txtOwnerName.Text = ds.Tables[0].Rows[0]["CFEWD_SWOWNERNAME"].ToString();
+                    txtAgreementNo.Text = ds.Tables[0].Rows[0]["CFEWD_SWAGREEMENTNO"].ToString();
+                    if (Convert.ToString(ds.Tables[0].Rows[0]["CFEWD_SWAGREEMENTDATE"]) != "")
+                        txtAgreementDate.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["CFEWD_SWAGREEMENTDATE"]).ToString("dd-MM-yyyy"); ;
 
                 }
 
