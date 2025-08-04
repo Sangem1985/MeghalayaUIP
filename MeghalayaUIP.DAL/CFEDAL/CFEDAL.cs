@@ -3411,7 +3411,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
-        public string InsertPaymentRequest(string UnitID, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
+        public string InsertPaymentRequest(string UnitID, string Module, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
             string Contact, string Notes, string IpAddress)
         {
             string Result = "";

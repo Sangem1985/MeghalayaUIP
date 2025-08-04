@@ -31,6 +31,7 @@ namespace MeghalayaUIP.User.Payments
         public string Contact;
         public string IpAddress;
         public string Notes;
+        string UnitID = "", Module = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -74,7 +75,7 @@ namespace MeghalayaUIP.User.Payments
                                 Receipt = Request.QueryString["receipt"].ToString();
                             }
                             Amount = Convert.ToInt32(Session["PaymentAmount"].ToString()) * 100;
-                            string UnitID = "", Module = "";
+                            
 
                             if (Request.QueryString["Module"] != null)
                             {
@@ -130,7 +131,7 @@ namespace MeghalayaUIP.User.Payments
                                 //hdn_notes.Value = JsonConvert.SerializeObject(notes);
 
 
-                                string A = objcfebal.InsertPaymentRequest(UnitID, Session["INSTRIDPM"].ToString(), Receiptorder, orderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
+                                string A = objcfebal.InsertPaymentRequest(UnitID,  Module, Session["INSTRIDPM"].ToString(), Receiptorder, orderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
 
                             }
                         }
