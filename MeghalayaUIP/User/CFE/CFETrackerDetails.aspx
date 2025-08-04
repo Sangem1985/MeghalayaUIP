@@ -44,7 +44,8 @@
                                                             </button>
                                                         </div>
                                                     </div>
-                                                         <div id="div1" runat="server" visible="true" class="container mt-3">
+
+                                                    <div id="div1" runat="server" visible="true" class="container mt-3">
                                                         <div class="card-header">
                                                             <h4 class="card-title">Date of Payment Details</h4>
                                                         </div>
@@ -101,7 +102,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 d-flex justify-content-center">
+                                                        <%-- <div class="col-md-12 d-flex justify-content-center">
                                                             <div class="text-center">
                                                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
                                                                     BorderColor="Tan" BorderWidth="1px" CellPadding="2"
@@ -132,8 +133,7 @@
                                                                     <HeaderStyle BackColor="Tan" Font-Bold="True" />
                                                                 </asp:GridView>
                                                             </div>
-                                                        </div>
-
+                                                        </div>--%>
                                                     </div>
                                                     <br />
                                                     <div id="divQueryDetails" runat="server" visible="true" class="container mt-3">
@@ -277,7 +277,7 @@
                                                                     <spna class="dots">:</spna><asp:Label runat="server" ID="lblRejAppealDate"></asp:Label>
                                                                 </div>
                                                             </div>
-                                                        </div>  
+                                                        </div>
                                                         <div class="col-md-12">
                                                             <div class="form-group row">
                                                                 <label class="col-lg-2 col-form-label">6) Query Response</label>

@@ -690,6 +690,7 @@
     <Content Include="IntentInvest.aspx" />
     <Content Include="IntenttoInvestPrint.aspx" />
     <Content Include="InvestibleProject.aspx" />
+    <Content Include="InvestibleProjectsTourism.aspx" />
     <Content Include="IT_ITES.aspx" />
     <Content Include="KnowYourApprovalsCFE.aspx" />
     <Content Include="KnowYourApprovalsCFO.aspx" />
@@ -1630,6 +1631,13 @@
     </Compile>
     <Compile Include="InvestibleProject.aspx.designer.cs">
       <DependentUpon>InvestibleProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InvestibleProjectsTourism.aspx.cs">
+      <DependentUpon>InvestibleProjectsTourism.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvestibleProjectsTourism.aspx.designer.cs">
+      <DependentUpon>InvestibleProjectsTourism.aspx</DependentUpon>
     </Compile>
     <Compile Include="IT_ITES.aspx.cs">
       <DependentUpon>IT_ITES.aspx</DependentUpon>
