@@ -63,7 +63,12 @@ namespace MeghalayaUIP.Dept.PreReg
                         //    linkQryRcvd.Text = "To be Processed";
                         //    linkQryRepld.Text = "Processed";
                         //}
-                        int[] GMDICs = { 1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1027 };
+                        int[] GMDICs = { };
+                        if (Request.Url.ToString().Contains("localhost"))
+                            GMDICs= new int[] { 1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1027,1028 };
+                        else
+                            GMDICs = new int[] { 1015, 1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1028 };
+
                         if (GMDICs.Contains(Convert.ToInt32(ObjUserInfo.UserID)))
                         {
                             linkDeptSent.Visible = true;

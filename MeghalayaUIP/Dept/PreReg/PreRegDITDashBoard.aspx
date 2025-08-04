@@ -167,6 +167,33 @@
                                         </div>
                                     </asp:LinkButton>
                                 </div>
+                                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <asp:LinkButton runat="server" ID="lnkDCQueryMiPA" OnClick="lnkDCQueryMiPA_Click" ForeColor="White">
+                                        <div class="info-box bg-blue hover-expand-effect">
+                                            <div class="icon">
+                                                <h4>
+                                                    <asp:Label ID="lblDCQueryMiPA" runat="server"></asp:Label>
+                                                </h4>
+                                            </div>
+                                            <div class="content">
+                                                <div class="text">
+                                                   DC Query<br />
+                                                    Raised MiPa
+                                               
+                                                </div>
+                                                <div style="font-size: 12px;"></div>
+                                                <i class="fi fi-tr-file-edit"></i>
+                                            </div>
+                                        </div>
+                                    </asp:LinkButton>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
 
                                 <%-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="divDICQuery" runat="server" visible="false">
                                     <asp:LinkButton runat="server" ID="lnkDCQuery" OnClick="lnkDCQuery_Click" ForeColor="White">
