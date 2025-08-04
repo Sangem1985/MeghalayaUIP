@@ -82,10 +82,33 @@ namespace MeghalayaUIP.Common
         public string Update { get; set; }
         public string REDRESSEDREMARKES { get; set; }
         public string REDRESSEDDATE { get; set; }
-        public string REDRESSEDBYIP { get; set; }
-       
+        public string REDRESSEDBYIP { get; set; }     
+    }
+    public class UIPPayments
+    {
 
+        public string UnitID { get; set; }
+        public string InvestorId { get; set; }
+        public string Receiptorder { get; set; }
+        public string OrderId { get; set; }
+        public string PayAmount { get; set; }
+        public string Name { get; set; }
+        public string Desc { get; set; }
+        public string Mail { get; set; }
+        public string Contact { get; set; }
+        public string Notes { get; set; }
+        public string IpAddress { get; set; }
+        public string paymentId { get; set; }
+        public string Signature { get; set; }
 
-
+        public string code { get; set; }
+        public string description { get; set; }
+        public string source { get; set; }
+        public string step { get; set; }
+        public string reason { get; set; }
+        public string UnitId { get; set; }
+        public string Createdby { get; set; }
+        public string TransactionNo { get; set; }
+        public string Uid { get; set; }
     }
 }

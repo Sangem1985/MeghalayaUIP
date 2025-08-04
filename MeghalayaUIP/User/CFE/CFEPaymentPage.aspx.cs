@@ -77,6 +77,7 @@ namespace MeghalayaUIP.User.CFE
                             //PE1001MEG15520241007
                             hdnQuesID.Value = Convert.ToString(Session["CFEQID"]);
                             hdnUIDNo.Value = Convert.ToString(ds.Tables[0].Rows[0]["UIDNO"]);
+                            Session["CFEUIDNO"] =
                             grdApprovals.DataSource = ds.Tables[0];
                             grdApprovals.DataBind();
                             grdApprovals.Visible = true;

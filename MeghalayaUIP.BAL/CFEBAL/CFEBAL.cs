@@ -287,10 +287,14 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetUnitDetailsforPayment(UnitID, InvesterID, Module);
         }
-        public string InsertPaymentRequest(string UnitID, string Module, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
-            string Contact, string Notes, string IpAddress)
+        //public string InsertPaymentRequest(string UnitID, string Module, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
+        //    string Contact, string Notes, string IpAddress)
+        //{
+        //    return objCFEDAL.InsertPaymentRequest(UnitID, Module, InvestorId, Receiptorder, OrderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
+        //}
+        public string InsertPaymentRequest(UIPPayments pay)
         {
-            return objCFEDAL.InsertPaymentRequest(UnitID, Module, InvestorId, Receiptorder, OrderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
+            return objCFEDAL.InsertPaymentRequest(pay);
         }
         public string UpdatePaymentResponse(string paymentId, string OrderId, string Signature, string IpAddress)
         {

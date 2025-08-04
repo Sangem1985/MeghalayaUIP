@@ -3411,6 +3411,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
+        /*
         public string InsertPaymentRequest(string UnitID, string Module, string InvestorId, string Receiptorder, string OrderId, string PayAmount, string Name, string Desc, string Mail,
             string Contact, string Notes, string IpAddress)
         {
@@ -3461,6 +3462,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
+        */
         public string UpdatePaymentResponse(string paymentId, string OrderId, string Signature, string IpAddress)
         {
             string Result = "";
@@ -3622,7 +3624,55 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
         }
 
+        public string InsertPaymentRequest(UIPPayments pay)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
 
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.InsertPaymentRequest;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@UNITID", pay.UnitID);
+                com.Parameters.AddWithValue("@INVESTORID", pay.InvestorId);
+                com.Parameters.AddWithValue("@ONLINE_ORDER_NO", pay.Receiptorder);
+                com.Parameters.AddWithValue("@ORDERID", pay.OrderId);
+                com.Parameters.AddWithValue("@PAYMENTAMOUNT", pay.PayAmount);
+                com.Parameters.AddWithValue("@NAME", pay.Name);
+                com.Parameters.AddWithValue("@DESCRIPTION", pay.Desc);
+                com.Parameters.AddWithValue("@MAIL", pay.Mail);
+                com.Parameters.AddWithValue("@CONTACT", pay.Contact);
+                com.Parameters.AddWithValue("@NOTES", pay.Notes);
+                com.Parameters.AddWithValue("@IPADDRESS", pay.IpAddress);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
         //-------------------------- DEPARTMENT STARTED HERE -------------------//
 
         public DataTable GetCFEDashBoard(CFEDtls objCFE)

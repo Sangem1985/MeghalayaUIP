@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using iText.Layout.Borders;
 using MeghalayaUIP.BAL.CFEBLL;
 using MeghalayaUIP.Common;
+using MeghalayaUIP.DAL.CommonDAL;
 using Newtonsoft.Json;
 using Razorpay.Api;
 
@@ -90,24 +91,26 @@ namespace MeghalayaUIP.User.Payments
                             dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString(), Module);
                             if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
                             {
-                                PayAmount = Amount.ToString();
-                                Name = dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
-                                Desc = "Meghalaya Description";
-                                Mail = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
-                                Contact = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
-                                Notes = "Hyderabad";
+                                UIPPayments pay = new UIPPayments();
+                                pay.PayAmount = Amount.ToString();
+                                pay.Name = dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
+                                pay.Desc = "Meghalaya Description";
+                                pay.Mail = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
+                                pay.Contact = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
+                                pay.Notes = "Hyderabad";
                                 string BaseUrl = System.Configuration.ConfigurationManager.AppSettings["PGReturnurl"];
                                 CallbackUrl = BaseUrl + "?Module=" + Module + "&UnitID=" + UnitID;
 
 
                                 Cancelurl = System.Configuration.ConfigurationManager.AppSettings["PGCancelurl"];
-                                string IpAddress = getclientIP();
+                                pay.IpAddress = getclientIP();
                                 Dictionary<string, string> notes = new Dictionary<string, string>()
                                 {
                                     {"Note1","Payment Note1" },{"Note2","Payment Note2" }
                                 };
 
-                                string A = objcfebal.InsertPaymentRequest(UnitID,Module, Session["INSTRIDPM"].ToString(), Receiptorder, orderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
+                                //string A = objcfebal.InsertPaymentRequest(UnitID,Module, Session["INSTRIDPM"].ToString(), Receiptorder, orderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
+                                string A = objcfebal.InsertPaymentRequest(pay);
                             }
                         }
                     }
