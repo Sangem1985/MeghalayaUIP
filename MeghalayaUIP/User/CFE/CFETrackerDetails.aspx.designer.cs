@@ -222,13 +222,13 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblQueryResponse;
 
         /// <summary>
-        /// gvCertificate control.
+        /// GVQueryDet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCertificate;
+        protected global::System.Web.UI.WebControls.GridView GVQueryDet;
 
         /// <summary>
         /// divReject control.

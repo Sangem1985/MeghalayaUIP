@@ -35,10 +35,10 @@ namespace MeghalayaUIP.User.CFE
 
                     if (!IsPostBack)
                     {
-                        string UnitID = Request.QueryString[0].ToString();
-                        string Deptid = Request.QueryString[1].ToString();
-                        string APPROVALID = Request.QueryString[2].ToString();
-                        string Status = Request.QueryString[3].ToString();
+                        string UnitID = "1089"; //Request.QueryString[0].ToString();
+                        string Deptid = "10"; //Request.QueryString[1].ToString();
+                        string APPROVALID = "29"; //Request.QueryString[2].ToString();
+                        string Status = "2"; //Request.QueryString[3].ToString();
                         if (UnitID != "" && Deptid != "" && APPROVALID != "" && Status != "")
                         {
                             BindData(UnitID, Deptid, APPROVALID, Status);
@@ -73,13 +73,18 @@ namespace MeghalayaUIP.User.CFE
                     }
                     else if (Status == "2")
                     {
-                        lblDept.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblQueryDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblQuery.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblQueryResponseDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblDaysTaken.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblQueryResponse.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        lblDept.Text = Convert.ToString(ds.Tables[0].Rows[0]["TMD_DEPTNAME"]);
+                        lblQueryDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQ_QUERYDATE"]);
+                        lblQuery.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQ_QUERYRAISEDESC"]);
+                        lblQueryResponseDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQ_QUERYRESPONSEDATE"]);
+                        lblDaysTaken.Text = "7"; //Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        lblQueryResponse.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQ_QUERYRESPONSEDESC"]);
 
+                        if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
+                        {
+                            GVQueryDet.DataSource = ds.Tables[1];
+                            GVQueryDet.DataBind();
+                        }
 
                     }
                     else if (Status == "3")
@@ -106,6 +111,32 @@ namespace MeghalayaUIP.User.CFE
                 Failure.Visible = true;
                 MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
             }
+        }
+
+        protected void GVQueryDet_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    HyperLink hplAttachment = (HyperLink)e.Row.FindControl("linkAttachment");
+                    Label lblfilepath = (Label)e.Row.FindControl("lblFilePath");
+
+                    if (hplAttachment != null && hplAttachment.Text != "" && lblfilepath != null && lblfilepath.Text != "")
+                    {
+                        hplAttachment.NavigateUrl = "~/Dept/Dashboard/DeptServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblfilepath.Text);
+                        hplAttachment.Target = "blank";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
+
         }
     }
 }
