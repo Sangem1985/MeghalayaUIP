@@ -110,6 +110,8 @@ namespace MeghalayaUIP.Common
         public static string GetCFEPDCLDetails = "USP_GETCFEDRAWINGAPPDETAILS";
 
         public static string UpdateCFEApplStatus = "USP_UPDATECFEAPPLSTATUS";
+        public static string GetComponentsDetails = "USP_GETCFECOMPONENTS";
+        public static string GetCFETrackersDetails = "USP_GETCFEAPPLICANTQUERY";
 
         ///END///
         ///////API//////

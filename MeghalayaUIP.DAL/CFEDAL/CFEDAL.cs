@@ -4044,5 +4044,88 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
+        public DataSet GetComponentsDetails(int QDID, int CREATED_BY)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetComponentsDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetComponentsDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@QDID", Convert.ToInt32(QDID));
+                da.SelectCommand.Parameters.AddWithValue("@CREATED_BY", Convert.ToInt32(CREATED_BY));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public DataSet GetCFETrackerDetails(string Unitid, string Deptid, string APPROVALID, string Status)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetCFETrackersDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetCFETrackersDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                da.SelectCommand.Parameters.AddWithValue("@CFEQ_CFEUNITID", Convert.ToInt32(Unitid));
+                if (Deptid != "" && Deptid != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(Deptid));
+                }
+                if (APPROVALID != "" && APPROVALID != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(APPROVALID));
+                }
+                if (Status != "" && Status != null)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@STATUS", Convert.ToInt32(Status));
+                }
+                da.Fill(ds);
+                if (ds.Tables.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return ds;
+        }
     }
 }
