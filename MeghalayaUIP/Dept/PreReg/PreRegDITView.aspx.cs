@@ -126,10 +126,10 @@ namespace MeghalayaUIP.Dept.PreReg
                     {
                         lblHdng.Text = "Industry Registrations Applications - Received from DIC";
                     }
-                    //else if (Request.QueryString["status"].ToString() == "DISTRICTAPPLI")
-                    //{
-                    //    lblHdng.Text = "Industry Registrations Applications - District";
-                    //}
+                    else if (Request.QueryString["status"].ToString() == "DICQUERYTOMiPA")
+                    {
+                        lblHdng.Text = "Industry Registrations Applications - DC Query Forward to MiPA";
+                    }
                 }
                 else
                 {
