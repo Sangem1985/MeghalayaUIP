@@ -333,6 +333,9 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetComponentsDetails(QDID, CREATED_BY);
         }
-
+        public DataSet GetCFETrackerDetails(string Unitid, string Deptid, string APPROVALID, string Status)
+        {
+            return objCFEDAL.GetCFETrackerDetails(Unitid, Deptid, APPROVALID, Status);
+        }
     }
 }
