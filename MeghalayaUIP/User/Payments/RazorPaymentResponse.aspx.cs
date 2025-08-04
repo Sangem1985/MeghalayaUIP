@@ -1,6 +1,7 @@
 ﻿using iText.Layout.Borders;
 using MeghalayaUIP.BAL.CFEBLL;
 using Newtonsoft.Json;
+using Org.BouncyCastle.Asn1.Ocsp;
 using Razorpay.Api;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,15 @@ namespace MeghalayaUIP.User.Payments
         string OrderNo = "";
         string OrderId = "";
         string Amount = "";
+        string Module, UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
             string IpAddress = getclientIP();
+            if (Request.QueryString.Count > 0)
+            {
+                Module=Convert.ToString(Request.QueryString["Module"]);
+                UnitID = Convert.ToString(Request.QueryString["UnitID"]);
+            }
             if (Request.Form["razorpay_payment_id"] != null)
             {
                 string paymentId = Request.Form["razorpay_payment_id"].ToString();
@@ -53,7 +60,7 @@ namespace MeghalayaUIP.User.Payments
                 dspaydtls = objcfebal.GetPaymentOrderNo(OrderId);
                 if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
                 {
-                    Amount= dspaydtls.Tables[0].Rows[0]["PAYMENT_AMOUNT"].ToString();
+                    Amount = dspaydtls.Tables[0].Rows[0]["PAYMENT_AMOUNT"].ToString();
                     OrderNo = dspaydtls.Tables[0].Rows[0]["ONLINE_ORDER_NO"].ToString();
                 }
 
@@ -64,14 +71,14 @@ namespace MeghalayaUIP.User.Payments
                 divSuccess.Visible = true;
             }
             else
-            {    
+            {
                 string jsonData = Request.Form["error[metadata]"].ToString();
 
                 PaymentInfo paymentInfo = JsonConvert.DeserializeObject<PaymentInfo>(jsonData);
-                
+
                 string paymentId = paymentInfo.PaymentId;
                 OrderId = paymentInfo.OrderId;
-                
+
                 string code = Request.Form["error[code]"].ToString();
                 string description = Request.Form["error[description]"].ToString();
                 string source = Request.Form["error[source]"].ToString();

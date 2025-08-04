@@ -20,7 +20,7 @@
         <input type="hidden" name="prefill[contact]" value="<%=Contact%>"/>
         <input type="hidden" name="prefill[email]" value="<%=Mail%>"/>
         <input type="hidden" name="notes[shipping address]" value="<%=Notes%>"/>
-        <input type="hidden" name="callback_url" value="https://localhost:44379/User/Payments/RazorPaymentResponse.aspx"/>
+        <input type="hidden" runat="server" id="hdncallback_url" name="callback_url" />
         <input type="hidden" name="cancel_url" value="https://localhost:44379/User/CFE/CFEUserDashboard.aspx"/>
         <button>Pay Now</button>
     </form>

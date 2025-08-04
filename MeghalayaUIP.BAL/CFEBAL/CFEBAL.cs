@@ -282,6 +282,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.UpdateCFEDepartmentProcess(Objcfedtls);
         }
+        //-----------------------------Payments------------------------------//
         public DataSet GetUnitDetailsforPayment(string UnitID, string InvesterID, string Module)
         {
             return objCFEDAL.GetUnitDetailsforPayment(UnitID, InvesterID, Module);
@@ -309,6 +310,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetPreRegPaymentReceipt(UnitId, Createdby, TransactionNo, Uid);
         }
+        //-----------------------------Payments------------------------------//
         public string InsertCFEQueryResponse(CFEQueryDet CFEQuery)
         {
             return objCFEDAL.InsertCFEQueryResponse(CFEQuery);

@@ -3375,214 +3375,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
-        //-------------------------- DEPARTMENT STARTED HERE -------------------//
 
-        public DataTable GetCFEDashBoard(CFEDtls objCFE)
-        {
-            DataTable dt = new DataTable();
-            string valid = "";
-            //  IDno = "";
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
-            connection.Open();
-            transaction = connection.BeginTransaction();
-            try
-            {
-
-                SqlDataAdapter da;
-                da = new SqlDataAdapter(CFEConstants.GetCFEDashBoard, connection);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CFEConstants.GetCFEDashBoard;
-
-                da.SelectCommand.Transaction = transaction;
-                da.SelectCommand.Connection = connection;
-
-
-                da.SelectCommand.Parameters.AddWithValue("@USERID", objCFE.UserID);
-                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objCFE.Role);
-                if (objCFE.deptid != null && objCFE.deptid != 0)
-                {
-                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objCFE.deptid);
-                }
-
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
-
-                    transaction.Commit();
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-            return dt;
-        }
-        public DataTable GetCFEDashBoardView(CFEDtls objCFE)
-        {
-            string valid = "";
-            DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
-            connection.Open();
-            transaction = connection.BeginTransaction();
-            try
-            {
-
-                SqlDataAdapter da;
-                da = new SqlDataAdapter(CFEConstants.GetCFEDashBoardView, connection);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CFEConstants.GetCFEDashBoardView;
-
-                da.SelectCommand.Transaction = transaction;
-                da.SelectCommand.Connection = connection;
-                //PRD.deptid = 1;
-                //PRD.status = 4;
-                //PRD.Role = 0;
-
-                da.SelectCommand.Parameters.AddWithValue("@USERID", objCFE.UserID);
-                da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", objCFE.ViewStatus);
-                if (objCFE.deptid != null && objCFE.deptid != 0)
-                {
-                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objCFE.deptid);
-                }
-                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objCFE.Role);
-
-
-                da.Fill(dt);
-                // if (dt.Rows.Count > 0)
-                //     valid = Convert.ToString(dt.Rows[0]["UNITID"]);
-                //// IDno = valid;
-
-                transaction.Commit();
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-            return dt;
-        }
-
-        public DataSet GetCFEApplicationDetails(string UnitID, string InvesterID, string DeptID)
-        {
-            DataSet ds = new DataSet();
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
-            connection.Open();
-            transaction = connection.BeginTransaction();
-            try
-            {
-                SqlDataAdapter da;
-                da = new SqlDataAdapter(CFEConstants.GetCFEApplicationDet, connection);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.CommandText = CFEConstants.GetCFEApplicationDet;
-
-                da.SelectCommand.Transaction = transaction;
-                da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
-                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
-                if (DeptID != "")
-                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(DeptID));
-
-                da.Fill(ds);
-                transaction.Commit();
-                return ds;
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-        }
-
-        //// DEPARTMENT DASHBOARD///
-        ///
-
-        /////
-        ///CFE
-        ///
-        public string UpdateCFEDepartmentProcess(CFEDtls Objcfedtls)
-        {
-            string valid = "";
-
-            SqlConnection connection = new SqlConnection(connstr);
-            SqlTransaction transaction = null;
-            connection.Open();
-            transaction = connection.BeginTransaction();
-            try
-            {
-                SqlCommand com = new SqlCommand();
-                com.CommandType = CommandType.StoredProcedure;
-                com.CommandText = CFEConstants.UpdateCFEDepartmentProcess;
-
-                com.Transaction = transaction;
-                com.Connection = connection;
-                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Objcfedtls.Unitid));
-                com.Parameters.AddWithValue("@CFEQDID", Convert.ToInt32(Objcfedtls.Questionnaireid));
-                if (Objcfedtls.deptid != null && Objcfedtls.deptid != 0)
-                {
-                    com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(Objcfedtls.deptid));
-                }
-                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(Objcfedtls.ApprovalId));
-                com.Parameters.AddWithValue("@ACTIONID", Convert.ToInt32(Objcfedtls.status));
-                if (Objcfedtls.Remarks != null && Objcfedtls.Remarks != "")
-                {
-                    com.Parameters.AddWithValue("@REMARKS", Objcfedtls.Remarks);
-                }
-                com.Parameters.AddWithValue("@CFDA_SCRUTINYREJECTIONFLAG", Objcfedtls.PrescrutinyRejectionFlag);
-                if (Objcfedtls.AdditionalAmount != null && Objcfedtls.AdditionalAmount != "")
-                {
-                    com.Parameters.AddWithValue("@ADDLAMOUNT", Convert.ToDecimal(Objcfedtls.AdditionalAmount));
-                }
-
-                com.Parameters.AddWithValue("@IPADDRESS", Objcfedtls.IPAddress);
-                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(Objcfedtls.UserID));
-
-                com.Parameters.AddWithValue("@FILEPATH", Objcfedtls.FilePath);
-                com.Parameters.AddWithValue("@FILENAME", Objcfedtls.FileName);
-                com.Parameters.AddWithValue("@FILETYPE", Objcfedtls.FileType);
-                com.Parameters.AddWithValue("@FILEDESC", Objcfedtls.FileDesc);
-                com.Parameters.AddWithValue("@REFERENCENO", Objcfedtls.ReferenceNo);
-
-                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
-                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
-                com.ExecuteNonQuery();
-
-                valid = com.Parameters["@RESULT"].Value.ToString();
-                transaction.Commit();
-                connection.Close();
-            }
-
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                connection.Dispose();
-            }
-            return valid;
-
-        }
         public DataSet GetUnitDetailsforPayment(string UnitID, string InvesterID, string Module)
         {
             DataSet ds = new DataSet();
@@ -3828,6 +3621,210 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 connection.Dispose();
             }
         }
+
+
+        //-------------------------- DEPARTMENT STARTED HERE -------------------//
+
+        public DataTable GetCFEDashBoard(CFEDtls objCFE)
+        {
+            DataTable dt = new DataTable();
+            string valid = "";
+            //  IDno = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetCFEDashBoard, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetCFEDashBoard;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", objCFE.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objCFE.Role);
+                if (objCFE.deptid != null && objCFE.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objCFE.deptid);
+                }
+
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+
+                    transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
+        public DataTable GetCFEDashBoardView(CFEDtls objCFE)
+        {
+            string valid = "";
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetCFEDashBoardView, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetCFEDashBoardView;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                //PRD.deptid = 1;
+                //PRD.status = 4;
+                //PRD.Role = 0;
+
+                da.SelectCommand.Parameters.AddWithValue("@USERID", objCFE.UserID);
+                da.SelectCommand.Parameters.AddWithValue("@VIEWSTATUS", objCFE.ViewStatus);
+                if (objCFE.deptid != null && objCFE.deptid != 0)
+                {
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", objCFE.deptid);
+                }
+                da.SelectCommand.Parameters.AddWithValue("@ROLEID", objCFE.Role);
+
+
+                da.Fill(dt);
+                // if (dt.Rows.Count > 0)
+                //     valid = Convert.ToString(dt.Rows[0]["UNITID"]);
+                //// IDno = valid;
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return dt;
+        }
+        public DataSet GetCFEApplicationDetails(string UnitID, string InvesterID, string DeptID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetCFEApplicationDet, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetCFEApplicationDet;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+                da.SelectCommand.Parameters.AddWithValue("@INVESTERID", Convert.ToInt32(InvesterID));
+                if (DeptID != "")
+                    da.SelectCommand.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(DeptID));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
+        public string UpdateCFEDepartmentProcess(CFEDtls Objcfedtls)
+        {
+            string valid = "";
+
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFEConstants.UpdateCFEDepartmentProcess;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(Objcfedtls.Unitid));
+                com.Parameters.AddWithValue("@CFEQDID", Convert.ToInt32(Objcfedtls.Questionnaireid));
+                if (Objcfedtls.deptid != null && Objcfedtls.deptid != 0)
+                {
+                    com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(Objcfedtls.deptid));
+                }
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(Objcfedtls.ApprovalId));
+                com.Parameters.AddWithValue("@ACTIONID", Convert.ToInt32(Objcfedtls.status));
+                if (Objcfedtls.Remarks != null && Objcfedtls.Remarks != "")
+                {
+                    com.Parameters.AddWithValue("@REMARKS", Objcfedtls.Remarks);
+                }
+                com.Parameters.AddWithValue("@CFDA_SCRUTINYREJECTIONFLAG", Objcfedtls.PrescrutinyRejectionFlag);
+                if (Objcfedtls.AdditionalAmount != null && Objcfedtls.AdditionalAmount != "")
+                {
+                    com.Parameters.AddWithValue("@ADDLAMOUNT", Convert.ToDecimal(Objcfedtls.AdditionalAmount));
+                }
+
+                com.Parameters.AddWithValue("@IPADDRESS", Objcfedtls.IPAddress);
+                com.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(Objcfedtls.UserID));
+
+                com.Parameters.AddWithValue("@FILEPATH", Objcfedtls.FilePath);
+                com.Parameters.AddWithValue("@FILENAME", Objcfedtls.FileName);
+                com.Parameters.AddWithValue("@FILETYPE", Objcfedtls.FileType);
+                com.Parameters.AddWithValue("@FILEDESC", Objcfedtls.FileDesc);
+                com.Parameters.AddWithValue("@REFERENCENO", Objcfedtls.ReferenceNo);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 500);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+
+        }
+
         public string InsertCFEQueryResponse(CFEQueryDet CFEQuery)
         {
             string Result = "";

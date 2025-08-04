@@ -81,7 +81,7 @@ namespace MeghalayaUIP.User.Payments
                                 if (Convert.ToString(Request.QueryString["Module"]) == "LAND")
                                 {
                                     UnitID = Convert.ToString(Session["LANDUNITID"]);
-                                    Module = "LAND";
+                                    Module = "LAND";                                   
                                 }
                                 if (Convert.ToString(Request.QueryString["Module"]) == "CFE")
                                 {
@@ -103,6 +103,8 @@ namespace MeghalayaUIP.User.Payments
                                     UnitID = Convert.ToString(Session["SRVCQID"]);
                                     Module = "SRVC";
                                 }
+                                hdncallback_url.Value = "https://localhost:44379/User/Payments/RazorPaymentResponse.aspx?Module=" +
+                                     Module + "&UnitID=" + UnitID;
                             }
                             //string UnitID = Convert.ToString(Session["CFEUNITID"]);
 
