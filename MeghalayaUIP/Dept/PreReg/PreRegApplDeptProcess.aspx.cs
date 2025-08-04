@@ -190,20 +190,20 @@ namespace MeghalayaUIP.Dept.PreReg
                             lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                             lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
                             lblApplNo1.Text = Convert.ToString(row["DITREPORT_UPLOADFLAG"]);
-                            if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) != "18")
+                            //if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) != "18")
+                            //{
+                            if (lblApplNo1.Text == "Y")
                             {
-                                if (lblApplNo1.Text == "Y")
-                                {
-                                    lnksiteinspectiontem.Visible = false;
-                                    divlnkSiteReport.Visible = true;
-                                }
+                                lnksiteinspectiontem.Visible = false;
+                                divlnkSiteReport.Visible = true;
                             }
+                            // }
 
-                            if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "18" && Convert.ToString(ds.Tables[0].Rows[0]["DITREPORT_UPLOADFLAG"]) == "Y")
-                            {
-                                lnksiteinspectiontem.Visible = true;
-                                divlnkSiteReport.Visible = false;
-                            }
+                            //if (Convert.ToString(ds.Tables[6].Rows[0]["PRDA_STAGEID"]) == "18" && Convert.ToString(ds.Tables[0].Rows[0]["DITREPORT_UPLOADFLAG"]) == "Y")
+                            //{
+                            //    lnksiteinspectiontem.Visible = true;
+                            //    divlnkSiteReport.Visible = false;
+                            //}
 
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
