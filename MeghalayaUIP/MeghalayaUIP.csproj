@@ -719,10 +719,12 @@
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECLUDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
+    <Content Include="User\CFE\CFECRCertificate.aspx" />
     <Content Include="User\CFE\CFEDGSetDetails.aspx" />
     <Content Include="User\CFE\CFEDrawingPlanDetails.aspx" />
     <Content Include="User\CFE\CFEEstimationReport.aspx" />
     <Content Include="User\CFE\CFEExplosivesNOC.aspx" />
+    <Content Include="User\CFE\CFEFeasibilityReport.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
     <Content Include="User\CFE\CFEFuelNOC.aspx" />
@@ -1846,6 +1848,13 @@
     <Compile Include="User\CFE\CFECommonApplication.aspx.designer.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFECRCertificate.aspx.cs">
+      <DependentUpon>CFECRCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFECRCertificate.aspx.designer.cs">
+      <DependentUpon>CFECRCertificate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFEDGSetDetails.aspx.cs">
       <DependentUpon>CFEDGSetDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1873,6 +1882,13 @@
     </Compile>
     <Compile Include="User\CFE\CFEExplosivesNOC.aspx.designer.cs">
       <DependentUpon>CFEExplosivesNOC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFE\CFEFeasibilityReport.aspx.cs">
+      <DependentUpon>CFEFeasibilityReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEFeasibilityReport.aspx.designer.cs">
+      <DependentUpon>CFEFeasibilityReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEFireDetails.aspx.cs">
       <DependentUpon>CFEFireDetails.aspx</DependentUpon>

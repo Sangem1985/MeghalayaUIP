@@ -343,5 +343,13 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetCFETrackerDetails(Unitid, Deptid, APPROVALID, Status);
         }
+        public DataSet GetFeasibilityReport(int CFEQID)
+        {
+            return objCFEDAL.GetFeasibilityReport(CFEQID);
+        }
+        public DataSet GetMPDCLReport(int CFEQID)
+        {
+            return objCFEDAL.GetMPDCLReport(CFEQID);
+        }
     }
 }
