@@ -115,14 +115,15 @@ namespace MeghalayaUIP.User.Payments
                             dspaydtls = objcfebal.GetUnitDetailsforPayment(UnitID, Session["INSTRIDPM"].ToString(), Module);
 
                             if (dspaydtls != null && dspaydtls.Tables.Count > 0 && dspaydtls.Tables[0].Rows.Count > 0)
-                            {   
-                                PayAmount  = Amount.ToString();
-                                Name =  dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
-                                Desc = "Meghalaya Description";
-                                Mail  = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
-                                Contact  = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
-                                Notes = "Hyderabad";
-                                IpAddress = getclientIP();
+                            {
+                                UIPPayments pay = new UIPPayments();
+                                pay.PayAmount = Amount.ToString();
+                                pay.Name =  dspaydtls.Tables[0].Rows[0]["REP_NAME"].ToString();
+                                pay.Desc = "Meghalaya Description";
+                                pay.Mail  = dspaydtls.Tables[0].Rows[0]["REP_EMAIL"].ToString();
+                                pay.Contact  = dspaydtls.Tables[0].Rows[0]["REP_MOBILE"].ToString();
+                                pay.Notes = "Hyderabad";
+                                pay.IpAddress = getclientIP();
 
                                 Dictionary<string, string> notes = new Dictionary<string, string>()
                                 {
@@ -131,8 +132,8 @@ namespace MeghalayaUIP.User.Payments
                                 //hdn_notes.Value = JsonConvert.SerializeObject(notes);
 
 
-                                string A = objcfebal.InsertPaymentRequest(UnitID,  Module, Session["INSTRIDPM"].ToString(), Receiptorder, orderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
-
+                                // string A = objcfebal.InsertPaymentRequest(UnitID,  Module, Session["INSTRIDPM"].ToString(), Receiptorder, orderId, PayAmount, Name, Desc, Mail, Contact, Notes, IpAddress);
+                                string A = objcfebal.InsertPaymentRequest(pay);
                             }
                         }
                     }
