@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFECRCertificate.aspx.cs" Inherits="MeghalayaUIP.User.CFE.CFECRCertificate" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFOCRCertificate.aspx.cs" Inherits="MeghalayaUIP.User.CFO.CFOCRCertificate" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .certificate {
@@ -153,7 +154,7 @@
 
                                             <p><b>Sir/Madam,</b></p>
                                             <p><b>Sub: Service Certificate</b></p>
-                                           
+
                                             <p>
 
                                                 <b>Ref: &nbsp;&nbsp </b>1) Your Application No: <b>
@@ -264,17 +265,14 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
 
-                    <div class="col-md-6 d-flex mb-4" style="display: flex !important; flex-direction: row; flex-wrap: nowrap; align-content: center; justify-content: center; align-items: center;  margin-left:35%; width:30%;">
+                    <div class="col-md-6 d-flex mb-4" style="display: flex !important; flex-direction: row; flex-wrap: nowrap; align-content: center; justify-content: center; align-items: center; margin-left: 35%; width: 30%;">
 
                         <asp:Button ID="btnDownload" class="btn btn-approved btn-sm mr-5 btn-info" Text="Download" runat="server" OnClick="btnDownload_Click1"></asp:Button>
 
-                        <div class="col-md-6" style="width:30%;">
+                        <div class="col-md-6" style="width: 30%;">
                             <button id="btnPrint" onclick="window.print()" class="btn btn-sm btn-info">Print</button>
                         </div>
 

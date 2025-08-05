@@ -1255,13 +1255,13 @@
                                                 <div class="col-md-12 d-flex" runat="server" id="divRemarks" visible="false">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">Remarks </label>
+                                                            <label class="col-lg-4 col-form-label">Remarks<span style="color:red">*</span></label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :                                                           
                                                            
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
-                                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="50" TextMode="MultiLine"></asp:TextBox>
+                                                                <asp:TextBox ID="txtRemark" runat="server" MaxLength="50" Height="80px" Width="246PX" TextMode="MultiLine"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -89,7 +89,7 @@ namespace MeghalayaUIP.Common
 
 
         public static string GetCFOPaymentReceipt = "GET_CFOPAYMENTRECEIPT";
-
+        public static string GetMPDCLReport = "USP_GETSERVICECERTIFICATEDEASTILS";
 
 
     }

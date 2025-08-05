@@ -10,14 +10,13 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using System.IO;
+using MeghalayaUIP.BAL.CFOBAL;
 
-
-
-namespace MeghalayaUIP.User.CFE
+namespace MeghalayaUIP.User.CFO
 {
-    public partial class CFECRCertificate : System.Web.UI.Page
+    public partial class CFOCRCertificate : System.Web.UI.Page
     {
-        CFEBAL objcfebal = new CFEBAL();
+        CFOBAL objcfobal = new CFOBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,7 +30,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 DataSet ds = new DataSet();
-                ds = objcfebal.GetMPDCLReport(114);
+                ds = objcfobal.GetMPDCLReport(114);
 
                 if (ds.Tables.Count > 0)
                 {
@@ -65,7 +64,7 @@ namespace MeghalayaUIP.User.CFE
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

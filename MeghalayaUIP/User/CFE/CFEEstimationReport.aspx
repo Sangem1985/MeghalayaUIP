@@ -110,6 +110,7 @@
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
+                 <asp:HiddenField ID="hdnUserID" runat="server" />
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
@@ -121,7 +122,11 @@
                                     </div>
                                     <div class="title-section">
                                         <h1>MEGHALAYA POWER DISTRIBUTION CORPORATION LIMITED</h1>
-                                        <div class="subtitle">SOUTH GARO HILLS DIVISION &nbsp;&nbsp;&nbsp;&nbsp; BAGHMARA SUBDIVISION</div>
+                                        <div class="subtitle"><%--SOUTH GARO HILLS DIVISION &nbsp;&nbsp;&nbsp;&nbsp; BAGHMARA SUBDIVISION--%>
+
+                                            <asp:Label ID="lblDistrict" runat="server"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Label ID="lblMandal" runat="server"></asp:Label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -129,8 +134,7 @@
                             <div class="col-md-12  row mt-1" style="padding: 0px 0px 0px 20px; text-align: center">
                                 <div class="col-md-12 " style="text-align: center">
 
-                                    <b>ESTIMATE FOR NEW SERVICE CONNECTION
-</b>
+                                    <b>ESTIMATE FOR NEW SERVICE CONNECTION</b>
                                 </div>
                             </div>
                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 20px; text-align: center">

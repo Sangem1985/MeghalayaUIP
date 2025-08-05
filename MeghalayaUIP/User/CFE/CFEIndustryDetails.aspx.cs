@@ -564,10 +564,10 @@ namespace MeghalayaUIP.User.CFE
             {
                 ErrorMsg = ""; string result = "";
 
-                ErrorMsg = Validations();
+                //ErrorMsg = Validations();
 
-                if (ErrorMsg == "")
-                {
+                //if (ErrorMsg == "")
+                //{
                     int TotEmp = Convert.ToInt32(txtMale.Text) + Convert.ToInt32(txtFemale.Text) + Convert.ToInt32(txtDirectOthers.Text) +
                         Convert.ToInt32(txtIndirectMale.Text) + Convert.ToInt32(txtIndirectFemale.Text) + Convert.ToInt32(txtInDirectOthers.Text);
 
@@ -646,13 +646,13 @@ namespace MeghalayaUIP.User.CFE
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
-                }
-                else
-                {
-                    string message = "alert('" + ErrorMsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
-                }
+                //}
+                //else
+                //{
+                //    string message = "alert('" + ErrorMsg + "')";
+                //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                //    return;
+                //}
             }
             catch (Exception ex)
             {

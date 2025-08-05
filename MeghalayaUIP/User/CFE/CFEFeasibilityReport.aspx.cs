@@ -10,77 +10,104 @@ using iTextSharp.tool.xml;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using MeghalayaUIP.Common;
 
 namespace MeghalayaUIP.User.CFE
 {
     public partial class CFEFeasibilityReport : System.Web.UI.Page
     {
         CFEBAL objcfebal = new CFEBAL();
+        string CFEQID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                BindFeasibilityReport();
-            }
-            // CFEQID=Convert.ToInt32()
 
-            //  ViewState["CFEQID"] = "114";
-            //Convert.ToString(["UNITID"]);
+            try
+            {
+                if (Session["UserInfo"] != null)
+                {
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+                    
+                    if (!IsPostBack)
+                    {
+                        BindFeasibilityReport();
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
-
         public void BindFeasibilityReport()
         {
             try
             {
-                DataSet ds = new DataSet();
-                ds = objcfebal.GetFeasibilityReport(114);
-
-                if (ds.Tables.Count > 0)
+                if (Request.QueryString.Count > 0)
                 {
-                    if (ds.Tables[0].Rows.Count > 0)
+                    CFEQID = Convert.ToString(Request.QueryString[0]);
+
+                    DataSet ds = new DataSet();
+                    ds = objcfebal.GetFeasibilityReport(CFEQID);
+
+                    if (ds.Tables.Count > 0)
                     {
-                        DataRow row = ds.Tables[0].Rows[0];
-                        lblFeederid.Text = Convert.ToString(row["CFE_FR_ID"]);
-                        lblQdid.Text = Convert.ToString(row["CFE_QDID"]);
-                        lblApplicationregno.Text = Convert.ToString(row["CFE_APPLICATION_REG_NO"]);
-                        lblNearestconsumerid.Text = Convert.ToString(row["CFE_NEAREST_CONSUMER_ID"]);
-                        lblSubstationname.Text = Convert.ToString(row["CFE_SUBSTATION"]);
-                        lblfeedername.Text = Convert.ToString(row["CFE_FEEDER_NAME"]);
-                        lblDtc.Text = Convert.ToString(row["CFE_DTC"]);
-                        lblPolenumber.Text = Convert.ToString(row["CFE_POLE_NO"]);
-                        lblProductname.Text = Convert.ToString(row["CFE_PRODUCT"]);
-                        lblConnectionType.Text = Convert.ToString(row["CFE_CONNECTION_TYPE"]);
-                        lblLoadKw.Text = Convert.ToString(row["CFE_LOAD_KW"]);
-                        lblNoofpremises.Text = Convert.ToString(row["CFE_NO_OF_PREMISES"]);
-                        lblSitedemension.Text = Convert.ToString(row["CFE_SITE_DIMENSION_SFT"]);
-                        lblBuiltuparea.Text = Convert.ToString(row["CFE_BUILTUP_AREA"]);
-                        lblNoofloors.Text = Convert.ToString(row["CFE_NO_OF_FLOORS"]);
-                        lblConnectionphase.Text = Convert.ToString(row["CFE_CONNECTION_PHASE"]);
-                        lblBuildingtype.Text = Convert.ToString(row["CFE_BUILDING"]);
-                        lblRequestedgroundsize.Text = Convert.ToString(row["CFE_REQUESTED_UG_CABLE_SIZE"]);
-                        lblRequestedoverheadsize.Text = Convert.ToString(row["CFE_REQUESTED_OH_CABLE_SIZE"]);
-                        lblLatitude.Text = Convert.ToString(row["CFE_LATITUDE"]);
-                        lblLongitude.Text = Convert.ToString(row["CFE_LONGITUDE"]);
-                        lblServicetype.Text = Convert.ToString(row["CFE_SERVICE_TYPE"]);
-                        lblBillingtype.Text = Convert.ToString(row["CFE_BILLING_TYPE"]);
-                        lblAreatype.Text = Convert.ToString(row["CFE_AREA_TYPE"]);
-                        lblRemarks.Text = Convert.ToString(row["CFE_REMARKS"]);
-                        lblDocumentid.Text = Convert.ToString(row["CFE_DOCUMENT_ID"]);
-                        lblDocumentname.Text = Convert.ToString(row["CFE_DOCUMENT_NAME"]);
-                        lblDocumentpath.Text = Convert.ToString(row["CFE_DOCUMENT_PATH"]);
-                        lblMetertype.Text = Convert.ToString(row["CFE_METER_TYPE"]);
-                        lblMeteredside.Text = Convert.ToString(row["CFE_METERED_SIDE"]);
-                        lblLoadKva.Text = Convert.ToString(row["CFE_LOAD_KVA"]);
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            DataRow row = ds.Tables[0].Rows[0];
+                            lblFeederid.Text = Convert.ToString(row["CFE_FR_ID"]);
+                            lblQdid.Text = Convert.ToString(row["CFE_QDID"]);
+                            lblApplicationregno.Text = Convert.ToString(row["CFE_APPLICATION_REG_NO"]);
+                            lblNearestconsumerid.Text = Convert.ToString(row["CFE_NEAREST_CONSUMER_ID"]);
+                            lblSubstationname.Text = Convert.ToString(row["CFE_SUBSTATION"]);
+                            lblfeedername.Text = Convert.ToString(row["CFE_FEEDER_NAME"]);
+                            lblDtc.Text = Convert.ToString(row["CFE_DTC"]);
+                            lblPolenumber.Text = Convert.ToString(row["CFE_POLE_NO"]);
+                            lblProductname.Text = Convert.ToString(row["CFE_PRODUCT"]);
+                            lblConnectionType.Text = Convert.ToString(row["CFE_CONNECTION_TYPE"]);
+                            lblLoadKw.Text = Convert.ToString(row["CFE_LOAD_KW"]);
+                            lblNoofpremises.Text = Convert.ToString(row["CFE_NO_OF_PREMISES"]);
+                            lblSitedemension.Text = Convert.ToString(row["CFE_SITE_DIMENSION_SFT"]);
+                            lblBuiltuparea.Text = Convert.ToString(row["CFE_BUILTUP_AREA"]);
+                            lblNoofloors.Text = Convert.ToString(row["CFE_NO_OF_FLOORS"]);
+                            lblConnectionphase.Text = Convert.ToString(row["CFE_CONNECTION_PHASE"]);
+                            lblBuildingtype.Text = Convert.ToString(row["CFE_BUILDING"]);
+                            lblRequestedgroundsize.Text = Convert.ToString(row["CFE_REQUESTED_UG_CABLE_SIZE"]);
+                            lblRequestedoverheadsize.Text = Convert.ToString(row["CFE_REQUESTED_OH_CABLE_SIZE"]);
+                            lblLatitude.Text = Convert.ToString(row["CFE_LATITUDE"]);
+                            lblLongitude.Text = Convert.ToString(row["CFE_LONGITUDE"]);
+                            lblServicetype.Text = Convert.ToString(row["CFE_SERVICE_TYPE"]);
+                            lblBillingtype.Text = Convert.ToString(row["CFE_BILLING_TYPE"]);
+                            lblAreatype.Text = Convert.ToString(row["CFE_AREA_TYPE"]);
+                            lblRemarks.Text = Convert.ToString(row["CFE_REMARKS"]);
+                            lblDocumentid.Text = Convert.ToString(row["CFE_DOCUMENT_ID"]);
+                            lblDocumentname.Text = Convert.ToString(row["CFE_DOCUMENT_NAME"]);
+                            lblDocumentpath.Text = Convert.ToString(row["CFE_DOCUMENT_PATH"]);
+                            lblMetertype.Text = Convert.ToString(row["CFE_METER_TYPE"]);
+                            lblMeteredside.Text = Convert.ToString(row["CFE_METERED_SIDE"]);
+                            lblLoadKva.Text = Convert.ToString(row["CFE_LOAD_KVA"]);
+
+                        }
 
                     }
-
-                }
+                }                   
 
             }
-            catch
+            catch (Exception ex)
             {
-
+                throw ex;
             }
 
 

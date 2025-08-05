@@ -15,6 +15,33 @@ namespace MeghalayaUIP.User.CFE
     {
 
         /// <summary>
+        /// hdnUserID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
+
+        /// <summary>
+        /// lblDistrict control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDistrict;
+
+        /// <summary>
+        /// lblMandal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMandal;
+
+        /// <summary>
         /// lblApplicationNo control.
         /// </summary>
         /// <remarks>

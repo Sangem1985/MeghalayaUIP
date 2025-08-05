@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/user.Master" AutoEventWireup="true" CodeBehind="CFEFeasibilityReport.aspx.cs" Inherits="MeghalayaUIP.User.CFE.CFEFeasibilityReport" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         /* Main Table Styling */
@@ -111,6 +112,7 @@
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
+                <asp:HiddenField ID="hdnUserID" runat="server" />
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
@@ -130,7 +132,7 @@
                                 <div class="col-md-12 " style="text-align: center">
 
                                     <b>FEASIBILITY REPORT
-                                      </b>
+                                    </b>
                                 </div>
                             </div>
                             <div class="row">
@@ -388,13 +390,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>
-
                             </div>
+
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
+    </div>
 </asp:Content>

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MeghalayaUIP.User.CFE
+namespace MeghalayaUIP.User.CFO
 {
 
 
-    public partial class CFECRCertificate
+    public partial class CFOCRCertificate
     {
 
         /// <summary>

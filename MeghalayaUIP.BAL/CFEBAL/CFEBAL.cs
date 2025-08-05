@@ -335,7 +335,7 @@ namespace MeghalayaUIP.BAL.CFEBLL
         { 
             return objCFEDAL.UpdateCFEApplStatus(ObjCfe);
         }
-        public DataSet GetComponentsDetails(int QDID, int CREATED_BY)
+        public DataSet GetComponentsDetails(string QDID, string CREATED_BY)
         {
             return objCFEDAL.GetComponentsDetails(QDID, CREATED_BY);
         }
@@ -343,13 +343,10 @@ namespace MeghalayaUIP.BAL.CFEBLL
         {
             return objCFEDAL.GetCFETrackerDetails(Unitid, Deptid, APPROVALID, Status);
         }
-        public DataSet GetFeasibilityReport(int CFEQID)
+        public DataSet GetFeasibilityReport(string CFEQID)
         {
             return objCFEDAL.GetFeasibilityReport(CFEQID);
         }
-        public DataSet GetMPDCLReport(int CFEQID)
-        {
-            return objCFEDAL.GetMPDCLReport(CFEQID);
-        }
+        
     }
 }

@@ -719,7 +719,6 @@
     <Content Include="User\CFE\CFEApplDetails.aspx" />
     <Content Include="User\CFE\CFECLUDetails.aspx" />
     <Content Include="User\CFE\CFECommonApplication.aspx" />
-    <Content Include="User\CFE\CFECRCertificate.aspx" />
     <Content Include="User\CFE\CFEDGSetDetails.aspx" />
     <Content Include="User\CFE\CFEDrawingPlanDetails.aspx" />
     <Content Include="User\CFE\CFEEstimationReport.aspx" />
@@ -1848,13 +1847,6 @@
     </Compile>
     <Compile Include="User\CFE\CFECommonApplication.aspx.designer.cs">
       <DependentUpon>CFECommonApplication.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\CFE\CFECRCertificate.aspx.cs">
-      <DependentUpon>CFECRCertificate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\CFE\CFECRCertificate.aspx.designer.cs">
-      <DependentUpon>CFECRCertificate.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFE\CFEDGSetDetails.aspx.cs">
       <DependentUpon>CFEDGSetDetails.aspx</DependentUpon>
