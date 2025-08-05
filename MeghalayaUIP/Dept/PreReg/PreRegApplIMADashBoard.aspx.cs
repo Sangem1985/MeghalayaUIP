@@ -85,7 +85,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblIMAQUERYREPLIEDBYAPPLICANT.Text = dt.Rows[0]["APPLCNTREPLIEDTOIMA"].ToString();
                 lblIMATODEPTQUERY.Text = dt.Rows[0]["IMATODEPTQUERY"].ToString();
                 lblIMAQUERYREPLIEDBYDEPT.Text = dt.Rows[0]["DEPTREPLIEDTOIMA"].ToString();
-                lblDCQueryRaised.Text = dt.Rows[0]["DICQUERYTOMiPA"].ToString();
+                lblDCQueryRaised.Text = dt.Rows[0]["DCQUERYTOMiPA"].ToString();
 
 
                 lblCommitteeQuery.Text = dt.Rows[0]["COMMQUERYTOIMA"].ToString();
@@ -387,7 +387,7 @@ namespace MeghalayaUIP.Dept.PreReg
             try
             {
                 if (lblDCQueryRaised.Text != "0")
-                    Response.Redirect("PreRegApplIMAView.aspx?status=DICQUERYTOMiPA");
+                    Response.Redirect("PreRegApplIMAView.aspx?status=DCQUERYTOMiPA");
             }
             catch (Exception ex)
             {

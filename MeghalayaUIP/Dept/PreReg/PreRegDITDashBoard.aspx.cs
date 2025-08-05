@@ -118,7 +118,7 @@ namespace MeghalayaUIP.Dept.PreReg
                 lblForwardedDEPTQUERY.Text = dt.Rows[0]["DCSENTBACK"].ToString();
                 lblReceivedDEPT.Text = dt.Rows[0]["DCRECEIVED"].ToString();
                 lblTotal.Text = dt.Rows[0]["DISTRICTAPPLI"].ToString();
-                lblDCQueryMiPA.Text= dt.Rows[0]["DICQUERYTOMiPA"].ToString();
+                lblDCQueryMiPA.Text= dt.Rows[0]["DCQUERYTOMiPA"].ToString();
                 // lblDICQuery.Text = dt.Rows[0]["DICQUERYTODC"].ToString();
 
                 //string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
@@ -221,7 +221,7 @@ namespace MeghalayaUIP.Dept.PreReg
             {
                 if (lblTotal.Text != "0")
                 {
-                    Response.Redirect("PreRegDITView.aspx?status=DICQUERYTOMiPA");
+                    Response.Redirect("PreRegDITView.aspx?status=DCQUERYTOMiPA");
                 }
             }
             catch (Exception ex)
