@@ -1,0 +1,35 @@
+Time: 01/08/2025 11:06:18 AM
+-----------------------------------------------------------
+Message: System.Net.Http.StringContent
+-----------------------------------------------------------
+
+Time: 01/08/2025 11:14:17 AM
+-----------------------------------------------------------
+Message: System.Net.Http.StringContent
+-----------------------------------------------------------
+
+Time: 01/08/2025 11:14:24 AM
+-----------------------------------------------------------
+Message: [{"message":"Authentication successful","status":"true","expire_time":"2025-08-02 11:13:16","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNSVBBIiwianRpIjoiYjFmNzRkZDktMzJjNy00ZGJhLWFmZjgtZTYzMDg3NDBlNGM5IiwiUGFzc3dvcmQiOiJJSUlUU0AyMDI1IyIsImZvcm1hdHRlZERhdGUiOiIyMDI1LTA4LTAyIDExOjEzOjE2IiwiZXhwIjoxNzU0MTEzMzk2LCJpc3MiOiJZS3BVbURjbFMrZEp2K3BvK2pEdDFvZG1NQmo0d0JHN256d2RlbForRW1RbD0iLCJhdWQiOiJNNWVCcTNBSGZlUHdSRUFWNms5dStkRENaLy9qcjhXS0dZWURUay9kSmFNbD0ifQ.a5qL8zHYdRlBoBw2ZO5HsY6WOuQcWwXsKJ1dwYxV1qk"}]
+-----------------------------------------------------------
+
+Time: 01/08/2025 11:14:55 AM
+-----------------------------------------------------------
+Message: System.Net.Http.StringContent
+-----------------------------------------------------------
+
+Time: 01/08/2025 11:17:46 AM
+-----------------------------------------------------------
+Message: System.Net.Http.StringContent
+-----------------------------------------------------------
+
+Time: 01/08/2025 11:17:47 AM
+-----------------------------------------------------------
+Message: [{"message":"Authentication successful","status":"true","expire_time":"2025-08-02 11:17:13","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNSVBBIiwianRpIjoiNTFkNGFkMjUtZDNiNS00MDU3LTkxNGMtZTE0MTFkMTgyNmNlIiwiUGFzc3dvcmQiOiJJSUlUU0AyMDI1IyIsImZvcm1hdHRlZERhdGUiOiIyMDI1LTA4LTAyIDExOjE3OjEzIiwiZXhwIjoxNzU0MTEzNjMzLCJpc3MiOiJZS3BVbURjbFMrZEp2K3BvK2pEdDFvZG1NQmo0d0JHN256d2RlbForRW1RbD0iLCJhdWQiOiJNNWVCcTNBSGZlUHdSRUFWNms5dStkRENaLy9qcjhXS0dZWURUay9kSmFNbD0ifQ.CmgPpM5KXYenoAC5PW6uAsqV2Ra-ND6van6jIkQsxtc"}]
+-----------------------------------------------------------
+
+Time: 01/08/2025 11:17:53 AM
+-----------------------------------------------------------
+Message: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNSVBBIiwianRpIjoiNTFkNGFkMjUtZDNiNS00MDU3LTkxNGMtZTE0MTFkMTgyNmNlIiwiUGFzc3dvcmQiOiJJSUlUU0AyMDI1IyIsImZvcm1hdHRlZERhdGUiOiIyMDI1LTA4LTAyIDExOjE3OjEzIiwiZXhwIjoxNzU0MTEzNjMzLCJpc3MiOiJZS3BVbURjbFMrZEp2K3BvK2pEdDFvZG1NQmo0d0JHN256d2RlbForRW1RbD0iLCJhdWQiOiJNNWVCcTNBSGZlUHdSRUFWNms5dStkRENaLy9qcjhXS0dZWURUay9kSmFNbD0ifQ.CmgPpM5KXYenoAC5PW6uAsqV2Ra-ND6van6jIkQsxtc
+-----------------------------------------------------------
+
