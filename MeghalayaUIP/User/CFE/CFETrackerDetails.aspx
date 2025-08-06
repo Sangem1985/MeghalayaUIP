@@ -76,45 +76,56 @@
                                                                 <div class="col-md-2"></div>
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">2) Query Raised Date</label>
+                                                                        <label class="col-lg-6 col-form-label">2) Approval Name</label>
+                                                                        <div class="col-lg-6 d-flex">
+                                                                            <spna class="dots">:</spna><asp:Label runat="server" ID="lblPayApproval"></asp:Label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 d-flex">
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">3) Query Raised Date</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryPaymentDate"></asp:Label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-12 d-flex">
+                                                                <div class="col-md-2"></div>
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">3) Query</label>
+                                                                        <label class="col-lg-6 col-form-label">4) Query</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryPayment"></asp:Label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-2"></div>
+                                                            </div>
+                                                            <div class="col-md-12 d-flex">
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">4) Query Response Date</label>
+                                                                        <label class="col-lg-6 col-form-label">5) Query Response Date</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryPaymentRespnse"></asp:Label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-12 d-flex">
+                                                                <div class="col-md-2"></div>
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">5) No of Days Taken</label>
+                                                                        <label class="col-lg-6 col-form-label">6) No of Days Taken</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblDayTaken"></asp:Label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-2"></div>
+                                                            </div>
+
+                                                            <div class="col-md-12 d-flex">
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">6) Query Response</label>
+                                                                        <label class="col-lg-6 col-form-label">7 Query Response</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblQueryResponsePay"></asp:Label>
                                                                         </div>
@@ -262,51 +273,67 @@
                                                                 <div class="col-md-2"></div>
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">2) Additonal Date</label>
+                                                                        <label class="col-lg-6 col-form-label">2) Approval Name</label>
+                                                                        <div class="col-lg-6 d-flex">
+                                                                            <spna class="dots">:</spna><asp:Label runat="server" ID="lblAddlApproval"></asp:Label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 d-flex">
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-6 col-form-label">3) Additonal Date</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblAddlDate"></asp:Label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-12 d-flex">
+                                                                <div class="col-md-2"></div>
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">3) Additonal Remarks</label>
+                                                                        <label class="col-lg-6 col-form-label">4) Additonal Remarks</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblAddlRemark"></asp:Label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-2"></div>
+
+
+                                                            </div>
+                                                            <div class="col-md-12 d-flex">
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">4) Appeal Remarks</label>
+                                                                        <label class="col-lg-6 col-form-label">5) Appeal Remarks</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblAddlAppeal"></asp:Label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-12 d-flex">
+                                                                <div class="col-md-2"></div>
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">5) Appeal Date</label>
+                                                                        <label class="col-lg-6 col-form-label">6) Appeal Date</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblAddlAppealDate"></asp:Label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-2"></div>
+
+                                                            </div>
+
+                                                            <div class="col-md-12 d-flex">
                                                                 <div class="col-md-5">
                                                                     <div class="form-group row">
-                                                                        <label class="col-lg-6 col-form-label">6) Additonal Letter</label>
+                                                                        <label class="col-lg-6 col-form-label">7) Additonal Letter</label>
                                                                         <div class="col-lg-6 d-flex">
                                                                             <spna class="dots">:</spna><asp:Label runat="server" ID="lblAddlLetter"></asp:Label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+
                                                         </div>
 
                                                         <div id="divReject" runat="server" visible="false" class="mt-3">

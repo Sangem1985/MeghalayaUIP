@@ -757,6 +757,7 @@
     <Content Include="User\CFO\CFOBusinessLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOCombinedApplication.aspx" />
     <Content Include="User\CFO\CFOContractorsRegistration.aspx" />
+    <Content Include="User\CFO\CFOCRCertificate.aspx" />
     <Content Include="User\CFO\CFODepartmentServiceAPI.aspx" />
     <Content Include="User\CFO\CFODrugLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOExcise.aspx" />
@@ -2113,6 +2114,13 @@
     </Compile>
     <Compile Include="User\CFO\CFOContractorsRegistration.aspx.designer.cs">
       <DependentUpon>CFOContractorsRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOCRCertificate.aspx.cs">
+      <DependentUpon>CFOCRCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOCRCertificate.aspx.designer.cs">
+      <DependentUpon>CFOCRCertificate.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFODepartmentServiceAPI.aspx.cs">
       <DependentUpon>CFODepartmentServiceAPI.aspx</DependentUpon>

@@ -114,6 +114,15 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblDeptName;
 
         /// <summary>
+        /// lblPayApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPayApproval;
+
+        /// <summary>
         /// lblQueryPaymentDate control.
         /// </summary>
         /// <remarks>
@@ -256,6 +265,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAddlDept;
+
+        /// <summary>
+        /// lblAddlApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddlApproval;
 
         /// <summary>
         /// lblAddlDate control.

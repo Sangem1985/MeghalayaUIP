@@ -71,6 +71,7 @@ namespace MeghalayaUIP.User.CFE
                     {
                         divPayemtDet.Visible = true;
                         lblDeptName.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        lblPayApproval.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         lblQueryPaymentDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         lblQueryPayment.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         lblQueryPaymentRespnse.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
@@ -100,6 +101,7 @@ namespace MeghalayaUIP.User.CFE
                         divAdditional.Visible = true;
 
                         lblAddlDept.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        lblAddlApproval.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         lblAddlDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         lblAddlRemark.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                         lblAddlAppeal.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);

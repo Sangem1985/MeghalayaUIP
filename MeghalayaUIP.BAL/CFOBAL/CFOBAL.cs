@@ -286,5 +286,9 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.GetCFOCommonDetails(Uidno, Deptid, Approvalid, UnitID);
         }
+        public DataSet GetMPDCLReport(int CFEQID)
+        {
+            return objCFODAL.GetMPDCLReport(CFEQID);
+        }
     }
 }
