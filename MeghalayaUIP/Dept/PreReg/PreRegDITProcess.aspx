@@ -882,12 +882,12 @@
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
+                                                            <asp:BoundField HeaderText="File Uploaded By (Department/Investor)" DataField="FILEBY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="FileName" DataField="FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:TemplateField HeaderText="View">
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                                 <ItemTemplate>
-
                                                                     <asp:HyperLink ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server"></asp:HyperLink>
                                                                     <%--<asp:LinkButton ID="linkViewQueryAttachment" Text='<%#Eval("FILENAME") %>' runat="server" OnClick="linkViewQueryAttachment_Click"></asp:LinkButton>--%>
                                                                 </ItemTemplate>
@@ -897,6 +897,8 @@
                                                                     <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
+                                                            <asp:BoundField HeaderText="File Uploaded Date" DataField="CREATEDDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>
@@ -1035,6 +1037,8 @@
                                             </td>
                                             <td style="width: 180px">Upload File if any: 
                                                
+                                               
+
                                                 <br />
                                                 <asp:FileUpload runat="server" ID="FileUploadqueryIMA" Font-Italic="true" BorderColor="Tomato" Style="margin-top: 10px;" padding-right="10px" />
 
@@ -1091,13 +1095,13 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="DepQID" Visible="false">
                                                 <ItemTemplate>
-                                                     <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
+                                                    <asp:Label runat="server" ID="lblDQID" Text='<%#Eval("IRQID")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="QueryByDeptID" Visible="false">
                                                 <ItemTemplate>
-                                                   <%-- <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("PRDA_DEPTID")%>'></asp:Label>--%>
-                                                     <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
+                                                    <%-- <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("PRDA_DEPTID")%>'></asp:Label>--%>
+                                                    <asp:Label runat="server" ID="lblDeptID" Text='<%#Eval("QUERYRAISEDBYDEPTID")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="UNIT ID" Visible="false">
@@ -1156,7 +1160,7 @@
                                                     <asp:HyperLink ID="hplAttachmentDIC" runat="server" Visible="false" Text="File Not Uploaded" Target="_blank" ForeColor="Blue"></asp:HyperLink>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                           <%-- 12--%>
+                                            <%-- 12--%>
                                             <asp:TemplateField HeaderText="Action"><%--Send Response to DIC--%>
                                                 <ItemTemplate>
                                                     <asp:Button ID="btnsendresponsetoDIC" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnsendresponsetoDIC_Click" /><br />
@@ -1241,6 +1245,7 @@
                                                             <label class="col-lg-4 col-form-label">Forward to  </label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :   
+                                                           
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
                                                                 <asp:DropDownList ID="ddlOfcr" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlOfcr_SelectedIndexChanged">
@@ -1255,9 +1260,10 @@
                                                 <div class="col-md-12 d-flex" runat="server" id="divRemarks" visible="false">
                                                     <div class="col-md-8">
                                                         <div class="form-group row">
-                                                            <label class="col-lg-4 col-form-label">Remarks<span style="color:red">*</span></label>
+                                                            <label class="col-lg-4 col-form-label">Remarks<span style="color: red">*</span></label>
                                                             <div class="col-lg-1 d-flex">
                                                                 :                                                           
+                                                           
                                                            
                                                             </div>
                                                             <div class="col-lg-4 d-flex">
@@ -1273,10 +1279,12 @@
                                                                 Upload Document&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                  
                                                                  
                                                            
+                                                           
                                                             </label>
 
                                                             <div class="col-lg-1 d-flex">
                                                                 :
+                                                           
                                                            
                                                            
                                                             </div>

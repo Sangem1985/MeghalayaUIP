@@ -136,7 +136,6 @@ namespace MeghalayaUIP.User.Dashboard
                         {
                             //hplApprvd.NavigateUrl = "~/User/CFE/CFEEstimationReport.aspx?CFEQID="lblQuesnrId.Text;
                             hplApprvd.NavigateUrl = "~/User/CFE/CFEEstimationReport.aspx?CFEQID=" + lblQuesnrId.Text;
-
                         }
                         else
                         {

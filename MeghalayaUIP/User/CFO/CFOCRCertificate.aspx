@@ -114,9 +114,9 @@
     <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="row">
+                <asp:HiddenField ID="hdnUserID" runat="server" />
                 <div class="col-md-12">
                     <div class="card">
-
                         <div class="card-body">
                             <div class="powerdept">
                                 <div class="header123">
@@ -126,7 +126,10 @@
                                     </div>
                                     <div class="title-section">
                                         <h1>MEGHALAYA POWER DISTRIBUTION CORPORATION LIMITED</h1>
-                                        <div class="subtitle">SOUTH GARO HILLS DIVISION &nbsp;&nbsp;&nbsp;&nbsp; BAGHMARA SUBDIVISION</div>
+                                        <div class="subtitle">
+                                            <asp:Label ID="lblDistrict" runat="server"></asp:Label>
+                                            &nbsp;&nbsp;&nbsp;&nbsp; 
+                                            <asp:Label ID="lblMandal" runat="server"></asp:Label></div>
                                     </div>
                                 </div>
                             </div>
@@ -168,6 +171,7 @@
                                                     <asp:Label ID="lblApplicationNo" runat="server"></asp:Label></b>
                                                 with us on Date <b>
                                                     <asp:Label ID="lblApplicationDate" runat="server"></asp:Label></b> it is to certify that, your installation has been serviced/energized as under:
+                                           
                                             </p>
                                         </div>
                                         <table>
@@ -232,9 +236,11 @@
                                             <tr>
                                                 <td class="bold">Estimation <b></b>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                                <asp:Label ID="lblestimation" runat="server"></asp:Label></td>
+                                               
+                                                    <asp:Label ID="lblestimation" runat="server"></asp:Label></td>
                                                 <td class="bold">ReceiptNo :
-                                                <asp:Label ID="lblEstimationReceiptNo" runat="server"></asp:Label>
+                                               
+                                                    <asp:Label ID="lblEstimationReceiptNo" runat="server"></asp:Label>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <b>Date</b>
                                                     <asp:Label ID="lblEstimationDate" runat="server"></asp:Label></td>
 
@@ -242,9 +248,11 @@
                                             <tr>
                                                 <td class="bold">Security Deposit <b></b>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                                <asp:Label ID="lblSecurityDeposit" runat="server"></asp:Label></td>
+                                               
+                                                    <asp:Label ID="lblSecurityDeposit" runat="server"></asp:Label></td>
                                                 <td class="bold">ReceiptNo : 
-                                                <asp:Label ID="lblSecurityReceiptNo" runat="server"></asp:Label>
+                                               
+                                                    <asp:Label ID="lblSecurityReceiptNo" runat="server"></asp:Label>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;       <b>Date</b>
                                                     <asp:Label ID="lblSecurityDate" runat="server"></asp:Label></td>
                                             </tr>

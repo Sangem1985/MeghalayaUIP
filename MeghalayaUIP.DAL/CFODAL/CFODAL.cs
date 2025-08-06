@@ -3655,7 +3655,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 throw ex;
             }
         }
-        public DataSet GetMPDCLReport(int CFEQID)
+        public DataSet GetMPDCLReport(string CFOQID)
         {
 
             DataSet ds = new DataSet();
@@ -3672,7 +3672,7 @@ namespace MeghalayaUIP.DAL.CFODAL
 
                 da.SelectCommand.Transaction = transaction;
                 da.SelectCommand.Connection = connection;
-                da.SelectCommand.Parameters.AddWithValue("@CFEQID", Convert.ToInt32(CFEQID));
+                da.SelectCommand.Parameters.AddWithValue("@CFEQID", Convert.ToInt32(CFOQID));
                 da.Fill(ds);
                 transaction.Commit();
                 return ds;
