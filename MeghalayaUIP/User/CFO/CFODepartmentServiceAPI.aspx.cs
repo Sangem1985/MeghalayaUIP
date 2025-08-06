@@ -22,8 +22,8 @@ namespace MeghalayaUIP.User.CFO
         CFOBAL objcfobal = new CFOBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uidno = "MIP_20258145202554690";
-            Int32 unitid = 1057;
+            string uidno = "MIP_2025852202557718";
+            Int32 unitid = 1093;
             string deptid = "14";
             string approvalid = "3";
 
@@ -61,7 +61,7 @@ namespace MeghalayaUIP.User.CFO
 
                     // Extract the token
                     token = json1.token;
-                    MGCommonClass.LogData(token);
+                    MGCommonClass.LogData("Token: " + token);
                     // Store or use the access token as needed
                 }
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
@@ -75,15 +75,36 @@ namespace MeghalayaUIP.User.CFO
                     var webRequest = System.Net.WebRequest.Create(WEBSERVICE_URL);
                     if (webRequest != null)
                     {
-                        //     webRequest.Headers.Add("token", "bd16b347e586f05339f830b3a85d8aefa8da92c1");
-                        //webRequest.Headers =  "bd16b347e586f05339f830b3a85d8aefa8da92c1";
                         webRequest.Method = "POST";
                         webRequest.Timeout = 20000;
                         webRequest.ContentType = "application/json";
                         webRequest.Headers["Authorization"] = "Bearer " + token;
 
+                        // Create request body object
+                        var requestBody = new
+                        {
+                            ApplicationNumber = dscommondetails.Tables[0].Rows[0]["ApplicationNumber"].ToString(),
+                            ConnectionId = dscommondetails.Tables[0].Rows[0]["ConnectionId"].ToString(),
+                            Application_Unique_id = dscommondetails.Tables[0].Rows[0]["Application_Unique_id"].ToString(),
+                            LocationCode = dscommondetails.Tables[0].Rows[0]["LocationCode"].ToString(),
+                            Amount = dscommondetails.Tables[0].Rows[0]["Amount"].ToString(),
+                            TransactionDate = Convert.ToDateTime(dscommondetails.Tables[0].Rows[0]["TransactionDate"]).ToString("dd-MM-yyyy"), // Format: DD-MM-YYYY
+                            ReceiptNumber = dscommondetails.Tables[0].Rows[0]["ReceiptNumber"].ToString(),
+                            Transaction_Type = dscommondetails.Tables[0].Rows[0]["Transaction_Type"].ToString(), // Only: Cash, DD, RTGS
+                            Debited_Acc_Num = dscommondetails.Tables[0].Rows[0]["Debited_Acc_Num"].ToString(), // Optional
+                            Debited_acc_name = dscommondetails.Tables[0].Rows[0]["Debited_acc_name"].ToString(), // Optional
+                            Debited_ifsc_code = dscommondetails.Tables[0].Rows[0]["Debited_ifsc_code"].ToString(), // Optional
+                            Debited_bank_name = dscommondetails.Tables[0].Rows[0]["Debited_bank_name"].ToString(), // Optional
+                            Debited_branch_name = dscommondetails.Tables[0].Rows[0]["Debited_branch_name"].ToString(), // Optional
+                            UTRNumber = dscommondetails.Tables[0].Rows[0]["UTRNumber"].ToString() // Optional
+                        };
+
+
+                        // Convert to JSON string
+                        string JsonDetails1 = JsonConvert.SerializeObject(requestBody);
+                        MGCommonClass.LogData("Json Request: " + JsonDetails1);
                         // Convert JSON string to byte array
-                        byte[] byteArray = Encoding.UTF8.GetBytes(JsonDetails);
+                        byte[] byteArray = Encoding.UTF8.GetBytes(JsonDetails1);
 
                         // Set content length
                         webRequest.ContentLength = byteArray.Length;
@@ -93,26 +114,27 @@ namespace MeghalayaUIP.User.CFO
                         {
                             dataStream.Write(byteArray, 0, byteArray.Length);
                         }
+
                         try
                         {
                             // Get response
                             using (WebResponse response = webRequest.GetResponse())
                             {
-                                // Read response
                                 using (Stream responseStream = response.GetResponseStream())
                                 {
                                     StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
                                     string responseJson = reader.ReadToEnd();
                                     Console.WriteLine("Response: " + responseJson);
+                                    MGCommonClass.LogData("Response : " + responseJson);
                                     if (responseJson.Contains("success"))
                                     {
+                                        // Handle success
                                     }
                                 }
                             }
                         }
                         catch (WebException ex)
                         {
-                            // Handle exception
                             if (ex.Response != null)
                             {
                                 using (WebResponse errorResponse = ex.Response)
@@ -121,7 +143,7 @@ namespace MeghalayaUIP.User.CFO
                                     {
                                         StreamReader reader = new StreamReader(errorStream, Encoding.GetEncoding("utf-8"));
                                         string errorText = reader.ReadToEnd();
-                                        Console.WriteLine("Error response: " + errorText);
+                                        MGCommonClass.LogData("Error response: " + errorText);
                                     }
                                 }
                             }
