@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
     <style>
         section#marquee {
             padding: 0px 0;
@@ -21,27 +23,6 @@
     <!--chatbot-->
     <style>
         /* simple styling */
-        #chatWindow {
-            display: none;
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 320px;
-            height: 450px;
-            border: 1px solid #ccc;
-            background: #fff;
-            overflow: auto;
-            padding: 10px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-        }
-
-        #chatContent button {
-            width: 100%;
-            text-align: left;
-            margin: 6px 0;
-            padding: 8px;
-            border-radius: 6px;
-        }
 
         .small-btn {
             width: auto;
@@ -835,6 +816,7 @@
                                 <b>+91 7085741695</b>
 
                             </li>
+                            <li><span id="lblClickCount">Chatbot Views: 0</span></li>
                         </ul>
                     </h6>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -915,10 +897,9 @@
                                 </div>
                             </a>
                         </div>
+
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
@@ -952,247 +933,24 @@
         </div>
     </div>
 
-
-    <%--    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
-
-    <!-- Chatbot Icon -->
-    <div style="position: fixed; bottom: 20px; right: 20px;">
-        <asp:ImageButton ID="btnChatbot" runat="server" ImageUrl="~/assets/assetsnew/images/info/robot.png"
-            OnClientClick="toggleChat(); return false;" />
-    </div>
-
-    <!-- Chat Window -->
-    <div id="chatWindow" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; height: 400px; border: 1px solid #ccc; background: #fff; overflow: auto; padding: 10px;">
-        <div id="chatContent"></div>
-    </div>
-
-    <script>
-        function toggleChat() {
-            document.getElementById("chatWindow").style.display =
-                document.getElementById("chatWindow").style.display === "none" ? "block" : "none";
-            PageMethods.GetModules(onModulesLoaded);
-        }
-
-        function onModulesLoaded(modules) {
-            var content = "";
-            modules.forEach(function (m) {
-                content += "<button onclick=\"loadQuestions('" + m + "')\">" + m + "</button><br/>";
-            });
-            document.getElementById("chatContent").innerHTML = content;
-        }
-
-        function loadQuestions(module) {
-            PageMethods.GetQuestions(module, function (questions) {
-                var content = "";
-                questions.forEach(function (q) {
-                    content += "<button onclick=\"loadAnswer(" + q.SLNO + ")\">" + q.QUESTION + "</button><br/>";
-                });
-                document.getElementById("chatContent").innerHTML = content;
-            });
-        }
-
-        function loadAnswer(slno) {
-            PageMethods.GetAnswer(slno, function (answer) {
-                document.getElementById("chatContent").innerHTML = "<p>" + answer + "</p><br/><button onclick='toggleChat()'>Close</button>";
-            });
-        }
-    </script>  --%>
-
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
 
     <!-- Chatbot Icon -->
     <div style="position: fixed; bottom: 20px; right: 20px;">
         <asp:ImageButton ID="btnChatbot" runat="server"
-            ImageUrl="~/assets/assetsnew/images/info/robot.png"
-            OnClientClick="toggleChat(); return false;" />
+            ImageUrl="~/assets/assetsnew/images/info/robot.gif"
+            OnClientClick="toggleChat();incrementChatbotCount(); return false;" />
     </div>
 
     <!-- Chat Window -->
     <div id="chatWindow" role="dialog" aria-hidden="true">
-        <div id="chatHeader">
+        <div id="chatHeader" class="mb-2">
             <%-- <strong>Help</strong>--%>
+            <p>Welcome to MiPA Chatbot</p>
             <button type="button" class="small-btn" onclick="closeChat()">X</button>
         </div>
         <div id="chatContent"></div>
     </div>
+    <script src="assets/assetsnew/js/chatbot.js"></script>
 
-    <script type="text/javascript">
-        var modulesCache = null;
-        var questionsCache = {};
-        var answersCache = {};
-        var isModulesLoading = false;
-
-        document.addEventListener('DOMContentLoaded', function () {
-            try {
-                var saved = localStorage.getItem('chatModules_v1');
-                if (saved) modulesCache = JSON.parse(saved);
-            } catch (e) { console.warn('localStorage read failed', e); }
-
-            prefetchModules();
-        });
-
-        function prefetchModules() {
-            if (modulesCache || isModulesLoading) return;
-            isModulesLoading = true;
-            PageMethods.GetModules(function (mods) {
-                isModulesLoading = false;
-                modulesCache = mods || [];
-                try { localStorage.setItem('chatModules_v1', JSON.stringify(modulesCache)); } catch (e) { }
-            }, function (err) {
-                isModulesLoading = false;
-                console.error('GetModules failed (prefetch)', err);
-            });
-        }
-
-        function toggleChat() {
-            var w = document.getElementById('chatWindow');
-
-            var isOpening = (w.style.display !== 'block');
-
-            if (isOpening) {
-                w.style.display = 'block';
-                w.setAttribute('aria-hidden', 'false');
-
-                // Record the click asynchronously
-                PageMethods.RecordChatbotClick(function () {
-                    console.log('Chatbot click recorded');
-                }, function (err) {
-                    console.warn('Click record failed', err);
-                });
-
-                // Load modules
-                if (modulesCache && modulesCache.length) {
-                    renderModules(modulesCache);
-                    return false;
-                }
-                showLoading('Loading...');
-                PageMethods.GetModules(function (modules) {
-                    hideLoading();
-                    modulesCache = modules || [];
-                    renderModules(modulesCache);
-                });
-            } else {
-                w.style.display = 'none';
-                w.setAttribute('aria-hidden', 'true');
-            }
-            return false;
-
-            if (w.style.display === 'block') {
-                w.style.display = 'none';
-                w.setAttribute('aria-hidden', 'true');
-                return false;
-            }
-            w.style.display = 'block';
-            w.setAttribute('aria-hidden', 'false');
-
-            if (modulesCache && modulesCache.length) {
-                renderModules(modulesCache);
-                return false;
-            }
-
-            showLoading('Loading...');
-            PageMethods.GetModules(function (modules) {
-                hideLoading();
-                modulesCache = modules || [];
-                try { localStorage.setItem('chatModules_v1', JSON.stringify(modulesCache)); } catch (e) { }
-                renderModules(modulesCache);
-            }, function (err) {
-                hideLoading();
-                document.getElementById('chatContent').innerHTML = '<div style="color:crimson">Error loading modules. Try again later.</div>';
-                console.error(err);
-            });
-            return false;
-        }
-
-        function renderModules(mods) {
-            var container = document.getElementById('chatContent');
-            container.innerHTML = '';
-            if (!mods || !mods.length) {
-                container.innerHTML = '<div>No modules found.</div>';
-                return;
-            }
-            mods.forEach(function (m) {
-                var btn = document.createElement('button');
-                btn.textContent = m;
-                btn.className = 'module-btn';
-                btn.onclick = function () { loadQuestions(m); };
-                container.appendChild(btn);
-            });
-        }
-
-        function loadQuestions(moduleName) {
-            var container = document.getElementById('chatContent');
-            if (questionsCache[moduleName]) {
-                renderQuestions(moduleName, questionsCache[moduleName]);
-                return;
-            }
-            showLoading('Loading questions...');
-            PageMethods.GetQuestions(moduleName, function (questions) {
-                hideLoading();
-                questionsCache[moduleName] = questions || [];
-                renderQuestions(moduleName, questionsCache[moduleName]);
-            }, function (err) {
-                hideLoading();
-                container.innerHTML = '<div style="color:crimson">Error loading questions.</div>';
-                console.error(err);
-            });
-        }
-
-        function renderQuestions(moduleName, questions) {
-            var container = document.getElementById('chatContent');
-            container.innerHTML = '';
-
-            var back = document.createElement('button');
-            back.textContent = '← Back to modules';
-            back.className = 'small-btn';
-            back.onclick = function () { renderModules(modulesCache || []); };
-            container.appendChild(back);
-
-            questions.forEach(function (q) {
-                var btn = document.createElement('button');
-                btn.textContent = q.QUESTION;
-                btn.onclick = function () { loadAnswer(q.SLNO); };
-                container.appendChild(btn);
-            });
-
-            if (!questions.length) {
-                var p = document.createElement('div');
-                p.textContent = 'No questions available in this module.';
-                container.appendChild(p);
-            }
-        }
-
-        function loadAnswer(slno) {
-            var container = document.getElementById('chatContent');
-            if (answersCache[slno]) {
-                container.innerHTML = formatAnswerHtml(answersCache[slno]);
-                return;
-            }
-            showLoading('Loading answer...');
-            PageMethods.GetAnswer(slno, function (answer) {
-                hideLoading();
-                answersCache[slno] = answer || 'No answer found.';
-                container.innerHTML = formatAnswerHtml(answersCache[slno]);
-            }, function (err) {
-                hideLoading();
-                container.innerHTML = '<div style="color:crimson">Error loading answer.</div>';
-                console.error(err);
-            });
-        }
-
-        function formatAnswerHtml(answerText) {
-            return '<div>' + (answerText || '') + '</div><br/><button class="small-btn" onclick="toggleChat()">Close</button>';
-        }
-
-
-        function showLoading(text) {
-            var container = document.getElementById('chatContent');
-            container.innerHTML = '<div class="spinner">' + (text || 'Loading...') + '</div>';
-        }
-        function hideLoading() { /* no-op: caller replaces content */ }
-
-        function closeChat() {
-            document.getElementById('chatWindow').style.display = 'none';
-        }
-    </script>
 </asp:Content>

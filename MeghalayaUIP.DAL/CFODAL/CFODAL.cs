@@ -3688,5 +3688,53 @@ namespace MeghalayaUIP.DAL.CFODAL
                 connection.Dispose();
             }
         }
+        public string CFODepartmentService(CFODepartmentServiceApi objCfoDtls)
+        {
+
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.UpdateCFOApplStatus;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(objCfoDtls.UNITID));
+                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(objCfoDtls.DeptId));
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(objCfoDtls.ApprovalId));
+                com.Parameters.AddWithValue("@RESPONSE", objCfoDtls.Response);
+                com.Parameters.AddWithValue("@IPADDRESS", objCfoDtls.IPAddress);
+                com.Parameters.AddWithValue("@CFODA_COMMONDETAILSUPDATEDFLAG", objCfoDtls.APPLEVEL);
+                com.Parameters.AddWithValue("@CFODA_CFOUIDNO", objCfoDtls.CFOUID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

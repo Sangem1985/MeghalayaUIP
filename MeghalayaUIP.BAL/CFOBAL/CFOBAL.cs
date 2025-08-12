@@ -290,5 +290,9 @@ namespace MeghalayaUIP.BAL.CFOBAL
         {
             return objCFODAL.GetMPDCLReport(CFOQID);
         }
+        public string CFODepartmentService(CFODepartmentServiceApi objCfoDtls)
+        {
+            return objCFODAL.CFODepartmentService(objCfoDtls);
+        }
     }
 }

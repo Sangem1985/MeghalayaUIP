@@ -37,7 +37,7 @@ namespace MeghalayaUIP
 
                 if (!Page.IsPostBack)
                     Session.Abandon();
-            }
+            }           
         }
         public void Killsession()
         {
@@ -237,6 +237,25 @@ namespace MeghalayaUIP
 
             return result;
         }
+        [System.Web.Services.WebMethod]
+        public static int IncrementChatbotClickCount()
+        {
+            int updatedCount = 0;
+
+            using (SqlConnection con = new SqlConnection(connStr))
+            using (SqlCommand cmd = new SqlCommand("USP_GETCHATBOT", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                    updatedCount = Convert.ToInt32(result);
+            }
+            return updatedCount;
+        }
+
+
 
     }
 }

@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using MeghalayaUIP.BAL.CFOBAL;
 using MeghalayaUIP.CommonClass;
 using System.Security.Policy;
+using MeghalayaUIP.Common;
 
 namespace MeghalayaUIP.User.CFO
 {
@@ -22,7 +23,7 @@ namespace MeghalayaUIP.User.CFO
         CFOBAL objcfobal = new CFOBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uidno = "MIP_2025852202557718";
+            string uidno = "CTO/2025/1093/115";
             Int32 unitid = 1093;
             string deptid = "14";
             string approvalid = "3";
@@ -129,6 +130,31 @@ namespace MeghalayaUIP.User.CFO
                                     if (responseJson.Contains("success"))
                                     {
                                         // Handle success
+                                        CFODepartmentServiceApi objCfoDtls = new CFODepartmentServiceApi();
+                                        objCfoDtls.UNITID = Convert.ToInt32(unitid).ToString();
+                                        objCfoDtls.DeptId = deptid;
+                                        objCfoDtls.ApprovalId = approvalid;
+                                        objCfoDtls.Response = responseJson;
+                                        objCfoDtls.APPLEVEL = "Y";
+                                        objCfoDtls.CFOUID = uidno;
+                                        objCfoDtls.IPAddress = getclientIP();
+
+
+                                        string Result = objcfobal.CFODepartmentService(objCfoDtls);
+                                    }
+                                    else
+                                    {
+                                        CFODepartmentServiceApi objCfoDtls = new CFODepartmentServiceApi();
+                                        objCfoDtls.UNITID = Convert.ToInt32(unitid).ToString();
+                                        objCfoDtls.DeptId = deptid;
+                                        objCfoDtls.ApprovalId = approvalid;
+                                        objCfoDtls.Response = responseJson;
+                                        objCfoDtls.APPLEVEL = "N";
+                                        objCfoDtls.CFOUID = uidno;
+                                        objCfoDtls.IPAddress = getclientIP();
+
+
+                                        string Result = objcfobal.CFODepartmentService(objCfoDtls);
                                     }
                                 }
                             }
@@ -148,6 +174,9 @@ namespace MeghalayaUIP.User.CFO
                                 }
                             }
                         }
+
+
+                       
                     }
                 }
                 catch (Exception ex)
@@ -157,6 +186,22 @@ namespace MeghalayaUIP.User.CFO
             }
 
         }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
 
+            return result;
+        }
     }
 }

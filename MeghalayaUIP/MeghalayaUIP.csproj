@@ -587,6 +587,7 @@
     <Content Include="assets\assetsnew\js\aos.js" />
     <Content Include="assets\assetsnew\js\appear.js" />
     <Content Include="assets\assetsnew\js\bootstrap.min.js" />
+    <Content Include="assets\assetsnew\js\chatbot.js" />
     <Content Include="assets\assetsnew\js\countdown.js" />
     <Content Include="assets\assetsnew\js\gmaps.js" />
     <Content Include="assets\assetsnew\js\isotope.js" />
