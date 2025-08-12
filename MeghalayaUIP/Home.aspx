@@ -8,14 +8,54 @@
             padding: 0px 0;
             position: relative;
             background: linear-gradient(to bottom, #0f7f8f 0%, #185784 100%);
-            z-index:9;
-            color:#fff;
+            z-index: 9;
+            color: #fff;
         }
-        section#marquee a {
-    color: #fff;
-    font-weight: 600;
-    font-size: 17px !important;
-}
+
+            section#marquee a {
+                color: #fff;
+                font-weight: 600;
+                font-size: 17px !important;
+            }
+    </style>
+    <!--chatbot-->
+    <style>
+        /* simple styling */
+        #chatWindow {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 320px;
+            height: 450px;
+            border: 1px solid #ccc;
+            background: #fff;
+            overflow: auto;
+            padding: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        #chatContent button {
+            width: 100%;
+            text-align: left;
+            margin: 6px 0;
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        .small-btn {
+            width: auto;
+            display: inline-block;
+            margin: 6px 6px 0 0;
+            padding: 6px 8px;
+        }
+
+        .spinner {
+            text-align: center;
+            padding: 18px 0;
+            font-size: 14px;
+            color: #666;
+        }
     </style>
     <!--Banner Video-->
     <section id="marquee" runat="server" visible="false">
@@ -23,16 +63,16 @@
             <div class="row">
                 <div class="col-md-12">
                     <marquee scrolldelay="50" scrollamount="5" behavior="alternate" direction="left" width="100%" onmouseover="this.stop();" onmouseout="this.start();" title="Scrolling the Latest News">
-                <i class="icofont-ui-next"></i> <a target="_blank" href="BusinessRegulation.aspx" style="text-transform: initial !important;"> <strong>Submit feedback on Draft Meghalaya Film Tourism Policy, 2025 to content.hellomeghalaya@gmail.com. Read Policy here.</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:100 !important;"></span>
-                <!-- <i class="icofont-ui-next"></i> <a target="_blank" href="#"> <strong> Implementation of AH Revised Rates</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<br> -->
-                </marquee>
+                        <i class="icofont-ui-next"></i><a target="_blank" href="BusinessRegulation.aspx" style="text-transform: initial !important;"><strong>Submit feedback on Draft Meghalaya Film Tourism Policy, 2025 to content.hellomeghalaya@gmail.com. Read Policy here.</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: 100 !important;"></span>
+                        <!-- <i class="icofont-ui-next"></i> <a target="_blank" href="#"> <strong> Implementation of AH Revised Rates</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<br> -->
+                    </marquee>
                 </div>
             </div>
         </div>
     </section>
 
     <video autoplay="" muted="" loop="" id="myVideo" style="top: -80px; opacity: 1; width: 100%; margin-top: -275px;">
-        <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;"/>
+        <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;" />
     </video>
     <section class="slider-style-three centred" style="display: none;">
         <div class="main-slider-carousel-2 owl-carousel owl-theme">
@@ -57,12 +97,11 @@
                 <div class="col col-xs-12 text-center bgview">
 
                     <h3 class="wow zoomOut animated" data-wow-delay="100ms"
-                        data-wow-duration="1500ms" style="visibility: visible;
-animation-duration: 1500ms; animation-delay: 100ms; 
-animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
+                        data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p>
                         Empowering Investors at every stage of their journey.<br>
                         Set up your business in Meghalaya with, one of the fastest growing business destinations in North-East India.
+                   
                     </p>
                 </div>
             </div>
@@ -77,6 +116,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <div class="text" style="margin-top: 21px;">
                         <p class="wow zoomOut animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInDown;">
                             <span class="colorblue">Apply for Incentives</span> for your business under <span class="colorblue">Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 and Meghalaya Industrial and  Investment Promotion Policy (MIIPP) 2024</span> to make your business  more profitable.
+                       
                         </p>
 
                     </div>
@@ -171,7 +211,8 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                 <figure class="author-thumb"><i class="fi fi-tr-coin-up-arrow"></i></figure>
                                 <h5>INTENT TO INVEST</h5>
                                 <span class="designation">Want to Invest? Fill a simple
-                                 <b>Intent to
+                                
+                                    <b>Intent to
                                 Invest Form</b> and we
                               will get in touch.</span>
                             </div>
@@ -225,6 +266,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     <br />
                                     Have a<br />
                                     business Idea or want to expand your Business?
+                               
                                 </p>
                             </div>
 
@@ -244,6 +286,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     Fill <span style="color: #b6fff8;" class="colorchangerd">
                                         <br />
                                         Intent to Invest form</span> and our team will reach out
+                               
                                 </p>
                             </div>
 
@@ -262,6 +305,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     <br />
                                     Prepare your<br />
                                     Documents (Project DPR, loan sanctions, etc.) 
+                               
                                 </p>
                             </div>
 
@@ -284,6 +328,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     and <span style="color: #b6fff8;" class="colorchangerd">Invest Meghalaya</span> Portal
                             
                             
+                               
                                 </p>
                             </div>
 
@@ -302,6 +347,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     <br />
                                     Get <span style="color: #b6fff8;" class="colorchangerd">Clearance<br />
                                         for Pre-establishment & Pre-operations</span> for your business
+                               
                                 </p>
                             </div>
 
@@ -320,8 +366,10 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     <br />
                                     Commence<br />
                                     your
-                                <br />
+                               
+                                    <br />
                                     Commercial Operations
+                               
                                 </p>
                             </div>
 
@@ -522,7 +570,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
 
                     <video autoplay="" muted="" loop="" id="myVideo1" style="width: 100%;">
-                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;"/>
+                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;" />
                     </video>
 
                 </div>
@@ -544,6 +592,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                         <img src="assets/assetsnew/images/popupcircle.gif" style="width: 10%; position: absolute; left: -95px; top: -5px; border-radius: 12px;">
                         Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 &nbsp;&nbsp;&nbsp;&nbsp;<span
                             style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="https://unnati.dpiit.gov.in/" target="_blank">Register on UNNATI 2024 Portal here.</a> &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                           
                             <a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= unnati2024 %>', '_blank'); return false;">Read the UNNATI 2024 scheme document here.</a></span>
                     </h5>
                 </div>
@@ -609,6 +658,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p class="colorpurpule">
                         <br />
                         Eligibility
+                   
                     </p>
                     <table class="table table-striped">
                         <thead>
@@ -700,7 +750,8 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                 <th scope="col" style="background: #9B57CE;">Small<br />
                                     (INR 1 – 10 Cr)</th>
                                 <th scope="col" style="background: #9B57CE;">Medium
-                                        <br />
+                                       
+                                    <br />
                                     (INR 10 – 50 Cr) </th>
                                 <th scope="col" style="background: #9B57CE;">Large<br />
                                     (> INR 50 Cr) </th>
@@ -754,12 +805,14 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p class="colorblue">
                         <br />
                         Additional Incentives
+                   
                     </p>
                     <img src="assets/assetsbeta/images/modelimg2.jpg" alt="" />
 
                     <p class="colorblue">
                         <br />
                         Main Eligibility Criteria
+                   
                     </p>
                     <img src="assets/assetsbeta/images/modelimg3.jpg" alt="" />
                 </div>
@@ -777,7 +830,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <h6 class="modal-title" id="exampleModalLabel">
                         <ul>
                             <li><span>Email:</span>
-                                <b> meghalayaipa@gmail.com</b></li>
+                                <b>meghalayaipa@gmail.com</b></li>
                             <li><span>Call Us:</span>
                                 <b>+91 7085741695</b>
 
@@ -871,7 +924,8 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
     </div>
     <div class="servicedesk">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <i class="fi fi-tr-admin-alt"></i> Investor Desk
+            <i class="fi fi-tr-admin-alt"></i>Investor Desk
+       
         </button>
     </div>
 
@@ -898,4 +952,247 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
         </div>
     </div>
 
+
+    <%--    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
+
+    <!-- Chatbot Icon -->
+    <div style="position: fixed; bottom: 20px; right: 20px;">
+        <asp:ImageButton ID="btnChatbot" runat="server" ImageUrl="~/assets/assetsnew/images/info/robot.png"
+            OnClientClick="toggleChat(); return false;" />
+    </div>
+
+    <!-- Chat Window -->
+    <div id="chatWindow" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; height: 400px; border: 1px solid #ccc; background: #fff; overflow: auto; padding: 10px;">
+        <div id="chatContent"></div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            document.getElementById("chatWindow").style.display =
+                document.getElementById("chatWindow").style.display === "none" ? "block" : "none";
+            PageMethods.GetModules(onModulesLoaded);
+        }
+
+        function onModulesLoaded(modules) {
+            var content = "";
+            modules.forEach(function (m) {
+                content += "<button onclick=\"loadQuestions('" + m + "')\">" + m + "</button><br/>";
+            });
+            document.getElementById("chatContent").innerHTML = content;
+        }
+
+        function loadQuestions(module) {
+            PageMethods.GetQuestions(module, function (questions) {
+                var content = "";
+                questions.forEach(function (q) {
+                    content += "<button onclick=\"loadAnswer(" + q.SLNO + ")\">" + q.QUESTION + "</button><br/>";
+                });
+                document.getElementById("chatContent").innerHTML = content;
+            });
+        }
+
+        function loadAnswer(slno) {
+            PageMethods.GetAnswer(slno, function (answer) {
+                document.getElementById("chatContent").innerHTML = "<p>" + answer + "</p><br/><button onclick='toggleChat()'>Close</button>";
+            });
+        }
+    </script>  --%>
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
+
+    <!-- Chatbot Icon -->
+    <div style="position: fixed; bottom: 20px; right: 20px;">
+        <asp:ImageButton ID="btnChatbot" runat="server"
+            ImageUrl="~/assets/assetsnew/images/info/robot.png"
+            OnClientClick="toggleChat(); return false;" />
+    </div>
+
+    <!-- Chat Window -->
+    <div id="chatWindow" role="dialog" aria-hidden="true">
+        <div id="chatHeader">
+            <%-- <strong>Help</strong>--%>
+            <button type="button" class="small-btn" onclick="closeChat()">X</button>
+        </div>
+        <div id="chatContent"></div>
+    </div>
+
+    <script type="text/javascript">
+        var modulesCache = null;
+        var questionsCache = {};
+        var answersCache = {};
+        var isModulesLoading = false;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var saved = localStorage.getItem('chatModules_v1');
+                if (saved) modulesCache = JSON.parse(saved);
+            } catch (e) { console.warn('localStorage read failed', e); }
+
+            prefetchModules();
+        });
+
+        function prefetchModules() {
+            if (modulesCache || isModulesLoading) return;
+            isModulesLoading = true;
+            PageMethods.GetModules(function (mods) {
+                isModulesLoading = false;
+                modulesCache = mods || [];
+                try { localStorage.setItem('chatModules_v1', JSON.stringify(modulesCache)); } catch (e) { }
+            }, function (err) {
+                isModulesLoading = false;
+                console.error('GetModules failed (prefetch)', err);
+            });
+        }
+
+        function toggleChat() {
+            var w = document.getElementById('chatWindow');
+
+            var isOpening = (w.style.display !== 'block');
+
+            if (isOpening) {
+                w.style.display = 'block';
+                w.setAttribute('aria-hidden', 'false');
+
+                // Record the click asynchronously
+                PageMethods.RecordChatbotClick(function () {
+                    console.log('Chatbot click recorded');
+                }, function (err) {
+                    console.warn('Click record failed', err);
+                });
+
+                // Load modules
+                if (modulesCache && modulesCache.length) {
+                    renderModules(modulesCache);
+                    return false;
+                }
+                showLoading('Loading...');
+                PageMethods.GetModules(function (modules) {
+                    hideLoading();
+                    modulesCache = modules || [];
+                    renderModules(modulesCache);
+                });
+            } else {
+                w.style.display = 'none';
+                w.setAttribute('aria-hidden', 'true');
+            }
+            return false;
+
+            if (w.style.display === 'block') {
+                w.style.display = 'none';
+                w.setAttribute('aria-hidden', 'true');
+                return false;
+            }
+            w.style.display = 'block';
+            w.setAttribute('aria-hidden', 'false');
+
+            if (modulesCache && modulesCache.length) {
+                renderModules(modulesCache);
+                return false;
+            }
+
+            showLoading('Loading...');
+            PageMethods.GetModules(function (modules) {
+                hideLoading();
+                modulesCache = modules || [];
+                try { localStorage.setItem('chatModules_v1', JSON.stringify(modulesCache)); } catch (e) { }
+                renderModules(modulesCache);
+            }, function (err) {
+                hideLoading();
+                document.getElementById('chatContent').innerHTML = '<div style="color:crimson">Error loading modules. Try again later.</div>';
+                console.error(err);
+            });
+            return false;
+        }
+
+        function renderModules(mods) {
+            var container = document.getElementById('chatContent');
+            container.innerHTML = '';
+            if (!mods || !mods.length) {
+                container.innerHTML = '<div>No modules found.</div>';
+                return;
+            }
+            mods.forEach(function (m) {
+                var btn = document.createElement('button');
+                btn.textContent = m;
+                btn.className = 'module-btn';
+                btn.onclick = function () { loadQuestions(m); };
+                container.appendChild(btn);
+            });
+        }
+
+        function loadQuestions(moduleName) {
+            var container = document.getElementById('chatContent');
+            if (questionsCache[moduleName]) {
+                renderQuestions(moduleName, questionsCache[moduleName]);
+                return;
+            }
+            showLoading('Loading questions...');
+            PageMethods.GetQuestions(moduleName, function (questions) {
+                hideLoading();
+                questionsCache[moduleName] = questions || [];
+                renderQuestions(moduleName, questionsCache[moduleName]);
+            }, function (err) {
+                hideLoading();
+                container.innerHTML = '<div style="color:crimson">Error loading questions.</div>';
+                console.error(err);
+            });
+        }
+
+        function renderQuestions(moduleName, questions) {
+            var container = document.getElementById('chatContent');
+            container.innerHTML = '';
+
+            var back = document.createElement('button');
+            back.textContent = '← Back to modules';
+            back.className = 'small-btn';
+            back.onclick = function () { renderModules(modulesCache || []); };
+            container.appendChild(back);
+
+            questions.forEach(function (q) {
+                var btn = document.createElement('button');
+                btn.textContent = q.QUESTION;
+                btn.onclick = function () { loadAnswer(q.SLNO); };
+                container.appendChild(btn);
+            });
+
+            if (!questions.length) {
+                var p = document.createElement('div');
+                p.textContent = 'No questions available in this module.';
+                container.appendChild(p);
+            }
+        }
+
+        function loadAnswer(slno) {
+            var container = document.getElementById('chatContent');
+            if (answersCache[slno]) {
+                container.innerHTML = formatAnswerHtml(answersCache[slno]);
+                return;
+            }
+            showLoading('Loading answer...');
+            PageMethods.GetAnswer(slno, function (answer) {
+                hideLoading();
+                answersCache[slno] = answer || 'No answer found.';
+                container.innerHTML = formatAnswerHtml(answersCache[slno]);
+            }, function (err) {
+                hideLoading();
+                container.innerHTML = '<div style="color:crimson">Error loading answer.</div>';
+                console.error(err);
+            });
+        }
+
+        function formatAnswerHtml(answerText) {
+            return '<div>' + (answerText || '') + '</div><br/><button class="small-btn" onclick="toggleChat()">Close</button>';
+        }
+
+
+        function showLoading(text) {
+            var container = document.getElementById('chatContent');
+            container.innerHTML = '<div class="spinner">' + (text || 'Loading...') + '</div>';
+        }
+        function hideLoading() { /* no-op: caller replaces content */ }
+
+        function closeChat() {
+            document.getElementById('chatWindow').style.display = 'none';
+        }
+    </script>
 </asp:Content>

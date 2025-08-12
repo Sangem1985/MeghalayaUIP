@@ -1,0 +1,50 @@
+Time: 07-08-2025 09:48:55 PM
+-----------------------------------------------------------
+Message: System.Net.Http.StringContent
+-----------------------------------------------------------
+
+Time: 07-08-2025 09:48:57 PM
+-----------------------------------------------------------
+Message: [{"message":"Authentication successful","status":"true","expire_time":"2025-08-08 21:48:08","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNSVBBIiwianRpIjoiMGQ4NzdjNmUtNzc2ZS00ZmQyLTljYTktNjMyMzM5ZjlhYTU5IiwiUGFzc3dvcmQiOiJJSUlUU0AyMDI1IyIsImZvcm1hdHRlZERhdGUiOiIyMDI1LTA4LTA4IDIxOjQ4OjA4IiwiZXhwIjoxNzU0NjY5ODg4LCJpc3MiOiJZS3BVbURjbFMrZEp2K3BvK2pEdDFvZG1NQmo0d0JHN256d2RlbForRW1RbD0iLCJhdWQiOiJNNWVCcTNBSGZlUHdSRUFWNms5dStkRENaLy9qcjhXS0dZWURUay9kSmFNbD0ifQ.ENXNY-tuM8mOwtkZ4w_ugb-1IjXAwAwW1QBPuR-vGDU"}]
+-----------------------------------------------------------
+
+Time: 07-08-2025 09:49:00 PM
+-----------------------------------------------------------
+Message: Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNSVBBIiwianRpIjoiMGQ4NzdjNmUtNzc2ZS00ZmQyLTljYTktNjMyMzM5ZjlhYTU5IiwiUGFzc3dvcmQiOiJJSUlUU0AyMDI1IyIsImZvcm1hdHRlZERhdGUiOiIyMDI1LTA4LTA4IDIxOjQ4OjA4IiwiZXhwIjoxNzU0NjY5ODg4LCJpc3MiOiJZS3BVbURjbFMrZEp2K3BvK2pEdDFvZG1NQmo0d0JHN256d2RlbForRW1RbD0iLCJhdWQiOiJNNWVCcTNBSGZlUHdSRUFWNms5dStkRENaLy9qcjhXS0dZWURUay9kSmFNbD0ifQ.ENXNY-tuM8mOwtkZ4w_ugb-1IjXAwAwW1QBPuR-vGDU
+-----------------------------------------------------------
+
+Time: 07-08-2025 09:49:51 PM
+-----------------------------------------------------------
+Message: Json Request: {"ApplicationNumber":"111108250003","ConnectionId":"11110825000301","Application_Unique_id":"134","LocationCode":"1111","Amount":"10000","TransactionDate":"07-08-2025","ReceiptNumber":"","Transaction_Type":"","Debited_Acc_Num":"","Debited_acc_name":"","Debited_ifsc_code":"","Debited_bank_name":"","Debited_branch_name":"","UTRNumber":""}
+-----------------------------------------------------------
+
+Time: 07-08-2025 09:50:30 PM
+-----------------------------------------------------------
+Message: Response : {"status_code":"01","message":"Amount must be greater or equal to total amount that to be paid in Estimation Note"}
+-----------------------------------------------------------
+
+Time: 07-08-2025 09:53:55 PM
+-----------------------------------------------------------
+Message: System.Net.Http.StringContent
+-----------------------------------------------------------
+
+Time: 07-08-2025 09:53:56 PM
+-----------------------------------------------------------
+Message: [{"message":"Authentication successful","status":"true","expire_time":"2025-08-08 21:53:10","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNSVBBIiwianRpIjoiYjg4OTdjMzktODVjZi00YjQxLTlhZjAtN2QxZjM4NWQ0YmIxIiwiUGFzc3dvcmQiOiJJSUlUU0AyMDI1IyIsImZvcm1hdHRlZERhdGUiOiIyMDI1LTA4LTA4IDIxOjUzOjEwIiwiZXhwIjoxNzU0NjcwMTkwLCJpc3MiOiJZS3BVbURjbFMrZEp2K3BvK2pEdDFvZG1NQmo0d0JHN256d2RlbForRW1RbD0iLCJhdWQiOiJNNWVCcTNBSGZlUHdSRUFWNms5dStkRENaLy9qcjhXS0dZWURUay9kSmFNbD0ifQ.3faRPmaGedEF0edfdF9n9Cs1-paWHj5mTKxxSkljL0w"}]
+-----------------------------------------------------------
+
+Time: 07-08-2025 09:53:57 PM
+-----------------------------------------------------------
+Message: Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNSVBBIiwianRpIjoiYjg4OTdjMzktODVjZi00YjQxLTlhZjAtN2QxZjM4NWQ0YmIxIiwiUGFzc3dvcmQiOiJJSUlUU0AyMDI1IyIsImZvcm1hdHRlZERhdGUiOiIyMDI1LTA4LTA4IDIxOjUzOjEwIiwiZXhwIjoxNzU0NjcwMTkwLCJpc3MiOiJZS3BVbURjbFMrZEp2K3BvK2pEdDFvZG1NQmo0d0JHN256d2RlbForRW1RbD0iLCJhdWQiOiJNNWVCcTNBSGZlUHdSRUFWNms5dStkRENaLy9qcjhXS0dZWURUay9kSmFNbD0ifQ.3faRPmaGedEF0edfdF9n9Cs1-paWHj5mTKxxSkljL0w
+-----------------------------------------------------------
+
+Time: 07-08-2025 09:54:08 PM
+-----------------------------------------------------------
+Message: Json Request: {"ApplicationNumber":"111108250003","ConnectionId":"11110825000301","Application_Unique_id":"134","LocationCode":"1111","Amount":"10000","TransactionDate":"07-08-2025","ReceiptNumber":"","Transaction_Type":"","Debited_Acc_Num":"","Debited_acc_name":"","Debited_ifsc_code":"","Debited_bank_name":"","Debited_branch_name":"","UTRNumber":""}
+-----------------------------------------------------------
+
+Time: 07-08-2025 09:54:22 PM
+-----------------------------------------------------------
+Message: Response : {"status_code":"01","message":"Amount must be greater or equal to total amount that to be paid in Estimation Note"}
+-----------------------------------------------------------
+
