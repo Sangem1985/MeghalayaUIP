@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <script src="../../assets/admin/js/form-validation.js" type="text/javascript"></script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
@@ -88,7 +89,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Extent of Land<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
-                                                        <asp:TextBox ID="txtLand" runat="server" class="form-control"  onkeypress="return validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLand" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
                                             </div>
@@ -123,6 +124,31 @@
                                             </div>
                                         </div>
                                         <h4 class="card-title ml-3">Current and Proposed Land Use: </h4>
+                                        <div class="col-md-12  d-flex">
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Location Lattitude<span class="star">*</span></label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtLattitude" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-6 col-form-label">Location Longitude<span class="star">*</span></label>
+                                                    <div class="col-lg-6 d-flex">
+                                                        <asp:TextBox ID="txtLongitude" runat="server" class="form-control" onkeypress="return validateNumberAndDot(event)" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group row">                                                    
+                                                    <div class="col-lg-6 d-flex">
+                                                        <button type="button" onclick="locateFromInputs()">Locate</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-md-12 d-flex">
                                             <div class="col-md-4">
                                                 <div class="form-group row">
@@ -134,32 +160,32 @@
                                                             <asp:ListItem Text="Residential Apartments" Value="2" />
                                                             <asp:ListItem Text="Institutional buildings" Value="3" />
                                                             <asp:ListItem Text="Commercial Building" Value="4" />
-                                                             <asp:ListItem Text="Public and Semi-Public Building" Value="5" />
-                                                             <asp:ListItem Text="Assembly Building" Value="6" />
-                                                             <asp:ListItem Text="Industrial Building" Value="7" />
-                                                             <asp:ListItem Text="Storage Building" Value="8" />
-                                                             <asp:ListItem Text="Hazardous Building" Value="9" />
+                                                            <asp:ListItem Text="Public and Semi-Public Building" Value="5" />
+                                                            <asp:ListItem Text="Assembly Building" Value="6" />
+                                                            <asp:ListItem Text="Industrial Building" Value="7" />
+                                                            <asp:ListItem Text="Storage Building" Value="8" />
+                                                            <asp:ListItem Text="Hazardous Building" Value="9" />
                                                             <asp:ListItem Text="Others" Value="10" />
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            <div class="col-md-4"></div>
                                             <div class="col-md-4">
                                                 <div class="form-group row">
                                                     <label class="col-lg-6 col-form-label">Proposed Land Use<span class="star">*</span></label>
                                                     <div class="col-lg-6 d-flex">
                                                         <asp:DropDownList ID="ddlLandProposed" runat="server" class="form-control">
                                                             <asp:ListItem Text="--Select--" Value="0" />
-                                                              <asp:ListItem Text="Residential Building" Value="1" />
+                                                            <asp:ListItem Text="Residential Building" Value="1" />
                                                             <asp:ListItem Text="Residential Apartments" Value="2" />
                                                             <asp:ListItem Text="Institutional buildings" Value="3" />
                                                             <asp:ListItem Text="Commercial Building" Value="4" />
-                                                             <asp:ListItem Text="Public and Semi-Public Building" Value="5" />
-                                                             <asp:ListItem Text="Assembly Building" Value="6" />
-                                                             <asp:ListItem Text="Industrial Building" Value="7" />
-                                                             <asp:ListItem Text="Storage Building" Value="8" />
-                                                             <asp:ListItem Text="Hazardous Building" Value="9" />
+                                                            <asp:ListItem Text="Public and Semi-Public Building" Value="5" />
+                                                            <asp:ListItem Text="Assembly Building" Value="6" />
+                                                            <asp:ListItem Text="Industrial Building" Value="7" />
+                                                            <asp:ListItem Text="Storage Building" Value="8" />
+                                                            <asp:ListItem Text="Hazardous Building" Value="9" />
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -174,9 +200,36 @@
                                             </div>
                                         </div>
 
-                                        <h4 class="card-title ml-3">Document to Upload</h4>
+                                        <div class="col-md-12 d-flex">
+                                            <div class="col-md-3" id="lumapInfo" style="flex: 1; padding: 10px; border: 1px solid #ccc; overflow: auto;">
+                                                <b>Current Land Use Attributes</b><hr>
+                                                <div id="lumapDetails">Click on MAP for features</div>
+                                                <asp:HiddenField ID="lblLUMAPAttr" runat="server" ClientIDMode="Static" />
+                                            </div>
+                                            <div class="col-md-6" style="border: 1px solid #ccc; padding: 0px;">
 
-                                         <div class="col-md-12 d-flex" id="divSaleDeed" runat="server" visible="false">
+                                                <div id="map" style="flex: 2; height: 400px;"></div>
+                                                <div id="coords" style="padding: 5px; background: #eee;"></div>
+                                            </div>
+
+
+                                            <div class="col-md-3" id="plumapInfo" style="flex: 1; padding: 10px; border: 1px solid #ccc; overflow: auto;">
+                                                <b>Proposed Land Use Attributes</b><hr>
+                                                <div id="plumapDetails">Click on MAP for features</div>
+                                                <asp:HiddenField ID="lblPLUMAPAttr" runat="server" ClientIDMode="Static" />
+                                            </div>
+                                        </div>
+
+
+                                        <%--  <div class="col-md-12 d-flex">
+                                            <div class="col-md-5" id="LUMap" style="height: 400px;"></div>
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-5" id="PLUMap" style="height: 400px;"></div>
+                                        </div>--%>
+
+                                        <h4 class="card-title ml-3 mt-3">Document to Upload</h4>
+
+                                        <div class="col-md-12 d-flex" id="divSaleDeed" runat="server" visible="false">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label">Sale Deed<span class="text-danger">*</span></label>
@@ -302,12 +355,14 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-right mb-2">
+                                    <asp:HiddenField ID="hfLUFeatures" runat="server" />
+                                    <asp:HiddenField ID="hfLUPFeatures" runat="server" />
+                                    <asp:HiddenField ID="hfMapData" runat="server" />
+                                    <asp:HiddenField ID="hfLumapPanel" runat="server" />
+                                    <asp:HiddenField ID="hfPlumapPanel" runat="server" />
                                     <asp:Button Text="Previous" runat="server" ID="btnPrevious" class="btn btn-rounded btn-info btn-lg" Width="150px" />
                                     <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn btn-rounded btn-success btn-lg" Width="150px" />
                                     <asp:Button ID="btnNext" Text="Next" runat="server" class="btn btn-rounded btn-info btn-lg" Width="150px" />
@@ -332,7 +387,130 @@
             <asp:PostBackTrigger ControlID="btnLocation" />
             <asp:PostBackTrigger ControlID="btnLand" />
             <asp:PostBackTrigger ControlID="btnPatta" />
-            <asp:PostBackTrigger ControlID="btnSaledeed" />            
+            <asp:PostBackTrigger ControlID="btnSaledeed" />
         </Triggers>
     </asp:UpdatePanel>
+
+
+
+    <%--------------------- Leaflet.js for map -------------------%>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-filelayer@1.2.0"></script>
+    <script>
+        var map, luLayer, pluLayer, marker;
+
+        function initMap() {
+            if (map) {
+                map.remove(); // Prevent multiple maps on postbacks
+            }
+
+            map = L.map('map', { zoomControl: true }).setView([17.385, 78.4867], 8);
+
+            // Show Lat, Lon on mousemove
+            map.on('mousemove', function (e) {
+                document.getElementById('coords').innerHTML =
+                    `Lat: ${e.latlng.lat.toFixed(6)}, Lon: ${e.latlng.lng.toFixed(6)}`;
+            });
+
+            // Load both layers
+            Promise.all([
+                fetch('/Documents/CLU_GEO_DATA/Current_Land_Use.geojson').then(res => res.json()),
+                fetch('/Documents/CLU_GEO_DATA/Proposed_Land_Use.geojson').then(res => res.json())
+            ]).then(([luData, pluData]) => {
+                // Load LUMAP
+                luLayer = L.geoJSON(luData, {
+                    style: function (feature) {
+                        return {
+                            color: feature.properties.color || '#00BFFF',
+                            weight: 2,
+                            fillOpacity: 0.5
+                        };
+                    }
+                }).addTo(map);
+
+                // Load PLUMAP
+                pluLayer = L.geoJSON(pluData, {
+                    style: function (feature) {
+                        return {
+                            color: feature.properties.color || '#FF6347',
+                            weight: 2,
+                            fillOpacity: 0.5
+                        };
+                    }
+                }).addTo(map);
+
+                // Fit map to both bounds
+                var bounds = luLayer.getBounds().extend(pluLayer.getBounds());
+                map.fitBounds(bounds);
+            });
+
+            // On map click — show attributes
+            map.on('click', function (e) {
+                showAttributes(e.latlng);
+            });
+        }
+
+        // Show attributes for clicked point
+        function showAttributes(latlng) {
+            const luDiv = document.getElementById('lumapDetails');
+            const pluDiv = document.getElementById('plumapDetails');
+            luDiv.innerHTML = '';
+            pluDiv.innerHTML = '';
+
+            var luAttr = getAttributesAtPoint(luLayer, latlng);
+            var pluAttr = getAttributesAtPoint(pluLayer, latlng);
+
+            luDiv.innerHTML = luAttr || "No Attributes found here";
+            pluDiv.innerHTML = pluAttr || "No Attributes found here";
+
+            document.getElementById('lblLUMAPAttr').value =
+                (luAttr || "").replace(/<b>/gi, "*").replace(/<[^>]*>/g, "");
+            document.getElementById('lblPLUMAPAttr').value =
+                (pluAttr || "").replace(/<b>/gi, "*").replace(/<[^>]*>/g, "");
+        }
+
+        // Get clicked feature's properties
+        function getAttributesAtPoint(layer, latlng) {
+            var found = null;
+            layer.eachLayer(function (l) {
+                if (l.getBounds && l.getBounds().contains(latlng)) {
+                    var html = "";
+                    for (var key in l.feature.properties) {
+                        html += `<b>${key}:</b> ${l.feature.properties[key]}<br>`;
+                    }
+                    found = html;
+                }
+            });
+            return found;
+        }
+
+        // Locate point from textbox inputs
+        function locateFromInputs() {
+            //var lat = parseFloat(document.getElementById('txtLattitude').value);
+            //var lng = parseFloat(document.getElementById('txtLongitude').value);
+            var lat = parseFloat(document.getElementById('<%= txtLattitude.ClientID %>').value);
+            var lng = parseFloat(document.getElementById('<%= txtLongitude.ClientID %>').value);
+
+
+            if (!isNaN(lat) && !isNaN(lng)) {
+                if (marker) map.removeLayer(marker);
+                marker = L.marker([lat, lng]).addTo(map);
+                map.setView([lat, lng], 14);
+
+                // Also fetch attributes for this location
+                showAttributes(L.latLng(lat, lng));
+            } else {
+                alert("Please enter valid latitude and longitude.");
+            }
+        }
+
+        // Run on ASP.NET postback as well
+        Sys.Application.add_load(function () {
+            initMap();
+        });
+
+    </script>
+   
+    <%--------------------- Leaflet.js for map ------------------%>
 </asp:Content>

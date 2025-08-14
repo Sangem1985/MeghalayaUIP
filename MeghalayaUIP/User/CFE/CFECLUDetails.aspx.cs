@@ -2,6 +2,7 @@
 using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
+using Org.BouncyCastle.Asn1.Pkcs;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -36,10 +37,11 @@ namespace MeghalayaUIP.User.CFE
                         hdnUserID.Value = ObjUserInfo.Userid;
 
                     }
-                    if (Convert.ToString(Session["CFEUNITID"]) != "")
-                    {
-                        UnitID = Convert.ToString(Session["CFEUNITID"]);
-                    }
+                    UnitID = "0";
+                    //if (Convert.ToString(Session["CFEUNITID"]) != "")
+                    //{
+                    //    UnitID = Convert.ToString(Session["CFEUNITID"]);
+                    //}
                     //else
                     //{
                     //    string newurl = "~/User/CFE/CFEUserDashboard.aspx";
@@ -372,6 +374,14 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
+                if (lblLUMAPAttr.Value != "" && lblPLUMAPAttr.Value != "")
+                {
+                    lblmsg.Text = lblLUMAPAttr.Value; success.Visible = true;
+                    var LUMAPAttr = lblLUMAPAttr.Value.Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Split(new[] { ':' }, 2)) // split only at first colon
+                    .ToDictionary(p => p[0].Trim(), p => p.Length > 1 ? p[1].Trim() : "");
+                    lblmsg0.Text = lblPLUMAPAttr.Value; Failure.Visible = true;
+                }
+
                 ErrorMsg = Validations();
 
                 if (ErrorMsg == "")
@@ -568,7 +578,7 @@ namespace MeghalayaUIP.User.CFE
             try
             {
                 string filesize = Convert.ToString(ConfigurationManager.AppSettings["FileSize"].ToString());
-                int slno = 1; string Error = "";               
+                int slno = 1; string Error = "";
                 //if (Attachment.PostedFile.ContentType != "application/pdf"
                 //     || !ValidateFileName(Attachment.PostedFile.FileName) || !ValidateFileExtension(Attachment))
                 //{
