@@ -589,8 +589,17 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEID_COMPANYTYPE", Convert.ToInt32(objCFEEntrepreneur.CompanyType));
                 com.Parameters.AddWithValue("@CFEID_PROPOSALFOR", objCFEEntrepreneur.CompanyPraposal);
                 com.Parameters.AddWithValue("@CFEID_REGTYPE", Convert.ToInt32(objCFEEntrepreneur.CompanyRegType));
-                com.Parameters.AddWithValue("@CFEID_REGNO", objCFEEntrepreneur.CompanyRegNo);
-                com.Parameters.AddWithValue("@CFEID_REGDATE", DateTime.ParseExact(objCFEEntrepreneur.CompanyRegDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (objCFEEntrepreneur.CompanyRegNo != "" || objCFEEntrepreneur.CompanyRegNo != null)
+                { com.Parameters.AddWithValue("@CFEID_REGNO", objCFEEntrepreneur.CompanyRegNo); }
+                //if (objCFEEntrepreneur.CompanyRegDate != "" || objCFEEntrepreneur.CompanyRegDate != null)
+                //{ 
+                //    com.Parameters.AddWithValue("@CFEID_REGDATE", DateTime.ParseExact(objCFEEntrepreneur.CompanyRegDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); 
+                //}
+                if (!string.IsNullOrWhiteSpace(objCFEEntrepreneur.CompanyRegDate))
+                {
+                    com.Parameters.AddWithValue("@CFEID_REGDATE",DateTime.ParseExact(objCFEEntrepreneur.CompanyRegDate, "dd-MM-yyyy", CultureInfo.InvariantCulture));
+                }
+
                 com.Parameters.AddWithValue("@CFEID_FACTORYTYPE", objCFEEntrepreneur.FactoryType);
                 com.Parameters.AddWithValue("@CFEID_REPNAME", objCFEEntrepreneur.AuthRep_Name);
                 com.Parameters.AddWithValue("@CFEID_REPSoWoDo", objCFEEntrepreneur.AuthRep_SoWoDo);

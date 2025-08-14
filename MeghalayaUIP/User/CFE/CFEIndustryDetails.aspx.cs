@@ -686,21 +686,21 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Proposal For \\n";
                     slno = slno + 1;
                 }
-                if (ddlRegType.SelectedIndex == -1 || ddlRegType.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Category Registration  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtUdyamorIEMNo.Text) || txtUdyamorIEMNo.Text == "" || txtUdyamorIEMNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Registration No\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Registration Date\\n";
-                    slno = slno + 1;
-                }
+                //if (ddlRegType.SelectedIndex == -1 || ddlRegType.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Category Registration  \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtUdyamorIEMNo.Text) || txtUdyamorIEMNo.Text == "" || txtUdyamorIEMNo.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Registration No\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Registration Date\\n";
+                //    slno = slno + 1;
+                //}
                 if (ddlFactories.SelectedIndex == -1 || ddlFactories.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Factory Type \\n";
