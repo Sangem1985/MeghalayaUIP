@@ -225,7 +225,7 @@
                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 20px; text-align: center">
 
                                 <div class="col-md-12" style="text-align: left">
-                                    <label>IFSC Code:<b><asp:Label ID="lblCode" runat="server"></asp:Label></b></label>
+                                    <label>IFSC Code:<b><asp:Label ID="lblIFSCCode" runat="server"></asp:Label></b></label>
                                 </div>
                             </div>
                             <div class="col-md-12 row mt-1" style="padding: 0px 0px 0px 20px; text-align: center">

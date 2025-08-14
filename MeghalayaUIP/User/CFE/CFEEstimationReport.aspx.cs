@@ -81,7 +81,7 @@ namespace MeghalayaUIP.User.CFE
                         {
                             lblAccountNo.Text = ds.Tables[1].Rows[0]["DEPT_ACCOUNTNO"].ToString();
                             lblBankname.Text = ds.Tables[1].Rows[0]["DEPT_ACCOUNTNAME"].ToString();
-                            lblCode.Text = ds.Tables[1].Rows[0]["DEPT_IFSCCODE"].ToString();
+                            lblIFSCCode.Text = ds.Tables[1].Rows[0]["DEPT_IFSCCODE"].ToString();
 
                             lblaplicationdate.Text = ds.Tables[1].Rows[0]["DEPT_CREATED_DATE"].ToString();
                         }
@@ -100,6 +100,15 @@ namespace MeghalayaUIP.User.CFE
                             lblPhoneNo.Text = ds.Tables[3].Rows[0]["Mobile"].ToString();
                             lblDistrict.Text = ds.Tables[3].Rows[0]["DISTRICT"].ToString();
                             lblMandal.Text = ds.Tables[3].Rows[0]["MANDAL"].ToString();
+                        }
+
+
+
+                        if (ds.Tables[4].Rows.Count > 0)
+                        {
+                            lblBankname.Text = ds.Tables[4].Rows[0]["DEPT_ACCOUNTNAME"].ToString();
+                            lblAccountNo.Text = ds.Tables[4].Rows[0]["DEPT_ACCOUNTNO"].ToString();
+                            lblIFSCCode.Text = ds.Tables[4].Rows[0]["DEPT_IFSCCODE"].ToString();
                         }
                     }
                 }
