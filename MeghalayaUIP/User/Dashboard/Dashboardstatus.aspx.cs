@@ -143,15 +143,17 @@ namespace MeghalayaUIP.User.Dashboard
                         }
                         if (lblStageId.Text == "12" || lblStageId.Text == "13" && lblApprovalId.Text == "4")
                         {
-                            hplApprvd.NavigateUrl = "~/User/CFE/CFEFeasibilityReport.aspx?CFEQID=" + lblQuesnrId.Text;
+                            hplScrutiny.NavigateUrl = "~/User/CFE/CFEFeasibilityReport.aspx?CFEQID=" + lblQuesnrId.Text;
+
+                            hplApprvd.NavigateUrl = "~/User/CFE/CFEEstimationReport.aspx?CFEQID=" + lblQuesnrId.Text;
                         }
                         else
                         {
                             hplApprvd.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblApprovalDoc.Text);
                         }
                     }
-                    else
-                        hplScrutiny.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblScrutinyDoc.Text);
+                   // else
+                       // hplScrutiny.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblScrutinyDoc.Text);
 
 
                 }
