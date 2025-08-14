@@ -3765,12 +3765,12 @@ namespace MeghalayaUIP.DAL.SVRCDAL
         {
             using (SqlConnection con = new SqlConnection(connstr))
             {
-                SqlCommand cmd = new SqlCommand("", con);
+                SqlCommand cmd = new SqlCommand("SP_INS_SRVCPARTNERS_XML", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
                 cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objLegal.Createdby));
                 cmd.Parameters.AddWithValue("@IPADDRESS", objLegal.IPAddress);
-                cmd.Parameters.AddWithValue("", objLegal.XMLData);
+                cmd.Parameters.AddWithValue("@XmlData", objLegal.XMLData);
                 con.Open();
                 return cmd.ExecuteNonQuery();
             }
@@ -3791,12 +3791,12 @@ namespace MeghalayaUIP.DAL.SVRCDAL
         {
             using (SqlConnection con = new SqlConnection(connstr))
             {
-                SqlCommand cmd = new SqlCommand("", con);
+                SqlCommand cmd = new SqlCommand("USP_INSSRVCLEGALMANAGINGDIRECTOR_XML", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@SRVCQDID", Convert.ToInt32(objLegal.Questionnariid));
                 cmd.Parameters.AddWithValue("@CREATEDBY", Convert.ToInt32(objLegal.Createdby));
                 cmd.Parameters.AddWithValue("@IPADDRESS", objLegal.IPAddress);
-                cmd.Parameters.AddWithValue("", objLegal.XMLData);
+                cmd.Parameters.AddWithValue("@XmlData", objLegal.XMLData);
                 con.Open();
                 return cmd.ExecuteNonQuery();
             }

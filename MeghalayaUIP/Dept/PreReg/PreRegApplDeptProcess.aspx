@@ -898,6 +898,7 @@
                                                                     <%# Container.DataItemIndex + 1%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
+                                                            <asp:BoundField HeaderText="File Uploaded By (Department/Investor)" DataField="FILEBY" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:BoundField HeaderText="FileName" DataField="FILENAME" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                             <asp:TemplateField HeaderText="View">
                                                                 <HeaderStyle HorizontalAlign="Center" />
@@ -912,6 +913,7 @@
                                                                     <asp:Label ID="lblFilePath" Text='<%#Eval("FILELOCATION")%>' runat="server"></asp:Label>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
+                                                            <asp:BoundField HeaderText="File Uploaded Date" DataField="CREATEDDATE" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
                                                         </Columns>
                                                         <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
                                                     </asp:GridView>

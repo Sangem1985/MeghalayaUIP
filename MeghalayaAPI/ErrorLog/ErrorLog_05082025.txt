@@ -1,0 +1,18 @@
+Time: 05/08/2025 03:24:31 PM
+-----------------------------------------------------------
+Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+StackTrace:    at MeghalayaAPI.Controllers.CFOProcessController.GetCFOUnitIDBasedonQDID(Int32 CFEQDID) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 164
+   at MeghalayaAPI.Controllers.CFOProcessController.CFODepartmentProcessUpdate(CFODtls model) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 53
+Source: .Net SqlClient Data Provider
+TargetSite: System.Data.DataSet GetCFOUnitIDBasedonQDID(Int32)
+-----------------------------------------------------------
+
+Time: 05/08/2025 03:26:04 PM
+-----------------------------------------------------------
+Message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+StackTrace:    at MeghalayaAPI.Controllers.CFOProcessController.GetCFOUnitIDBasedonQDID(Int32 CFEQDID) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 164
+   at MeghalayaAPI.Controllers.CFOProcessController.CFODepartmentProcessUpdate(CFODtls model) in D:\Madhuri\CMS Live Projects\Meghalaya\MeghalayaAPI\Controllers\CFOProcessController.cs:line 53
+Source: .Net SqlClient Data Provider
+TargetSite: System.Data.DataSet GetCFOUnitIDBasedonQDID(Int32)
+-----------------------------------------------------------
+

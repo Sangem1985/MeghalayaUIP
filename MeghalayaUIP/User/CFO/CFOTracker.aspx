@@ -10,6 +10,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title">Pre-Operational Applications 
+                       
                         <asp:Label ID="lblType" runat="server"></asp:Label></h4>
                     <h4 class="card-title">
                         <label id="unitname" runat="server"></label>
@@ -116,9 +117,18 @@
                                                     <asp:BoundField DataField="DATEOFCOMPLETION" HeaderText="Date of Completion" ItemStyle-HorizontalAlign="Center" />
                                                     <asp:TemplateField HeaderText="Status">
                                                         <ItemTemplate>
+                                                            <asp:Label runat="server" ID="lblUnitID" Text='<%#Eval("CFODA_UNITID")%>' Visible="false"></asp:Label>
+
+                                                            <asp:Label runat="server" ID="lblQuesnrId" Text='<%#Eval("CFODA_CFOQDID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblDeptId" Text='<%#Eval("CFODA_DEPTID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblApprovalId" Text='<%#Eval("CFODA_APPROVALID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblStageId" Text='<%#Eval("CFODA_STAGEID")%>' Visible="false"></asp:Label>
+                                                            <asp:Label runat="server" ID="lblScrutinyDoc" Text='<%#Eval("ScrutinyDoc")%>' Visible="false"></asp:Label>
+
                                                             <%--<asp:HyperLink ID="HyperLinkSubsidy" Text='<%#Eval("Status of Approval Approved Rejected")%>'
                                                         NavigateUrl='<%#Eval("ApprovalDocNEW")%>' Target="_blank" runat="server" />--%>
-                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' NavigateUrl='<%#Eval("ApprovalDoc")%>' Target="_blank" runat="server" Visible="true"></asp:HyperLink>
+                                                            <asp:Label runat="server" ID="lblApprovalDoc" Text='<%#Eval("ApprovalDoc")%>' Visible="false"></asp:Label>
+                                                            <asp:HyperLink ID="lblStatus" Text='<%#Eval("STATUS")%>' Target="_blank" runat="server" Visible="true"></asp:HyperLink>
                                                         </ItemTemplate>
                                                         <ItemStyle HorizontalAlign="Center" Width="100px" />
                                                     </asp:TemplateField>

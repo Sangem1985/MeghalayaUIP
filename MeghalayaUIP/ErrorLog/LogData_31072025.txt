@@ -1,0 +1,78 @@
+Time: 31/07/2025 04:49:38 PM
+-----------------------------------------------------------
+Message: System.Net.Http.FormUrlEncodedContent
+-----------------------------------------------------------
+
+Time: 31/07/2025 04:49:40 PM
+-----------------------------------------------------------
+Message: StatusCode: 415, ReasonPhrase: 'Unsupported Media Type', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Transfer-Encoding: chunked
+  Date: Thu, 31 Jul 2025 11:19:10 GMT
+  X-Powered-By: ASP.NET
+  Content-Type: application/problem+json; charset=utf-8
+}
+-----------------------------------------------------------
+
+Time: 31/07/2025 04:49:47 PM
+-----------------------------------------------------------
+Message: {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.16","title":"Unsupported Media Type","status":415,"traceId":"00-32b078402d3eaf6428fa818f6e29eeff-611f24f274f8d860-00"}
+-----------------------------------------------------------
+
+Time: 31/07/2025 05:01:20 PM
+-----------------------------------------------------------
+Message: 
+-----------------------------------------------------------
+
+Time: 31/07/2025 05:04:37 PM
+-----------------------------------------------------------
+Message: System.Net.Http.FormUrlEncodedContent
+-----------------------------------------------------------
+
+Time: 31/07/2025 05:04:45 PM
+-----------------------------------------------------------
+Message: StatusCode: 415, ReasonPhrase: 'Unsupported Media Type', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Transfer-Encoding: chunked
+  Date: Thu, 31 Jul 2025 11:34:08 GMT
+  X-Powered-By: ASP.NET
+  Content-Type: application/problem+json; charset=utf-8
+}
+-----------------------------------------------------------
+
+Time: 31/07/2025 06:25:14 PM
+-----------------------------------------------------------
+Message: {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.16","title":"Unsupported Media Type","status":415,"traceId":"00-232c6907cb370a19b441fc22b51e9ee4-3569241656a66b5b-00"}
+-----------------------------------------------------------
+
+Time: 31/07/2025 06:25:19 PM
+-----------------------------------------------------------
+Message: 
+-----------------------------------------------------------
+
+Time: 31/07/2025 06:25:19 PM
+-----------------------------------------------------------
+Message: System.Net.Http.FormUrlEncodedContent
+-----------------------------------------------------------
+
+Time: 31/07/2025 06:25:21 PM
+-----------------------------------------------------------
+Message: StatusCode: 415, ReasonPhrase: 'Unsupported Media Type', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Transfer-Encoding: chunked
+  Date: Thu, 31 Jul 2025 12:54:51 GMT
+  X-Powered-By: ASP.NET
+  Content-Type: application/problem+json; charset=utf-8
+}
+-----------------------------------------------------------
+
+Time: 31/07/2025 06:25:21 PM
+-----------------------------------------------------------
+Message: {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.16","title":"Unsupported Media Type","status":415,"traceId":"00-26a1ca2450a2a2921b765b8df60e9072-4d86434c0f85f874-00"}
+-----------------------------------------------------------
+
+Time: 31/07/2025 06:25:21 PM
+-----------------------------------------------------------
+Message: 
+-----------------------------------------------------------
+

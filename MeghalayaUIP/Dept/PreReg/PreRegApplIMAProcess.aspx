@@ -1105,15 +1105,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
                         <div class="panel panel-default" id="QueryResondpanel" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="headingSeven">
                                 <h4 class="panel-title">
@@ -1351,12 +1342,12 @@
                                 </div>
 
                             </div>
-                        </div>                    
+                        </div>
 
 
 
 
-                            <div class="panel panel-default" id="divDCPanels" runat="server" visible="false">
+                        <div class="panel panel-default" id="divDCPanels" runat="server" visible="false">
                             <div class="panel-heading" role="tab" id="Div2" runat="server">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
@@ -1383,7 +1374,7 @@
                                                 <td id="tdApplQuery2" runat="server" visible="false"><b>
                                                     <asp:Label runat="server" Text="Please Enter Query Description"></asp:Label></b>
                                                 </td>
-                                               <%-- <td id="td3" runat="server" visible="true">
+                                                <%-- <td id="td3" runat="server" visible="true">
                                                     <b>Submit Action</b>
                                                 </td>--%>
                                             </tr>
@@ -1403,9 +1394,9 @@
                                                         <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                         <asp:ListItem Text="MiPA Query Responce to DC" Value="21"></asp:ListItem>
                                                     </asp:DropDownList>
-                                                </td>                                             
+                                                </td>
 
-                                               <%-- <td>
+                                                <%-- <td>
                                                     <asp:Button ID="Button1" runat="server" Text="Submit" class="btn btn-rounded btn-submit btn-lg" Width="150px" />
                                                 </td>--%>
                                             </tr>
@@ -1419,7 +1410,7 @@
                                                             <td>Select Department to Forward</td>
                                                             <td>
                                                                 <asp:DropDownList ID="ddlDeptForward" runat="server" class="form-control">
-                                                                   <%-- <asp:ListItem Value="0">--Select--</asp:ListItem>--%>
+                                                                    <%-- <asp:ListItem Value="0">--Select--</asp:ListItem>--%>
                                                                 </asp:DropDownList>
                                                             </td>
                                                             <td>Enter Remarks

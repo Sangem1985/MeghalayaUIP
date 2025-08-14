@@ -126,7 +126,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     {
                         lblHdng.Text = "Industry Registrations Applications - Received from DIC";
                     }
-                    else if (Request.QueryString["status"].ToString() == "DICQUERYTOMiPA")
+                    else if (Request.QueryString["status"].ToString() == "DCQUERYTOMiPA")
                     {
                         lblHdng.Text = "Industry Registrations Applications - DC Query Forward to MiPA";
                     }

@@ -52,6 +52,9 @@ namespace MeghalayaUIP.Common
         public static string GetUserCFOApplStatus = "USP_GETCFOAPPLSTATUS";
 
         public static string GetCFOExciseDet = "USP_GETCFOEXCISEDETAILS";
+
+        public static string GetCFOCommonDetails = "USP_GET_CFO_COMMONDETAILS";
+
         public static string INSCFOADDLPaymentDetails = "USP_INSCFOPAYMENTDETAILS_ADDLRAISE";
 
         //------------------DEPARTMENT STARTED HERE ---------------------------------//
@@ -86,9 +89,9 @@ namespace MeghalayaUIP.Common
 
 
         public static string GetCFOPaymentReceipt = "GET_CFOPAYMENTRECEIPT";
+        public static string GetMPDCLReport = "USP_GETSERVICECERTIFICATEDEASTILS";
 
-
-
+        public static string UpdateCFOApplStatus = "USP_UPDATECFOAPPLSTATUS";
     }
     public class CFOExciseDetails
     {
@@ -799,6 +802,17 @@ namespace MeghalayaUIP.Common
         public string CREATEDBY { get; set; }
 
         public string CREATEDIP { get; set; }
+
+    }
+    public class CFODepartmentServiceApi
+    {
+        public string UNITID { get; set; }
+        public string DeptId { get; set; }
+        public string ApprovalId { get; set; }
+        public string Response { get; set; }
+        public string IPAddress { get; set; }
+        public string APPLEVEL { get; set; }
+        public string CFOUID { get; set; }
 
     }
 

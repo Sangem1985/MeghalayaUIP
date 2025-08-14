@@ -80,7 +80,7 @@ namespace MeghalayaUIP.Dept.PreReg
                     { lblHdng.Text = "Industry Registration Applications - Committe Query Forwarded to Departments"; }
                     else if (Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY")
                     { lblHdng.Text = "Industry Registration Applications - Committe Query Redressed by Departments"; }
-                    else if (Request.QueryString["status"].ToString() == "DICQUERYTOMiPA")
+                    else if (Request.QueryString["status"].ToString() == "DCQUERYTOMiPA")
                     { lblHdng.Text = "Industry Registration Applications - Committe Query Redressed by Departments"; }
                 }
                 else
@@ -167,7 +167,7 @@ namespace MeghalayaUIP.Dept.PreReg
                                 Request.QueryString["status"].ToString() == "COMMQUERYTOIMA" ||
                                 Request.QueryString["status"].ToString() == "APPLCNTREPLIEDTOCOMMQRY" ||
                                 Request.QueryString["status"].ToString() == "DEPTREPLIEDTOCOMMQRY"||
-                                Request.QueryString["status"].ToString() == "DICQUERYTOMiPA")
+                                Request.QueryString["status"].ToString() == "DCQUERYTOMiPA")
                                 button.Text = "Process";
                             else
                                 button.Text = "View";

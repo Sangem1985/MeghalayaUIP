@@ -194,7 +194,12 @@ namespace MeghalayaUIP.Dept.PreReg
                         //lbl_Name1.Text = Convert.ToString(row["REP_NAME"]);
                         //lblunitname1.Text = Convert.ToString(row["COMPANYNAME"]);
                         lblApplNo.Text = Convert.ToString(row["DITREPORT_UPLOADFLAG"]);
-
+                        if (Convert.ToString(row["DITREPORT_UPLOADFLAG"]) == "Y")
+                        {
+                            GVSite.DataSource = ds.Tables[0];
+                            GVSite.DataBind();
+                            SiteIns.Visible = true;
+                        }
                         //lblapplDate.Text = Convert.ToString(row["REP_MOBILE"]);
                         //lblapplDate.Text = Convert.ToString(row["CREATEDDATE"]);
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
@@ -227,7 +232,7 @@ namespace MeghalayaUIP.Dept.PreReg
                         }
                         if (ds != null && ds.Tables.Count > 0 && ds.Tables[5].Rows.Count > 0)
                         {
-                            //divQueryAttachment.Visible = true;
+                          //  QueryAttachment.Visible = true;
                             grdQryAttachments.DataSource = ds.Tables[5];
                             grdQryAttachments.DataBind();
 
@@ -1071,10 +1076,10 @@ namespace MeghalayaUIP.Dept.PreReg
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
-                string[] allowedUserIDs = { "1073", "1074", "1075", "1076", "1077", "1078", "1079", "1080", "1081", "1082", "1083", "1084" };
-                if (allowedUserIDs.Contains(ObjUserInfo.UserID) && lblApplNo.Text == "Y")
+                string[] allowedDeptIDs = { "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127" };
+                if (allowedDeptIDs.Contains(ObjUserInfo.Deptid) && lblApplNo.Text == "Y")
                 {
-                    grdApplStatus.Columns[7].Visible = true;
+                    GVSite.Columns[4].Visible = true;
                     lnkView.Visible = true;
                 }
                 else { lnkView.Visible = false; }

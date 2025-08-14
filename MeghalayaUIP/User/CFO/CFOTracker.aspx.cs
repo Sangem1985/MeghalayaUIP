@@ -1,4 +1,5 @@
-﻿using MeghalayaUIP.BAL.CFOBAL; 
+﻿using MeghalayaUIP.BAL.CFOBAL;
+using MeghalayaUIP.BAL.CommonBAL;
 using MeghalayaUIP.Common;
 using MeghalayaUIP.CommonClass;
 using System;
@@ -13,7 +14,8 @@ namespace MeghalayaUIP.User.CFO
 {
     public partial class CFOTracker : System.Web.UI.Page
     {
-        CFOBAL objcfobal = new CFOBAL(); 
+        CFOBAL objcfobal = new CFOBAL();
+        MasterBAL mstrBAL = new MasterBAL();
         string UnitID;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -105,7 +107,40 @@ namespace MeghalayaUIP.User.CFO
 
         protected void grdTrackerDetails_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    Label lblUnitID = (Label)e.Row.FindControl("lblUnitID");
+                    Label lblQuesnrId = (Label)e.Row.FindControl("lblQuesnrId");
+                    Label lblDeptId = (Label)e.Row.FindControl("lblDeptId");
+                    Label lblApprovalId = (Label)e.Row.FindControl("lblApprovalId");
+                    Label lblStageId = (Label)e.Row.FindControl("lblStageId");
+                    Label lblScrutinyDoc = (Label)e.Row.FindControl("lblScrutinyDoc");
+                    Label lblApprovalDoc = (Label)e.Row.FindControl("lblApprovalDoc");
 
+                    HyperLink hplScrutiny = (HyperLink)e.Row.FindControl("lblScrutiny");
+                    HyperLink hplApprvd = (HyperLink)e.Row.FindControl("lblStatus");
+
+                    if (lblStageId.Text == "13" || lblStageId.Text == "15")
+                    {
+                        if (lblStageId.Text == "13" && lblApprovalId.Text == "3")
+                        {
+                            hplApprvd.NavigateUrl = "~/User/CFO/CFOCRCertificate.aspx?CFOQID=" + lblQuesnrId.Text;
+                        }
+                        else
+                        {
+                            hplApprvd.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblApprovalDoc.Text);
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                MGCommonClass.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, hdnUserID.Value);
+            }
         }
 
         protected void grdTrackerDetails_RowCreated(object sender, GridViewRowEventArgs e)

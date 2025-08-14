@@ -1475,11 +1475,11 @@ namespace MeghalayaUIP.User.CFE
                 }
                 else
                 {
-                    if (rblGrantwater.SelectedIndex == -1)
-                    {
-                        errormsg = errormsg + slno + ". Please Select Required Grant of Water Connection to Non Municipal urban or not \\n";
-                        slno = slno + 1;
-                    }
+                    //if (rblGrantwater.SelectedIndex == -1)
+                    //{
+                    //    errormsg = errormsg + slno + ". Please Select Required Grant of Water Connection to Non Municipal urban or not \\n";
+                    //    slno = slno + 1;
+                    //}
                 }
                 //if (rblDrawing.SelectedIndex == -1)
                 //{

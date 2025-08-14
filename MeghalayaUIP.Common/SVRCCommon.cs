@@ -75,7 +75,7 @@ namespace MeghalayaUIP.Common
         public static string INSERTSRVCLABOURMIGRANTACT2020DET = "";
         public static string GetSRVCLabourMigrantAct1979DET = "";
         public static string INSERTSRVCLABOURMIGRANT1979DETAILS = "";
-        public static string INSLegalMetrologyDet = "";
+        public static string INSLegalMetrologyDet = "USP_INSTBL_SRVCLEGALMETROLOGYDET";
         public static string INSLegalMetrologyDetails115 = "";
         public static string GetSRVCLegalMetrologyDet115 = "";
         public static string GetSRVCLegalMetrology = "";

@@ -132,7 +132,23 @@ namespace MeghalayaUIP.User.Dashboard
                         else
                             hplApprvd.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblApprovalDoc.Text);
 
-
+                        if (lblApprovalId.Text == "4")
+                        {
+                            //hplApprvd.NavigateUrl = "~/User/CFE/CFEEstimationReport.aspx?CFEQID="lblQuesnrId.Text;
+                            hplApprvd.NavigateUrl = "~/User/CFE/CFEEstimationReport.aspx?CFEQID=" + lblQuesnrId.Text;
+                        }
+                        else
+                        {
+                            hplApprvd.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblApprovalDoc.Text);
+                        }
+                        if (lblStageId.Text == "12" || lblStageId.Text == "13" && lblApprovalId.Text == "4")
+                        {
+                            hplApprvd.NavigateUrl = "~/User/CFE/CFEFeasibilityReport.aspx?CFEQID=" + lblQuesnrId.Text;
+                        }
+                        else
+                        {
+                            hplApprvd.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblApprovalDoc.Text);
+                        }
                     }
                     else
                         hplScrutiny.NavigateUrl = "~/User/Dashboard/ServePdfFile.ashx?filePath=" + mstrBAL.EncryptFilePath(lblScrutinyDoc.Text);

@@ -564,10 +564,10 @@ namespace MeghalayaUIP.User.CFE
             {
                 ErrorMsg = ""; string result = "";
 
-                ErrorMsg = Validations();
+                //ErrorMsg = Validations();
 
-                if (ErrorMsg == "")
-                {
+                //if (ErrorMsg == "")
+                //{
                     int TotEmp = Convert.ToInt32(txtMale.Text) + Convert.ToInt32(txtFemale.Text) + Convert.ToInt32(txtDirectOthers.Text) +
                         Convert.ToInt32(txtIndirectMale.Text) + Convert.ToInt32(txtIndirectFemale.Text) + Convert.ToInt32(txtInDirectOthers.Text);
 
@@ -646,13 +646,13 @@ namespace MeghalayaUIP.User.CFE
                         string message = "alert('" + lblmsg.Text + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
-                }
-                else
-                {
-                    string message = "alert('" + ErrorMsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
-                }
+                //}
+                //else
+                //{
+                //    string message = "alert('" + ErrorMsg + "')";
+                //    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                //    return;
+                //}
             }
             catch (Exception ex)
             {
@@ -686,21 +686,21 @@ namespace MeghalayaUIP.User.CFE
                     errormsg = errormsg + slno + ". Please Select Proposal For \\n";
                     slno = slno + 1;
                 }
-                if (ddlRegType.SelectedIndex == -1 || ddlRegType.SelectedItem.Text == "--Select--")
-                {
-                    errormsg = errormsg + slno + ". Please Select Category Registration  \\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtUdyamorIEMNo.Text) || txtUdyamorIEMNo.Text == "" || txtUdyamorIEMNo.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Registration No\\n";
-                    slno = slno + 1;
-                }
-                if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
-                {
-                    errormsg = errormsg + slno + ". Please Enter Registration Date\\n";
-                    slno = slno + 1;
-                }
+                //if (ddlRegType.SelectedIndex == -1 || ddlRegType.SelectedItem.Text == "--Select--")
+                //{
+                //    errormsg = errormsg + slno + ". Please Select Category Registration  \\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtUdyamorIEMNo.Text) || txtUdyamorIEMNo.Text == "" || txtUdyamorIEMNo.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Registration No\\n";
+                //    slno = slno + 1;
+                //}
+                //if (string.IsNullOrEmpty(txtRegDate.Text) || txtRegDate.Text == "" || txtRegDate.Text == null)
+                //{
+                //    errormsg = errormsg + slno + ". Please Enter Registration Date\\n";
+                //    slno = slno + 1;
+                //}
                 if (ddlFactories.SelectedIndex == -1 || ddlFactories.SelectedItem.Text == "--Select--")
                 {
                     errormsg = errormsg + slno + ". Please Select Factory Type \\n";

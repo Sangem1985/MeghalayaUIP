@@ -3,19 +3,40 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
     <style>
         section#marquee {
             padding: 0px 0;
             position: relative;
             background: linear-gradient(to bottom, #0f7f8f 0%, #185784 100%);
-            z-index:9;
-            color:#fff;
+            z-index: 9;
+            color: #fff;
         }
-        section#marquee a {
-    color: #fff;
-    font-weight: 600;
-    font-size: 17px !important;
-}
+
+            section#marquee a {
+                color: #fff;
+                font-weight: 600;
+                font-size: 17px !important;
+            }
+    </style>
+    <!--chatbot-->
+    <style>
+        /* simple styling */
+
+        .small-btn {
+            width: auto;
+            display: inline-block;
+            margin: 6px 6px 0 0;
+            padding: 6px 8px;
+        }
+
+        .spinner {
+            text-align: center;
+            padding: 18px 0;
+            font-size: 14px;
+            color: #666;
+        }
     </style>
     <!--Banner Video-->
     <section id="marquee" runat="server" visible="false">
@@ -23,16 +44,16 @@
             <div class="row">
                 <div class="col-md-12">
                     <marquee scrolldelay="50" scrollamount="5" behavior="alternate" direction="left" width="100%" onmouseover="this.stop();" onmouseout="this.start();" title="Scrolling the Latest News">
-                <i class="icofont-ui-next"></i> <a target="_blank" href="BusinessRegulation.aspx" style="text-transform: initial !important;"> <strong>Submit feedback on Draft Meghalaya Film Tourism Policy, 2025 to content.hellomeghalaya@gmail.com. Read Policy here.</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight:100 !important;"></span>
-                <!-- <i class="icofont-ui-next"></i> <a target="_blank" href="#"> <strong> Implementation of AH Revised Rates</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<br> -->
-                </marquee>
+                        <i class="icofont-ui-next"></i><a target="_blank" href="BusinessRegulation.aspx" style="text-transform: initial !important;"><strong>Submit feedback on Draft Meghalaya Film Tourism Policy, 2025 to content.hellomeghalaya@gmail.com. Read Policy here.</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: 100 !important;"></span>
+                        <!-- <i class="icofont-ui-next"></i> <a target="_blank" href="#"> <strong> Implementation of AH Revised Rates</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;<br> -->
+                    </marquee>
                 </div>
             </div>
         </div>
     </section>
 
     <video autoplay="" muted="" loop="" id="myVideo" style="top: -80px; opacity: 1; width: 100%; margin-top: -275px;">
-        <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;"/>
+        <source src="assets/assetsnew/images/main-slider/IM_bgm1.mp4" type="video/mp4" style="height: 100%;" />
     </video>
     <section class="slider-style-three centred" style="display: none;">
         <div class="main-slider-carousel-2 owl-carousel owl-theme">
@@ -57,12 +78,11 @@
                 <div class="col col-xs-12 text-center bgview">
 
                     <h3 class="wow zoomOut animated" data-wow-delay="100ms"
-                        data-wow-duration="1500ms" style="visibility: visible;
-animation-duration: 1500ms; animation-delay: 100ms; 
-animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
+                        data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p>
                         Empowering Investors at every stage of their journey.<br>
                         Set up your business in Meghalaya with, one of the fastest growing business destinations in North-East India.
+                   
                     </p>
                 </div>
             </div>
@@ -77,6 +97,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <div class="text" style="margin-top: 21px;">
                         <p class="wow zoomOut animated" data-wow-delay="100ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 100ms; animation-name: fadeInDown;">
                             <span class="colorblue">Apply for Incentives</span> for your business under <span class="colorblue">Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 and Meghalaya Industrial and  Investment Promotion Policy (MIIPP) 2024</span> to make your business  more profitable.
+                       
                         </p>
 
                     </div>
@@ -171,7 +192,8 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                 <figure class="author-thumb"><i class="fi fi-tr-coin-up-arrow"></i></figure>
                                 <h5>INTENT TO INVEST</h5>
                                 <span class="designation">Want to Invest? Fill a simple
-                                 <b>Intent to
+                                
+                                    <b>Intent to
                                 Invest Form</b> and we
                               will get in touch.</span>
                             </div>
@@ -225,6 +247,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     <br />
                                     Have a<br />
                                     business Idea or want to expand your Business?
+                               
                                 </p>
                             </div>
 
@@ -244,6 +267,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     Fill <span style="color: #b6fff8;" class="colorchangerd">
                                         <br />
                                         Intent to Invest form</span> and our team will reach out
+                               
                                 </p>
                             </div>
 
@@ -262,6 +286,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     <br />
                                     Prepare your<br />
                                     Documents (Project DPR, loan sanctions, etc.) 
+                               
                                 </p>
                             </div>
 
@@ -284,6 +309,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     and <span style="color: #b6fff8;" class="colorchangerd">Invest Meghalaya</span> Portal
                             
                             
+                               
                                 </p>
                             </div>
 
@@ -302,6 +328,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     <br />
                                     Get <span style="color: #b6fff8;" class="colorchangerd">Clearance<br />
                                         for Pre-establishment & Pre-operations</span> for your business
+                               
                                 </p>
                             </div>
 
@@ -320,8 +347,10 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                     <br />
                                     Commence<br />
                                     your
-                                <br />
+                               
+                                    <br />
                                     Commercial Operations
+                               
                                 </p>
                             </div>
 
@@ -522,7 +551,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                 <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
 
                     <video autoplay="" muted="" loop="" id="myVideo1" style="width: 100%;">
-                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;"/>
+                        <source src="assets/assetsnew/images/main-slider/wim.mp4" type="video/mp4" style="height: 60%;" />
                     </video>
 
                 </div>
@@ -544,6 +573,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                         <img src="assets/assetsnew/images/popupcircle.gif" style="width: 10%; position: absolute; left: -95px; top: -5px; border-radius: 12px;">
                         Uttar Poorva Transformative Industrialization Scheme (UNNATI), 2024 &nbsp;&nbsp;&nbsp;&nbsp;<span
                             style="display: contents; font-size: 14px; color: #9d9e9f; font-weight: 600; font-family: system-ui;"><a href="https://unnati.dpiit.gov.in/" target="_blank">Register on UNNATI 2024 Portal here.</a> &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                           
                             <a href="#" onclick="window.open('PdfFile.ashx?filePath=<%= unnati2024 %>', '_blank'); return false;">Read the UNNATI 2024 scheme document here.</a></span>
                     </h5>
                 </div>
@@ -609,6 +639,7 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p class="colorpurpule">
                         <br />
                         Eligibility
+                   
                     </p>
                     <table class="table table-striped">
                         <thead>
@@ -700,7 +731,8 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                 <th scope="col" style="background: #9B57CE;">Small<br />
                                     (INR 1 – 10 Cr)</th>
                                 <th scope="col" style="background: #9B57CE;">Medium
-                                        <br />
+                                       
+                                    <br />
                                     (INR 10 – 50 Cr) </th>
                                 <th scope="col" style="background: #9B57CE;">Large<br />
                                     (> INR 50 Cr) </th>
@@ -754,12 +786,14 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <p class="colorblue">
                         <br />
                         Additional Incentives
+                   
                     </p>
                     <img src="assets/assetsbeta/images/modelimg2.jpg" alt="" />
 
                     <p class="colorblue">
                         <br />
                         Main Eligibility Criteria
+                   
                     </p>
                     <img src="assets/assetsbeta/images/modelimg3.jpg" alt="" />
                 </div>
@@ -777,11 +811,12 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                     <h6 class="modal-title" id="exampleModalLabel">
                         <ul>
                             <li><span>Email:</span>
-                                <b> meghalayaipa@gmail.com</b></li>
+                                <b>meghalayaipa@gmail.com</b></li>
                             <li><span>Call Us:</span>
                                 <b>+91 7085741695</b>
 
                             </li>
+                            <li><span id="lblClickCount">Chatbot Views: 0</span></li>
                         </ul>
                     </h6>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -862,16 +897,16 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
                                 </div>
                             </a>
                         </div>
+
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
     <div class="servicedesk">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <i class="fi fi-tr-admin-alt"></i> Investor Desk
+            <i class="fi fi-tr-admin-alt"></i>Investor Desk
+       
         </button>
     </div>
 
@@ -897,5 +932,25 @@ animation-name: fadeInRight;">Welcome to Invest Meghalaya</h3>
             </div>
         </div>
     </div>
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
+
+    <!-- Chatbot Icon -->
+    <div style="position: fixed; bottom: 20px; right: 20px;">
+        <asp:ImageButton ID="btnChatbot" runat="server"
+            ImageUrl="~/assets/assetsnew/images/info/robot.gif"
+            OnClientClick="toggleChat();incrementChatbotCount(); return false;" />
+    </div>
+
+    <!-- Chat Window -->
+    <div id="chatWindow" role="dialog" aria-hidden="true">
+        <div id="chatHeader" class="mb-2">
+            <%-- <strong>Help</strong>--%>
+            <p>Welcome to MiPA Chatbot</p>
+            <button type="button" class="small-btn" onclick="closeChat()">X</button>
+        </div>
+        <div id="chatContent"></div>
+    </div>
+    <script src="assets/assetsnew/js/chatbot.js"></script>
 
 </asp:Content>

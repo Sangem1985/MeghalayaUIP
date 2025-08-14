@@ -96,67 +96,76 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.Label lblmsg0;
 
         /// <summary>
-        /// div1 control.
+        /// divPayemtDet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPayemtDet;
 
         /// <summary>
-        /// Label2 control.
+        /// lblDeptName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblDeptName;
 
         /// <summary>
-        /// Label3 control.
+        /// lblPayApproval control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblPayApproval;
 
         /// <summary>
-        /// Label4 control.
+        /// lblQueryPaymentDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label lblQueryPaymentDate;
 
         /// <summary>
-        /// Label5 control.
+        /// lblQueryPayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label lblQueryPayment;
 
         /// <summary>
-        /// Label6 control.
+        /// lblQueryPaymentRespnse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label lblQueryPaymentRespnse;
 
         /// <summary>
-        /// Label7 control.
+        /// lblDayTaken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.Label lblDayTaken;
+
+        /// <summary>
+        /// lblQueryResponsePay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQueryResponsePay;
 
         /// <summary>
         /// divQueryDetails control.
@@ -175,6 +184,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDept;
+
+        /// <summary>
+        /// lblApprovalName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblApprovalName;
 
         /// <summary>
         /// lblQueryDate control.
@@ -231,6 +249,78 @@ namespace MeghalayaUIP.User.CFE
         protected global::System.Web.UI.WebControls.GridView GVQueryDet;
 
         /// <summary>
+        /// divAdditional control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAdditional;
+
+        /// <summary>
+        /// lblAddlDept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddlDept;
+
+        /// <summary>
+        /// lblAddlApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddlApproval;
+
+        /// <summary>
+        /// lblAddlDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddlDate;
+
+        /// <summary>
+        /// lblAddlRemark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddlRemark;
+
+        /// <summary>
+        /// lblAddlAppeal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddlAppeal;
+
+        /// <summary>
+        /// lblAddlAppealDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddlAppealDate;
+
+        /// <summary>
+        /// lblAddlLetter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddlLetter;
+
+        /// <summary>
         /// divReject control.
         /// </summary>
         /// <remarks>
@@ -247,6 +337,15 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDeptNameReject;
+
+        /// <summary>
+        /// lblRejApprovalName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRejApprovalName;
 
         /// <summary>
         /// lblRejDate control.
@@ -292,14 +391,5 @@ namespace MeghalayaUIP.User.CFE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRejQueryReason;
-
-        /// <summary>
-        /// GVReject control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVReject;
     }
 }

@@ -2123,7 +2123,7 @@ namespace MeghalayaUIP.DAL.CFODAL
                 {
                     da.SelectCommand.Parameters.AddWithValue("@UNITID", objCFOQ.UNITID);
                 }
-                    da.Fill(ds);
+                da.Fill(ds);
                 transaction.Commit();
                 return ds;
             }
@@ -3622,6 +3622,119 @@ namespace MeghalayaUIP.DAL.CFODAL
             {
                 throw ex;
             }
+        }
+
+        public DataSet GetCFOCommonDetails(string Uidno, string Deptid, string Approvalid, int UnitID)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetCFOCommonDetails, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetCFOCommonDetails;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+
+                da.SelectCommand.Parameters.AddWithValue("@UIDNO", Uidno);
+                da.SelectCommand.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(Deptid));
+                da.SelectCommand.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(Approvalid));
+                da.SelectCommand.Parameters.AddWithValue("@UNITID", Convert.ToInt32(UnitID));
+
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataSet GetMPDCLReport(string CFOQID)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFOConstants.GetMPDCLReport, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFOConstants.GetMPDCLReport;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@CFEQID", Convert.ToInt32(CFOQID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+        public string CFODepartmentService(CFODepartmentServiceApi objCfoDtls)
+        {
+
+            string Result = "";
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = CFOConstants.UpdateCFOApplStatus;
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+
+                com.Parameters.AddWithValue("@UNITID", Convert.ToInt32(objCfoDtls.UNITID));
+                com.Parameters.AddWithValue("@DEPTID", Convert.ToInt32(objCfoDtls.DeptId));
+                com.Parameters.AddWithValue("@APPROVALID", Convert.ToInt32(objCfoDtls.ApprovalId));
+                com.Parameters.AddWithValue("@RESPONSE", objCfoDtls.Response);
+                com.Parameters.AddWithValue("@IPADDRESS", objCfoDtls.IPAddress);
+                com.Parameters.AddWithValue("@CFODA_COMMONDETAILSUPDATEDFLAG", objCfoDtls.APPLEVEL);
+                com.Parameters.AddWithValue("@CFODA_CFOUIDNO", objCfoDtls.CFOUID);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
         }
     }
 }

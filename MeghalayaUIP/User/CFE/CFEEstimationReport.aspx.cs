@@ -20,12 +20,39 @@ namespace MeghalayaUIP.User.CFE
     public partial class CFEEstimationReport : System.Web.UI.Page
     {
         CFEBAL objcfebal = new CFEBAL();
+        string CFEQID;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!IsPostBack)
+            try
             {
-                BindComponentsDetails();
+                if (Session["UserInfo"] != null)
+                {
+                    var ObjUserInfo = new UserInfo();
+                    if (Session["UserInfo"] != null && Session["UserInfo"].ToString() != "")
+                    {
+                        ObjUserInfo = (UserInfo)Session["UserInfo"];
+                    }
+                    if (hdnUserID.Value == "")
+                    {
+                        hdnUserID.Value = ObjUserInfo.Userid;
+                    }
+
+                    // Page.MaintainScrollPositionOnPostBack = true;
+
+                    //success.Visible = false;
+                    if (!IsPostBack)
+                    {
+                        BindComponentsDetails();
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
         }
@@ -33,44 +60,51 @@ namespace MeghalayaUIP.User.CFE
         {
             try
             {
-                DataSet ds = new DataSet();
-                ds = objcfebal.GetComponentsDetails(126, 1038);
-
-                if (ds.Tables.Count > 0)
+                if (Request.QueryString.Count > 0)
                 {
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        lblconnid.Text = "1234"; //ds.Tables[0].Rows[0]["CONNECTIONID"].ToString();
-                        lbldate.Text = "02-08-2025"; //ds.Tables[0].Rows[0]["connectiondate"].ToString();
-                        lblVan.Text = "123";
-                        lblRupees.Text = ds.Tables[0].Rows[0]["ESTIMATION"].ToString();
+                    CFEQID = Convert.ToString(Request.QueryString[0]);
 
-                    }
-                    if (ds.Tables[1].Rows.Count > 0)
-                    {
-                        lblAccountNo.Text = ds.Tables[1].Rows[0]["DEPT_ACCOUNTNO"].ToString();
-                        lblBankname.Text = ds.Tables[1].Rows[0]["DEPT_ACCOUNTNAME"].ToString();
-                        lblCode.Text = ds.Tables[1].Rows[0]["DEPT_IFSCCODE"].ToString();
+                    DataSet ds = new DataSet();
+                    ds = objcfebal.GetComponentsDetails(CFEQID, hdnUserID.Value);
 
-                        lblaplicationdate.Text = "30-07-2025"; //ds.Tables[1].Rows[0]["DEPT_CREATED_DATE"].ToString();
-                    }
-                    if (ds.Tables[2].Rows.Count > 0)
+                    if (ds.Tables.Count > 0)
                     {
-                        grdcomponents.DataSource = ds.Tables[2];
-                        grdcomponents.DataBind();
-                    }
-                    if (ds.Tables[3].Rows.Count > 0)
-                    {
-                        lblLoad.Text = "10KW"; //ds.Tables[3].Rows[0]["CFE_LOAD_KW"].ToString();
-                        lblCategory.Text = ds.Tables[3].Rows[0]["CATEGORY"].ToString();
-                        lblName.Text = "Test"; //ds.Tables[3].Rows[0]["CompandName"].ToString();
-                        lblAddress.Text = "DANALDASILK, Danal Apal, SONGSAK, EAST GARO HILLS, 794001"; //ds.Tables[3].Rows[0]["ADDRESS"].ToString();
-                        lblApplicationNo.Text = ds.Tables[3].Rows[0]["ApplicationNo"].ToString();
-                        lblPhoneNo.Text = ds.Tables[3].Rows[0]["Mobile"].ToString();
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            lblconnid.Text = ds.Tables[0].Rows[0]["CONNECTIONID"].ToString();
+                            lbldate.Text = ds.Tables[0].Rows[0]["connectiondate"].ToString();
+                            // lblVan.Text = "123";
+                            lblRupees.Text = ds.Tables[0].Rows[0]["ESTIMATION"].ToString();
 
+                        }
+                        if (ds.Tables[1].Rows.Count > 0)
+                        {
+                            lblAccountNo.Text = ds.Tables[1].Rows[0]["DEPT_ACCOUNTNO"].ToString();
+                            lblBankname.Text = ds.Tables[1].Rows[0]["DEPT_ACCOUNTNAME"].ToString();
+                            lblCode.Text = ds.Tables[1].Rows[0]["DEPT_IFSCCODE"].ToString();
 
+                            lblaplicationdate.Text = ds.Tables[1].Rows[0]["DEPT_CREATED_DATE"].ToString();
+                        }
+                        if (ds.Tables[2].Rows.Count > 0)
+                        {
+                            grdcomponents.DataSource = ds.Tables[2];
+                            grdcomponents.DataBind();
+                        }
+                        if (ds.Tables[3].Rows.Count > 0)
+                        {
+                            lblLoad.Text = ds.Tables[3].Rows[0]["CFE_LOAD_KW"].ToString();
+                            lblCategory.Text = ds.Tables[3].Rows[0]["CATEGORY"].ToString();
+                            lblName.Text = ds.Tables[3].Rows[0]["CompandName"].ToString();
+                            lblAddress.Text = ds.Tables[3].Rows[0]["ADDRESS"].ToString();
+                            lblApplicationNo.Text = ds.Tables[3].Rows[0]["ApplicationNo"].ToString();
+                            lblPhoneNo.Text = ds.Tables[3].Rows[0]["Mobile"].ToString();
+                            lblDistrict.Text = ds.Tables[3].Rows[0]["DISTRICT"].ToString();
+                            lblMandal.Text = ds.Tables[3].Rows[0]["MANDAL"].ToString();
+                        }
                     }
                 }
+
+
             }
             catch (Exception ex)
             {

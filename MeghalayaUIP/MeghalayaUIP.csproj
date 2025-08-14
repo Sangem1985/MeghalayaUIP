@@ -159,6 +159,9 @@
     <Reference Include="System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.Immutable.8.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager, Version=9.0.0.8, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.9.0.8\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -175,6 +178,7 @@
     <Reference Include="System.Reflection.Metadata, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Reflection.Metadata.8.0.0\lib\net462\System.Reflection.Metadata.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -505,6 +509,7 @@
     <Content Include="assets\assetsnew\images\info\indbox.png" />
     <Content Include="assets\assetsnew\images\info\psm.png" />
     <Content Include="assets\assetsnew\images\info\road.png" />
+    <Content Include="assets\assetsnew\images\info\robot.png" />
     <Content Include="assets\assetsnew\images\info\steps.png" />
     <Content Include="assets\assetsnew\images\info\steps123.png" />
     <Content Include="assets\assetsnew\images\info\train.jpg" />
@@ -582,6 +587,7 @@
     <Content Include="assets\assetsnew\js\aos.js" />
     <Content Include="assets\assetsnew\js\appear.js" />
     <Content Include="assets\assetsnew\js\bootstrap.min.js" />
+    <Content Include="assets\assetsnew\js\chatbot.js" />
     <Content Include="assets\assetsnew\js\countdown.js" />
     <Content Include="assets\assetsnew\js\gmaps.js" />
     <Content Include="assets\assetsnew\js\isotope.js" />
@@ -723,6 +729,7 @@
     <Content Include="User\CFE\CFEDrawingPlanDetails.aspx" />
     <Content Include="User\CFE\CFEEstimationReport.aspx" />
     <Content Include="User\CFE\CFEExplosivesNOC.aspx" />
+    <Content Include="User\CFE\CFEFeasibilityReport.aspx" />
     <Content Include="User\CFE\CFEFireDetails.aspx" />
     <Content Include="User\CFE\CFEForestDetails.aspx" />
     <Content Include="User\CFE\CFEFuelNOC.aspx" />
@@ -756,6 +763,8 @@
     <Content Include="User\CFO\CFOBusinessLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOCombinedApplication.aspx" />
     <Content Include="User\CFO\CFOContractorsRegistration.aspx" />
+    <Content Include="User\CFO\CFOCRCertificate.aspx" />
+    <Content Include="User\CFO\CFODepartmentServiceAPI.aspx" />
     <Content Include="User\CFO\CFODrugLicenseDetails.aspx" />
     <Content Include="User\CFO\CFOExcise.aspx" />
     <Content Include="User\CFO\CFOFireDetails.aspx" />
@@ -1874,6 +1883,13 @@
     <Compile Include="User\CFE\CFEExplosivesNOC.aspx.designer.cs">
       <DependentUpon>CFEExplosivesNOC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\CFE\CFEFeasibilityReport.aspx.cs">
+      <DependentUpon>CFEFeasibilityReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFE\CFEFeasibilityReport.aspx.designer.cs">
+      <DependentUpon>CFEFeasibilityReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\CFE\CFEFireDetails.aspx.cs">
       <DependentUpon>CFEFireDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2104,6 +2120,20 @@
     </Compile>
     <Compile Include="User\CFO\CFOContractorsRegistration.aspx.designer.cs">
       <DependentUpon>CFOContractorsRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFOCRCertificate.aspx.cs">
+      <DependentUpon>CFOCRCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFOCRCertificate.aspx.designer.cs">
+      <DependentUpon>CFOCRCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CFO\CFODepartmentServiceAPI.aspx.cs">
+      <DependentUpon>CFODepartmentServiceAPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\CFO\CFODepartmentServiceAPI.aspx.designer.cs">
+      <DependentUpon>CFODepartmentServiceAPI.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CFO\CFODrugLicenseDetails.aspx.cs">
       <DependentUpon>CFODrugLicenseDetails.aspx</DependentUpon>

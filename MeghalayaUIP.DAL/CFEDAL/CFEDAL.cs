@@ -589,8 +589,17 @@ namespace MeghalayaUIP.DAL.CFEDAL
                 com.Parameters.AddWithValue("@CFEID_COMPANYTYPE", Convert.ToInt32(objCFEEntrepreneur.CompanyType));
                 com.Parameters.AddWithValue("@CFEID_PROPOSALFOR", objCFEEntrepreneur.CompanyPraposal);
                 com.Parameters.AddWithValue("@CFEID_REGTYPE", Convert.ToInt32(objCFEEntrepreneur.CompanyRegType));
-                com.Parameters.AddWithValue("@CFEID_REGNO", objCFEEntrepreneur.CompanyRegNo);
-                com.Parameters.AddWithValue("@CFEID_REGDATE", DateTime.ParseExact(objCFEEntrepreneur.CompanyRegDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
+                if (objCFEEntrepreneur.CompanyRegNo != "" || objCFEEntrepreneur.CompanyRegNo != null)
+                { com.Parameters.AddWithValue("@CFEID_REGNO", objCFEEntrepreneur.CompanyRegNo); }
+                //if (objCFEEntrepreneur.CompanyRegDate != "" || objCFEEntrepreneur.CompanyRegDate != null)
+                //{ 
+                //    com.Parameters.AddWithValue("@CFEID_REGDATE", DateTime.ParseExact(objCFEEntrepreneur.CompanyRegDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")); 
+                //}
+                if (!string.IsNullOrWhiteSpace(objCFEEntrepreneur.CompanyRegDate))
+                {
+                    com.Parameters.AddWithValue("@CFEID_REGDATE",DateTime.ParseExact(objCFEEntrepreneur.CompanyRegDate, "dd-MM-yyyy", CultureInfo.InvariantCulture));
+                }
+
                 com.Parameters.AddWithValue("@CFEID_FACTORYTYPE", objCFEEntrepreneur.FactoryType);
                 com.Parameters.AddWithValue("@CFEID_REPNAME", objCFEEntrepreneur.AuthRep_Name);
                 com.Parameters.AddWithValue("@CFEID_REPSoWoDo", objCFEEntrepreneur.AuthRep_SoWoDo);
@@ -4091,7 +4100,7 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return Result;
         }
-        public DataSet GetComponentsDetails(int QDID, int CREATED_BY)
+        public DataSet GetComponentsDetails(string QDID, string CREATED_BY)
         {
 
             DataSet ds = new DataSet();
@@ -4174,5 +4183,39 @@ namespace MeghalayaUIP.DAL.CFEDAL
             }
             return ds;
         }
+        public DataSet GetFeasibilityReport(string CFEQID)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connstr);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlDataAdapter da;
+                da = new SqlDataAdapter(CFEConstants.GetFeasibilityReport, connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.CommandText = CFEConstants.GetFeasibilityReport;
+
+                da.SelectCommand.Transaction = transaction;
+                da.SelectCommand.Connection = connection;
+                da.SelectCommand.Parameters.AddWithValue("@CFEQID", Convert.ToInt32(CFEQID));
+                da.Fill(ds);
+                transaction.Commit();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+        }
+
     }
 }

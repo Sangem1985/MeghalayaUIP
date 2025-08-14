@@ -1203,10 +1203,10 @@ namespace MeghalayaUIP.Dept.PreReg
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     LinkButton lnkView = (LinkButton)e.Row.FindControl("lnkView");
-                    string[] allowedUserIDs = { "1016", "1017", "1018", "1019", "1020", "1021", "1022", "1023", "1024", "1025", "1026", "1027" };
-                    if (allowedUserIDs.Contains(ObjUserInfo.UserID))
+                    string[] allowedDeptIDs = { "129", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "128" };
+                    if (allowedDeptIDs.Contains(ObjUserInfo.Deptid))
                     {
-                        grdApplStatus.Columns[7].Visible = true;
+                        grdApplStatus.Columns[8].Visible = true;
                         lnkView.Visible = true;
                     }
                     else { lnkView.Visible = false; }

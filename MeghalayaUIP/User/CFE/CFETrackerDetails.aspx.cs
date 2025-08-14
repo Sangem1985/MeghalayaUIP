@@ -69,11 +69,20 @@ namespace MeghalayaUIP.User.CFE
                 {
                     if (Status =="1")
                     {
-                     
+                        divPayemtDet.Visible = true;
+                        lblDeptName.Text = Convert.ToString(ds.Tables[0].Rows[0]["TMD_DEPTNAME"]);
+                        lblPayApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPROVALNAME"]);
+                        //lblQueryPaymentDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        //lblQueryPayment.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        //lblQueryPaymentRespnse.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        //lblDayTaken.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        //lblQueryResponsePay.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
                     }
                     else if (Status == "2")
                     {
+                        divQueryDetails.Visible = true;
                         lblDept.Text = Convert.ToString(ds.Tables[0].Rows[0]["TMD_DEPTNAME"]);
+                        lblApprovalName.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPROVALNAME"]);
                         lblQueryDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQ_QUERYDATE"]);
                         lblQuery.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQ_QUERYRAISEDESC"]);
                         lblQueryResponseDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEQ_QUERYRESPONSEDATE"]);
@@ -89,16 +98,27 @@ namespace MeghalayaUIP.User.CFE
                     }
                     else if (Status == "3")
                     {
+                        divAdditional.Visible = true;
+
+                        lblAddlDept.Text = Convert.ToString(ds.Tables[0].Rows[0]["TMD_DEPTNAME"]);
+                        lblAddlApproval.Text = Convert.ToString(ds.Tables[0].Rows[0]["APPROVALNAME"]);
+                        lblAddlDate.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFEPD_TRANSACTIONDATE"]);
+                        //lblAddlRemark.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        //lblAddlAppeal.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        //lblAddlAppealDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        //lblAddlLetter.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
 
                     }
                     else if (Status == "4")
                     {
-                        lblDeptNameReject.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblRejDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblRejRemark.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblRejAppealRemark.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblRejAppealDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
-                        lblRejQueryReason.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        divReject.Visible = true;
+                        lblDeptNameReject.Text = Convert.ToString(ds.Tables[0].Rows[0]["TMD_DeptName"]);
+                        lblRejApprovalName.Text = Convert.ToString(ds.Tables[0].Rows[0]["ApprovalName"]);
+                      //  lblRejDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        lblRejRemark.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFDA_REJECTIONREASON"]);
+                      //  lblRejAppealRemark.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                      //  lblRejAppealDate.Text = Convert.ToString(ds.Tables[0].Rows[0][""]);
+                        lblRejQueryReason.Text = Convert.ToString(ds.Tables[0].Rows[0]["CFDA_SCRUTINYREJECTIONREASON"]);
                     }
 
                 }
